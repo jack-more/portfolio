@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm create:*)",
+      "Bash(ls:*)",
+      "Bash(brew install:*)",
+      "Bash(brew --version:*)",
+      "Bash(/opt/homebrew/bin/brew:*)",
+      "Bash(/opt/homebrew/bin/node --version)",
+      "Bash(/opt/homebrew/bin/npm --version)",
+      "Bash(/opt/homebrew/bin/npx create-video@latest hero-video --template=\"hello-world\")",
+      "Bash(export PATH=\"/opt/homebrew/bin:$PATH\")",
+      "Bash(npx create-video:*)",
+      "Bash(npx:*)",
+      "Bash(npm run build:*)",
+      "Bash(npm init:*)",
+      "Bash(npm install:*)",
+      "Bash(npm run dev:*)",
+      "Bash(pkill:*)",
+      "Bash(open http://localhost:3000)",
+      "Bash(curl:*)",
+      "Bash(git init:*)"
+    ]
+  }
+}
