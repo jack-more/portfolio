@@ -19,7 +19,9 @@
       "Bash(pkill:*)",
       "Bash(open http://localhost:3000)",
       "Bash(curl:*)",
-      "Bash(git init:*)"
+      "Bash(git init:*)",
+      "Bash(git push:*)",
+      "Bash(git checkout:*)"
     ]
   }
 }
