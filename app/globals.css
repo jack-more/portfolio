@@ -143,6 +143,7 @@ header {
 .col-1 { background-color: var(--c-cyan); }
 .col-2 { background-color: var(--c-yellow); }
 .col-3 { background-color: var(--c-orange); }
+.col-4 { background-color: #ff6b9d; }
 
 .geo-container {
     flex-grow: 1;
@@ -208,7 +209,7 @@ header {
 }
 
 .headline {
-    font-size: 2.5rem;
+    font-size: 2rem;
     line-height: 1.1;
     font-weight: 500;
     letter-spacing: -0.04em;
