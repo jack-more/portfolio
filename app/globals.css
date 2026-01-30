@@ -255,19 +255,33 @@ header {
 }
 
 @media (max-width: 1024px) {
+    body {
+        overflow: auto;
+        height: auto;
+    }
+
     .viewport {
         grid-template-columns: 1fr;
         grid-template-rows: 60px auto auto auto auto;
         height: auto;
-        overflow-y: auto;
+        min-height: 100vh;
+        overflow-y: visible;
     }
+
     .column {
         min-height: 600px;
         border-right: none;
         border-bottom: 1px solid black;
     }
+
     .sidebar {
         border-right: none;
         border-bottom: 1px solid black;
+    }
+
+    header {
+        position: sticky;
+        top: 0;
+        z-index: 100;
     }
 }
