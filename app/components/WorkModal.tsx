@@ -392,13 +392,14 @@ export default function WorkModal({ type, isOpen, onClose }: WorkModalProps) {
         style={{
           width: '90vw',
           maxWidth: '1200px',
-          maxHeight: '90vh',
+          height: '90vh',
           background: '#fff',
           border: '3px solid #111',
           boxShadow: '6px 6px 0px #111',
           borderRadius: '12px',
           display: 'grid',
           gridTemplateColumns: '320px 1fr',
+          gridTemplateRows: '1fr',
           overflow: 'hidden',
           animation: 'slideUp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)',
         }}
@@ -415,6 +416,8 @@ export default function WorkModal({ type, isOpen, onClose }: WorkModalProps) {
             position: 'relative',
             zIndex: 2,
             overflowY: 'auto',
+            height: '100%',
+            minHeight: 0,
           }}
         >
           {/* Close button */}
@@ -608,7 +611,10 @@ export default function WorkModal({ type, isOpen, onClose }: WorkModalProps) {
             background: '#fff',
             padding: 0,
             overflowY: 'auto',
+            overflowX: 'hidden',
             position: 'relative',
+            height: '100%',
+            minHeight: 0,
           }}
         >
           <div
