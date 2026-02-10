@@ -1,0 +1,2181 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-125056991-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-125056991-3');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="pingback" href="https://www.travala.com/blog/xmlrpc.php">
+    
+<meta name='robots' content='noindex, follow' />
+<meta name="description" content="" />
+
+	<!-- This site is optimized with the Yoast SEO plugin v21.8.1 - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>Page not found - Travala.com Blog</title>
+	<meta property="og:locale" content="en_GB" />
+	<meta property="og:title" content="Page not found - Travala.com Blog" />
+	<meta property="og:site_name" content="Travala.com Blog" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://www.travala.com/blog/#website","url":"https://www.travala.com/blog/","name":"Travala.com Blog","description":"","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.travala.com/blog/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"en-GB"}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel='dns-prefetch' href='//cdnjs.cloudflare.com' />
+<link rel='dns-prefetch' href='//www.googletagmanager.com' />
+<link rel='dns-prefetch' href='//maxcdn.bootstrapcdn.com' />
+<link rel="alternate" type="application/rss+xml" title="Travala.com Blog &raquo; Feed" href="https://www.travala.com/blog/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Travala.com Blog &raquo; Comments Feed" href="https://www.travala.com/blog/comments/feed/" />
+<script type="text/javascript">
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/www.travala.com\/blog\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.2.4"}};
+/*! This file is auto-generated */
+!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){p.clearRect(0,0,i.width,i.height),p.fillText(e,0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(t,0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(p&&p.fillText)switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s("\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!s("\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!s("\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!s("\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(e=t.source||{}).concatemoji?c(e.concatemoji):e.wpemoji&&e.twemoji&&(c(e.twemoji),c(e.wpemoji)))}(window,document,window._wpemojiSettings);
+</script>
+<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='wp_bannerize_pro_slugwp-bannerize-admin-barcss-css' href='https://www.travala.com/blog/wp-content/plugins/wp-bannerize-pro/public/css/wp-bannerize-admin-bar.css?ver=1.10.0' type='text/css' media='all' />
+<link rel='stylesheet' id='wp_bannerize_pro_slugwp-bannerizecss-css' href='https://www.travala.com/blog/wp-content/plugins/wp-bannerize-pro/public/css/wp-bannerize.css?ver=1.10.0' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-block-library-css' href='https://www.travala.com/blog/wp-includes/css/dist/block-library/style.min.css?ver=6.2.4' type='text/css' media='all' />
+<style id='wp-block-library-theme-inline-css' type='text/css'>
+.wp-block-audio figcaption{color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-audio figcaption{color:hsla(0,0%,100%,.65)}.wp-block-audio{margin:0 0 1em}.wp-block-code{border:1px solid #ccc;border-radius:4px;font-family:Menlo,Consolas,monaco,monospace;padding:.8em 1em}.wp-block-embed figcaption{color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-embed figcaption{color:hsla(0,0%,100%,.65)}.wp-block-embed{margin:0 0 1em}.blocks-gallery-caption{color:#555;font-size:13px;text-align:center}.is-dark-theme .blocks-gallery-caption{color:hsla(0,0%,100%,.65)}.wp-block-image figcaption{color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-image figcaption{color:hsla(0,0%,100%,.65)}.wp-block-image{margin:0 0 1em}.wp-block-pullquote{border-bottom:4px solid;border-top:4px solid;color:currentColor;margin-bottom:1.75em}.wp-block-pullquote cite,.wp-block-pullquote footer,.wp-block-pullquote__citation{color:currentColor;font-size:.8125em;font-style:normal;text-transform:uppercase}.wp-block-quote{border-left:.25em solid;margin:0 0 1.75em;padding-left:1em}.wp-block-quote cite,.wp-block-quote footer{color:currentColor;font-size:.8125em;font-style:normal;position:relative}.wp-block-quote.has-text-align-right{border-left:none;border-right:.25em solid;padding-left:0;padding-right:1em}.wp-block-quote.has-text-align-center{border:none;padding-left:0}.wp-block-quote.is-large,.wp-block-quote.is-style-large,.wp-block-quote.is-style-plain{border:none}.wp-block-search .wp-block-search__label{font-weight:700}.wp-block-search__button{border:1px solid #ccc;padding:.375em .625em}:where(.wp-block-group.has-background){padding:1.25em 2.375em}.wp-block-separator.has-css-opacity{opacity:.4}.wp-block-separator{border:none;border-bottom:2px solid;margin-left:auto;margin-right:auto}.wp-block-separator.has-alpha-channel-opacity{opacity:1}.wp-block-separator:not(.is-style-wide):not(.is-style-dots){width:100px}.wp-block-separator.has-background:not(.is-style-dots){border-bottom:none;height:1px}.wp-block-separator.has-background:not(.is-style-wide):not(.is-style-dots){height:2px}.wp-block-table{margin:0 0 1em}.wp-block-table td,.wp-block-table th{word-break:normal}.wp-block-table figcaption{color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-table figcaption{color:hsla(0,0%,100%,.65)}.wp-block-video figcaption{color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-video figcaption{color:hsla(0,0%,100%,.65)}.wp-block-video{margin:0 0 1em}.wp-block-template-part.has-background{margin-bottom:0;margin-top:0;padding:1.25em 2.375em}
+</style>
+<style id='wp-bannerize-block-style-inline-css' type='text/css'>
+
+
+</style>
+<link rel='stylesheet' id='classic-theme-styles-css' href='https://www.travala.com/blog/wp-includes/css/classic-themes.min.css?ver=6.2.4' type='text/css' media='all' />
+<style id='global-styles-inline-css' type='text/css'>
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');--wp--preset--duotone--midnight: url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+</style>
+<link rel='stylesheet' id='ez-toc-css' href='https://www.travala.com/blog/wp-content/plugins/easy-table-of-contents/assets/css/screen.min.css?ver=2.0.72' type='text/css' media='all' />
+<style id='ez-toc-inline-css' type='text/css'>
+div#ez-toc-container .ez-toc-title {font-size: 110%;}div#ez-toc-container .ez-toc-title {font-weight: 700;}div#ez-toc-container ul li {font-size: 95%;}div#ez-toc-container ul li {font-weight: 700;}div#ez-toc-container nav ul ul li {font-size: 90%;}div#ez-toc-container {background: #fff;border: 1px solid #dddddd;}div#ez-toc-container p.ez-toc-title , #ez-toc-container .ez_toc_custom_title_icon , #ez-toc-container .ez_toc_custom_toc_icon {color: #ec971f;}div#ez-toc-container ul.ez-toc-list a {color: #2d2d4f;}div#ez-toc-container ul.ez-toc-list a:hover {color: #2a6496;}div#ez-toc-container ul.ez-toc-list a:visited {color: #2d2d4f;}
+</style>
+<link rel='stylesheet' id='bootstrap4-css' href='https://www.travala.com/blog/wp-content/themes/mediumish/assets/css/bootstrap.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='fontawesome-css' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='mediumish-style-css' href='https://www.travala.com/blog/wp-content/themes/mediumish/style.css?ver=6.2.4' type='text/css' media='all' />
+<script type='text/javascript' src='https://www.travala.com/blog/wp-includes/js/jquery/jquery.min.js?ver=3.6.4' id='jquery-core-js'></script>
+<script type='text/javascript' src='https://www.travala.com/blog/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.0' id='jquery-migrate-js'></script>
+
+<!-- Google Analytics snippet added by Site Kit -->
+<script type='text/javascript' src='https://www.googletagmanager.com/gtag/js?id=G-GVZR1VV29M' id='google_gtagjs-js' async></script>
+<script type='text/javascript' id='google_gtagjs-js-after'>
+window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}
+gtag('set', 'linker', {"domains":["www.travala.com"]} );
+gtag("js", new Date());
+gtag("set", "developer_id.dZTNiMT", true);
+gtag("config", "G-GVZR1VV29M");
+</script>
+
+<!-- End Google Analytics snippet added by Site Kit -->
+<script></script><link rel="https://api.w.org/" href="https://www.travala.com/blog/wp-json/" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.travala.com/blog/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.travala.com/blog/wp-includes/wlwmanifest.xml" />
+<meta name="generator" content="WordPress 6.2.4" />
+<meta name="generator" content="Site Kit by Google 1.110.0" />		<script type="text/javascript">
+				(function(c,l,a,r,i,t,y){
+					c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;
+					t.src="https://www.clarity.ms/tag/"+i+"?ref=wordpress";y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+				})(window, document, "clarity", "script", "qf5r673nrk");
+		</script>
+		<meta name="bmi-version" content="1.3.3" /><meta name="google-site-verification" content="aL7Kto8lCsOMJoOtllY4i7z0Tntrsbi7rPSiY5TQpGo"><meta name="google-site-verification" content="CC7CoOnXgYGvkFbdrz3eeGoyMe0QdaZ1_C6Y_J4itfk">    <script>
+      window.ajaxurl =
+        "https://www.travala.com/blog/wp-admin/admin-ajax.php"
+      window.WPBannerize = {
+    "General": {
+        "impressions_enabled": true,
+        "clicks_enabled": true
+    },
+    "impressions": {
+        "enabled": true,
+        "keep_clean": "disabled",
+        "max_records": 1000,
+        "num_months": 3,
+        "schedules": "twicedaily"
+    },
+    "clicks": {
+        "enabled": true,
+        "keep_clean": "disabled",
+        "max_records": 1000,
+        "num_months": 3,
+        "schedules": "twicedaily"
+    },
+    "geolocalization": {
+        "ipstack": {
+            "api_key": ""
+        }
+    },
+    "Layout": {
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+    },
+    "theme": {
+        "campaigns": {
+            "custom_template": {
+                "enabled": false,
+                "header": true,
+                "footer": true,
+                "sidebar": true,
+                "file": "custom-taxonomy-template.php"
+            },
+            "custom_file": ""
+        },
+        "banner": {
+            "custom_template": {
+                "enabled": false,
+                "header": true,
+                "footer": true,
+                "sidebar": true,
+                "file": "custom-single-template.php"
+            },
+            "custom_file": ""
+        }
+    }
+};
+      window.WPBannerize.nonce = 'aea6b9ca1e';
+    </script>
+    <meta name="generator" content="Powered by WPBakery Page Builder - drag and drop page builder for WordPress."/>
+
+<!-- Google Tag Manager snippet added by Site Kit -->
+<script type="text/javascript">
+			( function( w, d, s, l, i ) {
+				w[l] = w[l] || [];
+				w[l].push( {'gtm.start': new Date().getTime(), event: 'gtm.js'} );
+				var f = d.getElementsByTagName( s )[0],
+					j = d.createElement( s ), dl = l != 'dataLayer' ? '&l=' + l : '';
+				j.async = true;
+				j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+				f.parentNode.insertBefore( j, f );
+			} )( window, document, 'script', 'dataLayer', 'GTM-WLTWL87' );
+			
+</script>
+
+<!-- End Google Tag Manager snippet added by Site Kit -->
+<link rel="icon" href="https://cdn1.travala.com/wp-content/uploads/2024/05/21134722/favicon.webp" sizes="32x32" />
+<link rel="icon" href="https://cdn1.travala.com/wp-content/uploads/2024/05/21134722/favicon.webp" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://cdn1.travala.com/wp-content/uploads/2024/05/21134722/favicon.webp" />
+<meta name="msapplication-TileImage" content="https://cdn1.travala.com/wp-content/uploads/2024/05/21134722/favicon.webp" />
+		<style type="text/css" id="wp-custom-css">
+			.banner {
+	text-align: center;
+	padding: 40px;
+	position: relative;
+	bottom: 0;
+	width: 100%;
+	background: #220A32;
+	margin-bottom: 20px;
+	  --mask: linear-gradient(#000 0 0) center/calc(100% - 8px) calc(100% - 8px)
+      no-repeat,
+    radial-gradient(circle 4px, #0000 98%, #000) 8px -4px / calc(1.85 * 8px) 8px
+      round no-repeat,
+    radial-gradient(circle 4px, #0000 98%, #000) 8px calc(100% + 4px) /
+      calc(1.85 * 8px) 8px round no-repeat,
+    radial-gradient(circle 4px, #0000 98%, #000) -4px 8px/8px calc(1.85 * 8px) no-repeat
+      round,
+    radial-gradient(circle 4px, #0000 98%, #000) calc(100% + 4px) 8px/8px
+      calc(1.85 * 8px) no-repeat round;
+  -webkit-mask: var(--mask);
+  mask: var(--mask);
+  width: 100%;
+}
+.banner h3 {
+	margin-bottom: 24px;
+	text-align: center;
+	color: #E1FFDE;
+	font-weight: 900;
+	font-size: 32px;
+	line-height: 120%;
+	letter-spacing: 0%;
+	text-align: center;
+
+}
+.banner .btn-container {
+	display: flex;
+	gap: 24px;
+	justify-content: center;
+	flex-wrap: wrap;
+
+}
+.banner .btn {
+		width: 244;
+		height: 48px;
+		padding: 12px 48px;
+		border-radius: 6px;
+		border: solid 1.5px #E1FFDE;
+	text-transform: uppercase;
+	font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+	text-decoration: none;
+	color: #E1FFDE;
+	font-weight: 600;
+
+}
+
+#sidebarposts aside  {
+	border: none;
+	padding: 10px;
+}
+#sidebarposts h4.widget-title {
+	font-size: 14px;
+	padding: 10px;
+	background: #ffffff;
+	margin-bottom: 15px;
+	text-transform: uppercase;
+	border: none;
+	color: #ec971f;
+	margin: 0;
+}
+div.ez-toc-widget-sticky-container {
+	border-left: solid 5px #2d2d4f;
+}
+.blog-logo img {height: 80px;}		</style>
+		<style id="kirki-inline-styles">.btn-simple{background-color:#1C9963;border-color:#1C9963;}.prevnextlinks a, .article-post a, .post .btn.follow, .post .post-top-meta .author-description a, article.page a, .alertbar a{color:#ec971f;}.post .btn.follow, .alertbar input[type="submit"]{border-color:#ec971f;}blockquote{border-color:#1C9963;}.entry-content input[type=submit], .alertbar input[type="submit"]{background-color:#1e2e5e;border-color:#1e2e5e;}p.sharecolour{color:#999999;}.shareitnow ul li a svg, .shareitnow a{fill:#b3b3b3;}.shareitnow li a{color:#b3b3b3;border-color:#d2d2d2;}#comments a{color:#1C9963;}.comment-form input.submit{background-color:#1C9963;border-color:#1C9963;}footer.footer a{color:#1C9963;}.mediumnavigation, .dropdown-menu, .dropdown-item{background-color:rgba(255,255,255,.97);}.mediumnavigation, .mediumnavigation a, .navbar-light .navbar-nav .nav-link{color:#2d2d4f;}.navbar-light .navbar-brand{color:#111111;}.navbar-light .navbar-brand:hover{color:#02b875;}.customarea .btn.follow{border-color:#02B875;color:#02B875;}.search-form .search-submit{background-color:#1e2e5e;}.search-form .search-field{border-color:#1e2e5e;}.search-form .search-submit .fa{color:#ffffff;}.search-form .search-field, .search-form .search-field::placeholder{color:#b2b2b2;}.carousel-excerpt .fontlight,body{font-size:15px;color:#666666;}.h1,.h2,.h3,.h4,.h5,.h6,h1,h2,h3,h4,h5,h6{color:#2d2d4f;}.carousel-excerpt .title{font-size:30px;color:#ffffff;}.carousel-excerpt .fontlight{font-size:18px;font-weight:400;color:#ffffff;}.mediumnavigation .navbar-brand{font-size:26px;}.navbar-toggleable-md .navbar-collapse{font-family:PT Sans;font-weight:400;}.article-post{font-family:Merriweather;font-weight:400;line-height:1.8;color:#222222;}@media (max-width: 767px){.navbar-collapse{background-color:rgba(255,255,255,.97);}}/* cyrillic-ext */
+@font-face {
+  font-family: 'PT Sans';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/pt-sans/font) format('woff');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'PT Sans';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/pt-sans/font) format('woff');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'PT Sans';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/pt-sans/font) format('woff');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'PT Sans';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/pt-sans/font) format('woff');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'PT Sans';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/pt-sans/font) format('woff');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'PT Sans';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/pt-sans/font) format('woff');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'PT Sans';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/pt-sans/font) format('woff');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'PT Sans';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/pt-sans/font) format('woff');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/pt-sans/font) format('woff');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/pt-sans/font) format('woff');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/pt-sans/font) format('woff');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/pt-sans/font) format('woff');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/pt-sans/font) format('woff');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/pt-sans/font) format('woff');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/pt-sans/font) format('woff');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/pt-sans/font) format('woff');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}/* cyrillic-ext */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: italic;
+  font-weight: 300;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: italic;
+  font-weight: 300;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: italic;
+  font-weight: 300;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: italic;
+  font-weight: 300;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: italic;
+  font-weight: 300;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: italic;
+  font-weight: 400;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: italic;
+  font-weight: 400;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: italic;
+  font-weight: 400;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: italic;
+  font-weight: 400;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: italic;
+  font-weight: 400;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: italic;
+  font-weight: 700;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: italic;
+  font-weight: 700;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: italic;
+  font-weight: 700;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: italic;
+  font-weight: 700;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: italic;
+  font-weight: 700;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: italic;
+  font-weight: 900;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: italic;
+  font-weight: 900;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: italic;
+  font-weight: 900;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: italic;
+  font-weight: 900;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: italic;
+  font-weight: 900;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 300;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 300;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 300;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 300;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 300;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 900;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 900;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 900;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 900;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 900;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}/* cyrillic-ext */
+@font-face {
+  font-family: 'PT Sans';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/pt-sans/font) format('woff');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'PT Sans';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/pt-sans/font) format('woff');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'PT Sans';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/pt-sans/font) format('woff');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'PT Sans';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/pt-sans/font) format('woff');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'PT Sans';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/pt-sans/font) format('woff');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'PT Sans';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/pt-sans/font) format('woff');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'PT Sans';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/pt-sans/font) format('woff');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'PT Sans';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/pt-sans/font) format('woff');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/pt-sans/font) format('woff');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/pt-sans/font) format('woff');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/pt-sans/font) format('woff');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/pt-sans/font) format('woff');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/pt-sans/font) format('woff');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/pt-sans/font) format('woff');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/pt-sans/font) format('woff');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/pt-sans/font) format('woff');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}/* cyrillic-ext */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: italic;
+  font-weight: 300;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: italic;
+  font-weight: 300;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: italic;
+  font-weight: 300;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: italic;
+  font-weight: 300;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: italic;
+  font-weight: 300;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: italic;
+  font-weight: 400;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: italic;
+  font-weight: 400;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: italic;
+  font-weight: 400;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: italic;
+  font-weight: 400;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: italic;
+  font-weight: 400;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: italic;
+  font-weight: 700;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: italic;
+  font-weight: 700;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: italic;
+  font-weight: 700;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: italic;
+  font-weight: 700;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: italic;
+  font-weight: 700;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: italic;
+  font-weight: 900;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: italic;
+  font-weight: 900;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: italic;
+  font-weight: 900;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: italic;
+  font-weight: 900;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: italic;
+  font-weight: 900;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 300;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 300;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 300;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 300;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 300;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 900;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 900;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 900;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 900;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 900;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}/* cyrillic-ext */
+@font-face {
+  font-family: 'PT Sans';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/pt-sans/font) format('woff');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'PT Sans';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/pt-sans/font) format('woff');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'PT Sans';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/pt-sans/font) format('woff');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'PT Sans';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/pt-sans/font) format('woff');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'PT Sans';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/pt-sans/font) format('woff');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'PT Sans';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/pt-sans/font) format('woff');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'PT Sans';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/pt-sans/font) format('woff');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'PT Sans';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/pt-sans/font) format('woff');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/pt-sans/font) format('woff');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/pt-sans/font) format('woff');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/pt-sans/font) format('woff');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/pt-sans/font) format('woff');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/pt-sans/font) format('woff');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/pt-sans/font) format('woff');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/pt-sans/font) format('woff');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/pt-sans/font) format('woff');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}/* cyrillic-ext */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: italic;
+  font-weight: 300;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: italic;
+  font-weight: 300;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: italic;
+  font-weight: 300;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: italic;
+  font-weight: 300;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: italic;
+  font-weight: 300;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: italic;
+  font-weight: 400;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: italic;
+  font-weight: 400;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: italic;
+  font-weight: 400;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: italic;
+  font-weight: 400;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: italic;
+  font-weight: 400;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: italic;
+  font-weight: 700;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: italic;
+  font-weight: 700;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: italic;
+  font-weight: 700;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: italic;
+  font-weight: 700;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: italic;
+  font-weight: 700;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: italic;
+  font-weight: 900;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: italic;
+  font-weight: 900;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: italic;
+  font-weight: 900;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: italic;
+  font-weight: 900;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: italic;
+  font-weight: 900;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 300;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 300;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 300;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 300;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 300;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 900;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 900;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 900;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 900;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 900;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://www.travala.com/blog/wp-content/fonts/merriweather/font) format('woff');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}</style><noscript><style> .wpb_animate_when_almost_visible { opacity: 1; }</style></noscript></head>    
+<body class="error404 wpb-js-composer js-comp-ver-8.3.1 vc_responsive">    
+<style>
+     .author-thumb, span.post-name {display:none;} </style>        
+<!-- <header class="navbar-light bg-white fixed-top mediumnavigation"> -->
+
+
+<header class="navbar-light bg-white mediumnavigation">
+        <!-- Begin Logo --> 
+        <div class="d-flex justify-content-between align-items-center brandrow">
+            
+            <div class="customarea">
+
+            
+
+            
+            </div>
+
+            <div class="text-center logoarea">
+                                     <a class="blog-logo" href='https://www.travala.com/blog/' rel='home'><img src='https://cdn1.travala.com/wp-content/uploads/2025/08/25163354/Travala-logo-black.png' alt='Travala.com Blog'></a>
+                                </div>
+            <div class="navbar-desktop">
+                <nav class="navbar navbar-toggleable-sm">
+                    <div id="bs4navbar-desktop" class="collapse navbar-collapse"><ul id="menu-2025-primary-menu" class="navbar-nav col-md-12 justify-content-center"><li id="menu-item-32074" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-32074 nav-item dropdown"><a href="https://www.travala.com/blog/category/travel-planning/" class="nav-link dropdown-toggle">Travel Planning</a>
+<div class="dropdown-menu">
+<a href="https://www.travala.com/blog/category/travel-planning/flight-booking-tips/" class="dropdown-item">Flight Booking Tips</a><a href="https://www.travala.com/blog/category/travel-planning/trip-planning-tools/" class="dropdown-item">Trip Planning Tools</a><a href="https://www.travala.com/blog/category/travel-planning/budget-travel-tips/" class="dropdown-item">Budget Travel Tips</a><a href="https://www.travala.com/blog/category/travel-planning/travel-hacks/" class="dropdown-item">Travel Hacks</a><a href="https://www.travala.com/blog/category/travel-planning/travel-for-beginners/" class="dropdown-item">Travel for Beginners</a><a href="https://www.travala.com/blog/category/travel-destinations-2/travel-tips/" class="dropdown-item">Travel Tips</a></div>
+<li id="menu-item-32042" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-32042 nav-item dropdown"><a href="https://www.travala.com/blog/category/crypto/" class="nav-link dropdown-toggle">Crypto</a>
+<div class="dropdown-menu">
+<a href="https://www.travala.com/blog/category/crypto/crypto-payments/" class="dropdown-item">Crypto Payments</a><a href="https://www.travala.com/blog/category/crypto/crypto-partners-crypto/" class="dropdown-item">Crypto Partners</a><a href="https://www.travala.com/blog/category/crypto/travel-with-crypto/" class="dropdown-item">Travel with Crypto</a><a href="https://www.travala.com/blog/category/crypto/crypto-news/" class="dropdown-item">Crypto News</a></div>
+<li id="menu-item-32053" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-32053 nav-item dropdown"><a href="https://www.travala.com/blog/category/travel-destinations-2/" class="nav-link dropdown-toggle">Travel Destinations</a>
+<div class="dropdown-menu">
+<a href="https://www.travala.com/blog/category/travel-destinations-2/seasonal-picks/" class="dropdown-item">Seasonal Picks</a><a href="https://www.travala.com/blog/category/travel-destinations-2/monthly-travel/" class="dropdown-item">Monthly Travel</a><a href="https://www.travala.com/blog/category/travel-destinations-2/family-friendly-travel/" class="dropdown-item">Family-Friendly Travel</a><a href="https://www.travala.com/blog/category/travel-destinations-2/travel-guides-travel-destinations-2/" class="dropdown-item">Travel Guides</a></div>
+<li id="menu-item-32038" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-32038 nav-item dropdown"><a href="https://www.travala.com/blog/category/accommodation-guides/" class="nav-link dropdown-toggle">Accommodation Guides</a>
+<div class="dropdown-menu">
+<a href="https://www.travala.com/blog/category/accommodation-guides/hotel-guides/" class="dropdown-item">Hotel Guides</a><a href="https://www.travala.com/blog/category/accommodation-guides/unique-stays/" class="dropdown-item">Unique Stays</a><a href="https://www.travala.com/blog/category/accommodation-guides/family-friendly-hotels/" class="dropdown-item">Family-Friendly Hotels</a><a href="https://www.travala.com/blog/category/accommodation-guides/luxury-hotels/" class="dropdown-item">Luxury Hotels</a></div>
+<li id="menu-item-32076" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-32076 nav-item dropdown"><a href="https://www.travala.com/blog/category/travel-trends/" class="nav-link dropdown-toggle">Travel Trends</a>
+<div class="dropdown-menu">
+<a href="https://www.travala.com/blog/category/travel-trends/sustainable-travel/" class="dropdown-item">Sustainable Travel</a><a href="https://www.travala.com/blog/category/travel-trends/ai-in-travel/" class="dropdown-item">AI in Travel</a><a href="https://www.travala.com/blog/category/travel-trends/travel-trends-reports/" class="dropdown-item">Travel Trends Reports</a><a href="https://www.travala.com/blog/category/travel-trends/work-travel/" class="dropdown-item">Work &amp; Travel</a><a href="https://www.travala.com/blog/category/travel-trends/future-of-travel/" class="dropdown-item">Future of Travel</a><a href="https://www.travala.com/blog/category/travel-trends/travel-style/" class="dropdown-item">Travel Style</a></div>
+<li id="menu-item-32046" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-32046 nav-item dropdown"><a href="https://www.travala.com/blog/category/news/" class="nav-link dropdown-toggle">News</a>
+<div class="dropdown-menu">
+<a href="https://www.travala.com/blog/category/news/company-news/" class="dropdown-item">Company News</a><a href="https://www.travala.com/blog/category/news/events-news/" class="dropdown-item">Events</a><a href="https://www.travala.com/blog/category/news/travel-partners-news/" class="dropdown-item">Travel Partners</a><a href="https://www.travala.com/blog/category/news/airdrops-traveldrops/" class="dropdown-item">Airdrops &#038; Travel Drops</a><a href="https://www.travala.com/blog/category/news/reports-updates/" class="dropdown-item">Reports &amp; Updates</a><a href="https://www.travala.com/blog/category/news/security-news/" class="dropdown-item">Security</a></div>
+</ul></div>                </nav>
+            </div>
+
+            <div class="searcharea">
+                                        
+                        <form role="search" method="get" class="search-form" action="https://www.travala.com/blog/">
+<input type="hidden" name="post_type" value="post">
+<input type="search" class="search-field"
+placeholder="Search..."
+value="" name="s"
+title="Search for:" />
+<button type="submit" class="search-submit">
+<i class="fa fa-search"></i>   
+</button>
+</form>                        
+                            </div>
+                    
+        </div>
+        <!-- End Logo --> 
+
+        <!-- <div class="navarea"> -->
+       
+        <nav class="navbar navbar-toggleable-sm navbar-mobile">
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#bs4navbar" aria-controls="bs4navbar" aria-expanded="false" aria-label="Toggle navigation"> 
+                <span class="navbar-toggler-icon"></span> 
+            </button>  
+                <div id="bs4navbar" class="collapse navbar-collapse"><ul id="menu-2025-primary-menu-1" class="navbar-nav col-md-12 justify-content-center"><li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-32074 nav-item dropdown"><a href="https://www.travala.com/blog/category/travel-planning/" class="nav-link dropdown-toggle">Travel Planning</a>
+<div class="dropdown-menu">
+<a href="https://www.travala.com/blog/category/travel-planning/flight-booking-tips/" class="dropdown-item">Flight Booking Tips</a><a href="https://www.travala.com/blog/category/travel-planning/trip-planning-tools/" class="dropdown-item">Trip Planning Tools</a><a href="https://www.travala.com/blog/category/travel-planning/budget-travel-tips/" class="dropdown-item">Budget Travel Tips</a><a href="https://www.travala.com/blog/category/travel-planning/travel-hacks/" class="dropdown-item">Travel Hacks</a><a href="https://www.travala.com/blog/category/travel-planning/travel-for-beginners/" class="dropdown-item">Travel for Beginners</a><a href="https://www.travala.com/blog/category/travel-destinations-2/travel-tips/" class="dropdown-item">Travel Tips</a></div>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-32042 nav-item dropdown"><a href="https://www.travala.com/blog/category/crypto/" class="nav-link dropdown-toggle">Crypto</a>
+<div class="dropdown-menu">
+<a href="https://www.travala.com/blog/category/crypto/crypto-payments/" class="dropdown-item">Crypto Payments</a><a href="https://www.travala.com/blog/category/crypto/crypto-partners-crypto/" class="dropdown-item">Crypto Partners</a><a href="https://www.travala.com/blog/category/crypto/travel-with-crypto/" class="dropdown-item">Travel with Crypto</a><a href="https://www.travala.com/blog/category/crypto/crypto-news/" class="dropdown-item">Crypto News</a></div>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-32053 nav-item dropdown"><a href="https://www.travala.com/blog/category/travel-destinations-2/" class="nav-link dropdown-toggle">Travel Destinations</a>
+<div class="dropdown-menu">
+<a href="https://www.travala.com/blog/category/travel-destinations-2/seasonal-picks/" class="dropdown-item">Seasonal Picks</a><a href="https://www.travala.com/blog/category/travel-destinations-2/monthly-travel/" class="dropdown-item">Monthly Travel</a><a href="https://www.travala.com/blog/category/travel-destinations-2/family-friendly-travel/" class="dropdown-item">Family-Friendly Travel</a><a href="https://www.travala.com/blog/category/travel-destinations-2/travel-guides-travel-destinations-2/" class="dropdown-item">Travel Guides</a></div>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-32038 nav-item dropdown"><a href="https://www.travala.com/blog/category/accommodation-guides/" class="nav-link dropdown-toggle">Accommodation Guides</a>
+<div class="dropdown-menu">
+<a href="https://www.travala.com/blog/category/accommodation-guides/hotel-guides/" class="dropdown-item">Hotel Guides</a><a href="https://www.travala.com/blog/category/accommodation-guides/unique-stays/" class="dropdown-item">Unique Stays</a><a href="https://www.travala.com/blog/category/accommodation-guides/family-friendly-hotels/" class="dropdown-item">Family-Friendly Hotels</a><a href="https://www.travala.com/blog/category/accommodation-guides/luxury-hotels/" class="dropdown-item">Luxury Hotels</a></div>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-32076 nav-item dropdown"><a href="https://www.travala.com/blog/category/travel-trends/" class="nav-link dropdown-toggle">Travel Trends</a>
+<div class="dropdown-menu">
+<a href="https://www.travala.com/blog/category/travel-trends/sustainable-travel/" class="dropdown-item">Sustainable Travel</a><a href="https://www.travala.com/blog/category/travel-trends/ai-in-travel/" class="dropdown-item">AI in Travel</a><a href="https://www.travala.com/blog/category/travel-trends/travel-trends-reports/" class="dropdown-item">Travel Trends Reports</a><a href="https://www.travala.com/blog/category/travel-trends/work-travel/" class="dropdown-item">Work &amp; Travel</a><a href="https://www.travala.com/blog/category/travel-trends/future-of-travel/" class="dropdown-item">Future of Travel</a><a href="https://www.travala.com/blog/category/travel-trends/travel-style/" class="dropdown-item">Travel Style</a></div>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-32046 nav-item dropdown"><a href="https://www.travala.com/blog/category/news/" class="nav-link dropdown-toggle">News</a>
+<div class="dropdown-menu">
+<a href="https://www.travala.com/blog/category/news/company-news/" class="dropdown-item">Company News</a><a href="https://www.travala.com/blog/category/news/events-news/" class="dropdown-item">Events</a><a href="https://www.travala.com/blog/category/news/travel-partners-news/" class="dropdown-item">Travel Partners</a><a href="https://www.travala.com/blog/category/news/airdrops-traveldrops/" class="dropdown-item">Airdrops &#038; Travel Drops</a><a href="https://www.travala.com/blog/category/news/reports-updates/" class="dropdown-item">Reports &amp; Updates</a><a href="https://www.travala.com/blog/category/news/security-news/" class="dropdown-item">Security</a></div>
+</ul></div>        </nav>
+        
+        </div>
+            
+    </div>
+  <div class='travala-banner'>
+          <a href='https://www.travala.com/' class='banner-link'>          <img src='https://cdn1.travala.com/wp-content/uploads/2025/07/15140427/search-banner.jpg' alt='tvl-banner'>  
+        </a>    
+</div>
+</header>
+        
+       
+        <!-- Begin site-content
+		================================================== -->         
+        <div class="site-content">
+<div class="container"> 
+    <div class="row justify-content-center listrecent listrelated align-items-center">
+        <div class="col-md-12 align-items-center text-center">
+		<p>
+			<svg width="120"  height="120" enable-background="new 0 0 512 512" version="1.1" viewBox="0 0 512 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+			<circle cx="256" cy="256" r="256" fill="#35CCFF"/>
+			<path d="m512 256c0-12.301-0.887-24.393-2.564-36.23l-88.769-88.77-329.33 250 128.44 128.44c11.838 1.677 23.93 2.564 36.231 2.564 141.38 0 256-114.62 256-256z" fill="#00BAFF"/>
+			<rect x="91.33" y="131" width="329.33" height="250" fill="#fff"/>
+			<g fill="#E0E0E0">
+				<rect x="256" y="131" width="164.67" height="250"/>
+				<rect x="91.33" y="131" width="329.33" height="32.17"/>
+			</g>
+			<rect x="256" y="131" width="164.67" height="32.17" fill="#C0C0C0"/>
+			<g fill="#FF6838">
+				<circle cx="111.17" cy="147.08" r="8.917"/>
+				<circle cx="137.92" cy="147.08" r="8.917"/>
+				<circle cx="164.67" cy="147.08" r="8.917"/>
+			</g>
+			<path d="m398.94 288.63l12.22-12.22c-6.986-9.995-15.69-18.699-25.685-25.685l-12.22 12.22c-8.682-5.628-18.436-9.741-28.888-11.972v-17.289c-5.897-1.043-11.966-1.589-18.162-1.589s-12.265 0.546-18.162 1.589v17.289c-10.452 2.23-20.205 6.344-28.888 11.971l-12.22-12.22c-9.995 6.986-18.699 15.69-25.685 25.685l12.22 12.22c-5.628 8.682-9.741 18.436-11.972 28.888h-17.289c-1.043 5.897-1.589 11.966-1.589 18.162s0.546 12.265 1.589 18.162h17.289c2.23 10.452 6.344 20.205 11.972 28.888l-12.22 12.22c6.986 9.995 15.69 18.699 25.685 25.685l12.22-12.22c8.682 5.628 18.436 9.741 28.888 11.972v17.289c5.897 1.043 11.966 1.589 18.162 1.589s12.265-0.546 18.162-1.589v-17.289c10.452-2.23 20.205-6.344 28.888-11.972l12.22 12.22c9.995-6.986 18.699-15.69 25.685-25.685l-12.22-12.22c5.628-8.683 9.741-18.436 11.972-28.888h17.289c1.043-5.897 1.589-11.966 1.589-18.162s-0.546-12.265-1.589-18.162h-17.289c-2.231-10.451-6.344-20.204-11.972-28.887zm-72.735 85.306c-21.128 0-38.256-17.128-38.256-38.256s17.128-38.256 38.256-38.256 38.256 17.128 38.256 38.256-17.129 38.256-38.256 38.256z" fill="#005C83"/>
+			<path d="m428.2 353.84c1.043-5.897 1.589-11.966 1.589-18.163 0-6.196-0.546-12.265-1.589-18.162h-17.289c-2.23-10.452-6.344-20.206-11.971-28.888l12.22-12.22c-6.986-9.995-15.69-18.699-25.685-25.685l-12.22 12.22c-8.682-5.628-18.436-9.742-28.888-11.972v-17.289c-5.897-1.043-11.966-1.589-18.162-1.589-0.402 0-0.799 0.022-1.199 0.026v65.333c0.399-0.012 0.797-0.03 1.199-0.03 21.128 0 38.256 17.127 38.256 38.255s-17.127 38.256-38.256 38.256c-0.402 0-0.8-0.018-1.199-0.03v65.333c0.401 4e-3 0.798 0.026 1.199 0.026 6.197 0 12.265-0.546 18.162-1.589v-17.289c10.452-2.23 20.205-6.344 28.888-11.972l12.22 12.22c9.995-6.986 18.699-15.69 25.685-25.686l-12.22-12.22c5.628-8.683 9.741-18.436 11.971-28.888h17.289v3e-3z" fill="#00263F"/>
+			<g fill="#005C83">
+				<path d="m127.04 244.06v-10.509h-21.172v-10.97l25.085-32.066h8.361v31.989h6.75v11.047h-6.75v10.509h-12.274zm-8.976-21.556h10.356v-13.578l-10.356 13.578z"/>
+				<path d="m197.25 216.44c0 4.042-0.544 7.763-1.631 11.162-1.088 3.399-2.584 6.338-4.487 8.819-1.904 2.48-4.16 4.409-6.771 5.787-2.61 1.379-5.439 2.068-8.484 2.068-3.046 0-5.861-0.689-8.443-2.068-2.584-1.378-4.827-3.307-6.73-5.787-1.905-2.48-3.4-5.42-4.487-8.819-1.088-3.399-1.631-7.12-1.631-11.162s0.543-7.762 1.631-11.161c1.087-3.398 2.582-6.338 4.487-8.819 1.903-2.48 4.146-4.424 6.73-5.833 2.582-1.408 5.397-2.113 8.443-2.113 3.045 0 5.874 0.705 8.484 2.113 2.611 1.409 4.867 3.353 6.771 5.833 1.903 2.48 3.398 5.42 4.487 8.819 1.087 3.399 1.631 7.119 1.631 11.161zm-13.215 0c0-4.286-0.762-7.762-2.284-10.426-1.523-2.664-3.481-3.996-5.874-3.996-2.447 0-4.433 1.332-5.955 3.996-1.523 2.664-2.284 6.14-2.284 10.426 0 4.288 0.761 7.749 2.284 10.381 1.522 2.634 3.508 3.95 5.955 3.95 2.393 0 4.351-1.316 5.874-3.95 1.521-2.632 2.284-6.093 2.284-10.381z"/>
+				<path d="m223.67 244.06v-10.509h-21.172v-10.97l25.085-32.066h8.361v31.989h6.75v11.047h-6.75v10.509h-12.274zm-8.975-21.556h10.356v-13.578l-10.356 13.578z"/>
+			</g>
+			</svg>
+		</p>
+			<h1 class="page-title">PAGE NOT FOUND</h1>
+			<div class="page-content">
+				<p>The page you are looking for does not exist. Maybe try a search?</p>
+				<form role="search" method="get" class="search-form" action="https://www.travala.com/blog/">
+<input type="hidden" name="post_type" value="post">
+<input type="search" class="search-field"
+placeholder="Search..."
+value="" name="s"
+title="Search for:" />
+<button type="submit" class="search-submit">
+<i class="fa fa-search"></i>   
+</button>
+</form>			</div>
+		</div>
+	</div>
+</div>
+
+</div><!-- /.site-content -->
+        
+        <div class="container">
+            <footer class="footer"> 
+<!--                 <p class="pull-left"> © Copyright Travala.com </p>  -->
+				<p class="pull-left"><a href="https://www.travala.com" target="_blank" rel="noopener">Travala.com</a> © Copyright 2017 - 2024 | All Rights Reserved</p>
+                <p class="pull-right"> Travel with <a target="_blank" href="https://www.travala.com">Travala.com</a> </p> 
+                <div class="clearfix"></div>
+                <a href="" class="back-to-top hidden-md-down"> 
+                <i class="fa fa-angle-up"></i>
+                </a>
+            </footer>
+        </div>
+        		<!-- Google Tag Manager (noscript) snippet added by Site Kit -->
+		<noscript>
+			<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WLTWL87" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+		</noscript>
+		<!-- End Google Tag Manager (noscript) snippet added by Site Kit -->
+		<script type='text/javascript' src='https://www.travala.com/blog/wp-content/plugins/wp-bannerize-pro/public/js/wp-bannerize-impressions.js?ver=1.10.0' id='wp_bannerize_pro_slugwp-bannerize-impressionsjs-js'></script>
+<script type='text/javascript' id='ez-toc-scroll-scriptjs-js-extra'>
+/* <![CDATA[ */
+var eztoc_smooth_local = {"scroll_offset":"30","add_request_uri":""};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.travala.com/blog/wp-content/plugins/easy-table-of-contents/assets/js/smooth_scroll.min.js?ver=2.0.72' id='ez-toc-scroll-scriptjs-js'></script>
+<script type='text/javascript' src='https://www.travala.com/blog/wp-content/plugins/easy-table-of-contents/vendor/js-cookie/js.cookie.min.js?ver=2.2.1' id='ez-toc-js-cookie-js'></script>
+<script type='text/javascript' src='https://www.travala.com/blog/wp-content/plugins/easy-table-of-contents/vendor/sticky-kit/jquery.sticky-kit.min.js?ver=1.9.2' id='ez-toc-jquery-sticky-kit-js'></script>
+<script type='text/javascript' id='ez-toc-js-js-extra'>
+/* <![CDATA[ */
+var ezTOC = {"smooth_scroll":"1","scroll_offset":"30","fallbackIcon":"<span class=\"\"><span class=\"eztoc-hide\" style=\"display:none;\">Toggle<\/span><span class=\"ez-toc-icon-toggle-span\"><svg style=\"fill: #ec971f;color:#ec971f\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" class=\"list-377408\" width=\"20px\" height=\"20px\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M6 6H4v2h2V6zm14 0H8v2h12V6zM4 11h2v2H4v-2zm16 0H8v2h12v-2zM4 16h2v2H4v-2zm16 0H8v2h12v-2z\" fill=\"currentColor\"><\/path><\/svg><svg style=\"fill: #ec971f;color:#ec971f\" class=\"arrow-unsorted-368013\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" width=\"10px\" height=\"10px\" viewBox=\"0 0 24 24\" version=\"1.2\" baseProfile=\"tiny\"><path d=\"M18.2 9.3l-6.2-6.3-6.2 6.3c-.2.2-.3.4-.3.7s.1.5.3.7c.2.2.4.3.7.3h11c.3 0 .5-.1.7-.3.2-.2.3-.5.3-.7s-.1-.5-.3-.7zM5.8 14.7l6.2 6.3 6.2-6.3c.2-.2.3-.5.3-.7s-.1-.5-.3-.7c-.2-.2-.4-.3-.7-.3h-11c-.3 0-.5.1-.7.3-.2.2-.3.5-.3.7s.1.5.3.7z\"\/><\/svg><\/span><\/span>","chamomile_theme_is_on":""};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.travala.com/blog/wp-content/plugins/easy-table-of-contents/assets/js/front.min.js?ver=2.0.72-1762224296' id='ez-toc-js-js'></script>
+<script type='text/javascript' id='ez-toc-js-js-after'>
+
+				let mobileContainer = document.querySelector('#mobile.vc_row-fluid');
+				if (document.querySelectorAll('#mobile.vc_row-fluid').length > 0) {
+					let ezTocContainerUL = mobileContainer.querySelectorAll('.ez-toc-link');
+					let uniqID = 'xs-sm-' + Math.random().toString(16).slice(2);
+					for (let i = 0; i < ezTocContainerUL.length; i++) {
+						let anchorHREF = ezTocContainerUL[i].getAttribute('href');
+						let section = mobileContainer.querySelector('span.ez-toc-section' + anchorHREF);
+						if (section) {
+							section.setAttribute('id', anchorHREF.replace('#', '') + '-' + uniqID);
+						}
+						ezTocContainerUL[i].setAttribute('href', anchorHREF + '-' + uniqID);
+					}
+					
+				}
+			
+</script>
+<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js' id='tether-js'></script>
+<script type='text/javascript' src='https://www.travala.com/blog/wp-content/themes/mediumish/assets/js/bootstrap.min.js' id='bootstrap4-js'></script>
+<script type='text/javascript' src='https://www.travala.com/blog/wp-content/themes/mediumish/assets/js/ie10-viewport-bug-workaround.js' id='mediumish-ieviewportbugworkaround-js'></script>
+<script type='text/javascript' src='https://www.travala.com/blog/wp-content/themes/mediumish/assets/js/masonry.pkgd.min.js' id='mediumish-masonrypkgd-js'></script>
+<script type='text/javascript' src='https://www.travala.com/blog/wp-content/themes/mediumish/assets/js/mediumish.js' id='mediumish-js'></script>
+<script></script>        
+		<!-- Mailchimp subscribe box -->
+		<!-- Begin Mailchimp Signup Form -->
+		<link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css">
+		<style type="text/css">
+			#mc_embed_signup{background:#19192f; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%; color: white; position: fixed; bottom: 0; left: 0; right: 0;z-index: 999;}
+			/* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+			   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+		</style>
+		<style type="text/css">
+			#mc_embed_signup form {
+				padding: 15px 0 15px 0;
+			}
+			#mc_embed_signup_scroll {display: flex; flex-wrap: wrap; align-items: center; justify-content: center;}
+			#mc_embed_signup label{text-transform: uppercase; padding: 0; margin: 0; margin-right: 40px; font-family: inherit; font-weight: normal;text-align: left;}
+			#mc_embed_signup input.email,
+			#mc_embed_signup input {
+			  width: 300px;
+			  height: 47px;
+			  border-radius: 3px;
+			  background-color: #ffffff;
+				border: none;
+				font-family: inherit;
+				margin-right: 20px;
+				padding-left: 15px;
+			}
+			#mc_embed_signup .button {
+				width: 192px;
+			  height: 47px;
+			  border-radius: 3px;
+			  background-color: #0073bb;
+			}
+			#mc-embedded-subscribe-form input[type=checkbox]{display: inline; width: auto;margin-right: 10px;}
+			#mergeRow-gdpr {margin-top: 20px;}
+			#mergeRow-gdpr fieldset label {font-weight: normal;}
+			#mc-embedded-subscribe-form .mc_fieldset{border:none;min-height: 0px;padding-bottom:0px;}
+			
+			@media screen and (max-width: 478px) {
+				#mc_embed_signup {position: static;}
+				
+				#mc_embed_signup input,
+				#mc_embed_signup input.email,
+				#mc_embed_signup label {
+					margin-bottom: 10px;
+					margin-right: 0;
+				}
+			}
+		</style>
+		<div id="mc_embed_signup">
+		<form action="https://travala.us17.list-manage.com/subscribe/post?u=be35b883728a993528510fd90&amp;id=d17dc8cd19" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+			<div id="mc_embed_signup_scroll">
+			<label for="mce-EMAIL">Subscribe for newsletter &amp; updates</label>
+			<input type="text" value="" name="FNAME" class="" id="mce-FNAME" placeholder="First Name">
+			<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Email Address" required>
+			<!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+			<div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_be35b883728a993528510fd90_d17dc8cd19" tabindex="-1" value=""></div>
+			<div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+			</div>
+		</form>
+		</div>
+		<!--End mc_embed_signup-->
+<script>
+	jQuery.ready(function() {
+		// Select all links with hashes
+$('a[href*="#"]')
+  // Remove links that don't actually link to anything
+  .not('[href="#"]')
+  .not('[href="#0"]')
+  .click(function(event) {
+    // On-page links
+    if (
+      location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
+      && 
+      location.hostname == this.hostname
+    ) {
+      // Figure out element to scroll to
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+      // Does a scroll target exist?
+      if (target.length) {
+        // Only prevent default if animation is actually gonna happen
+        event.preventDefault();
+        $('html, body').animate({
+          scrollTop: target.offset().top
+        }, 1000, function() {
+          // Callback after animation
+          // Must change focus!
+          var $target = $(target);
+          $target.focus();
+          if ($target.is(":focus")) { // Checking if the target was focused
+            return false;
+          } else {
+            $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
+            $target.focus(); // Set focus again
+          };
+        });
+      }
+    }
+  });
+	});
+	
+</script>
+    </body>     
+</html>

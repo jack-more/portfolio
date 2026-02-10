@@ -1,0 +1,305 @@
+<!-- head.tpl start -->
+	<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consensus 2024 Presented by CoinDesk</title>
+
+                        <script src="https://securepubads.g.doubleclick.net/tag/js/gpt.js" async></script>
+<script>window.googletag = window.googletag || {cmd: []};</script>
+                    <script data-cookieconsent="ignore">
+window.APP_ENV = "production";
+window.dataLayer = window.dataLayer || [
+  {
+    app_name: "events",
+    app_env: "production",
+    app_version: "1.0.0",
+  },
+];
+function gtag() {
+  window.dataLayer.push(arguments);
+}
+gtag("consent", "default", {
+  ad_storage: "granted",
+  analytics_storage: "granted",
+  functionality_storage: "granted",
+  personalization_storage: "granted",
+  security_storage: "granted",
+  wait_for_update: 500,
+});
+gtag("set", "ads_data_redaction", false);
+gtag("set", "url_passthrough", true);
+gtag('set', 'linker', {
+  'decorate_forms': false
+});
+gtag("consent", "default", {
+  ad_storage: "denied",
+  analytics_storage: "denied",
+  functionality_storage: "granted",
+  personalization_storage: "denied",
+  security_storage: "granted",
+  wait_for_update: 500,
+  region: [
+    "AT",
+    "BE",
+    "BG",
+    "HR",
+    "CY",
+    "CZ",
+    "DK",
+    "EE",
+    "FI",
+    "FR",
+    "DE",
+    "GR",
+    "HU",
+    "IE",
+    "IT",
+    "LV",
+    "LT",
+    "LU",
+    "MT",
+    "NL",
+    "PL",
+    "PT",
+    "RO",
+    "SK",
+    "SI",
+    "ES",
+    "SE",
+    "GB",
+  ],
+});
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://metrics.coindesk.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-W9J8GSW');
+</script>
+                            <script src="https://ak.sail-horizon.com/spm/spm.v1.min.js"></script>
+<script>Sailthru.init({ customerId: '21b4dc067db81faa567a3cb0cbc9afdd' });</script>
+                            <meta name="robots" content="noindex">
+<meta name="googlebot" content="noindex">
+                    <!-- OneTrust Cookies Consent Notice start for coindesk.com -->
+<script src="https://cdn-apac.onetrust.com/scripttemplates/otSDKStub.js"  type="text/javascript" charset="UTF-8" data-domain-script="01934b0a-0f89-7045-b574-724860f7ff22-test" ></script>
+<script type="text/javascript">
+function OptanonWrapper() { }
+</script>
+<!-- OneTrust Cookies Consent Notice end for coindesk.com -->
+            
+    <script>window.dataLayer = window.dataLayer || [];</script>
+    
+
+    <!-- genMetaTags -->
+                <meta name="title" content="Consensus 2024 Presented by CoinDesk">
+                <meta property="og:title" content="Consensus 2024 Presented by CoinDesk" />
+                <meta name="twitter:title" content="Consensus 2024 Presented by CoinDesk">
+                <meta name="keywords" content="consensus 2024, crypto event, austin"/>
+                <meta name="description" content="Register for Consensus 2024, the world&#039;s most influential crypto event, in Austin, TX from May 29th to June 1st. Unite with global crypto, blockchain, DeFi, and Web3 communities to shape the future of digital finance.">
+                <meta property="og:description" content="Register for Consensus 2024, the world&#039;s most influential crypto event, in Austin, TX from May 29th to June 1st. Unite with global crypto, blockchain, DeFi, and Web3 communities to shape the future of digital finance.">
+                <meta name="twitter:description" content="Register for Consensus 2024, the world&#039;s most influential crypto event, in Austin, TX from May 29th to June 1st. Unite with global crypto, blockchain, DeFi, and Web3 communities to shape the future of digital finance.">
+                <meta property="og:locale" content="en_US"/>
+                <meta name="twitter:site" content="@consensus2024">
+                <meta name="twitter:creator" content="@consensus2024">
+                <meta name="twitter:card" content="summary_large_image">
+                <link id="Link1" rel="image_src" type="image/x-png" href="https://consensus2024.coindesk.com/site/consensus2024/images/userfiles/site-defaults/C23_DRD_Metadata_1200x600_default.png" />
+                <meta property="og:image" content="https://consensus2024.coindesk.com/site/consensus2024/images/userfiles/site-defaults/C23_DRD_Metadata_1200x600_default.png" />
+                <meta name="twitter:image" content="https://consensus2024.coindesk.com/site/consensus2024/images/userfiles/site-defaults/C23_DRD_Metadata_1200x600_default.png">
+
+
+    <link rel="preconnect" href="//d2pasa6bkzkrjd.cloudfront.net" crossorigin>
+    <link rel="dns-prefetch" href="//d2pasa6bkzkrjd.cloudfront.net" />
+                                    <link rel="preconnect" href="https://consensus2024.coindesk.com" crossorigin>
+            <link rel="dns-prefetch" href="https://consensus2024.coindesk.com" />
+                    
+        <link rel="icon" type="image/ico" href="/site/consensus2024/images/userfiles/site-defaults/site-logo.ico">
+        <link rel="icon" type="image/svg+xml" href="/site/consensus2024/images/userfiles/site-defaults/site-logo.svg">
+                        <link rel="icon" type="image/png" href="/_resize/consensus2024/fav-icon/icon/site/consensus2024/images/userfiles/site-defaults/site-logo.png">
+        <link rel="apple-touch-icon-precomposed" href="/_resize/consensus2024/fav-icon/precomposed/site/consensus2024/images/userfiles/site-defaults/site-logo.png" />
+        <link rel="apple-touch-icon" href="/_resize/consensus2024/fav-icon/white57/site/consensus2024/images/userfiles/site-defaults/site-logo.png" />
+        <link rel="apple-touch-icon" sizes="76x76" href="/_resize/consensus2024/fav-icon/white76/site/consensus2024/images/userfiles/site-defaults/site-logo.png" />
+        <link rel="apple-touch-icon" sizes="120x120" href="/_resize/consensus2024/fav-icon/white120/site/consensus2024/images/userfiles/site-defaults/site-logo.png" />
+        <link rel="apple-touch-icon" sizes="152x152" href="/_resize/consensus2024/fav-icon/white152/site/consensus2024/images/userfiles/site-defaults/site-logo.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/_resize/consensus2024/fav-icon/white180/site/consensus2024/images/userfiles/site-defaults/site-logo.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/_resize/consensus2024/fav-icon/transparent16/site/consensus2024/images/userfiles/site-defaults/site-logo.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/_resize/consensus2024/fav-icon/transparent32/site/consensus2024/images/userfiles/site-defaults/site-logo.png">
+        <link rel="icon" type="image/png" sizes="48x48" href="/_resize/consensus2024/fav-icon/transparent48/site/consensus2024/images/userfiles/site-defaults/site-logo.png">
+        <link rel="icon" type="image/png" sizes="64x64" href="/_resize/consensus2024/fav-icon/transparent64/site/consensus2024/images/userfiles/site-defaults/site-logo.png">
+        <link rel="icon" type="image/png" sizes="192x192" href="/_resize/consensus2024/fav-icon/transparent192/site/consensus2024/images/userfiles/site-defaults/site-logo.png">
+        <link rel="icon" type="image/png" sizes="512x512" href="/_resize/consensus2024/fav-icon/transparent512/site/consensus2024/images/userfiles/site-defaults/site-logo.png">
+        
+    
+    
+
+                <link rel="preload" href="//d2pasa6bkzkrjd.cloudfront.net/_minify/-i/consensus2024/-g/frontend_top_js/-v/202602041_331b1c5b9314a684578afb0e3529388f" as="script">
+        <script src="//d2pasa6bkzkrjd.cloudfront.net/_minify/-i/consensus2024/-g/frontend_top_js/-v/202602041_331b1c5b9314a684578afb0e3529388f" data-cookieconsent="ignore"></script>
+    
+
+        <link rel="preload" href="/api/call/user/pages/translatejs/?lang=en" as="script">
+    <script src="/api/call/user/pages/translatejs/?lang=en" data-cookieconsent="ignore"></script>
+                             <link href="/lib/core/coresystem/scripts/aos/aos.css?v=202602041_331b1c5b9314a684578afb0e3529388f" rel="stylesheet">
+                                    <link href="/lib/core/coresystem/scripts/pages_navmenu/bootstrap-iconpicker/css/bootstrap-iconpicker.min.css?v=202602041_331b1c5b9314a684578afb0e3529388f" rel="stylesheet">
+                                    <link href="/lib/core/coresystem/scripts/form/css/form.formbuilder.css?v=202602041_331b1c5b9314a684578afb0e3529388f" rel="stylesheet">
+                <link href="/lib/core/coresystem/scripts/form/css/form.image_editor.css?v=202602041_331b1c5b9314a684578afb0e3529388f" rel="stylesheet">
+                                    <link href="/lib/core/coresystem/../node_modules/croppie/croppie.css?v=202602041_331b1c5b9314a684578afb0e3529388f" rel="stylesheet">
+                                    <link href="/site/consensus2024/scripts/css/main_vendor.css?v=202602041_331b1c5b9314a684578afb0e3529388f" rel="stylesheet">
+                <link href="/site/consensus2024/scripts/css/main.css?v=202602041_331b1c5b9314a684578afb0e3529388f" rel="stylesheet">
+                        
+        <script src="https://kit.fontawesome.com/5dff8dbea9.js" crossorigin="anonymous"></script>
+    
+        <link rel="preload" href="https://player.vimeo.com/api/player.js" as="script">
+    <script src="https://player.vimeo.com/api/player.js" crossorigin="anonymous"></script>
+
+        <link rel="preload" href="https://www.youtube.com/iframe_api" as="script">
+    <script src="https://www.youtube.com/iframe_api" crossorigin="anonymous"></script>
+
+
+    <script src="https://cdn.jwplayer.com/libraries/cIcRz2Em.js"></script>
+
+        <script src="https://js.pusher.com/7.2/pusher.min.js"></script>
+
+        <link rel="preload" href="/api/call/user/agenda/kendo-templates/?lang=en&v=202602041_331b1c5b9314a684578afb0e3529388f" as="script">
+    <script src="/api/call/user/agenda/kendo-templates/?lang=en&v=202602041_331b1c5b9314a684578afb0e3529388f"></script>
+
+
+    
+<script>
+$(document).ready(function () {
+	$(".register-nav-general").addClass("active");
+});
+</script>
+    
+    
+        <script>
+        //use the callbacks to easily add functions to doc ready so they can all fire at once and functions can be grouped in the file beter
+        systemCallbacks = {ready:$.Callbacks("unique"), scroll:$.Callbacks("unique"), ajaxready:$.Callbacks("unique"), resize:$.Callbacks("unique"), onstorage:$.Callbacks("unique"), onload:$.Callbacks("unique"), onunload:$.Callbacks("unique"), hashchange:$.Callbacks("unique"), contentloaded:$.Callbacks("unique")}
+        formCallbacks = {ready:$.Callbacks("unique"), ajaxready:$.Callbacks("unique"), formsubmit_pre:$.Callbacks("unique"), formsubmit_error:$.Callbacks("unique"), reset:$.Callbacks("unique"), change:$.Callbacks("unique"), resetElement:$.Callbacks("unique"), resetElementAll:$.Callbacks("unique")}
+        </script>
+    
+    
+    <script>var system_config = {"pusher":{"instance":"consensus2024","key":"2b4a2ad225f970f50c2b","cluster":"mt1","logging":false},"authed":false};
+</script>
+</head>
+<body>
+
+    
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://metrics.coindesk.com/ns.html?id=GTM-W9J8GSW&gtm_auth=YBXBxOFkGb4REqoe6EL-jw&gtm_preview=env-1&gtm_cookies_win=x"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+    
+    
+    
+
+<div class="page-loader" id="pageLoader">
+    <div class="circle-loader"><div class="checkmark"></div></div>
+</div>
+<div class="toast-holder" style="position: fixed;right: 20px;top: 130px;z-index:1030"></div>
+
+<!-- head.tpl end -->
+ 
+
+<header class="header header-c24 zindex-5"> <div class="position-relative"> <div class="container"> <div class="row"> <div class="col"> <div class="topbar d-flex justify-content-between"> <div class="topbar__logo pe-6 h-100 d-flex d-lg-none align-items-center"> <a href="https://consensus2024.coindesk.com/" class="flex-shrink-0"> <img src="//d2pasa6bkzkrjd.cloudfront.net/site/consensus2024/images/userfiles/consensus-logo-c24-01.png" alt="Logo"> </a> </div> <div class="topbar__details h-100 px-md-0 pe-md-19 pe-xl-10 d-flex align-items-center text-nowrap"> <p class="d-none d-lg-block mb-0 text-primary">May 29 - 31, 2024</p> <p class="d-block d-lg-none mb-0 text-primary">May 29 - 31, 2024</p> <div class="topbar__devider d-none d-md-block"></div> <p class="m-0 d-none d-lg-block">Austin, Texas</p> <p class="d-block d-lg-none">&nbsp;Austin, TX</p> </div> <div class="h-100 d-none d-lg-flex align-items-center text-uppercase"> <div class="topbar__link h-100 d-flex align-items-center"> <a href="mailto:events@coindesk.com?subject=Event Inquiry" class="" target="_self" >Contact Us</a> </div> <div class="topbar__profile position-relative h-100 d-flex align-items-center"> <a class="topbar__login signin" href="javascript:;">Login <i class="ms-2 fa-solid fa-user"></i></a> </div> <div class="topbar__cart gap-2 ps-5 h-100 d-flex align-items-center"> <a class="d-flex align-items-center" href="/store/-cart"> <i class="topbar__cart-icon fas fa-shopping-cart"></i> <span class="topbar__cart-bubble d-none">0</span> </a> </div> <div class="topbar__social gap-2 ps-5 h-100 d-flex align-items-center"> <a href="https://t.me/consensusbycoindesk" target="_blank" ><i class="fa-brands fa-telegram"></i></a> <a href="https://discord.com/invite/coindesk" target="_blank" ><i class="fa-brands fa-discord"></i></a> <a href="https://twitter.com/consensus2024" target="_blank" ><i class="fa-brands fa-x-twitter"></i></a> <a href="https://www.instagram.com/coindesk" target="_blank" ><i class="fa-brands fa-instagram"></i></a> <a href="https://www.facebook.com/coindesk/" target="_blank" ><i class="fa-brands fa-facebook-f"></i></a> <a href="https://www.youtube.com/c/Coindesk" target="_blank" ><i class="fa-brands fa-youtube"></i></a> <a href="https://www.linkedin.com/company/coindesk/" target="_blank" ><i class="fa-brands fa-linkedin-in"></i></a> </div> </div> <div class="topbar__offcanvas-btn offcanvas-btn ps-6 h-100 d-flex d-lg-none justify-content-center align-items-center"> <span class="offcanvas-btn__hamburger" ><i class="icon-hamburger fa-solid fa-bars"></i></span> <span class="offcanvas-btn__close" ><i class="icon-close fa-solid fa-xmark"></i></span> </div> </div> <nav class="navbar navbar-expand-lg navbar-dark"> <a href="https://consensus2024.coindesk.com/" class="navbar-brand"> <img src="//d2pasa6bkzkrjd.cloudfront.net/site/consensus2024/images/userfiles/consensus-logo-c24-01.png" alt="Logo"> </a> <div class="collapse navbar-collapse" id="mainNavigation"> <div class="offcanvas--top"> <ul class="navbar-nav"> <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle " href="/agenda/" target="_self" ><span>Agenda</span></a> <ul class="dropdown-menu dropdown-menu-end"> <li class="" > <a href="/agenda/" class="dropdown-item " target="_self" >Watch On Demand</a> </li> <li class="" > <a href="/speakers/" class="dropdown-item " target="_self" >Speakers</a> </li> </ul> </li> </ul> <div class="offcanvas--item"> <ul class="navbar-nav navbar-nav-secondary"> <li class="nav-item"> <a href="javascript:;" class="nav-link signin" > Sign In </a> </li> <li class="nav-item"> <a href="mailto:events@coindesk.com?subject=Event Inquiry" class="nav-link " target="_self" >Contact Us</a> </li> </ul> </div> </div> <div class="offcanvas--bottom"> <a href="#" class="" target="_self" >© 2023 • CoinDesk Inc.</a><br/> <a href="https://coindesk.com/terms/" class="" target="_blank" >Terms and conditions</a><br/> <a href="https://coindesk.com/privacy/" class="" target="_blank" >Privacy & Cookies Policy</a><br/> </div> </div> </nav> </div> </div> </div> </div></header>
+
+
+<main id="page" class="theme-main overflow-hidden">
+  	
+	<div class="container content-container"><div class="content-system-notice"><h1 class="display-3">404 Error</h1><p class="lead">Page Not Found</p></div></div>
+</main>
+
+
+<footer class="footer footer-c24 bg-os-black text-os-white py-15">
+    <div class="container text-uppercase">
+        <div class="row">
+            <div class="col-6 col-md-3">
+                <div class="mb-3"><b class="text-uppercase">Company</b></div>
+                <ul class='footer__links'> <li> <a href="https://www.coindesk.com/" target="_blank">CoinDesk</a> </li> </ul>
+            </div>
+            <div class="col-6 col-md-3">
+              <div class="mb-3"><b class="text-uppercase">Sponsor</b></div>
+              <ul class='footer__links'> <li> <a href="/become-a-sponsor/" target="_self">Become a Sponsor</a> </li> </ul>
+            </div>
+            <div class="col-6 col-md-3">
+              <div class="mb-3"><b class="text-uppercase">Our Events</b></div>
+              <ul class='footer__links'> <li> <a href="https://consensus-hongkong2025.coindesk.com/" target="_blank">Consensus - Hong Kong</a> </li> <li> <a href="https://consensus2025.coindesk.com" target="_blank">Consensus - Toronto</a> </li> </ul>
+            </div>
+            <div class="col-6 col-md-3">
+              <div class="mb-3"><b class="text-uppercase">Useful Links</b></div>
+              <ul class='footer__links'> <li> <a href="mailto:events@coindesk.com?subject=C24 Event Inquiry" target="_self">Contact Us</a> </li> </ul>
+            </div>
+        </div>
+    </div>    
+    <div class="container footer-bottom-bar mt-20 py-3">
+        <div class="row">
+          <div class="col">
+            <div class="footer-line"></div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-md-4">
+            <img src="//d2pasa6bkzkrjd.cloudfront.net/site/consensus2024/images/userfiles/consensus-logo-2024-01.svg" style="width:50%;"/>
+            <div class="my-3 d-lg-none">
+              <ul class='footer_social'> <li> <a href="https://t.me/consensusbycoindesk" target="_blank"><i class="fa-brands fa-telegram"></i></a> </li> <li> <a href="https://discord.com/invite/coindesk" target="_blank"><i class="fa-brands fa-discord"></i></a> </li> <li> <a href="https://twitter.com/consensus2024" target="_blank"><i class="fa-brands fa-x-twitter"></i></a> </li> <li> <a href="https://www.instagram.com/coindesk" target="_blank"><i class="fa-brands fa-instagram"></i></a> </li> <li> <a href="https://www.facebook.com/coindesk/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a> </li> <li> <a href="https://www.youtube.com/c/Coindesk" target="_blank"><i class="fa-brands fa-youtube"></i></a> </li> <li> <a href="https://www.linkedin.com/company/coindesk/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a> </li> </ul>
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <span class="pt-10 text-os-silver">© 2024 CoinDesk Inc.</span>
+          </div>
+          <div class="col-12 col-md-4 text-md-end">
+            <a class="terms" href="https://coindesk.com/terms/" target="_blank">Terms &amp; Conditions</a> • <a class="terms" href="https://coindesk.com/privacy/" target="_blank">Privacy &amp; Cookies Policy</a>
+          </div>
+        </div>
+    </div>    
+</footer>
+
+ 
+
+<!-- bottom.tpl start -->
+	
+<script>
+Pace.on('done', function() {
+	$("body > .page-loader > .circle-loader").hide();
+	$("body > .page-loader").fadeOut("fast");
+});
+</script>
+
+
+
+
+
+
+<script>
+	apiPath = '/api';
+	apiAuthType = 'user';
+	corePath = '/lib/core/coresystem/';
+	assetPath = '//d2pasa6bkzkrjd.cloudfront.net';
+	localization = 'en-US';
+	localization_underscore = 'en_US';
+	timezone = 'America/Chicago';	currency_format = {"symbol":"$","decimal":".","separator":",","precision":2,"pattern":"!#<span class=\"currency-append\">USD<\/span>","negativePattern":"-!#<span class=\"currency-append\">USD<\/span>","useVedic":false};	
+</script>
+
+	<script src="//d2pasa6bkzkrjd.cloudfront.net/_minify/-i/consensus2024/-g/frontend_vendor_collection_js/-lang/en/-v/202602041_331b1c5b9314a684578afb0e3529388f" data-cookieconsent="ignore"></script>
+	<script src="//d2pasa6bkzkrjd.cloudfront.net/_minify/-i/consensus2024/-g/frontend_collection_js/-lang/en/-v/202602041_331b1c5b9314a684578afb0e3529388f" data-cookieconsent="ignore"></script>
+
+
+
+
+    <script>
+$( document ).ready(function() {
+$(document.body).on("click", ".navbar-brand", function(event){
+        event.preventDefault();
+        window.location = "https://consensus.coindesk.com/"
+});
+$(document.body).on("click", ".topbar__logo a", function(event){
+        event.preventDefault();
+        window.location = "https://consensus.coindesk.com/"
+});
+});
+</script>
+	
+
+</body>
+
+</html>
+<!-- bottom.tpl end -->
