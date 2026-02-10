@@ -24,7 +24,30 @@
       "Bash(git checkout:*)",
       "Bash(git commit:*)",
       "Bash(kill:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "WebFetch(domain:medium.com)",
+      "WebFetch(domain:pages.near.org)",
+      "WebFetch(domain:shortyawards.com)",
+      "WebFetch(domain:w.mediamaxonline.com)",
+      "WebFetch(domain:www.prweb.com)",
+      "WebFetch(domain:universal.epk.tv)",
+      "WebFetch(domain:www.adforum.com)",
+      "WebFetch(domain:tracxn.com)",
+      "WebFetch(domain:amazonprimevideo.epk.tv)",
+      "WebFetch(domain:adage.com)",
+      "WebFetch(domain:www.crunchbase.com)",
+      "WebFetch(domain:247laundryservice.com)",
+      "WebFetch(domain:www.yelp.com)",
+      "WebFetch(domain:gov.near.org)",
+      "WebFetch(domain:wiki.near.org)",
+      "WebFetch(domain:press.disneyplus.com)",
+      "WebFetch(domain:dev.near.org)",
+      "WebFetch(domain:www.hollywoodreporter.com)",
+      "WebFetch(domain:www.agencyspotter.com)",
+      "WebFetch(domain:mediakix.com)",
+      "WebFetch(domain:radicalbummer.com)",
+      "WebFetch(domain:www.ispot.tv)",
+      "WebFetch(domain:blog.influence.co)"
     ]
   }
 }
