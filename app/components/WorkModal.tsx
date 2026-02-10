@@ -367,13 +367,13 @@ export default function WorkModal({ type, isOpen, onClose }: WorkModalProps) {
         style={{
           width: '90vw',
           maxWidth: '1200px',
-          height: '85vh',
+          maxHeight: '90vh',
           background: '#fff',
           border: '3px solid #111',
           boxShadow: '6px 6px 0px #111',
           borderRadius: '12px',
           display: 'grid',
-          gridTemplateColumns: '350px 1fr',
+          gridTemplateColumns: '320px 1fr',
           overflow: 'hidden',
           animation: 'slideUp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)',
         }}
@@ -382,11 +382,12 @@ export default function WorkModal({ type, isOpen, onClose }: WorkModalProps) {
         <aside style={{
           backgroundColor: config.bgColor,
           borderRight: '3px solid #111',
-          padding: '40px',
+          padding: '30px',
           display: 'flex',
           flexDirection: 'column',
           position: 'relative',
           zIndex: 2,
+          overflowY: 'auto',
         }}>
           {/* Close button */}
           <button
@@ -425,14 +426,14 @@ export default function WorkModal({ type, isOpen, onClose }: WorkModalProps) {
 
           <h1 style={{
             fontFamily: "'Anton', sans-serif",
-            fontSize: '3rem',
+            fontSize: '2.2rem',
             lineHeight: 0.95,
             textTransform: 'uppercase',
             letterSpacing: '1px',
             color: '#fff',
             textShadow: '2px 2px 0px #111',
             WebkitTextStroke: '1.5px #111',
-            marginBottom: '24px',
+            marginBottom: '16px',
           }}>
             {config.headline}<br/>
             <span style={{ color: '#111', WebkitTextStroke: '0' }}>{config.subheadline}</span><br/>
@@ -441,12 +442,12 @@ export default function WorkModal({ type, isOpen, onClose }: WorkModalProps) {
 
           <p style={{
             fontFamily: "'Outfit', sans-serif",
-            fontSize: '1rem',
-            lineHeight: 1.5,
+            fontSize: '0.9rem',
+            lineHeight: 1.4,
             fontWeight: 600,
-            marginBottom: '40px',
+            marginBottom: '24px',
             borderLeft: '4px solid #111',
-            paddingLeft: '16px',
+            paddingLeft: '12px',
           }}>
             {config.body}
           </p>
@@ -455,17 +456,17 @@ export default function WorkModal({ type, isOpen, onClose }: WorkModalProps) {
           <nav style={{
             display: 'flex',
             flexDirection: 'column',
-            gap: '16px',
+            gap: '12px',
             position: 'relative',
             flexGrow: 1,
           }}>
             {/* Wire line */}
             <div style={{
               position: 'absolute',
-              left: '24px',
+              left: '20px',
               top: '20px',
               bottom: '20px',
-              width: '4px',
+              width: '3px',
               background: '#111',
               borderRadius: '2px',
               zIndex: 0,
@@ -481,7 +482,7 @@ export default function WorkModal({ type, isOpen, onClose }: WorkModalProps) {
                 transition: 'top 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55)',
                 pointerEvents: 'none',
                 zIndex: 10,
-                top: `${-10 + (handPosition * 66)}px`,
+                top: `${-10 + (handPosition * 54)}px`,
               }}
               viewBox="0 0 105 85"
               fill="none"
@@ -525,8 +526,8 @@ export default function WorkModal({ type, isOpen, onClose }: WorkModalProps) {
                   <div
                     className="nav-icon-circle"
                     style={{
-                      width: '50px',
-                      height: '50px',
+                      width: '42px',
+                      height: '42px',
                       background: '#fff',
                       border: '3px solid #111',
                       borderRadius: '50%',
@@ -534,10 +535,11 @@ export default function WorkModal({ type, isOpen, onClose }: WorkModalProps) {
                       alignItems: 'center',
                       justifyContent: 'center',
                       fontWeight: 800,
-                      fontSize: '0.9rem',
+                      fontSize: '0.75rem',
                       boxShadow: '3px 3px 0px rgba(0,0,0,0.1)',
                       transition: 'all 0.2s ease',
                       fontFamily: "'Outfit', sans-serif",
+                      flexShrink: 0,
                     }}
                   >
                     {brand.abbrev}
@@ -546,7 +548,7 @@ export default function WorkModal({ type, isOpen, onClose }: WorkModalProps) {
                     className="nav-text-label"
                     style={{
                       fontFamily: "'Anton', sans-serif",
-                      fontSize: '1.4rem',
+                      fontSize: '1.1rem',
                       textTransform: 'uppercase',
                       letterSpacing: '0.5px',
                       opacity: activeBrand === key ? 1 : 0.5,
@@ -575,37 +577,37 @@ export default function WorkModal({ type, isOpen, onClose }: WorkModalProps) {
             key={activeBrand}
             className="modal-content-area"
             style={{
-              padding: '50px 60px',
+              padding: '40px 50px',
               maxWidth: '800px',
               margin: '0 auto',
             }}
           >
             {/* Header */}
             <div style={{
-              marginBottom: '40px',
+              marginBottom: '30px',
               borderBottom: '3px dashed #111',
-              paddingBottom: '30px',
+              paddingBottom: '24px',
             }}>
               <span style={{
                 display: 'inline-block',
                 background: '#111',
                 color: config.bgColor,
-                padding: '8px 16px',
+                padding: '6px 12px',
                 fontFamily: "'Permanent Marker', cursive",
-                fontSize: '1rem',
+                fontSize: '0.85rem',
                 transform: 'rotate(-1deg)',
-                marginBottom: '12px',
-                boxShadow: '4px 4px 0px rgba(0,0,0,0.2)',
+                marginBottom: '10px',
+                boxShadow: '3px 3px 0px rgba(0,0,0,0.2)',
               }}>
                 {brandData.role}
               </span>
 
               <h2 style={{
                 fontFamily: "'Anton', sans-serif",
-                fontSize: '4rem',
+                fontSize: '2.8rem',
                 lineHeight: 0.9,
                 textTransform: 'uppercase',
-                marginBottom: '10px',
+                marginBottom: '8px',
               }}>
                 {brandData.title}
               </h2>
@@ -616,16 +618,16 @@ export default function WorkModal({ type, isOpen, onClose }: WorkModalProps) {
                 color: '#666',
                 textTransform: 'uppercase',
                 letterSpacing: '1px',
-                fontSize: '0.9rem',
+                fontSize: '0.8rem',
               }}>
                 {brandData.period}
               </div>
 
               <p style={{
                 fontFamily: "'Outfit', sans-serif",
-                fontSize: '1.1rem',
-                lineHeight: 1.6,
-                marginTop: '20px',
+                fontSize: '1rem',
+                lineHeight: 1.5,
+                marginTop: '16px',
                 color: '#333',
               }}>
                 {brandData.desc}
@@ -635,8 +637,8 @@ export default function WorkModal({ type, isOpen, onClose }: WorkModalProps) {
             {/* Campaigns Grid with Images */}
             <div style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-              gap: '24px',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+              gap: '20px',
             }}>
               {brandData.campaigns.map((campaign: any, idx: number) => (
                 <div
@@ -656,7 +658,7 @@ export default function WorkModal({ type, isOpen, onClose }: WorkModalProps) {
                   {campaign.image && (
                     <div style={{
                       width: '100%',
-                      height: '160px',
+                      height: '140px',
                       overflow: 'hidden',
                       borderBottom: '3px solid #111',
                     }}>
@@ -672,16 +674,16 @@ export default function WorkModal({ type, isOpen, onClose }: WorkModalProps) {
                     </div>
                   )}
 
-                  <div style={{ padding: '20px' }}>
+                  <div style={{ padding: '16px' }}>
                     <span style={{
                       display: 'inline-block',
-                      fontSize: '0.75rem',
+                      fontSize: '0.65rem',
                       fontWeight: 800,
                       textTransform: 'uppercase',
                       border: '2px solid #111',
-                      padding: '4px 8px',
+                      padding: '3px 6px',
                       borderRadius: '20px',
-                      marginBottom: '10px',
+                      marginBottom: '8px',
                       background: config.bgColor,
                       fontFamily: "'Outfit', sans-serif",
                     }}>
@@ -690,8 +692,8 @@ export default function WorkModal({ type, isOpen, onClose }: WorkModalProps) {
 
                     <h3 style={{
                       fontFamily: "'Anton', sans-serif",
-                      fontSize: '1.5rem',
-                      marginBottom: '12px',
+                      fontSize: '1.2rem',
+                      marginBottom: '8px',
                       textTransform: 'uppercase',
                       color: '#111',
                     }}>
@@ -700,30 +702,30 @@ export default function WorkModal({ type, isOpen, onClose }: WorkModalProps) {
 
                     <p style={{
                       fontFamily: "'Outfit', sans-serif",
-                      fontSize: '0.9rem',
+                      fontSize: '0.85rem',
                       color: '#444',
-                      lineHeight: 1.5,
+                      lineHeight: 1.4,
                     }}>
                       {campaign.text}
                     </p>
 
                     {campaign.results && (
                       <div style={{
-                        marginTop: '16px',
-                        paddingTop: '16px',
+                        marginTop: '12px',
+                        paddingTop: '12px',
                         borderTop: '2px dashed #ddd',
                       }}>
                         <div style={{
-                          fontSize: '0.7rem',
+                          fontSize: '0.65rem',
                           fontWeight: 800,
                           textTransform: 'uppercase',
                           color: '#999',
-                          marginBottom: '8px',
+                          marginBottom: '6px',
                           fontFamily: "'Outfit', sans-serif",
                         }}>
                           Results
                         </div>
-                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
                           {campaign.results.map((result: string, rIdx: number) => (
                             <span
                               key={rIdx}
