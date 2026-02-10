@@ -307,7 +307,7 @@ export default function WorkModal({ type, isOpen, onClose }: WorkModalProps) {
       onClick={onClose}
     >
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Anton&family=Outfit:wght@400;600;800&family=Permanent+Marker&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Anton&family=Outfit:wght@400;600;800&display=swap');
 
         @keyframes fadeIn {
           from { opacity: 0; }
@@ -337,28 +337,53 @@ export default function WorkModal({ type, isOpen, onClose }: WorkModalProps) {
           transform: translateX(5px);
         }
 
-        .nav-item-btn.active .nav-icon-circle {
+        .nav-item-btn.active .nav-logo-circle {
           background: #111 !important;
-          color: ${config.bgColor} !important;
           box-shadow: 0 0 0 4px #fff, 0 0 0 7px #111;
           transform: scale(1.1);
+        }
+
+        .nav-item-btn.active .nav-logo-circle img {
+          filter: brightness(0) invert(1) !important;
         }
 
         .nav-item-btn.active .nav-text-label {
           opacity: 1 !important;
         }
 
+        .right-panel {
+          scroll-behavior: smooth;
+          -webkit-overflow-scrolling: touch;
+        }
+
         .right-panel::-webkit-scrollbar {
-          width: 12px;
+          width: 8px;
         }
         .right-panel::-webkit-scrollbar-track {
-          background: #eee;
-          border-left: 2px solid #111;
+          background: #f5f5f5;
         }
         .right-panel::-webkit-scrollbar-thumb {
-          background: #111;
-          border: 2px solid #eee;
-          border-radius: 6px;
+          background: #ccc;
+          border-radius: 4px;
+        }
+        .right-panel::-webkit-scrollbar-thumb:hover {
+          background: #999;
+        }
+
+        .left-panel {
+          scroll-behavior: smooth;
+          -webkit-overflow-scrolling: touch;
+        }
+
+        .left-panel::-webkit-scrollbar {
+          width: 6px;
+        }
+        .left-panel::-webkit-scrollbar-track {
+          background: transparent;
+        }
+        .left-panel::-webkit-scrollbar-thumb {
+          background: rgba(0,0,0,0.2);
+          border-radius: 3px;
         }
       `}</style>
 
@@ -379,16 +404,19 @@ export default function WorkModal({ type, isOpen, onClose }: WorkModalProps) {
         }}
       >
         {/* LEFT PANEL */}
-        <aside style={{
-          backgroundColor: config.bgColor,
-          borderRight: '3px solid #111',
-          padding: '30px',
-          display: 'flex',
-          flexDirection: 'column',
-          position: 'relative',
-          zIndex: 2,
-          overflowY: 'auto',
-        }}>
+        <aside
+          className="left-panel"
+          style={{
+            backgroundColor: config.bgColor,
+            borderRight: '3px solid #111',
+            padding: '30px',
+            display: 'flex',
+            flexDirection: 'column',
+            position: 'relative',
+            zIndex: 2,
+            overflowY: 'auto',
+          }}
+        >
           {/* Close button */}
           <button
             onClick={onClose}
@@ -414,12 +442,13 @@ export default function WorkModal({ type, isOpen, onClose }: WorkModalProps) {
           </button>
 
           <div style={{
-            fontFamily: "'Permanent Marker', cursive",
-            fontSize: '1.2rem',
+            fontFamily: "'Roobert', 'Outfit', sans-serif",
+            fontSize: '1rem',
+            fontWeight: 700,
             color: '#111',
             marginBottom: '20px',
-            transform: 'rotate(-2deg)',
-            display: 'inline-block',
+            textTransform: 'uppercase',
+            letterSpacing: '0.5px',
           }}>
             {config.label}
           </div>
@@ -524,7 +553,7 @@ export default function WorkModal({ type, isOpen, onClose }: WorkModalProps) {
                   }}
                 >
                   <div
-                    className="nav-icon-circle"
+                    className="nav-logo-circle"
                     style={{
                       width: '42px',
                       height: '42px',
@@ -534,15 +563,24 @@ export default function WorkModal({ type, isOpen, onClose }: WorkModalProps) {
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      fontWeight: 800,
-                      fontSize: '0.75rem',
                       boxShadow: '3px 3px 0px rgba(0,0,0,0.1)',
                       transition: 'all 0.2s ease',
-                      fontFamily: "'Outfit', sans-serif",
                       flexShrink: 0,
+                      padding: '8px',
+                      overflow: 'hidden',
                     }}
                   >
-                    {brand.abbrev}
+                    <img
+                      src={brand.logo}
+                      alt={brand.title}
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'contain',
+                        filter: 'grayscale(100%)',
+                        transition: 'filter 0.2s ease',
+                      }}
+                    />
                   </div>
                   <span
                     className="nav-text-label"
@@ -593,11 +631,11 @@ export default function WorkModal({ type, isOpen, onClose }: WorkModalProps) {
                 background: '#111',
                 color: config.bgColor,
                 padding: '6px 12px',
-                fontFamily: "'Permanent Marker', cursive",
-                fontSize: '0.85rem',
-                transform: 'rotate(-1deg)',
+                fontFamily: "'Roobert', 'Outfit', sans-serif",
+                fontWeight: 600,
+                fontSize: '0.8rem',
                 marginBottom: '10px',
-                boxShadow: '3px 3px 0px rgba(0,0,0,0.2)',
+                borderRadius: '4px',
               }}>
                 {brandData.role}
               </span>
