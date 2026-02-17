@@ -23,16 +23,15 @@ export default function AmbientSound() {
     masterGain.connect(ctx.destination);
     gainNodeRef.current = masterGain;
 
-    // Create multiple oscillators for ethereal, high-pitched meditative sound
-    // Using higher frequencies for a transcendent, nirvana-like quality
+    // Create warm, intensely pleasant hum
+    // Rich harmonics with a golden, resonant quality
     const frequencies = [
-      { freq: 396, type: 'sine' as OscillatorType, gain: 0.06 },     // Solfeggio - Liberation
-      { freq: 528, type: 'sine' as OscillatorType, gain: 0.08 },     // Solfeggio - Love/DNA repair
-      { freq: 639, type: 'sine' as OscillatorType, gain: 0.05 },     // Solfeggio - Connection
-      { freq: 741, type: 'sine' as OscillatorType, gain: 0.04 },     // Solfeggio - Awakening
-      { freq: 852, type: 'sine' as OscillatorType, gain: 0.03 },     // Solfeggio - Intuition
-      { freq: 1056, type: 'sine' as OscillatorType, gain: 0.02 },    // High overtone
-      { freq: 264, type: 'triangle' as OscillatorType, gain: 0.03 }, // Grounding base
+      { freq: 136.1, type: 'sine' as OscillatorType, gain: 0.12 },   // Om frequency - Earth resonance
+      { freq: 272.2, type: 'sine' as OscillatorType, gain: 0.10 },   // Octave of Om
+      { freq: 408.3, type: 'sine' as OscillatorType, gain: 0.06 },   // Perfect fifth
+      { freq: 544.4, type: 'sine' as OscillatorType, gain: 0.04 },   // Double octave
+      { freq: 204.15, type: 'sine' as OscillatorType, gain: 0.05 },  // Perfect fourth harmony
+      { freq: 340.25, type: 'sine' as OscillatorType, gain: 0.03 },  // Major third warmth
     ];
 
     frequencies.forEach(({ freq, type, gain }) => {
