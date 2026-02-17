@@ -23,28 +23,33 @@ export default function AmbientSound() {
     masterGain.connect(ctx.destination);
     gainNodeRef.current = masterGain;
 
-    // Create warm, horn-like sustained tone with rich harmonics
-    // Base frequency - like a tibetan horn or singing bowl
-    const baseFreq = 174; // Low, resonant fundamental
+    // Harmonized hum - chord-based drone
+    // Using a major chord with octaves for warm, harmonious sound
+    const chordTones = [
+      // Root (C)
+      { freq: 130.81, gain: 0.12 },   // C3
+      { freq: 261.63, gain: 0.08 },   // C4
 
-    // Create layered sine waves for horn-like timbre
-    const harmonics = [
-      { ratio: 1, gain: 0.18 },      // Fundamental
-      { ratio: 2, gain: 0.12 },      // Octave
-      { ratio: 3, gain: 0.06 },      // Fifth above octave
-      { ratio: 4, gain: 0.04 },      // 2nd octave
-      { ratio: 5, gain: 0.025 },     // Major third
-      { ratio: 6, gain: 0.015 },     // Fifth
+      // Major third (E)
+      { freq: 164.81, gain: 0.07 },   // E3
+      { freq: 329.63, gain: 0.05 },   // E4
+
+      // Perfect fifth (G)
+      { freq: 196.00, gain: 0.08 },   // G3
+      { freq: 392.00, gain: 0.04 },   // G4
+
+      // Octave reinforcement
+      { freq: 523.25, gain: 0.025 },  // C5 (soft high)
     ];
 
-    harmonics.forEach(({ ratio, gain }) => {
+    chordTones.forEach(({ freq, gain }) => {
       const osc = ctx.createOscillator();
       const oscGain = ctx.createGain();
 
       osc.type = 'sine';
-      osc.frequency.value = baseFreq * ratio;
-      // Slight detuning for richness
-      osc.detune.value = (Math.random() - 0.5) * 6;
+      osc.frequency.value = freq;
+      // Very slight detuning for warmth
+      osc.detune.value = (Math.random() - 0.5) * 4;
 
       oscGain.gain.value = gain;
       osc.connect(oscGain);
@@ -54,18 +59,19 @@ export default function AmbientSound() {
       oscillatorsRef.current.push(osc);
     });
 
-    // Add a second voice slightly detuned for chorus/shimmer
-    const secondVoice = [
-      { ratio: 1, gain: 0.08, detune: 3 },
-      { ratio: 2, gain: 0.05, detune: -4 },
+    // Add gentle beating/shimmer with slightly detuned doubles
+    const shimmerTones = [
+      { freq: 130.81, gain: 0.04, detune: 2 },
+      { freq: 196.00, gain: 0.03, detune: -2 },
+      { freq: 261.63, gain: 0.025, detune: 3 },
     ];
 
-    secondVoice.forEach(({ ratio, gain, detune }) => {
+    shimmerTones.forEach(({ freq, gain, detune }) => {
       const osc = ctx.createOscillator();
       const oscGain = ctx.createGain();
 
       osc.type = 'sine';
-      osc.frequency.value = baseFreq * ratio;
+      osc.frequency.value = freq;
       osc.detune.value = detune;
 
       oscGain.gain.value = gain;
@@ -75,31 +81,6 @@ export default function AmbientSound() {
 
       oscillatorsRef.current.push(osc);
     });
-
-    // Very subtle breath texture (much quieter)
-    const bufferSize = 2 * ctx.sampleRate;
-    const noiseBuffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
-    const output = noiseBuffer.getChannelData(0);
-    for (let i = 0; i < bufferSize; i++) {
-      output[i] = (Math.random() * 2 - 1) * 0.3;
-    }
-
-    const noise = ctx.createBufferSource();
-    noise.buffer = noiseBuffer;
-    noise.loop = true;
-
-    const noiseLowpass = ctx.createBiquadFilter();
-    noiseLowpass.type = 'lowpass';
-    noiseLowpass.frequency.value = 800;
-    noiseLowpass.Q.value = 0.5;
-
-    const noiseGain = ctx.createGain();
-    noiseGain.gain.value = 0.02; // Very subtle
-
-    noise.connect(noiseLowpass);
-    noiseLowpass.connect(noiseGain);
-    noiseGain.connect(masterGain);
-    noise.start();
 
     // Add soft, subtle crackles
     const createCrackle = () => {
