@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import WorkModal from './components/WorkModal';
+import AmbientSound from './components/AmbientSound';
 
 export default function Home() {
   const [activeModal, setActiveModal] = useState<'fullStack' | 'paidMedia' | 'creative' | null>(null);
@@ -48,7 +49,10 @@ export default function Home() {
     <>
       <div className="viewport b-top b-bottom">
         <header className="b-bottom">
-          <div className="brand">Jack Morello</div>
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            <div className="brand">Jack Morello</div>
+            <AmbientSound />
+          </div>
           <div className="nav-links">
             <div
               className="nav-item"
