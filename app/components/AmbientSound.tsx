@@ -23,35 +23,73 @@ export default function AmbientSound() {
     masterGain.connect(ctx.destination);
     gainNodeRef.current = masterGain;
 
-    // Create warm, intensely pleasant hum
-    // Rich harmonics with a golden, resonant quality
-    const frequencies = [
-      { freq: 136.1, type: 'sine' as OscillatorType, gain: 0.12 },   // Om frequency - Earth resonance
-      { freq: 272.2, type: 'sine' as OscillatorType, gain: 0.10 },   // Octave of Om
-      { freq: 408.3, type: 'sine' as OscillatorType, gain: 0.06 },   // Perfect fifth
-      { freq: 544.4, type: 'sine' as OscillatorType, gain: 0.04 },   // Double octave
-      { freq: 204.15, type: 'sine' as OscillatorType, gain: 0.05 },  // Perfect fourth harmony
-      { freq: 340.25, type: 'sine' as OscillatorType, gain: 0.03 },  // Major third warmth
-    ];
+    // Create wind/breath-like blowing sound using filtered noise
+    const bufferSize = 2 * ctx.sampleRate;
+    const noiseBuffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+    const output = noiseBuffer.getChannelData(0);
 
-    frequencies.forEach(({ freq, type, gain }) => {
-      const osc = ctx.createOscillator();
-      const oscGain = ctx.createGain();
+    // Generate pink-ish noise (softer than white noise)
+    for (let i = 0; i < bufferSize; i++) {
+      output[i] = (Math.random() * 2 - 1) * 0.5;
+    }
 
-      osc.type = type;
-      osc.frequency.value = freq;
+    // Create noise source
+    const noise = ctx.createBufferSource();
+    noise.buffer = noiseBuffer;
+    noise.loop = true;
 
-      // Add very slight detuning for warmth
-      osc.detune.value = Math.random() * 4 - 2;
+    // Bandpass filter to shape wind sound
+    const bandpass = ctx.createBiquadFilter();
+    bandpass.type = 'bandpass';
+    bandpass.frequency.value = 800;
+    bandpass.Q.value = 0.5;
 
-      oscGain.gain.value = gain;
+    // Lowpass for smoothness
+    const lowpass = ctx.createBiquadFilter();
+    lowpass.type = 'lowpass';
+    lowpass.frequency.value = 2000;
+    lowpass.Q.value = 0.7;
 
-      osc.connect(oscGain);
-      oscGain.connect(masterGain);
+    // Highpass to remove rumble
+    const highpass = ctx.createBiquadFilter();
+    highpass.type = 'highpass';
+    highpass.frequency.value = 200;
+    highpass.Q.value = 0.5;
 
-      osc.start();
-      oscillatorsRef.current.push(osc);
-    });
+    // Gain for noise
+    const noiseGain = ctx.createGain();
+    noiseGain.gain.value = 0.35;
+
+    // Connect noise chain
+    noise.connect(highpass);
+    highpass.connect(bandpass);
+    bandpass.connect(lowpass);
+    lowpass.connect(noiseGain);
+    noiseGain.connect(masterGain);
+
+    noise.start();
+
+    // Add subtle LFO modulation for natural wind variation
+    const lfo = ctx.createOscillator();
+    const lfoGain = ctx.createGain();
+    lfo.type = 'sine';
+    lfo.frequency.value = 0.15; // Very slow modulation
+    lfoGain.gain.value = 300;
+    lfo.connect(lfoGain);
+    lfoGain.connect(bandpass.frequency);
+    lfo.start();
+
+    // Add a soft tonal undertone
+    const toneOsc = ctx.createOscillator();
+    const toneGain = ctx.createGain();
+    toneOsc.type = 'sine';
+    toneOsc.frequency.value = 220;
+    toneGain.gain.value = 0.03;
+    toneOsc.connect(toneGain);
+    toneGain.connect(masterGain);
+    toneOsc.start();
+
+    oscillatorsRef.current.push(toneOsc, lfo);
 
     setIsInitialized(true);
   }, []);
