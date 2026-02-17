@@ -23,13 +23,16 @@ export default function AmbientSound() {
     masterGain.connect(ctx.destination);
     gainNodeRef.current = masterGain;
 
-    // Create multiple oscillators for a rich drone sound
-    // Using frequencies that create a meditative, harmonic sound
+    // Create multiple oscillators for ethereal, high-pitched meditative sound
+    // Using higher frequencies for a transcendent, nirvana-like quality
     const frequencies = [
-      { freq: 60, type: 'sine' as OscillatorType, gain: 0.15 },      // Deep bass
-      { freq: 120, type: 'sine' as OscillatorType, gain: 0.08 },     // Octave
-      { freq: 180, type: 'sine' as OscillatorType, gain: 0.04 },     // Fifth
-      { freq: 90, type: 'triangle' as OscillatorType, gain: 0.03 }, // Subtle texture
+      { freq: 396, type: 'sine' as OscillatorType, gain: 0.06 },     // Solfeggio - Liberation
+      { freq: 528, type: 'sine' as OscillatorType, gain: 0.08 },     // Solfeggio - Love/DNA repair
+      { freq: 639, type: 'sine' as OscillatorType, gain: 0.05 },     // Solfeggio - Connection
+      { freq: 741, type: 'sine' as OscillatorType, gain: 0.04 },     // Solfeggio - Awakening
+      { freq: 852, type: 'sine' as OscillatorType, gain: 0.03 },     // Solfeggio - Intuition
+      { freq: 1056, type: 'sine' as OscillatorType, gain: 0.02 },    // High overtone
+      { freq: 264, type: 'triangle' as OscillatorType, gain: 0.03 }, // Grounding base
     ];
 
     frequencies.forEach(({ freq, type, gain }) => {
