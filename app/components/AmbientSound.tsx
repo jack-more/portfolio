@@ -89,6 +89,52 @@ export default function AmbientSound() {
     toneGain.connect(masterGain);
     toneOsc.start();
 
+    // Add satisfying crackles like a fireplace/vinyl
+    const createCrackle = () => {
+      if (!audioContextRef.current || !gainNodeRef.current) return;
+
+      const crackleCtx = audioContextRef.current;
+      const crackleGain = crackleCtx.createGain();
+
+      // Random crackle characteristics
+      const duration = 0.01 + Math.random() * 0.03;
+      const volume = 0.08 + Math.random() * 0.15;
+
+      // Create a short burst of filtered noise for crackle
+      const crackleBuffer = crackleCtx.createBuffer(1, crackleCtx.sampleRate * duration, crackleCtx.sampleRate);
+      const crackleData = crackleBuffer.getChannelData(0);
+
+      for (let i = 0; i < crackleData.length; i++) {
+        // Sharp attack, quick decay envelope
+        const env = Math.exp(-i / (crackleData.length * 0.15));
+        crackleData[i] = (Math.random() * 2 - 1) * env;
+      }
+
+      const crackleSource = crackleCtx.createBufferSource();
+      crackleSource.buffer = crackleBuffer;
+
+      // Highpass to make it crispy
+      const crackleHP = crackleCtx.createBiquadFilter();
+      crackleHP.type = 'highpass';
+      crackleHP.frequency.value = 2000 + Math.random() * 3000;
+
+      crackleGain.gain.value = volume;
+
+      crackleSource.connect(crackleHP);
+      crackleHP.connect(crackleGain);
+      crackleGain.connect(masterGain);
+
+      crackleSource.start();
+      crackleSource.stop(crackleCtx.currentTime + duration);
+
+      // Schedule next crackle with random interval
+      const nextInterval = 50 + Math.random() * 400;
+      setTimeout(createCrackle, nextInterval);
+    };
+
+    // Start crackles after a short delay
+    setTimeout(createCrackle, 500);
+
     oscillatorsRef.current.push(toneOsc, lfo);
 
     setIsInitialized(true);
