@@ -23,59 +23,82 @@ export default function AmbientSound() {
     masterGain.connect(ctx.destination);
     gainNodeRef.current = masterGain;
 
-    // Create smooth, steady white noise for soft blowing
-    const bufferSize = 4 * ctx.sampleRate;
+    // Create warm, horn-like sustained tone with rich harmonics
+    // Base frequency - like a tibetan horn or singing bowl
+    const baseFreq = 174; // Low, resonant fundamental
+
+    // Create layered sine waves for horn-like timbre
+    const harmonics = [
+      { ratio: 1, gain: 0.18 },      // Fundamental
+      { ratio: 2, gain: 0.12 },      // Octave
+      { ratio: 3, gain: 0.06 },      // Fifth above octave
+      { ratio: 4, gain: 0.04 },      // 2nd octave
+      { ratio: 5, gain: 0.025 },     // Major third
+      { ratio: 6, gain: 0.015 },     // Fifth
+    ];
+
+    harmonics.forEach(({ ratio, gain }) => {
+      const osc = ctx.createOscillator();
+      const oscGain = ctx.createGain();
+
+      osc.type = 'sine';
+      osc.frequency.value = baseFreq * ratio;
+      // Slight detuning for richness
+      osc.detune.value = (Math.random() - 0.5) * 6;
+
+      oscGain.gain.value = gain;
+      osc.connect(oscGain);
+      oscGain.connect(masterGain);
+      osc.start();
+
+      oscillatorsRef.current.push(osc);
+    });
+
+    // Add a second voice slightly detuned for chorus/shimmer
+    const secondVoice = [
+      { ratio: 1, gain: 0.08, detune: 3 },
+      { ratio: 2, gain: 0.05, detune: -4 },
+    ];
+
+    secondVoice.forEach(({ ratio, gain, detune }) => {
+      const osc = ctx.createOscillator();
+      const oscGain = ctx.createGain();
+
+      osc.type = 'sine';
+      osc.frequency.value = baseFreq * ratio;
+      osc.detune.value = detune;
+
+      oscGain.gain.value = gain;
+      osc.connect(oscGain);
+      oscGain.connect(masterGain);
+      osc.start();
+
+      oscillatorsRef.current.push(osc);
+    });
+
+    // Very subtle breath texture (much quieter)
+    const bufferSize = 2 * ctx.sampleRate;
     const noiseBuffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
     const output = noiseBuffer.getChannelData(0);
-
-    // Generate smooth pink noise
-    let b0 = 0, b1 = 0, b2 = 0, b3 = 0, b4 = 0, b5 = 0, b6 = 0;
     for (let i = 0; i < bufferSize; i++) {
-      const white = Math.random() * 2 - 1;
-      b0 = 0.99886 * b0 + white * 0.0555179;
-      b1 = 0.99332 * b1 + white * 0.0750759;
-      b2 = 0.96900 * b2 + white * 0.1538520;
-      b3 = 0.86650 * b3 + white * 0.3104856;
-      b4 = 0.55000 * b4 + white * 0.5329522;
-      b5 = -0.7616 * b5 - white * 0.0168980;
-      output[i] = (b0 + b1 + b2 + b3 + b4 + b5 + b6 + white * 0.5362) * 0.11;
-      b6 = white * 0.115926;
+      output[i] = (Math.random() * 2 - 1) * 0.3;
     }
 
-    // Create noise source
     const noise = ctx.createBufferSource();
     noise.buffer = noiseBuffer;
     noise.loop = true;
 
-    // Gentle lowpass for smooth, airy sound
-    const lowpass = ctx.createBiquadFilter();
-    lowpass.type = 'lowpass';
-    lowpass.frequency.value = 3000;
-    lowpass.Q.value = 0.3;
+    const noiseLowpass = ctx.createBiquadFilter();
+    noiseLowpass.type = 'lowpass';
+    noiseLowpass.frequency.value = 800;
+    noiseLowpass.Q.value = 0.5;
 
-    // Second lowpass for extra smoothness
-    const lowpass2 = ctx.createBiquadFilter();
-    lowpass2.type = 'lowpass';
-    lowpass2.frequency.value = 2500;
-    lowpass2.Q.value = 0.2;
-
-    // Gentle highpass to remove very low rumble
-    const highpass = ctx.createBiquadFilter();
-    highpass.type = 'highpass';
-    highpass.frequency.value = 150;
-    highpass.Q.value = 0.3;
-
-    // Gain for noise
     const noiseGain = ctx.createGain();
-    noiseGain.gain.value = 0.25;
+    noiseGain.gain.value = 0.02; // Very subtle
 
-    // Connect noise chain - no bandpass, just smooth filtering
-    noise.connect(highpass);
-    highpass.connect(lowpass);
-    lowpass.connect(lowpass2);
-    lowpass2.connect(noiseGain);
+    noise.connect(noiseLowpass);
+    noiseLowpass.connect(noiseGain);
     noiseGain.connect(masterGain);
-
     noise.start();
 
     // Add soft, subtle crackles
