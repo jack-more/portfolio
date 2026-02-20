@@ -73,7 +73,7 @@ export default function Home() {
         <aside className="sidebar b-right">
           <div className="sidebar-header">
             <p style={{ fontSize: '1.25rem', lineHeight: '1.4' }}>
-              Marketing executive specializing in growth strategy, paid media, and brand development across entertainment, tech, and consumer brands.
+              LA-based marketer and data scientist specializing in growth strategy, paid media, and brand development across entertainment, tech, and consumer brands.
             </p>
           </div>
           <ul className="profile-list">
