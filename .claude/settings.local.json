@@ -48,7 +48,8 @@
       "WebFetch(domain:radicalbummer.com)",
       "WebFetch(domain:www.ispot.tv)",
       "WebFetch(domain:blog.influence.co)",
-      "WebFetch(domain:shields.build)"
+      "WebFetch(domain:shields.build)",
+      "WebFetch(domain:www.impawards.com)"
     ]
   }
 }
