@@ -73,21 +73,38 @@ const paidMediaData = {
     logo: "/images/netflix.png",
     desc: "Managed content partnerships and coordinated weekly delivery of digital marketing assets for promotional campaigns. EPK.TV delivers over 1 million assets annually to 50,000+ media professionals worldwide.",
     campaigns: [
-      { title: "Bird Box Campaign", text: "Coordinated distribution of promotional content including trailers, B-roll, and press materials for the viral Netflix original film (December 2018).", tag: "Film", image: "/images/campaigns/paid-media/bird-box.jpg" },
-      { title: "The Irishman Press Kit", text: "Managed digital asset distribution for Martin Scorsese's epic, including junket interviews and premiere footage (November 2019).", tag: "Film", image: "/images/campaigns/paid-media/the-irishman.jpg" },
-      { title: "Stranger Things S3", text: "Distributed marketing assets for the highly anticipated third season launch (July 2019).", tag: "Series", image: "/images/campaigns/paid-media/stranger-things-s3.jpg" }
+      { title: "Bird Box", text: "Viral Netflix original film starring Sandra Bullock (December 2018).", tag: "Film", image: "/images/campaigns/paid-media/bird-box.jpg" },
+      { title: "The Irishman", text: "Martin Scorsese's epic crime drama with De Niro, Pacino, and Pesci (November 2019).", tag: "Film", image: "/images/campaigns/paid-media/the-irishman.jpg" },
+      { title: "Stranger Things S3", text: "Highly anticipated third season launch (July 2019).", tag: "Series", image: "/images/campaigns/paid-media/stranger-things-s3.jpg" },
+      { title: "Marriage Story", text: "Noah Baumbach's award-winning drama with Scarlett Johansson and Adam Driver.", tag: "Film", image: "/images/netflix.png" },
+      { title: "The Witcher S1", text: "Epic fantasy series starring Henry Cavill (December 2019).", tag: "Series", image: "/images/netflix.png" },
+      { title: "6 Underground", text: "Michael Bay action film starring Ryan Reynolds.", tag: "Film", image: "/images/netflix.png" },
+      { title: "Uncut Gems", text: "Safdie Brothers thriller starring Adam Sandler.", tag: "Film", image: "/images/netflix.png" },
+      { title: "El Camino", text: "Breaking Bad sequel film (October 2019).", tag: "Film", image: "/images/netflix.png" },
+      { title: "The Crown S3", text: "Royal drama series third season launch.", tag: "Series", image: "/images/netflix.png" },
+      { title: "Dead to Me S1", text: "Dark comedy series with Christina Applegate.", tag: "Series", image: "/images/netflix.png" },
+      { title: "When They See Us", text: "Ava DuVernay's limited series on the Central Park Five.", tag: "Series", image: "/images/netflix.png" },
+      { title: "Triple Frontier", text: "Action thriller with Ben Affleck and Oscar Isaac.", tag: "Film", image: "/images/netflix.png" }
     ]
   },
   disney: {
     role: "EPK.TV — Content Merchandiser",
     period: "Aug 2018 – Jan 2020",
-    title: "Disney+",
+    title: "Disney",
     abbrev: "D+",
     logo: "/images/disneyplus.png",
-    desc: "Managed content partnerships during Disney+ launch period. EPK.TV was the designated distribution platform for Disney's promotional video content.",
+    desc: "Managed content partnerships during Disney+ launch period. EPK.TV was the designated distribution platform for Disney's promotional video content across theatrical and streaming releases.",
     campaigns: [
-      { title: "D23 Expo 2019 Launch", text: "Distributed B-roll, VNR, and sound bites from the official Disney+ announcement at D23 Expo ahead of the November 12, 2019 platform launch.", tag: "Event", image: "/images/campaigns/paid-media/disney-plus-launch.jpg" },
-      { title: "Frozen II Press Campaign", text: "Coordinated digital asset distribution for the animated sequel release (November 2019).", tag: "Film", image: "/images/campaigns/paid-media/frozen-2.jpg" }
+      { title: "Disney+ Launch", text: "D23 Expo 2019 announcement and November 12, 2019 platform launch.", tag: "Platform", image: "/images/campaigns/paid-media/disney-plus-launch.jpg" },
+      { title: "Frozen II", text: "Animated sequel release (November 2019).", tag: "Film", image: "/images/campaigns/paid-media/frozen-2.jpg" },
+      { title: "Avengers: Endgame", text: "Record-breaking MCU finale (April 2019).", tag: "Film", image: "/images/disneyplus.png" },
+      { title: "The Lion King", text: "Live-action remake (July 2019).", tag: "Film", image: "/images/disneyplus.png" },
+      { title: "Captain Marvel", text: "MCU origin story (March 2019).", tag: "Film", image: "/images/disneyplus.png" },
+      { title: "Toy Story 4", text: "Pixar animated sequel (June 2019).", tag: "Film", image: "/images/disneyplus.png" },
+      { title: "Aladdin", text: "Live-action remake with Will Smith (May 2019).", tag: "Film", image: "/images/disneyplus.png" },
+      { title: "Star Wars: Rise of Skywalker", text: "Skywalker Saga finale (December 2019).", tag: "Film", image: "/images/disneyplus.png" },
+      { title: "The Mandalorian S1", text: "Disney+ flagship Star Wars series.", tag: "Series", image: "/images/disneyplus.png" },
+      { title: "Maleficent: Mistress of Evil", text: "Fantasy sequel with Angelina Jolie.", tag: "Film", image: "/images/disneyplus.png" }
     ]
   },
   sony: {
@@ -96,10 +113,17 @@ const paidMediaData = {
     title: "Sony Pictures",
     abbrev: "SP",
     logo: "/images/sony-pictures-logo.png",
-    desc: "Managed content partnerships with Sony Pictures, coordinating delivery of digital marketing assets for theatrical releases.",
+    desc: "Managed content partnerships with Sony Pictures, coordinating delivery of digital marketing assets for theatrical releases through dedicated studio portal.",
     campaigns: [
-      { title: "Venom Launch", text: "Distributed promotional content for Sony's blockbuster anti-hero film (October 2018).", tag: "Film", image: "/images/campaigns/paid-media/venom.jpg" },
-      { title: "Spider-Verse", text: "Managed press kit distribution for the Academy Award-winning animated feature Spider-Man: Into the Spider-Verse (December 2018).", tag: "Film", image: "/images/campaigns/paid-media/spider-verse.jpg" }
+      { title: "Venom", text: "Blockbuster anti-hero film with Tom Hardy (October 2018).", tag: "Film", image: "/images/campaigns/paid-media/venom.jpg" },
+      { title: "Spider-Man: Into the Spider-Verse", text: "Academy Award-winning animated feature (December 2018).", tag: "Film", image: "/images/campaigns/paid-media/spider-verse.jpg" },
+      { title: "Spider-Man: Far From Home", text: "MCU sequel (July 2019).", tag: "Film", image: "/images/sony-pictures-logo.png" },
+      { title: "Once Upon a Time in Hollywood", text: "Tarantino's star-studded drama (July 2019).", tag: "Film", image: "/images/sony-pictures-logo.png" },
+      { title: "Jumanji: The Next Level", text: "Action-comedy sequel (December 2019).", tag: "Film", image: "/images/sony-pictures-logo.png" },
+      { title: "Men in Black: International", text: "Sci-fi comedy spinoff (June 2019).", tag: "Film", image: "/images/sony-pictures-logo.png" },
+      { title: "A Beautiful Day in the Neighborhood", text: "Tom Hanks as Mr. Rogers.", tag: "Film", image: "/images/sony-pictures-logo.png" },
+      { title: "Little Women", text: "Greta Gerwig's acclaimed adaptation (December 2019).", tag: "Film", image: "/images/sony-pictures-logo.png" },
+      { title: "Zombieland: Double Tap", text: "Comedy-horror sequel (October 2019).", tag: "Film", image: "/images/sony-pictures-logo.png" }
     ]
   },
   universal: {
@@ -108,22 +132,34 @@ const paidMediaData = {
     title: "Universal",
     abbrev: "UN",
     logo: "/images/universal-logo.png",
-    desc: "Coordinated digital asset distribution through EPK.TV's dedicated Universal Pictures portal (universal.epk.tv).",
+    desc: "Coordinated digital asset distribution through EPK.TV's dedicated Universal Pictures portal (universal.epk.tv) for theatrical and home entertainment releases.",
     campaigns: [
-      { title: "Us Press Campaign", text: "Distributed promotional assets for Jordan Peele's horror film (March 2019).", tag: "Film", image: "/images/campaigns/paid-media/us.jpg" },
-      { title: "Hobbs & Shaw", text: "Managed press materials and B-roll distribution for the Fast & Furious franchise spin-off (August 2019).", tag: "Film", image: "/images/campaigns/paid-media/hobbs-shaw.jpg" },
-      { title: "1917 Awards Campaign", text: "Coordinated press kit distribution for Sam Mendes' war epic during awards season (December 2019).", tag: "Film", image: "/images/campaigns/paid-media/1917.jpg" }
+      { title: "Us", text: "Jordan Peele's horror film (March 2019).", tag: "Film", image: "/images/campaigns/paid-media/us.jpg" },
+      { title: "Hobbs & Shaw", text: "Fast & Furious franchise spin-off (August 2019).", tag: "Film", image: "/images/campaigns/paid-media/hobbs-shaw.jpg" },
+      { title: "1917", text: "Sam Mendes' war epic, Academy Award winner (December 2019).", tag: "Film", image: "/images/campaigns/paid-media/1917.jpg" },
+      { title: "How to Train Your Dragon 3", text: "Animated trilogy finale (February 2019).", tag: "Film", image: "/images/universal-logo.png" },
+      { title: "The Secret Life of Pets 2", text: "Animated comedy sequel (June 2019).", tag: "Film", image: "/images/universal-logo.png" },
+      { title: "Glass", text: "M. Night Shyamalan thriller (January 2019).", tag: "Film", image: "/images/universal-logo.png" },
+      { title: "Downton Abbey", text: "Feature film adaptation (September 2019).", tag: "Film", image: "/images/universal-logo.png" },
+      { title: "Good Boys", text: "R-rated comedy (August 2019).", tag: "Film", image: "/images/universal-logo.png" },
+      { title: "Cats", text: "Musical adaptation (December 2019).", tag: "Film", image: "/images/universal-logo.png" },
+      { title: "Abominable", text: "DreamWorks animated film (September 2019).", tag: "Film", image: "/images/universal-logo.png" }
     ]
   },
   peacock: {
     role: "EPK.TV — Content Merchandiser",
     period: "Aug 2018 – Jan 2020",
-    title: "Peacock",
-    abbrev: "PC",
+    title: "NBC / Peacock",
+    abbrev: "NBC",
     logo: "/images/peacock-logo.png",
-    desc: "Supported NBCUniversal content distribution ahead of Peacock streaming service launch. Managed promotional materials for NBC properties.",
+    desc: "Supported NBCUniversal content distribution for NBC network shows and ahead of Peacock streaming service launch.",
     campaigns: [
-      { title: "Peacock Pre-Launch", text: "Coordinated promotional content distribution as NBCUniversal prepared for the April 2020 streaming service launch.", tag: "Platform", image: "/images/peacock-logo.png" }
+      { title: "Peacock Pre-Launch", text: "Promotional content for April 2020 streaming launch.", tag: "Platform", image: "/images/peacock-logo.png" },
+      { title: "This Is Us", text: "Hit NBC drama series seasons.", tag: "Series", image: "/images/peacock-logo.png" },
+      { title: "The Good Place", text: "Comedy series with Kristen Bell.", tag: "Series", image: "/images/peacock-logo.png" },
+      { title: "Brooklyn Nine-Nine", text: "Comedy series after NBC pickup.", tag: "Series", image: "/images/peacock-logo.png" },
+      { title: "Saturday Night Live", text: "Weekly sketch comedy episodes.", tag: "Series", image: "/images/peacock-logo.png" },
+      { title: "Chicago franchise", text: "Chicago Fire, PD, and Med series.", tag: "Series", image: "/images/peacock-logo.png" }
     ]
   },
   prime: {
@@ -132,10 +168,31 @@ const paidMediaData = {
     title: "Prime Video",
     abbrev: "PV",
     logo: "/images/amazon-prime-video.png",
-    desc: "Managed content distribution through EPK.TV's dedicated Amazon Prime Video portal (amazonprimevideo.epk.tv).",
+    desc: "Managed content distribution through EPK.TV's dedicated Amazon Prime Video portal (amazonprimevideo.epk.tv) for original series and film releases.",
     campaigns: [
-      { title: "The Boys S1", text: "Distributed press materials for Amazon's breakout superhero series (July 2019).", tag: "Series", image: "/images/campaigns/paid-media/the-boys.jpg" },
-      { title: "Jack Ryan S2", text: "Coordinated promotional asset distribution for the action thriller series (October 2019).", tag: "Series", image: "/images/campaigns/paid-media/jack-ryan.jpg" }
+      { title: "The Boys S1", text: "Breakout superhero series (July 2019).", tag: "Series", image: "/images/campaigns/paid-media/the-boys.jpg" },
+      { title: "Jack Ryan S2", text: "Action thriller series (October 2019).", tag: "Series", image: "/images/campaigns/paid-media/jack-ryan.jpg" },
+      { title: "The Marvelous Mrs. Maisel", text: "Emmy-winning comedy series.", tag: "Series", image: "/images/amazon-prime-video.png" },
+      { title: "Fleabag S2", text: "Phoebe Waller-Bridge's acclaimed series.", tag: "Series", image: "/images/amazon-prime-video.png" },
+      { title: "Carnival Row", text: "Fantasy series with Orlando Bloom.", tag: "Series", image: "/images/amazon-prime-video.png" },
+      { title: "The Expanse S4", text: "Sci-fi series Amazon pickup.", tag: "Series", image: "/images/amazon-prime-video.png" },
+      { title: "Hunters", text: "Nazi hunters drama with Al Pacino.", tag: "Series", image: "/images/amazon-prime-video.png" },
+      { title: "Modern Love S1", text: "Romantic anthology series.", tag: "Series", image: "/images/amazon-prime-video.png" }
+    ]
+  },
+  starz: {
+    role: "iHeartMedia — Paid Media Manager",
+    period: "Jan 2020 – Apr 2021",
+    title: "Starz",
+    abbrev: "STZ",
+    logo: "/images/starz-logo.png",
+    desc: "Managed paid media campaigns for Starz premium cable and streaming service, driving subscriber acquisition and engagement across digital platforms.",
+    campaigns: [
+      { title: "Power Book II: Ghost", text: "Spinoff series launch campaign.", tag: "Series", image: "/images/starz-logo.png" },
+      { title: "Outlander", text: "Hit time-travel drama series.", tag: "Series", image: "/images/starz-logo.png" },
+      { title: "P-Valley", text: "Drama series premiere campaign.", tag: "Series", image: "/images/starz-logo.png" },
+      { title: "Hightown", text: "Crime drama series launch.", tag: "Series", image: "/images/starz-logo.png" },
+      { title: "Subscriber Acquisition", text: "Multi-platform paid campaigns for Starz app subscriptions.", tag: "Paid Media", image: "/images/starz-logo.png" }
     ]
   },
   toyota: {
@@ -146,8 +203,11 @@ const paidMediaData = {
     logo: "/images/toyota-logo.png",
     desc: "Executed paid media strategies for Toyota across Facebook, Instagram, Twitter, and Snapchat. Implemented bidding strategies and campaign optimizations to maximize return on ad spend.",
     campaigns: [
-      { title: "Programmatic Advertising", text: "Managed programmatic advertising campaigns across digital platforms. Delivered strategic insights and performance analysis to guide media planning and budget allocation.", tag: "Paid Media", image: "/images/toyota-logo.png" },
-      { title: "SmartAudio Integration", text: "Leveraged iHeartMedia's SmartAudio technology for broadcast-to-digital retargeting through multi-touch and sequential messaging.", tag: "Audio", image: "/images/toyota-logo.png" }
+      { title: "New Model Launches", text: "Paid campaigns for 2020-2021 vehicle launches including Venza, Sienna, and updated RAV4.", tag: "Paid Media", image: "/images/toyota-logo.png" },
+      { title: "SmartAudio Retargeting", text: "Broadcast-to-digital retargeting through multi-touch sequential messaging.", tag: "Audio", image: "/images/toyota-logo.png" },
+      { title: "Dealer Network Campaigns", text: "Localized paid media supporting regional dealer promotions.", tag: "Paid Media", image: "/images/toyota-logo.png" },
+      { title: "ToyotaCare Promotions", text: "Service and maintenance program awareness campaigns.", tag: "Paid Media", image: "/images/toyota-logo.png" },
+      { title: "Seasonal Sales Events", text: "Black Friday, Year-End, and holiday sales event campaigns.", tag: "Paid Media", image: "/images/toyota-logo.png" }
     ]
   },
   starbucks: {
@@ -158,7 +218,11 @@ const paidMediaData = {
     logo: "/images/starbucks.png",
     desc: "Managed programmatic advertising campaigns for Starbucks across digital platforms. Delivered strategic insights and performance analysis to guide media planning.",
     campaigns: [
-      { title: "Digital Media Campaigns", text: "Executed paid social strategies across Facebook, Instagram, Twitter, and Snapchat. Maintained relationships with key stakeholders ensuring campaign objectives aligned with marketing goals.", tag: "Paid Media", image: "/images/starbucks.png" }
+      { title: "Seasonal Beverage Launches", text: "Paid campaigns for Pumpkin Spice Latte, holiday drinks, and new menu items.", tag: "Paid Media", image: "/images/starbucks.png" },
+      { title: "Starbucks Rewards", text: "Loyalty program member acquisition and engagement campaigns.", tag: "Paid Media", image: "/images/starbucks.png" },
+      { title: "Mobile Order & Pay", text: "App download and usage campaigns during COVID-19.", tag: "Paid Media", image: "/images/starbucks.png" },
+      { title: "Store Reopening Campaign", text: "Communications for modified operations and safety protocols.", tag: "Paid Media", image: "/images/starbucks.png" },
+      { title: "At-Home Coffee", text: "Retail product campaigns for grocery and at-home consumption.", tag: "Paid Media", image: "/images/starbucks.png" }
     ]
   }
 };
@@ -241,7 +305,7 @@ const modalConfigs: Record<string, ModalConfig> = {
     subheadline: '$1B+',
     body: 'At EPK.TV, managed content partnerships with 20+ major studios. At iHeartMedia, executed programmatic advertising for entertainment and automotive clients.',
     data: paidMediaData,
-    brandKeys: ['netflix', 'disney', 'sony', 'universal', 'peacock', 'prime', 'toyota', 'starbucks']
+    brandKeys: ['netflix', 'disney', 'sony', 'universal', 'peacock', 'prime', 'starz', 'toyota', 'starbucks']
   },
   creative: {
     bgColor: '#FE6E0E',
