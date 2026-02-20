@@ -15,10 +15,10 @@ const fullStackData = {
     logo: "/images/DevolvedAI.png",
     desc: "Led marketing strategy that scaled AI platform to $100M valuation. Developed comprehensive product positioning and launch strategy for AI agent platform serving enterprise and consumer markets. Oversaw complete company rebrand and market positioning.",
     campaigns: [
-      { title: "Secure Web App Launch", text: "Led launch communications for 'The Most Secure and Private AI Platform' featuring end-to-end encryption and Zero-Knowledge Proofs integration with Argochain.", tag: "Product Launch", image: "/images/campaigns/full-stack/devolved-ai-logo.png" },
-      { title: "GDA Capital Partnership", text: "Managed strategic partnership announcement with GDA Capital, bringing Michael Gord as advisor. Distributed across GlobeNewswire, Manila Times, Tech Times, and major news outlets.", tag: "Partnership", image: "/images/campaigns/full-stack/devolved-ai-logo.png" },
-      { title: "Next Top AI Agent", text: "World's largest virtual AI startup competition with $500K+ prize pool. Partnership with GDA Capital and Alpaca Network. March 2025 campaign reaching global AI developer community.", tag: "Campaign", image: "/images/campaigns/full-stack/devolved-ai-logo.png" },
-      { title: "Argochain Mainnet Launch", text: "Go-to-market strategy for proprietary Layer-1 blockchain launch (July 2024) and AGC token debut on MEXC exchange (August 2024).", tag: "Token Launch", image: "/images/campaigns/full-stack/argochain.png" }
+      { title: "Secure Web App Launch", text: "Led launch communications for 'The Most Secure and Private AI Platform' featuring end-to-end encryption and Zero-Knowledge Proofs integration with Argochain.", tag: "Product Launch", image: "/images/campaigns/full-stack/devolved-secure.jpg" },
+      { title: "GDA Capital Partnership", text: "Managed strategic partnership announcement with GDA Capital, bringing Michael Gord as advisor. Distributed across GlobeNewswire, Manila Times, Tech Times, and major news outlets.", tag: "Partnership", image: "/images/campaigns/full-stack/devolved-partnership.jpg" },
+      { title: "Next Top AI Agent", text: "World's largest virtual AI startup competition with $500K+ prize pool. Partnership with GDA Capital and Alpaca Network. March 2025 campaign reaching global AI developer community.", tag: "Campaign", image: "/images/campaigns/full-stack/devolved-competition.jpg" },
+      { title: "Argochain Mainnet Launch", text: "Go-to-market strategy for proprietary Layer-1 blockchain launch (July 2024) and AGC token debut on MEXC exchange (August 2024).", tag: "Token Launch", image: "/images/campaigns/full-stack/blockchain-launch.jpg" }
     ]
   },
   near: {
@@ -43,11 +43,11 @@ const fullStackData = {
     logo: "/images/Dtravel-logo.jpg",
     desc: "Directed digital marketing strategy during Series A funding round. Scaled social media following from 7,000 to 55,000+ across platforms, supporting successful $8M Series A funding.",
     campaigns: [
-      { title: "TRVL Token Launch", text: "Multi-platform token launch across MEXC Global, Bybit Launchpool, Gate.io Startup, and Polkastarter IDO. Over 60,000+ participants.", tag: "Token Launch", image: "/images/campaigns/full-stack/dtravel-trvl.png" },
-      { title: "200K Listings in 30 Days", text: "Host acquisition campaign achieving 200,000+ property listings across 2,000+ cities within first 30 days—120x faster than Airbnb's early growth rate.", tag: "Growth", image: "/images/Dtravel-logo.jpg" },
-      { title: "Open Passport NFT", text: "Launched blockchain-based travel passport allowing travelers to collect NFT stamps for completed bookings. Partnership with Travala.com.", tag: "Product", image: "/images/campaigns/full-stack/open-passport-nft.png" },
-      { title: "Nite Protocol / NFT Bookings", text: "First-of-its-kind system turning vacation rental bookings into transferable NFTs on Polygon. Enabled secure transfer or resale of bookings.", tag: "Product", image: "/images/Dtravel-logo.jpg" },
-      { title: "10M TRVL Airdrop", text: "Exclusive airdrop series for Travala.com Smart Program members. Drove community engagement and cross-platform user acquisition.", tag: "Campaign", image: "/images/campaigns/full-stack/dtravel-trvl.png" }
+      { title: "TRVL Token Launch", text: "Multi-platform token launch across MEXC Global, Bybit Launchpool, Gate.io Startup, and Polkastarter IDO. Over 60,000+ participants.", tag: "Token Launch", image: "/images/campaigns/full-stack/blockchain-launch.jpg" },
+      { title: "200K Listings in 30 Days", text: "Host acquisition campaign achieving 200,000+ property listings across 2,000+ cities within first 30 days—120x faster than Airbnb's early growth rate.", tag: "Growth", image: "/images/campaigns/full-stack/dtravel-listings.jpg" },
+      { title: "Open Passport NFT", text: "Launched blockchain-based travel passport allowing travelers to collect NFT stamps for completed bookings. Partnership with Travala.com.", tag: "Product", image: "/images/campaigns/full-stack/dtravel-passport.jpg" },
+      { title: "Nite Protocol / NFT Bookings", text: "First-of-its-kind system turning vacation rental bookings into transferable NFTs on Polygon. Enabled secure transfer or resale of bookings.", tag: "Product", image: "/images/campaigns/full-stack/dtravel-nft.jpg" },
+      { title: "10M TRVL Airdrop", text: "Exclusive airdrop series for Travala.com Smart Program members. Drove community engagement and cross-platform user acquisition.", tag: "Campaign", image: "/images/campaigns/full-stack/dtravel-passport.jpg" }
     ]
   },
   travala: {
