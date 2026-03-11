@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <rect width="400" height="400" rx="20" fill="#1a1a1a"/>
+  <!-- House icon -->
+  <polygon points="200,80 320,180 280,180 280,300 120,300 120,180 80,180" fill="none" stroke="#FE6E0E" stroke-width="12" stroke-linejoin="round"/>
+  <!-- Door -->
+  <rect x="170" y="220" width="60" height="80" rx="4" fill="#FE6E0E"/>
+  <!-- CRIBS text -->
+  <text x="200" y="355" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="900" font-size="40" fill="#ffffff" text-anchor="middle" letter-spacing="6">CRIBS.FUN</text>
+</svg>
