@@ -579,9 +579,9 @@ export default function VortexPage() {
         .vortex-bio-text .hl-yellow { background: linear-gradient(transparent 55%, #FFFB26 55%); }
         .vortex-bio-text .hl-tan { background: linear-gradient(transparent 55%, #E9E6D4 55%); }
         .vortex-bio-text .co { pointer-events: auto; cursor: default; padding: 0 1px; transition: background 0.25s ease; }
-        .vortex-bio-text .co-y:hover { background: linear-gradient(transparent 55%, #FFFB26 55%); }
-        .vortex-bio-text .co-g:hover { background: linear-gradient(transparent 55%, #8BFF81 55%); }
-        .vortex-bio-text .co-r:hover { background: linear-gradient(transparent 55%, #FF5837 55%); }
+        .vortex-bio-text .co-y:hover { background: linear-gradient(transparent 55%, #FFFFFF 55%); }
+        .vortex-bio-text .co-g:hover { background: linear-gradient(transparent 55%, #FFFFFF 55%); }
+        .vortex-bio-text .co-r:hover { background: linear-gradient(transparent 55%, #FFFFFF 55%); }
         .vortex-bio-text .co-t:hover { background: linear-gradient(transparent 55%, #E9E6D4 55%); }
         .vortex-bio-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-top: 0.6rem; font-family: 'Space Mono', monospace; font-size: 0.68rem; font-weight: 700; color: #1F1F1B; text-decoration: none; text-transform: uppercase; letter-spacing: 0.1em; pointer-events: auto; transition: color 0.2s; }
         .vortex-bio-link:hover { color: #FF5837; }
