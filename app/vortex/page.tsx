@@ -572,8 +572,8 @@ export default function VortexPage() {
         .vortex-bio-text h1 .hl { background: linear-gradient(transparent 55%, #FFFB26 55%); }
         .vortex-bio-text p { font-family: 'Space Mono', monospace; font-size: 0.72rem; line-height: 1.65; margin: 0 0 0.45rem 0; color: #1F1F1B; font-weight: 700; }
         .vortex-bio-text p:last-of-type { margin-bottom: 0; }
-        .vortex-section-label { font-family: 'Space Mono', monospace; font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; margin: 0.6rem 0 0.15rem 0; color: #1F1F1B; opacity: 0.5; }
-        .vortex-section-label:first-of-type { margin-top: 0.2rem; }
+        .vortex-section-label { font-family: 'Space Mono', monospace; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; margin: 0.8rem 0 0.2rem 0; color: #1F1F1B; border-bottom: 2px solid #1F1F1B; display: inline-block; padding-bottom: 2px; }
+        .vortex-section-label:first-of-type { margin-top: 0.3rem; }
         .vortex-bio-text .hl-green { background: linear-gradient(transparent 55%, #8BFF81 55%); }
         .vortex-bio-text .hl-red { background: linear-gradient(transparent 55%, #FF5837 55%); padding: 0 2px; }
         .vortex-bio-text .hl-yellow { background: linear-gradient(transparent 55%, #FFFB26 55%); }
@@ -629,7 +629,7 @@ export default function VortexPage() {
             <div className="vortex-section-label">Agency Work</div>
             <p>Ran paid social for <span className="co co-y">Starbucks</span>, <span className="co co-g">Toyota</span>, and <span className="co co-r">Starzplay</span> at <span className="co co-y">iHeartMedia</span>. Managed digital campaigns for <span className="co co-g">Disney</span>, <span className="co co-r">Amazon</span>, <span className="co co-y">Sony</span>, <span className="co co-g">NBC</span>, and <span className="co co-r">Netflix</span> at <span className="co co-y">EPK.TV</span>.</p>
             <div className="vortex-section-label">Start-Up Work</div>
-            <p>Left agency life to lead marketing at <span className="co co-g">Dtravel</span>, <span className="co co-r">NEAR Tasks</span>, and <span className="co co-y">Devolved AI</span>. <span className="hl-red">All scaled past $100M.</span> <span className="hl-green">Grew the NEAR Protocol</span> with lightweight marketing applications.</p>
+            <p>Left agency life to lead marketing at <span className="co co-g">Dtravel</span>, <span className="co co-r">NEAR Tasks</span>, and <span className="co co-y">Devolved AI</span>. <span className="hl-red">Scaled two past $100M.</span> <span className="hl-green">Grew the NEAR Protocol</span> with lightweight marketing applications.</p>
             <div className="vortex-section-label">Personal</div>
             <p>Currently building <span className="co co-r">CRIBS.FUN</span> — a real estate price guessing game that <span className="hl-green">ranks #1 in SEO</span> for its category. <span className="hl-tan">Former college baseball pitcher.</span> Hanging with my dog George. <span className="co co-y">Lakers</span>, <span className="co co-g">Dodgers</span>, <span className="co co-r">Eagles</span>.</p>
             <a href="https://www.linkedin.com/in/jackmorello/" target="_blank" rel="noopener noreferrer" className="vortex-bio-link">
