@@ -572,7 +572,7 @@ export default function VortexPage() {
         .vortex-bio-text h1 .hl { background: linear-gradient(transparent 55%, #FFFB26 55%); }
         .vortex-bio-text p { font-family: 'Space Mono', monospace; font-size: 0.72rem; line-height: 1.65; margin: 0 0 0.45rem 0; color: #1F1F1B; font-weight: 700; }
         .vortex-bio-text p:last-of-type { margin-bottom: 0; }
-        .vortex-section-label { font-family: 'Space Mono', monospace; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; margin: 0.8rem 0 0.2rem 0; color: #1F1F1B; border-bottom: 2px solid #1F1F1B; display: inline-block; padding-bottom: 2px; }
+        .vortex-section-label { font-family: 'Space Mono', monospace; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; margin: 0.8rem 0 0.2rem 0; color: #1F1F1B; display: inline-block; background: linear-gradient(transparent 55%, #FFFB26 55%); }
         .vortex-section-label:first-of-type { margin-top: 0.3rem; }
         .vortex-bio-text .hl-green { background: linear-gradient(transparent 55%, #8BFF81 55%); }
         .vortex-bio-text .hl-red { background: linear-gradient(transparent 55%, #FF5837 55%); padding: 0 2px; }
