@@ -28,15 +28,99 @@ const CARD_DATA = [
   { type: 'creative', title: 'LG Mobile', client: 'Laundry Service', img: '/images/lglogo.png', desc: 'Campaigns achieving 695 million impressions and 114 million engagements.', metrics: true, period: 'May 2017 – Dec 2017', link: 'https://shortyawards.com/7th/laundry-service', linkLabel: 'Laundry Service — Shorty Awards', content: [] },
   { type: 'creative', title: 'BMW', client: 'Laundry Service', img: '/images/bmw.png', desc: 'Social Media AOR for BMW of North America. Created compelling brand narratives.', metrics: false, period: 'May 2017 – Dec 2017', link: 'https://www.mediapost.com/publications/article/293721/biz-dev-laundry-service-named-social-media-aor-fo.html', linkLabel: 'BMW Social AOR — MediaPost', content: [] },
   { type: 'creative', title: 'X (Twitter)', client: 'Laundry Service', img: '/images/twitter-x-logo.png', desc: 'Developed social media copy and engagement strategies for corporate channels.', metrics: false, period: 'May 2017 – Dec 2017', link: 'https://247laundryservice.com/', linkLabel: 'Laundry Service', content: [] },
-  { type: 'media', title: 'NBC / Peacock', client: 'EPK.TV', img: '/images/peacock-logo.png', desc: 'Managed all NBCUniversal press kit distribution — trailers, stills, behind-the-scenes, and promotional assets for every release.', metrics: true, period: 'Aug 2018 – Jan 2020', link: 'https://nbc.epk.tv/', linkLabel: 'NBC — EPK.TV Portal', content: ['The Good Place (S3–S4)', 'This Is Us (S3–S4)', 'Brooklyn Nine-Nine (S6–S7)', 'Law & Order: SVU (S20–S21)', 'Saturday Night Live (S44–S45)', 'New Amsterdam (S1–S2)', 'Manifest (S1–S2)', 'The Blacklist (S6–S7)', 'Chicago Fire / PD / Med', 'America\'s Got Talent (S13–S14)', 'Bluff City Law', 'Sunnyside', 'Perfect Harmony'] },
-  { type: 'media', title: 'Prime Video', client: 'EPK.TV', img: '/images/amazon-prime-video.png', desc: 'Managed content distribution for all Amazon originals — press kits, trailers, stills, and promotional assets.', metrics: true, period: 'Aug 2018 – Jan 2020', link: 'https://www.epk.tv/', linkLabel: 'EPK.TV Platform', content: ['The Boys (S1)', 'Jack Ryan (S1–S2)', 'Fleabag (S2)', 'The Marvelous Mrs. Maisel (S2–S3)', 'Homecoming (S1)', 'Hanna (S1)', 'Good Omens (S1)', 'Carnival Row (S1)', 'The Expanse (S4)', 'Undone (S1)', 'Modern Love (S1)', 'The Report'] },
-  { type: 'media', title: 'Universal', client: 'EPK.TV', img: '/images/universal-logo.png', desc: 'Handled all theatrical press kit distribution — trailers, stills, featurettes, and promotional assets for every release.', metrics: true, period: 'Aug 2018 – Jan 2020', link: 'https://universal.epk.tv/', linkLabel: 'Universal — EPK.TV Portal', content: ['Us (Jordan Peele)', 'Fast & Furious: Hobbs & Shaw', 'How to Train Your Dragon 3', '1917', 'Glass', 'Yesterday', 'Good Boys', 'Downton Abbey', 'Last Christmas', 'The Secret Life of Pets 2', 'Abominable', 'Cats', 'A Dog\'s Journey'] },
-  { type: 'media', title: 'Sony Pictures', client: 'EPK.TV', img: '/images/sony-pictures-logo.png', desc: 'Managed all theatrical press kit distribution — trailers, stills, featurettes, and promotional assets for every release.', metrics: true, period: 'Aug 2018 – Jan 2020', link: 'https://sony.epk.tv/', linkLabel: 'Sony — EPK.TV Portal', content: ['Spider-Man: Into the Spider-Verse', 'Spider-Man: Far From Home', 'Once Upon a Time in Hollywood', 'Jumanji: The Next Level', 'Bad Boys for Life', 'Little Women', 'A Beautiful Day in the Neighborhood', 'Men in Black: International', 'Zombieland: Double Tap', 'Brightburn', 'The Angry Birds Movie 2'] },
+  { type: 'media', title: 'NBC / Peacock', client: 'EPK.TV', img: '/images/peacock-logo.png', desc: 'Managed all NBCUniversal press kit distribution — trailers, stills, behind-the-scenes, and promotional assets for every release.', metrics: true, period: 'Aug 2018 – Jan 2020', link: 'https://nbc.epk.tv/', linkLabel: 'NBC — EPK.TV Portal', content: [
+    { name: 'The Good Place (S3–S4)', url: 'https://www.youtube.com/watch?v=ZSznplMbMFs' },
+    { name: 'This Is Us (S3–S4)', url: 'https://www.youtube.com/watch?v=gYWhUI4jmKk' },
+    { name: 'Brooklyn Nine-Nine (S6–S7)', url: 'https://www.youtube.com/watch?v=GnD_WQmWp3Y' },
+    { name: 'Law & Order: SVU (S20–S21)', url: 'https://www.youtube.com/watch?v=MiKq8qBr8ao' },
+    { name: 'Saturday Night Live (S44–S45)', url: 'https://www.youtube.com/watch?v=bMEElMZaj1Q' },
+    { name: 'New Amsterdam (S1–S2)', url: 'https://www.youtube.com/watch?v=7WTQM_ijJig' },
+    { name: 'Manifest (S1–S2)', url: 'https://www.youtube.com/watch?v=LjsFg7e-ffk' },
+    { name: 'The Blacklist (S6–S7)', url: 'https://www.youtube.com/watch?v=J0QMzoPB5yY' },
+    { name: 'Chicago Fire / PD / Med', url: 'https://www.youtube.com/watch?v=K8y06aR2s40' },
+    { name: "America's Got Talent (S13–S14)", url: 'https://www.youtube.com/watch?v=SQvacTRssfM' },
+    { name: 'Bluff City Law', url: 'https://www.imdb.com/title/tt9174544/' },
+    { name: 'Sunnyside', url: 'https://www.imdb.com/title/tt9174558/' },
+    { name: 'Perfect Harmony', url: 'https://www.imdb.com/title/tt9160862/' },
+  ] },
+  { type: 'media', title: 'Prime Video', client: 'EPK.TV', img: '/images/amazon-prime-video.png', desc: 'Managed content distribution for all Amazon originals — press kits, trailers, stills, and promotional assets.', metrics: true, period: 'Aug 2018 – Jan 2020', link: 'https://www.epk.tv/', linkLabel: 'EPK.TV Platform', content: [
+    { name: 'The Boys (S1)', url: 'https://www.youtube.com/watch?v=tcrNsIaQkb4' },
+    { name: 'Jack Ryan (S1–S2)', url: 'https://www.youtube.com/watch?v=LDFMbrFj9sE' },
+    { name: 'Fleabag (S2)', url: 'https://www.youtube.com/watch?v=I5Uv6cb9YRs' },
+    { name: 'The Marvelous Mrs. Maisel (S2–S3)', url: 'https://www.youtube.com/watch?v=fOmwkTrW4OQ' },
+    { name: 'Homecoming (S1)', url: 'https://www.youtube.com/watch?v=xXRHjOX8x8M' },
+    { name: 'Hanna (S1)', url: 'https://www.youtube.com/watch?v=XwJhmqFCpmE' },
+    { name: 'Good Omens (S1)', url: 'https://www.youtube.com/watch?v=On0No2QMBoE' },
+    { name: 'Carnival Row (S1)', url: 'https://www.youtube.com/watch?v=YBb5wJOvtEo' },
+    { name: 'The Expanse (S4)', url: 'https://www.youtube.com/watch?v=caLMilFxsds' },
+    { name: 'Undone (S1)', url: 'https://www.youtube.com/watch?v=6uWCNHQgfnc' },
+    { name: 'Modern Love (S1)', url: 'https://www.youtube.com/watch?v=2BVawlskIGE' },
+    { name: 'The Report', url: 'https://www.imdb.com/title/tt8236336/' },
+  ] },
+  { type: 'media', title: 'Universal', client: 'EPK.TV', img: '/images/universal-logo.png', desc: 'Handled all theatrical press kit distribution — trailers, stills, featurettes, and promotional assets for every release.', metrics: true, period: 'Aug 2018 – Jan 2020', link: 'https://universal.epk.tv/', linkLabel: 'Universal — EPK.TV Portal', content: [
+    { name: 'Us (Jordan Peele)', url: 'https://www.youtube.com/watch?v=hNCmb-4oXJA' },
+    { name: 'Fast & Furious: Hobbs & Shaw', url: 'https://www.youtube.com/watch?v=9SA7FaKxZVI' },
+    { name: 'How to Train Your Dragon 3', url: 'https://www.youtube.com/watch?v=SkcucKDrbOI' },
+    { name: '1917', url: 'https://www.youtube.com/watch?v=gZjQROMAh_s' },
+    { name: 'Glass', url: 'https://www.youtube.com/watch?v=95ghQs5AmNk' },
+    { name: 'Yesterday', url: 'https://www.youtube.com/watch?v=qD6FDkUXSZQ' },
+    { name: 'Good Boys', url: 'https://www.youtube.com/watch?v=rF1F9dIbNqM' },
+    { name: 'Downton Abbey', url: 'https://www.youtube.com/watch?v=3JMa_yOfNog' },
+    { name: 'Last Christmas', url: 'https://www.youtube.com/watch?v=z9CEIcmWmtA' },
+    { name: 'The Secret Life of Pets 2', url: 'https://www.youtube.com/watch?v=mYocfuqu2A8' },
+    { name: 'Abominable', url: 'https://www.youtube.com/watch?v=Ap0NRJD-2ts' },
+    { name: 'Cats', url: 'https://www.youtube.com/watch?v=FtSd844cI7U' },
+    { name: "A Dog's Journey", url: 'https://www.imdb.com/title/tt8385474/' },
+  ] },
+  { type: 'media', title: 'Sony Pictures', client: 'EPK.TV', img: '/images/sony-pictures-logo.png', desc: 'Managed all theatrical press kit distribution — trailers, stills, featurettes, and promotional assets for every release.', metrics: true, period: 'Aug 2018 – Jan 2020', link: 'https://sony.epk.tv/', linkLabel: 'Sony — EPK.TV Portal', content: [
+    { name: 'Spider-Man: Into the Spider-Verse', url: 'https://www.youtube.com/watch?v=g4Hbz2jLxvQ' },
+    { name: 'Spider-Man: Far From Home', url: 'https://www.youtube.com/watch?v=Nt9L1jCKGnE' },
+    { name: 'Once Upon a Time in Hollywood', url: 'https://www.youtube.com/watch?v=ELeMaP8EPAA' },
+    { name: 'Jumanji: The Next Level', url: 'https://www.youtube.com/watch?v=rBxcF-r9Ibs' },
+    { name: 'Bad Boys for Life', url: 'https://www.youtube.com/watch?v=jKCj3XuPG8M' },
+    { name: 'Little Women', url: 'https://www.youtube.com/watch?v=AST2-4db4ic' },
+    { name: 'A Beautiful Day in the Neighborhood', url: 'https://www.youtube.com/watch?v=-VLEPhfEN2U' },
+    { name: 'Men in Black: International', url: 'https://www.youtube.com/watch?v=BV-WEb2oxLk' },
+    { name: 'Zombieland: Double Tap', url: 'https://www.youtube.com/watch?v=ZlW9yhUKlkQ' },
+    { name: 'Brightburn', url: 'https://www.youtube.com/watch?v=oD1vF3y3oew' },
+    { name: 'The Angry Birds Movie 2', url: 'https://www.youtube.com/watch?v=RSKQ-lVsMdg' },
+  ] },
   { type: 'media', title: 'Starbucks', client: 'iHeartMedia', img: '/images/starbucks.png', desc: 'Managed programmatic advertising campaigns across digital platforms.', metrics: true, period: 'Jan 2020 – Apr 2021', link: 'https://www.iheart.com/', linkLabel: 'iHeartMedia', content: [] },
   { type: 'media', title: 'Toyota', client: 'iHeartMedia', img: '/images/toyota-logo.png', desc: 'Executed paid media strategies across Facebook, Instagram, Twitter, and Snapchat.', metrics: true, period: 'Jan 2020 – Apr 2021', link: 'https://www.iheart.com/', linkLabel: 'iHeartMedia', content: [] },
   { type: 'media', title: 'Starz', client: 'iHeartMedia', img: '/images/starz-logo.png', desc: 'Managed paid media campaigns driving subscriber acquisition across digital platforms.', metrics: true, period: 'Jan 2020 – Apr 2021', link: 'https://www.iheart.com/', linkLabel: 'iHeartMedia', content: [] },
-  { type: 'media', title: 'Netflix', client: 'EPK.TV', img: '/images/netflix.png', desc: 'Managed all Netflix press kit distribution — trailers, stills, behind-the-scenes, and promotional assets for every release.', metrics: true, period: 'Aug 2018 – Jan 2020', link: 'https://www.epk.tv/', linkLabel: 'EPK.TV Platform', content: ['Bird Box', 'Stranger Things (S3)', 'The Irishman', 'Marriage Story', 'El Camino: A Breaking Bad Movie', '6 Underground', 'The Witcher (S1)', 'Unbelievable', 'When They See Us', 'Dead to Me (S1)', 'Russian Doll (S1)', 'The Umbrella Academy (S1)', 'The Two Popes', 'Dolemite Is My Name', 'Always Be My Maybe'] },
-  { type: 'media', title: 'Disney+', client: 'EPK.TV', img: '/images/disneyplus.png', desc: 'Managed content distribution during the Disney+ platform launch — press kits, trailers, stills, and promotional assets.', metrics: true, period: 'Aug 2018 – Jan 2020', link: 'https://www.epk.tv/', linkLabel: 'EPK.TV Platform', content: ['The Mandalorian (S1)', 'Lady and the Tramp (2019)', 'High School Musical: The Musical: The Series', 'The World According to Jeff Goldblum', 'Noelle', 'Encore!', 'The Imagineering Story', 'Frozen II (theatrical)', 'Toy Story 4 (theatrical)', 'The Lion King (theatrical)', 'Avengers: Endgame (theatrical)', 'Aladdin (theatrical)', 'Captain Marvel (theatrical)', 'Star Wars: The Rise of Skywalker (theatrical)'] },
+  { type: 'media', title: 'Netflix', client: 'EPK.TV', img: '/images/netflix.png', desc: 'Managed all Netflix press kit distribution — trailers, stills, behind-the-scenes, and promotional assets for every release.', metrics: true, period: 'Aug 2018 – Jan 2020', link: 'https://www.epk.tv/', linkLabel: 'EPK.TV Platform', content: [
+    { name: 'Bird Box', url: 'https://www.youtube.com/watch?v=o2AsIXSh2xo' },
+    { name: 'Stranger Things (S3)', url: 'https://www.youtube.com/watch?v=YEG3bmU_WaI' },
+    { name: 'The Irishman', url: 'https://www.youtube.com/watch?v=WHXxVmeGQUc' },
+    { name: 'Marriage Story', url: 'https://www.youtube.com/watch?v=BHi-a1n8t7M' },
+    { name: 'El Camino: A Breaking Bad Movie', url: 'https://www.youtube.com/watch?v=1JLUn2DFW4w' },
+    { name: '6 Underground', url: 'https://www.youtube.com/watch?v=YLE85olJjp8' },
+    { name: 'The Witcher (S1)', url: 'https://www.youtube.com/watch?v=ndl1W4ltcmg' },
+    { name: 'Unbelievable', url: 'https://www.youtube.com/watch?v=BzSqU-5kJMo' },
+    { name: 'When They See Us', url: 'https://www.youtube.com/watch?v=VHbOt2fXAaE' },
+    { name: 'Dead to Me (S1)', url: 'https://www.youtube.com/watch?v=BwYBw1raC2o' },
+    { name: 'Russian Doll (S1)', url: 'https://www.youtube.com/watch?v=YHcKoAMGGvY' },
+    { name: 'The Umbrella Academy (S1)', url: 'https://www.youtube.com/watch?v=0DAmWHxeoKw' },
+    { name: 'The Two Popes', url: 'https://www.youtube.com/watch?v=T5OhkFY1PQE' },
+    { name: 'Dolemite Is My Name', url: 'https://www.youtube.com/watch?v=Ws1YIKsuTjQ' },
+    { name: 'Always Be My Maybe', url: 'https://www.youtube.com/watch?v=iSdHbvefpJE' },
+  ] },
+  { type: 'media', title: 'Disney+', client: 'EPK.TV', img: '/images/disneyplus.png', desc: 'Managed content distribution during the Disney+ platform launch — press kits, trailers, stills, and promotional assets.', metrics: true, period: 'Aug 2018 – Jan 2020', link: 'https://www.epk.tv/', linkLabel: 'EPK.TV Platform', content: [
+    { name: 'The Mandalorian (S1)', url: 'https://www.youtube.com/watch?v=aOC8E8z_ifw' },
+    { name: 'Lady and the Tramp (2019)', url: 'https://www.youtube.com/watch?v=FaGYSsUwEeI' },
+    { name: 'High School Musical: The Musical: The Series', url: 'https://www.youtube.com/watch?v=t6bWqZePVPk' },
+    { name: 'The World According to Jeff Goldblum', url: 'https://www.imdb.com/title/tt11255984/' },
+    { name: 'Noelle', url: 'https://www.youtube.com/watch?v=_vJoNWqh0Jg' },
+    { name: 'Encore!', url: 'https://www.imdb.com/title/tt11111414/' },
+    { name: 'The Imagineering Story', url: 'https://www.youtube.com/watch?v=LdNz8bBvSP0' },
+    { name: 'Frozen II (theatrical)', url: 'https://www.youtube.com/watch?v=Zi4LMpSDccc' },
+    { name: 'Toy Story 4 (theatrical)', url: 'https://www.youtube.com/watch?v=wmiIUN-7qhE' },
+    { name: 'The Lion King (theatrical)', url: 'https://www.youtube.com/watch?v=7TavVZMewpY' },
+    { name: 'Avengers: Endgame (theatrical)', url: 'https://www.youtube.com/watch?v=TcMBFSGVi1c' },
+    { name: 'Aladdin (theatrical)', url: 'https://www.youtube.com/watch?v=foyufD52aog' },
+    { name: 'Captain Marvel (theatrical)', url: 'https://www.youtube.com/watch?v=Z1BCujX3pw8' },
+    { name: 'Star Wars: The Rise of Skywalker (theatrical)', url: 'https://www.youtube.com/watch?v=8Qn_spdM5Zg' },
+  ] },
 ];
 
 function getTagsForType(type: string): string[] {
@@ -608,6 +692,8 @@ export default function VortexPage() {
         .vortex-content-list ul { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0.3rem 1rem; }
         .vortex-content-list li { font-family: 'Space Mono', monospace; font-size: 0.65rem; font-weight: 700; padding: 0.3rem 0; border-bottom: 1px solid rgba(31,31,27,0.08); }
         .vortex-content-list li::before { content: '→ '; opacity: 0.4; }
+        .vortex-content-link { color: #1F1F1B; text-decoration: none; pointer-events: auto; transition: background 0.2s; }
+        .vortex-content-link:hover { background: linear-gradient(transparent 55%, #FFFB26 55%); }
         .vortex-tags { margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid rgba(31,31,27,0.2); display: flex; flex-wrap: wrap; gap: 0.5rem; }
         .vortex-tag { padding: 0.2rem 0.5rem; background: rgba(31,31,27,0.1); font-size: 0.6rem; font-weight: 700; text-transform: uppercase; }
         .vortex-link { display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 1.25rem; padding: 0.5rem 1rem; background: #1F1F1B; color: #E9E6D4; font-family: 'Space Mono', monospace; font-size: 0.7rem; font-weight: 700; text-decoration: none; text-transform: uppercase; letter-spacing: 0.05em; transition: background 0.2s; border: none; cursor: pointer; }
@@ -692,8 +778,12 @@ export default function VortexPage() {
                     <div className="vortex-content-list">
                       <div className="vortex-content-label">Content Handled</div>
                       <ul>
-                        {modalData.content.map((item: string, i: number) => (
-                          <li key={i}>{item}</li>
+                        {modalData.content.map((item: any, i: number) => (
+                          <li key={i}>
+                            {typeof item === 'string' ? item : (
+                              <a href={item.url} target="_blank" rel="noopener noreferrer" className="vortex-content-link">{item.name}</a>
+                            )}
+                          </li>
                         ))}
                       </ul>
                     </div>
