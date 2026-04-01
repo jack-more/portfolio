@@ -75,6 +75,8 @@ const online = [
   { label: "Email", action: "Send", href: "mailto:jaidanmorello@gmail.com" },
   { label: "Instagram", action: "Follow", href: "https://instagram.com/jackmorello" },
   { label: "GitHub", action: "View", href: "https://github.com/jack-more" },
+  { label: "Morello Sims", action: "Visit", href: "https://morellosims.com" },
+  { label: "Cribs.fun", action: "Visit", href: "https://cribs.fun" },
 ];
 
 const reading = [
@@ -203,40 +205,19 @@ export default function HomePage() {
       </DraggableCard>
 
       {/* Misc card */}
-      <DraggableCard title="Misc." defaultX={940} defaultY={440} width={280} maxHeight={300}>
-        <div className="misc-section">
-          <h3 className="misc-heading">Recent Reads</h3>
-          <div className="misc-list">
-            {reading.map((b) => (
-              <a key={b.title} href={b.href} target="_blank" rel="noopener noreferrer" className="misc-item">
-                <span className="misc-item-title">{b.title}</span>
-                <span className="misc-item-author">{b.author}</span>
-              </a>
-            ))}
-          </div>
-        </div>
-        <div className="misc-section" style={{ marginTop: "1rem" }}>
-          <h3 className="misc-heading">Articles</h3>
-          <div className="misc-list">
-            {articles.map((a) => (
-              <a key={a.title} href={a.href} target="_blank" rel="noopener noreferrer" className="misc-item">
-                <span className="misc-item-title">{a.title}</span>
-                <span className="misc-item-author">{a.source}</span>
-              </a>
-            ))}
-          </div>
-        </div>
-        <div className="misc-section" style={{ marginTop: "1rem" }}>
-          <h3 className="misc-heading">Artwork</h3>
-          <div className="misc-list">
-            {artwork.map((a) => (
-              <a key={a.title} href={`/artwork#${a.title.toLowerCase().replace(/\s+/g, "-").replace(/\+/g, "plus")}`} className="misc-item">
-                <span className="misc-item-title">{a.title}</span>
-                <span className="misc-item-author">{a.note}</span>
-              </a>
-            ))}
-          </div>
-        </div>
+      <DraggableCard title="Misc." defaultX={940} defaultY={440} width={300} maxHeight={300}>
+        <h3 className="misc-heading">Recent Reads</h3>
+        {reading.map((b) => (
+          <Row key={b.title} left={b.title} right={b.author} href={b.href} />
+        ))}
+        <h3 className="misc-heading" style={{ marginTop: "0.75rem" }}>Articles</h3>
+        {articles.map((a) => (
+          <Row key={a.title} left={a.title} right={a.source} href={a.href} />
+        ))}
+        <h3 className="misc-heading" style={{ marginTop: "0.75rem" }}>Artwork</h3>
+        {artwork.map((a) => (
+          <Row key={a.title} left={a.title} right={a.note} href={`/artwork#${a.title.toLowerCase().replace(/\s+/g, "-").replace(/\+/g, "plus")}`} />
+        ))}
       </DraggableCard>
     </>
   );
