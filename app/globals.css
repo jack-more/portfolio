@@ -506,6 +506,10 @@ a:hover {
   inset: 0;
   overflow-y: auto;
   background: #DFD6CC;
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 9px, rgba(0,0,0,0.04) 9px, rgba(0,0,0,0.04) 10px),
+    repeating-linear-gradient(90deg, transparent, transparent 9px, rgba(0,0,0,0.04) 9px, rgba(0,0,0,0.04) 10px);
+  background-size: 10px 10px;
   padding: 2rem;
   z-index: 100;
 }
@@ -556,21 +560,17 @@ a:hover {
   border-color: var(--link);
 }
 
-.artwork-placeholder {
+.artwork-img-wrap {
   aspect-ratio: 4 / 3;
-  background: rgba(0, 0, 0, 0.06);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  overflow: hidden;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  position: relative;
 }
 
-.artwork-placeholder-title {
-  font-family: var(--font-serif), Georgia, serif;
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: rgba(0, 0, 0, 0.12);
-  letter-spacing: 0.02em;
+.artwork-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .artwork-info {

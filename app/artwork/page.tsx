@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const pieces = [
   {
@@ -7,6 +8,7 @@ const pieces = [
     note: "beautiful things happening",
     dimensions: '36" \u00d7 48"',
     status: "Sold",
+    img: "/images/artwork/roma-ct.jpg",
   },
   {
     id: "gdp-plus10",
@@ -14,6 +16,7 @@ const pieces = [
     note: "flags become paintings when nobody salutes",
     dimensions: '36" \u00d7 36"',
     status: "Available",
+    img: "/images/artwork/gdp-plus-10.jpg",
   },
   {
     id: "plane-post",
@@ -21,6 +24,7 @@ const pieces = [
     note: "posts from the plane. cloud floats free while we stay gridlocked",
     dimensions: '36" \u00d7 24"',
     status: "Available",
+    img: "/images/artwork/plane-post.jpg",
   },
   {
     id: "breer",
@@ -28,13 +32,15 @@ const pieces = [
     note: "longing",
     dimensions: '60" \u00d7 40"',
     status: "Sold",
+    img: "/images/artwork/breer.jpg",
   },
   {
     id: "oceanic-plate",
     title: "Oceanic Plate",
-    note: "brotherhood reveals itself in yellow pools. what was i thinking?",
+    note: "brotherhood reveals itself in yellow pools",
     dimensions: '36" \u00d7 24"',
     status: "Available",
+    img: "/images/artwork/oceanic-plate.jpg",
   },
 ];
 
@@ -49,8 +55,14 @@ export default function ArtworkPage() {
       <div className="artwork-grid">
         {pieces.map((p) => (
           <div key={p.id} id={p.id} className="artwork-card">
-            <div className="artwork-placeholder">
-              <span className="artwork-placeholder-title">{p.title}</span>
+            <div className="artwork-img-wrap">
+              <Image
+                src={p.img}
+                alt={p.title}
+                width={800}
+                height={600}
+                className="artwork-img"
+              />
             </div>
             <div className="artwork-info">
               <h2 className="artwork-name">{p.title}</h2>
