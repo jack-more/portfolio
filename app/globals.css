@@ -68,12 +68,14 @@ a:hover {
   padding: 20px;
   min-height: 100vh;
   align-content: start;
+  pointer-events: none;
 }
 
 .col-left {
   display: flex;
   flex-direction: column;
   gap: 15px;
+  pointer-events: none;
 }
 
 .col-right {
@@ -81,6 +83,7 @@ a:hover {
   flex-direction: column;
   gap: 15px;
   align-items: flex-end;
+  pointer-events: none;
 }
 
 @media (max-width: 900px) {
@@ -98,6 +101,7 @@ a:hover {
   border: 1px solid #000;
   background: #DFD6CC;
   cursor: default;
+  pointer-events: auto;
 }
 
 .card-flow {
@@ -301,6 +305,7 @@ a:hover {
   background: #DFD6CC;
   display: inline-flex;
   align-self: flex-end;
+  pointer-events: auto;
 }
 
 .music-btn {
