@@ -23,14 +23,12 @@ body {
   font-size: 13px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
-  overflow: hidden;
-  height: 100vh;
+  overflow: auto;
+  min-height: 100vh;
 }
 
 @media (max-width: 768px) {
   body {
-    overflow: auto;
-    height: auto;
     min-height: 100vh;
   }
 }
