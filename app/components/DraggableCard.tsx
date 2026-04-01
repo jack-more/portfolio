@@ -10,42 +10,50 @@ interface Props {
 }
 
 export default function DraggableCard({ title, width, maxHeight, children }: Props) {
-  const [dragged, setDragged] = useState(false);
-  const [pos, setPos] = useState({ x: 0, y: 0 });
-  const [dragging, setDragging] = useState(false);
-  const offset = useRef({ x: 0, y: 0 });
+  const [offset, setOffset] = useState<{ x: number; y: number } | null>(null);
+  const dragging = useRef(false);
+  const dragOffset = useRef({ x: 0, y: 0 });
   const cardRef = useRef<HTMLDivElement>(null);
+  const placeholderRef = useRef<HTMLDivElement>(null);
 
   const onMouseDown = useCallback((e: React.MouseEvent) => {
     const target = e.target as HTMLElement;
     if (target.closest("a") || target.closest("button")) return;
+    if (!cardRef.current) return;
 
-    if (!dragged && cardRef.current) {
-      const rect = cardRef.current.getBoundingClientRect();
-      setPos({ x: rect.left + window.scrollX, y: rect.top + window.scrollY });
-      setDragged(true);
+    const rect = cardRef.current.getBoundingClientRect();
+    dragOffset.current = {
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
+    };
+
+    // If first drag, record placeholder size and switch to fixed
+    if (offset === null && placeholderRef.current) {
+      placeholderRef.current.style.width = rect.width + "px";
+      placeholderRef.current.style.height = rect.height + "px";
     }
 
-    setDragging(true);
-    const rect = cardRef.current?.getBoundingClientRect();
-    offset.current = {
-      x: e.clientX - (rect?.left || 0),
-      y: e.clientY - (rect?.top || 0),
-    };
+    setOffset({
+      x: rect.left,
+      y: rect.top,
+    });
+
+    dragging.current = true;
     e.preventDefault();
-  }, [dragged]);
+  }, [offset]);
 
   useEffect(() => {
-    if (!dragging) return;
-
     const onMove = (e: MouseEvent) => {
-      setPos({
-        x: e.clientX - offset.current.x + window.scrollX,
-        y: e.clientY - offset.current.y + window.scrollY,
+      if (!dragging.current) return;
+      setOffset({
+        x: e.clientX - dragOffset.current.x,
+        y: e.clientY - dragOffset.current.y,
       });
     };
 
-    const onUp = () => setDragging(false);
+    const onUp = () => {
+      dragging.current = false;
+    };
 
     window.addEventListener("mousemove", onMove);
     window.addEventListener("mouseup", onUp);
@@ -53,30 +61,42 @@ export default function DraggableCard({ title, width, maxHeight, children }: Pro
       window.removeEventListener("mousemove", onMove);
       window.removeEventListener("mouseup", onUp);
     };
-  }, [dragging]);
+  }, []);
 
-  const style: React.CSSProperties = dragged
-    ? { position: "absolute", left: pos.x, top: pos.y, width: width || undefined, zIndex: dragging ? 10 : 2 }
+  const isDetached = offset !== null;
+
+  const cardStyle: React.CSSProperties = isDetached
+    ? {
+        position: "fixed",
+        left: offset.x,
+        top: offset.y,
+        width: width || (cardRef.current?.offsetWidth || undefined),
+        zIndex: 10,
+      }
     : { width: width || undefined };
 
   return (
-    <div
-      ref={cardRef}
-      className={`card ${dragged ? "card-absolute" : "card-flow"} ${dragging ? "card-dragging" : ""}`}
-      style={style}
-    >
-      {title && (
-        <div className="card-header" onMouseDown={onMouseDown}>
-          <span className="card-title">{title}</span>
-        </div>
-      )}
+    <>
+      {/* Placeholder keeps the grid layout stable when card is detached */}
+      {isDetached && <div ref={placeholderRef} className="card-placeholder" />}
       <div
-        className={title ? "card-body" : "card-body card-body-notitle"}
-        onMouseDown={title ? undefined : onMouseDown}
-        style={maxHeight ? { maxHeight, overflowY: "auto" } : undefined}
+        ref={cardRef}
+        className={`card ${isDetached ? "card-detached" : "card-flow"}`}
+        style={cardStyle}
       >
-        {children}
+        {title && (
+          <div className="card-header" onMouseDown={onMouseDown}>
+            <span className="card-title">{title}</span>
+          </div>
+        )}
+        <div
+          className={title ? "card-body" : "card-body card-body-notitle"}
+          onMouseDown={title ? undefined : onMouseDown}
+          style={maxHeight ? { maxHeight, overflowY: "auto" } : undefined}
+        >
+          {children}
+        </div>
       </div>
-    </div>
+    </>
   );
 }

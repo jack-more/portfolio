@@ -109,13 +109,13 @@ a:hover {
   z-index: 2;
 }
 
-.card-absolute {
-  position: absolute;
-  z-index: 2;
+.card-detached {
+  z-index: 10;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
 }
 
-.card-dragging {
-  z-index: 10;
+.card-placeholder {
+  visibility: hidden;
 }
 
 .card-header {
