@@ -27,6 +27,14 @@ body {
   height: 100vh;
 }
 
+@media (max-width: 768px) {
+  body {
+    overflow: auto;
+    height: auto;
+    min-height: 100vh;
+  }
+}
+
 a {
   color: var(--text);
   text-decoration: underline;
