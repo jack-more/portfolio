@@ -2,6 +2,8 @@
   --text: #1c1917;
   --text-secondary: rgba(28, 25, 23, 0.5);
   --link: #5B4FC4;
+  --green: #3a7d44;
+  --green-light: rgba(58, 125, 68, 0.12);
   --dash: #c9c3ba;
   --card-border: rgba(0, 0, 0, 0.25);
 }
@@ -227,7 +229,7 @@ a:hover {
   border: none;
   cursor: pointer;
   font-size: 12px;
-  color: var(--text-secondary);
+  color: var(--green);
   padding: 0 2px;
   margin-left: 4px;
   flex-shrink: 0;
@@ -359,6 +361,114 @@ a:hover {
   font-size: 10px;
   color: var(--text-secondary);
   text-decoration: none;
+}
+
+/* ---- Recent Reads page ---- */
+
+.rr-page {
+  min-height: 100vh;
+  background: #DFD6CC;
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 9px, rgba(0,0,0,0.04) 9px, rgba(0,0,0,0.04) 10px),
+    repeating-linear-gradient(90deg, transparent, transparent 9px, rgba(0,0,0,0.04) 9px, rgba(0,0,0,0.04) 10px);
+  background-size: 10px 10px;
+  padding: 2rem;
+}
+
+.rr-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  max-width: 640px;
+  margin: 0 auto 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.rr-back {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+}
+
+.rr-back:hover {
+  color: var(--text);
+}
+
+.rr-title {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.rr-content {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.rr-section {
+  margin-bottom: 2.5rem;
+}
+
+.rr-heading {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--green);
+  margin-bottom: 0.25rem;
+}
+
+.rr-subtext {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+.rr-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.rr-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  padding: 0.35rem 0;
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: var(--text);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  transition: opacity 0.15s;
+}
+
+.rr-row:hover {
+  opacity: 0.6;
+  text-decoration: none;
+  color: var(--text);
+}
+
+.rr-row:last-child {
+  border-bottom: none;
+}
+
+.rr-left {
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.rr-dash {
+  flex: 1;
+  border-top: 1px dashed var(--dash);
+  min-width: 1rem;
+  align-self: center;
+}
+
+.rr-right {
+  color: var(--text-secondary);
+  flex-shrink: 0;
+  font-size: 0.82rem;
 }
 
 /* ---- Artwork page ---- */

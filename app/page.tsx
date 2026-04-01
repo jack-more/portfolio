@@ -205,19 +205,9 @@ export default function HomePage() {
       </DraggableCard>
 
       {/* Misc card */}
-      <DraggableCard title="Misc." defaultX={940} defaultY={440} width={300} maxHeight={300}>
-        <h3 className="misc-heading">Recent Reads</h3>
-        {reading.map((b) => (
-          <Row key={b.title} left={b.title} right={b.author} href={b.href} />
-        ))}
-        <h3 className="misc-heading" style={{ marginTop: "0.75rem" }}>Articles</h3>
-        {articles.map((a) => (
-          <Row key={a.title} left={a.title} right={a.source} href={a.href} />
-        ))}
-        <h3 className="misc-heading" style={{ marginTop: "0.75rem" }}>Artwork</h3>
-        {artwork.map((a) => (
-          <Row key={a.title} left={a.title} right={a.note} href={`/artwork#${a.title.toLowerCase().replace(/\s+/g, "-").replace(/\+/g, "plus")}`} />
-        ))}
+      <DraggableCard title="Misc." defaultX={940} defaultY={440} width={220}>
+        <Row left="Recent Reads" right="View" href="/recentreads" />
+        <Row left="Artwork" right="View" href="/artwork" />
       </DraggableCard>
     </>
   );
