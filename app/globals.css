@@ -55,35 +55,64 @@ a:hover {
   z-index: 0;
 }
 
+/* ---- Layout grid ---- */
+
+.layout {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  min-height: 100vh;
+  align-content: start;
+}
+
+.col-left {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.col-right {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: flex-end;
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+  .col-right {
+    align-items: flex-start;
+  }
+}
+
 /* ---- Draggable cards ---- */
 
 .card {
-  position: absolute;
-  z-index: 2;
   border: 1px solid #000;
   background: #DFD6CC;
   cursor: default;
 }
 
-.card-dragging,
-.card-resizing {
+.card-flow {
+  position: relative;
+  z-index: 2;
+}
+
+.card-absolute {
+  position: absolute;
+  z-index: 2;
+}
+
+.card-dragging {
   z-index: 10;
 }
-
-/* Resize handles */
-.resize-handle {
-  position: absolute;
-  z-index: 3;
-}
-
-.resize-e { top: 0; right: -4px; width: 8px; height: 100%; cursor: ew-resize; }
-.resize-w { top: 0; left: -4px; width: 8px; height: 100%; cursor: ew-resize; }
-.resize-s { bottom: -4px; left: 0; width: 100%; height: 8px; cursor: ns-resize; }
-.resize-n { top: -4px; left: 0; width: 100%; height: 8px; cursor: ns-resize; }
-.resize-se { bottom: -4px; right: -4px; width: 12px; height: 12px; cursor: nwse-resize; }
-.resize-nw { top: -4px; left: -4px; width: 12px; height: 12px; cursor: nwse-resize; }
-.resize-ne { top: -4px; right: -4px; width: 12px; height: 12px; cursor: nesw-resize; }
-.resize-sw { bottom: -4px; left: -4px; width: 12px; height: 12px; cursor: nesw-resize; }
 
 .card-header {
   padding: 8px 14px;
@@ -268,16 +297,10 @@ a:hover {
 /* ---- Music card ---- */
 
 .music-card {
-  position: absolute;
-  z-index: 2;
   border: 1px solid #000;
   background: #DFD6CC;
-  cursor: grab;
-  user-select: none;
-}
-
-.music-card:active {
-  cursor: grabbing;
+  display: inline-flex;
+  align-self: flex-end;
 }
 
 .music-btn {

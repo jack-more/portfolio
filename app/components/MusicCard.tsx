@@ -1,18 +1,10 @@
 "use client";
 
-import { useRef, useState, useCallback, useEffect } from "react";
+import { useRef, useState, useEffect } from "react";
 
-interface Props {
-  defaultX: number;
-  defaultY: number;
-}
-
-export default function MusicCard({ defaultX, defaultY }: Props) {
-  const [pos, setPos] = useState({ x: defaultX, y: defaultY });
+export default function MusicCard() {
   const [playing, setPlaying] = useState(false);
-  const [dragging, setDragging] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
-  const offset = useRef({ x: 0, y: 0 });
 
   const toggle = () => {
     if (!audioRef.current) return;
@@ -24,28 +16,6 @@ export default function MusicCard({ defaultX, defaultY }: Props) {
     setPlaying(!playing);
   };
 
-  // Drag
-  const onMouseDown = useCallback((e: React.MouseEvent) => {
-    setDragging(true);
-    offset.current = { x: e.clientX - pos.x, y: e.clientY - pos.y };
-    e.preventDefault();
-  }, [pos]);
-
-  useEffect(() => {
-    if (!dragging) return;
-    const onMove = (e: MouseEvent) => {
-      setPos({ x: e.clientX - offset.current.x, y: e.clientY - offset.current.y });
-    };
-    const onUp = () => setDragging(false);
-    window.addEventListener("mousemove", onMove);
-    window.addEventListener("mouseup", onUp);
-    return () => {
-      window.removeEventListener("mousemove", onMove);
-      window.removeEventListener("mouseup", onUp);
-    };
-  }, [dragging]);
-
-  // When audio ends
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
@@ -55,11 +25,7 @@ export default function MusicCard({ defaultX, defaultY }: Props) {
   }, []);
 
   return (
-    <div
-      className="music-card"
-      style={{ left: pos.x, top: pos.y }}
-      onMouseDown={onMouseDown}
-    >
+    <div className="music-card">
       <button className="music-btn" onClick={toggle} title="Dream Machine">
         {playing ? "❚❚" : "▶"}
       </button>

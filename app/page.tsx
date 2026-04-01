@@ -79,33 +79,6 @@ const online = [
   { label: "Cribs.fun", action: "Visit", href: "https://cribs.fun" },
 ];
 
-const reading = [
-  { title: "The Double and The Gambler", author: "Dostoevsky", href: "https://www.goodreads.com/book/show/5698.The_Double_and_The_Gambler" },
-  { title: "Debt: The First 5,000 Years", author: "David Graeber", href: "https://www.goodreads.com/book/show/6617037-debt" },
-  { title: "Breath", author: "James Nestor", href: "https://www.goodreads.com/book/show/48890486-breath" },
-  { title: "The Boy Who Could Change the World", author: "Aaron Swartz", href: "https://www.goodreads.com/en/book/show/23258925-the-boy-who-could-change-the-world" },
-  { title: "Harrison Bergeron", author: "Vonnegut", href: "https://www.goodreads.com/book/show/10176119-harrison-bergeron" },
-  { title: "Machines Like Me", author: "Ian McEwan", href: "https://www.goodreads.com/book/show/42086795-machines-like-me" },
-  { title: "The Road", author: "Cormac McCarthy", href: "https://www.goodreads.com/book/show/6288.The_Road" },
-  { title: "Intelligence and Spirit", author: "Reza Negarestani", href: "https://www.goodreads.com/en/book/show/35218850-intelligence-and-spirit" },
-  { title: "Fanged Noumena", author: "Nick Land", href: "https://www.goodreads.com/en/book/show/10838202-fanged-noumena" },
-];
-
-const articles = [
-  { title: "Hitting Streaks Don't Obey Your Rules", source: "SABR", href: "https://sabr.org/journal/article/hitting-streaks-dont-obey-your-rules-evidence-that-hitting-streaks-arent-just-by-products-of-random-variation/" },
-  { title: "RE24", source: "FanGraphs", href: "https://library.fangraphs.com/misc/re24/" },
-  { title: "Nodal Points Digest #2: LLM Personas", source: "Substack", href: "https://poeticengineering.substack.com/p/nodal-points-digest-2-llm-personas" },
-  { title: "The Fluid Mind and the Ever More Magical Future of Interfaces", source: "Substack", href: "https://poeticengineering.substack.com/p/the-fluid-mind-and-the-ever-more-magical-future-of-interfaces" },
-];
-
-const artwork = [
-  { title: "Roma CT", note: "beautiful things happening" },
-  { title: "GDP +10", note: "flags become paintings when nobody salutes" },
-  { title: "Plane Post", note: "posts from the plane" },
-  { title: "Breer", note: "longing" },
-  { title: "Oceanic Plate", note: "brotherhood reveals itself in yellow pools" },
-];
-
 function Row({ left, right, href }: { left: string; right: string; href?: string }) {
   const content = (
     <div className="row">
@@ -152,63 +125,65 @@ export default function HomePage() {
     <>
       <GridCanvas />
 
-      {/* Illustration - not in a card, just floating */}
-      <DraggableCard defaultX={15} defaultY={30} width={200}>
-        <div className="illustration-card">
-          <Image
-            src="/images/illustration-jack.png"
-            alt="Jack Morello"
-            width={180}
-            height={180}
-            className="illustration"
-            priority
-          />
+      <div className="layout">
+        {/* Left column */}
+        <div className="col-left">
+          <DraggableCard width={200}>
+            <div className="illustration-card">
+              <Image
+                src="/images/illustration-jack.png"
+                alt="Jack Morello"
+                width={180}
+                height={180}
+                className="illustration"
+                priority
+              />
+            </div>
+          </DraggableCard>
+
+          <DraggableCard title="Jack Morello">
+            <p>
+              Hey, I&apos;m Jack! I&apos;ve spent the last 8 years doing paid
+              media and growth marketing on the agency side at iHeartMedia and
+              Laundry Service before going in-house to build marketing
+              from scratch at three venture-backed startups with massive growth.
+            </p>
+            <p style={{ marginTop: "0.75rem" }}>
+              I&apos;m based in Los Angeles. If you have something interesting
+              or just want to say hi, I love to meet people online!{" "}
+              <a href="mailto:jaidanmorello@gmail.com">Start a chat with me</a>.
+            </p>
+          </DraggableCard>
+
+          <DraggableCard title="Work">
+            {work.map((w) => (
+              <WorkRow
+                key={w.company}
+                company={w.company}
+                desc={w.desc}
+                href={w.href}
+                details={w.details}
+              />
+            ))}
+          </DraggableCard>
         </div>
-      </DraggableCard>
 
-      {/* Music card */}
-      <MusicCard defaultX={1185} defaultY={225} />
+        {/* Right column */}
+        <div className="col-right">
+          <MusicCard />
 
-      {/* Bio card */}
-      <DraggableCard title="Jack Morello" defaultX={15} defaultY={260} width={560}>
-        <p>
-          Hey, I&apos;m Jack! I&apos;ve spent the last 8 years doing paid
-          media and growth marketing on the agency side at iHeartMedia and
-          Laundry Service before going in-house to build marketing
-          from scratch at three venture-backed startups with massive growth.
-        </p>
-        <p style={{ marginTop: "0.75rem" }}>
-          I&apos;m based in Los Angeles. If you have something interesting
-          or just want to say hi, I love to meet people online!{" "}
-          <a href="mailto:jaidanmorello@gmail.com">Start a chat with me</a>.
-        </p>
-      </DraggableCard>
+          <DraggableCard title="Online">
+            {online.map((l) => (
+              <Row key={l.label} left={l.label} right={l.action} href={l.href} />
+            ))}
+          </DraggableCard>
 
-      {/* Work card */}
-      <DraggableCard title="Work" defaultX={15} defaultY={520} width={590}>
-        {work.map((w) => (
-          <WorkRow
-            key={w.company}
-            company={w.company}
-            desc={w.desc}
-            href={w.href}
-            details={w.details}
-          />
-        ))}
-      </DraggableCard>
-
-      {/* Online card */}
-      <DraggableCard title="Online" defaultX={1050} defaultY={290} width={250}>
-        {online.map((l) => (
-          <Row key={l.label} left={l.label} right={l.action} href={l.href} />
-        ))}
-      </DraggableCard>
-
-      {/* Misc card */}
-      <DraggableCard title="Misc." defaultX={1050} defaultY={505} width={220}>
-        <Row left="Recent Reads" right="View" href="/recentreads" />
-        <Row left="Artwork" right="View" href="/artwork" />
-      </DraggableCard>
+          <DraggableCard title="Misc.">
+            <Row left="Recent Reads" right="View" href="/recentreads" />
+            <Row left="Artwork" right="View" href="/artwork" />
+          </DraggableCard>
+        </div>
+      </div>
     </>
   );
 }
