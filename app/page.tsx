@@ -153,7 +153,7 @@ export default function HomePage() {
       <GridCanvas />
 
       {/* Illustration - not in a card, just floating */}
-      <DraggableCard defaultX={35} defaultY={5} width={200}>
+      <DraggableCard defaultX={15} defaultY={30} width={200}>
         <div className="illustration-card">
           <Image
             src="/images/illustration-jack.png"
@@ -167,10 +167,10 @@ export default function HomePage() {
       </DraggableCard>
 
       {/* Music card */}
-      <MusicCard defaultX={1065} defaultY={195} />
+      <MusicCard defaultX={1185} defaultY={225} />
 
       {/* Bio card */}
-      <DraggableCard title="Jack Morello" defaultX={35} defaultY={235} width={480}>
+      <DraggableCard title="Jack Morello" defaultX={15} defaultY={260} width={560}>
         <p>
           Hey, I&apos;m Jack! I&apos;ve spent the last 8 years doing paid
           media and growth marketing on the agency side at iHeartMedia and
@@ -185,7 +185,7 @@ export default function HomePage() {
       </DraggableCard>
 
       {/* Work card */}
-      <DraggableCard title="Work" defaultX={35} defaultY={460} width={500}>
+      <DraggableCard title="Work" defaultX={15} defaultY={520} width={590}>
         {work.map((w) => (
           <WorkRow
             key={w.company}
@@ -198,14 +198,14 @@ export default function HomePage() {
       </DraggableCard>
 
       {/* Online card */}
-      <DraggableCard title="Online" defaultX={960} defaultY={260} width={220}>
+      <DraggableCard title="Online" defaultX={1050} defaultY={290} width={250}>
         {online.map((l) => (
           <Row key={l.label} left={l.label} right={l.action} href={l.href} />
         ))}
       </DraggableCard>
 
       {/* Misc card */}
-      <DraggableCard title="Misc." defaultX={940} defaultY={440} width={220}>
+      <DraggableCard title="Misc." defaultX={1050} defaultY={505} width={220}>
         <Row left="Recent Reads" right="View" href="/recentreads" />
         <Row left="Artwork" right="View" href="/artwork" />
       </DraggableCard>
