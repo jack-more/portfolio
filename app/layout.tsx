@@ -1,12 +1,13 @@
 import type { Metadata } from 'next';
-import { Space_Grotesk } from 'next/font/google';
+import { Lora, Inter } from 'next/font/google';
 import './globals.css';
 
-const spaceGrotesk = Space_Grotesk({ subsets: ['latin'] });
+const lora = Lora({ subsets: ['latin'], variable: '--font-serif', weight: ['400', '600', '700'] });
+const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 
 export const metadata: Metadata = {
   title: 'Jack Morello',
-  description: 'Product builder, growth strategist, media allocator',
+  description: 'Paid media strategist and performance marketer based in Los Angeles.',
 };
 
 export default function RootLayout({
@@ -15,8 +16,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className={spaceGrotesk.className}>
+    <html lang="en" className={`${lora.variable} ${inter.variable}`}>
+      <body>
         {children}
       </body>
     </html>
