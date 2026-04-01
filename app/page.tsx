@@ -151,7 +151,7 @@ export default function HomePage() {
       <GridCanvas />
 
       {/* Illustration - not in a card, just floating */}
-      <DraggableCard defaultX={30} defaultY={15} width={200}>
+      <DraggableCard defaultX={35} defaultY={5} width={200}>
         <div className="illustration-card">
           <Image
             src="/images/illustration-jack.png"
@@ -164,8 +164,11 @@ export default function HomePage() {
         </div>
       </DraggableCard>
 
+      {/* Music card */}
+      <MusicCard defaultX={1065} defaultY={195} />
+
       {/* Bio card */}
-      <DraggableCard title="Jack Morello" defaultX={30} defaultY={240} width={480}>
+      <DraggableCard title="Jack Morello" defaultX={35} defaultY={235} width={480}>
         <p>
           Hey, I&apos;m Jack! I&apos;ve spent the last 8 years doing paid
           media and growth marketing on the agency side at iHeartMedia and
@@ -180,7 +183,7 @@ export default function HomePage() {
       </DraggableCard>
 
       {/* Work card */}
-      <DraggableCard title="Work" defaultX={520} defaultY={240} width={520}>
+      <DraggableCard title="Work" defaultX={35} defaultY={460} width={500}>
         {work.map((w) => (
           <WorkRow
             key={w.company}
@@ -193,17 +196,14 @@ export default function HomePage() {
       </DraggableCard>
 
       {/* Online card */}
-      <DraggableCard title="Online" defaultX={330} defaultY={505} width={230}>
+      <DraggableCard title="Online" defaultX={960} defaultY={260} width={220}>
         {online.map((l) => (
           <Row key={l.label} left={l.label} right={l.action} href={l.href} />
         ))}
       </DraggableCard>
 
-      {/* Music card */}
-      <MusicCard defaultX={590} defaultY={505} />
-
       {/* Misc card */}
-      <DraggableCard title="Misc." defaultX={30} defaultY={505} width={280} maxHeight={260}>
+      <DraggableCard title="Misc." defaultX={940} defaultY={440} width={280} maxHeight={300}>
         <div className="misc-section">
           <h3 className="misc-heading">Recent Reads</h3>
           <div className="misc-list">
