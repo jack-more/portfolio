@@ -60,7 +60,7 @@ const work = [
     ],
   },
   {
-    company: "24/7 Laundry Service",
+    company: "24/7 Laundry Service (Wasserman)",
     desc: "Social for LG Mobile, Twitter, Jordan Brand",
     href: "https://247laundryservice.com/",
     details: [
@@ -143,8 +143,8 @@ export default function HomePage() {
 
           <DraggableCard title="Jack Morello">
             <p>
-              Hey, I&apos;m Jack! I&apos;ve spent the last 8 years doing paid
-              media and growth marketing on the agency side at iHeartMedia and
+              Hey, I&apos;m Jack! I&apos;ve spent the last 8 years doing growth
+              marketing and paid media on the agency side at iHeartMedia and
               Laundry Service before going in-house to build marketing
               from scratch at three venture-backed startups with massive growth.
             </p>
