@@ -8,6 +8,16 @@ import MusicCard from "./components/MusicCard";
 
 const work = [
   {
+    company: "Incubella",
+    desc: "Growth engineering for early-stage startups",
+    href: "https://www.incubella.co/",
+    details: [
+      "Building growth levers from first principles for portfolio companies",
+      "Marketing scaffolding to hit first DAU/MAU and 10K user milestones",
+      "Full-stack GTM: design, positioning, paid acquisition, analytics",
+    ],
+  },
+  {
     company: "iHeartMedia (Unified)",
     desc: "Paid media for Toyota, Starzplay, Starbucks",
     href: "https://www.iheartmedia.com/",
