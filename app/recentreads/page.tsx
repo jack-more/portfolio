@@ -10,6 +10,8 @@ const books = [
   { title: "The Road", author: "Cormac McCarthy", href: "https://www.goodreads.com/book/show/6288.The_Road" },
   { title: "Intelligence and Spirit", author: "Reza Negarestani", href: "https://www.goodreads.com/en/book/show/35218850-intelligence-and-spirit" },
   { title: "Fanged Noumena", author: "Nick Land", href: "https://www.goodreads.com/en/book/show/10838202-fanged-noumena" },
+  { title: "White Noise", author: "Don DeLillo", href: "https://www.goodreads.com/book/show/12497.White_Noise" },
+  { title: "Underworld", author: "Don DeLillo", href: "https://www.goodreads.com/book/show/394.Underworld" },
 ];
 
 const articles = [
