@@ -147,6 +147,8 @@ export default function HomePage() {
               marketing and paid media on the agency side at iHeartMedia and
               Laundry Service before going in-house to build marketing
               from scratch at three venture-backed startups with massive growth.
+              I&apos;m currently growing early-stage products with Incubella,
+              working across GTM, positioning, acquisition, and launch systems.
             </p>
             <p style={{ marginTop: "0.75rem" }}>
               I&apos;m based in Los Angeles. If you have something interesting
