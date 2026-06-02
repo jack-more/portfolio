@@ -7,18 +7,18 @@ import { useState, useEffect } from 'react';
 // ===========================================
 
 const fullStackData = {
-  devolved: {
-    role: "Marketing Manager",
-    period: "Sep 2024 – Jun 2025",
-    title: "Devolved AI",
-    abbrev: "DAI",
-    logo: "/images/DevolvedAI.png",
-    desc: "Led marketing strategy that scaled AI platform to $100M valuation. Developed comprehensive product positioning and launch strategy for AI agent platform serving enterprise and consumer markets. Oversaw complete company rebrand and market positioning.",
+  incubella: {
+    role: "Partner / Embedded Growth Lead",
+    period: "Jun 2024 - Present",
+    title: "Incubella",
+    abbrev: "IC",
+    logo: "/images/incubella-logo.svg",
+    desc: "Growth advisory firm building GTM systems for early-stage clients. Engagements include Devolved AI and Riskiiit, spanning positioning, acquisition, dashboards, content systems, and AI-assisted workflows.",
     campaigns: [
-      { title: "Secure Web App Launch", text: "Led launch communications for 'The Most Secure and Private AI Platform' featuring end-to-end encryption and Zero-Knowledge Proofs integration with Argochain.", tag: "Product Launch", image: "/images/campaigns/full-stack/devolved-secure.jpg" },
-      { title: "GDA Capital Partnership", text: "Managed strategic partnership announcement with GDA Capital, bringing Michael Gord as advisor. Distributed across GlobeNewswire, Manila Times, Tech Times, and major news outlets.", tag: "Partnership", image: "/images/campaigns/full-stack/devolved-partnership.jpg" },
-      { title: "Next Top AI Agent", text: "World's largest virtual AI startup competition with $500K+ prize pool. Partnership with GDA Capital and Alpaca Network. March 2025 campaign reaching global AI developer community.", tag: "Campaign", image: "/images/campaigns/full-stack/devolved-competition.jpg" },
-      { title: "Argochain Mainnet Launch", text: "Go-to-market strategy for proprietary Layer-1 blockchain launch (July 2024) and AGC token debut on MEXC exchange (August 2024).", tag: "Token Launch", image: "/images/campaigns/full-stack/blockchain-launch.jpg" }
+      { title: "Devolved AI Embedded GTM", text: "Owned positioning, messaging, launch strategy, rebrand, onboarding improvements, and inbound content for a private AI platform.", tag: "Client Engagement", image: "/images/DevolvedAI.png" },
+      { title: "Riskiiit Client Win", text: "Secured Riskiiit as an Incubella client and shaped early Telegram-led GTM for a crypto-native gaming mini app.", tag: "Client Win", image: "/images/riskiiit-logo.svg" },
+      { title: "Audience Intelligence", text: "Built wallet cohort research and dashboard workflows to identify high-intent communities, creators, and warm-intro channels.", tag: "Research", image: "/images/riskiiit-logo.svg" },
+      { title: "AI-Assisted Growth Ops", text: "Built workflows for campaign research, creative iteration, landing page updates, reporting, and launch operations.", tag: "Operations", image: "/images/incubella-logo.svg" }
     ]
   },
   near: {
@@ -294,9 +294,9 @@ const modalConfigs: Record<string, ModalConfig> = {
     label: 'Full Stack Marketing',
     headline: 'Scaled Over',
     subheadline: '$500M',
-    body: 'Led end-to-end marketing strategy for AI and Web3 startups—from go-to-market positioning to product launches.',
+    body: 'Led end-to-end marketing strategy for AI, Web3, and early-stage startups, from go-to-market positioning to product launches.',
     data: fullStackData,
-    brandKeys: ['devolved', 'near', 'dtravel', 'travala']
+    brandKeys: ['incubella', 'near', 'dtravel', 'travala']
   },
   paidMedia: {
     bgColor: '#7AD0EF',

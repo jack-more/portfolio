@@ -9,12 +9,13 @@ import MusicCard from "./components/MusicCard";
 const work = [
   {
     company: "Incubella",
-    desc: "Growth engineering for early-stage startups",
+    desc: "Growth advisory and embedded client GTM",
     href: "https://www.incubella.co/",
     details: [
-      "Building growth levers from first principles for portfolio companies",
-      "Marketing scaffolding to hit first DAU/MAU and 10K user milestones",
-      "Full-stack GTM: design, positioning, paid acquisition, analytics",
+      "Partner at growth advisory firm building GTM systems for early-stage clients",
+      "Engagement: Devolved AI, embedded marketing lead for private AI platform",
+      "Engagement: Riskiiit, secured client contract and built early Telegram-led GTM",
+      "AI-assisted workflows for campaign research, creative iteration, landing pages, reporting",
     ],
   },
   {
@@ -50,16 +51,6 @@ const work = [
     ],
   },
   {
-    company: "Devolved AI",
-    desc: "AI agent marketing: >100M mc scaled",
-    href: "https://www.devolvedai.com/",
-    details: [
-      "Led full company rebrand and market positioning",
-      "Streamlined onboarding, reducing drop-off by 35%",
-      "Built inbound content pipeline across LinkedIn and industry pubs",
-    ],
-  },
-  {
     company: "EPK.TV",
     desc: "Digital campaigns for Disney, Netflix, Sony, NBC",
     href: "https://www.epk.tv/",
@@ -86,7 +77,6 @@ const online = [
   { label: "Instagram", action: "Follow", href: "https://instagram.com/jackmorello" },
   { label: "GitHub", action: "View", href: "https://github.com/jack-more" },
   { label: "Morello Sims", action: "Visit", href: "https://morellosims.com" },
-  { label: "Cribs.fun", action: "Visit", href: "https://cribs.fun" },
 ];
 
 function Row({ left, right, href }: { left: string; right: string; href?: string }) {

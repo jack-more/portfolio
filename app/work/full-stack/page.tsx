@@ -4,30 +4,30 @@ import Link from 'next/link';
 
 const brands = [
   {
-    name: 'Devolved AI',
-    logo: '/images/DevolvedAI.png',
-    role: 'Marketing Manager',
-    period: 'Sep 2024 – Jun 2025',
-    description: 'Led marketing strategy that scaled AI platform to $100M valuation. Developed comprehensive product positioning and launch strategy for AI agent platform serving enterprise and consumer markets. Oversaw complete company rebrand and market positioning.',
+    name: 'Incubella',
+    logo: '/images/incubella-logo.svg',
+    role: 'Partner / Embedded Growth Lead',
+    period: 'Jun 2024 - Present',
+    description: 'Growth advisory firm building GTM systems for early-stage clients. Engagements include Devolved AI and Riskiiit, spanning positioning, acquisition, dashboards, content systems, and AI-assisted workflows.',
     campaigns: [
       {
-        name: 'Secure Web App Launch',
-        description: 'Led launch communications for "The Most Secure and Private AI Platform" featuring end-to-end encryption and Zero-Knowledge Proofs integration with Argochain.',
+        name: 'Devolved AI Embedded GTM',
+        description: 'Owned positioning, messaging, launch strategy, rebrand, onboarding improvements, and inbound content for a private AI platform.',
         media: null,
       },
       {
-        name: 'GDA Capital Partnership',
-        description: 'Managed strategic partnership announcement with GDA Capital, bringing Michael Gord as advisor. Distributed across GlobeNewswire, Manila Times, Tech Times, and major news outlets.',
+        name: 'Riskiiit Client Win',
+        description: 'Secured Riskiiit as an Incubella client and shaped early Telegram-led GTM for a crypto-native gaming mini app.',
         media: null,
       },
       {
-        name: 'Next Top AI Agent Competition',
-        description: 'World\'s largest virtual AI startup competition with $500K+ prize pool. Partnership with GDA Capital and Alpaca Network. March 2025 campaign reaching global AI developer community.',
+        name: 'Audience Intelligence',
+        description: 'Built wallet cohort research and dashboard workflows to identify high-intent communities, creators, and warm-intro channels.',
         media: null,
       },
       {
-        name: 'Argochain Mainnet Launch',
-        description: 'Go-to-market strategy for proprietary Layer-1 blockchain launch (July 2024) and AGC token debut on MEXC exchange (August 2024).',
+        name: 'AI-Assisted Growth Ops',
+        description: 'Built workflows for campaign research, creative iteration, landing page updates, reporting, and launch operations.',
         media: null,
       },
     ],
@@ -156,10 +156,10 @@ export default function FullStackPage() {
             letterSpacing: '-0.04em',
             marginBottom: '1.5rem',
           }}>
-            Scaled over $500M in valuations across Devolved AI, Dtravel, and NEAR Tasks.
+            Built growth systems across Incubella client engagements, Dtravel, and NEAR Tasks.
           </h1>
           <p style={{ fontSize: '1.25rem', lineHeight: 1.5, opacity: 0.9, maxWidth: '600px' }}>
-            Led end-to-end marketing strategy for AI and Web3 startups—from go-to-market positioning and user acquisition to community building and product launches.
+            Led end-to-end marketing strategy for AI, Web3, and early-stage startups, from go-to-market positioning and user acquisition to community building and product launches.
           </p>
         </div>
       </section>
