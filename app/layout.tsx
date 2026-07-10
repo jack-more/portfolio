@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Lora, Inter } from 'next/font/google';
 import './globals.css';
+import GameEffects from './components/GameEffects';
 
 const lora = Lora({ subsets: ['latin'], variable: '--font-serif', weight: ['400', '600', '700'] });
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
@@ -19,6 +20,7 @@ export default function RootLayout({
     <html lang="en" className={`${lora.variable} ${inter.variable}`}>
       <body>
         {children}
+        <GameEffects />
       </body>
     </html>
   );

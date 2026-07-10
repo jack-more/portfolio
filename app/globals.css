@@ -391,6 +391,87 @@ a:hover {
   text-decoration: none;
 }
 
+/* ---- Game-like micro-interactions ---- */
+
+.focus-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0;
+  transition:
+    opacity 0.15s ease,
+    transform 0.34s cubic-bezier(0.25, 1.5, 0.4, 1),
+    width 0.34s cubic-bezier(0.25, 1.5, 0.4, 1),
+    height 0.34s cubic-bezier(0.25, 1.5, 0.4, 1);
+}
+
+.focus-cursor[data-visible] {
+  opacity: 1;
+}
+
+.focus-cursor.fc-snap {
+  transition: opacity 0.15s ease;
+}
+
+.fc-corner {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border: 2px solid var(--text);
+  animation: fc-breathe 1.4s ease-in-out infinite;
+}
+
+.fc-tl { top: -3px; left: -3px; border-right: 0; border-bottom: 0; --dx: -2px; --dy: -2px; }
+.fc-tr { top: -3px; right: -3px; border-left: 0; border-bottom: 0; --dx: 2px; --dy: -2px; }
+.fc-bl { bottom: -3px; left: -3px; border-right: 0; border-top: 0; --dx: -2px; --dy: 2px; }
+.fc-br { bottom: -3px; right: -3px; border-left: 0; border-top: 0; --dx: 2px; --dy: 2px; }
+
+@keyframes fc-breathe {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(var(--dx), var(--dy)); }
+}
+
+.tap-fx {
+  position: fixed;
+  z-index: 9999;
+  pointer-events: none;
+  width: 0;
+  height: 0;
+}
+
+.tap-ring {
+  position: absolute;
+  left: -14px;
+  top: -14px;
+  width: 28px;
+  height: 28px;
+  border: 2px solid var(--text);
+  border-radius: 50%;
+  animation: tap-ring 0.45s cubic-bezier(0.2, 0.8, 0.3, 1) forwards;
+}
+
+@keyframes tap-ring {
+  from { transform: scale(0.25); opacity: 0.8; }
+  to { transform: scale(1.15); opacity: 0; }
+}
+
+.tap-spark {
+  position: absolute;
+  left: -2.5px;
+  top: -2.5px;
+  width: 5px;
+  height: 5px;
+  background: var(--green);
+  animation: tap-spark 0.5s cubic-bezier(0.15, 0.9, 0.3, 1) forwards;
+}
+
+@keyframes tap-spark {
+  from { transform: rotate(var(--a)) translateY(-6px) scale(1); opacity: 1; }
+  to { transform: rotate(var(--a)) translateY(-26px) scale(0); opacity: 0; }
+}
+
 /* ---- Recent Reads page ---- */
 
 .rr-page {
