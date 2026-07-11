@@ -216,6 +216,7 @@
 .section,
 .brandSection,
 .shopSection,
+.backPrintSection,
 .bookingBand,
 .routeSection,
 .shirtSection,
@@ -319,18 +320,130 @@
 }
 
 .productImageWrap {
-  aspect-ratio: 1 / 1;
-  background: rgba(255, 255, 255, 0.52);
+  aspect-ratio: 4 / 5;
+  background:
+    radial-gradient(circle at 50% 26%, rgba(255, 255, 255, 0.96), rgba(223, 216, 202, 0.34) 58%, rgba(128, 117, 98, 0.12)),
+    rgba(255, 255, 255, 0.52);
   border-bottom: 1px solid var(--line);
+  overflow: hidden;
 }
 
-.productImage {
-  display: block;
+.teeStage {
+  display: grid;
+  place-items: center;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  filter: saturate(0.9) contrast(1.04);
+  perspective: 900px;
+}
+
+.teeMockup {
+  position: relative;
+  width: min(72%, 270px);
+  aspect-ratio: 0.76 / 1;
+  background:
+    linear-gradient(116deg, rgba(255, 255, 255, 0.96), rgba(244, 239, 228, 0.95) 52%, rgba(255, 255, 255, 0.9)),
+    #fffdf8;
+  clip-path: polygon(
+    26% 6%,
+    38% 0,
+    62% 0,
+    74% 6%,
+    98% 21%,
+    87% 39%,
+    77% 32%,
+    77% 97%,
+    23% 97%,
+    23% 32%,
+    13% 39%,
+    2% 21%
+  );
+  transform: rotateX(5deg) rotateY(-7deg) rotateZ(-1.5deg);
+  filter: drop-shadow(0 26px 34px rgba(23, 29, 27, 0.2));
+}
+
+.teeMockup::before {
+  content: "";
+  position: absolute;
+  top: 2.5%;
+  left: 39%;
+  z-index: 4;
+  width: 22%;
+  height: 11%;
+  border-radius: 0 0 999px 999px;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(218, 211, 198, 0.92) 0 42%, rgba(255, 255, 255, 0.7) 43% 100%);
+  box-shadow: inset 0 -7px 10px rgba(23, 29, 27, 0.08);
+}
+
+.teeMockup::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(23, 29, 27, 0.08), transparent 18% 78%, rgba(23, 29, 27, 0.06)),
+    radial-gradient(ellipse at 50% 12%, rgba(23, 29, 27, 0.1), transparent 15%),
+    linear-gradient(180deg, transparent 62%, rgba(23, 29, 27, 0.08));
   mix-blend-mode: multiply;
+}
+
+.productCard:nth-child(2) .teeMockup {
+  transform: rotateX(4deg) rotateY(5deg) rotateZ(1.2deg);
+}
+
+.productCard:nth-child(3) .teeMockup {
+  transform: rotateX(6deg) rotateY(-3deg) rotateZ(-0.4deg);
+}
+
+.teePrint {
+  position: absolute;
+  top: 31%;
+  left: 50%;
+  z-index: 2;
+  width: 58%;
+  transform: translate(-50%, -50%);
+}
+
+.teePrintImage {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: saturate(0.95) contrast(1.08);
+  mix-blend-mode: multiply;
+}
+
+.printTall {
+  top: 34%;
+  width: 62%;
+}
+
+.printBold {
+  top: 32%;
+  width: 66%;
+}
+
+.printRunner {
+  top: 33%;
+  width: 56%;
+}
+
+.backNumberPrint {
+  top: 26%;
+  width: 70%;
+}
+
+.backStage {
+  min-height: 440px;
+  background:
+    radial-gradient(circle at 50% 24%, rgba(255, 255, 255, 0.96), rgba(220, 214, 202, 0.4) 58%, transparent 74%);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.backTee {
+  width: min(58%, 300px);
+  transform: rotateX(4deg) rotateY(6deg) rotateZ(1deg);
 }
 
 .productInfo {
@@ -387,6 +500,72 @@
 
 .buyButton:hover {
   transform: translateY(-1px);
+}
+
+.backPrintSection {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.42fr) minmax(0, 1fr);
+  gap: clamp(30px, 5vw, 56px);
+  align-items: center;
+  padding: clamp(86px, 9vw, 124px) 0 0;
+}
+
+.backCopy {
+  display: grid;
+  gap: 18px;
+}
+
+.backCopy h2 {
+  margin: 0;
+  color: var(--ink);
+  font-size: 48px;
+  font-weight: 950;
+  line-height: 0.94;
+  text-transform: uppercase;
+}
+
+.backCopy p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.55;
+}
+
+.backMockupGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(180px, 0.45fr);
+  gap: 14px;
+}
+
+.backOptionGrid {
+  display: grid;
+  gap: 14px;
+}
+
+.backOption {
+  display: grid;
+  gap: 10px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.48);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.backOptionImage {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  filter: saturate(0.92) contrast(1.05);
+  mix-blend-mode: multiply;
+}
+
+.backOption h3 {
+  margin: 0;
+  color: var(--red);
+  font-size: 13px;
+  font-weight: 950;
+  text-transform: uppercase;
 }
 
 .section {
@@ -549,17 +728,16 @@
   align-items: end;
 }
 
-.shirtArt {
-  width: 100%;
-  height: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  border: 1px solid rgba(23, 29, 27, 0.14);
-  filter: saturate(0.88) contrast(1.03);
-  mix-blend-mode: multiply;
+.offerStage {
+  min-height: 420px;
+  background:
+    radial-gradient(circle at 50% 25%, rgba(255, 255, 255, 0.96), rgba(222, 216, 204, 0.44) 62%, transparent 74%);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
 }
 
-.shirtArt:last-child {
+.offerStage:last-child {
   transform: translateY(26px) rotate(1.1deg);
 }
 
@@ -602,6 +780,8 @@
   .brandSection,
   .shopHeader,
   .productGrid,
+  .backPrintSection,
+  .backMockupGrid,
   .sectionIntro,
   .trustGrid,
   .bookingBand,
@@ -622,6 +802,7 @@
 
   .brandCopy h2,
   .shopHeader h2,
+  .backCopy h2,
   .sectionIntro h2,
   .bookingCopy h2,
   .routeCopy h2,
@@ -666,6 +847,7 @@
   .quickStrip,
   .brandSection,
   .shopSection,
+  .backPrintSection,
   .section,
   .bookingBand,
   .routeSection,
@@ -688,6 +870,7 @@
 
   .brandCopy h2,
   .shopHeader h2,
+  .backCopy h2,
   .sectionIntro h2,
   .bookingCopy h2,
   .routeCopy h2,
@@ -705,7 +888,16 @@
     grid-template-columns: 1fr;
   }
 
-  .shirtArt:last-child {
+  .offerStage,
+  .backStage {
+    min-height: 390px;
+  }
+
+  .backOptionGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .offerStage:last-child {
     transform: none;
   }
 

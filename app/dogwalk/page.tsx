@@ -74,8 +74,9 @@ const shirtProducts = [
     name: "Gray Runner",
     tag: "Most wearable",
     price: "$38",
-    src: "/dogwalk/brand/dogwalk-los-angeles-gray-dog-2026.jpg",
+    src: "/dogwalk/brand/prints/print-gray-runner.png",
     alt: "Gray Dogwalk Los Angeles 2026 shirt design",
+    printClass: "printTall",
     description:
       "Sparse gray mark, big Dogwalk Los Angeles lockup, faded art-school tee energy.",
   },
@@ -83,8 +84,9 @@ const shirtProducts = [
     name: "Blue Type Dog",
     tag: "Logo tee",
     price: "$38",
-    src: "/dogwalk/brand/dogwalk-los-angeles-blue-type-2026.jpg",
+    src: "/dogwalk/brand/prints/print-blue-type-dog.png",
     alt: "Blue Dogwalk Los Angeles 2026 shirt design",
+    printClass: "printBold",
     description:
       "Bold blue type with the loose green dog sketch. Clean, graphic, very LA.",
   },
@@ -92,10 +94,29 @@ const shirtProducts = [
     name: "Green Blue Runner",
     tag: "Art print",
     price: "$38",
-    src: "/dogwalk/brand/dogwalk-green-blue-running-dog.jpg",
+    src: "/dogwalk/brand/prints/print-green-blue-runner.png",
     alt: "Green and blue running dog shirt design",
+    printClass: "printRunner",
     description:
       "Two-color runner with mountain and marker lines. The most vintage chic one.",
+  },
+];
+
+const backPrintOptions = [
+  {
+    name: "Stripe Back",
+    src: "/dogwalk/brand/dogwalk-back-number-stripes.jpg",
+    alt: "Blue phone number with blue and green racing stripes",
+  },
+  {
+    name: "Cloud Back",
+    src: "/dogwalk/brand/dogwalk-back-number-cloud.jpg",
+    alt: "Blue and green phone number inside a loose cloud mark",
+  },
+  {
+    name: "Swoosh Back",
+    src: "/dogwalk/brand/dogwalk-back-number-swoosh.jpg",
+    alt: "Blue and green phone number with a hand-drawn swoosh",
   },
 ];
 
@@ -200,13 +221,19 @@ export default function DogWalkPage() {
             return (
               <article className={styles.productCard} key={shirt.name}>
                 <div className={styles.productImageWrap}>
-                  <Image
-                    src={shirt.src}
-                    alt={shirt.alt}
-                    width={1024}
-                    height={1024}
-                    className={styles.productImage}
-                  />
+                  <div className={styles.teeStage}>
+                    <div className={styles.teeMockup} aria-hidden="true">
+                      <div className={`${styles.teePrint} ${styles[shirt.printClass]}`}>
+                        <Image
+                          src={shirt.src}
+                          alt=""
+                          width={1024}
+                          height={1024}
+                          className={styles.teePrintImage}
+                        />
+                      </div>
+                    </div>
+                  </div>
                 </div>
                 <div className={styles.productInfo}>
                   <div className={styles.productMeta}>
@@ -223,6 +250,49 @@ export default function DogWalkPage() {
               </article>
             );
           })}
+        </div>
+      </section>
+
+      <section className={styles.backPrintSection} aria-labelledby="back-title">
+        <div className={styles.backCopy}>
+          <p className={styles.kickerDark}>Back print font</p>
+          <h2 id="back-title">Use the blue number with the green stripe.</h2>
+          <p>
+            The back should be useful and strange: the phone number as an
+            athletic marker, printed between the shoulder blades on the same
+            white tee.
+          </p>
+        </div>
+
+        <div className={styles.backMockupGrid}>
+          <div className={`${styles.teeStage} ${styles.backStage}`}>
+            <div className={`${styles.teeMockup} ${styles.backTee}`} aria-hidden="true">
+              <div className={`${styles.teePrint} ${styles.backNumberPrint}`}>
+                <Image
+                  src="/dogwalk/brand/prints/print-back-number-stripes.png"
+                  alt=""
+                  width={1024}
+                  height={1024}
+                  className={styles.teePrintImage}
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className={styles.backOptionGrid} aria-label="Back print options">
+            {backPrintOptions.map((option) => (
+              <article className={styles.backOption} key={option.name}>
+                <Image
+                  src={option.src}
+                  alt={option.alt}
+                  width={1024}
+                  height={1024}
+                  className={styles.backOptionImage}
+                />
+                <h3>{option.name}</h3>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -310,20 +380,32 @@ export default function DogWalkPage() {
           </p>
         </div>
         <div className={styles.shirtDeck}>
-          <Image
-            src="/dogwalk/brand/dogwalk-los-angeles-blue-type-2026.jpg"
-            alt="Dogwalk Los Angeles blue type shirt artwork"
-            width={1024}
-            height={1024}
-            className={styles.shirtArt}
-          />
-          <Image
-            src="/dogwalk/brand/dogwalk-green-blue-running-dog.jpg"
-            alt="Green and blue running dog shirt artwork"
-            width={1024}
-            height={1024}
-            className={styles.shirtArt}
-          />
+          <div className={`${styles.teeStage} ${styles.offerStage}`}>
+            <div className={styles.teeMockup} aria-hidden="true">
+              <div className={`${styles.teePrint} ${styles.printBold}`}>
+                <Image
+                  src="/dogwalk/brand/prints/print-blue-type-dog.png"
+                  alt=""
+                  width={1024}
+                  height={1024}
+                  className={styles.teePrintImage}
+                />
+              </div>
+            </div>
+          </div>
+          <div className={`${styles.teeStage} ${styles.offerStage}`}>
+            <div className={styles.teeMockup} aria-hidden="true">
+              <div className={`${styles.teePrint} ${styles.printRunner}`}>
+                <Image
+                  src="/dogwalk/brand/prints/print-green-blue-runner.png"
+                  alt=""
+                  width={1024}
+                  height={1024}
+                  className={styles.teePrintImage}
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
