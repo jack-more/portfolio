@@ -50,73 +50,26 @@ const textChecklist = [
   "Shirt size for the weekly booking offer",
 ];
 
-const brandImages = [
-  {
-    src: "/dogwalk/brand/dogwalk-los-angeles-neighborhood-walk-2026.jpg",
-    alt: "Dogwalk Los Angeles neighborhood walk artwork",
-  },
-  {
-    src: "/dogwalk/brand/dogwalk-blue-green-la-runner-dog.jpg",
-    alt: "Blue and green Los Angeles dog run artwork",
-  },
-  {
-    src: "/dogwalk/brand/dogwalk-los-angeles-blue-type-2026.jpg",
-    alt: "Dogwalk Los Angeles blue type shirt artwork",
-  },
-  {
-    src: "/dogwalk/brand/dogwalk-handwritten-dog-2026.jpg",
-    alt: "Handwritten Dog Walk Los Angeles 2026 artwork",
-  },
-];
-
 const shirtProducts = [
   {
-    name: "Gray Runner",
-    tag: "Most wearable",
+    name: "Carthay Square",
+    tag: "Neighborhood tee",
     price: "$38",
-    src: "/dogwalk/brand/prints/print-gray-runner.png",
-    alt: "Gray Dogwalk Los Angeles 2026 shirt design",
-    printClass: "printTall",
+    src: "/dogwalk/CarthaySquare.jpg",
+    alt: "Hand-lettered Carthay Square shirt print in cobalt and green",
+    printClass: "printCarthay",
     description:
-      "Sparse gray mark, big Dogwalk Los Angeles lockup, faded art-school tee energy.",
+      "Hand-brushed Carthay Square in cobalt with a loose green canopy. Printed small and centered so the lettering does the talking.",
   },
   {
-    name: "Blue Type Dog",
-    tag: "Logo tee",
+    name: "Wilshire Vista",
+    tag: "Neighborhood tee",
     price: "$38",
-    src: "/dogwalk/brand/prints/print-blue-type-dog.png",
-    alt: "Blue Dogwalk Los Angeles 2026 shirt design",
-    printClass: "printBold",
+    src: "/dogwalk/WilshireVista.jpg",
+    alt: "Blackletter Wilshire Vista shirt print in blue and green",
+    printClass: "printWilshire",
     description:
-      "Bold blue type with the loose green dog sketch. Clean, graphic, very LA.",
-  },
-  {
-    name: "Green Blue Runner",
-    tag: "Art print",
-    price: "$38",
-    src: "/dogwalk/brand/prints/print-green-blue-runner.png",
-    alt: "Green and blue running dog shirt design",
-    printClass: "printRunner",
-    description:
-      "Two-color runner with mountain and marker lines. The most vintage chic one.",
-  },
-];
-
-const backPrintOptions = [
-  {
-    name: "Stripe Back",
-    src: "/dogwalk/brand/dogwalk-back-number-stripes.jpg",
-    alt: "Blue phone number with blue and green racing stripes",
-  },
-  {
-    name: "Cloud Back",
-    src: "/dogwalk/brand/dogwalk-back-number-cloud.jpg",
-    alt: "Blue and green phone number inside a loose cloud mark",
-  },
-  {
-    name: "Swoosh Back",
-    src: "/dogwalk/brand/dogwalk-back-number-swoosh.jpg",
-    alt: "Blue and green phone number with a hand-drawn swoosh",
+      "Blue blackletter Wilshire Vista over a soft green hillside. Quiet, local, and a little strange in the right way.",
   },
 ];
 
@@ -176,39 +129,16 @@ export default function DogWalkPage() {
         </div>
       </section>
 
-      <section className={styles.brandSection} aria-labelledby="brand-title">
-        <div className={styles.brandCopy}>
-          <p className={styles.kickerDark}>Dogwalk Los Angeles 2026</p>
-          <h2 id="brand-title">A local walk with a shirt worth wanting.</h2>
-          <p>
-            Weekly booking gets the first shirt while founding slots are open.
-            The feel is local, faded, and collectible without getting precious.
-          </p>
-        </div>
-
-        <div className={styles.brandGrid}>
-          {brandImages.map((image) => (
-            <Image
-              key={image.src}
-              src={image.src}
-              alt={image.alt}
-              width={1024}
-              height={1024}
-              className={styles.brandImage}
-            />
-          ))}
-        </div>
-      </section>
-
       <section className={styles.shopSection} id="shirts" aria-labelledby="shop-title">
         <div className={styles.shopHeader}>
           <div>
-            <p className={styles.kickerDark}>Top three shirt drop</p>
+            <p className={styles.kickerDark}>Two neighborhood tees</p>
             <h2 id="shop-title">For weekly walkers. Also for sale.</h2>
           </div>
           <p>
-            The first shirt is free with a weekly booking. The same founding
-            designs are available separately while the first run is open.
+            The first shirt is free with a weekly booking. Right now it&rsquo;s
+            just the two neighborhoods &mdash; Carthay Square and Wilshire Vista
+            &mdash; while the first run is open.
           </p>
         </div>
 
@@ -250,49 +180,6 @@ export default function DogWalkPage() {
               </article>
             );
           })}
-        </div>
-      </section>
-
-      <section className={styles.backPrintSection} aria-labelledby="back-title">
-        <div className={styles.backCopy}>
-          <p className={styles.kickerDark}>Back print font</p>
-          <h2 id="back-title">Use the blue number with the green stripe.</h2>
-          <p>
-            The back should be useful and strange: the phone number as an
-            athletic marker, printed between the shoulder blades on the same
-            white tee.
-          </p>
-        </div>
-
-        <div className={styles.backMockupGrid}>
-          <div className={`${styles.teeStage} ${styles.backStage}`}>
-            <div className={`${styles.teeMockup} ${styles.backTee}`} aria-hidden="true">
-              <div className={`${styles.teePrint} ${styles.backNumberPrint}`}>
-                <Image
-                  src="/dogwalk/brand/prints/print-back-number-stripes.png"
-                  alt=""
-                  width={1024}
-                  height={1024}
-                  className={styles.teePrintImage}
-                />
-              </div>
-            </div>
-          </div>
-
-          <div className={styles.backOptionGrid} aria-label="Back print options">
-            {backPrintOptions.map((option) => (
-              <article className={styles.backOption} key={option.name}>
-                <Image
-                  src={option.src}
-                  alt={option.alt}
-                  width={1024}
-                  height={1024}
-                  className={styles.backOptionImage}
-                />
-                <h3>{option.name}</h3>
-              </article>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -382,9 +269,9 @@ export default function DogWalkPage() {
         <div className={styles.shirtDeck}>
           <div className={`${styles.teeStage} ${styles.offerStage}`}>
             <div className={styles.teeMockup} aria-hidden="true">
-              <div className={`${styles.teePrint} ${styles.printBold}`}>
+              <div className={`${styles.teePrint} ${styles.printCarthay}`}>
                 <Image
-                  src="/dogwalk/brand/prints/print-blue-type-dog.png"
+                  src="/dogwalk/CarthaySquare.jpg"
                   alt=""
                   width={1024}
                   height={1024}
@@ -395,9 +282,9 @@ export default function DogWalkPage() {
           </div>
           <div className={`${styles.teeStage} ${styles.offerStage}`}>
             <div className={styles.teeMockup} aria-hidden="true">
-              <div className={`${styles.teePrint} ${styles.printRunner}`}>
+              <div className={`${styles.teePrint} ${styles.printWilshire}`}>
                 <Image
-                  src="/dogwalk/brand/prints/print-green-blue-runner.png"
+                  src="/dogwalk/WilshireVista.jpg"
                   alt=""
                   width={1024}
                   height={1024}

@@ -305,8 +305,10 @@
 
 .productGrid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 14px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  max-width: 720px;
+  margin: 0 auto;
 }
 
 .productCard {
@@ -426,6 +428,18 @@
 .printRunner {
   top: 33%;
   width: 56%;
+}
+
+/* Neighborhood letterings: centered chest print, sized so the lettering reads
+   and never crowds the collar. Kept modest on purpose. */
+.printCarthay {
+  top: 37%;
+  width: 50%;
+}
+
+.printWilshire {
+  top: 36%;
+  width: 62%;
 }
 
 .backNumberPrint {
