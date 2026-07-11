@@ -7,6 +7,7 @@ import {
   Phone,
   ShieldCheck,
   Shirt,
+  ShoppingBag,
 } from "lucide-react";
 import styles from "./page.module.css";
 
@@ -49,24 +50,74 @@ const textChecklist = [
   "Shirt size for the weekly booking offer",
 ];
 
+const brandImages = [
+  {
+    src: "/dogwalk/brand/dogwalk-los-angeles-neighborhood-walk-2026.jpg",
+    alt: "Dogwalk Los Angeles neighborhood walk artwork",
+  },
+  {
+    src: "/dogwalk/brand/dogwalk-blue-green-la-runner-dog.jpg",
+    alt: "Blue and green Los Angeles dog run artwork",
+  },
+  {
+    src: "/dogwalk/brand/dogwalk-los-angeles-blue-type-2026.jpg",
+    alt: "Dogwalk Los Angeles blue type shirt artwork",
+  },
+  {
+    src: "/dogwalk/brand/dogwalk-handwritten-dog-2026.jpg",
+    alt: "Handwritten Dog Walk Los Angeles 2026 artwork",
+  },
+];
+
+const shirtProducts = [
+  {
+    name: "Gray Runner",
+    tag: "Most wearable",
+    price: "$38",
+    src: "/dogwalk/brand/dogwalk-los-angeles-gray-dog-2026.jpg",
+    alt: "Gray Dogwalk Los Angeles 2026 shirt design",
+    description:
+      "Sparse gray mark, big Dogwalk Los Angeles lockup, faded art-school tee energy.",
+  },
+  {
+    name: "Blue Type Dog",
+    tag: "Logo tee",
+    price: "$38",
+    src: "/dogwalk/brand/dogwalk-los-angeles-blue-type-2026.jpg",
+    alt: "Blue Dogwalk Los Angeles 2026 shirt design",
+    description:
+      "Bold blue type with the loose green dog sketch. Clean, graphic, very LA.",
+  },
+  {
+    name: "Green Blue Runner",
+    tag: "Art print",
+    price: "$38",
+    src: "/dogwalk/brand/dogwalk-green-blue-running-dog.jpg",
+    alt: "Green and blue running dog shirt design",
+    description:
+      "Two-color runner with mountain and marker lines. The most vintage chic one.",
+  },
+];
+
 export default function DogWalkPage() {
   return (
     <main className={styles.page}>
       <section className={styles.hero} aria-labelledby="dogwalk-title">
-        <Image
-          src="/dogwalk/neighborly-walker-dogs-art-transparent.png"
-          alt="Ink drawing of a neighbor walking dogs"
-          width={1860}
-          height={1465}
-          priority
-          className={styles.heroArt}
-        />
+        <div className={styles.heroPoster}>
+          <Image
+            src="/dogwalk/brand/dogwalk-los-angeles-gray-dog-2026.jpg"
+            alt="Dogwalk Los Angeles 2026 gray dog brand poster"
+            width={1024}
+            height={1024}
+            priority
+            className={styles.heroPosterArt}
+          />
+        </div>
 
         <div className={styles.heroContent}>
-          <p className={styles.kicker}>Dogwalk Los Angeles</p>
-          <h1 id="dogwalk-title">
-            Is your dog <span className={styles.accent}>walking enough?</span>
-          </h1>
+          <p className={styles.kicker}>Carthay Square - Wilshire Vista - LA</p>
+          <h1 id="dogwalk-title">Dogwalk Los Angeles</h1>
+          <p className={styles.heroQuestion}>Is your dog walking enough?</p>
           <p className={styles.heroCopy}>
             Safe neighborly Dog Walks with Jack for Carthay Square and Wilshire
             Vista. Steady weekly routes, familiar dogs, clear handoffs, and a
@@ -80,6 +131,10 @@ export default function DogWalkPage() {
             <a className={styles.secondaryButton} href={`tel:${phoneHref}`}>
               <Phone size={19} aria-hidden="true" />
               {phoneDisplay}
+            </a>
+            <a className={styles.secondaryButton} href="#shirts">
+              <ShoppingBag size={19} aria-hidden="true" />
+              Shop shirts
             </a>
           </div>
         </div>
@@ -97,6 +152,77 @@ export default function DogWalkPage() {
         <div>
           <span>Start</span>
           <strong>Text Jack your ideal time</strong>
+        </div>
+      </section>
+
+      <section className={styles.brandSection} aria-labelledby="brand-title">
+        <div className={styles.brandCopy}>
+          <p className={styles.kickerDark}>Dogwalk Los Angeles 2026</p>
+          <h2 id="brand-title">A local walk with a shirt worth wanting.</h2>
+          <p>
+            Weekly booking gets the first shirt while founding slots are open.
+            The feel is local, faded, and collectible without getting precious.
+          </p>
+        </div>
+
+        <div className={styles.brandGrid}>
+          {brandImages.map((image) => (
+            <Image
+              key={image.src}
+              src={image.src}
+              alt={image.alt}
+              width={1024}
+              height={1024}
+              className={styles.brandImage}
+            />
+          ))}
+        </div>
+      </section>
+
+      <section className={styles.shopSection} id="shirts" aria-labelledby="shop-title">
+        <div className={styles.shopHeader}>
+          <div>
+            <p className={styles.kickerDark}>Top three shirt drop</p>
+            <h2 id="shop-title">For weekly walkers. Also for sale.</h2>
+          </div>
+          <p>
+            The first shirt is free with a weekly booking. The same founding
+            designs are available separately while the first run is open.
+          </p>
+        </div>
+
+        <div className={styles.productGrid}>
+          {shirtProducts.map((shirt) => {
+            const shirtSms = `sms:${phoneHref}?&body=${encodeURIComponent(
+              `Hi Jack, I want the ${shirt.name} Dogwalk Los Angeles shirt in size [size].`
+            )}`;
+
+            return (
+              <article className={styles.productCard} key={shirt.name}>
+                <div className={styles.productImageWrap}>
+                  <Image
+                    src={shirt.src}
+                    alt={shirt.alt}
+                    width={1024}
+                    height={1024}
+                    className={styles.productImage}
+                  />
+                </div>
+                <div className={styles.productInfo}>
+                  <div className={styles.productMeta}>
+                    <span>{shirt.tag}</span>
+                    <strong>{shirt.price}</strong>
+                  </div>
+                  <h3>{shirt.name}</h3>
+                  <p>{shirt.description}</p>
+                  <a className={styles.buyButton} href={shirtSms}>
+                    <ShoppingBag size={18} aria-hidden="true" />
+                    Text to buy
+                  </a>
+                </div>
+              </article>
+            );
+          })}
         </div>
       </section>
 
@@ -177,19 +303,28 @@ export default function DogWalkPage() {
       <section className={styles.shirtSection} aria-labelledby="shirt-title">
         <div>
           <p className={styles.kickerDark}>Founding weekly offer</p>
-          <h2 id="shirt-title">The first shirt is part of Dog Walk.</h2>
+          <h2 id="shirt-title">Book weekly. Get the Dog Walk shirt.</h2>
           <p>
             Book weekly and get the first faded neighborhood dog walk shirt.
             Quiet, local, and a little strange in the right way.
           </p>
         </div>
-        <Image
-          src="/dogwalk/jacks-dog-walk-shirt-design-transparent.png"
-          alt="Dogwalk Los Angeles shirt artwork"
-          width={2707}
-          height={2585}
-          className={styles.shirtArt}
-        />
+        <div className={styles.shirtDeck}>
+          <Image
+            src="/dogwalk/brand/dogwalk-los-angeles-blue-type-2026.jpg"
+            alt="Dogwalk Los Angeles blue type shirt artwork"
+            width={1024}
+            height={1024}
+            className={styles.shirtArt}
+          />
+          <Image
+            src="/dogwalk/brand/dogwalk-green-blue-running-dog.jpg"
+            alt="Green and blue running dog shirt artwork"
+            width={1024}
+            height={1024}
+            className={styles.shirtArt}
+          />
+        </div>
       </section>
 
       <section className={styles.finalCta} aria-labelledby="final-title">
