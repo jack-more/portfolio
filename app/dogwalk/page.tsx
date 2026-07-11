@@ -13,14 +13,14 @@ import styles from "./page.module.css";
 const phoneDisplay = "(310) 902-5854";
 const phoneHref = "+13109025854";
 const smsBody = encodeURIComponent(
-  "Hi Jack, I saw the dog walk flyer. My dog is [name]. We live in [neighborhood]. I am looking for a weekly walk around [days/times]."
+  "Hi Jack, I saw the Dogwalk Los Angeles flyer. My dog is [name]. We live in [neighborhood]. I am looking for a weekly walk around [days/times]."
 );
 const smsHref = `sms:${phoneHref}?&body=${smsBody}`;
 
 export const metadata: Metadata = {
-  title: "Jack's Dog Walk | Carthay Square and Wilshire Vista",
+  title: "Dogwalk Los Angeles | Dog Walks with Jack",
   description:
-    "Safe neighborly weekly dog walks with Jack M. in Carthay Square and Wilshire Vista. Text Jack to request a weekly time.",
+    "Dogwalk Los Angeles offers safe neighborly weekly dog walks with Jack M. in Carthay Square and Wilshire Vista.",
 };
 
 const trustPoints = [
@@ -37,7 +37,7 @@ const trustPoints = [
   {
     icon: Shirt,
     title: "First shirt free",
-    body: "Weekly bookings get the first Jack's Dog Walk shirt while founding slots are open.",
+    body: "Weekly bookings get the first Dogwalk Los Angeles shirt while founding slots are open.",
   },
 ];
 
@@ -49,12 +49,12 @@ const textChecklist = [
   "Shirt size for the weekly booking offer",
 ];
 
-export default function DogClubPage() {
+export default function DogWalkPage() {
   return (
     <main className={styles.page}>
-      <section className={styles.hero} aria-labelledby="dogclub-title">
+      <section className={styles.hero} aria-labelledby="dogwalk-title">
         <Image
-          src="/dogclub/neighborly-walker-dogs-art-transparent.png"
+          src="/dogwalk/neighborly-walker-dogs-art-transparent.png"
           alt="Ink drawing of a neighbor walking dogs"
           width={1860}
           height={1465}
@@ -63,11 +63,14 @@ export default function DogClubPage() {
         />
 
         <div className={styles.heroContent}>
-          <p className={styles.kicker}>Carthay Square - Wilshire Vista</p>
-          <h1 id="dogclub-title">Is your dog walking enough?</h1>
+          <p className={styles.kicker}>Dogwalk Los Angeles</p>
+          <h1 id="dogwalk-title">
+            Is your dog <span className={styles.accent}>walking enough?</span>
+          </h1>
           <p className={styles.heroCopy}>
-            Safe neighborly walks with Jack. Steady weekly routes, familiar dogs,
-            clear handoffs, and a free shirt for weekly booking.
+            Safe neighborly Dog Walks with Jack for Carthay Square and Wilshire
+            Vista. Steady weekly routes, familiar dogs, clear handoffs, and a
+            free shirt for weekly booking.
           </p>
           <div className={styles.heroActions}>
             <a className={styles.primaryButton} href={smsHref}>
@@ -174,15 +177,15 @@ export default function DogClubPage() {
       <section className={styles.shirtSection} aria-labelledby="shirt-title">
         <div>
           <p className={styles.kickerDark}>Founding weekly offer</p>
-          <h2 id="shirt-title">The first shirt is part of the club.</h2>
+          <h2 id="shirt-title">The first shirt is part of Dog Walk.</h2>
           <p>
             Book weekly and get the first faded neighborhood dog walk shirt.
             Quiet, local, and a little strange in the right way.
           </p>
         </div>
         <Image
-          src="/dogclub/jacks-dog-walk-shirt-design-transparent.png"
-          alt="Jack's Dog Walk shirt artwork"
+          src="/dogwalk/jacks-dog-walk-shirt-design-transparent.png"
+          alt="Dogwalk Los Angeles shirt artwork"
           width={2707}
           height={2585}
           className={styles.shirtArt}
