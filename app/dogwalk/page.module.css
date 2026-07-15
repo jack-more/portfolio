@@ -176,18 +176,18 @@ a.label:hover {
 .pills {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 10px;
 }
 .pill {
   font-family: var(--mono);
-  font-size: 12px;
-  letter-spacing: 0.12em;
+  font-size: 15px;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--ink);
   background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.35);
   border-radius: 999px;
-  padding: 10px 16px;
+  padding: 15px 24px;
   cursor: pointer;
   transition: background 120ms ease, color 120ms ease, border-color 120ms ease;
 }
