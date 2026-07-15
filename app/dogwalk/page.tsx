@@ -44,6 +44,16 @@ export default function DogWalkPage() {
           <h1 className={styles.title}>dogwalk</h1>
           <p className={styles.subtitle}>CARTHAY SQUARE · WILSHIRE VISTA</p>
 
+          <div className={styles.heroOffer}>
+            <p className={styles.offerLine}>
+              <span className={styles.offerMark}>FREE</span> NEIGHBORHOOD TEE WITH
+              WEEKLY SCHEDULING
+            </p>
+            <a className={styles.heroCta} href="#schedule">
+              Schedule a walk →
+            </a>
+          </div>
+
           <div className={styles.heroCorners}>
             <span className={styles.cornerBL}>AVAILABLE FOR WEEKLY WALKS</span>
             <a className={styles.cornerC} href="#schedule">

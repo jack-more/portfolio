@@ -112,6 +112,48 @@ a.label:hover {
   margin-top: clamp(8px, 2vw, 20px);
 }
 
+/* Above-the-fold conversion: the offer + primary CTA. */
+.heroOffer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(16px, 2.4vw, 26px);
+  margin-top: clamp(22px, 4vw, 40px);
+}
+.offerLine {
+  font-family: var(--mono);
+  font-size: clamp(12px, 1.5vw, 16px);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.92);
+}
+.offerMark {
+  background: #ffd23f;
+  color: var(--blue-deep);
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 5px;
+  margin-right: 4px;
+}
+.heroCta {
+  font-family: var(--mono);
+  font-size: clamp(13px, 1.5vw, 16px);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--blue);
+  background: #ffffff;
+  padding: 17px 34px;
+  border-radius: 999px;
+  transition: transform 130ms ease, box-shadow 130ms ease;
+  box-shadow: 0 14px 30px rgba(6, 18, 80, 0.32);
+}
+.heroCta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 38px rgba(6, 18, 80, 0.4);
+}
+
 .heroCorners {
   position: absolute;
   inset: auto 0 0 0;
