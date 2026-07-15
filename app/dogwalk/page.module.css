@@ -49,8 +49,8 @@
 .label,
 .labelDim {
   font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.24em;
+  font-size: 14px;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--ink);
   text-decoration: none;
@@ -88,7 +88,7 @@ a.label:hover {
 }
 .kicker {
   font-family: var(--mono);
-  font-size: clamp(11px, 1.4vw, 14px);
+  font-size: clamp(13px, 1.7vw, 18px);
   letter-spacing: 0.34em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.9);
@@ -105,7 +105,7 @@ a.label:hover {
 }
 .subtitle {
   font-family: var(--mono);
-  font-size: clamp(11px, 1.4vw, 14px);
+  font-size: clamp(13px, 1.7vw, 18px);
   letter-spacing: 0.3em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.9);
@@ -120,8 +120,8 @@ a.label:hover {
   justify-content: space-between;
   padding: 0 clamp(20px, 4vw, 48px) 28px;
   font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.22em;
+  font-size: 13px;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.7);
 }
@@ -387,8 +387,8 @@ a.label:hover {
     display: none;
   }
   .heroCorners {
-    font-size: 9px;
-    letter-spacing: 0.16em;
+    font-size: 11px;
+    letter-spacing: 0.14em;
   }
   .ctaRow {
     flex-direction: column;
