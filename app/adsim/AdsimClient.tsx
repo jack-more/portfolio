@@ -205,7 +205,7 @@ export default function AdsimClient() {
                   ? `${multiple.toFixed(1)}× the median (${formatUsd(med)})`
                   : `${(statRow.value / med * 100).toFixed(0)}% of the median (${formatUsd(med)})`}
                 {" · "}
-                {active.set.periodNote}
+                {active.set.asOf}
               </p>
             </div>
           )}
@@ -219,7 +219,7 @@ export default function AdsimClient() {
           </div>
           <BarChart items={chartData} unit={active.set.unitLabel} />
           <p className={styles.chartSource}>
-            {active.set.sourceName} · {active.set.periodNote}
+            Source: {active.set.sourceName} · {active.set.asOf}
           </p>
         </div>
       </section>

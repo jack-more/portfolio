@@ -15,7 +15,7 @@ export interface BenchmarkSet {
   unit: "CPC" | "CPM";
   unitLabel: string; // "avg. cost per click"
   title: string;
-  periodNote: string;
+  asOf: string; // when the source last published these figures
   sourceName: string;
   sourceUrl: string;
   rows: BenchmarkRow[];
@@ -28,7 +28,7 @@ export const INDUSTRY_CPC: BenchmarkSet = {
   unit: "CPC",
   unitLabel: "avg. cost per click, Google Search",
   title: "Google Ads average CPC by industry",
-  periodNote: "Apr 2025 – Mar 2026",
+  asOf: "Apr 2025 – Mar 2026 data",
   sourceName: "WordStream / LocaliQ 2026 Google Ads benchmarks",
   sourceUrl: "https://www.wordstream.com/blog/2026-google-ads-benchmarks",
   rows: [
@@ -65,8 +65,8 @@ export const COUNTRY_CPM: BenchmarkSet = {
   unit: "CPM",
   unitLabel: "avg. Meta CPM (cost per 1,000 impressions)",
   title: "Meta ads average CPM by country",
-  periodNote: "2026",
-  sourceName: "Lebesgue — Facebook CPM by country",
+  asOf: "Mar 2026",
+  sourceName: "Lebesgue, Facebook CPM by country",
   sourceUrl: "https://lebesgue.io/facebook-ads/facebook-cpm-by-country",
   rows: [
     { id: "us", label: "United States", value: 16.08 },
@@ -89,7 +89,7 @@ export const COUNTRY_CPM: BenchmarkSet = {
    Gupta Media tracker (Oct 2025) unless noted per row. */
 
 const GUPTA = {
-  sourceName: "Gupta Media — social ads cost tracker (Oct 2025)",
+  sourceName: "Gupta Media, social ads cost tracker",
   sourceUrl: "https://www.guptamedia.com/social-media-ads-cost",
 };
 
@@ -97,7 +97,7 @@ export const PLATFORM_CPM: BenchmarkSet = {
   unit: "CPM",
   unitLabel: "avg. CPM (cost per 1,000 impressions)",
   title: "Average CPM by platform",
-  periodNote: "2025",
+  asOf: "2025 annual averages",
   sourceName: GUPTA.sourceName,
   sourceUrl: GUPTA.sourceUrl,
   rows: [
@@ -105,17 +105,17 @@ export const PLATFORM_CPM: BenchmarkSet = {
       id: "linkedin",
       label: "LinkedIn",
       value: 33.8,
-      sourceName: "The B2B House — LinkedIn ad benchmarks (2026)",
+      sourceName: "The B2B House, LinkedIn ad benchmarks (2026)",
       sourceUrl: "https://www.theb2bhouse.com/linkedin-ad-benchmarks/",
     },
-    { id: "snapchat", label: "Snapchat", value: 12.84, ...GUPTA },
+    { id: "snapchat", label: "Snapchat", value: 8.6, ...GUPTA },
     { id: "meta", label: "Meta (FB + IG)", value: 8.19, ...GUPTA },
     { id: "youtube", label: "YouTube", value: 7.61, ...GUPTA },
     {
       id: "ig-stories",
       label: "Instagram Stories",
       value: 7.25,
-      sourceName: "Gupta Media — Instagram ads cost (Jan 2025)",
+      sourceName: "Gupta Media, Instagram ads cost (Jan 2025)",
       sourceUrl: "https://www.guptamedia.com/insights/instagram-ads-cost",
     },
     { id: "tiktok", label: "TikTok", value: 4.82, ...GUPTA },
@@ -124,7 +124,7 @@ export const PLATFORM_CPM: BenchmarkSet = {
       id: "ig-reels",
       label: "Instagram Reels",
       value: 4.29,
-      sourceName: "Gupta Media — Instagram ads cost (Jan 2025)",
+      sourceName: "Gupta Media, Instagram ads cost (Jan 2025)",
       sourceUrl: "https://www.guptamedia.com/insights/instagram-ads-cost",
     },
     {
