@@ -71,21 +71,20 @@
 /* ---- workspace ---- */
 
 .workspace {
-  display: grid;
-  grid-template-columns: minmax(340px, 430px) 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 1.4rem;
-  align-items: stretch;
   padding: 1.6rem 2.4rem 2.6rem;
   max-width: 1280px;
   width: 100%;
   margin: 0 auto;
 }
 
-.panel {
-  display: flex;
-  flex-direction: column;
-  gap: 1.1rem;
-  min-width: 0;
+.topRow {
+  display: grid;
+  grid-template-columns: minmax(340px, 1.2fr) 1fr;
+  gap: 1.4rem;
+  align-items: stretch;
 }
 
 .searchCard {
@@ -250,198 +249,106 @@
   font-weight: 600;
 }
 
-/* ---- table view ---- */
+/* ---- chart card ---- */
 
-.tableCard {
+.chartCard {
   background: #fcfcfb;
   border: 1px solid #e3e1d8;
-  border-radius: 14px;
-  padding: 1rem 1.2rem 0.7rem;
-  flex: 1;
-  min-height: 0;
-  display: flex;
-  flex-direction: column;
-}
-
-.tableHeading {
-  font-size: 0.72rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #8b908a;
-  margin: 0 0 0.6rem;
-}
-
-.table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.table td {
-  padding: 0.42rem 0;
-  border-top: 1px solid #efede5;
-  font-size: 0.86rem;
-  vertical-align: middle;
-}
-
-.table tr:first-child td {
-  border-top: none;
-}
-
-.rowName {
-  color: #1f2523;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 11rem;
-  padding-right: 0.7rem;
-}
-
-.rowEm .rowName {
-  font-weight: 700;
-}
-
-.rowSwatch {
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  border-radius: 3px;
-  margin-right: 0.55rem;
-  background: #c9c3b4;
-  vertical-align: baseline;
-}
-
-.rowEm .rowSwatch,
-.tableAccent .rowSwatch {
-  background: #2a6f9e;
-}
-
-.rowBarCell {
-  width: 34%;
-  padding-right: 0.8rem;
-}
-
-.rowBarTrack {
-  height: 4px;
-  border-radius: 0 2px 2px 0;
-  background: transparent;
-  position: relative;
-}
-
-.rowBarFill {
-  position: absolute;
-  inset: 0 auto 0 0;
-  border-radius: 0 2px 2px 0;
-  background: #c9c3b4;
-}
-
-.rowEm .rowBarFill,
-.tableAccent .rowBarFill {
-  background: #2a6f9e;
-}
-
-.rowValue {
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-  font-weight: 600;
-  white-space: nowrap;
-  width: 5.2rem;
-}
-
-/* ---- 3D stage ---- */
-
-.stage {
-  position: relative;
-  min-height: 560px;
   border-radius: 16px;
-  background: #fcfcfb;
-  border: 1px solid #e3e1d8;
-  overflow: hidden;
+  padding: 1.2rem 1.4rem 1rem;
 }
 
-.stageHeader {
-  position: absolute;
-  top: 1.1rem;
-  left: 1.3rem;
-  right: 1.3rem;
-  z-index: 5;
+.chartHeader {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
   gap: 1rem;
-  pointer-events: none;
+  margin-bottom: 1rem;
 }
 
-.stageTitle {
-  font-size: 0.86rem;
+.chartTitle {
+  font-size: 0.92rem;
   font-weight: 600;
   color: #1f2523;
   margin: 0;
 }
 
-.stageUnit {
+.chartUnit {
   font-size: 0.74rem;
   color: #8b908a;
   white-space: nowrap;
 }
 
-.stageHint {
-  position: absolute;
-  bottom: 0.85rem;
-  right: 1.2rem;
-  font-size: 0.66rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: #b0b3ac;
-  pointer-events: none;
-}
-
-.stageSource {
-  position: absolute;
-  bottom: 0.85rem;
-  left: 1.2rem;
-  font-size: 0.7rem;
-  color: #8b908a;
-  pointer-events: none;
-}
-
-.canvasLoading {
-  height: 100%;
-  min-height: 560px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #b0b3ac;
-  font-size: 0.85rem;
-}
-
-/* chips rendered inside the 3D canvas via drei Html (global class names) */
-
-.stage :global(.bf-chip) {
+.chart {
   display: flex;
   flex-direction: column;
+  gap: 2px;
+}
+
+.chartRow {
+  display: grid;
+  grid-template-columns: 176px 1fr 4.6rem;
   align-items: center;
-  gap: 0.05rem;
-  background: #ffffff;
-  border: 1px solid #e3e1d8;
-  border-radius: 9px;
-  padding: 0.3rem 0.6rem;
-  box-shadow: 0 2px 10px rgba(31, 37, 35, 0.07);
+  gap: 0.9rem;
+  padding: 0.24rem 0.3rem;
+  border-radius: 8px;
+}
+
+.chartRow:hover {
+  background: #f4f3ed;
+}
+
+.chartLabel {
+  font-size: 0.84rem;
+  color: #1f2523;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: right;
+}
+
+.chartRowEm .chartLabel {
+  font-weight: 700;
+}
+
+.chartTrack {
+  position: relative;
+  height: 14px;
+  border-left: 1px solid #c9c6ba; /* shared baseline */
+}
+
+.chartFill,
+.chartFillAccent {
+  position: absolute;
+  inset: 1px auto 1px 0;
+  border-radius: 0 4px 4px 0; /* rounded data-end, square baseline */
+  display: block;
+}
+
+.chartFill {
+  background: #c9c3b4;
+}
+
+.chartFillAccent {
+  background: #2a6f9e;
+}
+
+.chartValue {
+  font-size: 0.84rem;
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  color: #1f2523;
   white-space: nowrap;
 }
 
-.stage :global(.bf-chip-em) {
-  border-color: #2a6f9e;
-}
-
-.stage :global(.bf-chip-label) {
-  font-size: 0.66rem;
-  color: #5b615c;
-}
-
-.stage :global(.bf-chip-value) {
-  font-size: 0.82rem;
+.chartRowEm .chartValue {
   font-weight: 700;
-  color: #1f2523;
+}
+
+.chartSource {
+  margin: 0.9rem 0 0;
+  font-size: 0.72rem;
+  color: #8b908a;
 }
 
 /* ---- connect ---- */
@@ -583,17 +490,16 @@
 
 @media (max-width: 960px) {
   .workspace {
-    grid-template-columns: 1fr;
     padding: 1.2rem 1.2rem 2rem;
   }
 
-  .stage {
-    min-height: 430px;
-    order: -1;
+  .topRow {
+    grid-template-columns: 1fr;
   }
 
-  .canvasLoading {
-    min-height: 430px;
+  .chartRow {
+    grid-template-columns: minmax(96px, 34%) 1fr 4.2rem;
+    gap: 0.6rem;
   }
 
   .topbar,

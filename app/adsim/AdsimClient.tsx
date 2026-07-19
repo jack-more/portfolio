@@ -1,7 +1,6 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import dynamic from "next/dynamic";
 import {
   COUNTRY_CPM,
   INDUSTRY_CPC,
@@ -12,13 +11,8 @@ import {
   type BenchmarkSet,
   type Mode,
 } from "./benchmarks";
-import type { BarDatum } from "./BarField3D";
+import BarChart, { type ChartItem } from "./BarChart";
 import styles from "./page.module.css";
-
-const BarField3D = dynamic(() => import("./BarField3D"), {
-  ssr: false,
-  loading: () => <div className={styles.canvasLoading}>loading the chart…</div>,
-});
 
 const SUGGESTIONS: Record<Mode, string[]> = {
   adwords: ["running shoes", "lawyer", "crm software", "insurance"],
@@ -62,10 +56,9 @@ export default function AdsimClient() {
     () => [...active.set.rows].sort((a, b) => b.value - a.value),
     [active.set]
   );
-  const maxValue = rows[0]?.value ?? 1;
   const med = useMemo(() => median(rows.map((r) => r.value)), [rows]);
 
-  const chartData: BarDatum[] = useMemo(
+  const chartData: ChartItem[] = useMemo(
     () =>
       rows.map((r) => ({
         id: r.id,
@@ -130,7 +123,7 @@ export default function AdsimClient() {
       </section>
 
       <section className={styles.workspace}>
-        <div className={styles.panel}>
+        <div className={styles.topRow}>
           <div className={styles.searchCard}>
             <div className={styles.modeToggle} role="tablist" aria-label="Search mode">
               <button
@@ -217,53 +210,17 @@ export default function AdsimClient() {
             </div>
           )}
 
-          <div className={styles.tableCard}>
-            <p className={styles.tableHeading}>
-              {active.set.title} · {active.set.periodNote}
-            </p>
-            <table
-              className={
-                active.emphasizedId === null
-                  ? `${styles.table} ${styles.tableAccent}`
-                  : styles.table
-              }
-            >
-              <tbody>
-                {rows.map((r) => (
-                  <tr
-                    key={r.id}
-                    className={r.id === active.emphasizedId ? styles.rowEm : undefined}
-                  >
-                    <td className={styles.rowName}>
-                      <span className={styles.rowSwatch} aria-hidden />
-                      {r.label}
-                    </td>
-                    <td className={styles.rowBarCell}>
-                      <div className={styles.rowBarTrack}>
-                        <span
-                          className={styles.rowBarFill}
-                          style={{ width: `${(r.value / maxValue) * 100}%` }}
-                        />
-                      </div>
-                    </td>
-                    <td className={styles.rowValue}>{formatUsd(r.value)}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
         </div>
 
-        <div className={styles.stage}>
-          <div className={styles.stageHeader}>
-            <p className={styles.stageTitle}>{active.set.title}</p>
-            <span className={styles.stageUnit}>{active.set.unitLabel}</span>
+        <div className={styles.chartCard}>
+          <div className={styles.chartHeader}>
+            <p className={styles.chartTitle}>{active.set.title}</p>
+            <span className={styles.chartUnit}>{active.set.unitLabel}</span>
           </div>
-          <BarField3D data={chartData} />
-          <span className={styles.stageSource}>
+          <BarChart items={chartData} unit={active.set.unitLabel} />
+          <p className={styles.chartSource}>
             {active.set.sourceName} · {active.set.periodNote}
-          </span>
-          <span className={styles.stageHint}>drag to orbit</span>
+          </p>
         </div>
       </section>
 
