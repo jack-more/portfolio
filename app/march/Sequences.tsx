@@ -15,8 +15,8 @@ type Track = { key: string; label: string; caption: string; touches: Touch[] };
 const tracks: Track[] = [
   {
     key: "buyers",
-    label: "Enterprise CxOs",
-    caption: "The buyers. They attend to see how their peers deploy AI.",
+    label: "Bucket 1",
+    caption: "Enterprise CxOs — the buyers. They attend to see how their peers deploy AI.",
     touches: [
       {
         week: "Week −8",
@@ -77,8 +77,8 @@ const tracks: Track[] = [
   },
   {
     key: "builders",
-    label: "Growth-stage founders",
-    caption: "The builders. They attend for access to buyers and capital.",
+    label: "Bucket 2",
+    caption: "Growth-stage founders — the builders. They attend for access to buyers and capital.",
     touches: [
       {
         week: "Week −8",
@@ -139,8 +139,8 @@ const tracks: Track[] = [
   },
   {
     key: "capital",
-    label: "Investors & corp dev",
-    caption: "The capital. They attend for early signal and dealflow.",
+    label: "Bucket 3",
+    caption: "Investors & corp dev — the capital. They attend for early signal and dealflow.",
     touches: [
       {
         week: "Week −8",
