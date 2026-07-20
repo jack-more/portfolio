@@ -474,7 +474,43 @@
 .seqCaption {
   font-size: 12px;
   color: rgba(28, 25, 23, 0.6);
+  margin: 0 0 10px;
+}
+
+/* ---- tiers within a bucket ---- */
+.tierStrip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin: 0 0 10px;
+}
+.tier {
+  border: 1px solid #000;
+  background: rgba(250, 249, 245, 0.5);
+  padding: 9px 11px;
+}
+.tierLabel {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--green);
+}
+.tierWho {
+  font-family: var(--font-serif), Georgia, serif;
+  font-weight: 700;
+  font-size: 12.5px;
+  margin: 2px 0;
+}
+.tierTouch { font-size: 11.5px; color: rgba(28, 25, 23, 0.65); margin: 0; }
+.tierNote {
+  font-size: 11.5px;
+  font-style: italic;
+  color: rgba(28, 25, 23, 0.55);
   margin: 0 0 14px;
+}
+@media (max-width: 720px) {
+  .tierStrip { grid-template-columns: 1fr; }
 }
 
 /* ---- clipper tool ---- */

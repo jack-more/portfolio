@@ -158,7 +158,7 @@ export default function MarchPage() {
         <section className={styles.part}>
           <div className={styles.partHead}>
             <span className={styles.partKicker}>Part 01</span>
-            <h2 className={styles.partTitle}>The Workflow</h2>
+            <h2 className={styles.partTitle}>Workflow</h2>
             <p className={styles.partSub}>
               The end-to-end process for identifying the right attendees and
               converting them into confirmed seats.
@@ -206,21 +206,21 @@ export default function MarchPage() {
           {/* the sequence */}
           <div className={styles.sectionHead}>
             <span className={styles.sectionNum}>B</span>
-            <h3 className={styles.sectionTitle}>The sequences</h3>
+            <h3 className={styles.sectionTitle}>Sequences</h3>
             <span className={styles.sectionSub}>
-              A tailored plan for each audience.
+              A tiered plan for each audience.
             </span>
           </div>
           <p className={styles.seqIntro}>
-            Each audience gets its own sequence, built on this year&apos;s actual
-            program. Select one to see the plan. The copy is illustrative.
+            Each audience is tiered, and each gets its own sequence, built on this
+            year&apos;s actual program. Pick a bucket. Copy is illustrative.
           </p>
           <Sequences />
 
           {/* the content engine */}
           <div className={styles.sectionHead}>
             <span className={styles.sectionNum}>C</span>
-            <h3 className={styles.sectionTitle}>The content engine</h3>
+            <h3 className={styles.sectionTitle}>Content engine</h3>
             <span className={styles.sectionSub}>
               Short-form content sustains attention between touches. This tool
               produces it.

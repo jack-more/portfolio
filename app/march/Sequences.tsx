@@ -10,17 +10,29 @@ type Touch = {
   body: string[];
   note: string;
 };
-type Track = { key: string; label: string; caption: string; touches: Touch[] };
+type Tier = { tier: string; who: string; touch: string };
+type Track = {
+  key: string;
+  label: string;
+  caption: string;
+  tiers: Tier[];
+  touches: Touch[];
+};
 
 const tracks: Track[] = [
   {
     key: "buyers",
     label: "Bucket 1 (Buyers)",
-    caption: "Enterprise CxOs — the buyers. They attend to see how their peers deploy AI.",
+    caption: "Enterprise CxOs who evaluate and approve AI spend.",
+    tiers: [
+      { tier: "Tier 1", who: "Named F500 CIO / CISO targets", touch: "Partner-signed, fully personal" },
+      { tier: "Tier 2", who: "Warm buyers via portfolio & network", touch: "Semi-personal, hand-tuned" },
+      { tier: "Tier 3", who: "Broader qualified CxO list", touch: "Templated, lightly personalized" },
+    ],
     touches: [
       {
         week: "Week −8",
-        phase: "The thesis",
+        phase: "Thesis",
         subject: "The Age of Intelligence — before it's public",
         body: [
           "[First] — one note before invitations go out.",
@@ -31,7 +43,7 @@ const tracks: Track[] = [
       },
       {
         week: "Week −6",
-        phase: "The proof",
+        phase: "Proof",
         subject: "What Goldman's CIO is doing with digital co-workers",
         body: [
           "Marco Argenti runs technology for Goldman Sachs. He's deploying AI “digital co-workers” across the firm, and he's walking through exactly how, on stage, at the Summit.",
@@ -42,7 +54,7 @@ const tracks: Track[] = [
       },
       {
         week: "Week −4",
-        phase: "The peers",
+        phase: "Peers",
         subject: "You'll know half the room",
         body: [
           "The Summit is 1,200 leaders, invitation-only, most of whom return year after year.",
@@ -53,7 +65,7 @@ const tracks: Track[] = [
       },
       {
         week: "Week −2",
-        phase: "The personal",
+        phase: "Personal",
         subject: "Held a seat for you, [First]",
         body: [
           "I set one aside. The Fairmont Miramar fills up, and I'd rather you have it.",
@@ -78,11 +90,16 @@ const tracks: Track[] = [
   {
     key: "builders",
     label: "Bucket 2 (Founders)",
-    caption: "Growth-stage founders — the builders. They attend for access to buyers and capital.",
+    caption: "Growth-stage founders who need buyers and capital.",
+    tiers: [
+      { tier: "Tier 1", who: "Portfolio + top sourcing targets", touch: "Presenting slot, white-glove" },
+      { tier: "Tier 2", who: "In-thesis growth-stage founders", touch: "Meetings pre-booked" },
+      { tier: "Tier 3", who: "Open founder applications", touch: "Standard invite" },
+    ],
     touches: [
       {
         week: "Week −8",
-        phase: "The opportunity",
+        phase: "Opportunity",
         subject: "The buyers you've been chasing, in one room",
         body: [
           "[First] — a note before applications open.",
@@ -93,7 +110,7 @@ const tracks: Track[] = [
       },
       {
         week: "Week −6",
-        phase: "The proof",
+        phase: "Proof",
         subject: "Who's actually in the room",
         body: [
           "Last year's attendees included CIOs and heads of product from the Fortune 500, plus the investors who fund the next round.",
@@ -104,7 +121,7 @@ const tracks: Track[] = [
       },
       {
         week: "Week −4",
-        phase: "The slot",
+        phase: "Slot",
         subject: "A presenting slot, if you want it",
         body: [
           "There is room to put your company forward for the presenting cohort. It's a short application and I can walk it through.",
@@ -115,7 +132,7 @@ const tracks: Track[] = [
       },
       {
         week: "Week −2",
-        phase: "The personal",
+        phase: "Personal",
         subject: "I'll line up your meetings, [First]",
         body: [
           "Tell me the five accounts and three investors you most want to meet.",
@@ -140,11 +157,16 @@ const tracks: Track[] = [
   {
     key: "lps",
     label: "Bucket 3 (LPs)",
-    caption: "Limited partners — the fund's investors. They attend to see the portfolio and spend time with the team.",
+    caption: "Limited partners who want portfolio access and partner time.",
+    tiers: [
+      { tier: "Tier 1", who: "Current LPs + anchor prospects", touch: "Partner-hosted, bespoke" },
+      { tier: "Tier 2", who: "Prospective institutional allocators", touch: "Curated, personal" },
+      { tier: "Tier 3", who: "Broader allocator network", touch: "Standard invite" },
+    ],
     touches: [
       {
         week: "Week −8",
-        phase: "The invitation",
+        phase: "Invitation",
         subject: "Two days with the portfolio, in person",
         body: [
           "[First] — an early note before the guest list closes.",
@@ -155,7 +177,7 @@ const tracks: Track[] = [
       },
       {
         week: "Week −6",
-        phase: "The portfolio",
+        phase: "Portfolio",
         subject: "Which of your companies are on stage",
         body: [
           "Several companies from the fund are presenting this year, alongside 120+ others across enterprise AI and cybersecurity.",
@@ -166,7 +188,7 @@ const tracks: Track[] = [
       },
       {
         week: "Week −4",
-        phase: "The room",
+        phase: "Peers",
         subject: "The other allocators who'll be there",
         body: [
           "Part of the value is the peer group — other institutional allocators who take this market seriously.",
@@ -176,7 +198,7 @@ const tracks: Track[] = [
       },
       {
         week: "Week −2",
-        phase: "The personal",
+        phase: "Personal",
         subject: "Time with the partners, set up in advance",
         body: [
           "If you'd like, I'll block time for you with the partners, and line up meetings with any portfolio founders you want to hear from directly.",
@@ -200,11 +222,16 @@ const tracks: Track[] = [
   {
     key: "coinvestors",
     label: "Bucket 4 (Co-investors)",
-    caption: "Co-investors — other VCs and syndicate partners. They attend for dealflow and to co-build rounds.",
+    caption: "VCs and syndicate partners who want early dealflow.",
+    tiers: [
+      { tier: "Tier 1", who: "Active co-lead funds", touch: "Personal, deals flagged" },
+      { tier: "Tier 2", who: "In-thesis funds", touch: "Shortlist shared" },
+      { tier: "Tier 3", who: "Broader VC list", touch: "Standard invite" },
+    ],
     touches: [
       {
         week: "Week −8",
-        phase: "The signal",
+        phase: "Signal",
         subject: "First look at next year's breakout companies",
         body: [
           "[First] — one note before the guest list closes.",
@@ -215,7 +242,7 @@ const tracks: Track[] = [
       },
       {
         week: "Week −6",
-        phase: "The proof",
+        phase: "Proof",
         subject: "The caliber of this year's cohort",
         body: [
           "Past cohorts produced companies like CrowdStrike and Forter. This year leans into enterprise AI and cybersecurity.",
@@ -226,7 +253,7 @@ const tracks: Track[] = [
       },
       {
         week: "Week −4",
-        phase: "The shortlist",
+        phase: "Shortlist",
         subject: "A shortlist matched to your thesis",
         body: [
           "Send me your focus areas and check size.",
@@ -237,7 +264,7 @@ const tracks: Track[] = [
       },
       {
         week: "Week −2",
-        phase: "The personal",
+        phase: "Personal",
         subject: "Curated intros before you land",
         body: [
           "From your shortlist, I'll pre-arrange meetings with the founders you want to see.",
@@ -262,11 +289,16 @@ const tracks: Track[] = [
   {
     key: "strategics",
     label: "Bucket 5 (Strategics)",
-    caption: "Strategics — corporate development and acquirers. They attend for M&A and partnership pipeline.",
+    caption: "Corporate development and acquirers scanning for M&A.",
+    tiers: [
+      { tier: "Tier 1", who: "Acquirers circling the portfolio", touch: "Bespoke, direct" },
+      { tier: "Tier 2", who: "Adjacent-category strategics", touch: "Roadmap-matched" },
+      { tier: "Tier 3", who: "Broader corp dev list", touch: "Standard invite" },
+    ],
     touches: [
       {
         week: "Week −8",
-        phase: "The pipeline",
+        phase: "Pipeline",
         subject: "Your next acquisition targets, early",
         body: [
           "[First] — a note before the guest list closes.",
@@ -277,7 +309,7 @@ const tracks: Track[] = [
       },
       {
         week: "Week −6",
-        phase: "The proof",
+        phase: "Proof",
         subject: "The caliber of this year's cohort",
         body: [
           "Past cohorts produced companies like CrowdStrike and Forter. This year leans into enterprise AI and cybersecurity.",
@@ -288,7 +320,7 @@ const tracks: Track[] = [
       },
       {
         week: "Week −4",
-        phase: "The shortlist",
+        phase: "Shortlist",
         subject: "A shortlist matched to your roadmap",
         body: [
           "Send me the areas you're building or buying in.",
@@ -298,7 +330,7 @@ const tracks: Track[] = [
       },
       {
         week: "Week −2",
-        phase: "The personal",
+        phase: "Personal",
         subject: "Intros set up before you arrive",
         body: [
           "From your shortlist, I'll pre-arrange meetings with the founders and partnership leads you want to see.",
@@ -339,6 +371,20 @@ export default function Sequences() {
         ))}
       </div>
       <p className={styles.seqCaption}>{track.caption}</p>
+
+      <div className={styles.tierStrip}>
+        {track.tiers.map((t) => (
+          <div key={t.tier} className={styles.tier}>
+            <span className={styles.tierLabel}>{t.tier}</span>
+            <p className={styles.tierWho}>{t.who}</p>
+            <p className={styles.tierTouch}>{t.touch}</p>
+          </div>
+        ))}
+      </div>
+      <p className={styles.tierNote}>
+        Sequence below is the Tier 1 version. Lower tiers compress it to fewer,
+        lighter touches.
+      </p>
 
       <div className={styles.sequence}>
         {track.touches.map((e) => (
