@@ -77,6 +77,39 @@
   margin: 0;
 }
 
+/* ---- top-level tabs ---- */
+
+.tabs {
+  display: inline-flex;
+}
+
+.tabBtn,
+.tabActive {
+  border: 1px solid #000;
+  padding: 6px 16px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  background: rgba(250, 249, 245, 0.6);
+  color: #1c1917;
+}
+
+.tabBtn + .tabBtn,
+.tabBtn + .tabActive,
+.tabActive + .tabBtn {
+  border-left: none;
+}
+
+.tabActive {
+  background: #1c1917;
+  color: #dfd6cc;
+}
+
+.tabBtn:hover {
+  background: rgba(250, 249, 245, 1);
+}
+
 /* ---- cards (site card pattern: black border, parchment fill) ---- */
 
 .card {
@@ -248,6 +281,199 @@
   font-size: 12px;
   color: rgba(28, 25, 23, 0.5);
   margin: 0.25rem 0 0;
+}
+
+/* ---- campaign planner ---- */
+
+.plannerControls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.6rem;
+  margin-bottom: 0.9rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.fieldLabel {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: rgba(28, 25, 23, 0.5);
+}
+
+.budgetWrap {
+  display: inline-flex;
+  align-items: stretch;
+}
+
+.budgetPrefix {
+  border: 1px solid #000;
+  border-right: none;
+  padding: 4px 8px;
+  font-weight: 700;
+  background: #1c1917;
+  color: #dfd6cc;
+  display: flex;
+  align-items: center;
+}
+
+.numInput {
+  width: 7.5rem;
+  border: 1px solid #000;
+  background: rgba(250, 249, 245, 0.8);
+  padding: 4px 8px;
+  font-size: 13px;
+  font-family: inherit;
+  font-variant-numeric: tabular-nums;
+  color: #1c1917;
+  outline: none;
+}
+
+.segmented {
+  display: inline-flex;
+}
+
+.segBtn,
+.segActive {
+  border: 1px solid #000;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  background: rgba(250, 249, 245, 0.6);
+  color: #1c1917;
+}
+
+.segBtn + .segBtn,
+.segBtn + .segActive,
+.segActive + .segBtn {
+  border-left: none;
+}
+
+.segActive {
+  background: #3a7d44;
+  border-color: #3a7d44;
+  color: #faf9f5;
+}
+
+.segBtn:hover {
+  background: rgba(250, 249, 245, 1);
+}
+
+.select {
+  border: 1px solid #000;
+  background: rgba(250, 249, 245, 0.8);
+  padding: 4px 8px;
+  font-size: 13px;
+  font-family: inherit;
+  color: #1c1917;
+  outline: none;
+  max-width: 16rem;
+}
+
+.channelList {
+  margin-top: 0.35rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 6px;
+}
+
+.channelRow,
+.channelRowOn {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  border: 0.5px solid rgba(0, 0, 0, 0.2);
+  background: rgba(250, 249, 245, 0.6);
+  padding: 5px 9px;
+  cursor: pointer;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.channelRowOn {
+  border-color: #3a7d44;
+  background: rgba(58, 125, 68, 0.12);
+}
+
+.channelRow input,
+.channelRowOn input {
+  accent-color: #3a7d44;
+  align-self: center;
+}
+
+.channelName {
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.channelRate {
+  color: rgba(28, 25, 23, 0.5);
+  font-size: 11px;
+  margin-left: auto;
+  text-align: right;
+}
+
+.sumGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 1.4rem;
+  margin-top: 0.5rem;
+}
+
+.sumItem {
+  font-size: 12px;
+  color: rgba(28, 25, 23, 0.5);
+}
+
+.sumItem b {
+  color: #1c1917;
+  font-size: 13px;
+}
+
+.sumItem em {
+  font-style: normal;
+  font-size: 11px;
+}
+
+.breakTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.9rem;
+}
+
+.breakTable th {
+  text-align: left;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: rgba(28, 25, 23, 0.5);
+  padding: 0.3rem 0.9rem 0.3rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.breakTable td {
+  font-size: 12px;
+  padding: 0.32rem 0.9rem 0.32rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  font-variant-numeric: tabular-nums;
+  vertical-align: baseline;
+}
+
+.breakTable tr:last-child td {
+  border-bottom: none;
+}
+
+.breakNote {
+  color: rgba(28, 25, 23, 0.5);
+  font-size: 11px;
 }
 
 /* ---- chart card ---- */

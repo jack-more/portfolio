@@ -73,7 +73,7 @@ export const COUNTRY_CPM: BenchmarkSet = {
   unitLabel: "avg. Meta CPM (cost per 1,000 impressions)",
   title: "Meta ads average CPM by country",
   asOf: "Mar 2026",
-  sourceName: "Lebesgue, Facebook CPM by country",
+  sourceName: "Lebesgue (ad analytics), Facebook CPM by country",
   sourceUrl: "https://lebesgue.io/facebook-ads/facebook-cpm-by-country",
   rows: [
     { id: "united-states", label: "United States", value: 16.08 },
@@ -92,58 +92,99 @@ export const COUNTRY_CPM: BenchmarkSet = {
   ],
 };
 
-/* ---- Average CPM by platform (default view) ----
-   Gupta Media tracker 2025 annual averages unless noted per row. */
+/* ---- Campaign channels: latest credible published rate per channel ----
+   Used by the campaign planner. Each channel carries its own source and
+   date; channels whose only published figures are >1 year old are not
+   listed. Google Search rates come from the industry table above. */
 
-const GUPTA = {
-  sourceName: "Gupta Media, social ads cost tracker",
-  sourceUrl: "https://www.guptamedia.com/social-media-ads-cost",
-};
+export interface Channel {
+  id: string;
+  label: string;
+  cpm?: number; // USD per 1,000 impressions
+  cpc?: number; // USD per click
+  ctr?: number; // %, where published alongside the cost figures
+  defaultOn: boolean;
+  note: string;
+  asOf: string;
+  sourceName: string;
+  sourceUrl: string;
+}
 
-export const PLATFORM_CPM: BenchmarkSet = {
-  unit: "CPM",
-  unitLabel: "avg. CPM (cost per 1,000 impressions)",
-  title: "Average CPM by platform",
-  asOf: "2025 annual averages",
-  sourceName: GUPTA.sourceName,
-  sourceUrl: GUPTA.sourceUrl,
-  rows: [
-    {
-      id: "linkedin",
-      label: "LinkedIn",
-      value: 33.8,
-      sourceName: "The B2B House, LinkedIn ad benchmarks (2026)",
-      sourceUrl: "https://www.theb2bhouse.com/linkedin-ad-benchmarks/",
-    },
-    { id: "snapchat", label: "Snapchat", value: 8.6, ...GUPTA },
-    { id: "meta", label: "Meta (FB + IG)", value: 8.19, ...GUPTA },
-    { id: "youtube", label: "YouTube", value: 7.61, ...GUPTA },
-    {
-      id: "ig-stories",
-      label: "Instagram Stories",
-      value: 7.25,
-      sourceName: "Gupta Media, Instagram ads cost (Jan 2025)",
-      sourceUrl: "https://www.guptamedia.com/insights/instagram-ads-cost",
-    },
-    { id: "tiktok", label: "TikTok", value: 4.82, ...GUPTA },
-    { id: "pinterest", label: "Pinterest", value: 4.67, ...GUPTA },
-    {
-      id: "ig-reels",
-      label: "Instagram Reels",
-      value: 4.29,
-      sourceName: "Gupta Media, Instagram ads cost (Jan 2025)",
-      sourceUrl: "https://www.guptamedia.com/insights/instagram-ads-cost",
-    },
-    {
-      id: "x",
-      label: "X (Twitter)",
-      value: 0.86,
-      sourceName: "Gupta Media data via Statista (late 2025)",
-      sourceUrl:
-        "https://www.statista.com/chart/31144/cpm-advertising-price-on-social-media-platforms-timeline/",
-    },
-  ],
-};
+export const CHANNELS: Channel[] = [
+  {
+    id: "google-search",
+    label: "Google Search",
+    defaultOn: true,
+    note: "CPC, CTR and conv. rate set by the industry you pick",
+    asOf: "Apr 2025 – Mar 2026",
+    sourceName: "WordStream / LocaliQ 2026 Google Ads benchmarks",
+    sourceUrl: "https://www.wordstream.com/blog/2026-google-ads-benchmarks",
+  },
+  {
+    id: "meta",
+    label: "Meta (FB + IG)",
+    cpm: 14.19,
+    ctr: 2.19,
+    defaultOn: true,
+    note: "2025 average across ~35,000 brands",
+    asOf: "2025 full year, published Apr 2026",
+    sourceName: "Triple Whale, Meta benchmarks (~35k brands)",
+    sourceUrl: "https://www.triplewhale.com/blog/facebook-ads-benchmarks",
+  },
+  {
+    id: "tiktok",
+    label: "TikTok",
+    cpm: 4.67,
+    cpc: 0.49,
+    defaultOn: true,
+    note: "latest published tracker month",
+    asOf: "Oct 2025",
+    sourceName: "Gupta Media, social ads cost tracker",
+    sourceUrl: "https://www.guptamedia.com/social-media-ads-cost",
+  },
+  {
+    id: "youtube",
+    label: "YouTube",
+    cpm: 7.61,
+    defaultOn: true,
+    note: "latest published tracker month",
+    asOf: "Oct 2025",
+    sourceName: "Gupta Media, social ads cost tracker",
+    sourceUrl: "https://www.guptamedia.com/social-media-ads-cost",
+  },
+  {
+    id: "linkedin",
+    label: "LinkedIn",
+    cpm: 33.8,
+    cpc: 5.58,
+    defaultOn: false,
+    note: "B2B targeting typical",
+    asOf: "2026 guide",
+    sourceName: "The B2B House, LinkedIn ad benchmarks",
+    sourceUrl: "https://www.theb2bhouse.com/linkedin-ad-benchmarks/",
+  },
+  {
+    id: "snapchat",
+    label: "Snapchat",
+    cpm: 12.84,
+    cpc: 0.51,
+    defaultOn: false,
+    note: "latest published tracker month",
+    asOf: "Oct 2025",
+    sourceName: "Gupta Media, social ads cost tracker",
+    sourceUrl: "https://www.guptamedia.com/social-media-ads-cost",
+  },
+  {
+    id: "pinterest",
+    label: "Pinterest",
+    cpm: 4.67,
+    defaultOn: false,
+    note: "2025 annual average",
+    asOf: "2025",
+    sourceName: "Gupta Media, social ads cost tracker",
+    sourceUrl: "https://www.guptamedia.com/social-media-ads-cost",
+  },
+];
 
 /* ---- Query matching ---- */
 
@@ -230,7 +271,9 @@ export function matchCountry(query: string, labels: string[]): string | null {
 }
 
 export function formatUsd(v: number): string {
-  return v >= 100 ? `$${v.toFixed(0)}` : `$${v.toFixed(2)}`;
+  return v >= 100
+    ? `$${Math.round(v).toLocaleString("en-US")}`
+    : `$${v.toFixed(2)}`;
 }
 
 export function formatPct(v: number): string {
