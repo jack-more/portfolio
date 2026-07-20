@@ -453,6 +453,30 @@
   .flowStep + .flowStep { border-left: 1px solid #000; }
 }
 
+/* ---- sequence audience tabs ---- */
+.seqTabs { display: inline-flex; flex-wrap: wrap; margin-bottom: 14px; }
+.seqTab,
+.seqTabActive {
+  border: 1px solid #000;
+  padding: 6px 15px;
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  background: rgba(250, 249, 245, 0.6);
+  color: #1c1917;
+}
+.seqTab + .seqTab,
+.seqTab + .seqTabActive,
+.seqTabActive + .seqTab { border-left: none; }
+.seqTabActive { background: #1c1917; color: #dfd6cc; }
+.seqTab:hover { background: rgba(250, 249, 245, 1); }
+.seqCaption {
+  font-size: 12px;
+  color: rgba(28, 25, 23, 0.6);
+  margin: 0 0 14px;
+}
+
 /* ---- clipper tool ---- */
 .clipper { border: 1px solid #000; background: rgba(250, 249, 245, 0.55); }
 .clpTabs { display: flex; border-bottom: 1px solid #000; }

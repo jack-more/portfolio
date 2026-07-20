@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import styles from "./page.module.css";
 import Clipper from "./Clipper";
+import Sequences from "./Sequences";
 
 export const metadata: Metadata = {
   title: "Monty Summit Intake + Planner (Mock-Up) — Jack Morello",
@@ -53,64 +54,6 @@ const heads = [
     title: "Investors & corp dev",
     line: "VCs · institutional · corp dev",
     body: "They attend for early signal: a first look at 120+ vetted companies before the decks circulate, and the market theses that surface in person.",
-  },
-];
-
-const sequence = [
-  {
-    week: "Week −8",
-    phase: "The thesis",
-    subject: "The Age of Intelligence — before it's public",
-    body: [
-      "[First] — one note before invitations go out.",
-      "This year the Summit has a single throughline: enterprise AI has left the lab. John Chambers is coming to talk about steering a company through it. So is the CEO of FedEx.",
-      "No ask yet. I just wanted you on the list of people who hear it first.",
-    ],
-    note: "Opens with information and no request, which establishes insider access.",
-  },
-  {
-    week: "Week −6",
-    phase: "The proof",
-    subject: "What Goldman's CIO is doing with digital co-workers",
-    body: [
-      "Marco Argenti runs technology for Goldman Sachs. He's deploying AI “digital co-workers” across the firm, and he's walking through exactly how, on stage, at the Summit.",
-      "This is the session your team will ask you about. Two days, 180 speakers, one room in Santa Monica.",
-      "Want me to hold a seat while they last?",
-    ],
-    note: "Leads with one concrete, named session. The ask is soft and optional.",
-  },
-  {
-    week: "Week −4",
-    phase: "The peers",
-    subject: "You'll know half the room",
-    body: [
-      "The Summit is 1,200 leaders, invitation-only, most of whom return year after year. As one put it: the people who keep coming back are the people you can trust.",
-      "[Peer] and [Peer] have already confirmed. You belong in that room.",
-      "Say the word and it's done.",
-    ],
-    note: "Uses peer confirmation and the community's own language.",
-  },
-  {
-    week: "Week −2",
-    phase: "The personal",
-    subject: "Held a seat for you, [First]",
-    body: [
-      "I set one aside. The Fairmont Miramar fills up, and I'd rather you have it.",
-      "If it helps, I'll pre-book two or three one-on-ones before you land — tell me who you want in front of and I'll make the introductions.",
-      "Just need a yes.",
-    ],
-    note: "Personal and one-to-one. The offer to broker meetings carries the value.",
-  },
-  {
-    week: "Week −1",
-    phase: "Last call",
-    subject: "Doors close Friday",
-    body: [
-      "Final call, [First]. We cap the room at 1,200 to keep it intimate, and we're nearly there.",
-      "This is the last note I'll send. I'd hate for you to hear about it Monday from someone who went.",
-      "March 9–10, Santa Monica. In or out?",
-    ],
-    note: "Closes on genuine scarcity and a single clear decision.",
   },
 ];
 
@@ -263,39 +206,16 @@ export default function MarchPage() {
           {/* the sequence */}
           <div className={styles.sectionHead}>
             <span className={styles.sectionNum}>B</span>
-            <h3 className={styles.sectionTitle}>The sequence</h3>
+            <h3 className={styles.sectionTitle}>The sequences</h3>
             <span className={styles.sectionSub}>
-              One narrative across five timed touches.
+              A tailored plan for each audience.
             </span>
           </div>
           <p className={styles.seqIntro}>
-            The Enterprise-CxO sequence, built on this year&apos;s actual program.
-            The copy below is illustrative.
+            Each audience gets its own sequence, built on this year&apos;s actual
+            program. Select one to see the plan. The copy is illustrative.
           </p>
-          <div className={styles.sequence}>
-            {sequence.map((e) => (
-              <div key={e.week} className={styles.seqRow}>
-                <div className={styles.seqWhen}>
-                  <span className={styles.seqWeek}>{e.week}</span>
-                  <span className={styles.seqPhase}>{e.phase}</span>
-                </div>
-                <div className={styles.email}>
-                  <div className={styles.emailSubj}>
-                    <span className={styles.emailSubjLabel}>Subject</span>
-                    <span className={styles.emailSubjText}>{e.subject}</span>
-                  </div>
-                  <div className={styles.emailBody}>
-                    {e.body.map((line, i) => (
-                      <p key={i}>{line}</p>
-                    ))}
-                  </div>
-                  <div className={styles.emailNote}>
-                    <b>Why:</b> {e.note}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+          <Sequences />
 
           {/* the content engine */}
           <div className={styles.sectionHead}>
