@@ -138,6 +138,12 @@ const tasks: { co: string; name: string; out: string; href: string | null }[] = 
     href: "https://www.globenewswire.com/news-release/2024/12/05/2992635/0/en/Devolved-AI-Announces-Strategic-Partnership-with-GDA-Capital-to-Revolutionize-Blockchain-Powered-AI-Solutions.html",
   },
   {
+    co: "Rarestone Capital",
+    name: "Editorial program across the Web3 venture portfolio",
+    out: "Briefed and produced articles for Radix, Wilder World, Mantra DAO, Argo & NFTify",
+    href: null,
+  },
+  {
     co: "NEAR",
     name: "Four product launches and the paid & landing-page testing system",
     out: "CAC −60% · landing-page conversion +140% · 50K+ MAU",
