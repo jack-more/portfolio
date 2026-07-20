@@ -334,6 +334,36 @@
   outline: none;
 }
 
+.numInputSm {
+  width: 4.6rem;
+  border: 1px solid #000;
+  background: rgba(250, 249, 245, 0.8);
+  padding: 4px 8px;
+  font-size: 13px;
+  font-family: inherit;
+  font-variant-numeric: tabular-nums;
+  color: #1c1917;
+  outline: none;
+}
+
+.budgetSuffix {
+  border: 1px solid #000;
+  border-left: none;
+  padding: 4px 8px;
+  font-weight: 700;
+  background: #1c1917;
+  color: #dfd6cc;
+  display: flex;
+  align-items: center;
+}
+
+.assumpNote {
+  align-self: flex-end;
+  font-size: 11px;
+  color: rgba(28, 25, 23, 0.5);
+  padding-bottom: 4px;
+}
+
 .segmented {
   display: inline-flex;
 }
@@ -380,7 +410,7 @@
 .channelList {
   margin-top: 0.35rem;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 6px;
 }
 
@@ -418,6 +448,59 @@
   font-size: 11px;
   margin-left: auto;
   text-align: right;
+}
+
+.weightSlider {
+  flex: 1;
+  min-width: 60px;
+  accent-color: #3a7d44;
+  align-self: center;
+}
+
+.channelShare {
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+  color: #1c1917;
+  font-weight: 600;
+  white-space: nowrap;
+  min-width: 6.4rem;
+  text-align: right;
+}
+
+.flagList {
+  margin: 0.7rem 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+  padding-top: 0.5rem;
+}
+
+.flagList li {
+  font-size: 11px;
+  line-height: 1.5;
+  color: #7a4a1e;
+  padding: 1px 0;
+}
+
+.copyBtn {
+  border: 1px solid #000;
+  background: #1c1917;
+  color: #dfd6cc;
+  padding: 3px 12px;
+  font-size: 11px;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.copyBtn:hover {
+  background: #3a352f;
+}
+
+.totalsRow td {
+  font-weight: 700;
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+  color: #1c1917;
 }
 
 .sumGrid {
