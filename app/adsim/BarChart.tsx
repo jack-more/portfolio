@@ -1,6 +1,6 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import styles from "./page.module.css";
 
 export interface ChartItem {
@@ -23,8 +23,7 @@ export default function BarChart({
 
   return (
     <div className={styles.chart} role="img" aria-label={`Bar chart, ${unit}`}>
-      <AnimatePresence mode="popLayout">
-        {items.map((it, idx) => {
+      {items.map((it, idx) => {
           const accented = !!it.emphasized || !hasEmphasis;
           return (
             <motion.div
@@ -37,7 +36,6 @@ export default function BarChart({
               }
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -8 }}
               transition={{
                 layout: { type: "spring", stiffness: 320, damping: 32 },
                 delay: idx * 0.012,
@@ -63,7 +61,6 @@ export default function BarChart({
             </motion.div>
           );
         })}
-      </AnimatePresence>
     </div>
   );
 }

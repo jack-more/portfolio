@@ -1,19 +1,24 @@
 /* Real published advertising benchmarks — no modeled or invented numbers.
-   Every dataset cites its source; rows carry per-row sources where they differ. */
+   Every dataset cites its source; rows carry per-row sources where they
+   differ. Country CPMs are refreshed live from the source at request time
+   (see livedata.ts); the values here are the fallback snapshot. */
 
 export type Mode = "adwords" | "locations";
+export type IndustryMetric = "cpc" | "ctr" | "cvr";
 
 export interface BenchmarkRow {
   id: string;
   label: string;
-  value: number;
+  value: number; // the set's primary metric (CPC or CPM, USD)
+  ctr?: number; // avg. click-through rate, %
+  cvr?: number; // avg. conversion rate, %
   sourceName?: string;
   sourceUrl?: string;
 }
 
 export interface BenchmarkSet {
   unit: "CPC" | "CPM";
-  unitLabel: string; // "avg. cost per click"
+  unitLabel: string;
   title: string;
   asOf: string; // when the source last published these figures
   sourceName: string;
@@ -21,8 +26,9 @@ export interface BenchmarkSet {
   rows: BenchmarkRow[];
 }
 
-/* ---- Google Ads average CPC by industry ----
-   WordStream/LocaliQ 2026 benchmarks, data April 1 2025 – March 31 2026. */
+/* ---- Google Ads by industry: avg CPC, CTR, conversion rate ----
+   WordStream/LocaliQ 2026 benchmarks, data April 1 2025 – March 31 2026.
+   All three metrics come from the same study and period. */
 
 export const INDUSTRY_CPC: BenchmarkSet = {
   unit: "CPC",
@@ -32,34 +38,35 @@ export const INDUSTRY_CPC: BenchmarkSet = {
   sourceName: "WordStream / LocaliQ 2026 Google Ads benchmarks",
   sourceUrl: "https://www.wordstream.com/blog/2026-google-ads-benchmarks",
   rows: [
-    { id: "legal", label: "Attorneys & Legal", value: 9.87 },
-    { id: "home", label: "Home Improvement", value: 8.33 },
-    { id: "dental", label: "Dentists & Dental", value: 8.0 },
-    { id: "personal-services", label: "Personal Services", value: 7.17 },
-    { id: "fitness", label: "Health & Fitness", value: 6.17 },
-    { id: "business", label: "Business Services", value: 5.87 },
-    { id: "industrial", label: "Industrial & Commercial", value: 5.87 },
-    { id: "career", label: "Career & Employment", value: 5.81 },
-    { id: "education", label: "Education", value: 4.81 },
-    { id: "physicians", label: "Physicians & Surgeons", value: 4.76 },
-    { id: "beauty", label: "Beauty & Personal Care", value: 4.62 },
-    { id: "apparel", label: "Apparel & Jewelry", value: 4.44 },
-    { id: "auto-repair", label: "Auto Repair & Parts", value: 4.35 },
-    { id: "shopping", label: "Shopping & Gifts", value: 4.14 },
-    { id: "pets", label: "Animals & Pets", value: 4.06 },
-    { id: "furniture", label: "Furniture", value: 3.97 },
-    { id: "finance", label: "Finance & Insurance", value: 3.39 },
-    { id: "real-estate", label: "Real Estate", value: 3.22 },
-    { id: "sports", label: "Sports & Recreation", value: 2.77 },
-    { id: "auto-sales", label: "Automotive — For Sale", value: 2.27 },
-    { id: "travel", label: "Travel", value: 2.14 },
-    { id: "restaurants", label: "Restaurants & Food", value: 2.05 },
-    { id: "entertainment", label: "Arts & Entertainment", value: 1.63 },
+    { id: "legal", label: "Attorneys & Legal", value: 9.87, ctr: 5.87, cvr: 5.55 },
+    { id: "home", label: "Home Improvement", value: 8.33, ctr: 6.47, cvr: 8.05 },
+    { id: "dental", label: "Dentists & Dental", value: 8.0, ctr: 5.66, cvr: 10.67 },
+    { id: "personal-services", label: "Personal Services", value: 7.17, ctr: 7.16, cvr: 12.34 },
+    { id: "fitness", label: "Health & Fitness", value: 6.17, ctr: 5.81, cvr: 6.94 },
+    { id: "business", label: "Business Services", value: 5.87, ctr: 6.1, cvr: 4.85 },
+    { id: "industrial", label: "Industrial & Commercial", value: 5.87, ctr: 6.57, cvr: 8.2 },
+    { id: "career", label: "Career & Employment", value: 5.81, ctr: 5.88, cvr: 3.05 },
+    { id: "education", label: "Education", value: 4.81, ctr: 7.56, cvr: 13.14 },
+    { id: "physicians", label: "Physicians & Surgeons", value: 4.76, ctr: 6.61, cvr: 12.43 },
+    { id: "beauty", label: "Beauty & Personal Care", value: 4.62, ctr: 6.75, cvr: 10.35 },
+    { id: "apparel", label: "Apparel & Jewelry", value: 4.44, ctr: 6.64, cvr: 4.5 },
+    { id: "auto-repair", label: "Auto Repair & Parts", value: 4.35, ctr: 5.56, cvr: 15.51 },
+    { id: "shopping", label: "Shopping & Gifts", value: 4.14, ctr: 8.28, cvr: 4.01 },
+    { id: "pets", label: "Animals & Pets", value: 4.06, ctr: 7.49, cvr: 16.22 },
+    { id: "furniture", label: "Furniture", value: 3.97, ctr: 6.57, cvr: 2.99 },
+    { id: "finance", label: "Finance & Insurance", value: 3.39, ctr: 9.83, cvr: 2.64 },
+    { id: "real-estate", label: "Real Estate", value: 3.22, ctr: 7.61, cvr: 3.7 },
+    { id: "sports", label: "Sports & Recreation", value: 2.77, ctr: 8.75, cvr: 7.69 },
+    { id: "auto-sales", label: "Automotive — For Sale", value: 2.27, ctr: 8.28, cvr: 6.01 },
+    { id: "travel", label: "Travel", value: 2.14, ctr: 9.32, cvr: 5.83 },
+    { id: "restaurants", label: "Restaurants & Food", value: 2.05, ctr: 6.83, cvr: 8.05 },
+    { id: "entertainment", label: "Arts & Entertainment", value: 1.63, ctr: 12.75, cvr: 5.91 },
   ],
 };
 
 /* ---- Meta (Facebook + Instagram) CPM by country ----
-   Lebesgue 2026 Facebook CPM-by-country dataset. */
+   Lebesgue's dataset; fallback snapshot as of March 2026. The page is
+   re-fetched server-side daily and supersedes these values when it parses. */
 
 export const COUNTRY_CPM: BenchmarkSet = {
   unit: "CPM",
@@ -69,24 +76,24 @@ export const COUNTRY_CPM: BenchmarkSet = {
   sourceName: "Lebesgue, Facebook CPM by country",
   sourceUrl: "https://lebesgue.io/facebook-ads/facebook-cpm-by-country",
   rows: [
-    { id: "us", label: "United States", value: 16.08 },
-    { id: "sa", label: "Saudi Arabia", value: 12.01 },
-    { id: "uk", label: "United Kingdom", value: 11.81 },
-    { id: "au", label: "Australia", value: 11.63 },
-    { id: "ca", label: "Canada", value: 11.47 },
-    { id: "ae", label: "UAE", value: 10.0 },
-    { id: "de", label: "Germany", value: 9.05 },
-    { id: "fr", label: "France", value: 6.95 },
-    { id: "jp", label: "Japan", value: 6.73 },
-    { id: "mx", label: "Mexico", value: 3.92 },
-    { id: "ph", label: "Philippines", value: 3.4 },
-    { id: "br", label: "Brazil", value: 2.63 },
-    { id: "in", label: "India", value: 1.36 },
+    { id: "united-states", label: "United States", value: 16.08 },
+    { id: "saudi-arabia", label: "Saudi Arabia", value: 12.01 },
+    { id: "united-kingdom", label: "United Kingdom", value: 11.81 },
+    { id: "australia", label: "Australia", value: 11.63 },
+    { id: "canada", label: "Canada", value: 11.47 },
+    { id: "united-arab-emirates", label: "United Arab Emirates", value: 10.0 },
+    { id: "germany", label: "Germany", value: 9.05 },
+    { id: "france", label: "France", value: 6.95 },
+    { id: "japan", label: "Japan", value: 6.73 },
+    { id: "mexico", label: "Mexico", value: 3.92 },
+    { id: "philippines", label: "Philippines", value: 3.4 },
+    { id: "brazil", label: "Brazil", value: 2.63 },
+    { id: "india", label: "India", value: 1.36 },
   ],
 };
 
 /* ---- Average CPM by platform (default view) ----
-   Gupta Media tracker (Oct 2025) unless noted per row. */
+   Gupta Media tracker 2025 annual averages unless noted per row. */
 
 const GUPTA = {
   sourceName: "Gupta Media, social ads cost tracker",
@@ -138,7 +145,7 @@ export const PLATFORM_CPM: BenchmarkSet = {
   ],
 };
 
-/* ---- Query matching (aliases → dataset row ids) ---- */
+/* ---- Query matching ---- */
 
 const KEYWORD_ALIASES: Record<string, string> = {
   lawyer: "legal", attorney: "legal", legal: "legal", "law firm": "legal",
@@ -180,43 +187,52 @@ const KEYWORD_ALIASES: Record<string, string> = {
   concerts: "entertainment", tickets: "entertainment",
 };
 
+/* alias → canonical country label (matched against whichever row set is active) */
 const COUNTRY_ALIASES: Record<string, string> = {
-  usa: "us", us: "us", "united states": "us", america: "us",
-  "saudi arabia": "sa", saudi: "sa",
-  uk: "uk", "united kingdom": "uk", britain: "uk", england: "uk",
-  australia: "au",
-  canada: "ca",
-  uae: "ae", emirates: "ae", dubai: "ae",
-  germany: "de",
-  france: "fr",
-  japan: "jp",
-  mexico: "mx",
-  philippines: "ph",
-  brazil: "br",
-  india: "in",
+  usa: "United States", us: "United States", america: "United States",
+  "united states": "United States",
+  uk: "United Kingdom", britain: "United Kingdom", england: "United Kingdom",
+  uae: "United Arab Emirates", emirates: "United Arab Emirates",
+  dubai: "United Arab Emirates",
+  saudi: "Saudi Arabia",
+  holland: "Netherlands",
+  korea: "South Korea",
 };
 
-export function datasetFor(mode: Mode): BenchmarkSet {
-  return mode === "adwords" ? INDUSTRY_CPC : COUNTRY_CPM;
+export function slugify(label: string): string {
+  return label.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 }
 
-export function matchQuery(mode: Mode, query: string): string | null {
+export function matchIndustry(query: string): string | null {
   const q = query.trim().toLowerCase();
   if (!q) return null;
-  const set = datasetFor(mode);
-  const aliases = mode === "adwords" ? KEYWORD_ALIASES : COUNTRY_ALIASES;
-  if (aliases[q]) return aliases[q];
-  // substring match against aliases, then against row labels
-  for (const [alias, id] of Object.entries(aliases)) {
+  if (KEYWORD_ALIASES[q]) return KEYWORD_ALIASES[q];
+  for (const [alias, id] of Object.entries(KEYWORD_ALIASES)) {
     if (q.includes(alias) || alias.includes(q)) return id;
   }
-  for (const row of set.rows) {
+  for (const row of INDUSTRY_CPC.rows) {
     const label = row.label.toLowerCase();
     if (label.includes(q) || q.includes(label)) return row.id;
   }
   return null;
 }
 
+export function matchCountry(query: string, labels: string[]): string | null {
+  const q = query.trim().toLowerCase();
+  if (!q) return null;
+  const aliased = COUNTRY_ALIASES[q];
+  if (aliased && labels.includes(aliased)) return aliased;
+  for (const label of labels) {
+    const l = label.toLowerCase();
+    if (l === q || l.includes(q) || q.includes(l)) return label;
+  }
+  return null;
+}
+
 export function formatUsd(v: number): string {
   return v >= 100 ? `$${v.toFixed(0)}` : `$${v.toFixed(2)}`;
+}
+
+export function formatPct(v: number): string {
+  return `${v.toFixed(2)}%`;
 }
