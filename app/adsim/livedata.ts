@@ -24,6 +24,9 @@ export async function fetchLiveCountryCpms(): Promise<LiveCountryData | null> {
           "Mozilla/5.0 (compatible; Adsim/1.0; +https://jackmorello.com/adsim)",
       },
       next: { revalidate: 86400 },
+      // Never let a slow/hostile source hang a build or request —
+      // fall back to the baked snapshot instead.
+      signal: AbortSignal.timeout(8000),
     });
     if (!res.ok) return null;
     const html = await res.text();
