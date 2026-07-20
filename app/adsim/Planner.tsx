@@ -16,6 +16,68 @@ const DURATIONS = [
   { id: "3m", label: "3 months", days: 90 },
 ] as const;
 
+/* What the user is actually running. Each profile gates which channels
+   are eligible, which are on by default, and carries placement-fit notes
+   from documented platform creative specs. */
+type AssetType = "video" | "static" | "search";
+
+const ASSET_PROFILES: Record<
+  AssetType,
+  {
+    label: string;
+    channels: Record<string, { on: boolean; fit?: string }>;
+  }
+> = {
+  video: {
+    label: "Short video (10–15s)",
+    channels: {
+      tiktok: {
+        on: true,
+        fit: "9–15s is TikTok's recommended clip range — ideal fit",
+      },
+      meta: {
+        on: true,
+        fit: "runs as Reels + in-feed video · blended Meta CPM",
+      },
+      youtube: {
+        on: true,
+        fit: "15s: skippable, non-skip & Shorts · 10s: skippable/Shorts (bumpers need 6s)",
+      },
+      snapchat: {
+        on: false,
+        fit: "full-screen vertical video is the native format",
+      },
+      pinterest: { on: false, fit: "video pins · ≤15s plays best" },
+    },
+  },
+  static: {
+    label: "Static image",
+    channels: {
+      meta: { on: true, fit: "feed + right-column single image" },
+      pinterest: { on: true, fit: "standard pins — static-native platform" },
+      linkedin: { on: false, fit: "single-image sponsored content" },
+      snapchat: { on: false, fit: "single-image snap ads" },
+    },
+  },
+  search: {
+    label: "Search text ads",
+    channels: {
+      "google-search": { on: true },
+    },
+  },
+};
+
+const CREATIVE_SPEC_SOURCES = [
+  {
+    sourceName: "YouTube Help — video ad formats",
+    sourceUrl: "https://support.google.com/youtube/answer/2467968",
+  },
+  {
+    sourceName: "TikTok for Business — creative best practices",
+    sourceUrl: "https://ads.tiktok.com/business/en-US/inspiration/creative-best-practices",
+  },
+];
+
 /* Documented platform delivery rules the plan is checked against. */
 const PLATFORM_RULES = [
   {
@@ -53,6 +115,7 @@ function fmtCompact(n: number): string {
 }
 
 export default function Planner() {
+  const [asset, setAsset] = useState<AssetType>("video");
   const [budget, setBudget] = useState(10000);
   const [durationId, setDurationId] = useState<(typeof DURATIONS)[number]["id"]>("1m");
   const [industryId, setIndustryId] = useState("shopping");
@@ -60,8 +123,28 @@ export default function Planner() {
   const [socialCvr, setSocialCvr] = useState(2.0);
   const [frequency, setFrequency] = useState(2.5);
   const [selected, setSelected] = useState<Set<string>>(
-    () => new Set(CHANNELS.filter((c) => c.defaultOn).map((c) => c.id))
+    () =>
+      new Set(
+        Object.entries(ASSET_PROFILES.video.channels)
+          .filter(([, v]) => v.on)
+          .map(([id]) => id)
+      )
   );
+
+  const profile = ASSET_PROFILES[asset];
+  const eligibleChannels = CHANNELS.filter((c) => profile.channels[c.id]);
+  const hasSearch = "google-search" in profile.channels;
+
+  function switchAsset(next: AssetType) {
+    setAsset(next);
+    setSelected(
+      new Set(
+        Object.entries(ASSET_PROFILES[next].channels)
+          .filter(([, v]) => v.on)
+          .map(([id]) => id)
+      )
+    );
+  }
   const [weights, setWeights] = useState<Record<string, number>>(() =>
     Object.fromEntries(CHANNELS.map((c) => [c.id, 25]))
   );
@@ -215,7 +298,7 @@ export default function Planner() {
       totals.cpa ? formatUsd(totals.cpa) : "",
       totals.roas ? `${totals.roas.toFixed(1)}x` : "",
     ].join("\t");
-    const note = `Adsim plan — ${formatUsd(budget)} over ${duration.label}, ${industry.label}. Benchmarks: ${sources.join("; ")}. AOV ${formatUsd(aov)} and ${socialCvr}% social conv. rate are user assumptions.`;
+    const note = `Adsim plan — ${profile.label}, ${formatUsd(budget)} over ${duration.label}${hasSearch ? `, ${industry.label}` : ""}. Benchmarks: ${sources.join("; ")}. AOV ${formatUsd(aov)}${asset !== "search" ? ` and ${socialCvr}% social conv. rate` : ""} are user assumptions.`;
     navigator.clipboard
       .writeText([head, ...lines, total, "", note].join("\n"))
       .then(() => {
@@ -230,6 +313,23 @@ export default function Planner() {
         <div className={styles.card}>
           <div className={styles.cardHeader}>Plan a campaign</div>
           <div className={styles.cardBody}>
+            <div className={styles.plannerControls}>
+              <div className={styles.field}>
+                <span className={styles.fieldLabel}>What are you running?</span>
+                <span className={styles.segmented}>
+                  {(Object.keys(ASSET_PROFILES) as AssetType[]).map((a) => (
+                    <button
+                      key={a}
+                      className={asset === a ? styles.segActive : styles.segBtn}
+                      onClick={() => switchAsset(a)}
+                    >
+                      {ASSET_PROFILES[a].label}
+                    </button>
+                  ))}
+                </span>
+              </div>
+            </div>
+
             <div className={styles.plannerControls}>
               <label className={styles.field}>
                 <span className={styles.fieldLabel}>Total budget</span>
@@ -264,20 +364,22 @@ export default function Planner() {
                 </span>
               </div>
 
-              <label className={styles.field}>
-                <span className={styles.fieldLabel}>Industry (sets Google rates)</span>
-                <select
-                  className={styles.select}
-                  value={industryId}
-                  onChange={(e) => setIndustryId(e.target.value)}
-                >
-                  {INDUSTRY_CPC.rows.map((r) => (
-                    <option key={r.id} value={r.id}>
-                      {r.label}
-                    </option>
-                  ))}
-                </select>
-              </label>
+              {hasSearch && (
+                <label className={styles.field}>
+                  <span className={styles.fieldLabel}>Industry (sets Google rates)</span>
+                  <select
+                    className={styles.select}
+                    value={industryId}
+                    onChange={(e) => setIndustryId(e.target.value)}
+                  >
+                    {INDUSTRY_CPC.rows.map((r) => (
+                      <option key={r.id} value={r.id}>
+                        {r.label}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+              )}
             </div>
 
             <div className={styles.plannerControls}>
@@ -294,23 +396,25 @@ export default function Planner() {
                   />
                 </span>
               </label>
-              <label className={styles.field}>
-                <span className={styles.fieldLabel}>Social conv. rate*</span>
-                <span className={styles.budgetWrap}>
-                  <input
-                    className={styles.numInputSm}
-                    type="number"
-                    min={0.1}
-                    max={30}
-                    step={0.1}
-                    value={socialCvr}
-                    onChange={(e) =>
-                      setSocialCvr(Math.max(0.1, Number(e.target.value) || 0))
-                    }
-                  />
-                  <span className={styles.budgetSuffix}>%</span>
-                </span>
-              </label>
+              {asset !== "search" && (
+                <label className={styles.field}>
+                  <span className={styles.fieldLabel}>Social conv. rate*</span>
+                  <span className={styles.budgetWrap}>
+                    <input
+                      className={styles.numInputSm}
+                      type="number"
+                      min={0.1}
+                      max={30}
+                      step={0.1}
+                      value={socialCvr}
+                      onChange={(e) =>
+                        setSocialCvr(Math.max(0.1, Number(e.target.value) || 0))
+                      }
+                    />
+                    <span className={styles.budgetSuffix}>%</span>
+                  </span>
+                </label>
+              )}
               <label className={styles.field}>
                 <span className={styles.fieldLabel}>Avg. frequency*</span>
                 <span className={styles.budgetWrap}>
@@ -333,11 +437,15 @@ export default function Planner() {
               </span>
             </div>
 
-            <span className={styles.fieldLabel}>Channel mix (drag to weight)</span>
+            <span className={styles.fieldLabel}>
+              Channel mix (drag to weight) — placements that fit{" "}
+              {profile.label.toLowerCase()}
+            </span>
             <div className={styles.channelList}>
-              {CHANNELS.map((c) => {
+              {eligibleChannels.map((c) => {
                 const on = selected.has(c.id);
                 const res = results.find((r) => r.channel.id === c.id);
+                const fit = profile.channels[c.id]?.fit;
                 return (
                   <div
                     key={c.id}
@@ -350,6 +458,7 @@ export default function Planner() {
                       aria-label={`Include ${c.label}`}
                     />
                     <span className={styles.channelName}>{c.label}</span>
+                    {fit && <span className={styles.channelFit}>{fit}</span>}
                     {on ? (
                       <>
                         <input
@@ -485,9 +594,12 @@ export default function Planner() {
           <p className={styles.chartSource}>
             Cost benchmarks: {sources.join(" · ")}. Delivery rules:{" "}
             {PLATFORM_RULES.map((r) => r.sourceName.split(" — ")[0]).join(", ")}.
-            AOV, social conv. rate and frequency are your assumptions — actuals
-            vary with targeting, creative and seasonality. YouTube and Pinterest
-            are modeled as view-based reach only.
+            {asset === "video" &&
+              ` Placement fit per ${CREATIVE_SPEC_SOURCES.map((s) => s.sourceName.split(" — ")[0]).join(" and ")} creative specs.`}{" "}
+            AOV{asset !== "search" && ", social conv. rate"} and frequency are
+            your assumptions — actuals vary with targeting, creative and
+            seasonality. YouTube and Pinterest are modeled as view-based reach
+            only.
           </p>
         </div>
       </div>
