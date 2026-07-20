@@ -134,9 +134,9 @@ export default function Clipper() {
       c = canvasRef.current;
     if (!v || !c) return;
     setDuration(v.duration || 0);
-    const scale = Math.min(1, 1080 / Math.max(v.videoWidth, v.videoHeight));
-    c.width = Math.round(v.videoWidth * scale) || 720;
-    c.height = Math.round(v.videoHeight * scale) || 720;
+    // fixed 9:16 vertical output
+    c.width = 720;
+    c.height = 1280;
     if (loopRef.current == null) loopRef.current = window.setInterval(tick, 33);
     // auto-loop the clip window (muted) so the captioned preview plays on its own
     v.muted = true;
@@ -208,7 +208,17 @@ export default function Clipper() {
     if (v && c) {
       const ctx = c.getContext("2d");
       if (ctx) {
-        ctx.drawImage(v, 0, 0, c.width, c.height);
+        // center-crop the source to cover the 9:16 frame
+        const cw = c.width,
+          ch = c.height;
+        const vw = v.videoWidth || cw,
+          vh = v.videoHeight || ch;
+        const sc = Math.max(cw / vw, ch / vh);
+        const dw = vw * sc,
+          dh = vh * sc;
+        ctx.fillStyle = "#000";
+        ctx.fillRect(0, 0, cw, ch);
+        ctx.drawImage(v, (cw - dw) / 2, (ch - dh) / 2, dw, dh);
         const { start: s, len: l, caption: cap } = st.current;
         const words = cap.trim() ? cap.trim().split(/\s+/) : [];
         const progress = Math.min(1, Math.max(0, (v.currentTime - s) / l));
@@ -546,9 +556,9 @@ export default function Clipper() {
               onChange={(e) => onFile(e.target.files?.[0])}
             />
             <p className={styles.clpNote}>
-              Drag to position a 5–10s clip, write a caption, and download it with
-              the captions <b>burned in</b> — all in your browser, nothing uploaded.
-              Downloads as .webm today; one-click MP4 is next.
+              Makes a vertical <b>9:16</b> clip with captions burned in — positioned,
+              captioned, and downloaded right in your browser, nothing uploaded.
+              Downloads as MP4 where the browser supports it, otherwise WebM.
             </p>
           </>
         )}
