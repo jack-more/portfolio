@@ -138,9 +138,69 @@ const tracks: Track[] = [
     ],
   },
   {
-    key: "capital",
-    label: "Bucket 3 (Investors)",
-    caption: "Investors & corp dev — the capital. They attend for early signal and dealflow.",
+    key: "lps",
+    label: "Bucket 3 (LPs)",
+    caption: "Limited partners — the fund's investors. They attend to see the portfolio and spend time with the team.",
+    touches: [
+      {
+        week: "Week −8",
+        phase: "The invitation",
+        subject: "Two days with the portfolio, in person",
+        body: [
+          "[First] — an early note before the guest list closes.",
+          "The Summit is where you can watch the companies you're backing present, and spend real time with the team, away from a quarterly update.",
+          "No ask. I wanted to hold you a place first.",
+        ],
+        note: "Frames the event as portfolio access and partner time, the two things LPs value most.",
+      },
+      {
+        week: "Week −6",
+        phase: "The portfolio",
+        subject: "Which of your companies are on stage",
+        body: [
+          "Several companies from the fund are presenting this year, alongside 120+ others across enterprise AI and cybersecurity.",
+          "You'd see them in front of buyers and press, and get a read on the market from 180 speakers.",
+          "Want me to reserve your pass?",
+        ],
+        note: "Concrete: the LP sees their own capital at work and reads the broader market.",
+      },
+      {
+        week: "Week −4",
+        phase: "The room",
+        subject: "The other allocators who'll be there",
+        body: [
+          "Part of the value is the peer group — other institutional allocators who take this market seriously.",
+          "Happy to make a few introductions in advance if that's useful.",
+        ],
+        note: "Peer allocators, plus a soft relationship and co-invest angle.",
+      },
+      {
+        week: "Week −2",
+        phase: "The personal",
+        subject: "Time with the partners, set up in advance",
+        body: [
+          "If you'd like, I'll block time for you with the partners, and line up meetings with any portfolio founders you want to hear from directly.",
+          "Tell me who, and I'll arrange it.",
+        ],
+        note: "Partner face time and direct founder access, arranged for them.",
+      },
+      {
+        week: "Week −1",
+        phase: "Last call",
+        subject: "LP passes close Friday",
+        body: [
+          "Final call, [First]. The allocator list is nearly set.",
+          "This is the last note I'll send.",
+          "March 9–10, Santa Monica. Shall I confirm you?",
+        ],
+        note: "Closes on scarcity and a single clear decision.",
+      },
+    ],
+  },
+  {
+    key: "coinvestors",
+    label: "Bucket 4 (Co-investors)",
+    caption: "Co-investors — other VCs and syndicate partners. They attend for dealflow and to co-build rounds.",
     touches: [
       {
         week: "Week −8",
@@ -151,7 +211,7 @@ const tracks: Track[] = [
           "The Summit presents 120+ vetted companies, most before their next round and before the decks circulate widely.",
           "No ask yet. I wanted you on the early list.",
         ],
-        note: "Leads with the investor's edge: early, curated dealflow.",
+        note: "Leads with the co-investor's edge: early, curated dealflow.",
       },
       {
         week: "Week −6",
@@ -159,7 +219,7 @@ const tracks: Track[] = [
         subject: "The caliber of this year's cohort",
         body: [
           "Past cohorts produced companies like CrowdStrike and Forter. This year leans into enterprise AI and cybersecurity.",
-          "Two days, 180 speakers, and a room built for the conversations that source deals.",
+          "Two days, 180 speakers, and a room built for the conversations that source and syndicate deals.",
           "Want me to reserve an investor pass?",
         ],
         note: "Proof of pipeline quality through named alumni and this year's focus.",
@@ -170,10 +230,10 @@ const tracks: Track[] = [
         subject: "A shortlist matched to your thesis",
         body: [
           "Send me your focus areas and check size.",
-          "I'll put together a shortlist of presenting companies that fit, so you spend two days in the right rooms.",
-          "Happy to prioritize whichever sectors you're leaning into.",
+          "I'll put together a shortlist of presenting companies that fit, and flag anything we're co-leading.",
+          "That way you spend two days in the right rooms.",
         ],
-        note: "Personalized dealflow, matched to their thesis.",
+        note: "Personalized dealflow, matched to their thesis, with a syndication hook.",
       },
       {
         week: "Week −2",
@@ -192,6 +252,66 @@ const tracks: Track[] = [
         subject: "Investor passes close Friday",
         body: [
           "Final call, [First]. The investor allocation is nearly full.",
+          "This is the last note I'll send.",
+          "March 9–10, Santa Monica. In or out?",
+        ],
+        note: "Closes on scarcity and a single clear decision.",
+      },
+    ],
+  },
+  {
+    key: "strategics",
+    label: "Bucket 5 (Strategics)",
+    caption: "Strategics — corporate development and acquirers. They attend for M&A and partnership pipeline.",
+    touches: [
+      {
+        week: "Week −8",
+        phase: "The pipeline",
+        subject: "Your next acquisition targets, early",
+        body: [
+          "[First] — a note before the guest list closes.",
+          "The Summit presents 120+ vetted companies across enterprise AI and cybersecurity, most before they're widely known.",
+          "For a corp dev team, that is a curated pipeline in two days. No ask yet — I wanted you on the early list.",
+        ],
+        note: "Leads with the corp dev value: a curated M&A and partnership pipeline.",
+      },
+      {
+        week: "Week −6",
+        phase: "The proof",
+        subject: "The caliber of this year's cohort",
+        body: [
+          "Past cohorts produced companies like CrowdStrike and Forter. This year leans into enterprise AI and cybersecurity.",
+          "The people building the categories you're tracking will be in one room.",
+          "Want me to reserve a pass?",
+        ],
+        note: "Proof of quality and strategic relevance.",
+      },
+      {
+        week: "Week −4",
+        phase: "The shortlist",
+        subject: "A shortlist matched to your roadmap",
+        body: [
+          "Send me the areas you're building or buying in.",
+          "I'll put together a shortlist of presenting companies that fit, so your team meets the right ones.",
+        ],
+        note: "Personalized to their strategic roadmap.",
+      },
+      {
+        week: "Week −2",
+        phase: "The personal",
+        subject: "Intros set up before you arrive",
+        body: [
+          "From your shortlist, I'll pre-arrange meetings with the founders and partnership leads you want to see.",
+          "Your schedule will be set before day one.",
+        ],
+        note: "Concrete, personalized introductions.",
+      },
+      {
+        week: "Week −1",
+        phase: "Last call",
+        subject: "Partner passes close Friday",
+        body: [
+          "Final call, [First]. The strategic allocation is nearly full.",
           "This is the last note I'll send.",
           "March 9–10, Santa Monica. In or out?",
         ],
