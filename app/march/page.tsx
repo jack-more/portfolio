@@ -194,12 +194,12 @@ export default function MarchPage() {
 
       <main className={styles.content}>
         <section className={styles.hero}>
-          <h1 className={styles.title}>Filling the room.</h1>
+          <h1 className={styles.title}>The right heads in the room.</h1>
           <p className={styles.lede}>
-            Madeline — the Summit doesn&apos;t need a bigger list. It needs{" "}
-            <em>the right heads in the room</em>, and a run-up that makes them feel
-            late to something that matters. Here&apos;s the engine I&apos;d build for
-            that — and the proof I&apos;ve built engines like it before.
+            Madeline — the Summit doesn&apos;t need a bigger list. It needs the{" "}
+            <em>right people, reached the right way</em> — a run-up that makes them
+            feel late to something that matters. Here&apos;s the engine I&apos;d build
+            for that, and the proof I&apos;ve built engines like it before.
           </p>
         </section>
 
