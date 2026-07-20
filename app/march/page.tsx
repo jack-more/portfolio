@@ -344,8 +344,8 @@ export default function MarchPage() {
             </span>
           </div>
           <div className={styles.writeList}>
-            {writing.map((w) => (
-              <div key={w.href ?? w.desc} className={styles.writeItem}>
+            {writing.map((w, i) => (
+              <div key={w.href ?? `${w.co}-${i}`} className={styles.writeItem}>
                 <span className={styles.writeCo}>{w.co}</span>
                 <p className={styles.writeDesc}>{w.desc}</p>
                 {w.href ? (

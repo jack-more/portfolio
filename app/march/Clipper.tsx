@@ -78,13 +78,11 @@ export default function Clipper() {
     setActiveId(c.id);
   }
   const embedSrc = active
-    ? `https://www.youtube-nocookie.com/embed/${videoId}?start=${active.start}&end=${active.end}&rel=0`
+    ? `https://www.youtube-nocookie.com/embed/${videoId}?start=${active.start}&end=${active.end}&autoplay=1&mute=1&playsinline=1&rel=0`
     : "";
-  const snippet = active
-    ? `<iframe width="560" height="315" src="${embedSrc}" frameborder="0" allowfullscreen></iframe>`
-    : "";
-  function copySnippet() {
-    navigator.clipboard?.writeText(snippet).then(() => {
+  function copyLink() {
+    if (!embedSrc) return;
+    navigator.clipboard?.writeText(embedSrc).then(() => {
       setCopied(true);
       setTimeout(() => setCopied(false), 1500);
     });
@@ -404,17 +402,15 @@ export default function Clipper() {
               </div>
             )}
             {active && (
-              <>
-                <div className={styles.clpSnippet}>{snippet}</div>
-                <button className={styles.clpBtnGhost} onClick={copySnippet}>
-                  {copied ? "Copied ✓" : "Copy embed code"}
-                </button>
-              </>
+              <button className={styles.clpBtnGhost} onClick={copyLink}>
+                {copied ? "Copied ✓" : "Copy clip link"}
+              </button>
             )}
             <p className={styles.clpNote}>
-              Marks moments on any talk and turns each into a shareable, embeddable
-              clip — reading the <b>t=</b> timestamp automatically. To burn captions
-              into a downloadable file, use the <b>Captioned clip</b> tab.
+              Marks a moment on any talk and plays it back as a clip, reading the{" "}
+              <b>t=</b> timestamp automatically. Copy the link to share the exact
+              segment. For a downloadable file with captions, use the{" "}
+              <b>Captioned clip</b> tab.
             </p>
           </>
         ) : (
