@@ -96,6 +96,9 @@ export default function Clipper() {
   const recRef = useRef<MediaRecorder | null>(null);
   const chunksRef = useRef<Blob[]>([]);
   const recordingRef = useRef(false);
+  // lazily-loaded in-browser encoder (only fetched on first MP4 export)
+  const ffmpegRef = useRef<unknown>(null);
+  const ffmpegLoadRef = useRef<Promise<unknown> | null>(null);
 
   const [fileUrl, setFileUrl] = useState<string | null>(null);
   const [fileName, setFileName] = useState("");
@@ -245,6 +248,59 @@ export default function Clipper() {
     );
   }
 
+  // load single-threaded ffmpeg.wasm from CDN (no cross-origin isolation needed)
+  function getFFmpeg(): Promise<unknown> {
+    if (ffmpegRef.current) return Promise.resolve(ffmpegRef.current);
+    if (ffmpegLoadRef.current) return ffmpegLoadRef.current;
+    ffmpegLoadRef.current = (async () => {
+      const w = window as unknown as { FFmpeg?: { createFFmpeg: (o: unknown) => unknown } };
+      if (!w.FFmpeg) {
+        await new Promise<void>((res, rej) => {
+          const s = document.createElement("script");
+          s.src = "https://unpkg.com/@ffmpeg/ffmpeg@0.11.6/dist/ffmpeg.min.js";
+          s.onload = () => res();
+          s.onerror = () => rej(new Error("encoder failed to load"));
+          document.head.appendChild(s);
+        });
+      }
+      const createFFmpeg = (window as unknown as { FFmpeg: { createFFmpeg: (o: unknown) => unknown } }).FFmpeg.createFFmpeg;
+      const ff = createFFmpeg({
+        log: false,
+        corePath: "https://unpkg.com/@ffmpeg/core@0.11.0/dist/ffmpeg-core.js",
+      }) as { load: () => Promise<void> };
+      await ff.load();
+      ffmpegRef.current = ff;
+      return ff;
+    })();
+    return ffmpegLoadRef.current;
+  }
+
+  async function toMp4(webm: Blob): Promise<Blob> {
+    const ff = (await getFFmpeg()) as {
+      FS: (op: string, ...a: unknown[]) => Uint8Array;
+      run: (...a: string[]) => Promise<void>;
+    };
+    const fetchFile = (window as unknown as { FFmpeg: { fetchFile: (b: Blob) => Promise<Uint8Array> } }).FFmpeg.fetchFile;
+    ff.FS("writeFile", "in.webm", await fetchFile(webm));
+    await ff.run(
+      "-i", "in.webm",
+      "-c:v", "libx264", "-preset", "ultrafast", "-pix_fmt", "yuv420p",
+      "-c:a", "aac", "-movflags", "+faststart", "out.mp4"
+    );
+    const data = ff.FS("readFile", "out.mp4");
+    ff.FS("unlink", "in.webm");
+    ff.FS("unlink", "out.mp4");
+    return new Blob([data as unknown as BlobPart], { type: "video/mp4" });
+  }
+
+  function download(blob: Blob, ext: string) {
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = `clip.${ext}`;
+    a.click();
+    setTimeout(() => URL.revokeObjectURL(a.href), 1500);
+  }
+
   async function exportClip() {
     const v = videoRef.current,
       c = canvasRef.current;
@@ -278,15 +334,22 @@ export default function Clipper() {
     recRef.current = rec;
     chunksRef.current = [];
     rec.ondataavailable = (e) => e.data.size && chunksRef.current.push(e.data);
-    rec.onstop = () => {
+    rec.onstop = async () => {
       const type = rec.mimeType || "video/webm";
-      const blob = new Blob(chunksRef.current, { type });
-      const a = document.createElement("a");
-      a.href = URL.createObjectURL(blob);
-      a.download = `clip.${type.includes("mp4") ? "mp4" : "webm"}`;
-      a.click();
-      setTimeout(() => URL.revokeObjectURL(a.href), 1500);
-      setStatus("Downloaded ✓ — check your downloads.");
+      const raw = new Blob(chunksRef.current, { type });
+      if (type.includes("mp4")) {
+        download(raw, "mp4");
+        setStatus("Downloaded MP4 ✓");
+      } else {
+        setStatus("Encoding MP4… (first run downloads the encoder)");
+        try {
+          download(await toMp4(raw), "mp4");
+          setStatus("Downloaded MP4 ✓");
+        } catch {
+          download(raw, "webm");
+          setStatus("Downloaded WebM ✓ (MP4 encoder unavailable)");
+        }
+      }
       setExporting(false);
       recordingRef.current = false;
       // resume the muted preview loop
@@ -531,7 +594,7 @@ export default function Clipper() {
                     onClick={exportClip}
                     disabled={exporting}
                   >
-                    {exporting ? "Preparing…" : "⬇ Download clip"}
+                    {exporting ? "Preparing…" : "⬇ Download MP4"}
                   </button>
                   <button
                     className={styles.clpBtnGhost}
@@ -556,9 +619,9 @@ export default function Clipper() {
               onChange={(e) => onFile(e.target.files?.[0])}
             />
             <p className={styles.clpNote}>
-              Makes a vertical <b>9:16</b> clip with captions burned in — positioned,
-              captioned, and downloaded right in your browser, nothing uploaded.
-              Downloads as MP4 where the browser supports it, otherwise WebM.
+              Makes a vertical <b>9:16 MP4</b> with captions burned in — positioned,
+              captioned, and downloaded right in your browser, nothing uploaded. The
+              MP4 encoder loads only on your first download.
             </p>
           </>
         )}
