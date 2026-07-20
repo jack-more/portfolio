@@ -8,8 +8,9 @@ export const metadata: Metadata = {
     "Real published ad-pricing benchmarks — CPC, CTR and conversion rate by industry, CPM by platform and by country — for presenting paid media.",
 };
 
-export const revalidate = 86400; // re-check the live source daily
-
+/* Statically prerendered like the rest of the site — the live source is
+   fetched once per deploy at build time (8s timeout, baked fallback).
+   A scheduled rebuild hook can restore daily freshness without ISR. */
 export default async function AdsimPage() {
   const liveCountries = await fetchLiveCountryCpms();
   return <AdsimClient liveCountries={liveCountries} />;

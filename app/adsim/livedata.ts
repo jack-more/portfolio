@@ -23,9 +23,10 @@ export async function fetchLiveCountryCpms(): Promise<LiveCountryData | null> {
         "user-agent":
           "Mozilla/5.0 (compatible; Adsim/1.0; +https://jackmorello.com/adsim)",
       },
-      next: { revalidate: 86400 },
-      // Never let a slow/hostile source hang a build or request —
-      // fall back to the baked snapshot instead.
+      // Runs once per deploy at build time; a scheduled rebuild hook
+      // provides freshness. Never let a slow/hostile source hang the
+      // build — abort and fall back to the baked snapshot instead.
+      cache: "force-cache",
       signal: AbortSignal.timeout(8000),
     });
     if (!res.ok) return null;
