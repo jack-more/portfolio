@@ -121,7 +121,8 @@ const gallery = [
   { src: "/images/campaigns/creative/lg-v20-campaign.jpg", cap: "LG V20 — launch creative" },
 ];
 
-const writing: { co: string; desc: string; href: string | null }[] = [
+const writing: { co: string; desc: string; href: string | null; note?: string }[] = [
+  // bylined — Dtravel
   {
     co: "Dtravel",
     desc: "Dtravel Manifesto — founding narrative for the platform",
@@ -147,6 +148,12 @@ const writing: { co: string; desc: string; href: string | null }[] = [
     desc: "Introducing Dtravel's in-app wallet",
     href: "https://medium.com/dtravel-community/introducing-dtravels-in-app-wallet-a8406b7a5d40",
   },
+  // ghost-written — Rarestone Capital portfolio
+  { co: "Radix", desc: "Betanet launch article series — via Rarestone Capital", href: null, note: "ghost-written" },
+  { co: "Wilder World", desc: "Gaming & NFT features — via Rarestone Capital", href: null, note: "ghost-written" },
+  { co: "Mantra DAO", desc: "Roadmap & product articles — via Rarestone Capital", href: null, note: "ghost-written" },
+  { co: "Argo", desc: "Platform & product articles — via Rarestone Capital", href: null, note: "ghost-written" },
+  { co: "NFTify", desc: "Platform & product articles — via Rarestone Capital", href: null, note: "ghost-written" },
 ];
 
 export default function MarchPage() {
@@ -332,7 +339,9 @@ export default function MarchPage() {
           <div className={styles.sectionHead}>
             <span className={styles.sectionNum}>C</span>
             <h3 className={styles.sectionTitle}>Writing</h3>
-            <span className={styles.sectionSub}>Published pieces I wrote.</span>
+            <span className={styles.sectionSub}>
+              Bylined pieces, plus ghost-written work across a VC portfolio.
+            </span>
           </div>
           <div className={styles.writeList}>
             {writing.map((w) => (
@@ -344,7 +353,7 @@ export default function MarchPage() {
                     Read &rarr;
                   </a>
                 ) : (
-                  <span className={styles.writeSlot}>sample linking here</span>
+                  <span className={styles.writeSlot}>{w.note ?? "on request"}</span>
                 )}
               </div>
             ))}
