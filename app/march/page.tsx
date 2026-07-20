@@ -124,13 +124,28 @@ const gallery = [
 const writing: { co: string; desc: string; href: string | null }[] = [
   {
     co: "Dtravel",
-    desc: "The Dtravel Manifesto — the platform's founding narrative",
+    desc: "Dtravel Manifesto — founding narrative for the platform",
     href: "https://medium.com/dtravel-community/dtravel-manifesto-96d7eb3e48e7",
+  },
+  {
+    co: "Dtravel",
+    desc: "Evolving the sharing economy: Support-to-Earn",
+    href: "https://medium.com/dtravel-community/evolving-the-sharing-economy-support-to-earn-3acc89fd47be",
+  },
+  {
+    co: "Dtravel",
+    desc: "Introducing the Dtravel DAO",
+    href: "https://medium.com/dtravel-community/the-dtravel-dao-introduction-5e77de7869d5",
   },
   {
     co: "Dtravel",
     desc: "TRVL token launch announcement",
     href: "https://medium.com/dtravel-community/trvl-token-launch-18b85ef2d0c0",
+  },
+  {
+    co: "Dtravel",
+    desc: "Introducing Dtravel's in-app wallet",
+    href: "https://medium.com/dtravel-community/introducing-dtravels-in-app-wallet-a8406b7a5d40",
   },
 ];
 
