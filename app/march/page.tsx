@@ -139,8 +139,8 @@ const tasks: { co: string; name: string; out: string; href: string | null }[] = 
   },
   {
     co: "Rarestone Capital",
-    name: "Editorial program across the Web3 venture portfolio",
-    out: "Briefed and produced articles for Radix, Wilder World, Mantra DAO, Argo & NFTify",
+    name: "Content Lead — research, whitepapers & editorial across the Web3 portfolio",
+    out: "Investment theses and articles for Radix, Wilder World, Mantra DAO, Argo & NFTify",
     href: null,
   },
   {
@@ -154,6 +154,12 @@ const tasks: { co: string; name: string; out: string; href: string | null }[] = 
     name: "0→1 growth: user and host acquisition through Series A",
     out: "0→12K users · 2,000+ listings seeded · $8M raise",
     href: "https://cryptoslate.com/move-over-airbnb-blockchain-based-dtravel-has-secured-200000-property-listings-in-its-first-30-days/",
+  },
+  {
+    co: "SushiSwap",
+    name: "NFT curation & strategy for the Shoyu platform",
+    out: "Vetted and onboarded 200+ artists · shipped 15+ collections · drafted governance proposals",
+    href: null,
   },
   {
     co: "iHeartMedia",
