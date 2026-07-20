@@ -160,7 +160,7 @@ export default function MarchPage() {
             <span className={styles.partKicker}>Part 01</span>
             <h2 className={styles.partTitle}>Workflow</h2>
             <p className={styles.partSub}>
-              The end-to-end process for identifying the right attendees and
+              End-to-end process for identifying the right attendees and
               converting them into confirmed seats.
             </p>
           </div>
@@ -189,7 +189,7 @@ export default function MarchPage() {
             <span className={styles.sectionNum}>A</span>
             <h3 className={styles.sectionTitle}>Audiences</h3>
             <span className={styles.sectionSub}>
-              The three groups the plan targets, and why each attends.
+              Three groups the plan targets, and why each attends.
             </span>
           </div>
           <div className={styles.segments}>
@@ -277,7 +277,7 @@ export default function MarchPage() {
           {/* tasks owned */}
           <div className={styles.sectionHead}>
             <span className={styles.sectionNum}>A</span>
-            <h3 className={styles.sectionTitle}>Work I owned</h3>
+            <h3 className={styles.sectionTitle}>More</h3>
             <span className={styles.sectionSub}>Strategy through execution.</span>
           </div>
           <div className={styles.taskList}>
