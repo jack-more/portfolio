@@ -4,9 +4,9 @@ import styles from "./page.module.css";
 import Clipper from "./Clipper";
 
 export const metadata: Metadata = {
-  title: "Monty Summit Workflow Plan — Jack Morello",
+  title: "Monty Summit Intake + Planner (Mock-Up) — Jack Morello",
   description:
-    "Montgomery Summit outreach workflow plan and track record, prepared for March Capital.",
+    "A mock-up intake and planning workflow for the Montgomery Summit, with example works, prepared for March Capital.",
   robots: { index: false, follow: false },
 };
 
@@ -189,11 +189,6 @@ const writing: { co: string; desc: string; href: string | null }[] = [
     desc: "TRVL token launch announcement",
     href: "https://medium.com/dtravel-community/trvl-token-launch-18b85ef2d0c0",
   },
-  {
-    co: "Devolved AI",
-    desc: "Institutional AI: how Olympus redefines data sovereignty for enterprises",
-    href: "https://www.devolvedai.com/posts/03-llm-instances-and-institutional-ai",
-  },
 ];
 
 export default function MarchPage() {
@@ -207,13 +202,12 @@ export default function MarchPage() {
 
       <main className={styles.content}>
         <section className={styles.hero}>
-          <h1 className={styles.title}>Monty Summit Workflow Plan</h1>
+          <h1 className={styles.title}>Mock-Up: Monty Summit Intake + Planner</h1>
           <p className={styles.lede}>
-            A working plan for the Montgomery Summit outreach engine: how
-            prospective attendees are{" "}
+            A mock-up of an intake and planning workflow for the Montgomery
+            Summit: how prospective attendees are{" "}
             <em>identified, segmented, sequenced, and converted into confirmed
-            seats</em>, followed by a record of comparable systems I have built
-            and run.
+            seats</em>, with example works below.
           </p>
         </section>
 
@@ -319,10 +313,9 @@ export default function MarchPage() {
         <section className={styles.part}>
           <div className={styles.partHead}>
             <span className={styles.partKicker}>Part 02</span>
-            <h2 className={styles.partTitle}>Track Record</h2>
+            <h2 className={styles.partTitle}>Example Works</h2>
             <p className={styles.partSub}>
-              Comparable systems I have designed and run: the events, the work I
-              owned, and the writing.
+              Selected past work behind the plan above: events, roles, and writing.
             </p>
           </div>
 
