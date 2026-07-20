@@ -138,6 +138,18 @@ export default function Clipper() {
     c.width = Math.round(v.videoWidth * scale) || 720;
     c.height = Math.round(v.videoHeight * scale) || 720;
     if (loopRef.current == null) loopRef.current = window.setInterval(tick, 33);
+    // auto-loop the clip window (muted) so the captioned preview plays on its own
+    v.muted = true;
+    v.currentTime = start;
+    v.play().catch(() => {});
+  }
+
+  function seekPreview(s: number) {
+    const v = videoRef.current;
+    if (!v) return;
+    v.muted = true;
+    v.currentTime = Math.min(s, Math.max(0, (v.duration || 0) - st.current.len));
+    if (v.paused && !recordingRef.current) v.play().catch(() => {});
   }
 
   function drawCaption(
@@ -213,17 +225,6 @@ export default function Clipper() {
     }
   }
 
-  function setStartHere() {
-    const v = videoRef.current;
-    if (v) setStart(Math.min(v.currentTime, Math.max(0, (v.duration || 0) - len)));
-  }
-  async function previewClip() {
-    const v = videoRef.current;
-    if (!v) return;
-    v.currentTime = start;
-    await v.play().catch(() => {});
-  }
-
   function supported() {
     const c = canvasRef.current;
     return !!(
@@ -275,9 +276,16 @@ export default function Clipper() {
       a.download = `clip.${type.includes("mp4") ? "mp4" : "webm"}`;
       a.click();
       setTimeout(() => URL.revokeObjectURL(a.href), 1500);
-      setStatus("Exported ✓ — check your downloads.");
+      setStatus("Downloaded ✓ — check your downloads.");
       setExporting(false);
       recordingRef.current = false;
+      // resume the muted preview loop
+      const vEl = videoRef.current;
+      if (vEl) {
+        vEl.muted = true;
+        vEl.currentTime = start;
+        vEl.play().catch(() => {});
+      }
     };
     v.currentTime = start;
     await new Promise<void>((r) => {
@@ -288,6 +296,7 @@ export default function Clipper() {
       v.addEventListener("seeked", on);
     });
     recordingRef.current = true;
+    v.muted = false; // capture audio for the download
     rec.start();
     await v.play().catch(() => {});
   }
@@ -435,34 +444,31 @@ export default function Clipper() {
               </>
             ) : (
               <>
-                <p className={styles.clpMeta}>{fileName}</p>
+                {/* live, looping captioned preview */}
+                <div className={styles.clpCanvasWrap}>
+                  <canvas ref={canvasRef} className={styles.clpCanvas} />
+                  <span className={styles.clpCanvasLabel}>
+                    Live preview · {fileName}
+                  </span>
+                </div>
                 <video
                   ref={videoRef}
-                  className={styles.clpScrub}
+                  className={styles.clpVideoHidden}
                   src={fileUrl}
-                  controls
+                  muted
                   playsInline
                   crossOrigin="anonymous"
                   onLoadedMetadata={onMeta}
                 />
+
+                <div className={styles.clpStep}>
+                  <span className={styles.clpStepNum}>1</span> Position your clip
+                </div>
                 <div className={styles.clpRow}>
-                  <button className={styles.clpBtnGhost} onClick={setStartHere}>
-                    Set start = current ({fmt(start)})
-                  </button>
                   <div className={styles.clpField}>
-                    <span className={styles.clpLabel}>Length: {len}s</span>
-                    <input
-                      className={styles.clpSlider}
-                      type="range"
-                      min={5}
-                      max={10}
-                      step={1}
-                      value={len}
-                      onChange={(e) => setLen(parseInt(e.target.value, 10))}
-                    />
-                  </div>
-                  <div className={styles.clpField}>
-                    <span className={styles.clpLabel}>Start: {fmt(start)}</span>
+                    <span className={styles.clpLabel}>
+                      Start {fmt(Math.min(start, maxStart))}
+                    </span>
                     <input
                       className={styles.clpSlider}
                       type="range"
@@ -470,28 +476,52 @@ export default function Clipper() {
                       max={Math.max(1, Math.floor(maxStart))}
                       step={1}
                       value={Math.min(start, maxStart)}
-                      onChange={(e) => setStart(parseInt(e.target.value, 10))}
+                      onChange={(e) => {
+                        const s = parseInt(e.target.value, 10);
+                        setStart(s);
+                        seekPreview(s);
+                      }}
                     />
                   </div>
+                  <div className={styles.clpField}>
+                    <span className={styles.clpLabel}>Length {len}s</span>
+                    <input
+                      className={styles.clpSlider}
+                      type="range"
+                      min={5}
+                      max={10}
+                      step={1}
+                      value={len}
+                      onChange={(e) => {
+                        setLen(parseInt(e.target.value, 10));
+                        seekPreview(start);
+                      }}
+                    />
+                  </div>
+                  <span className={styles.clpWindow}>
+                    Clip {fmt(start)}–{fmt(start + len)}
+                  </span>
                 </div>
-                <div className={styles.clpField} style={{ marginBottom: 12 }}>
-                  <span className={styles.clpLabel}>Caption</span>
-                  <textarea
-                    className={styles.clpTextarea}
-                    value={caption}
-                    onChange={(e) => setCaption(e.target.value)}
-                  />
+
+                <div className={styles.clpStep}>
+                  <span className={styles.clpStepNum}>2</span> Write the caption
                 </div>
-                <div className={styles.clpCanvasWrap}>
-                  <span className={styles.clpCanvasLabel}>Output preview</span>
-                  <canvas ref={canvasRef} className={styles.clpCanvas} />
+                <textarea
+                  className={styles.clpTextarea}
+                  value={caption}
+                  onChange={(e) => setCaption(e.target.value)}
+                />
+
+                <div className={styles.clpStep}>
+                  <span className={styles.clpStepNum}>3</span> Download
                 </div>
                 <div className={styles.clpRow}>
-                  <button className={styles.clpBtn} onClick={previewClip} disabled={exporting}>
-                    ▶ Preview
-                  </button>
-                  <button className={styles.clpBtn} onClick={exportClip} disabled={exporting}>
-                    {exporting ? "Recording…" : "⬇ Export clip"}
+                  <button
+                    className={`${styles.clpBtn} ${styles.clpDownload}`}
+                    onClick={exportClip}
+                    disabled={exporting}
+                  >
+                    {exporting ? "Preparing…" : "⬇ Download clip"}
                   </button>
                   <button
                     className={styles.clpBtnGhost}
@@ -499,9 +529,10 @@ export default function Clipper() {
                       videoRef.current?.pause();
                       if (fileUrl.startsWith("blob:")) URL.revokeObjectURL(fileUrl);
                       setFileUrl(null);
+                      setStatus("");
                     }}
                   >
-                    Clear
+                    Start over
                   </button>
                 </div>
                 <p className={styles.clpStatus}>{status}</p>
@@ -515,10 +546,9 @@ export default function Clipper() {
               onChange={(e) => onFile(e.target.files?.[0])}
             />
             <p className={styles.clpNote}>
-              Cuts a 5–10s vertical-ready clip and <b>burns in animated captions</b>,
-              rendered to canvas and recorded in-browser — no upload, no server. Next:{" "}
-              <b>auto-transcription</b> (Whisper/Claude) to caption straight from
-              speech.
+              Drag to position a 5–10s clip, write a caption, and download it with
+              the captions <b>burned in</b> — all in your browser, nothing uploaded.
+              Downloads as .webm today; one-click MP4 is next.
             </p>
           </>
         )}

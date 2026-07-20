@@ -668,6 +668,42 @@
 .clpDrop:hover { background: rgba(255, 255, 255, 0.6); }
 .clpMeta { font-size: 11.5px; color: rgba(28, 25, 23, 0.6); margin: 0 0 10px; }
 
+/* stepped captioned-clip flow */
+.clpStep {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 12px;
+  margin: 16px 0 7px;
+}
+.clpStepNum {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #1c1917;
+  color: #dfd6cc;
+  font-size: 10px;
+  flex-shrink: 0;
+}
+.clpVideoHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+.clpDownload { padding: 11px 22px; font-size: 13.5px; }
+.clpWindow {
+  font-size: 11.5px;
+  color: rgba(28, 25, 23, 0.6);
+  font-variant-numeric: tabular-nums;
+  align-self: center;
+}
+
 /* captioned clip generator */
 .clpScrub {
   width: 100%;
