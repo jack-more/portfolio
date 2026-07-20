@@ -38,19 +38,19 @@ const principles = [
 
 const heads = [
   {
-    tag: "The buyers",
+    tag: "Buyers",
     title: "Enterprise CxOs",
     line: "CIO · CTO · CISO — Fortune 500",
     body: "They approve enterprise AI budgets and attend to see how their peers are deploying it. The message leads with proof: Goldman's CIO running digital co-workers, and FedEx rebuilt around automation.",
   },
   {
-    tag: "The builders",
+    tag: "Builders",
     title: "Growth-stage founders",
     line: "The 120+ who present, plus the ones who should",
     body: "For a founder, the Summit is 1,200 buyers, investors, and acquirers in one venue. The message leads with access: direct introductions to the enterprise buyers they otherwise cannot reach.",
   },
   {
-    tag: "The capital",
+    tag: "Capital",
     title: "Investors & corp dev",
     line: "VCs · institutional · corp dev",
     body: "They attend for early signal: a first look at 120+ vetted companies before the decks circulate, and the market theses that surface in person.",
@@ -212,8 +212,8 @@ export default function MarchPage() {
             </span>
           </div>
           <p className={styles.seqIntro}>
-            Each audience is tiered, and each gets its own sequence, built on this
-            year&apos;s actual program. Pick a bucket. Copy is illustrative.
+            Each audience is tiered, with its own subject-line cadence, built on
+            this year&apos;s actual program. Pick a bucket.
           </p>
           <Sequences />
 
