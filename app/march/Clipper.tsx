@@ -99,6 +99,9 @@ export default function Clipper() {
   // lazily-loaded in-browser encoder (only fetched on first MP4 export)
   const ffmpegRef = useRef<unknown>(null);
   const ffmpegLoadRef = useRef<Promise<unknown> | null>(null);
+  // lazily-loaded in-browser speech-to-text (Whisper via transformers.js)
+  const asrRef = useRef<((a: Float32Array, o: unknown) => Promise<{ text?: string; chunks?: { text?: string; timestamp?: [number, number | null] }[] }>) | null>(null);
+  const asrLoadRef = useRef<Promise<unknown> | null>(null);
 
   const [fileUrl, setFileUrl] = useState<string | null>(null);
   const [fileName, setFileName] = useState("");
@@ -108,12 +111,14 @@ export default function Clipper() {
   const [caption, setCaption] = useState(
     "This is the moment your whole feed stops scrolling"
   );
+  const [timed, setTimed] = useState<{ w: string; s: number; e: number }[]>([]);
+  const [transcribing, setTranscribing] = useState(false);
   const [status, setStatus] = useState("");
   const [exporting, setExporting] = useState(false);
 
-  // keep latest values available inside the rAF loop
-  const st = useRef({ start, len, caption });
-  st.current = { start, len, caption };
+  // keep latest values available inside the render loop
+  const st = useRef({ start, len, caption, timed });
+  st.current = { start, len, caption, timed };
 
   function onFile(f: File | undefined) {
     if (!f) return;
@@ -222,13 +227,21 @@ export default function Clipper() {
         ctx.fillStyle = "#000";
         ctx.fillRect(0, 0, cw, ch);
         ctx.drawImage(v, (cw - dw) / 2, (ch - dh) / 2, dw, dh);
-        const { start: s, len: l, caption: cap } = st.current;
-        const words = cap.trim() ? cap.trim().split(/\s+/) : [];
-        const progress = Math.min(1, Math.max(0, (v.currentTime - s) / l));
-        const activeIdx = Math.min(
-          words.length - 1,
-          Math.floor(progress * words.length)
-        );
+        const { start: s, len: l, caption: cap, timed: tw } = st.current;
+        const off = v.currentTime - s;
+        let words: string[];
+        let activeIdx: number;
+        if (tw && tw.length) {
+          // synced to Whisper word timestamps
+          words = tw.map((t) => t.w);
+          activeIdx = 0;
+          for (let i = 0; i < tw.length; i++) if (tw[i].s <= off) activeIdx = i;
+        } else {
+          // even distribution over a typed caption
+          words = cap.trim() ? cap.trim().split(/\s+/) : [];
+          const progress = Math.min(1, Math.max(0, off / l));
+          activeIdx = Math.min(words.length - 1, Math.floor(progress * words.length));
+        }
         drawCaption(ctx, c.width, c.height, words, activeIdx);
         if (v.currentTime >= s + l) {
           if (recordingRef.current) finishExport();
@@ -291,6 +304,86 @@ export default function Clipper() {
     ff.FS("unlink", "in.webm");
     ff.FS("unlink", "out.mp4");
     return new Blob([data as unknown as BlobPart], { type: "video/mp4" });
+  }
+
+  // load Whisper (transformers.js) from CDN, bypassing the bundler
+  function getASR() {
+    if (asrRef.current) return Promise.resolve(asrRef.current);
+    if (asrLoadRef.current) return asrLoadRef.current;
+    asrLoadRef.current = (async () => {
+      const importer = new Function("u", "return import(u)") as (u: string) => Promise<{
+        env: { allowLocalModels: boolean };
+        pipeline: (task: string, model: string) => Promise<unknown>;
+      }>;
+      const mod = await importer("https://cdn.jsdelivr.net/npm/@xenova/transformers@2.17.2");
+      mod.env.allowLocalModels = false;
+      const asr = (await mod.pipeline(
+        "automatic-speech-recognition",
+        "Xenova/whisper-tiny.en"
+      )) as (a: Float32Array, o: unknown) => Promise<{
+        text?: string;
+        chunks?: { text?: string; timestamp?: [number, number | null] }[];
+      }>;
+      asrRef.current = asr;
+      return asr;
+    })();
+    return asrLoadRef.current;
+  }
+
+  // decode the clip window to 16kHz mono for Whisper
+  async function extractAudio(url: string, startSec: number, lenSec: number): Promise<Float32Array> {
+    const buf = await (await fetch(url)).arrayBuffer();
+    const AC =
+      window.AudioContext ||
+      (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
+    const actx = new AC();
+    const audio = await actx.decodeAudioData(buf);
+    actx.close();
+    const sr = 16000;
+    const off = new OfflineAudioContext(1, Math.max(1, Math.floor(lenSec * sr)), sr);
+    const src = off.createBufferSource();
+    src.buffer = audio;
+    src.connect(off.destination);
+    src.start(0, startSec, lenSec);
+    const rendered = await off.startRendering();
+    return rendered.getChannelData(0);
+  }
+
+  async function autoCaption() {
+    if (!fileUrl || transcribing) return;
+    setTranscribing(true);
+    try {
+      setStatus("Reading the clip's audio…");
+      const audio = await extractAudio(fileUrl, start, len);
+      setStatus("Loading captions model… (first run downloads it)");
+      const asr = (await getASR()) as (
+        a: Float32Array,
+        o: unknown
+      ) => Promise<{
+        text?: string;
+        chunks?: { text?: string; timestamp?: [number, number | null] }[];
+      }>;
+      setStatus("Transcribing…");
+      const out = await asr(audio, { return_timestamps: "word", chunk_length_s: 30 });
+      const words = (out.chunks ?? [])
+        .map((c) => ({
+          w: (c.text ?? "").trim(),
+          s: c.timestamp?.[0] ?? 0,
+          e: c.timestamp?.[1] ?? (c.timestamp?.[0] ?? 0) + 0.4,
+        }))
+        .filter((x) => x.w);
+      const text = (out.text ?? "").trim();
+      if (text) {
+        setCaption(text);
+        setTimed(words);
+        setStatus("Captions ready ✓ — edit if needed");
+      } else {
+        setStatus("No speech detected in this clip.");
+      }
+    } catch {
+      setStatus("Auto-caption unavailable here — type a caption instead.");
+    }
+    setTranscribing(false);
   }
 
   function download(blob: Blob, ext: string) {
@@ -577,12 +670,28 @@ export default function Clipper() {
                 </div>
 
                 <div className={styles.clpStep}>
-                  <span className={styles.clpStepNum}>2</span> Write the caption
+                  <span className={styles.clpStepNum}>2</span> Caption
+                </div>
+                <div className={styles.clpRow}>
+                  <button
+                    className={styles.clpBtn}
+                    onClick={autoCaption}
+                    disabled={transcribing || exporting}
+                  >
+                    {transcribing ? "Captioning…" : "✨ Auto-caption"}
+                  </button>
+                  <span className={styles.clpWindow}>
+                    transcribes the clip&apos;s audio in your browser
+                  </span>
                 </div>
                 <textarea
                   className={styles.clpTextarea}
                   value={caption}
-                  onChange={(e) => setCaption(e.target.value)}
+                  placeholder="Auto-caption, or type your own…"
+                  onChange={(e) => {
+                    setCaption(e.target.value);
+                    setTimed([]);
+                  }}
                 />
 
                 <div className={styles.clpStep}>
@@ -619,9 +728,10 @@ export default function Clipper() {
               onChange={(e) => onFile(e.target.files?.[0])}
             />
             <p className={styles.clpNote}>
-              Makes a vertical <b>9:16 MP4</b> with captions burned in — positioned,
-              captioned, and downloaded right in your browser, nothing uploaded. The
-              MP4 encoder loads only on your first download.
+              Makes a vertical <b>9:16 MP4</b> with captions burned in.{" "}
+              <b>Auto-caption</b> transcribes the clip&apos;s audio in your browser
+              (first run downloads a small model); or type your own. Nothing is
+              uploaded.
             </p>
           </>
         )}
