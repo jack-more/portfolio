@@ -81,8 +81,11 @@ export default function Clipper() {
     ? `https://www.youtube-nocookie.com/embed/${videoId}?start=${active.start}&end=${active.end}&autoplay=1&mute=1&playsinline=1&rel=0`
     : "";
   function copyLink() {
-    if (!embedSrc) return;
-    navigator.clipboard?.writeText(embedSrc).then(() => {
+    if (!videoId || !active) return;
+    // A watch link, not the embed src — embed URLs open as a bare
+    // youtube-nocookie player page and aren't shareable.
+    const shareUrl = `https://youtu.be/${videoId}?t=${active.start}`;
+    navigator.clipboard?.writeText(shareUrl).then(() => {
       setCopied(true);
       setTimeout(() => setCopied(false), 1500);
     });
@@ -583,9 +586,9 @@ export default function Clipper() {
             )}
             <p className={styles.clpNote}>
               Marks a moment on any talk and plays it back as a clip, reading the{" "}
-              <b>t=</b> timestamp automatically. Copy the link to share the exact
-              segment. For a downloadable file with captions, use the{" "}
-              <b>Captioned clip</b> tab.
+              <b>t=</b> timestamp automatically. Copy the link to share a normal
+              YouTube link that starts at your clip&apos;s start time. For a
+              downloadable file with captions, use the <b>Captioned clip</b> tab.
             </p>
           </>
         ) : (
