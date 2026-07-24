@@ -76,6 +76,7 @@ const online = [
   { label: "Email", action: "Send", href: "mailto:jaidanmorello@gmail.com" },
   { label: "Instagram", action: "Follow", href: "https://instagram.com/jackmorello" },
   { label: "GitHub", action: "View", href: "https://github.com/jack-more" },
+  { label: "Adsim", action: "Sim a campaign", href: "/adsim" },
   { label: "Morello Sims", action: "Visit", href: "https://morellosims.com" },
 ];
 
@@ -181,7 +182,6 @@ export default function HomePage() {
           </DraggableCard>
 
           <DraggableCard title="Misc.">
-            <Row left="Adsim" right="Sim a campaign" href="/adsim" />
             <Row left="Recent Reads" right="View" href="/recentreads" />
             <Row left="Artwork" right="View" href="/artwork" />
           </DraggableCard>
