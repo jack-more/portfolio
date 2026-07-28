@@ -1,0 +1,503 @@
+
+  /* ============================================================
+     INCUBELLA × BARON DAVIS ENTERPRISES — STRATEGIC PATHFINDING
+     Palette + type sampled from incubella.co (verified 07.28.2026):
+       ground #0A0A0A · panel #161920 · paper #EDF0F5 · steel #858B94
+       cement #E7E9EB · slate #1B2127 · drafting blue #3D77A8
+       signature device: silver display gradient 89deg #EDF0F5 → #858B94
+     One accent only: --ember, a dulled hardwood amber. Not a neon pop.
+     Committed single-theme dark: this is a projected pitch deck.
+     ============================================================ */
+
+  .page {
+    color-scheme: light;
+    background: #D3D7DA;
+    min-height: 100vh;
+    font-family: var(--body);
+    -webkit-font-smoothing: antialiased;
+    color: var(--ink);
+
+    /* Cast concrete + drafting blue. The neutral is cooled toward the accent so
+       it reads as chosen rather than inherited; nothing here is beige. */
+    --paper:  #E7E9EB;   /* cement, cool */
+    --paper-2:#DFE2E5;   /* panel / raised */
+    --paper-3:#F2F3F4;   /* lightest, for figure plates */
+    --ink:    #1B2127;   /* slate, not black */
+    --steel:  #6E7A85;   /* secondary */
+    --mute:   #59636D;   /* body */
+    --blue:   #356A97;   /* drafting blue — 4.71:1 on cement, AA for the small mono labels */
+    --blue-2: #A9C4DC;   /* wash */
+    --oxide:  #A2503A;   /* ledger negatives only. Semantic, never decorative. */
+
+    --rule:      rgba(27,33,39,.20);
+    --rule-soft: rgba(27,33,39,.11);
+    --rule-hard: rgba(27,33,39,.34);
+
+    --display: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --body:    -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --mono:    ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+
+    /* every slide measures itself in cq units off the slide width */
+    --u: 1cqw;
+  }
+
+  .page * { box-sizing: border-box; }
+
+
+  /* ---------- deck shell ---------- */
+
+  .deck {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 24px 96px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .slide {
+    container-type: inline-size;
+    position: relative;
+    aspect-ratio: 16 / 9;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    box-shadow: 0 1px 0 rgba(27,33,39,.06), 0 18px 40px -28px rgba(27,33,39,.45);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Deep-field slides. Every component reads its colour from a token, so
+     re-declaring the tokens on the slide flips the whole sheet — cover and
+     dividers land dark, the working slides stay light. */
+  .slide--field {
+    --paper:   #1E4A70;
+    --paper-2: #1A4265;
+    --paper-3: #24567F;
+    --ink:     #EEF2F5;
+    --mute:    #C2D4E3;
+    --steel:   #9AB6CD;
+    --blue:    #A7CAE6;
+    --oxide:   #E0A18E;
+    --rule:      rgba(255,255,255,.26);
+    --rule-soft: rgba(255,255,255,.15);
+    --rule-hard: rgba(255,255,255,.42);
+  }
+  .slide--field::before { background-image: radial-gradient(rgba(255,255,255,.14) 1px, transparent 1px); }
+
+  /* drafting-paper grid. Chris's discipline is architecture and the deck is
+     about measuring something, so the ground is a drawing sheet, not a texture. */
+  .slide::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(61,119,168,.16) 1px, transparent 1px);
+    background-size: 7px 7px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .slide > * { position: relative; z-index: 1; }
+
+  /* ---------- rails (the furniture, matched to the reference deck) ---------- */
+
+  .rail {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: baseline;
+    gap: calc(var(--u) * 2);
+    padding: calc(var(--u) * 2.6) calc(var(--u) * 4);
+    font-family: var(--mono);
+    font-size: calc(var(--u) * .95);
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--steel);
+  }
+
+  .rail--top { border-bottom: 1px solid var(--rule-soft); }
+  .rail--bot { border-top: 1px solid var(--rule-soft); margin-top: auto; }
+
+  .rail .brand { color: var(--ink); letter-spacing: .26em; }
+  .rail .spacer { margin-left: auto; }
+
+  /* ---------- logo ---------- */
+  /* Incubella lockup + mark, lifted from the live site and recoloured for the
+     dark ground. Paths use currentColor so one sprite serves every size. */
+  .logo { display: block; color: var(--ink); flex: 0 0 auto; }
+  .logo--rail  { width: calc(var(--u) * 8.6);  height: calc(var(--u) * 1.99); }
+  .logo--cover { width: calc(var(--u) * 26);   height: calc(var(--u) * 6.02); }
+  .logo--div   { width: calc(var(--u) * 18);   height: calc(var(--u) * 4.17); }
+  .mark        { display: block; color: var(--ink); }
+  .mark--big   { width: calc(var(--u) * 5.4);  height: calc(var(--u) * 10.67); }
+  .rail .pg { color: var(--ink); font-variant-numeric: tabular-nums; }
+
+  /* ---------- slide body ---------- */
+
+  .body {
+    flex: 1 1 auto;
+    min-height: 0;
+    padding: calc(var(--u) * 4);
+    display: flex;
+    flex-direction: column;
+    /* centred by default so short slides sit in the optical middle of the
+       frame rather than hanging off the top rail */
+    justify-content: center;
+    gap: calc(var(--u) * 2.4);
+  }
+
+  .body--center { justify-content: center; }
+
+  /* dense slides: same system, one step down the scale. Applied only where
+     measured content genuinely exceeds the 16:9 box. */
+  .body--dense { gap: calc(var(--u) * 1.5); }
+  .body--dense h2 { font-size: calc(var(--u) * 2.95); }
+  .body--dense p, .body--dense li { font-size: calc(var(--u) * 1.06); line-height: 1.48; }
+  .body--dense .lede { font-size: calc(var(--u) * 1.42); }
+  .body--dense .col { gap: calc(var(--u) * .7); padding-top: calc(var(--u) * 1); }
+  .body--dense ul.plain { gap: calc(var(--u) * .62); }
+  .body--dense ol.seq { gap: calc(var(--u) * 1); }
+  .body--dense .phase { padding: calc(var(--u) * 1.5); gap: calc(var(--u) * .55); }
+  .body--dense .stat .fig { font-size: calc(var(--u) * 3.4); }
+  .body--dense .row { padding: calc(var(--u) * .8) 0; }
+  .body--dense .panel { padding: calc(var(--u) * 1.7); gap: calc(var(--u) * .7); }
+
+  /* ---------- type scale ---------- */
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: calc(var(--u) * 1.05);
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--blue);
+  }
+
+  .eyebrow--steel { color: var(--steel); }
+
+  .page h1, .page h2, .page h3 { margin: 0; font-family: var(--display); font-weight: 700; text-wrap: balance; }
+
+  /* On a light ground a metallic gradient reads cheap, so the display face
+     carries weight and tracking instead of effect. */
+  .page h1 {
+    font-size: calc(var(--u) * 6.2);
+    line-height: .92;
+    letter-spacing: -.032em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+
+  .page h2 {
+    font-size: calc(var(--u) * 3.5);
+    line-height: 1.0;
+    letter-spacing: -.024em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+
+  .page h3 {
+    font-size: calc(var(--u) * 1.45);
+    line-height: 1.15;
+    letter-spacing: .01em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+
+  .page p, .page li {
+    margin: 0;
+    font-size: calc(var(--u) * 1.25);
+    line-height: 1.55;
+    color: var(--mute);
+  }
+
+  .lede { font-size: calc(var(--u) * 1.7); line-height: 1.45; color: var(--ink); max-width: 62ch; }
+  .lede--wide { max-width: 78ch; }
+
+  .page strong { color: var(--ink); font-weight: 600; }
+  .page em { color: var(--blue); font-style: italic; }
+  .em-blue { color: var(--blue); font-style: normal; }
+
+  /* ---------- layout primitives ---------- */
+
+  .cols { display: grid; gap: calc(var(--u) * 3); align-items: start; }
+  .cols--2 { grid-template-columns: 1fr 1fr; }
+  .cols--3 { grid-template-columns: repeat(3, 1fr); }
+  .cols--4 { grid-template-columns: repeat(4, 1fr); }
+  .cols--asym { grid-template-columns: 1.15fr 1fr; }
+
+  .stack { display: flex; flex-direction: column; gap: calc(var(--u) * 1.1); }
+  .stack--lg { gap: calc(var(--u) * 2); }
+  .stack--sm { gap: calc(var(--u) * .6); }
+
+  .col {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--u) * 1);
+    padding-top: calc(var(--u) * 1.4);
+    border-top: 1px solid var(--rule);
+  }
+
+  .col--blue { border-top-color: var(--blue); }
+
+  .idx {
+    font-family: var(--mono);
+    font-size: calc(var(--u) * 1.05);
+    letter-spacing: .16em;
+    color: var(--steel);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .idx--blue { color: var(--blue); }
+
+  /* numbered list, used only where order is genuinely a sequence */
+  ol.seq, ul.plain { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; }
+  ol.seq { gap: calc(var(--u) * 1.3); }
+  ul.plain { gap: calc(var(--u) * .9); }
+
+  ol.seq > li { display: grid; grid-template-columns: calc(var(--u) * 4.5) 1fr; gap: calc(var(--u) * 1.2); align-items: baseline; }
+  ol.seq > li > .n { font-family: var(--mono); font-size: calc(var(--u) * 1.05); letter-spacing: .12em; color: var(--blue); font-variant-numeric: tabular-nums; }
+
+  /* NB: deliberately not a grid. Inline children like <strong> would each
+     become separate grid items and get flung into the marker column. */
+  ul.plain > li { position: relative; padding-left: calc(var(--u) * 2.4); }
+  ul.plain > li::before { content: "—"; position: absolute; left: 0; top: 0; color: var(--steel); }
+
+  /* ---------- panel ---------- */
+
+  .panel {
+    background: var(--paper-3);
+    border: 1px solid var(--rule);
+    padding: calc(var(--u) * 2.4);
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--u) * 1);
+  }
+
+  .panel--blue { border-color: rgba(61,119,168,.45); background: linear-gradient(180deg, rgba(61,119,168,.09), var(--paper-3) 70%); }
+
+  /* ---------- data rows (audit / ledger) ---------- */
+
+  .ledger { display: flex; flex-direction: column; }
+
+  .ledger > .row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: calc(var(--u) * 2);
+    align-items: baseline;
+    padding: calc(var(--u) * 1.05) 0;
+    border-bottom: 1px solid var(--rule-soft);
+  }
+
+  .ledger > .row:first-child { border-top: 1px solid var(--rule); }
+
+  .row .k { font-size: calc(var(--u) * 1.2); color: var(--mute); }
+  .row .v {
+    font-family: var(--mono);
+    font-size: calc(var(--u) * 1.15);
+    color: var(--ink);
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+  .row .v--flag { color: var(--oxide); }
+
+  /* ---------- stat ---------- */
+
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: calc(var(--u) * 2.4); }
+
+  .stat { display: flex; flex-direction: column; gap: calc(var(--u) * .3); border-top: 1px solid var(--rule); padding-top: calc(var(--u) * 1.2); }
+  .stat .fig {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: calc(var(--u) * 4.4);
+    line-height: 1;
+    letter-spacing: -.03em;
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+  }
+  .stat .fig--blue { color: var(--blue); }
+  .stat .cap { font-family: var(--mono); font-size: calc(var(--u) * .95); letter-spacing: .16em; text-transform: uppercase; color: var(--steel); }
+
+  /* ---------- phase bar ---------- */
+
+  .phases { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--rule); }
+  .phase { padding: calc(var(--u) * 2); display: flex; flex-direction: column; gap: calc(var(--u) * .8); border-right: 1px solid var(--rule); }
+  .phase:last-child { border-right: 0; }
+  .phase .ph-n { font-family: var(--mono); font-size: calc(var(--u) * .95); letter-spacing: .18em; color: var(--blue); }
+  .phase .ph-t { font-family: var(--display); font-weight: 700; text-transform: uppercase; font-size: calc(var(--u) * 1.9); letter-spacing: -.01em; color: var(--ink); }
+  .phase .ph-d { font-family: var(--mono); font-size: calc(var(--u) * .95); letter-spacing: .1em; color: var(--steel); }
+
+  /* ---------- chips ---------- */
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: .5em;
+    font-family: var(--mono);
+    font-size: calc(var(--u) * .9);
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    padding: .45em .85em;
+    border: 1px solid var(--blue);
+    color: var(--blue);
+    align-self: flex-start;
+  }
+
+  .chip--steel { border-color: var(--rule-hard); color: var(--steel); }
+
+  /* ---------- track thread ---------- */
+
+  .track { display: flex; flex-direction: column; gap: calc(var(--u) * 1.2); padding: calc(var(--u) * 2.2); border: 1px solid var(--rule); }
+  .track--a { border-color: rgba(61,119,168,.45); background: linear-gradient(180deg, rgba(61,119,168,.08), transparent 70%); }
+  .track .t-label { font-family: var(--mono); font-size: calc(var(--u) * .95); letter-spacing: .2em; text-transform: uppercase; }
+  .track--a .t-label { color: var(--blue); }
+  .track--b .t-label { color: var(--steel); }
+
+  /* ---------- cover ---------- */
+
+  .cover { justify-content: space-between; }
+  .cover .mark { font-family: var(--mono); font-size: calc(var(--u) * 1.5); letter-spacing: .42em; color: var(--ink); }
+  .cover h1 { font-size: calc(var(--u) * 7.4); }
+  .cover .meta { display: grid; grid-template-columns: repeat(3, auto); gap: calc(var(--u) * 4); justify-content: start; }
+  .cover .meta .k { font-family: var(--mono); font-size: calc(var(--u) * .9); letter-spacing: .18em; text-transform: uppercase; color: var(--steel); }
+  .cover .meta .v { font-size: calc(var(--u) * 1.2); color: var(--ink); }
+
+  /* ---------- divider slide ---------- */
+
+  .divider { align-items: flex-start; justify-content: center; }
+  .divider h1 { font-size: calc(var(--u) * 9); }
+
+  /* ---------- footnote ---------- */
+
+  .note {
+    font-family: var(--mono);
+    font-size: calc(var(--u) * .88);
+    letter-spacing: .06em;
+    line-height: 1.6;
+    color: var(--steel);
+    border-left: 1px solid var(--rule);
+    padding-left: calc(var(--u) * 1.2);
+    max-width: 92ch;
+  }
+
+  /* ---------- handoff panel (screen only, never printed) ---------- */
+
+  .handoff {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+    font-family: var(--body);
+  }
+  .handoff .hbox { border: 1px solid var(--blue); border-left-width: 3px; padding: 28px 32px; display: flex; flex-direction: column; gap: 14px; }
+  .handoff h4 { margin: 0; font-family: var(--mono); font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: var(--blue); }
+  .handoff p, .handoff li { font-size: 15px; line-height: 1.65; color: var(--mute); }
+  .handoff ul { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 8px; }
+  .handoff code { font-family: var(--mono); font-size: .9em; color: var(--ink); }
+
+  /* ---------- print → PDF at slide size ---------- */
+
+  @page { size: 13.333in 7.5in; margin: 0; }
+
+  @media print {
+    .page { background: #fff; }
+    .deck { max-width: none; margin: 0; padding: 0; gap: 0; }
+    .handoff { display: none; }
+    .slide {
+      border: 0;
+      width: 13.333in;
+      height: 7.5in;
+      aspect-ratio: auto;
+      break-after: page;
+      page-break-after: always;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .slide:last-child { break-after: auto; page-break-after: auto; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .page * { animation: none !important; transition: none !important; }
+  }
+
+  /* ---------- brief-only components ---------- */
+
+  /* worksheet: a page meant to be written on */
+  .wsheet { display: grid; gap: calc(var(--u) * 1.8); }
+  .wsheet--2 { grid-template-columns: 1.4fr 1fr; }
+
+  .fieldset { display: flex; flex-direction: column; gap: calc(var(--u) * 1); }
+  .fs-label {
+    font-family: var(--mono); font-size: calc(var(--u) * 1.02); letter-spacing: .2em;
+    text-transform: uppercase; color: var(--blue);
+    padding-bottom: calc(var(--u) * .55); border-bottom: 1px solid var(--blue);
+  }
+
+  .fs-label--sub { color: var(--steel); border-bottom-color: var(--rule); }
+  .fs-label--sub + .qline .q > i, .fs-label--sub ~ .qline .q > i { color: var(--steel); }
+
+  .qline { display: flex; flex-direction: column; gap: calc(var(--u) * .7); }
+  .qline > .q { font-size: calc(var(--u) * 1.22); line-height: 1.3; color: var(--ink); }
+  /* the index makes the sheet read as an instrument rather than a list */
+  .qline > .q > i {
+    font-family: var(--mono); font-style: normal; font-size: .74em;
+    letter-spacing: .14em; color: var(--blue); margin-right: .9em;
+    font-variant-numeric: tabular-nums;
+  }
+  .qline > .blank {
+    height: calc(var(--u) * 2.7);
+    background-image: repeating-linear-gradient(
+      to bottom, transparent 0, transparent calc(var(--u) * 1.3),
+      var(--rule) calc(var(--u) * 1.3), var(--rule) calc(var(--u) * 1.38));
+  }
+  .qline--wide > .blank { height: calc(var(--u) * 3.1); }
+
+  /* closing steps: the numeral carries the slide, not a chip */
+  .step { display: flex; flex-direction: column; gap: calc(var(--u) * .75);
+    padding-top: calc(var(--u) * 2); border-top: 1px solid var(--rule); }
+  .step--accent { border-top-color: var(--blue); }
+  .step > .sn {
+    font-family: var(--display); font-weight: 700; font-size: calc(var(--u) * 4.4);
+    line-height: .88; letter-spacing: -.05em; color: var(--blue);
+    font-variant-numeric: tabular-nums;
+  }
+  .step > h3 { font-size: calc(var(--u) * 1.72); }
+  .step > p { font-size: calc(var(--u) * 1.18); }
+
+  /* a floated suggestion — visually marked as tentative, never as a finding */
+  .idea {
+    display: flex; flex-direction: column; gap: calc(var(--u) * .45);
+    border-left: 2px solid var(--blue);
+    padding: calc(var(--u) * .7) 0 calc(var(--u) * .7) calc(var(--u) * 1.4);
+  }
+  .idea-label {
+    font-family: var(--mono); font-size: calc(var(--u) * .9); letter-spacing: .18em;
+    text-transform: uppercase; color: var(--blue);
+  }
+  .idea > p { font-size: calc(var(--u) * 1.08); line-height: 1.45; }
+
+  /* name + one line, stacked */
+  .who { display: flex; flex-direction: column; gap: calc(var(--u) * .2);
+    padding: calc(var(--u) * 1) 0; border-bottom: 1px solid var(--rule-soft); }
+  .who > .n { font-family: var(--display); font-weight: 700; text-transform: uppercase;
+    font-size: calc(var(--u) * 1.3); letter-spacing: .01em; color: var(--ink); }
+  .who > .d { font-size: calc(var(--u) * 1.05); line-height: 1.4; color: var(--mute); }
+
+  /* full-width numbered bands — one idea per row, so two short statements
+     still command the whole frame instead of floating in a column */
+  .bands { display: flex; flex-direction: column; flex: 1 1 auto; justify-content: center; }
+  .band {
+    display: grid;
+    grid-template-columns: calc(var(--u) * 7) minmax(0, 1fr) minmax(0, 1.15fr);
+    gap: calc(var(--u) * 3);
+    align-items: baseline;
+    padding: calc(var(--u) * 5.2) 0;
+    border-top: 1px solid var(--rule);
+  }
+  .band:last-child { border-bottom: 1px solid var(--rule); }
+  .band > .bnum {
+    font-family: var(--display); font-weight: 700; font-size: calc(var(--u) * 3.4);
+    line-height: .9; letter-spacing: -.04em; color: var(--blue);
+    font-variant-numeric: tabular-nums;
+  }
+  .band > .bttl {
+    font-family: var(--display); font-weight: 700; text-transform: uppercase;
+    font-size: calc(var(--u) * 2.4); line-height: 1.02; letter-spacing: -.02em; color: var(--ink);
+  }
+  .band > .bbody { font-size: calc(var(--u) * 1.35); line-height: 1.45; color: var(--mute); }
