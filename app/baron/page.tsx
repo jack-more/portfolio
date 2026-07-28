@@ -163,13 +163,6 @@ export default function BaronNotes() {
                 <div className={styles.blank} />
               </div>
             </div>
-            <div className={styles.idea}>
-              <span className={cx("idea-label")}>One idea</span>
-              <p>
-                What if each character became a real online home for that player, feeding their
-                appearances and bookings in the real world?
-              </p>
-            </div>
           </div>
           <div className={cx("rail", "rail--bot")}>
             <span>Jack Morello · incubella.co</span>
