@@ -378,10 +378,11 @@ export default function SkoPage() {
             <h2 className={styles.sectionTitle}>Why me</h2>
           </div>
           <p className={styles.body}>
-            I&rsquo;ve run paid acquisition in a vertical that was formally banned.
-            Across a token launch and NEAR I scaled to a peak of $150k a month
-            over Meta, Google, TikTok, Snap and programmatic, with a peak ROAS of
-            5.8× — in a category where most operators were shut off entirely.
+            I&rsquo;ve managed well over $500k a month in paid media, and I&rsquo;ve run
+            acquisition in a vertical that was formally banned. On the crypto
+            side — a token launch and NEAR — I scaled to $150k a month across
+            Meta, Google, TikTok, Snap and programmatic at a peak ROAS of 5.8×,
+            in a category where most operators were shut off entirely.
           </p>
           <p className={styles.body}>
             The transferable part isn&rsquo;t the spend. Staying live was the hard
