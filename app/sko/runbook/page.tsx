@@ -55,12 +55,13 @@ const phases = [
   },
   {
     n: "Phase 4",
-    t: "The checkout boundary",
+    t: "Checkout — where this most likely breaks",
     items: [
-      "Establish exactly where payment completes. If checkout hands off to a hosted page on another domain, your pixel does not exist there and the purchase event cannot fire from the browser at all.",
-      "If there is a redirect back to a thank-you page, confirm ttclid survives the round trip. A click ID lost at the payment handoff means the conversion cannot be matched no matter what fires afterwards.",
-      "Confirm the order record stores ttclid at first touch. That stored value is what makes server-side attribution possible later.",
-      "If payment is off-domain, server-side is not an optimization — it is the only way that event ever gets counted.",
+      "Checkout is on-domain with inline card fields, so the pixel can fire there. That rules out the worst case and makes this very fixable.",
+      "But there are multiple card processors plus a bank option, and each one has its own completion path. CompletePayment has to fire on every one of them. If it was wired to a single flow, every order settled through the others is invisible — and that alone can account for a large share of what looks unattributed.",
+      "Run a test order through each payment route separately and watch whether the event fires each time. Not one test order — one per processor.",
+      "Bank payments are the harder case. If funds settle asynchronously rather than at the moment of checkout, the browser has already gone. A pixel structurally cannot capture those conversions no matter how it is configured.",
+      "Confirm the order record stores ttclid at first touch, since that stored value is what makes the server-side fix possible.",
     ],
   },
   {
@@ -85,11 +86,12 @@ const phases = [
 ];
 
 const ranked = [
+  "CompletePayment wired to one payment route while orders settle through several. Every order through an unwired processor is invisible.",
   "Pageview and ViewContent never firing after the first load, because nothing calls ttq.page() on route change.",
   "The purchase event named Purchase instead of CompletePayment, or missing value and currency.",
-  "Checkout completing off-domain where no pixel exists.",
+  "Bank payments settling after the browser has gone, which no pixel can capture.",
   "No Events API, so everything lost to ad blockers, tracking prevention and TikTok's in-app browser stays lost.",
-  "Four systems counting the same orders and disagreeing, which reads as unattributed when it is really unreconciled.",
+  "Several systems counting the same orders and disagreeing, which reads as unattributed when it is really unreconciled.",
 ];
 
 export default function RunbookPage() {
