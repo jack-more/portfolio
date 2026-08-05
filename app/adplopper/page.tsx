@@ -241,16 +241,16 @@ export default function AdPlopper() {
             </p>
             <div className={styles.presets}>
               {[
+                "You didn't find this by accident.",
+                "Most people are years behind on this.",
+                "You've already done the reading.",
+                "Ask harder questions.",
+                "Not for everyone. You'll know.",
                 "For people who read the label.",
                 "Research with SKO",
                 "Most suppliers won't show you this.",
                 "Read the certificate. Then decide.",
                 "Nothing here is unverified.",
-                "We'll show you the paperwork.",
-                "Know what's in it.",
-                "Every batch, on paper.",
-                "Ask what's in it.",
-                "No guessing.",
               ].map((h) => (
                 <button key={h} onClick={() => setHeadline(h)}>
                   {h}
