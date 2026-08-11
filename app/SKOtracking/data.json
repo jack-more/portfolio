@@ -5,22 +5,37 @@
       "platform": "OpenAI (ChatGPT Ads)",
       "id": "BrQxf597ohJxBq4Pa2D3CC",
       "runtime": true,
-      "browserEvents": ["checkout_started", "order_created"],
+      "browserEvents": [
+        "checkout_started",
+        "order_created"
+      ],
       "serverEvents": "openai-capi-event → bzr.openai.com/v1/events",
       "dedupeKey": "event_id (order_<orderNumber>)",
-      "secrets": ["OPENAI_PIXEL_CAPI_KEY"],
+      "secrets": [
+        "OPENAI_PIXEL_CAPI_KEY"
+      ],
       "hookPoint": "src/lib/openai-pixel.ts · oaiqMeasure()",
       "health": "degraded",
-      "note": "checkout_started healthy at 188 events. order_created at 0, with 180 rejected for invalid properties — traced to unsupported fields inside contents[] items, since the schema permits only id, name, content_type, quantity, amount and currency there. Schema alignment has shipped and validated with accepted_events: 1, but a real purchase has not yet been observed. Identifier coverage remains 0% on both email and external ID."
+      "note": "checkout_started 220, order_created 3 — purchases are now landing after the schema fix. Identifier coverage still 0% on both email and external ID. 220 pixel checkouts against 634 real orders means the pixel is missing most of the funnel."
     },
     {
       "platform": "Meta",
       "id": "2122473828697675",
       "runtime": true,
-      "browserEvents": ["PageView", "ViewContent", "AddToCart", "InitiateCheckout", "Purchase"],
+      "browserEvents": [
+        "PageView",
+        "ViewContent",
+        "AddToCart",
+        "InitiateCheckout",
+        "Purchase"
+      ],
       "serverEvents": "meta-conversion-event · meta-purchase-event",
       "dedupeKey": "meta_event_id",
-      "secrets": ["META_PIXEL_ID", "META_ACCESS_TOKEN", "META_TEST_EVENT_CODE"],
+      "secrets": [
+        "META_PIXEL_ID",
+        "META_ACCESS_TOKEN",
+        "META_TEST_EVENT_CODE"
+      ],
       "hookPoint": "src/lib/meta-pixel.ts (ID via get-meta-config)",
       "health": "unverified",
       "note": "ID now matches the dataset the ad account optimizes against. Earlier today the site was firing 2089922941789319 instead. Events Manager still shows no conversion events recorded — needs one test order to confirm Purchase lands."
@@ -29,10 +44,21 @@
       "platform": "TikTok",
       "id": "D81ARJ3C77UARUNPHJ30",
       "runtime": true,
-      "browserEvents": ["page", "ViewContent", "AddToCart", "InitiateCheckout", "AddPaymentInfo", "Purchase", "CompleteRegistration"],
+      "browserEvents": [
+        "page",
+        "ViewContent",
+        "AddToCart",
+        "InitiateCheckout",
+        "AddPaymentInfo",
+        "Purchase",
+        "CompleteRegistration"
+      ],
       "serverEvents": "tiktok-conversion-event · tiktok-purchase-event",
       "dedupeKey": "meta_event_id (shared)",
-      "secrets": ["TIKTOK_ACCESS_TOKEN", "VITE_TIKTOK_PIXEL_ID"],
+      "secrets": [
+        "TIKTOK_ACCESS_TOKEN",
+        "VITE_TIKTOK_PIXEL_ID"
+      ],
       "hookPoint": "src/lib/tiktok-pixel.ts",
       "health": "live",
       "note": "Server copy dedupes on the same meta_event_id as Meta. Sharing one key across two platforms works, but means a change to the key breaks both at once."
@@ -41,7 +67,9 @@
       "platform": "Google Ads / GA4",
       "id": "AW-18196526516 · GTM-TMG5WDJQ",
       "runtime": true,
-      "browserEvents": ["GA4 dataLayer events (docs/GA4_DATA_LAYER.md)"],
+      "browserEvents": [
+        "GA4 dataLayer events (docs/GA4_DATA_LAYER.md)"
+      ],
       "serverEvents": "Server-side GTM via sst.skocompounds.com",
       "dedupeKey": null,
       "secrets": [],
@@ -53,7 +81,9 @@
       "platform": "RedTrack",
       "id": "uniclick (parser-blocking)",
       "runtime": true,
-      "browserEvents": ["landing beacon → rt-diag"],
+      "browserEvents": [
+        "landing beacon → rt-diag"
+      ],
       "serverEvents": "Attribution written onto the order record",
       "dedupeKey": null,
       "secrets": [],
@@ -63,12 +93,42 @@
     }
   ],
   "coverage": [
-    { "step": "Landing", "openai": "—", "meta": "PageView", "tiktok": "page" },
-    { "step": "Product view", "openai": "—", "meta": "ViewContent", "tiktok": "ViewContent" },
-    { "step": "Add to cart", "openai": "—", "meta": "AddToCart", "tiktok": "AddToCart" },
-    { "step": "Checkout started", "openai": "checkout_started", "meta": "InitiateCheckout", "tiktok": "InitiateCheckout" },
-    { "step": "Payment info", "openai": "—", "meta": "—", "tiktok": "AddPaymentInfo" },
-    { "step": "Purchase", "openai": "order_created", "meta": "Purchase", "tiktok": "Purchase" }
+    {
+      "step": "Landing",
+      "openai": "—",
+      "meta": "PageView",
+      "tiktok": "page"
+    },
+    {
+      "step": "Product view",
+      "openai": "—",
+      "meta": "ViewContent",
+      "tiktok": "ViewContent"
+    },
+    {
+      "step": "Add to cart",
+      "openai": "—",
+      "meta": "AddToCart",
+      "tiktok": "AddToCart"
+    },
+    {
+      "step": "Checkout started",
+      "openai": "checkout_started",
+      "meta": "InitiateCheckout",
+      "tiktok": "InitiateCheckout"
+    },
+    {
+      "step": "Payment info",
+      "openai": "—",
+      "meta": "—",
+      "tiktok": "AddPaymentInfo"
+    },
+    {
+      "step": "Purchase",
+      "openai": "order_created",
+      "meta": "Purchase",
+      "tiktok": "Purchase"
+    }
   ],
   "issues": [
     {
@@ -78,16 +138,16 @@
       "platform": "Meta",
       "detail": "The ad set optimizes for Purchase on 2122473828697675, and Events Manager reports no conversion events set up on that dataset. Until a purchase is observed landing, the campaign would spend against a model with no signal.",
       "fix": "Events Manager → dataset → Test Events → enter skocompounds.com → place one real order → confirm Purchase arrives with a value.",
-      "status": "Open — gates campaign launch"
+      "status": "Open — no purchase observed on the Meta dataset yet"
     },
     {
       "id": "T-02",
-      "title": "OpenAI order_created has received zero events",
-      "severity": "blocker",
+      "title": "OpenAI pixel undercounts the funnel",
+      "severity": "high",
       "platform": "OpenAI",
-      "detail": "checkout_started received 188 events; order_created received 0, with 180 rejected for invalid properties. OpenAI's schema resolves the cause: type is required and must be \"contents\" for both events, and amount must be an integer in ISO 4217 minor units, so cents was already correct. The strict rule is on contents[] items, which may carry only id, name, content_type, quantity, amount and currency — any additional field fails validation.",
-      "fix": "Fix shipped: browser pixel and server CAPI now map each event to its documented data type, contents[] items carry only permitted fields in minor units, and unsupported fields are stripped server-side. Validated with accepted_events: 1.",
-      "status": "Fix shipped — verify order_created rises above 0 from a real confirmation page"
+      "detail": "order_created has gone 0 → 3 since the schema fix, so purchases now land. But 220 checkout_started against 634 real orders means the pixel sees roughly a third of checkouts and almost no purchases.",
+      "fix": "Find why most orders never fire the pixel — installed mid-week, or a checkout path that skips it.",
+      "status": "Open — schema fixed, coverage is not"
     },
     {
       "id": "T-03",
@@ -122,10 +182,10 @@
     {
       "key": "tiktok",
       "label": "TikTok",
-      "spend": 1442.31,
+      "spend": 1450.02,
       "spendWindow": "Aug 5–11",
       "plannedDaily": null,
-      "note": "Only channel that spent. Stopped Aug 7 — balance hit $0 and all 16 ad groups went non-delivering."
+      "note": "Refunded and delivering again: $100 balance, $7.71 spent today, 2 ad groups active, 1 partial, 13 not delivering. Went dark Aug 7 when the balance hit zero."
     },
     {
       "key": "openai",
@@ -224,12 +284,12 @@
   "campaign": {
     "name": "SKO | Sales | Prospecting | Aug 2026",
     "account": "880814205101777",
-    "budget": "$250.00 / day (campaign budget)",
-    "ceiling": "$437.50 max in a day · $1,750 max in a week",
+    "budget": "$150.00 / day (campaign budget)",
+    "ceiling": "$262.50 max in a day · $1,050 max in a week",
     "adSet": "US · Broad · 20-65 · Purchase",
     "objective": "Sales · Maximize conversions · Purchase",
-    "status": "Off — unpublished draft, $0 spent",
-    "ads": "2 of 12 built",
+    "status": "Off — 8 ads pending publish, $0 spent",
+    "ads": "8 built",
     "promo": "SUMMER30 — 30% off, no end date, cancelled manually"
   }
 }
