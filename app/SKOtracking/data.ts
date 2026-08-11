@@ -60,6 +60,17 @@ export type TopAd = {
   why: string;
 };
 
+export type Channel = {
+  key: string;
+  label: string;
+  /** null = no dashboard access, or not a media-spend channel */
+  spend: number | null;
+  spendWindow: string;
+  plannedDaily: number | null;
+  note: string;
+};
+
+export const CHANNELS = raw.channels as Channel[];
 export const LAST_VERIFIED: string = raw.lastVerified;
 export const SOURCES = raw.sources as Source[];
 export const COVERAGE = raw.coverage as Coverage[];

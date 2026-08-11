@@ -7,13 +7,16 @@ import {
   COVERAGE,
   ISSUES,
   CAMPAIGN,
+  CHANNELS,
   LAST_VERIFIED,
   WEEK_OF,
-  SCORECARD,
   TOP_ADS,
   UGC_NOTE,
-  fmt,
 } from "./data";
+import { getAttribution, usd, num, roas } from "./attribution";
+
+/* Numbers must be live, never frozen at build time. */
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "SKO Compounds — Tracking Status — Jack Morello",
@@ -41,10 +44,30 @@ const issueClass: Record<string, string> = {
   medium: s.issueMedium,
 };
 
-export default function SkoTracking() {
+export default async function SkoTracking() {
   const openBlockers = ISSUES.filter((i) => i.severity === "blocker").length;
   const openIssues = ISSUES.filter((i) => i.status !== "Monitor").length;
   const liveSources = SOURCES.filter((x) => x.runtime).length;
+
+  const { data, error } = await getAttribution("2026-08-04", "2026-08-10");
+
+  /* Join live revenue onto the channels we track spend for. A channel with
+     no row in by_source genuinely produced no orders — that is a real zero,
+     not missing data, so it renders as 0 rather than a dash. */
+  const bySource = new Map(data?.by_source.map((r) => [r.source, r]) ?? []);
+  const rows = CHANNELS.map((c) => {
+    const r = bySource.get(c.key);
+    return {
+      ...c,
+      orders: data ? (r?.orders ?? 0) : null,
+      revenue: data ? (r?.revenue ?? 0) : null,
+    };
+  });
+
+  const totalSpend = CHANNELS.reduce((a, c) => a + (c.spend ?? 0), 0);
+  const paidRevenue = rows
+    .filter((r) => r.spend !== null)
+    .reduce((a, r) => a + (r.revenue ?? 0), 0);
 
   return (
     <div className={base.page}>
@@ -88,32 +111,123 @@ export default function SkoTracking() {
             <h2 className={base.sectionTitle}>Weekly scorecard</h2>
           </div>
           <p className={base.body}>
-            Week of {WEEK_OF}. Every figure is blank until someone fills it in —
-            an empty cell is honest, a zero would read as a result. The source column
-            says where each number comes from, so two people filling this in on
-            different weeks produce the same number.
+            Week of {WEEK_OF}. Revenue and orders are pulled live from the orders
+            table — your own data, not the platforms grading their own homework.
+            Spend is read from each ad account by hand, since none of them expose it
+            to this page.
           </p>
+
+          {error ? (
+            <div className={base.flag}>
+              <span className={base.flagLabel}>Live data unavailable</span>
+              <p className={base.cardBody}>
+                {error}. Figures below show dashes rather than stale numbers.
+              </p>
+            </div>
+          ) : null}
+
+          <div className={s.summary}>
+            <div className={s.stat}>
+              <span className={s.statNum}>{usd(data?.totals.revenue ?? null)}</span>
+              <span className={s.statLabel}>Revenue, all sources</span>
+            </div>
+            <div className={s.stat}>
+              <span className={s.statNum}>{num(data?.totals.orders ?? null)}</span>
+              <span className={s.statLabel}>Orders</span>
+            </div>
+            <div className={s.stat}>
+              <span className={s.statNum}>{usd(data?.totals.aov ?? null)}</span>
+              <span className={s.statLabel}>AOV</span>
+            </div>
+            <div className={s.stat}>
+              <span className={s.statNum}>{usd(totalSpend)}</span>
+              <span className={s.statLabel}>Ad spend</span>
+            </div>
+          </div>
+
+          <p className={base.subhead}>By channel</p>
           <div className={base.tableWrap}>
-            <table className={`${base.table} ${s.scoreTable}`}>
+            <table className={`${base.table} ${s.adsTable}`}>
               <thead>
                 <tr>
-                  <th>Metric</th>
-                  <th className={base.numCol}>Last week</th>
-                  <th className={base.numCol}>Next week goal</th>
-                  <th>Where it comes from</th>
+                  <th>Channel</th>
+                  <th className={base.numCol}>Spend</th>
+                  <th className={base.numCol}>Revenue</th>
+                  <th className={base.numCol}>Orders</th>
+                  <th className={base.numCol}>ROAS</th>
+                  <th className={base.numCol}>Planned/day</th>
                 </tr>
               </thead>
               <tbody>
-                {SCORECARD.map((m) => (
-                  <tr key={m.metric}>
-                    <td className={base.strong}>{m.metric}</td>
-                    <td className={base.numCol}>{fmt(m.actual, m.unit)}</td>
-                    <td className={base.numCol}>{fmt(m.goal, m.unit)}</td>
-                    <td className={base.tableNote}>{m.source}</td>
+                {rows.map((r) => (
+                  <tr key={r.key}>
+                    <td className={base.strong}>{r.label}</td>
+                    <td className={base.numCol}>{usd(r.spend)}</td>
+                    <td className={base.numCol}>{usd(r.revenue)}</td>
+                    <td className={base.numCol}>{num(r.orders)}</td>
+                    <td className={base.numCol}>{roas(r.revenue, r.spend)}</td>
+                    <td className={base.numCol}>{usd(r.plannedDaily)}</td>
                   </tr>
                 ))}
+                <tr>
+                  <td className={base.strong}>Paid total</td>
+                  <td className={base.numCol}>{usd(totalSpend)}</td>
+                  <td className={base.numCol}>{usd(data ? paidRevenue : null)}</td>
+                  <td className={base.numCol}>—</td>
+                  <td className={base.numCol}>
+                    {roas(data ? paidRevenue : null, totalSpend)}
+                  </td>
+                  <td className={base.numCol}>—</td>
+                </tr>
               </tbody>
             </table>
+          </div>
+          <p className={base.tableNote}>
+            Affiliate and Google show no spend because neither is media buying this
+            page can read — affiliate cost is commission, and Google&apos;s dashboard
+            is not connected. Their ROAS is intentionally blank rather than
+            flattering.
+          </p>
+
+          <p className={base.subhead}>Paid vs organic, by click ID</p>
+          <div className={base.tableWrap}>
+            <table className={`${base.table} ${s.adsTable}`}>
+              <thead>
+                <tr>
+                  <th>Bucket</th>
+                  <th className={base.numCol}>Orders</th>
+                  <th className={base.numCol}>Revenue</th>
+                  <th className={base.numCol}>AOV</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td className={base.strong}>Paid</td>
+                  <td className={base.numCol}>{num(data?.paid_vs_organic.paid.orders ?? null)}</td>
+                  <td className={base.numCol}>{usd(data?.paid_vs_organic.paid.revenue ?? null)}</td>
+                  <td className={base.numCol}>{usd(data?.paid_vs_organic.paid.aov ?? null)}</td>
+                </tr>
+                <tr>
+                  <td className={base.strong}>Organic</td>
+                  <td className={base.numCol}>{num(data?.paid_vs_organic.organic.orders ?? null)}</td>
+                  <td className={base.numCol}>{usd(data?.paid_vs_organic.organic.revenue ?? null)}</td>
+                  <td className={base.numCol}>{usd(data?.paid_vs_organic.organic.aov ?? null)}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div className={base.flag}>
+            <span className={base.flagLabel}>These two tables disagree</span>
+            <p className={base.cardBody}>
+              The channel table shows {num(
+                rows.filter((r) => r.spend !== null).reduce((a, r) => a + (r.orders ?? 0), 0),
+              )}{" "}
+              orders from paid sources, while the paid bucket counts{" "}
+              {num(data?.paid_vs_organic.paid.orders ?? null)}. The bucket also counts
+              any order carrying a click ID regardless of its source, so affiliate and
+              organic orders with a click ID land in it. Until that is reconciled,
+              quote the channel table — it is the conservative one.
+            </p>
           </div>
 
           <p className={base.subhead}>Top performing ads</p>
@@ -141,9 +255,9 @@ export default function SkoTracking() {
                     <tr key={a.ad}>
                       <td className={base.strong}>{a.ad}</td>
                       <td>{a.platform}</td>
-                      <td className={base.numCol}>{fmt(a.spend, "usd")}</td>
-                      <td className={base.numCol}>{fmt(a.revenue, "usd")}</td>
-                      <td className={base.numCol}>{fmt(a.roas, "x")}</td>
+                      <td className={base.numCol}>{usd(a.spend)}</td>
+                      <td className={base.numCol}>{usd(a.revenue)}</td>
+                      <td className={base.numCol}>{roas(a.revenue, a.spend)}</td>
                       <td className={base.tableNote}>{a.why}</td>
                     </tr>
                   ))}

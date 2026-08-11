@@ -118,6 +118,56 @@
     }
   ],
   "weekOf": "Aug 4 – Aug 10, 2026",
+  "channels": [
+    {
+      "key": "tiktok",
+      "label": "TikTok",
+      "spend": 1442.31,
+      "spendWindow": "Aug 5–11",
+      "plannedDaily": null,
+      "note": "Only channel that spent. Stopped Aug 7 — balance hit $0 and all 16 ad groups went non-delivering."
+    },
+    {
+      "key": "openai",
+      "label": "OpenAI",
+      "spend": 0,
+      "spendWindow": "last 14d",
+      "plannedDaily": 200,
+      "note": "No campaign has run yet. order_created is now firing, so purchase optimization has a signal for the first time."
+    },
+    {
+      "key": "meta",
+      "label": "Meta",
+      "spend": 0,
+      "spendWindow": "Aug 4–9",
+      "plannedDaily": 150,
+      "note": "Zero impressions. The 3 attributed orders came from old or organic fbclid clicks, not paid delivery."
+    },
+    {
+      "key": "taboola",
+      "label": "Taboola",
+      "spend": 0,
+      "spendWindow": "Aug 4–10",
+      "plannedDaily": null,
+      "note": "12 ads built, nothing spent. Not in the pixel stack notes."
+    },
+    {
+      "key": "google",
+      "label": "Google Ads",
+      "spend": null,
+      "spendWindow": "—",
+      "plannedDaily": null,
+      "note": "No dashboard access. Spend unknown."
+    },
+    {
+      "key": "affiliate",
+      "label": "Affiliate / UGC",
+      "spend": null,
+      "spendWindow": "—",
+      "plannedDaily": null,
+      "note": "Largest revenue channel and highest AOV. Cost is commission rather than media spend, so ROAS is not comparable to the paid channels."
+    }
+  ],
   "scorecard": [
     {
       "metric": "Ad spend",
