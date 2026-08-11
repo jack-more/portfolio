@@ -1,0 +1,185 @@
+{
+  "lastVerified": "2026-08-11",
+  "sources": [
+    {
+      "platform": "OpenAI (ChatGPT Ads)",
+      "id": "BrQxf597ohJxBq4Pa2D3CC",
+      "runtime": true,
+      "browserEvents": ["checkout_started", "order_created"],
+      "serverEvents": "openai-capi-event → bzr.openai.com/v1/events",
+      "dedupeKey": "event_id (order_<orderNumber>)",
+      "secrets": ["OPENAI_PIXEL_CAPI_KEY"],
+      "hookPoint": "src/lib/openai-pixel.ts · oaiqMeasure()",
+      "health": "degraded",
+      "note": "checkout_started healthy at 188 events. order_created at 0, with 180 rejected for invalid properties — traced to unsupported fields inside contents[] items, since the schema permits only id, name, content_type, quantity, amount and currency there. Schema alignment has shipped and validated with accepted_events: 1, but a real purchase has not yet been observed. Identifier coverage remains 0% on both email and external ID."
+    },
+    {
+      "platform": "Meta",
+      "id": "2122473828697675",
+      "runtime": true,
+      "browserEvents": ["PageView", "ViewContent", "AddToCart", "InitiateCheckout", "Purchase"],
+      "serverEvents": "meta-conversion-event · meta-purchase-event",
+      "dedupeKey": "meta_event_id",
+      "secrets": ["META_PIXEL_ID", "META_ACCESS_TOKEN", "META_TEST_EVENT_CODE"],
+      "hookPoint": "src/lib/meta-pixel.ts (ID via get-meta-config)",
+      "health": "unverified",
+      "note": "ID now matches the dataset the ad account optimizes against. Earlier today the site was firing 2089922941789319 instead. Events Manager still shows no conversion events recorded — needs one test order to confirm Purchase lands."
+    },
+    {
+      "platform": "TikTok",
+      "id": "D81ARJ3C77UARUNPHJ30",
+      "runtime": true,
+      "browserEvents": ["page", "ViewContent", "AddToCart", "InitiateCheckout", "AddPaymentInfo", "Purchase", "CompleteRegistration"],
+      "serverEvents": "tiktok-conversion-event · tiktok-purchase-event",
+      "dedupeKey": "meta_event_id (shared)",
+      "secrets": ["TIKTOK_ACCESS_TOKEN", "VITE_TIKTOK_PIXEL_ID"],
+      "hookPoint": "src/lib/tiktok-pixel.ts",
+      "health": "live",
+      "note": "Server copy dedupes on the same meta_event_id as Meta. Sharing one key across two platforms works, but means a change to the key breaks both at once."
+    },
+    {
+      "platform": "Google Ads / GA4",
+      "id": "AW-18196526516 · GTM-TMG5WDJQ",
+      "runtime": true,
+      "browserEvents": ["GA4 dataLayer events (docs/GA4_DATA_LAYER.md)"],
+      "serverEvents": "Server-side GTM via sst.skocompounds.com",
+      "dedupeKey": null,
+      "secrets": [],
+      "hookPoint": "index.html head · src/lib/gtm-dataLayer.ts",
+      "health": "live",
+      "note": "First-party server container on a custom loader path, which survives most tracker blocking. Best-protected source in the stack."
+    },
+    {
+      "platform": "RedTrack",
+      "id": "uniclick (parser-blocking)",
+      "runtime": true,
+      "browserEvents": ["landing beacon → rt-diag"],
+      "serverEvents": "Attribution written onto the order record",
+      "dedupeKey": null,
+      "secrets": [],
+      "hookPoint": "src/lib/attribution.ts → create-order",
+      "health": "live",
+      "note": "Snapshots cmpid, sub2–sub8, ref_id, ttclid and utm_* into sessionStorage, plus first/last touch in localStorage. Script is parser-blocking, so it costs page speed on every landing."
+    }
+  ],
+  "coverage": [
+    { "step": "Landing", "openai": "—", "meta": "PageView", "tiktok": "page" },
+    { "step": "Product view", "openai": "—", "meta": "ViewContent", "tiktok": "ViewContent" },
+    { "step": "Add to cart", "openai": "—", "meta": "AddToCart", "tiktok": "AddToCart" },
+    { "step": "Checkout started", "openai": "checkout_started", "meta": "InitiateCheckout", "tiktok": "InitiateCheckout" },
+    { "step": "Payment info", "openai": "—", "meta": "—", "tiktok": "AddPaymentInfo" },
+    { "step": "Purchase", "openai": "order_created", "meta": "Purchase", "tiktok": "Purchase" }
+  ],
+  "issues": [
+    {
+      "id": "T-01",
+      "title": "Meta Purchase never confirmed firing",
+      "severity": "blocker",
+      "platform": "Meta",
+      "detail": "The ad set optimizes for Purchase on 2122473828697675, and Events Manager reports no conversion events set up on that dataset. Until a purchase is observed landing, the campaign would spend against a model with no signal.",
+      "fix": "Events Manager → dataset → Test Events → enter skocompounds.com → place one real order → confirm Purchase arrives with a value.",
+      "status": "Open — gates campaign launch"
+    },
+    {
+      "id": "T-02",
+      "title": "OpenAI order_created has received zero events",
+      "severity": "blocker",
+      "platform": "OpenAI",
+      "detail": "checkout_started received 188 events; order_created received 0, with 180 rejected for invalid properties. OpenAI's schema resolves the cause: type is required and must be \"contents\" for both events, and amount must be an integer in ISO 4217 minor units, so cents was already correct. The strict rule is on contents[] items, which may carry only id, name, content_type, quantity, amount and currency — any additional field fails validation.",
+      "fix": "Fix shipped: browser pixel and server CAPI now map each event to its documented data type, contents[] items carry only permitted fields in minor units, and unsupported fields are stripped server-side. Validated with accepted_events: 1.",
+      "status": "Fix shipped — verify order_created rises above 0 from a real confirmation page"
+    },
+    {
+      "id": "T-03",
+      "title": "Zero identifier coverage on OpenAI events",
+      "severity": "high",
+      "platform": "OpenAI",
+      "detail": "Email coverage 0.0% and External ID coverage 0.0% across all 188 events. Without either identifier OpenAI cannot tie an event back to a user, so conversions land in the unattributed bucket and the campaign optimizes on a weaker signal than it should.",
+      "fix": "Send a hashed email and a stable external ID on both events. The order flow already captures email at checkout, and create-order already writes a customer record — so the value exists, it just is not being passed to the pixel.",
+      "status": "Open — worth fixing before spend scales"
+    },
+    {
+      "id": "T-04",
+      "title": "One dedupe key shared across Meta and TikTok",
+      "severity": "medium",
+      "platform": "Meta · TikTok",
+      "detail": "Both server functions dedupe on meta_event_id. It works today, but couples two platforms to one identifier — a change made for one silently affects the other.",
+      "fix": "Leave as-is unless a change is needed. If either platform's dedupe is ever edited, test both.",
+      "status": "Monitor"
+    },
+    {
+      "id": "T-05",
+      "title": "Ad account sits outside the business portfolio",
+      "severity": "medium",
+      "platform": "Meta",
+      "detail": "Ad account 880814205101777 is attached to the Sko Compounds portfolio as an outside asset; the portfolio itself owns zero ad accounts. Originally created as a personal ad account.",
+      "fix": "Business Settings → Accounts → Ad accounts → Claim → 880814205101777. Then audit who retains access and remove anyone who has left.",
+      "status": "Open — no longer blocks the pixel, still an access risk"
+    }
+  ],
+  "weekOf": "Aug 4 – Aug 10, 2026",
+  "scorecard": [
+    {
+      "metric": "Ad spend",
+      "actual": null,
+      "goal": null,
+      "unit": "usd",
+      "source": "Sum of Meta + TikTok + OpenAI + Google Ads Manager spend for the week"
+    },
+    {
+      "metric": "Revenue attributed to ads",
+      "actual": null,
+      "goal": null,
+      "unit": "usd",
+      "source": "Order table where attribution_source is a paid channel. Your own orders are business truth, not the platforms' self-reported numbers"
+    },
+    {
+      "metric": "Blended ROAS",
+      "actual": null,
+      "goal": null,
+      "unit": "x",
+      "source": "Derived: revenue attributed to ads ÷ ad spend"
+    },
+    {
+      "metric": "Orders from ads",
+      "actual": null,
+      "goal": null,
+      "unit": "count",
+      "source": "Order table, paid attribution_source, same window"
+    },
+    {
+      "metric": "UGC videos posted",
+      "actual": null,
+      "goal": null,
+      "unit": "count",
+      "source": "Manual count per creator. No system captures this — it has to be logged"
+    },
+    {
+      "metric": "UGC views",
+      "actual": null,
+      "goal": null,
+      "unit": "count",
+      "source": "Creator-reported or pulled from each post's native analytics"
+    },
+    {
+      "metric": "Revenue attributed to UGC",
+      "actual": null,
+      "goal": null,
+      "unit": "usd",
+      "source": "Order table where the discount code or affiliate link maps to a creator. Only as exact as code coverage — see the note below"
+    }
+  ],
+  "topAds": [],
+  "ugcNote": "Revenue attributed to UGC is only as exact as the identifier on the order. A unique discount code per creator is the single highest-leverage change here: it survives ad blockers, iOS, and dark social sharing, none of which a click ID does. Without per-creator codes, UGC revenue is an estimate no matter how the tracking is built.",
+  "campaign": {
+    "name": "SKO | Sales | Prospecting | Aug 2026",
+    "account": "880814205101777",
+    "budget": "$250.00 / day (campaign budget)",
+    "ceiling": "$437.50 max in a day · $1,750 max in a week",
+    "adSet": "US · Broad · 20-65 · Purchase",
+    "objective": "Sales · Maximize conversions · Purchase",
+    "status": "Off — unpublished draft, $0 spent",
+    "ads": "2 of 12 built",
+    "promo": "SUMMER30 — 30% off, no end date, cancelled manually"
+  }
+}

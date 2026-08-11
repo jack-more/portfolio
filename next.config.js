@@ -7,6 +7,10 @@ const nextConfig = {
     return [
       { source: '/dogclub', destination: '/dogwalk', permanent: true },
       { source: '/dogclub/:path*', destination: '/dogwalk', permanent: true },
+      // Note: Next matches `source` case-insensitively, so a /skotracking →
+      // /SKOtracking rule also matches /SKOtracking itself and loops forever.
+      // Only non-identical spellings are safe to redirect.
+      { source: '/sko-tracking', destination: '/SKOtracking', permanent: false },
     ];
   },
   async headers() {

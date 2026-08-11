@@ -1,0 +1,147 @@
+/* Local additions for /SKOtracking. Everything else is inherited from
+   ../sko/page.module.css so this page sits in the same design language. */
+
+.pill {
+  display: inline-block;
+  font-size: 9.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.18rem 0.42rem;
+  border: 1px solid currentColor;
+  white-space: nowrap;
+  line-height: 1.35;
+}
+.live { color: #3a7d44; }
+.degraded { color: #8a6414; }
+.unverified { color: #8a6414; }
+.broken { color: #8c2f21; }
+
+.sev {
+  font-size: 9.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.blocker { color: #8c2f21; }
+.high { color: #8a6414; }
+.medium { color: rgba(28, 25, 23, 0.55); }
+
+.issue {
+  border: 1px solid #000;
+  background: rgba(250, 249, 245, 0.5);
+  padding: 1rem 1.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+.issueBlocker { border-left: 3px solid #8c2f21; }
+.issueHigh { border-left: 3px solid #8a6414; }
+.issueMedium { border-left: 3px solid rgba(28, 25, 23, 0.3); }
+
+.issueTop {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+.issueId {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: rgba(28, 25, 23, 0.5);
+}
+.issueTitle {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.25;
+}
+.issueMeta {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: rgba(28, 25, 23, 0.5);
+}
+.issueFix {
+  font-size: 12.5px;
+  line-height: 1.6;
+  padding-left: 0.75rem;
+  border-left: 2px solid var(--green);
+}
+
+/* The shared .numCol zeroes right padding, which makes adjacent numeric
+   headers collide. Scorecard tables need real gutters. */
+.scoreTable th:nth-child(2),
+.scoreTable td:nth-child(2),
+.scoreTable th:nth-child(3),
+.scoreTable td:nth-child(3) {
+  width: 7.5rem;
+  min-width: 6rem;
+  text-align: right;
+  padding-right: 1.4rem;
+  white-space: nowrap;
+}
+.scoreTable td:nth-child(2),
+.scoreTable td:nth-child(3) {
+  font-weight: 700;
+}
+.scoreTable th:first-child,
+.scoreTable td:first-child {
+  width: 30%;
+  padding-right: 1.2rem;
+}
+
+.adsTable th:nth-child(n + 3):nth-child(-n + 5),
+.adsTable td:nth-child(n + 3):nth-child(-n + 5) {
+  text-align: right;
+  padding-right: 1.2rem;
+  white-space: nowrap;
+}
+
+.mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11.5px;
+}
+
+.dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  margin-right: 0.4rem;
+  vertical-align: baseline;
+}
+.dotYes { background: #3a7d44; }
+.dotNo { background: #8c2f21; }
+
+.summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 0.8rem;
+}
+.stat {
+  border: 1px solid #000;
+  background: rgba(250, 249, 245, 0.5);
+  padding: 0.8rem 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.statNum {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 1;
+}
+.statLabel {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: rgba(28, 25, 23, 0.55);
+}
+
+@media (max-width: 640px) {
+  .summary { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); }
+}
