@@ -1,0 +1,94 @@
+/* /sko/tracking — measurement map. Extends ../page.module.css with the
+   diagram-specific pieces. Single theme: the site is parchment only, so the
+   artifact's dark palette is mapped onto ink / green / rust here. */
+
+.board {
+  border: 1px solid #000;
+  background: rgba(250, 249, 245, 0.5);
+  padding: 1rem 1.15rem;
+  overflow-x: auto;
+}
+
+.diagram {
+  display: block;
+  width: 100%;
+  min-width: 900px;
+  height: auto;
+  color: #1c1917;
+  /* consumed by the SVG below */
+  --creator: var(--green);
+  --creatorSoft: rgba(58, 125, 68, 0.09);
+  --warn: #8c2f21;
+  --dead: rgba(28, 25, 23, 0.42);
+  --rule: rgba(0, 0, 0, 0.28);
+  --ruleSoft: rgba(0, 0, 0, 0.12);
+  --ink2: rgba(28, 25, 23, 0.66);
+  --ink3: rgba(28, 25, 23, 0.5);
+}
+
+.caption {
+  margin-top: 0.7rem;
+  font-size: 12px;
+  line-height: 1.6;
+  color: rgba(28, 25, 23, 0.62);
+  max-width: 74ch;
+}
+
+/* windows table */
+.windows th.num,
+.windows td.num {
+  text-align: right;
+  padding-right: 0;
+  white-space: nowrap;
+}
+.windows td.num small {
+  display: block;
+  font-size: 10.5px;
+  color: rgba(28, 25, 23, 0.5);
+  font-weight: 400;
+}
+.windows tr.total td {
+  font-weight: 700;
+  border-top: 1px solid rgba(0, 0, 0, 0.28);
+}
+
+/* finding cards */
+.findingsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 0.8rem;
+}
+.finding {
+  border: 1px solid #000;
+  border-left: 3px solid #8c2f21;
+  background: rgba(250, 249, 245, 0.5);
+  padding: 0.9rem 1.05rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.finding.good {
+  border-left-color: var(--green);
+}
+.finding h3 {
+  margin: 0;
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 1.02rem;
+  font-weight: 600;
+  line-height: 1.25;
+}
+.finding p {
+  margin: 0;
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: rgba(28, 25, 23, 0.72);
+}
+
+.mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11.5px;
+}
+
+@media (max-width: 640px) {
+  .findingsGrid { grid-template-columns: 1fr; }
+}

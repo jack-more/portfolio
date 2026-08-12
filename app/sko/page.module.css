@@ -212,6 +212,92 @@
 .askQ { font-weight: 700; font-size: 12.5px; }
 .askWhy { font-size: 12px; color: rgba(28, 25, 23, 0.62); line-height: 1.6; }
 
+/* ---- data tables ---- */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12.5px;
+  font-variant-numeric: tabular-nums;
+}
+.table th {
+  text-align: left;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: rgba(28, 25, 23, 0.55);
+  padding: 0 0.7rem 0.45rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.35);
+  white-space: nowrap;
+}
+.table td {
+  padding: 0.5rem 0.7rem 0.5rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  line-height: 1.5;
+}
+.table tr:last-child td { border-bottom: none; }
+.table th.numCol, .table td.numCol { text-align: right; padding-right: 0; }
+.table td.strong { font-weight: 700; }
+.tableWrap { overflow-x: auto; }
+.tableNote {
+  font-size: 11.5px;
+  color: rgba(28, 25, 23, 0.6);
+  line-height: 1.6;
+  max-width: 62ch;
+}
+
+/* ---- flagged callout ---- */
+.flag {
+  border: 1px solid #000;
+  border-left: 3px solid #8c2f21;
+  background: rgba(250, 249, 245, 0.5);
+  padding: 1rem 1.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.flagLabel {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: #8c2f21;
+}
+
+/* ---- chart ---- */
+.chart {
+  border: 1px solid #000;
+  background: rgba(250, 249, 245, 0.5);
+  padding: 1rem 1.15rem 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+.chartScroll { overflow-x: auto; }
+.chartSvg { width: 100%; min-width: 560px; height: auto; display: block; }
+.chartKey {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.1rem;
+  font-size: 11px;
+  color: rgba(28, 25, 23, 0.72);
+}
+.chartKey span { display: inline-flex; align-items: center; gap: 0.4rem; }
+.chartKey i {
+  width: 16px;
+  height: 0;
+  border-top-width: 2px;
+  border-top-style: solid;
+  flex-shrink: 0;
+}
+.chartKey b {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #1c1917;
+  flex-shrink: 0;
+}
+
 /* ---- footer ---- */
 .footer {
   padding-top: 1.2rem;
@@ -229,4 +315,6 @@
   .finding { flex-direction: column; gap: 0.15rem; }
   .findingKey { flex: none; }
   .grid { grid-template-columns: 1fr; }
+  .table { font-size: 11.5px; }
+  .table th, .table td { padding-right: 0.5rem; }
 }
