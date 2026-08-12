@@ -182,7 +182,7 @@
     {
       "key": "tiktok",
       "label": "TikTok",
-      "spend": 1450.02,
+      "spend": 1744.72,
       "spendWindow": "Aug 5–11",
       "plannedDaily": null,
       "note": "Refunded and delivering again: $100 balance, $7.71 spent today, 2 ad groups active, 1 partial, 13 not delivering. Went dark Aug 7 when the balance hit zero."
@@ -190,8 +190,8 @@
     {
       "key": "openai",
       "label": "OpenAI",
-      "spend": 0,
-      "spendWindow": "last 14d",
+      "spend": 1.94,
+      "spendWindow": "Aug 11",
       "plannedDaily": 200,
       "note": "No campaign has run yet. order_created is now firing, so purchase optimization has a signal for the first time."
     },
