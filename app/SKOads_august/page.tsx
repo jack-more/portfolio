@@ -22,12 +22,12 @@ const TIKTOK_ADS = [
 ];
 
 const SUMMER30_TOP = [
-  { name: "GLOW Compound-New_Hook-0-1", spend: 70.92, pur: 3, rev: 636.8 },
-  { name: "SKOBOX_9X16_05s", spend: 116.52, pur: 5, rev: 845.24 },
-  { name: "7663698610439192583 (Spark)", spend: 213.55, pur: 4, rev: 1460.27 },
-  { name: "AI Generated Video-3", spend: 145.92, pur: 3, rev: 898.84 },
-  { name: "GLOW-Narrated-8-11", spend: 125.46, pur: 4, rev: 609.68 },
-  { name: "ethan UGC_vKCU0o8b", spend: 351.49, pur: 7, rev: 1295.55 },
+  { name: "GLOW Compound-New_Hook-0-1", spend: 70.92, pur: 3, rev: 636.8, thumb: "/skoads/glow-newhook.jpg" },
+  { name: "SKOBOX_9X16_05s", spend: 116.52, pur: 5, rev: 845.24, thumb: "/skoads/skobox.jpg" },
+  { name: "7663698610439192583 (Spark)", spend: 213.55, pur: 4, rev: 1460.27, thumb: "/skoads/spark.jpg" },
+  { name: "AI Generated Video-3", spend: 145.92, pur: 3, rev: 898.84, thumb: "/skoads/ai-video-3.jpg" },
+  { name: "GLOW-Narrated-8-11", spend: 125.46, pur: 4, rev: 609.68, thumb: "/skoads/glow-narrated-8-11.jpg" },
+  { name: "ethan UGC_vKCU0o8b", spend: 351.49, pur: 7, rev: 1295.55, thumb: "/skoads/ethan-1.jpg" },
 ];
 
 const ETHAN_CREATIVES = [
@@ -36,16 +36,16 @@ const ETHAN_CREATIVES = [
 ];
 
 const LASTCHANCE_TOP = [
-  { name: "ethan UGC_vKCU0o8b", spend: 109.95, pur: 4, rev: 734.0 },
-  { name: "EYE_GIANT_9X16_15s", spend: 31.3, pur: 3, rev: 718.91 },
-  { name: "GLOW_70MG-Narrated-6-9", spend: 9.86, pur: 2, rev: 229.24 },
-  { name: "SKOBOX_9X16_05s", spend: 12.31, pur: 1, rev: 218.6 },
-  { name: "99% Purity product card", spend: 10.02, pur: 1, rev: 325.81 },
+  { name: "ethan UGC_vKCU0o8b", spend: 109.95, pur: 4, rev: 734.0, thumb: "/skoads/ethan-1.jpg" },
+  { name: "EYE_GIANT_9X16_15s", spend: 31.3, pur: 3, rev: 718.91, thumb: "/skoads/eye-giant.jpg" },
+  { name: "GLOW_70MG-Narrated-6-9", spend: 9.86, pur: 2, rev: 229.24, thumb: "/skoads/glow70-narrated-6-9.jpg" },
+  { name: "SKOBOX_9X16_05s", spend: 12.31, pur: 1, rev: 218.6, thumb: "/skoads/skobox.jpg" },
+  { name: "99% Purity product card", spend: 10.02, pur: 1, rev: 325.81, thumb: "/skoads/purity-card.jpg" },
 ];
 
 const META_ADS = [
   { name: "ETHAN UGC summer 30", spend: 61.71, impr: 2321, clicks: 89, co: 0, est: "~1", thumb: "/skoads/ethan-1.jpg" },
-  { name: "PUREST", spend: 28.91, impr: 1296, clicks: 16, co: 3, est: "~2" },
+  { name: "PUREST", spend: 28.91, impr: 1296, clicks: 16, co: 3, est: "~2", thumb: "/skoads/purest.jpg" },
   { name: "GIANTWOMAN + AI IMAGE", spend: 9.14, impr: 388, clicks: 10, co: 0, est: "" },
   { name: "New Sales Ad", spend: 0.21, impr: 7, clicks: 0, co: 0, est: "" },
 ];
@@ -78,7 +78,7 @@ function Bar({ win, mid, dead, keyWin, keyMid, keyDead }: {
 }
 
 function AdTable({ rows, total }: {
-  rows: { name: string; spend: number; pur: number; rev: number; ctr?: string }[];
+  rows: { name: string; spend: number; pur: number; rev: number; ctr?: string; thumb?: string }[];
   total?: boolean;
 }) {
   const t = rows.reduce(
@@ -96,7 +96,7 @@ function AdTable({ rows, total }: {
         <tbody>
           {rows.map((r) => (
             <tr key={r.name}>
-              <td>{r.name}</td>
+              <td>{r.thumb ? <img src={r.thumb} alt="" className={s.thumb} /> : null}{r.name}</td>
               <td>{usd(r.spend)}</td>
               <td>{r.pur}</td>
               <td>{usd(r.rev)}</td>
