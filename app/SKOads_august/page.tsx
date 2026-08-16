@@ -44,10 +44,10 @@ const LASTCHANCE_TOP = [
 ];
 
 const META_ADS = [
-  { name: "ETHAN UGC summer 30", spend: 61.71, impr: 2321, clicks: 89 },
-  { name: "PUREST", spend: 28.91, impr: 1296, clicks: 16 },
-  { name: "GIANTWOMAN + AI IMAGE", spend: 9.14, impr: 388, clicks: 10 },
-  { name: "New Sales Ad", spend: 0.21, impr: 7, clicks: 0 },
+  { name: "ETHAN UGC summer 30", spend: 61.71, impr: 2321, clicks: 89, co: 0 },
+  { name: "PUREST", spend: 28.91, impr: 1296, clicks: 16, co: 3 },
+  { name: "GIANTWOMAN + AI IMAGE", spend: 9.14, impr: 388, clicks: 10, co: 0 },
+  { name: "New Sales Ad", spend: 0.21, impr: 7, clicks: 0, co: 0 },
 ];
 
 const UGC_PLACEMENTS = [
@@ -142,7 +142,7 @@ export default function SkoAdsAugust() {
             <div className={s.stat}>
               <span className={s.statNum}>$5,747</span>
               <span className={s.statLabel}>Spend</span>
-              <span className={`${s.statDelta} ${s.down}`}>−17% wow</span>
+              <span className={`${s.statDelta} ${s.down}`}>−17% vs prior wk</span>
             </div>
             <div className={s.stat}>
               <span className={s.statNum}>$22,382</span>
@@ -268,7 +268,7 @@ export default function SkoAdsAugust() {
           <div className={base.tableWrap}>
             <table className={`${base.table} ${s.num}`}>
               <thead>
-                <tr><th>Ad</th><th>Spend</th><th>Impressions</th><th>Clicks</th><th>CTR</th><th>Purchases</th></tr>
+                <tr><th>Ad</th><th>Spend</th><th>Impressions</th><th>Clicks</th><th>CTR</th><th>Checkouts†</th></tr>
               </thead>
               <tbody>
                 {META_ADS.map((r) => (
@@ -278,17 +278,21 @@ export default function SkoAdsAugust() {
                     <td>{r.impr.toLocaleString()}</td>
                     <td>{r.clicks}</td>
                     <td>{r.impr ? `${((r.clicks / r.impr) * 100).toFixed(1)}%` : "—"}</td>
-                    <td className={s.dim}>0*</td>
+                    <td className={r.co ? s.good : s.dim}>{r.co || "—"}</td>
                   </tr>
                 ))}
                 <tr className={s.rowStrong}>
-                  <td>Total</td><td>{usd(99.97)}</td><td>4,012</td><td>115</td><td>2.9%</td><td className={s.dim}>0*</td>
+                  <td>Total</td><td>{usd(99.97)}</td><td>4,012</td><td>115</td><td>2.9%</td><td>3 · $34.32 ea</td>
                 </tr>
               </tbody>
             </table>
           </div>
           <p className={base.body}>
-            *Early reporting is still fuzzy — but the signal is real. This is a fresh
+            †Purchase tracking was not functional until Aug 15–16, so ad-level
+            purchase counts are not reportable for this period — checkouts are the
+            attributed conversion signal this week, and the new pixel has captured 11
+            purchases site-wide since going live Friday. Early reporting is still
+            fuzzy — but the signal is real. This is a fresh
             account (the previous account was banned; this one is warming deliberately)
             and the purchase event was broken until Aug 15–16, so Meta could not record
             a sale even if one happened. What <em>is</em> verified, ad by ad:{" "}
