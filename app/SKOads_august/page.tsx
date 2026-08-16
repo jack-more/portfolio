@@ -351,17 +351,23 @@ export default function SkoAdsAugust() {
               <span className={s.statLabel}>Adds to cart</span>
               <span className={`${s.statDelta} ${s.flat}`}>40 checkouts</span>
             </div>
+            <div className={s.stat}>
+              <span className={s.statNum}>11*</span>
+              <span className={s.statLabel}>Purchases — pixel pickup</span>
+              <span className={`${s.statDelta} ${s.flat}`}>leaky capture · attribution pending CAPI</span>
+            </div>
           </div>
 
           <p className={base.body}>
             The pixel went live in production Friday and the funnel is firing — 2.4K
-            PageViews → 468 ViewContent → 109 AddToCart → 40 Checkout. Purchase-event
-            counts are <strong>excluded until the capture fix ships</strong>: a
-            payment-verification gate currently stops the event on ~90% of orders
-            (fix ticketed with Lovable), so any pixel purchase number would massively
-            understate real volume — the site did ~500 orders last week per the order
-            table. Once the fix deploys, purchase capture should match the order table
-            and Meta ROAS becomes readable for the first time.
+            PageViews → 468 ViewContent → 109 AddToCart → 40 Checkout → 11 Purchase.
+            *Pixel pickup, leaky: a payment-verification gate stops the purchase event
+            on ~90% of orders (fix ticketed with Lovable), so 11 is the pixel's
+            partial capture of a week that did ~500 orders per the order table — not a
+            volume reading. Ad-level attribution is a <strong>floor</strong> right now:
+            in-app browser click loss breaks ad matching (the same failure documented
+            on TikTok), and CAPI closes both gaps. Once live, purchase capture should
+            match the order table and Meta ROAS becomes readable for the first time.
           </p>
         </section>
 
