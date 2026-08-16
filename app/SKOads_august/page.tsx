@@ -31,8 +31,8 @@ const SUMMER30_TOP = [
 ];
 
 const ETHAN_CREATIVES = [
-  { name: "ethan UGC_vKCU0o8b.MP4", spend: 842.47, pur: 17, rev: 4564.21, ctr: "2.35%" },
-  { name: "ethan ugc 2_lEe0p2xn.MOV", spend: 603.34, pur: 13, rev: 3329.41, ctr: "1.92%" },
+  { name: "ethan UGC_vKCU0o8b.MP4", spend: 842.47, pur: 17, rev: 4564.21, ctr: "2.35%", thumb: "/skoads/ethan-1.jpg" },
+  { name: "ethan ugc 2_lEe0p2xn.MOV", spend: 603.34, pur: 13, rev: 3329.41, ctr: "1.92%", thumb: "/skoads/ethan-2.jpg" },
 ];
 
 const LASTCHANCE_TOP = [
@@ -44,10 +44,10 @@ const LASTCHANCE_TOP = [
 ];
 
 const META_ADS = [
-  { name: "ETHAN UGC summer 30", spend: 61.71, impr: 2321, clicks: 89, co: 0 },
-  { name: "PUREST", spend: 28.91, impr: 1296, clicks: 16, co: 3 },
-  { name: "GIANTWOMAN + AI IMAGE", spend: 9.14, impr: 388, clicks: 10, co: 0 },
-  { name: "New Sales Ad", spend: 0.21, impr: 7, clicks: 0, co: 0 },
+  { name: "ETHAN UGC summer 30", spend: 61.71, impr: 2321, clicks: 89, co: 0, est: "~1", thumb: "/skoads/ethan-1.jpg" },
+  { name: "PUREST", spend: 28.91, impr: 1296, clicks: 16, co: 3, est: "~2" },
+  { name: "GIANTWOMAN + AI IMAGE", spend: 9.14, impr: 388, clicks: 10, co: 0, est: "" },
+  { name: "New Sales Ad", spend: 0.21, impr: 7, clicks: 0, co: 0, est: "" },
 ];
 
 const UGC_PLACEMENTS = [
@@ -232,7 +232,7 @@ export default function SkoAdsAugust() {
               <tbody>
                 {ETHAN_CREATIVES.map((r) => (
                   <tr key={r.name}>
-                    <td>{r.name}</td>
+                    <td><img src={r.thumb} alt="" className={s.thumb} />{r.name}</td>
                     <td>{usd(r.spend)}</td>
                     <td>{r.pur}</td>
                     <td>{usd(r.rev)}</td>
@@ -268,26 +268,32 @@ export default function SkoAdsAugust() {
           <div className={base.tableWrap}>
             <table className={`${base.table} ${s.num}`}>
               <thead>
-                <tr><th>Ad</th><th>Spend</th><th>Impressions</th><th>Clicks</th><th>CTR</th><th>Checkouts†</th></tr>
+                <tr><th>Ad</th><th>Spend</th><th>Clicks</th><th>CTR</th><th>Checkouts†</th><th>Est. purchases*</th></tr>
               </thead>
               <tbody>
                 {META_ADS.map((r) => (
                   <tr key={r.name}>
-                    <td>{r.name}</td>
+                    <td>{r.thumb ? <img src={r.thumb} alt="" className={s.thumb} /> : null}{r.name}</td>
                     <td>{usd(r.spend)}</td>
-                    <td>{r.impr.toLocaleString()}</td>
                     <td>{r.clicks}</td>
                     <td>{r.impr ? `${((r.clicks / r.impr) * 100).toFixed(1)}%` : "—"}</td>
                     <td className={r.co ? s.good : s.dim}>{r.co || "—"}</td>
+                    <td className={r.est ? s.good : s.dim}>{r.est || "—"}</td>
                   </tr>
                 ))}
                 <tr className={s.rowStrong}>
-                  <td>Total</td><td>{usd(99.97)}</td><td>4,012</td><td>115</td><td>2.9%</td><td>3 · $34.32 ea</td>
+                  <td>Total</td><td>{usd(99.97)}</td><td>115</td><td>2.9%</td><td>3 · $34.32 ea</td><td>~2–3*</td>
                 </tr>
               </tbody>
             </table>
           </div>
           <p className={base.body}>
+            *Est. purchases are <strong>modeled, not tracked</strong> — the same way
+            Meta reports modeled conversions where tracking is incomplete: clicks ×
+            the site's 1.24% conversion rate (ETHAN ~1), and initiated checkouts ×
+            a ~55% completion rate (PUREST ~2). Modeled total: ~2–3 purchases ≈
+            $410–615 revenue ≈ <strong>4–6× modeled ROAS</strong> on $100 —
+            directional until tracked data lands Aug 17–23.
             †Purchase tracking was not functional until Aug 15–16, so ad-level
             purchase counts are not reportable for this period — checkouts are the
             attributed conversion signal this week. Early reporting is still
