@@ -1,0 +1,146 @@
+/* /SKOads_august — weekly paid report. Inherits the /sko design language;
+   only report-specific pieces live here. Type scale runs a full step bolder
+   and bigger than the other SKO pages — this one gets presented. */
+
+/* page-level overrides: bigger everything */
+.big {
+  font-size: 15px;
+}
+.big :global(h2) {
+  font-size: 1.9rem !important;
+}
+.big :global(p) {
+  font-size: 16px;
+  line-height: 1.65;
+  font-weight: 500;
+  max-width: 60ch;
+}
+.big :global(table) {
+  font-size: 14.5px;
+}
+.big :global(th) {
+  font-size: 11.5px;
+}
+.big :global(li) {
+  font-size: 15px !important;
+  line-height: 1.65;
+  font-weight: 500;
+  max-width: 60ch;
+}
+
+.summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.9rem;
+}
+.stat {
+  border: 1px solid #000;
+  background: rgba(250, 249, 245, 0.5);
+  padding: 1.1rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.statNum {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 2.6rem;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+  letter-spacing: -0.02em;
+}
+.statLabel {
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(28, 25, 23, 0.6);
+}
+.statDelta {
+  font-size: 13px;
+  font-weight: 800;
+}
+.up { color: #3a7d44; }
+.down { color: #8c2f21; }
+.flat { color: rgba(28, 25, 23, 0.5); }
+
+/* numeric table columns */
+.num th:nth-child(n + 2),
+.num td:nth-child(n + 2) {
+  text-align: right;
+  padding-right: 1.1rem;
+  white-space: nowrap;
+}
+.num td:first-child { max-width: 16rem; }
+
+.rowStrong td { font-weight: 700; border-top: 1px solid rgba(0, 0, 0, 0.35); }
+.good { color: #3a7d44; font-weight: 700; }
+.bad { color: #8c2f21; font-weight: 700; }
+.dim { color: rgba(28, 25, 23, 0.45); }
+
+/* spend-share bar: winners vs dead weight */
+.bar {
+  display: flex;
+  height: 14px;
+  border: 1px solid #000;
+  overflow: hidden;
+}
+.barSeg { height: 100%; }
+.segWin { background: #3a7d44; }
+.segMid { background: rgba(58, 125, 68, 0.35); }
+.segDead { background: rgba(140, 47, 33, 0.55); }
+.barKey {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.1rem;
+  font-size: 10.5px;
+  color: rgba(28, 25, 23, 0.65);
+}
+.barKey b { color: #1c1917; }
+.swatch {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  margin-right: 0.35rem;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  vertical-align: baseline;
+}
+
+.mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 12.5px;
+}
+
+.footnote {
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  color: rgba(28, 25, 23, 0.62);
+  line-height: 1.6;
+  max-width: 66ch;
+}
+
+/* big pull quotes — the one-line findings */
+.pullBig {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 1.55rem;
+  line-height: 1.35;
+  font-weight: 600;
+  padding-left: 1.1rem;
+  border-left: 4px solid var(--green);
+  max-width: 44ch;
+  letter-spacing: -0.01em;
+}
+
+/* subheads inside creative section */
+.subheadBig {
+  font-size: 14px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: #1c1917;
+  margin-top: 0.6rem;
+}
+
+@media (max-width: 640px) {
+  .summary { grid-template-columns: repeat(2, 1fr); }
+}
