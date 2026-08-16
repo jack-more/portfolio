@@ -332,14 +332,14 @@ export default function SkoAdsAugust() {
 
           <div className={s.summary}>
             <div className={s.stat}>
-              <span className={s.statNum}>11</span>
-              <span className={s.statLabel}>Purchases captured by pixel</span>
-              <span className={`${s.statDelta} ${s.flat}`}>since Fri — site-wide, not ad-attributed</span>
+              <span className={s.statNum}>Live</span>
+              <span className={s.statLabel}>Pixel in production</span>
+              <span className={`${s.statDelta} ${s.up}`}>since Fri — full funnel firing</span>
             </div>
             <div className={s.stat}>
               <span className={s.statNum}>2.4K</span>
               <span className={s.statLabel}>PageViews</span>
-              <span className={`${s.statDelta} ${s.up}`}>pixel live in production</span>
+              <span className={`${s.statDelta} ${s.flat}`}>468 content views</span>
             </div>
             <div className={s.stat}>
               <span className={s.statNum}>109</span>
@@ -349,14 +349,14 @@ export default function SkoAdsAugust() {
           </div>
 
           <p className={base.body}>
-            The pixel went live in production Friday and is firing the full funnel —
-            2.4K PageViews → 468 ViewContent → 109 AddToCart → 40 Checkout → 11
-            Purchase. These 11 are <strong>site-wide captures, not Meta-ad
-            conversions</strong> — the account's first attributed purchases should
-            appear as the campaign warms up and spend runs uninterrupted. Known gap:
-            the purchase event currently fires on ~10% of orders (payment-verification
-            gate, fix ticketed with Lovable) — expect this number to jump ~10× once
-            deployed, which is data quality improving, not a sales spike.
+            The pixel went live in production Friday and the funnel is firing — 2.4K
+            PageViews → 468 ViewContent → 109 AddToCart → 40 Checkout. Purchase-event
+            counts are <strong>excluded until the capture fix ships</strong>: a
+            payment-verification gate currently stops the event on ~90% of orders
+            (fix ticketed with Lovable), so any pixel purchase number would massively
+            understate real volume — the site did ~500 orders last week per the order
+            table. Once the fix deploys, purchase capture should match the order table
+            and Meta ROAS becomes readable for the first time.
           </p>
         </section>
 
