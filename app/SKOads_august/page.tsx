@@ -290,8 +290,7 @@ export default function SkoAdsAugust() {
           <p className={base.body}>
             †Purchase tracking was not functional until Aug 15–16, so ad-level
             purchase counts are not reportable for this period — checkouts are the
-            attributed conversion signal this week, and the new pixel has captured 11
-            purchases site-wide since going live Friday. Early reporting is still
+            attributed conversion signal this week. Early reporting is still
             fuzzy — but the signal is real. This is a fresh
             account (the previous account was banned; this one is warming deliberately)
             and the purchase event was broken until Aug 15–16, so Meta could not record
