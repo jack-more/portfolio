@@ -46,7 +46,7 @@ const LASTCHANCE_TOP = [
 const META_ADS = [
   { name: "ETHAN UGC summer 30", spend: 61.71, impr: 2321, clicks: 89, co: 0, est: "~1", thumb: "/skoads/ethan-1.jpg" },
   { name: "PUREST", spend: 28.91, impr: 1296, clicks: 16, co: 3, est: "~2", thumb: "/skoads/purest.jpg" },
-  { name: "GIANTWOMAN + AI IMAGE", spend: 9.14, impr: 388, clicks: 10, co: 0, est: "" },
+  { name: "GIANTWOMAN + AI IMAGE", spend: 9.14, impr: 388, clicks: 10, co: 0, est: "", thumb: "/skoads/eye-giant.jpg" },
   { name: "New Sales Ad", spend: 0.21, impr: 7, clicks: 0, co: 0, est: "" },
 ];
 
