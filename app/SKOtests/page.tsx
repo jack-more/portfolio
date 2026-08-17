@@ -133,10 +133,12 @@ export default function SkoTests() {
             is cost</strong> — processing 17, COGS 10, fulfillment 10, shipping 4,
             labor 20 — so contribution = 39% of revenue.{" "}
             <strong>The CAC rule: breakeven 39% of AOV ($85); ≤29% ($63) holds a 10%
-            net margin; the $49 target yields ~16%.</strong> Full-price breakeven
-            ROAS = 2.56×; the 10%-margin line is ~3.4×. A 20% discount halves
-            contribution to 19% → 5.3× breakeven — paid traffic still never sees
-            SUMMER30. Profit/order = 39% × AOV − CPA.
+            net margin; the $49 target yields ~16%.</strong> Breakeven ROAS = 2.56×;
+            the 10%-margin line is ~3.4×. All figures are <strong>post-discount</strong> —
+            $218 is what customers actually paid, so today's ~16% already absorbs the
+            codes. Removing codes from paid is upside, not protection: the same buyer
+            at list (~$272+) roughly doubles profit per order, so full price wins even
+            if a quarter of conversions walk. Profit/order = 39% × AOV − CPA.
           </p>
         </section>
 
@@ -249,12 +251,14 @@ export default function SkoTests() {
           })()}
 
           <p className={s.footnote}>
-            Board, corrected: shipping 8→4%, discount and CC fee on paid → 0, the
-            −$10/−$20 lines were results of the old math, not costs. Stack = 61%.
-            At the $49 CAC target the machine clears ~16% — the 8–10% goal is a
+            Board, corrected: shipping 8→4%, CC fee → 0, the −$10/−$20 lines were
+            results of the old math, not costs. Stack = 61% of post-discount
+            revenue. At the $49 CAC target the machine clears ~16% — 8–10% is a
             floor you're above, not a stretch. The $54 bid sits at 24.8% of AOV,
-            inside the $63 ceiling. Discipline holds it there: full price on paid,
-            80/20 winners/tests, kill rules enforced Mondays.
+            inside the $63 ceiling. Going full-price on paid raises the ceiling
+            further — but note the codes are burned into several creatives
+            (SUMMER30 on AI-4, SKO20 on HighCostBau): full price needs code-free
+            videos and landing path, not just a settings change.
           </p>
 
           <h3 className={s.subheadBig}>Three routes to 8–10% — pick any one, or stack them</h3>
