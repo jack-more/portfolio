@@ -23,10 +23,10 @@ const shareTier = (shP: number, shS: number) =>
 const TT = { spend: 9028.61, pur: 154 };
 
 const TIKTOK_ADS = [
-  { name: "summer30 2", spend: 4980.52, pur: 66, rev: 15471.93 },
-  { name: "ETHAN UGC", spend: 1819.29, pur: 36, rev: 8798.45, thumb: "/skoads/ethan-1.jpg" },
-  { name: "ETHAN UGC 2 (new content)", spend: 1479.66, pur: 30, rev: 5373.86 },
-  { name: "LAST CHANCE SUMMER 30", spend: 749.14, pur: 22, rev: 3904.7 },
+  { name: "summer30 2", spend: 4980.52, pur: 66, rev: 15471.93, bid: "$50 cap" },
+  { name: "ETHAN UGC", spend: 1819.29, pur: 36, rev: 8798.45, bid: "$50 cap", thumb: "/skoads/ethan-1.jpg" },
+  { name: "ETHAN UGC 2 (new content)", spend: 1479.66, pur: 30, rev: 5373.86, bid: "$50 cap" },
+  { name: "LAST CHANCE SUMMER 30", spend: 749.14, pur: 22, rev: 3904.7, bid: "$50 cap" },
 ];
 
 const SUMMER30_TOP = [
@@ -153,7 +153,7 @@ function CrossTable({ rows }: {
 }
 
 function AdTable({ rows, total, poolSpend, poolPur }: {
-  rows: { name: string; spend: number; pur: number; rev: number; thumb?: string }[];
+  rows: { name: string; spend: number; pur: number; rev: number; thumb?: string; bid?: string }[];
   total?: boolean;
   poolSpend?: number;
   poolPur?: number;
@@ -170,6 +170,7 @@ function AdTable({ rows, total, poolSpend, poolPur }: {
         <thead>
           <tr>
             <th>Creative</th><th>Spend</th><th>Purch</th><th>Revenue</th><th>ROAS</th><th>CPA</th>
+            {rows[0].bid ? <th title="Bid strategy on the ad group — Cost Cap means TikTok aims to keep cost per purchase at or under this amount">Bid</th> : null}
             <th title="This creative's share of its ad's total spend">% of spend</th>
             <th title="This creative's share of its ad's total purchases. Green = earning a bigger share of sales than of budget (underfed). Red = the reverse (overfed).">% of sales</th>
           </tr>
@@ -188,6 +189,7 @@ function AdTable({ rows, total, poolSpend, poolPur }: {
                   {x(r.rev / r.spend)}
                 </td>
                 <td>{r.pur ? usd(r.spend / r.pur) : "—"}</td>
+                {rows[0].bid ? <td>{r.bid}</td> : null}
                 <td>{shS.toFixed(1)}%</td>
                 <td className={shareTier(shP, shS)}>
                   {shP.toFixed(1)}%
@@ -203,6 +205,7 @@ function AdTable({ rows, total, poolSpend, poolPur }: {
               <td>{usd(t.rev)}</td>
               <td>{x(t.rev / t.spend)}</td>
               <td>{usd(t.spend / t.pur)}</td>
+              {rows[0].bid ? <td /> : null}
               <td>{((t.spend / ps) * 100).toFixed(0)}%</td>
               <td>{pp ? ((t.pur / pp) * 100).toFixed(0) : 0}%</td>
             </tr>
