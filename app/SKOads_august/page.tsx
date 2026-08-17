@@ -147,12 +147,12 @@ export default function SkoAdsAugust() {
             <div className={s.stat} data-tip="Revenue the ad platforms attribute to ads (TikTok pixel, 7-day click / 1-day view). Our internal order table reads lower because in-app browsers lose tracking.">
               <span className={s.statNum}>$22,382</span>
               <span className={s.statLabel}>Ad revenue</span>
-              <span className={`${s.statDelta} ${s.flat}`}>platform-reported</span>
+              <span className={`${s.statDelta} ${s.flat}`}>TikTok-reported · Meta 0 tracked</span>
             </div>
             <div className={s.stat} data-tip="Purchases the platforms attribute to ads this week.">
               <span className={s.statNum}>96</span>
               <span className={s.statLabel}>Purchases</span>
-              <span className={`${s.statDelta} ${s.flat}`}>$233 avg</span>
+              <span className={`${s.statDelta} ${s.flat}`}>TikTok only · $233 avg</span>
             </div>
             <div className={s.stat} data-tip="Return on ad spend: attributed revenue ÷ spend. 3.96× means $3.96 back per $1 spent.">
               <span className={s.statNum}>3.96×</span>
@@ -243,6 +243,29 @@ export default function SkoAdsAugust() {
             </table>
           </div>
           <p className={s.footnote}>This is what a healthy ad looks like. Every dollar on something that converts.</p>
+
+          <div className={s.summary}>
+            <div className={s.stat} data-tip="Distinct UGC videos in paid rotation this week, both from Ethan.">
+              <span className={s.statNum}>2</span>
+              <span className={s.statLabel}>UGC videos</span>
+              <span className={`${s.statDelta} ${s.flat}`}>5 paid placements</span>
+            </div>
+            <div className={s.stat} data-tip="Paid video views across every TikTok and Meta placement running the UGC.">
+              <span className={s.statNum}>~155K</span>
+              <span className={s.statLabel}>Paid views</span>
+              <span className={`${s.statDelta} ${s.flat}`}>TikTok + Meta</span>
+            </div>
+            <div className={s.stat} data-tip="Revenue the platforms attribute to ads running the two UGC videos — 46% of all ad revenue this week.">
+              <span className={s.statNum}>$10,411</span>
+              <span className={s.statLabel}>UGC revenue</span>
+              <span className={`${s.statDelta} ${s.up}`}>46% of ad revenue · 39% of spend</span>
+            </div>
+            <div className={s.stat} data-tip="UGC-attributed revenue ÷ UGC spend.">
+              <span className={s.statNum}>4.77×</span>
+              <span className={s.statLabel}>UGC ROAS</span>
+              <span className={`${s.statDelta} ${s.up}`}>vs 3.96× account</span>
+            </div>
+          </div>
 
           <h3 className={s.subheadBig}>LAST CHANCE SUMMER 30 — 87 creatives, same dilution</h3>
           <Bar
