@@ -35,7 +35,7 @@ const SUMMER30_TOP = [
   { name: "SKOBOX_9X16_05s", spend: 180.63, pur: 6, rev: 981.1, thumb: "/skoads/skobox.jpg" },
   { name: "7663698610439192583 (Spark)", spend: 219.84, pur: 4, rev: 1460.27, thumb: "/skoads/spark.jpg" },
   { name: "AI Generated Video-3", spend: 203.91, pur: 3, rev: 898.84, thumb: "/skoads/ai-video-3.jpg" },
-  { name: "AI Generated Video-4", spend: 220.62, pur: 1, rev: 119.7 },
+  { name: "AI Generated Video-4", spend: 220.62, pur: 1, rev: 119.7, thumb: "/skoads/ai-video-4.jpg" },
 ];
 
 const ETHAN_CREATIVES = [
@@ -54,7 +54,7 @@ const LASTCHANCE_TOP = [
   { name: "EYE_GIANT_9X16_15s", spend: 34.59, pur: 3, rev: 718.91, thumb: "/skoads/eye-giant.jpg" },
   { name: "SKOBOX_9X16_05s", spend: 15.74, pur: 1, rev: 218.6, thumb: "/skoads/skobox.jpg" },
   { name: "AI Generated Video-7", spend: 42.53, pur: 1, rev: 174.07 },
-  { name: "HighCostBau-v10033g…", spend: 98.07, pur: 1, rev: 37.79 },
+  { name: "HighCostBau-v10033g…", spend: 98.07, pur: 1, rev: 37.79, thumb: "/skoads/highcostbau.jpg" },
 ];
 
 const META_ADS = [
@@ -77,9 +77,9 @@ const CROSS_WINNERS = [
 ];
 
 const CROSS_LOSERS = [
-  { name: "AI Generated Video-4", pools: 2, spend: 229.67, pur: 1, rev: 119.7, ctr: "0.52%" },
+  { name: "AI Generated Video-4", pools: 2, spend: 229.67, pur: 1, rev: 119.7, ctr: "0.52%", thumb: "/skoads/ai-video-4.jpg" },
   { name: "Logo/bg version (copy_0B27…)", pools: 1, spend: 160.55, pur: 1, rev: 153.59, ctr: "1.02%" },
-  { name: "HighCostBau-v10033g…", pools: 1, spend: 98.07, pur: 1, rev: 37.79, ctr: "1.98%" },
+  { name: "HighCostBau-v10033g…", pools: 1, spend: 98.07, pur: 1, rev: 37.79, ctr: "1.98%", thumb: "/skoads/highcostbau.jpg" },
   { name: "V2_nY8125BV.mp4", pools: 2, spend: 84.74, pur: 0, rev: 0, ctr: "0.49%" },
   { name: "Spark 7663718762378182674", pools: 2, spend: 78.99, pur: 0, rev: 0, ctr: "0.59%" },
   { name: "Logo/bg version (copy_7A39…)", pools: 1, spend: 77.87, pur: 1, rev: 77.55, ctr: "0.96%" },
