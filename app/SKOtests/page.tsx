@@ -190,9 +190,9 @@ export default function SkoTests() {
               ["Payment processing", 17, "highest single cost — high-risk rail"],
               ["COGS", 10, ""],
               ["Fulfillment", 10, ""],
-              ["Shipping", 8, ""],
+              ["Shipping", 4, "updated: was 8%"],
               ["Labor", 20, "check: fixed or per-order?"],
-              ["Misc / gap to 75%", 10, "napkin says 65% — name this 10%"],
+              ["Flat $10 + $20", 14, "confirm: real costs, or leftovers?"],
             ];
             let cum = 0;
             return (
@@ -221,28 +221,41 @@ export default function SkoTests() {
                   return row;
                 })}
                 <div className={s.wfRow}>
-                  <span className={s.wfLabel}>− CAC (the lever)</span>
+                  <span className={s.wfLabel}>− CAC @ $49 (22.5%)</span>
                   <div className={s.wfTrack}>
                     <div className={s.wfPad} style={{ width: "75%" }} />
-                    <div className={`${s.wfSeg} ${s.wfCac}`} style={{ width: "16%" }}>≤16% · $35</div>
+                    <div className={`${s.wfSeg} ${s.wfCac}`} style={{ width: "22.5%" }}>22.5% · $49</div>
                   </div>
-                  <span className={s.wfNote}>ROAS ≥ 6.2×</span>
+                  <span className={s.wfNote}>ROAS 4.4×</span>
                 </div>
                 <div className={s.wfRow}>
-                  <span className={s.wfLabel}>= Net margin</span>
+                  <span className={s.wfLabel}>= Margin, $49 CAC</span>
                   <div className={s.wfTrack}>
-                    <div className={s.wfPad} style={{ width: "91%" }} />
+                    <div className={s.wfPad} style={{ width: "97.5%" }} />
+                    <div className={`${s.wfSeg} ${s.wfMargin}`} style={{ width: "2.5%" }} />
+                  </div>
+                  <span className={s.wfNote}>~2.5% · $5</span>
+                </div>
+                <div className={s.wfRow}>
+                  <span className={s.wfLabel}>= Margin @ 8–10% target</span>
+                  <div className={s.wfTrack}>
+                    <div className={s.wfPad} style={{ width: "75%" }} />
+                    <div className={`${s.wfSeg} ${s.wfCac}`} style={{ width: "16%" }}>CAC ≤16% · $35</div>
                     <div className={`${s.wfSeg} ${s.wfMargin}`} style={{ width: "9%" }}>9%</div>
                   </div>
-                  <span className={s.wfNote}>$19–22</span>
+                  <span className={s.wfNote}>ROAS ≥ 6.2×</span>
                 </div>
               </div>
             );
           })()}
 
           <p className={s.footnote}>
-            Discounts sit on top of everything: a 20% code wipes 2× the target
-            margin before ads spend a dollar. Paid traffic runs full price, always.
+            Updated from the board: shipping 8→4%, discount and CC fee on paid → 0,
+            CAC 25→22.5% ($49; the $54 bid is breakeven, not target). The swing
+            number is the flat $10+$20 (~14%): if those are real per-order costs,
+            $49 CAC leaves ~2.5% and the 8–10% target needs $35 CAC (6.2× blended).
+            If they're leftover lines, not costs, the stack is 61% and $49 CAC
+            already yields ~16% — the whole strategy pivots on naming that $30.
           </p>
 
           <h3 className={s.subheadBig}>Three routes to 8–10% — pick any one, or stack them</h3>
