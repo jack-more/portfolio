@@ -3,7 +3,7 @@ import base from "../sko/page.module.css";
 import s from "./page.module.css";
 
 export const metadata: Metadata = {
-  title: "SKO Paid Ads — Week of Aug 9–16",
+  title: "SKO Paid Ads — Week of Aug 9–17",
   robots: { index: false, follow: false },
 };
 
@@ -14,47 +14,57 @@ const x = (n: number) => `${n.toFixed(2)}×`;
 /* All figures are platform-reported (TikTok / Meta pixel), Aug 9–16 2026.
    Source exports are on file; 7-day click window means recent days drift up. */
 
+const TT = { spend: 9028.61, pur: 154 };
+
 const TIKTOK_ADS = [
-  { name: "summer30 2", spend: 3298.82, pur: 45, rev: 10737.85, cpa: 73.31, note: "fatigued" },
-  { name: "ETHAN UGC", spend: 1445.81, pur: 30, rev: 7893.62, cpa: 48.19, note: "winner" },
-  { name: "LAST CHANCE SUMMER 30", spend: 635.43, pur: 18, rev: 3262.87, cpa: 35.3, note: "winner" },
-  { name: "ETHAN UGC 2", spend: 267.41, pur: 3, rev: 487.38, cpa: 89.14, note: "cut" },
+  { name: "summer30 2", spend: 4980.52, pur: 66, rev: 15471.93 },
+  { name: "ETHAN UGC", spend: 1819.29, pur: 36, rev: 8798.45, thumb: "/skoads/ethan-1.jpg" },
+  { name: "ETHAN UGC 2 (new content)", spend: 1479.66, pur: 30, rev: 5373.86 },
+  { name: "LAST CHANCE SUMMER 30", spend: 749.14, pur: 22, rev: 3904.7 },
 ];
 
 const SUMMER30_TOP = [
-  { name: "GLOW Compound-New_Hook-0-1", spend: 70.92, pur: 3, rev: 636.8, thumb: "/skoads/glow-newhook.jpg" },
-  { name: "SKOBOX_9X16_05s", spend: 116.52, pur: 5, rev: 845.24, thumb: "/skoads/skobox.jpg" },
-  { name: "7663698610439192583 (Spark)", spend: 213.55, pur: 4, rev: 1460.27, thumb: "/skoads/spark.jpg" },
-  { name: "AI Generated Video-3", spend: 145.92, pur: 3, rev: 898.84, thumb: "/skoads/ai-video-3.jpg" },
-  { name: "GLOW-Narrated-8-11", spend: 125.46, pur: 4, rev: 609.68, thumb: "/skoads/glow-narrated-8-11.jpg" },
-  { name: "ethan UGC_vKCU0o8b", spend: 351.49, pur: 7, rev: 1295.55, thumb: "/skoads/ethan-1.jpg" },
+  { name: "EYE_GIANT_9X16_15s", spend: 471.91, pur: 12, rev: 3287.6, thumb: "/skoads/eye-giant.jpg" },
+  { name: "ethan UGC_vKCU0o8b", spend: 561.16, pur: 11, rev: 1792.53, thumb: "/skoads/ethan-1.jpg" },
+  { name: "SKOBOX_9X16_05s", spend: 180.63, pur: 6, rev: 981.1, thumb: "/skoads/skobox.jpg" },
+  { name: "7663698610439192583 (Spark)", spend: 219.84, pur: 4, rev: 1460.27, thumb: "/skoads/spark.jpg" },
+  { name: "AI Generated Video-3", spend: 203.91, pur: 3, rev: 898.84, thumb: "/skoads/ai-video-3.jpg" },
+  { name: "AI Generated Video-4", spend: 220.62, pur: 1, rev: 119.7 },
 ];
 
 const ETHAN_CREATIVES = [
-  { name: "ethan UGC_vKCU0o8b.MP4", spend: 842.47, pur: 17, rev: 4564.21, ctr: "2.35%", thumb: "/skoads/ethan-1.jpg" },
-  { name: "ethan ugc 2_lEe0p2xn.MOV", spend: 603.34, pur: 13, rev: 3329.41, ctr: "1.92%", thumb: "/skoads/ethan-2.jpg" },
+  { name: "ethan UGC_vKCU0o8b.MP4", spend: 961.87, pur: 20, rev: 5029.91, thumb: "/skoads/ethan-1.jpg" },
+  { name: "ethan ugc 2_lEe0p2xn.MOV", spend: 857.42, pur: 16, rev: 3768.54, thumb: "/skoads/ethan-2.jpg" },
+];
+
+const E2_CREATIVES = [
+  { name: "New video A (copy_655C…)", spend: 766.08, pur: 16, rev: 2635.46 },
+  { name: "New video B (copy_A0FA…)", spend: 410.19, pur: 11, rev: 2433.68 },
+  { name: "Logo/background versions ×4 (combined)", spend: 303.39, pur: 3, rev: 304.72 },
 ];
 
 const LASTCHANCE_TOP = [
   { name: "ethan UGC_vKCU0o8b", spend: 109.95, pur: 4, rev: 734.0, thumb: "/skoads/ethan-1.jpg" },
-  { name: "EYE_GIANT_9X16_15s", spend: 31.3, pur: 3, rev: 718.91, thumb: "/skoads/eye-giant.jpg" },
-  { name: "GLOW_70MG-Narrated-6-9", spend: 9.86, pur: 2, rev: 229.24, thumb: "/skoads/glow70-narrated-6-9.jpg" },
-  { name: "SKOBOX_9X16_05s", spend: 12.31, pur: 1, rev: 218.6, thumb: "/skoads/skobox.jpg" },
-  { name: "99% Purity product card", spend: 10.02, pur: 1, rev: 325.81, thumb: "/skoads/purity-card.jpg" },
+  { name: "EYE_GIANT_9X16_15s", spend: 34.59, pur: 3, rev: 718.91, thumb: "/skoads/eye-giant.jpg" },
+  { name: "SKOBOX_9X16_05s", spend: 15.74, pur: 1, rev: 218.6, thumb: "/skoads/skobox.jpg" },
+  { name: "AI Generated Video-7", spend: 42.53, pur: 1, rev: 174.07 },
+  { name: "HighCostBau-v10033g…", spend: 98.07, pur: 1, rev: 37.79 },
 ];
 
 const META_ADS = [
-  { name: "ETHAN UGC summer 30", spend: 61.71, impr: 2321, clicks: 89, co: 0, est: "~1", thumb: "/skoads/ethan-1.jpg" },
-  { name: "PUREST", spend: 28.91, impr: 1296, clicks: 16, co: 3, est: "~2", thumb: "/skoads/purest.jpg" },
-  { name: "GIANTWOMAN + AI IMAGE", spend: 9.14, impr: 388, clicks: 10, co: 0, est: "", thumb: "/skoads/eye-giant.jpg" },
-  { name: "New Sales Ad", spend: 0.21, impr: 7, clicks: 0, co: 0, est: "" },
+  { name: "ETHAN UGC summer 30", spend: 377.4, impr: 12472, clicks: 356, pur: 0, est: "~5", thumb: "/skoads/ethan-1.jpg" },
+  { name: "PUREST", spend: 193.44, impr: 8676, clicks: 72, pur: 0, est: "~2–4", thumb: "/skoads/purest.jpg" },
+  { name: "GIANTWOMAN + AI IMAGE", spend: 72.3, impr: 3192, clicks: 48, pur: 0, est: "~1–2", thumb: "/skoads/eye-giant.jpg" },
+  { name: "TheBOX", spend: 34.44, impr: 588, clicks: 0, pur: 6, est: "—", thumb: "/skoads/skobox.jpg" },
 ];
 
+const UGC = { spend: 3978.15, pur: 81 };
+
 const UGC_PLACEMENTS = [
-  { name: "ETHAN UGC ad (both videos)", spend: 1445.81, pur: 30, rev: 7893.62 },
-  { name: "inside summer30 2", spend: 351.49, pur: 7, rev: 1295.55 },
+  { name: "ETHAN UGC ad (both videos)", spend: 1819.29, pur: 36, rev: 8798.45 },
+  { name: "ETHAN UGC 2 (new content)", spend: 1479.66, pur: 30, rev: 5373.86 },
+  { name: "inside summer30 2", spend: 561.16, pur: 11, rev: 1792.53 },
   { name: "inside LAST CHANCE", spend: 118.04, pur: 4, rev: 734.0 },
-  { name: "ETHAN UGC 2 (re-cuts)", spend: 267.41, pur: 3, rev: 487.38 },
 ];
 
 function Bar({ win, mid, dead, keyWin, keyMid, keyDead }: {
@@ -77,35 +87,49 @@ function Bar({ win, mid, dead, keyWin, keyMid, keyDead }: {
   );
 }
 
-function AdTable({ rows, total }: {
-  rows: { name: string; spend: number; pur: number; rev: number; ctr?: string; thumb?: string }[];
+function AdTable({ rows, total, poolSpend, poolPur }: {
+  rows: { name: string; spend: number; pur: number; rev: number; thumb?: string }[];
   total?: boolean;
+  poolSpend?: number;
+  poolPur?: number;
 }) {
   const t = rows.reduce(
     (a, r) => ({ spend: a.spend + r.spend, pur: a.pur + r.pur, rev: a.rev + r.rev }),
     { spend: 0, pur: 0, rev: 0 },
   );
+  const ps = poolSpend ?? t.spend;
+  const pp = poolPur ?? t.pur;
   return (
     <div className={base.tableWrap}>
       <table className={`${base.table} ${s.num}`}>
         <thead>
           <tr>
             <th>Creative</th><th>Spend</th><th>Purch</th><th>Revenue</th><th>ROAS</th><th>CPA</th>
+            <th title="This creative's share of the pool's spend">% spend</th>
+            <th title="This creative's share of the pool's purchases — above its spend share means it deserves more budget">% purch</th>
           </tr>
         </thead>
         <tbody>
-          {rows.map((r) => (
-            <tr key={r.name}>
-              <td>{r.thumb ? <img src={r.thumb} alt="" className={s.thumb} /> : null}{r.name}</td>
-              <td>{usd(r.spend)}</td>
-              <td>{r.pur}</td>
-              <td>{usd(r.rev)}</td>
-              <td className={r.rev / r.spend >= 5 ? s.good : r.rev / r.spend < 2.5 ? s.bad : undefined}>
-                {x(r.rev / r.spend)}
-              </td>
-              <td>{r.pur ? usd(r.spend / r.pur) : "—"}</td>
-            </tr>
-          ))}
+          {rows.map((r) => {
+            const shS = (r.spend / ps) * 100;
+            const shP = pp ? (r.pur / pp) * 100 : 0;
+            return (
+              <tr key={r.name}>
+                <td>{r.thumb ? <img src={r.thumb} alt="" className={s.thumb} /> : null}{r.name}</td>
+                <td>{usd(r.spend)}</td>
+                <td>{r.pur}</td>
+                <td>{usd(r.rev)}</td>
+                <td className={r.rev / r.spend >= 5 ? s.good : r.rev / r.spend < 2.5 ? s.bad : undefined}>
+                  {x(r.rev / r.spend)}
+                </td>
+                <td>{r.pur ? usd(r.spend / r.pur) : "—"}</td>
+                <td>{shS.toFixed(1)}%</td>
+                <td className={shP > shS + 1 ? s.good : shP < shS - 1 ? s.bad : undefined}>
+                  {shP.toFixed(1)}%
+                </td>
+              </tr>
+            );
+          })}
           {total ? (
             <tr className={s.rowStrong}>
               <td>Total</td>
@@ -114,6 +138,8 @@ function AdTable({ rows, total }: {
               <td>{usd(t.rev)}</td>
               <td>{x(t.rev / t.spend)}</td>
               <td>{usd(t.spend / t.pur)}</td>
+              <td>{((t.spend / ps) * 100).toFixed(0)}%</td>
+              <td>{pp ? ((t.pur / pp) * 100).toFixed(0) : 0}%</td>
             </tr>
           ) : null}
         </tbody>
@@ -127,7 +153,7 @@ export default function SkoAdsAugust() {
     <div className={base.page}>
       <nav className={base.nav}>
         <span className={base.navTitle}>SKO · Paid Ads</span>
-        <span className={base.navNote}>Week of Aug 9–16, 2026</span>
+        <span className={base.navNote}>Week of Aug 9–17, 2026</span>
       </nav>
 
       <main className={`${base.main} ${s.big}`}>
@@ -140,36 +166,37 @@ export default function SkoAdsAugust() {
 
           <div className={s.summary}>
             <div className={s.stat} data-tip="Total paid ad spend, TikTok + Meta, Aug 9–16.">
-              <span className={s.statNum}>$5,747</span>
+              <span className={s.statNum}>$9,706</span>
               <span className={s.statLabel}>Spend</span>
-              <span className={`${s.statDelta} ${s.flat}`}>TikTok $5,647 · Meta $100</span>
+              <span className={`${s.statDelta} ${s.flat}`}>TikTok $9,029 · Meta $678 (Aug 1–17)</span>
             </div>
             <div className={s.stat} data-tip="Revenue the ad platforms attribute to ads (TikTok pixel, 7-day click / 1-day view). Our internal order table reads lower because in-app browsers lose tracking.">
-              <span className={s.statNum}>$22,382</span>
+              <span className={s.statNum}>$33,549</span>
               <span className={s.statLabel}>Ad revenue</span>
               <span className={`${s.statDelta} ${s.flat}`}>TikTok-reported · Meta 0 tracked</span>
             </div>
             <div className={s.stat} data-tip="Purchases the platforms attribute to ads this week.">
-              <span className={s.statNum}>96</span>
+              <span className={s.statNum}>154</span>
               <span className={s.statLabel}>Purchases</span>
-              <span className={`${s.statDelta} ${s.flat}`}>TikTok only · $233 avg</span>
+              <span className={`${s.statDelta} ${s.flat}`}>TikTok only · $218 avg + 6 tracked on Meta</span>
             </div>
             <div className={s.stat} data-tip="Return on ad spend: attributed revenue ÷ spend. 3.96× means $3.96 back per $1 spent.">
-              <span className={s.statNum}>3.96×</span>
+              <span className={s.statNum}>3.72×</span>
               <span className={s.statLabel}>ROAS</span>
-              <span className={`${s.statDelta} ${s.up}`}>winners at 5.1–5.5×</span>
+              <span className={`${s.statDelta} ${s.up}`}>winners at 4.8–5.2×</span>
             </div>
             <div className={s.stat} data-tip="Spend ÷ attributed purchases (CPA). Lower is better; breakeven sits far above this at our margins.">
-              <span className={s.statNum}>$58.83</span>
+              <span className={s.statNum}>$58.63</span>
               <span className={s.statLabel}>Cost / purchase</span>
-              <span className={`${s.statDelta} ${s.up}`}>winners $35–48</span>
+              <span className={`${s.statDelta} ${s.up}`}>winners $34–51</span>
             </div>
           </div>
 
           <p className={base.body}>
-            <strong>summer30 2</strong> is fatiguing (3.26×) and carrying too much of
-            the budget. The new campaigns (ETHAN UGC, LAST CHANCE — launched Aug
-            11–13) convert at 5.1–5.5× — next week's spend consolidates onto them,
+            <strong>summer30 2</strong> is fatiguing (3.11×) and still carries 55% of
+            the budget. ETHAN UGC (4.84×) and LAST CHANCE (5.21×) convert far better,
+            and <strong>ETHAN UGC 2 recovered to 3.63×</strong> once its new videos got
+            spend — two of them are winners. Next week consolidates onto the winners,
             the proven creatives, and a dedicated EYE_GIANT test.
           </p>
           <p className={s.footnote}>
@@ -185,13 +212,14 @@ export default function SkoAdsAugust() {
             <span className={base.sectionNum}>02</span>
             <h2 className={base.sectionTitle}>TikTok — by ad</h2>
           </div>
-          <AdTable rows={TIKTOK_ADS} total />
+          <AdTable rows={TIKTOK_ADS} total poolSpend={TT.spend} poolPur={TT.pur} />
           <p className={base.body}>
-            <strong>Ethan's two videos are the account.</strong> 5.46× in their own ad
-            at 2.2% CTR — triple the account average. LAST CHANCE has the best CPA
-            ($35.30). summer30 2 still produces but costs twice what it did. ETHAN
-            UGC 2 is six re-cuts of the same footage; none beat the originals — pause
-            it.
+            <strong>Ethan's content is the account.</strong> The original two videos run
+            4.84× at 2.05% CTR — triple the account average — and his ad now takes the
+            largest healthy share of spend. LAST CHANCE has the best CPA ($34.05).
+            summer30 2 still produces but costs the most per sale. ETHAN UGC 2 is new
+            content: two of its six videos are winners; the four with the edited
+            background and floating logo are not.
           </p>
         </section>
 
@@ -208,76 +236,68 @@ export default function SkoAdsAugust() {
             on identical footage.
           </p>
 
-          <h3 className={s.subheadBig}>summer30 2 — 96 creatives in rotation</h3>
+          <h3 className={s.subheadBig}>summer30 2 — ~90 creatives in rotation</h3>
           <Bar
-            win={1147} mid={900} dead={1251}
-            keyWin="6 proven creatives · $1,147"
-            keyMid="13 marginal · ~$900"
-            keyDead="77 creatives, zero purchases · $1,251 (38%)"
+            win={1815} mid={1436} dead={1730}
+            keyWin="6 proven creatives · $1,815"
+            keyMid="~16 marginal · $1,436"
+            keyDead="74 creatives, zero purchases · $1,730 (35%)"
           />
-          <AdTable rows={SUMMER30_TOP} />
+          <AdTable rows={SUMMER30_TOP} poolSpend={4980.52} poolPur={66} />
           <p className={s.footnote}>
-            The algorithm's biggest pick — <span className={s.mono}>7663697803021975572</span>,
-            $214 — bought 2 purchases at $107 CPA. AI Generated Video-4 spent $166 for
-            one purchase (0.72×, underwater). Budget flows to the wrong copies.
+            Read the last two columns together. EYE_GIANT: 9.5% of spend, 18.2% of
+            purchases — underfed, and now proven at real spend ($472 → 6.97×). AI
+            Generated Video-4: 4.4% of spend, 1.5% of purchases (0.54×, underwater) —
+            overfed. The gap between the two columns is the reallocation signal.
           </p>
 
           <h3 className={s.subheadBig}>ETHAN UGC — 2 creatives, zero waste</h3>
-          <div className={base.tableWrap}>
-            <table className={`${base.table} ${s.num}`}>
-              <thead>
-                <tr><th>Creative</th><th>Spend</th><th>Purch</th><th>Revenue</th><th>ROAS</th><th>CTR</th></tr>
-              </thead>
-              <tbody>
-                {ETHAN_CREATIVES.map((r) => (
-                  <tr key={r.name}>
-                    <td><img src={r.thumb} alt="" className={s.thumb} />{r.name}</td>
-                    <td>{usd(r.spend)}</td>
-                    <td>{r.pur}</td>
-                    <td>{usd(r.rev)}</td>
-                    <td className={s.good}>{x(r.rev / r.spend)}</td>
-                    <td>{r.ctr}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+          <AdTable rows={ETHAN_CREATIVES} poolSpend={1819.29} poolPur={36} />
           <p className={s.footnote}>This is what a healthy ad looks like. Every dollar on something that converts.</p>
 
           <div className={s.summary}>
-            <div className={s.stat} data-tip="Distinct UGC videos in paid rotation this week, both from Ethan.">
-              <span className={s.statNum}>2</span>
+            <div className={s.stat} data-tip="Distinct Ethan videos in paid rotation this week: the 2 proven originals plus 6 new-content tests.">
+              <span className={s.statNum}>8</span>
               <span className={s.statLabel}>UGC videos</span>
-              <span className={`${s.statDelta} ${s.flat}`}>5 paid placements</span>
+              <span className={`${s.statDelta} ${s.flat}`}>2 proven + 6 new</span>
             </div>
-            <div className={s.stat} data-tip="Paid video views across every TikTok and Meta placement running the UGC.">
-              <span className={s.statNum}>~155K</span>
-              <span className={s.statLabel}>Paid views</span>
-              <span className={`${s.statDelta} ${s.flat}`}>TikTok + Meta</span>
+            <div className={s.stat} data-tip="Paid impressions across every TikTok placement running Ethan content, Aug 9–17.">
+              <span className={s.statNum}>~312K</span>
+              <span className={s.statLabel}>Paid impressions</span>
+              <span className={`${s.statDelta} ${s.flat}`}>TikTok · + 12K Meta</span>
             </div>
-            <div className={s.stat} data-tip="Revenue the platforms attribute to ads running the two UGC videos — 46% of all ad revenue this week.">
-              <span className={s.statNum}>$10,411</span>
+            <div className={s.stat} data-tip="Revenue TikTok attributes to ads running Ethan content — 50% of all tracked ad revenue this week.">
+              <span className={s.statNum}>$16,699</span>
               <span className={s.statLabel}>UGC revenue</span>
-              <span className={`${s.statDelta} ${s.up}`}>46% of ad revenue · 39% of spend</span>
+              <span className={`${s.statDelta} ${s.up}`}>50% of ad revenue · 44% of spend</span>
             </div>
             <div className={s.stat} data-tip="UGC-attributed revenue ÷ UGC spend.">
-              <span className={s.statNum}>4.77×</span>
+              <span className={s.statNum}>4.20×</span>
               <span className={s.statLabel}>UGC ROAS</span>
-              <span className={`${s.statDelta} ${s.up}`}>vs 3.96× account</span>
+              <span className={`${s.statDelta} ${s.up}`}>vs 3.72× account</span>
             </div>
           </div>
 
-          <h3 className={s.subheadBig}>LAST CHANCE SUMMER 30 — 87 creatives, same dilution</h3>
+          <h3 className={s.subheadBig}>LAST CHANCE SUMMER 30 — same dilution pattern</h3>
           <Bar
-            win={173} mid={152} dead={310}
-            keyWin="5 converting creatives · $173"
-            keyMid="7 marginal · ~$152"
-            keyDead="75 creatives, zero purchases · $310 (49%)"
+            win={234} mid={172} dead={342}
+            keyWin="5 converting creatives · $234"
+            keyMid="marginal · $172"
+            keyDead="74 creatives, zero purchases · $342 (46%)"
           />
-          <AdTable rows={LASTCHANCE_TOP} />
+          <AdTable rows={LASTCHANCE_TOP} poolSpend={749.14} poolPur={22} />
           <p className={s.footnote}>
-            Sub-$35 spends — signals, not proven winners. But the same three names
+            Small spends — signals, not proven winners. But the same three names
             convert in every pool: <strong>Ethan, SKOBOX, EYE_GIANT</strong>.
+          </p>
+
+          <h3 className={s.subheadBig}>ETHAN UGC 2 — new content: the videos work, the treatment didn't</h3>
+          <AdTable rows={E2_CREATIVES} poolSpend={1479.66} poolPur={30} />
+          <p className={s.footnote}>
+            Two new videos carry the ad — 5.93× and 3.44×. The four versions with the
+            edited-in background and floating logo did ~1.0× on $303. Kill the
+            treatment, keep the creator: clean native footage sells; the produced
+            look reads as an ad and dies.
           </p>
         </section>
 
@@ -290,34 +310,34 @@ export default function SkoAdsAugust() {
 
           <div className={s.insightGrid}>
             <div className={s.insight}>
-              <span className={s.insightNum}>22.97×</span>
+              <span className={s.insightNum}>6.97×</span>
               <span className={s.insightTag}>Low CTR, high intent</span>
               <p className={s.insightBody}>
-                EYE_GIANT gets 0.82% CTR, so the algorithm starves it — but its few
-                clicks convert absurdly well: $31.30 → 3 purchases, <strong>$10.43
-                CPA, best in the account</strong>. PUREST is the same pattern on
-                Meta: a third of Ethan's CTR, 100% of the checkouts. The algorithm
-                feeds curiosity; these earn intent. Fix: dedicated ad group with its
-                own budget — the bandit can't starve what it doesn't control.
+                EYE_GIANT earns ~1% CTR, so the algorithm underfeeds it — yet at real
+                spend it proved out: <strong>$472 → 12 purchases at 6.97×</strong>,
+                taking 18.2% of summer30 2's purchases on 9.5% of its spend. Same
+                pattern both platforms: low-curiosity, high-intent creatives. Fix:
+                dedicated ad group — the bandit can't starve what it doesn't control.
               </p>
             </div>
             <div className={s.insight}>
               <span className={s.insightNum}>−2pts</span>
               <span className={s.insightTag}>Dilution tax</span>
               <p className={s.insightBody}>
-                The same Ethan video runs 6.68× in a small rotation, 5.42× in its
-                own ad, 3.69× buried with 95 others. Identical footage,
-                <strong> ~2 points of ROAS lost to crowding</strong>. 38–49% of
+                The same Ethan video runs 6.68× in a small rotation, 5.23× in its
+                own ad, 3.19× buried with ~90 others. Identical footage,
+                <strong> ~2–3 points of ROAS lost to crowding</strong>. 35–46% of
                 pool spend went to creatives that have never sold.
               </p>
             </div>
             <div className={s.insight}>
-              <span className={s.insightNum}>1.82×</span>
-              <span className={s.insightTag}>Re-cuts don't work</span>
+              <span className={s.insightNum}>5.93×</span>
+              <span className={s.insightTag}>Treatment matters</span>
               <p className={s.insightBody}>
-                Six re-edits of Ethan's footage: best 3.51×, four at zero. The
-                originals: 5.4–5.5×. <strong>The asset is the raw video, not the
-                edit</strong> — the ask is more footage, not more versions.
+                Ethan's new videos hit <strong>5.93× and 3.44×</strong> — the same
+                content with an edited-in background and floating logo ran ~1.0×.
+                Native-looking footage sells; the produced look reads as an ad and
+                dies. Kill the treatment, not the creator.
               </p>
             </div>
           </div>
@@ -332,7 +352,7 @@ export default function SkoAdsAugust() {
           <div className={base.tableWrap}>
             <table className={`${base.table} ${s.num}`}>
               <thead>
-                <tr><th>Ad</th><th>Spend</th><th>Clicks</th><th>CTR</th><th>Checkouts†</th><th>Est. purchases*</th></tr>
+                <tr><th>Ad</th><th>Spend</th><th>Link clicks</th><th>CTR</th><th>Purchases (tracked)†</th><th>Est. purchases*</th></tr>
               </thead>
               <tbody>
                 {META_ADS.map((r) => (
@@ -341,27 +361,30 @@ export default function SkoAdsAugust() {
                     <td>{usd(r.spend)}</td>
                     <td>{r.clicks}</td>
                     <td>{r.impr ? `${((r.clicks / r.impr) * 100).toFixed(1)}%` : "—"}</td>
-                    <td className={r.co ? s.good : s.dim}>{r.co || "—"}</td>
-                    <td className={r.est ? s.good : s.dim}>{r.est || "—"}</td>
+                    <td className={r.pur ? s.good : s.dim}>{r.pur || "—"}</td>
+                    <td className={r.est !== "—" ? s.good : s.dim}>{r.est}</td>
                   </tr>
                 ))}
                 <tr className={s.rowStrong}>
-                  <td>Total</td><td>{usd(99.97)}</td><td>115</td><td>2.9%</td><td>3 · $34.32 ea</td><td>~2–3*</td>
+                  <td>Total</td><td>{usd(677.58)}</td><td>476</td><td>1.9%</td><td className={s.good}>6 · $5.74 ea</td><td>~8–11*</td>
                 </tr>
               </tbody>
             </table>
           </div>
           <p className={s.footnote}>
-            †All 3 checkouts attribute to PUREST, $9.87 each. *Modeled: clicks ×
-            site conversion rate, checkouts × ~55% completion → ~2–4 purchases.
+            †Tracked = Meta-attributed website purchases. All six TheBOX purchases:
+            men 25–34, $5.74 each, zero link clicks — it converts straight from the
+            ad. *Modeled: link clicks × site conversion rate; PUREST and GIANTWOMAN
+            upper bounds extrapolate their earlier cost-per-checkout.
           </p>
           <p className={base.body}>
-            Meta reporting is fuzzy right now — fresh account warming up (the old
-            account was banned), pixel installed midweek, purchase capture still
-            leaky. It sharpens as we tighten site tracking and pixel cooperation,
-            and CAPI lands once the account is old enough for Meta Business Suite
-            access. TikTok carries the volume meanwhile; first clean Meta read is
-            Aug 17–23.
+            Meta reporting is still fuzzy — fresh account warming (the old one was
+            banned), purchase capture still leaky — but $678 in, <strong>the first
+            tracked conversions are flowing and the demographic splits already
+            work: every TheBOX purchase is a man 25–34.</strong> It sharpens as we
+            tighten site tracking and pixel cooperation, and CAPI lands once the
+            account is old enough for Meta Business Suite access. TikTok carries
+            the volume meanwhile.
           </p>
 
           <div className={base.tableWrap}>
@@ -371,20 +394,20 @@ export default function SkoAdsAugust() {
               </thead>
               <tbody>
                 <tr>
-                  <td>Checkout attribution verified</td>
-                  <td>3 checkouts → PUREST · <span className={s.good}>$9.87 each</span></td>
+                  <td>First tracked purchases</td>
+                  <td>TheBOX: <span className={s.good}>6 on $34.44 — $5.74 CPA</span>, 100% men 25–34</td>
                 </tr>
                 <tr>
                   <td>Click quality — Ethan UGC</td>
-                  <td>3.87% CTR, rising to <span className={s.good}>5.19%</span> Aug 15–16</td>
+                  <td><span className={s.good}>2.85%</span> link CTR holding at $377 spend</td>
                 </tr>
                 <tr>
-                  <td>Intent vs curiosity</td>
-                  <td>PUREST: ⅓ the CTR, 100% of checkouts — highest-intent clicks</td>
+                  <td>Buying without clicking</td>
+                  <td>TheBOX: zero link clicks, six purchases — converts in-feed</td>
                 </tr>
                 <tr>
                   <td>Metric while stock is low</td>
-                  <td>Cost per checkout initiated — ROAS returns at restock</td>
+                  <td>Cost per tracked purchase — ROAS returns at restock</td>
                 </tr>
               </tbody>
             </table>
@@ -428,34 +451,35 @@ export default function SkoAdsAugust() {
           </div>
 
           <div className={s.summary}>
-            <div className={s.stat} data-tip="Distinct UGC videos in paid rotation this week, both from Ethan.">
-              <span className={s.statNum}>2</span>
+            <div className={s.stat} data-tip="Distinct Ethan videos in paid rotation this week: the 2 proven originals plus 6 new-content tests.">
+              <span className={s.statNum}>8</span>
               <span className={s.statLabel}>Videos (Ethan)</span>
-              <span className={`${s.statDelta} ${s.flat}`}>5 paid placements</span>
+              <span className={`${s.statDelta} ${s.flat}`}>2 proven + 6 new</span>
             </div>
-            <div className={s.stat} data-tip="Paid video views across every TikTok and Meta placement running the UGC.">
-              <span className={s.statNum}>~155K</span>
-              <span className={s.statLabel}>Paid views</span>
-              <span className={`${s.statDelta} ${s.flat}`}>TikTok + Meta</span>
+            <div className={s.stat} data-tip="Paid impressions across every TikTok placement running Ethan content, Aug 9–17.">
+              <span className={s.statNum}>~312K</span>
+              <span className={s.statLabel}>Paid impressions</span>
+              <span className={`${s.statDelta} ${s.flat}`}>TikTok · + 12K Meta</span>
             </div>
-            <div className={s.stat} data-tip="Revenue the platforms attribute to ads running the two UGC videos — 46% of all ad revenue this week.">
-              <span className={s.statNum}>$10,411</span>
+            <div className={s.stat} data-tip="Revenue TikTok attributes to ads running Ethan content — 50% of all tracked ad revenue this week.">
+              <span className={s.statNum}>$16,699</span>
               <span className={s.statLabel}>UGC revenue</span>
-              <span className={`${s.statDelta} ${s.up}`}>46% of ad revenue</span>
+              <span className={`${s.statDelta} ${s.up}`}>50% of ad revenue</span>
             </div>
             <div className={s.stat} data-tip="UGC-attributed revenue ÷ UGC spend.">
-              <span className={s.statNum}>4.77×</span>
+              <span className={s.statNum}>4.20×</span>
               <span className={s.statLabel}>UGC ROAS</span>
-              <span className={`${s.statDelta} ${s.flat}`}>on 39% of spend</span>
+              <span className={`${s.statDelta} ${s.flat}`}>on 44% of spend</span>
             </div>
           </div>
 
-          <AdTable rows={UGC_PLACEMENTS} total />
+          <AdTable rows={UGC_PLACEMENTS} total poolSpend={TT.spend} poolPur={TT.pur} />
           <p className={base.body}>
-            Two videos from one creator produced <strong>$10,410.55 across 44
-            purchases</strong> — 46% of the week's tracked ad revenue on 39% of the
-            spend. The format is proven; the re-cuts are not. The ask is more raw
-            footage, not more edits.
+            One creator's content produced <strong>$16,698.84 across 81
+            purchases</strong> — 50% of the week's tracked ad revenue on 44% of the
+            spend, and his two new videos proved the format repeats (5.93×, 3.44×).
+            The ask stays the same: more raw, native-looking footage. No edited
+            backgrounds, no floating logos — that treatment ran ~1.0×.
           </p>
         </section>
 
@@ -481,14 +505,14 @@ export default function SkoAdsAugust() {
                 <tr><td>ETHAN UGC — hold</td><td>$1,500</td></tr>
                 <tr><td>LAST CHANCE — raise (best CPA)</td><td>$1,200</td></tr>
                 <tr><td>summer30 2 — cut, strip pool 96 → 10</td><td>$800–1,000</td></tr>
-                <tr><td>ETHAN UGC 2 — pause</td><td>$0</td></tr>
+                <tr><td>ETHAN UGC 2 — keep the 2 new videos, kill the 4 logo/background versions</td><td>$1,000</td></tr>
                 <tr><td>EYE_GIANT — new dedicated ad group (force-feed the intent winner)</td><td>$350–500</td></tr>
                 <tr><td>Meta — tracking-validation week</td><td>$100–150</td></tr>
                 <tr className={s.rowStrong}>
-                  <td>Goal spend</td><td>$3,500–4,500</td>
+                  <td>Goal spend</td><td>$4,500–5,500</td>
                 </tr>
                 <tr className={s.rowStrong}>
-                  <td>Goal revenue (platform-reported)</td><td>$15,000–18,000‡</td>
+                  <td>Goal revenue (platform-reported)</td><td>$17,000–21,000‡</td>
                 </tr>
               </tbody>
             </table>
@@ -506,7 +530,8 @@ export default function SkoAdsAugust() {
               <strong>Commission more UGC.</strong> Two videos drove 46% of ad
               revenue on 39% of spend — the highest-leverage move available. Get
               2–3 new raw videos this week: Ethan again (proven face), plus one
-              new creator for a second look. Raw footage only — no re-cuts.
+              new creator for a second look. Raw, native-looking footage only — no
+              edited backgrounds, no floating logos (that treatment ran ~1.0×).
             </li>
             <li>
               <strong>Turn SUMMER30 off for paid traffic.</strong> At 25% stock the
