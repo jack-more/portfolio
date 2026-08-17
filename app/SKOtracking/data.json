@@ -1,5 +1,5 @@
 {
-  "lastVerified": "2026-08-11",
+  "lastVerified": "2026-08-17",
   "sources": [
     {
       "platform": "OpenAI (ChatGPT Ads)",
@@ -9,18 +9,18 @@
         "checkout_started",
         "order_created"
       ],
-      "serverEvents": "openai-capi-event → bzr.openai.com/v1/events",
+      "serverEvents": "openai-capi-event \u2192 bzr.openai.com/v1/events",
       "dedupeKey": "event_id (order_<orderNumber>)",
       "secrets": [
         "OPENAI_PIXEL_CAPI_KEY"
       ],
-      "hookPoint": "src/lib/openai-pixel.ts · oaiqMeasure()",
+      "hookPoint": "src/lib/openai-pixel.ts \u00b7 oaiqMeasure()",
       "health": "degraded",
-      "note": "checkout_started 220, order_created 3 — purchases are now landing after the schema fix. Identifier coverage still 0% on both email and external ID. 220 pixel checkouts against 634 real orders means the pixel is missing most of the funnel."
+      "note": "checkout_started 220, order_created 3 \u2014 purchases are now landing after the schema fix. Identifier coverage still 0% on both email and external ID. 220 pixel checkouts against 634 real orders means the pixel is missing most of the funnel."
     },
     {
       "platform": "Meta",
-      "id": "2122473828697675",
+      "id": "1023230300704427",
       "runtime": true,
       "browserEvents": [
         "PageView",
@@ -29,7 +29,7 @@
         "InitiateCheckout",
         "Purchase"
       ],
-      "serverEvents": "meta-conversion-event · meta-purchase-event",
+      "serverEvents": "meta-conversion-event \u00b7 meta-purchase-event",
       "dedupeKey": "meta_event_id",
       "secrets": [
         "META_PIXEL_ID",
@@ -37,8 +37,8 @@
         "META_TEST_EVENT_CODE"
       ],
       "hookPoint": "src/lib/meta-pixel.ts (ID via get-meta-config)",
-      "health": "unverified",
-      "note": "ID now matches the dataset the ad account optimizes against. Earlier today the site was firing 2089922941789319 instead. Events Manager still shows no conversion events recorded — needs one test order to confirm Purchase lands."
+      "health": "degraded",
+      "note": "New dataset live in production since midweek \u2014 full funnel firing (PageView 2.4K, ViewContent 468, AddToCart 109, Checkout 40, Purchase 11). Purchase event is gated on payment verification and fires on ~10% of orders; fix ticketed. CAPI still blocked on system-user token."
     },
     {
       "platform": "TikTok",
@@ -53,7 +53,7 @@
         "Purchase",
         "CompleteRegistration"
       ],
-      "serverEvents": "tiktok-conversion-event · tiktok-purchase-event",
+      "serverEvents": "tiktok-conversion-event \u00b7 tiktok-purchase-event",
       "dedupeKey": "meta_event_id (shared)",
       "secrets": [
         "TIKTOK_ACCESS_TOKEN",
@@ -61,11 +61,11 @@
       ],
       "hookPoint": "src/lib/tiktok-pixel.ts",
       "health": "live",
-      "note": "Server copy dedupes on the same meta_event_id as Meta. Sharing one key across two platforms works, but means a change to the key breaks both at once."
+      "note": "Server copy dedupes on the same meta_event_id as Meta. Purchase event shares the same payment-verification gate as Meta \u2014 TikTok-attributed counts undercount for the same reason. Fix ticketed."
     },
     {
       "platform": "Google Ads / GA4",
-      "id": "AW-18196526516 · GTM-TMG5WDJQ",
+      "id": "AW-18196526516 \u00b7 GTM-TMG5WDJQ",
       "runtime": true,
       "browserEvents": [
         "GA4 dataLayer events (docs/GA4_DATA_LAYER.md)"
@@ -73,7 +73,7 @@
       "serverEvents": "Server-side GTM via sst.skocompounds.com",
       "dedupeKey": null,
       "secrets": [],
-      "hookPoint": "index.html head · src/lib/gtm-dataLayer.ts",
+      "hookPoint": "index.html head \u00b7 src/lib/gtm-dataLayer.ts",
       "health": "live",
       "note": "First-party server container on a custom loader path, which survives most tracker blocking. Best-protected source in the stack."
     },
@@ -82,32 +82,32 @@
       "id": "uniclick (parser-blocking)",
       "runtime": true,
       "browserEvents": [
-        "landing beacon → rt-diag"
+        "landing beacon \u2192 rt-diag"
       ],
       "serverEvents": "Attribution written onto the order record",
       "dedupeKey": null,
       "secrets": [],
-      "hookPoint": "src/lib/attribution.ts → create-order",
+      "hookPoint": "src/lib/attribution.ts \u2192 create-order",
       "health": "live",
-      "note": "Snapshots cmpid, sub2–sub8, ref_id, ttclid and utm_* into sessionStorage, plus first/last touch in localStorage. Script is parser-blocking, so it costs page speed on every landing."
+      "note": "Snapshots cmpid, sub2\u2013sub8, ref_id, ttclid and utm_* into sessionStorage, plus first/last touch in localStorage. Script is parser-blocking, so it costs page speed on every landing."
     }
   ],
   "coverage": [
     {
       "step": "Landing",
-      "openai": "—",
+      "openai": "\u2014",
       "meta": "PageView",
       "tiktok": "page"
     },
     {
       "step": "Product view",
-      "openai": "—",
+      "openai": "\u2014",
       "meta": "ViewContent",
       "tiktok": "ViewContent"
     },
     {
       "step": "Add to cart",
-      "openai": "—",
+      "openai": "\u2014",
       "meta": "AddToCart",
       "tiktok": "AddToCart"
     },
@@ -119,8 +119,8 @@
     },
     {
       "step": "Payment info",
-      "openai": "—",
-      "meta": "—",
+      "openai": "\u2014",
+      "meta": "\u2014",
       "tiktok": "AddPaymentInfo"
     },
     {
@@ -133,21 +133,21 @@
   "issues": [
     {
       "id": "T-01",
-      "title": "Meta Purchase never confirmed firing",
+      "title": "Purchase event fires on ~10% of orders",
       "severity": "blocker",
-      "platform": "Meta",
-      "detail": "The ad set optimizes for Purchase on 2122473828697675, and Events Manager reports no conversion events set up on that dataset. Until a purchase is observed landing, the campaign would spend against a model with no signal.",
-      "fix": "Events Manager → dataset → Test Events → enter skocompounds.com → place one real order → confirm Purchase arrives with a value.",
-      "status": "Open — no purchase observed on the Meta dataset yet"
+      "platform": "Meta \u00b7 TikTok",
+      "detail": "The purchase event is gated on a payment-verified timestamp that usually lands after the confirmation page renders. ~140 orders since Friday produced 11 pixel purchases. Every platform's reported conversions and every bid decision run on a 10% sample.",
+      "fix": "Fire the purchase event on order creation, unconditionally, every payment path \u2014 server-side if a path skips the confirmation page. Ticket sent to Lovable; acceptance is one full day where pixel purchases \u2248 admin orders.",
+      "status": "Open \u2014 ticket sent, highest priority"
     },
     {
       "id": "T-02",
       "title": "OpenAI pixel undercounts the funnel",
       "severity": "high",
       "platform": "OpenAI",
-      "detail": "order_created has gone 0 → 3 since the schema fix, so purchases now land. But 220 checkout_started against 634 real orders means the pixel sees roughly a third of checkouts and almost no purchases.",
-      "fix": "Find why most orders never fire the pixel — installed mid-week, or a checkout path that skips it.",
-      "status": "Open — schema fixed, coverage is not"
+      "detail": "order_created has gone 0 \u2192 3 since the schema fix, so purchases now land. But 220 checkout_started against 634 real orders means the pixel sees roughly a third of checkouts and almost no purchases.",
+      "fix": "Find why most orders never fire the pixel \u2014 installed mid-week, or a checkout path that skips it.",
+      "status": "Open \u2014 schema fixed, coverage is not"
     },
     {
       "id": "T-03",
@@ -155,15 +155,15 @@
       "severity": "high",
       "platform": "OpenAI",
       "detail": "Email coverage 0.0% and External ID coverage 0.0% across all 188 events. Without either identifier OpenAI cannot tie an event back to a user, so conversions land in the unattributed bucket and the campaign optimizes on a weaker signal than it should.",
-      "fix": "Send a hashed email and a stable external ID on both events. The order flow already captures email at checkout, and create-order already writes a customer record — so the value exists, it just is not being passed to the pixel.",
-      "status": "Open — worth fixing before spend scales"
+      "fix": "Send a hashed email and a stable external ID on both events. The order flow already captures email at checkout, and create-order already writes a customer record \u2014 so the value exists, it just is not being passed to the pixel.",
+      "status": "Open \u2014 worth fixing before spend scales"
     },
     {
       "id": "T-04",
       "title": "One dedupe key shared across Meta and TikTok",
       "severity": "medium",
-      "platform": "Meta · TikTok",
-      "detail": "Both server functions dedupe on meta_event_id. It works today, but couples two platforms to one identifier — a change made for one silently affects the other.",
+      "platform": "Meta \u00b7 TikTok",
+      "detail": "Both server functions dedupe on meta_event_id. It works today, but couples two platforms to one identifier \u2014 a change made for one silently affects the other.",
       "fix": "Leave as-is unless a change is needed. If either platform's dedupe is ever edited, test both.",
       "status": "Monitor"
     },
@@ -173,19 +173,28 @@
       "severity": "medium",
       "platform": "Meta",
       "detail": "Ad account 880814205101777 is attached to the Sko Compounds portfolio as an outside asset; the portfolio itself owns zero ad accounts. Originally created as a personal ad account.",
-      "fix": "Business Settings → Accounts → Ad accounts → Claim → 880814205101777. Then audit who retains access and remove anyone who has left.",
-      "status": "Open — no longer blocks the pixel, still an access risk"
+      "fix": "Business Settings \u2192 Accounts \u2192 Ad accounts \u2192 Claim \u2192 880814205101777. Then audit who retains access and remove anyone who has left.",
+      "status": "Open \u2014 no longer blocks the pixel, still an access risk"
+    },
+    {
+      "id": "T-06",
+      "title": "Meta payment errors throttle delivery",
+      "severity": "high",
+      "platform": "Meta",
+      "detail": "Both campaigns show Payment error \u00b7 low budget used. The company card caps unsupervised spend, so charges fail until pushed manually; every stall stops delivery and resets pacing.",
+      "fix": "Onboard the replacement card. Until then, expect Meta results to under-read the creative.",
+      "status": "Open \u2014 card swap in progress"
     }
   ],
-  "weekOf": "Aug 4 – Aug 10, 2026",
+  "weekOf": "Aug 11 \u2013 Aug 17, 2026",
   "channels": [
     {
       "key": "tiktok",
       "label": "TikTok",
-      "spend": 1744.72,
-      "spendWindow": "Aug 5–11",
-      "plannedDaily": null,
-      "note": "Refunded and delivering again: $100 balance, $7.71 spent today, 2 ad groups active, 1 partial, 13 not delivering. Went dark Aug 7 when the balance hit zero."
+      "spend": 9028.61,
+      "spendWindow": "Aug 9\u201317",
+      "plannedDaily": 700,
+      "note": "154 platform-reported purchases, $33,549 value, 3.72\u00d7 blended. Winners (ETHAN UGC 4.84\u00d7, LAST CHANCE 5.21\u00d7) at $50 cost caps; summer30 2 fatiguing at 3.11\u00d7. Consolidation plan on /SKOtests."
     },
     {
       "key": "openai",
@@ -193,21 +202,21 @@
       "spend": 1.94,
       "spendWindow": "Aug 11",
       "plannedDaily": 200,
-      "note": "No campaign has run yet. order_created is now firing, so purchase optimization has a signal for the first time."
+      "note": "Stale \u2014 last verified Aug 11. order_created firing; no campaign scaled since."
     },
     {
       "key": "meta",
       "label": "Meta",
-      "spend": 0,
-      "spendWindow": "Aug 4–9",
+      "spend": 677.58,
+      "spendWindow": "Aug 1\u201317",
       "plannedDaily": 150,
-      "note": "Zero impressions. The 3 attributed orders came from old or organic fbclid clicks, not paid delivery."
+      "note": "4 ads live since Aug 13. First tracked conversions: TheBOX 6 purchases at $5.74 CPA, all men 25\u201334. Delivery throttled by card payment errors. First clean read after capture fix + card swap."
     },
     {
       "key": "taboola",
       "label": "Taboola",
       "spend": 0,
-      "spendWindow": "Aug 4–10",
+      "spendWindow": "Aug 4\u201310",
       "plannedDaily": null,
       "note": "12 ads built, nothing spent. Not in the pixel stack notes."
     },
@@ -215,7 +224,7 @@
       "key": "google",
       "label": "Google Ads",
       "spend": null,
-      "spendWindow": "—",
+      "spendWindow": "\u2014",
       "plannedDaily": null,
       "note": "No dashboard access. Spend unknown."
     },
@@ -223,7 +232,7 @@
       "key": "affiliate",
       "label": "Affiliate / UGC",
       "spend": null,
-      "spendWindow": "—",
+      "spendWindow": "\u2014",
       "plannedDaily": null,
       "note": "Largest revenue channel and highest AOV. Cost is commission rather than media spend, so ROAS is not comparable to the paid channels."
     }
@@ -231,65 +240,98 @@
   "scorecard": [
     {
       "metric": "Ad spend",
-      "actual": null,
-      "goal": null,
+      "actual": 9706.19,
+      "goal": 5500,
       "unit": "usd",
       "source": "Sum of Meta + TikTok + OpenAI + Google Ads Manager spend for the week"
     },
     {
       "metric": "Revenue attributed to ads",
-      "actual": null,
-      "goal": null,
+      "actual": 33549,
+      "goal": 21000,
       "unit": "usd",
-      "source": "Order table where attribution_source is a paid channel. Your own orders are business truth, not the platforms' self-reported numbers"
+      "source": "TikTok platform-reported (order-table floor pending capture fix)"
     },
     {
       "metric": "Blended ROAS",
-      "actual": null,
-      "goal": null,
+      "actual": 3.46,
+      "goal": 3.4,
       "unit": "x",
-      "source": "Derived: revenue attributed to ads ÷ ad spend"
+      "source": "Platform revenue \u00f7 total spend (TikTok+Meta). 3.4\u00d7 = 10%-margin floor"
     },
     {
       "metric": "Orders from ads",
-      "actual": null,
+      "actual": 160,
       "goal": null,
       "unit": "count",
-      "source": "Order table, paid attribution_source, same window"
+      "source": "154 TikTok-attributed + 6 Meta tracked (platform-reported)"
     },
     {
       "metric": "UGC videos posted",
-      "actual": null,
+      "actual": 8,
       "goal": null,
       "unit": "count",
-      "source": "Manual count per creator. No system captures this — it has to be logged"
+      "source": "Manual count per creator. No system captures this \u2014 it has to be logged"
     },
     {
       "metric": "UGC views",
-      "actual": null,
+      "actual": 312000,
       "goal": null,
       "unit": "count",
-      "source": "Creator-reported or pulled from each post's native analytics"
+      "source": "Paid impressions across Ethan-content placements, TikTok, Aug 9\u201317"
     },
     {
       "metric": "Revenue attributed to UGC",
-      "actual": null,
+      "actual": 16699,
       "goal": null,
       "unit": "usd",
-      "source": "Order table where the discount code or affiliate link maps to a creator. Only as exact as code coverage — see the note below"
+      "source": "Order table where the discount code or affiliate link maps to a creator. Only as exact as code coverage \u2014 see the note below"
     }
   ],
-  "topAds": [],
-  "ugcNote": "Revenue attributed to UGC is only as exact as the identifier on the order. A unique discount code per creator is the single highest-leverage change here: it survives ad blockers, iOS, and dark social sharing, none of which a click ID does. Without per-creator codes, UGC revenue is an estimate no matter how the tracking is built.",
+  "topAds": [
+    {
+      "ad": "ethan UGC_vKCU0o8b",
+      "platform": "TikTok",
+      "spend": 1632.98,
+      "revenue": 7556.44,
+      "roas": 4.63,
+      "why": "Native creator video, 2.12% CTR, runs profitably in 3 pools \u2014 the account's workhorse"
+    },
+    {
+      "ad": "EYE_GIANT_9X16_15s",
+      "platform": "TikTok",
+      "spend": 506.5,
+      "revenue": 4006.51,
+      "roas": 7.91,
+      "why": "Low CTR, high intent \u2014 $267 baskets, ~$70 profit/order; dedicated ad group next week"
+    },
+    {
+      "ad": "ethan ugc 2 + new videos",
+      "platform": "TikTok",
+      "spend": 2345.17,
+      "revenue": 9142.4,
+      "roas": 3.9,
+      "why": "Ethan's new content works (5.93\u00d7/3.44\u00d7); logo/background treatments ran ~1.0\u00d7 and get throttled"
+    },
+    {
+      "ad": "TheBOX",
+      "platform": "Meta",
+      "spend": 34.44,
+      "revenue": null,
+      "roas": null,
+      "why": "First tracked Meta conversions: 6 purchases, $5.74 CPA, 100% men 25\u201334 \u2014 converts in-feed without link clicks"
+    }
+  ],
+  "ugcNote": "Revenue attributed to UGC is platform-reported and only as exact as the identifier on the order. Purchase-event capture fix (ticketed) is the gate to trusting the floor. Per-creator codes remain the identifier that survives ad blockers, iOS, and dark social.",
   "campaign": {
-    "name": "SKO | Sales | Prospecting | Aug 2026",
-    "account": "880814205101777",
-    "budget": "$150.00 / day (campaign budget)",
-    "ceiling": "$262.50 max in a day · $1,050 max in a week",
-    "adSet": "US · Broad · 20-65 · Purchase",
-    "objective": "Sales · Maximize conversions · Purchase",
-    "status": "Off — 8 ads pending publish, $0 spent",
-    "ads": "8 built",
-    "promo": "SUMMER30 — 30% off, no end date, cancelled manually"
+    "name": "END OF SUMMER 30 \u00b7 New Sales Campaign",
+    "account": "2033203383989191 (SKO Ad Account \u2013 Compliant)",
+    "budget": "$150/day intended; payment errors capping actual delivery",
+    "ceiling": "\u2014",
+    "adSet": "END OF SUMMER 30 \u00b7 Last Chance Summer 30",
+    "objective": "Sales \u00b7 Purchase on dataset 1023230300704427",
+    "status": "Live since Aug 13 \u00b7 $677.58 spent Aug 1\u201317 \u00b7 Payment error flags on both campaigns",
+    "ads": "ETHAN UGC summer 30 \u00b7 PUREST \u00b7 GIANTWOMAN + AI IMAGE \u00b7 TheBOX",
+    "promo": "SUMMER30 still reaching paid traffic \u2014 being pulled from paid; codes burned into some creatives (AI-4, HighCostBau) need re-cuts"
   }
 }

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 };
 
 export default async function SkoTracking() {
-  const { data, error } = await getAttribution("2026-08-04", "2026-08-10");
+  const { data, error } = await getAttribution("2026-08-11", "2026-08-17");
 
   const bySource = new Map(data?.by_source.map((r) => [r.source, r]) ?? []);
   const rows = CHANNELS.map((c) => {
