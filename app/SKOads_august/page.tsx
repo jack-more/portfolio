@@ -259,10 +259,52 @@ export default function SkoAdsAugust() {
           </p>
         </section>
 
-        {/* ---- meta ---- */}
+        {/* ---- key patterns ---- */}
         <section className={base.section}>
           <div className={base.sectionHead}>
             <span className={base.sectionNum}>04</span>
+            <h2 className={base.sectionTitle}>Three patterns that set next week</h2>
+          </div>
+
+          <div className={s.insightGrid}>
+            <div className={s.insight}>
+              <span className={s.insightNum}>22.97×</span>
+              <span className={s.insightTag}>Low CTR, high intent</span>
+              <p className={s.insightBody}>
+                EYE_GIANT gets 0.82% CTR, so the algorithm starves it — but its few
+                clicks convert absurdly well: $31.30 → 3 purchases, <strong>$10.43
+                CPA, best in the account</strong>. PUREST is the same pattern on
+                Meta: a third of Ethan's CTR, 100% of the checkouts. The algorithm
+                feeds curiosity; these earn intent. Fix: dedicated ad group with its
+                own budget — the bandit can't starve what it doesn't control.
+              </p>
+            </div>
+            <div className={s.insight}>
+              <span className={s.insightNum}>−2pts</span>
+              <span className={s.insightTag}>Dilution tax</span>
+              <p className={s.insightBody}>
+                The same Ethan video runs 6.68× in a small rotation, 5.42× in its
+                own ad, 3.69× buried with 95 others. Identical footage,
+                <strong> ~2 points of ROAS lost to crowding</strong>. 38–49% of
+                pool spend went to creatives that have never sold.
+              </p>
+            </div>
+            <div className={s.insight}>
+              <span className={s.insightNum}>1.82×</span>
+              <span className={s.insightTag}>Re-cuts don't work</span>
+              <p className={s.insightBody}>
+                Six re-edits of Ethan's footage: best 3.51×, four at zero. The
+                originals: 5.4–5.5×. <strong>The asset is the raw video, not the
+                edit</strong> — the ask is more footage, not more versions.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* ---- meta ---- */}
+        <section className={base.section}>
+          <div className={base.sectionHead}>
+            <span className={base.sectionNum}>05</span>
             <h2 className={base.sectionTitle}>Meta — first week live</h2>
           </div>
           <div className={base.tableWrap}>
@@ -359,7 +401,7 @@ export default function SkoAdsAugust() {
         {/* ---- ugc ---- */}
         <section className={base.section}>
           <div className={base.sectionHead}>
-            <span className={base.sectionNum}>05</span>
+            <span className={base.sectionNum}>06</span>
             <h2 className={base.sectionTitle}>UGC performance</h2>
           </div>
 
@@ -398,7 +440,7 @@ export default function SkoAdsAugust() {
         {/* ---- next week ---- */}
         <section className={base.section}>
           <div className={base.sectionHead}>
-            <span className={base.sectionNum}>06</span>
+            <span className={base.sectionNum}>07</span>
             <h2 className={base.sectionTitle}>Next week — 25% inventory left</h2>
           </div>
 
@@ -418,16 +460,24 @@ export default function SkoAdsAugust() {
                 <tr><td>LAST CHANCE — raise (best CPA)</td><td>$1,200</td></tr>
                 <tr><td>summer30 2 — cut, strip pool 96 → 10</td><td>$800–1,000</td></tr>
                 <tr><td>ETHAN UGC 2 — pause</td><td>$0</td></tr>
+                <tr><td>EYE_GIANT — new dedicated ad group (force-feed the intent winner)</td><td>$350–500</td></tr>
                 <tr><td>Meta — tracking-validation week</td><td>$100–150</td></tr>
                 <tr className={s.rowStrong}>
-                  <td>Goal spend</td><td>$3,500–4,000</td>
+                  <td>Goal spend</td><td>$3,500–4,500</td>
                 </tr>
                 <tr className={s.rowStrong}>
-                  <td>Goal revenue (platform-reported)</td><td>$15,000–18,000</td>
+                  <td>Goal revenue (platform-reported)</td><td>$15,000–18,000‡</td>
                 </tr>
               </tbody>
             </table>
           </div>
+
+          <p className={s.footnote}>
+            ‡Assumes stock covers the week. Decision rule: if units left ÷ daily
+            unit velocity is fewer days than the restock date, cut to $2–2.5K spend
+            and an $8–12K goal — at that point ads are accelerating a sell-out, not
+            adding sales.
+          </p>
 
           <ul className={base.list}>
             <li>

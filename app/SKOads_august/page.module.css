@@ -155,3 +155,38 @@
   vertical-align: middle;
   display: inline-block;
 }
+
+/* insight cards */
+.insightGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 0.9rem;
+}
+.insight {
+  border: 1px solid #000;
+  border-top: 4px solid var(--green);
+  background: rgba(250, 249, 245, 0.5);
+  padding: 1.2rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.insightNum {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 2.7rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.insightTag {
+  font-size: 11.5px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--green);
+}
+.insightBody {
+  font-size: 13.5px !important;
+  line-height: 1.6;
+  font-weight: 450;
+}
