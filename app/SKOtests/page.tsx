@@ -172,9 +172,122 @@ export default function SkoTests() {
           </p>
         </section>
 
+
         <section className={base.section}>
           <div className={base.sectionHead}>
-            <span className={base.sectionNum}>04</span>
+            <span className={base.sectionNum}>05</span>
+            <h2 className={base.sectionTitle}>The margin machine — what 8–10% requires</h2>
+          </div>
+
+          <p className={s.pullBig}>
+            Every $218 order: where it goes, and the three levers that decide
+            whether 8–10% is left at the end.
+          </p>
+
+          {(() => {
+            const AOV = 218;
+            const items: [string, number, string][] = [
+              ["Payment processing", 17, "highest single cost — high-risk rail"],
+              ["COGS", 10, ""],
+              ["Fulfillment", 10, ""],
+              ["Shipping", 8, ""],
+              ["Labor", 20, "check: fixed or per-order?"],
+              ["Misc / gap to 75%", 10, "napkin says 65% — name this 10%"],
+            ];
+            let cum = 0;
+            return (
+              <div className={s.wf}>
+                <div className={s.wfRow}>
+                  <span className={s.wfLabel}>Order (AOV)</span>
+                  <div className={s.wfTrack}>
+                    <div className={`${s.wfSeg} ${s.wfRev}`} style={{ width: "100%" }}>$218 · 100%</div>
+                  </div>
+                  <span className={s.wfNote} />
+                </div>
+                {items.map(([label, pct, note]) => {
+                  const row = (
+                    <div className={s.wfRow} key={label}>
+                      <span className={s.wfLabel}>− {label}</span>
+                      <div className={s.wfTrack}>
+                        <div className={s.wfPad} style={{ width: `${cum}%` }} />
+                        <div className={`${s.wfSeg} ${s.wfCost}`} style={{ width: `${pct}%` }}>
+                          {pct}%
+                        </div>
+                      </div>
+                      <span className={s.wfNote}>{note ? note : `$${Math.round((pct / 100) * AOV)}`}</span>
+                    </div>
+                  );
+                  cum += pct;
+                  return row;
+                })}
+                <div className={s.wfRow}>
+                  <span className={s.wfLabel}>− CAC (the lever)</span>
+                  <div className={s.wfTrack}>
+                    <div className={s.wfPad} style={{ width: "75%" }} />
+                    <div className={`${s.wfSeg} ${s.wfCac}`} style={{ width: "16%" }}>≤16% · $35</div>
+                  </div>
+                  <span className={s.wfNote}>ROAS ≥ 6.2×</span>
+                </div>
+                <div className={s.wfRow}>
+                  <span className={s.wfLabel}>= Net margin</span>
+                  <div className={s.wfTrack}>
+                    <div className={s.wfPad} style={{ width: "91%" }} />
+                    <div className={`${s.wfSeg} ${s.wfMargin}`} style={{ width: "9%" }}>9%</div>
+                  </div>
+                  <span className={s.wfNote}>$19–22</span>
+                </div>
+              </div>
+            );
+          })()}
+
+          <p className={s.footnote}>
+            Discounts sit on top of everything: a 20% code wipes 2× the target
+            margin before ads spend a dollar. Paid traffic runs full price, always.
+          </p>
+
+          <h3 className={s.subheadBig}>Three routes to 8–10% — pick any one, or stack them</h3>
+          <div className={s.insightGrid}>
+            <div className={s.insight}>
+              <span className={s.insightNum}>6.2×</span>
+              <span className={s.insightTag}>Route A — outperform</span>
+              <p className={s.insightBody}>
+                Keep costs as-is (75%), force CAC to ≤16% of AOV ($35). Requires{" "}
+                <strong>blended ROAS ≥ 6.2×</strong> — only EYE_GIANT-tier creatives
+                run there. Hard to hold at scale.
+              </p>
+            </div>
+            <div className={s.insight}>
+              <span className={s.insightNum}>17→10%</span>
+              <span className={s.insightTag}>Route B — fix processing</span>
+              <p className={s.insightBody}>
+                The processor takes $37 an order — more than COGS. Onboard the new
+                rail and costs drop to ~68%: then <strong>today's winners at
+                ~5× already produce 8–12% margin</strong> with $45–50 CPAs. The
+                cheapest margin in the business is in billing, not bidding.
+              </p>
+            </div>
+            <div className={s.insight}>
+              <span className={s.insightNum}>$280</span>
+              <span className={s.insightTag}>Route C — raise AOV</span>
+              <p className={s.insightBody}>
+                Fulfillment, shipping and labor are roughly fixed dollars per box —
+                a bigger basket dilutes them. <strong>Bundles pushing AOV $218 →
+                ~$280</strong> at the same $50 CPA lands ~8% on their own.
+                EYE_GIANT already buys $267 baskets; build the bundle it sells.
+              </p>
+            </div>
+          </div>
+
+          <p className={s.footnote}>
+            The stack: processor fix + full-price paid + $40–45 caps + 18–44
+            targeting + bundles = 10%+ with today's creatives. No single miracle
+            required — every piece is already identified and owned.
+          </p>
+        </section>
+
+        <section className={base.section}>
+          <div className={base.sectionHead}>
+            <span className={base.sectionNum}>06</span>
             <h2 className={base.sectionTitle}>Weekly operating loop</h2>
           </div>
           <ul className={base.list}>
