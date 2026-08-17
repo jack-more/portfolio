@@ -1,0 +1,27 @@
+{
+  "asOf": "2026-08-17",
+  "window": "Aug 9-17",
+  "assumptions": { "contributionRate": 0.35, "breakevenRoas": 2.86, "cpaTarget": 50, "cpaBreakeven": 70 },
+  "winners": [
+    { "name": "ethan UGC_vKCU0o8b", "type": "UGC", "spend": 1632.98, "pur": 35, "rev": 7556.44, "thumb": "/skoads/ethan-1.jpg" },
+    { "name": "ethan ugc 2_lEe0p2xn", "type": "UGC", "spend": 865.51, "pur": 16, "rev": 3768.54, "thumb": "/skoads/ethan-2.jpg" }
+  ],
+  "tests": [
+    { "name": "New video A (copy_655C…)", "type": "UGC", "entered": "2026-08-13", "spend": 766.08, "pur": 16, "rev": 2635.46, "thumb": "/skoads/e2-a.jpg" },
+    { "name": "New video B (copy_A0FA…)", "type": "UGC", "entered": "2026-08-13", "spend": 410.19, "pur": 11, "rev": 2433.68, "thumb": "/skoads/e2-b.jpg" },
+    { "name": "Logo/bg copy_0B27…", "type": "UGC", "entered": "2026-08-13", "spend": 160.55, "pur": 1, "rev": 153.59 },
+    { "name": "Logo/bg copy_7A39…", "type": "UGC", "entered": "2026-08-13", "spend": 77.87, "pur": 1, "rev": 77.55 },
+    { "name": "Logo/bg copy_50A6…", "type": "UGC", "entered": "2026-08-13", "spend": 47.34, "pur": 1, "rev": 73.58 },
+    { "name": "Logo/bg copy_F120…", "type": "UGC", "entered": "2026-08-13", "spend": 17.63, "pur": 0, "rev": 0 },
+    { "name": "EYE_GIANT_9X16_15s", "type": "Higgsfield", "entered": "2026-08-09", "spend": 506.5, "pur": 15, "rev": 4006.51, "thumb": "/skoads/eye-giant.jpg" },
+    { "name": "SKOBOX_9X16_05s", "type": "Higgsfield", "entered": "2026-08-09", "spend": 196.37, "pur": 7, "rev": 1199.7, "thumb": "/skoads/skobox.jpg" },
+    { "name": "Spark 7663698610439192583", "type": "Organic post", "entered": "2026-08-09", "spend": 221.17, "pur": 4, "rev": 1460.27, "thumb": "/skoads/spark.jpg" },
+    { "name": "AI Generated Video-2", "type": "Higgsfield", "entered": "2026-08-09", "spend": 97.53, "pur": 3, "rev": 1968.3 },
+    { "name": "AI Generated Video-3", "type": "Higgsfield", "entered": "2026-08-09", "spend": 211.78, "pur": 3, "rev": 898.84, "thumb": "/skoads/ai-video-3.jpg" },
+    { "name": "GLOW Compound 70mg-New_Hook-11-12", "type": "Higgsfield", "entered": "2026-08-09", "spend": 12.47, "pur": 4, "rev": 744.84 },
+    { "name": "AI Generated Video-4", "type": "Higgsfield", "entered": "2026-08-09", "spend": 229.67, "pur": 1, "rev": 119.7, "thumb": "/skoads/ai-video-4.jpg" },
+    { "name": "HighCostBau-v10033g…", "type": "Higgsfield", "entered": "2026-08-09", "spend": 98.07, "pur": 1, "rev": 37.79, "thumb": "/skoads/highcostbau.jpg" },
+    { "name": "V2_nY8125BV.mp4", "type": "Higgsfield", "entered": "2026-08-09", "spend": 84.74, "pur": 0, "rev": 0 },
+    { "name": "AI Generated Video-7", "type": "Higgsfield", "entered": "2026-08-13", "spend": 42.53, "pur": 1, "rev": 174.07 }
+  ]
+}

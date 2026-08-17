@@ -621,10 +621,10 @@ export default function SkoAdsAugust() {
           </div>
 
           <p className={s.footnote}>
-            ‡Assumes stock covers the week. Decision rule: if units left ÷ daily
-            unit velocity is fewer days than the restock date, cut to $2–2.5K spend
-            and an $8–12K goal — at that point ads are accelerating a sell-out, not
-            adding sales.
+            ‡Restock lands Wednesday. Two-phase week: hold reduced budgets Mon–Tue
+            (~$400–500/day, winners only), then scale to full plan from Wednesday
+            with SUMMER30 off paid traffic. Goal assumes the post-restock phase
+            carries the week.
           </p>
 
           <ul className={base.list}>
@@ -649,8 +649,8 @@ export default function SkoAdsAugust() {
               sets the re-scale date.
             </li>
             <li>
-              Needed to firm this up: the restock date, and whether the ads sell the
-              SKUs that are running out. If yes, budgets drop this week, not next.
+              Restock confirmed for Wednesday. Remaining input: COGS per SKU, to
+              turn the margin model from napkin math into per-channel truth.
             </li>
           </ul>
         </section>
