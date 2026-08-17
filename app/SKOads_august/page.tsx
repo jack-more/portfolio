@@ -139,27 +139,27 @@ export default function SkoAdsAugust() {
           </div>
 
           <div className={s.summary}>
-            <div className={s.stat}>
+            <div className={s.stat} data-tip="Total paid ad spend, TikTok + Meta, Aug 9–16.">
               <span className={s.statNum}>$5,747</span>
               <span className={s.statLabel}>Spend</span>
               <span className={`${s.statDelta} ${s.flat}`}>TikTok $5,647 · Meta $100</span>
             </div>
-            <div className={s.stat}>
+            <div className={s.stat} data-tip="Revenue the ad platforms attribute to ads (TikTok pixel, 7-day click / 1-day view). Our internal order table reads lower because in-app browsers lose tracking.">
               <span className={s.statNum}>$22,382</span>
               <span className={s.statLabel}>Ad revenue</span>
               <span className={`${s.statDelta} ${s.flat}`}>platform-reported</span>
             </div>
-            <div className={s.stat}>
+            <div className={s.stat} data-tip="Purchases the platforms attribute to ads this week.">
               <span className={s.statNum}>96</span>
               <span className={s.statLabel}>Purchases</span>
               <span className={`${s.statDelta} ${s.flat}`}>$233 avg</span>
             </div>
-            <div className={s.stat}>
+            <div className={s.stat} data-tip="Return on ad spend: attributed revenue ÷ spend. 3.96× means $3.96 back per $1 spent.">
               <span className={s.statNum}>3.96×</span>
               <span className={s.statLabel}>ROAS</span>
               <span className={`${s.statDelta} ${s.up}`}>winners at 5.1–5.5×</span>
             </div>
-            <div className={s.stat}>
+            <div className={s.stat} data-tip="Spend ÷ attributed purchases (CPA). Lower is better; breakeven sits far above this at our margins.">
               <span className={s.statNum}>$58.83</span>
               <span className={s.statLabel}>Cost / purchase</span>
               <span className={`${s.statDelta} ${s.up}`}>winners $35–48</span>
@@ -368,22 +368,22 @@ export default function SkoAdsAugust() {
           </div>
 
           <div className={s.summary}>
-            <div className={s.stat}>
+            <div className={s.stat} data-tip="The Meta pixel is installed on the live site and sending events — the foundation for all Meta measurement.">
               <span className={s.statNum}>Live</span>
               <span className={s.statLabel}>Pixel in production</span>
               <span className={`${s.statDelta} ${s.up}`}>installed midweek — full funnel firing</span>
             </div>
-            <div className={s.stat}>
+            <div className={s.stat} data-tip="Page visits the Meta pixel has recorded since install.">
               <span className={s.statNum}>2.4K</span>
               <span className={s.statLabel}>PageViews</span>
               <span className={`${s.statDelta} ${s.flat}`}>468 content views</span>
             </div>
-            <div className={s.stat}>
+            <div className={s.stat} data-tip="Add-to-cart events the pixel recorded; 40 continued into checkout.">
               <span className={s.statNum}>109</span>
               <span className={s.statLabel}>Adds to cart</span>
               <span className={`${s.statDelta} ${s.flat}`}>40 checkouts</span>
             </div>
-            <div className={s.stat}>
+            <div className={s.stat} data-tip="Purchases the pixel recorded. Undercounts heavily — a bug stops the event on ~90% of orders (fix in progress). Not ad-attributed.">
               <span className={s.statNum}>11*</span>
               <span className={s.statLabel}>Purchases — pixel pickup</span>
               <span className={`${s.statDelta} ${s.flat}`}>leaky capture · attribution pending CAPI</span>
@@ -405,22 +405,22 @@ export default function SkoAdsAugust() {
           </div>
 
           <div className={s.summary}>
-            <div className={s.stat}>
+            <div className={s.stat} data-tip="Distinct UGC videos in paid rotation this week, both from Ethan.">
               <span className={s.statNum}>2</span>
               <span className={s.statLabel}>Videos (Ethan)</span>
               <span className={`${s.statDelta} ${s.flat}`}>5 paid placements</span>
             </div>
-            <div className={s.stat}>
+            <div className={s.stat} data-tip="Paid video views across every TikTok and Meta placement running the UGC.">
               <span className={s.statNum}>~155K</span>
               <span className={s.statLabel}>Paid views</span>
               <span className={`${s.statDelta} ${s.flat}`}>TikTok + Meta</span>
             </div>
-            <div className={s.stat}>
+            <div className={s.stat} data-tip="Revenue the platforms attribute to ads running the two UGC videos — 46% of all ad revenue this week.">
               <span className={s.statNum}>$10,411</span>
               <span className={s.statLabel}>UGC revenue</span>
               <span className={`${s.statDelta} ${s.up}`}>46% of ad revenue</span>
             </div>
-            <div className={s.stat}>
+            <div className={s.stat} data-tip="UGC-attributed revenue ÷ UGC spend.">
               <span className={s.statNum}>4.77×</span>
               <span className={s.statLabel}>UGC ROAS</span>
               <span className={`${s.statDelta} ${s.flat}`}>on 39% of spend</span>
