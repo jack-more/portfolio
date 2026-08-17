@@ -481,6 +481,12 @@ export default function SkoAdsAugust() {
 
           <ul className={base.list}>
             <li>
+              <strong>Commission more UGC.</strong> Two videos drove 46% of ad
+              revenue on 39% of spend — the highest-leverage move available. Get
+              2–3 new raw videos this week: Ethan again (proven face), plus one
+              new creator for a second look. Raw footage only — no re-cuts.
+            </li>
+            <li>
               <strong>Turn SUMMER30 off for paid traffic.</strong> At 25% stock the
               discount pays people to buy inventory that sells itself.
             </li>
