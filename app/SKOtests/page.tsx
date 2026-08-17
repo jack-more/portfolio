@@ -186,69 +186,60 @@ export default function SkoTests() {
             whether 8–10% is left at the end.
           </p>
 
-          {(() => {
-            const AOV = 218;
-            const items: [string, number, string][] = [
-              ["Payment processing", 17, "highest single cost — high-risk rail"],
-              ["COGS", 10, ""],
-              ["Fulfillment", 10, ""],
-              ["Shipping", 4, "updated: was 8%"],
-              ["Labor", 20, "check: fixed or per-order?"],
-            ];
-            let cum = 0;
-            return (
-              <div className={s.wf}>
-                <div className={s.wfRow}>
-                  <span className={s.wfLabel}>Order (AOV)</span>
+          <div className={s.wf}>
+            <div className={s.wfRow}>
+              <span className={s.wfLabel}>ORDER</span>
+              <div className={s.wfTrack}><div className={`${s.wfSeg} ${s.wfRev}`} style={{ width: "100%" }}>$218</div></div>
+              <span className={s.wfNote}>100%</span>
+            </div>
+            {([
+              ["− Processing", 37, 17],
+              ["− COGS", 22, 10],
+              ["− Fulfillment", 22, 10],
+              ["− Shipping", 9, 4],
+              ["− Labor", 44, 20],
+            ] as [string, number, number][]).map(([label, usd_, pct], i, arr) => {
+              const before = arr.slice(0, i).reduce((a, r) => a + r[2], 0);
+              return (
+                <div className={s.wfRow} key={label}>
+                  <span className={s.wfLabel}>{label}</span>
                   <div className={s.wfTrack}>
-                    <div className={`${s.wfSeg} ${s.wfRev}`} style={{ width: "100%" }}>$218 · 100%</div>
+                    <div className={s.wfPad} style={{ width: `${before}%` }} />
+                    <div className={`${s.wfSeg} ${s.wfCost}`} style={{ width: `${pct}%` }}>${usd_}</div>
                   </div>
-                  <span className={s.wfNote} />
+                  <span className={s.wfNote}>{pct}%</span>
                 </div>
-                {items.map(([label, pct, note]) => {
-                  const row = (
-                    <div className={s.wfRow} key={label}>
-                      <span className={s.wfLabel}>− {label}</span>
-                      <div className={s.wfTrack}>
-                        <div className={s.wfPad} style={{ width: `${cum}%` }} />
-                        <div className={`${s.wfSeg} ${s.wfCost}`} style={{ width: `${pct}%` }}>
-                          {pct}%
-                        </div>
-                      </div>
-                      <span className={s.wfNote}>{note ? note : `$${Math.round((pct / 100) * AOV)}`}</span>
-                    </div>
-                  );
-                  cum += pct;
-                  return row;
-                })}
-                <div className={s.wfRow}>
-                  <span className={s.wfLabel}>− CAC @ $49 target (22.5%)</span>
-                  <div className={s.wfTrack}>
-                    <div className={s.wfPad} style={{ width: "61%" }} />
-                    <div className={`${s.wfSeg} ${s.wfCac}`} style={{ width: "22.5%" }}>22.5% · $49</div>
-                  </div>
-                  <span className={s.wfNote}>ROAS 4.4×</span>
-                </div>
-                <div className={s.wfRow}>
-                  <span className={s.wfLabel}>= Net margin at target</span>
-                  <div className={s.wfTrack}>
-                    <div className={s.wfPad} style={{ width: "83.5%" }} />
-                    <div className={`${s.wfSeg} ${s.wfMargin}`} style={{ width: "16.5%" }}>16.5% · ~$36</div>
-                  </div>
-                  <span className={s.wfNote}>above target</span>
-                </div>
-                <div className={s.wfRow}>
-                  <span className={s.wfLabel}>10% floor → CAC ceiling</span>
-                  <div className={s.wfTrack}>
-                    <div className={s.wfPad} style={{ width: "61%" }} />
-                    <div className={`${s.wfSeg} ${s.wfCac}`} style={{ width: "29%" }}>CAC ≤29% · $63</div>
-                    <div className={`${s.wfSeg} ${s.wfMargin}`} style={{ width: "10%" }}>10%</div>
-                  </div>
-                  <span className={s.wfNote}>ROAS ≥ 3.4×</span>
-                </div>
+              );
+            })}
+            <div className={s.wfRow}>
+              <span className={s.wfLabel}>= LEFT FOR ADS + PROFIT</span>
+              <div className={s.wfTrack}>
+                <div className={s.wfPad} style={{ width: "61%" }} />
+                <div className={`${s.wfSeg} ${s.wfKeep}`} style={{ width: "39%" }}>$85</div>
               </div>
-            );
-          })()}
+              <span className={s.wfNote}>39%</span>
+            </div>
+            <div className={s.wfRow}>
+              <span className={s.wfLabel}>− ADS (CAC target)</span>
+              <div className={s.wfTrack}>
+                <div className={s.wfPad} style={{ width: "61%" }} />
+                <div className={`${s.wfSeg} ${s.wfCac}`} style={{ width: "22.5%" }}>$49</div>
+              </div>
+              <span className={s.wfNote}>22.5%</span>
+            </div>
+            <div className={s.wfRow}>
+              <span className={s.wfLabel}>= PROFIT</span>
+              <div className={s.wfTrack}>
+                <div className={s.wfPad} style={{ width: "83.5%" }} />
+                <div className={`${s.wfSeg} ${s.wfMargin}`} style={{ width: "16.5%" }}>$36</div>
+              </div>
+              <span className={s.wfNote}>16%</span>
+            </div>
+          </div>
+
+          <p className={s.wfRule}>
+            CAC $49 target · $63 max (keeps 10%) · $85 = losing money · ROAS floor 3.4×
+          </p>
 
           <p className={s.footnote}>
             Board, corrected: shipping 8→4%, CC fee → 0, the −$10/−$20 lines were
