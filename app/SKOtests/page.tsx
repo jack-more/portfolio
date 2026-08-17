@@ -17,15 +17,15 @@ const { contributionRate: CR, cpaTarget, cpaBreakeven } = data.assumptions;
 type Row = { name: string; type: string; entered?: string; spend: number; pur: number; rev: number; thumb?: string };
 
 /* Verdict rules — mechanical, no judgment calls:
-   GRADUATE: >=3 purchases AND ROAS >= 4 AND spend >= $100
+   GRADUATE: >=3 purchases AND ROAS >= 5 AND spend >= $100
    KILL:     spend >= $70 with 0 purchases, or spend >= $100 with margin ROAS < 0.8
    PROMOTE?: hit graduate bars on purchases/ROAS but spend still < $100
    TESTING:  everything else, until day 14 */
 function verdict(r: Row) {
   const roas = r.spend ? r.rev / r.spend : 0;
   const mroas = roas * CR;
-  if (r.pur >= 3 && roas >= 4 && r.spend >= 100) return { v: "GRADUATE", c: s.tWin };
-  if (r.pur >= 3 && roas >= 4) return { v: "PROMOTE?", c: s.tOk };
+  if (r.pur >= 3 && roas >= 5 && r.spend >= 100) return { v: "GRADUATE", c: s.tWin };
+  if (r.pur >= 3 && roas >= 5) return { v: "PROMOTE?", c: s.tOk };
   if (r.spend >= 70 && r.pur === 0) return { v: "KILL", c: s.tBad };
   if (r.spend >= 100 && mroas < 0.8) return { v: "KILL", c: s.tBad };
   if (r.spend >= 70 && mroas < 1) return { v: "WEAK", c: s.tWarn };
@@ -110,10 +110,10 @@ export default function SkoTests() {
               </p>
             </div>
             <div className={s.insight}>
-              <span className={s.insightNum}>3 + 4×</span>
+              <span className={s.insightNum}>3 + 5×</span>
               <span className={s.insightTag}>Graduate</span>
               <p className={s.insightBody}>
-                <strong>≥3 purchases, ROAS ≥4×, ≥$100 spend</strong> inside 14 days →
+                <strong>≥3 purchases, ROAS ≥5×, ≥$100 spend</strong> inside 14 days →
                 moves to the WINNERS campaign at full budget share. Hit the bars on
                 less spend → "PROMOTE?" — feed it to $100 and confirm.
               </p>
@@ -123,19 +123,20 @@ export default function SkoTests() {
               <span className={s.insightTag}>Kill</span>
               <p className={s.insightBody}>
                 <strong>$70 spent, zero purchases → off.</strong> $100 spent with
-                margin-ROAS under 0.8 → off. $70 is one breakeven CPA — a creative
-                that can't buy one customer with it doesn't get a second.
+                margin-ROAS under 0.8 → off. $70 is 1.3× the breakeven CPA — a
+                creative that can't buy one customer with it doesn't get a second.
               </p>
             </div>
           </div>
           <p className={s.footnote}>
-            Economics behind the bars: ~65% of each order is cost (processing, COGS,
-            fulfillment, shipping, labor), so contribution = 35% of revenue.{" "}
-            <strong>The CAC rule: breakeven at 35% of AOV, target ≤25% of AOV.</strong>{" "}
-            At $218 AOV that's breakeven $76, target $55 — which is why every cost cap
-            sits at $50. A 20% discount cuts the ceiling to 15% of AOV ($33), which no
-            ad here clears — that's the whole case for full price on paid. Full-price
-            breakeven ROAS = 2.86×. Profit/order = 35% × AOV − CPA.
+            Economics behind the bars: <strong>75% of each order is cost</strong>{" "}
+            (processing, COGS, fulfillment, shipping, labor), so contribution = 25%
+            of revenue. <strong>The CAC rule: breakeven at 25% of AOV, target ≤18%.</strong>{" "}
+            At $218 AOV that's breakeven $54.50, target ~$40 — the current $50 caps
+            are near-breakeven and should trim toward $40–45 after restock, or AOV
+            has to rise (bundles). A 20% discount leaves 5% contribution → 20×
+            breakeven — paid traffic never sees SUMMER30. Full-price breakeven ROAS
+            = 4.0×. Profit/order = 25% × AOV − CPA.
           </p>
         </section>
 
@@ -146,9 +147,9 @@ export default function SkoTests() {
           </div>
           <Table rows={winners} />
           <p className={s.footnote}>
-            Full price, 65–70% of total budget, $50 cost caps. Graduates land here
-            with their own ad; fatigue (ROAS below 2.86× for a full week at real
-            spend) sends a winner back to the bench.
+            Full price, 65–70% of total budget, caps trimming toward $40–45.
+            Graduates land here with their own ad; fatigue (ROAS below 4× for a
+            full week at real spend) sends a winner back to the bench.
           </p>
         </section>
 
