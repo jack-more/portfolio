@@ -2,10 +2,10 @@
   "asOf": "2026-08-17",
   "window": "Aug 9-17",
   "assumptions": {
-    "contributionRate": 0.25,
-    "breakevenRoas": 4.0,
-    "cpaTarget": 40,
-    "cpaBreakeven": 55
+    "contributionRate": 0.39,
+    "breakevenRoas": 2.56,
+    "cpaTarget": 49,
+    "cpaBreakeven": 85
   },
   "winners": [
     {

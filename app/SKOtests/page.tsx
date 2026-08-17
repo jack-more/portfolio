@@ -17,15 +17,15 @@ const { contributionRate: CR, cpaTarget, cpaBreakeven } = data.assumptions;
 type Row = { name: string; type: string; entered?: string; spend: number; pur: number; rev: number; thumb?: string };
 
 /* Verdict rules — mechanical, no judgment calls:
-   GRADUATE: >=3 purchases AND ROAS >= 5 AND spend >= $100
+   GRADUATE: >=3 purchases AND ROAS >= 4 AND spend >= $100
    KILL:     spend >= $70 with 0 purchases, or spend >= $100 with margin ROAS < 0.8
    PROMOTE?: hit graduate bars on purchases/ROAS but spend still < $100
    TESTING:  everything else, until day 14 */
 function verdict(r: Row) {
   const roas = r.spend ? r.rev / r.spend : 0;
   const mroas = roas * CR;
-  if (r.pur >= 3 && roas >= 5 && r.spend >= 100) return { v: "GRADUATE", c: s.tWin };
-  if (r.pur >= 3 && roas >= 5) return { v: "PROMOTE?", c: s.tOk };
+  if (r.pur >= 3 && roas >= 4 && r.spend >= 100) return { v: "GRADUATE", c: s.tWin };
+  if (r.pur >= 3 && roas >= 4) return { v: "PROMOTE?", c: s.tOk };
   if (r.spend >= 70 && r.pur === 0) return { v: "KILL", c: s.tBad };
   if (r.spend >= 100 && mroas < 0.8) return { v: "KILL", c: s.tBad };
   if (r.spend >= 70 && mroas < 1) return { v: "WEAK", c: s.tWarn };
@@ -110,10 +110,10 @@ export default function SkoTests() {
               </p>
             </div>
             <div className={s.insight}>
-              <span className={s.insightNum}>3 + 5×</span>
+              <span className={s.insightNum}>3 + 4×</span>
               <span className={s.insightTag}>Graduate</span>
               <p className={s.insightBody}>
-                <strong>≥3 purchases, ROAS ≥5×, ≥$100 spend</strong> inside 14 days →
+                <strong>≥3 purchases, ROAS ≥4×, ≥$100 spend</strong> inside 14 days →
                 moves to the WINNERS campaign at full budget share. Hit the bars on
                 less spend → "PROMOTE?" — feed it to $100 and confirm.
               </p>
@@ -123,20 +123,20 @@ export default function SkoTests() {
               <span className={s.insightTag}>Kill</span>
               <p className={s.insightBody}>
                 <strong>$70 spent, zero purchases → off.</strong> $100 spent with
-                margin-ROAS under 0.8 → off. $70 is 1.3× the breakeven CPA — a
+                margin-ROAS under 0.8 → off. $70 is 1.4× the target CPA — a
                 creative that can't buy one customer with it doesn't get a second.
               </p>
             </div>
           </div>
           <p className={s.footnote}>
-            Economics behind the bars: <strong>75% of each order is cost</strong>{" "}
-            (processing, COGS, fulfillment, shipping, labor), so contribution = 25%
-            of revenue. <strong>The CAC rule: breakeven at 25% of AOV, target ≤18%.</strong>{" "}
-            At $218 AOV that's breakeven $54.50, target ~$40 — the current $50 caps
-            are near-breakeven and should trim toward $40–45 after restock, or AOV
-            has to rise (bundles). A 20% discount leaves 5% contribution → 20×
-            breakeven — paid traffic never sees SUMMER30. Full-price breakeven ROAS
-            = 4.0×. Profit/order = 25% × AOV − CPA.
+            Economics behind the bars (board, corrected): <strong>61% of each order
+            is cost</strong> — processing 17, COGS 10, fulfillment 10, shipping 4,
+            labor 20 — so contribution = 39% of revenue.{" "}
+            <strong>The CAC rule: breakeven 39% of AOV ($85); ≤29% ($63) holds a 10%
+            net margin; the $49 target yields ~16%.</strong> Full-price breakeven
+            ROAS = 2.56×; the 10%-margin line is ~3.4×. A 20% discount halves
+            contribution to 19% → 5.3× breakeven — paid traffic still never sees
+            SUMMER30. Profit/order = 39% × AOV − CPA.
           </p>
         </section>
 
@@ -147,9 +147,9 @@ export default function SkoTests() {
           </div>
           <Table rows={winners} />
           <p className={s.footnote}>
-            Full price, 65–70% of total budget, caps trimming toward $40–45.
-            Graduates land here with their own ad; fatigue (ROAS below 4× for a
-            full week at real spend) sends a winner back to the bench.
+            Full price, 80% of total budget, $49–54 cost caps. Graduates land here
+            with their own ad; fatigue (ROAS below 3.4× — the 10%-margin line —
+            for a full week at real spend) sends a winner back to the bench.
           </p>
         </section>
 
@@ -192,7 +192,6 @@ export default function SkoTests() {
               ["Fulfillment", 10, ""],
               ["Shipping", 4, "updated: was 8%"],
               ["Labor", 20, "check: fixed or per-order?"],
-              ["Flat $10 + $20", 14, "confirm: real costs, or leftovers?"],
             ];
             let cum = 0;
             return (
@@ -221,41 +220,41 @@ export default function SkoTests() {
                   return row;
                 })}
                 <div className={s.wfRow}>
-                  <span className={s.wfLabel}>− CAC @ $49 (22.5%)</span>
+                  <span className={s.wfLabel}>− CAC @ $49 target (22.5%)</span>
                   <div className={s.wfTrack}>
-                    <div className={s.wfPad} style={{ width: "75%" }} />
+                    <div className={s.wfPad} style={{ width: "61%" }} />
                     <div className={`${s.wfSeg} ${s.wfCac}`} style={{ width: "22.5%" }}>22.5% · $49</div>
                   </div>
                   <span className={s.wfNote}>ROAS 4.4×</span>
                 </div>
                 <div className={s.wfRow}>
-                  <span className={s.wfLabel}>= Margin, $49 CAC</span>
+                  <span className={s.wfLabel}>= Net margin at target</span>
                   <div className={s.wfTrack}>
-                    <div className={s.wfPad} style={{ width: "97.5%" }} />
-                    <div className={`${s.wfSeg} ${s.wfMargin}`} style={{ width: "2.5%" }} />
+                    <div className={s.wfPad} style={{ width: "83.5%" }} />
+                    <div className={`${s.wfSeg} ${s.wfMargin}`} style={{ width: "16.5%" }}>16.5% · ~$36</div>
                   </div>
-                  <span className={s.wfNote}>~2.5% · $5</span>
+                  <span className={s.wfNote}>above target</span>
                 </div>
                 <div className={s.wfRow}>
-                  <span className={s.wfLabel}>= Margin @ 8–10% target</span>
+                  <span className={s.wfLabel}>10% floor → CAC ceiling</span>
                   <div className={s.wfTrack}>
-                    <div className={s.wfPad} style={{ width: "75%" }} />
-                    <div className={`${s.wfSeg} ${s.wfCac}`} style={{ width: "16%" }}>CAC ≤16% · $35</div>
-                    <div className={`${s.wfSeg} ${s.wfMargin}`} style={{ width: "9%" }}>9%</div>
+                    <div className={s.wfPad} style={{ width: "61%" }} />
+                    <div className={`${s.wfSeg} ${s.wfCac}`} style={{ width: "29%" }}>CAC ≤29% · $63</div>
+                    <div className={`${s.wfSeg} ${s.wfMargin}`} style={{ width: "10%" }}>10%</div>
                   </div>
-                  <span className={s.wfNote}>ROAS ≥ 6.2×</span>
+                  <span className={s.wfNote}>ROAS ≥ 3.4×</span>
                 </div>
               </div>
             );
           })()}
 
           <p className={s.footnote}>
-            Updated from the board: shipping 8→4%, discount and CC fee on paid → 0,
-            CAC 25→22.5% ($49; the $54 bid is breakeven, not target). The swing
-            number is the flat $10+$20 (~14%): if those are real per-order costs,
-            $49 CAC leaves ~2.5% and the 8–10% target needs $35 CAC (6.2× blended).
-            If they're leftover lines, not costs, the stack is 61% and $49 CAC
-            already yields ~16% — the whole strategy pivots on naming that $30.
+            Board, corrected: shipping 8→4%, discount and CC fee on paid → 0, the
+            −$10/−$20 lines were results of the old math, not costs. Stack = 61%.
+            At the $49 CAC target the machine clears ~16% — the 8–10% goal is a
+            floor you're above, not a stretch. The $54 bid sits at 24.8% of AOV,
+            inside the $63 ceiling. Discipline holds it there: full price on paid,
+            80/20 winners/tests, kill rules enforced Mondays.
           </p>
 
           <h3 className={s.subheadBig}>Three routes to 8–10% — pick any one, or stack them</h3>
