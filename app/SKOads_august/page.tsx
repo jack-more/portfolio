@@ -287,26 +287,17 @@ export default function SkoAdsAugust() {
               </tbody>
             </table>
           </div>
+          <p className={s.footnote}>
+            †All 3 checkouts attribute to PUREST, $9.87 each. *Modeled: clicks ×
+            site conversion rate, checkouts × ~55% completion → ~2–4 purchases.
+          </p>
           <p className={base.body}>
-            *Est. purchases are <strong>modeled, not tracked</strong> — the same way
-            Meta reports modeled conversions where tracking is incomplete: clicks ×
-            the site's 1.24% conversion rate (ETHAN ~1), and initiated checkouts ×
-            a ~55% completion rate (PUREST ~2). Modeled total: ~2–3 purchases ≈
-            $410–615 revenue ≈ <strong>4–6× modeled ROAS</strong> on $100 —
-            directional until tracked data lands Aug 17–23.
-            †Purchase tracking was not functional until Aug 15–16, so ad-level
-            purchase counts are not reportable for this period — checkouts are the
-            attributed conversion signal this week. Early reporting is still
-            fuzzy — but the signal is real. This is a fresh
-            account (the previous account was banned; this one is warming deliberately)
-            and the purchase event was broken until Aug 15–16, so Meta could not record
-            a sale even if one happened. What <em>is</em> verified, ad by ad:{" "}
-            <strong>attribution works</strong> — all 3 initiated checkouts credit to
-            PUREST at $9.87 each, and with the purchase event capturing ~10% of orders,
-            a completed Meta purchase may already exist that the pixel missed. Treat
-            Meta as signal, not fact, until the capture fix ships.{" "}
-            <strong>TikTok carries volume in the meantime; first clean Meta read is
-            Aug 17–23.</strong>
+            Meta reporting is fuzzy right now — fresh account warming up (the old
+            account was banned), pixel installed midweek, purchase capture still
+            leaky. It sharpens as we tighten site tracking and pixel cooperation,
+            and CAPI lands once the account is old enough for Meta Business Suite
+            access. TikTok carries the volume meanwhile; first clean Meta read is
+            Aug 17–23.
           </p>
 
           <div className={base.tableWrap}>
@@ -339,7 +330,7 @@ export default function SkoAdsAugust() {
             <div className={s.stat}>
               <span className={s.statNum}>Live</span>
               <span className={s.statLabel}>Pixel in production</span>
-              <span className={`${s.statDelta} ${s.up}`}>since Fri — full funnel firing</span>
+              <span className={`${s.statDelta} ${s.up}`}>installed midweek — full funnel firing</span>
             </div>
             <div className={s.stat}>
               <span className={s.statNum}>2.4K</span>
@@ -358,16 +349,10 @@ export default function SkoAdsAugust() {
             </div>
           </div>
 
-          <p className={base.body}>
-            The pixel went live in production Friday and the funnel is firing — 2.4K
-            PageViews → 468 ViewContent → 109 AddToCart → 40 Checkout → 11 Purchase.
-            *Pixel pickup, leaky: a payment-verification gate stops the purchase event
-            on ~90% of orders (fix ticketed with Lovable), so 11 is the pixel's
-            partial capture of a week that did ~500 orders per the order table — not a
-            volume reading. Ad-level attribution is a <strong>floor</strong> right now:
-            in-app browser click loss breaks ad matching (the same failure documented
-            on TikTok), and CAPI closes both gaps. Once live, purchase capture should
-            match the order table and Meta ROAS becomes readable for the first time.
+          <p className={s.footnote}>
+            *Pixel pickup, not a volume reading — the purchase event fires on ~10%
+            of orders (fix ticketed); the site did ~500 orders last week per the
+            order table.
           </p>
         </section>
 
