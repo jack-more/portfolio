@@ -142,7 +142,7 @@ export default function SkoAdsAugust() {
             <div className={s.stat}>
               <span className={s.statNum}>$5,747</span>
               <span className={s.statLabel}>Spend</span>
-              <span className={`${s.statDelta} ${s.down}`}>−17% vs prior wk</span>
+              <span className={`${s.statDelta} ${s.flat}`}>TikTok $5,647 · Meta $100</span>
             </div>
             <div className={s.stat}>
               <span className={s.statNum}>$22,382</span>
@@ -157,21 +157,20 @@ export default function SkoAdsAugust() {
             <div className={s.stat}>
               <span className={s.statNum}>3.96×</span>
               <span className={s.statLabel}>ROAS</span>
-              <span className={`${s.statDelta} ${s.down}`}>from 10.8×</span>
+              <span className={`${s.statDelta} ${s.up}`}>winners at 5.1–5.5×</span>
             </div>
             <div className={s.stat}>
               <span className={s.statNum}>$58.83</span>
               <span className={s.statLabel}>Cost / purchase</span>
-              <span className={`${s.statDelta} ${s.down}`}>from $17.85</span>
+              <span className={`${s.statDelta} ${s.up}`}>winners $35–48</span>
             </div>
           </div>
 
           <p className={base.body}>
-            The week-over-week drop is one ad: <strong>summer30 2</strong> ran ~10× in
-            early August and has fatigued to 3.26×. The campaigns that replaced it
-            (ETHAN UGC, LAST CHANCE — launched Aug 11–13) convert at 5.1–5.5× but are
-            still small. The account is mid-handoff from a decaying winner to new
-            creative.
+            <strong>summer30 2</strong> is fatiguing (3.26×) and carrying too much of
+            the budget. The new campaigns (ETHAN UGC, LAST CHANCE — launched Aug
+            11–13) convert at 5.1–5.5× — next week's spend consolidates onto them,
+            the proven creatives, and a dedicated EYE_GIANT test.
           </p>
           <p className={s.footnote}>
             All conversion figures are platform-reported (TikTok pixel, 7-day click /
