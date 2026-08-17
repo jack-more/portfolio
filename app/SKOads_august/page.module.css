@@ -215,3 +215,9 @@
   white-space: normal;
   pointer-events: none;
 }
+
+/* heat tiers: really-green winners -> deep red losers */
+.tWin { color: #1a7d2e; font-weight: 800; }
+.tOk { color: #7f8c1a; font-weight: 700; }
+.tWarn { color: #b0641a; font-weight: 700; }
+.tBad { color: #cc1f14; font-weight: 800; }

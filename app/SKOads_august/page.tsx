@@ -11,6 +11,12 @@ const usd = (n: number) =>
   n.toLocaleString("en-US", { style: "currency", currency: "USD", maximumFractionDigits: n >= 1000 ? 0 : 2 });
 const x = (n: number) => `${n.toFixed(2)}×`;
 
+/* heat tiers: >=5 win · 3.5-5 runner-up · 2.5-3.5 neutral · 1.2-2.5 weak · <1.2 dead */
+const roasTier = (r: number) =>
+  r >= 5 ? s.tWin : r >= 3.5 ? s.tOk : r >= 2.5 ? undefined : r >= 1.2 ? s.tWarn : s.tBad;
+const shareTier = (shP: number, shS: number) =>
+  shP > shS * 1.4 ? s.tWin : shP > shS + 0.5 ? s.tOk : shP < shS * 0.4 ? s.tBad : shP < shS - 0.5 ? s.tWarn : undefined;
+
 /* All figures are platform-reported (TikTok / Meta pixel), Aug 9–16 2026.
    Source exports are on file; 7-day click window means recent days drift up. */
 
@@ -60,6 +66,25 @@ const META_ADS = [
 
 const UGC = { spend: 3978.15, pur: 81 };
 
+const CROSS_WINNERS = [
+  { name: "ethan UGC_vKCU0o8b", pools: 3, spend: 1632.98, pur: 35, rev: 7556.44, ctr: "2.12%", thumb: "/skoads/ethan-1.jpg" },
+  { name: "EYE_GIANT_9X16_15s", pools: 2, spend: 506.5, pur: 15, rev: 4006.51, ctr: "0.74%", thumb: "/skoads/eye-giant.jpg" },
+  { name: "ethan ugc 2_lEe0p2xn", pools: 2, spend: 865.51, pur: 16, rev: 3768.54, ctr: "1.73%", thumb: "/skoads/ethan-2.jpg" },
+  { name: "New video A (copy_655C…)", pools: 1, spend: 766.08, pur: 16, rev: 2635.46, ctr: "1.40%" },
+  { name: "New video B (copy_A0FA…)", pools: 1, spend: 410.19, pur: 11, rev: 2433.68, ctr: "1.18%" },
+  { name: "SKOBOX_9X16_05s", pools: 2, spend: 196.37, pur: 7, rev: 1199.7, ctr: "0.84%", thumb: "/skoads/skobox.jpg" },
+  { name: "7663698610439192583 (Spark)", pools: 2, spend: 221.17, pur: 4, rev: 1460.27, ctr: "0.52%", thumb: "/skoads/spark.jpg" },
+];
+
+const CROSS_LOSERS = [
+  { name: "AI Generated Video-4", pools: 2, spend: 229.67, pur: 1, rev: 119.7, ctr: "0.52%", thumb: "/skoads/ai-video-3.jpg" },
+  { name: "Logo/bg version (copy_0B27…)", pools: 1, spend: 160.55, pur: 1, rev: 153.59, ctr: "1.02%" },
+  { name: "HighCostBau-v10033g…", pools: 1, spend: 98.07, pur: 1, rev: 37.79, ctr: "1.98%" },
+  { name: "V2_nY8125BV.mp4", pools: 2, spend: 84.74, pur: 0, rev: 0, ctr: "0.49%" },
+  { name: "Spark 7663718762378182674", pools: 2, spend: 78.99, pur: 0, rev: 0, ctr: "0.59%" },
+  { name: "Logo/bg version (copy_7A39…)", pools: 1, spend: 77.87, pur: 1, rev: 77.55, ctr: "0.96%" },
+];
+
 const UGC_PLACEMENTS = [
   { name: "ETHAN UGC ad (both videos)", spend: 1819.29, pur: 36, rev: 8798.45 },
   { name: "ETHAN UGC 2 (new content)", spend: 1479.66, pur: 30, rev: 5373.86 },
@@ -87,6 +112,46 @@ function Bar({ win, mid, dead, keyWin, keyMid, keyDead }: {
   );
 }
 
+function CrossTable({ rows }: {
+  rows: { name: string; pools: number; spend: number; pur: number; rev: number; ctr: string; thumb?: string }[];
+}) {
+  const TOT = { spend: 9028.61, pur: 154 };
+  return (
+    <div className={base.tableWrap}>
+      <table className={`${base.table} ${s.num}`}>
+        <thead>
+          <tr>
+            <th>Creative</th><th>Ads in</th><th>Spend</th><th>Purch</th><th>Revenue</th><th>ROAS</th><th>CTR</th>
+            <th title="Share of ALL TikTok ad spend this week">% of spend</th>
+            <th title="Share of ALL TikTok purchases this week. Higher than its spend share = earning more than it's being fed.">% of sales</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((r) => {
+            const shS = (r.spend / TOT.spend) * 100;
+            const shP = (r.pur / TOT.pur) * 100;
+            return (
+              <tr key={r.name}>
+                <td>{r.thumb ? <img src={r.thumb} alt="" className={s.thumb} /> : null}{r.name}</td>
+                <td>{r.pools}</td>
+                <td>{usd(r.spend)}</td>
+                <td>{r.pur}</td>
+                <td>{usd(r.rev)}</td>
+                <td className={roasTier(r.rev / r.spend)}>
+                  {x(r.rev / r.spend)}
+                </td>
+                <td>{r.ctr}</td>
+                <td>{shS.toFixed(1)}%</td>
+                <td className={shareTier(shP, shS)}>{shP.toFixed(1)}%</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
 function AdTable({ rows, total, poolSpend, poolPur }: {
   rows: { name: string; spend: number; pur: number; rev: number; thumb?: string }[];
   total?: boolean;
@@ -105,8 +170,8 @@ function AdTable({ rows, total, poolSpend, poolPur }: {
         <thead>
           <tr>
             <th>Creative</th><th>Spend</th><th>Purch</th><th>Revenue</th><th>ROAS</th><th>CPA</th>
-            <th title="This creative's share of the pool's spend">% spend</th>
-            <th title="This creative's share of the pool's purchases — above its spend share means it deserves more budget">% purch</th>
+            <th title="This creative's share of its ad's total spend">% of spend</th>
+            <th title="This creative's share of its ad's total purchases. Green = earning a bigger share of sales than of budget (underfed). Red = the reverse (overfed).">% of sales</th>
           </tr>
         </thead>
         <tbody>
@@ -119,12 +184,12 @@ function AdTable({ rows, total, poolSpend, poolPur }: {
                 <td>{usd(r.spend)}</td>
                 <td>{r.pur}</td>
                 <td>{usd(r.rev)}</td>
-                <td className={r.rev / r.spend >= 5 ? s.good : r.rev / r.spend < 2.5 ? s.bad : undefined}>
+                <td className={roasTier(r.rev / r.spend)}>
                   {x(r.rev / r.spend)}
                 </td>
                 <td>{r.pur ? usd(r.spend / r.pur) : "—"}</td>
                 <td>{shS.toFixed(1)}%</td>
-                <td className={shP > shS + 1 ? s.good : shP < shS - 1 ? s.bad : undefined}>
+                <td className={shareTier(shP, shS)}>
                   {shP.toFixed(1)}%
                 </td>
               </tr>
@@ -236,6 +301,26 @@ export default function SkoAdsAugust() {
             on identical footage.
           </p>
 
+          <h3 className={s.subheadBig}>Winners — every ad creative, across all ads</h3>
+          <CrossTable rows={CROSS_WINNERS} />
+          <p className={s.footnote}>
+            How to read the last two columns: % of spend is the slice of the whole
+            week's TikTok budget this creative got; % of sales is the slice of the
+            week's purchases it produced. Colors run hot to cold:{" "}
+            <span className={s.tWin}>bold green</span> = clear winner,{" "}
+            <span className={s.tOk}>yellow-green</span> = runner-up,{" "}
+            <span className={s.tWarn}>orange</span> = weak,{" "}
+            <span className={s.tBad}>bright red</span> = spending without selling.
+          </p>
+
+          <h3 className={s.subheadBig}>Losers — spending without selling</h3>
+          <CrossTable rows={CROSS_LOSERS} />
+          <p className={s.footnote}>
+            $730 of the week went to these six. Note HighCostBau: 1.98% CTR — the
+            best click rate in either table — and 0.39× ROAS. Clicks are not sales;
+            it's the intent pattern in reverse.
+          </p>
+
           <h3 className={s.subheadBig}>summer30 2 — ~90 creatives in rotation</h3>
           <Bar
             win={1815} mid={1436} dead={1730}
@@ -295,9 +380,10 @@ export default function SkoAdsAugust() {
           <AdTable rows={E2_CREATIVES} poolSpend={1479.66} poolPur={30} />
           <p className={s.footnote}>
             Two new videos carry the ad — 5.93× and 3.44×. The four versions with the
-            edited-in background and floating logo did ~1.0× on $303. Kill the
-            treatment, keep the creator: clean native footage sells; the produced
-            look reads as an ad and dies.
+            edited-in background and floating logo did ~1.0× on $303. Weight budget
+            hard toward the native two; leave the logo/background versions running
+            at low spend to see if they mature — at ~1.0× they're near break-even,
+            not proven dead.
           </p>
         </section>
 
@@ -336,8 +422,8 @@ export default function SkoAdsAugust() {
               <p className={s.insightBody}>
                 Ethan's new videos hit <strong>5.93× and 3.44×</strong> — the same
                 content with an edited-in background and floating logo ran ~1.0×.
-                Native-looking footage sells; the produced look reads as an ad and
-                dies. Kill the treatment, not the creator.
+                Native-looking footage sells; the produced look reads as an ad.
+                Downweight the treatment, not the creator.
               </p>
             </div>
           </div>
@@ -386,6 +472,19 @@ export default function SkoAdsAugust() {
             account is old enough for Meta Business Suite access. TikTok carries
             the volume meanwhile.
           </p>
+
+          <div className={base.flag}>
+            <span className={base.flagLabel}>Payment friction is throttling Meta</span>
+            <p className={base.cardBody}>
+              Both campaigns currently show <strong>Payment error · low budget
+              used / low results</strong>. The company card (Bank of America) caps
+              unsupervised spend, so charges keep failing until they're pushed
+              through manually — and every stall stops delivery and resets pacing.
+              Until the replacement card is onboarded, expect Meta results to read
+              worse than the creative deserves. This is a billing problem, not an
+              ads problem.
+            </p>
+          </div>
 
           <div className={base.tableWrap}>
             <table className={`${base.table} ${s.num}`}>
@@ -505,7 +604,7 @@ export default function SkoAdsAugust() {
                 <tr><td>ETHAN UGC — hold</td><td>$1,500</td></tr>
                 <tr><td>LAST CHANCE — raise (best CPA)</td><td>$1,200</td></tr>
                 <tr><td>summer30 2 — cut, strip pool 96 → 10</td><td>$800–1,000</td></tr>
-                <tr><td>ETHAN UGC 2 — keep the 2 new videos, kill the 4 logo/background versions</td><td>$1,000</td></tr>
+                <tr><td>ETHAN UGC 2 — weight to the 2 native videos; logo/bg versions throttled low, not killed</td><td>$1,000–1,200</td></tr>
                 <tr><td>EYE_GIANT — new dedicated ad group (force-feed the intent winner)</td><td>$350–500</td></tr>
                 <tr><td>Meta — tracking-validation week</td><td>$100–150</td></tr>
                 <tr className={s.rowStrong}>
