@@ -77,7 +77,7 @@ const CROSS_WINNERS = [
 ];
 
 const CROSS_LOSERS = [
-  { name: "AI Generated Video-4", pools: 2, spend: 229.67, pur: 1, rev: 119.7, ctr: "0.52%", thumb: "/skoads/ai-video-3.jpg" },
+  { name: "AI Generated Video-4", pools: 2, spend: 229.67, pur: 1, rev: 119.7, ctr: "0.52%" },
   { name: "Logo/bg version (copy_0B27…)", pools: 1, spend: 160.55, pur: 1, rev: 153.59, ctr: "1.02%" },
   { name: "HighCostBau-v10033g…", pools: 1, spend: 98.07, pur: 1, rev: 37.79, ctr: "1.98%" },
   { name: "V2_nY8125BV.mp4", pools: 2, spend: 84.74, pur: 0, rev: 0, ctr: "0.49%" },
