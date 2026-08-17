@@ -44,8 +44,8 @@ const ETHAN_CREATIVES = [
 ];
 
 const E2_CREATIVES = [
-  { name: "New video A (copy_655C…)", spend: 766.08, pur: 16, rev: 2635.46 },
-  { name: "New video B (copy_A0FA…)", spend: 410.19, pur: 11, rev: 2433.68 },
+  { name: "New video A (copy_655C…)", spend: 766.08, pur: 16, rev: 2635.46, thumb: "/skoads/e2-a.jpg" },
+  { name: "New video B (copy_A0FA…)", spend: 410.19, pur: 11, rev: 2433.68, thumb: "/skoads/e2-b.jpg" },
   { name: "Logo/background versions ×4 (combined)", spend: 303.39, pur: 3, rev: 304.72 },
 ];
 
@@ -70,8 +70,8 @@ const CROSS_WINNERS = [
   { name: "ethan UGC_vKCU0o8b", pools: 3, spend: 1632.98, pur: 35, rev: 7556.44, ctr: "2.12%", thumb: "/skoads/ethan-1.jpg" },
   { name: "EYE_GIANT_9X16_15s", pools: 2, spend: 506.5, pur: 15, rev: 4006.51, ctr: "0.74%", thumb: "/skoads/eye-giant.jpg" },
   { name: "ethan ugc 2_lEe0p2xn", pools: 2, spend: 865.51, pur: 16, rev: 3768.54, ctr: "1.73%", thumb: "/skoads/ethan-2.jpg" },
-  { name: "New video A (copy_655C…)", pools: 1, spend: 766.08, pur: 16, rev: 2635.46, ctr: "1.40%" },
-  { name: "New video B (copy_A0FA…)", pools: 1, spend: 410.19, pur: 11, rev: 2433.68, ctr: "1.18%" },
+  { name: "New video A (copy_655C…)", pools: 1, spend: 766.08, pur: 16, rev: 2635.46, ctr: "1.40%", thumb: "/skoads/e2-a.jpg" },
+  { name: "New video B (copy_A0FA…)", pools: 1, spend: 410.19, pur: 11, rev: 2433.68, ctr: "1.18%", thumb: "/skoads/e2-b.jpg" },
   { name: "SKOBOX_9X16_05s", pools: 2, spend: 196.37, pur: 7, rev: 1199.7, ctr: "0.84%", thumb: "/skoads/skobox.jpg" },
   { name: "7663698610439192583 (Spark)", pools: 2, spend: 221.17, pur: 4, rev: 1460.27, ctr: "0.52%", thumb: "/skoads/spark.jpg" },
 ];
