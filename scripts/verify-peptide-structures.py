@@ -57,10 +57,42 @@ def bond_geometry(P, E, bonds):
     return med, None
 
 
+def parse_v3000(lines):
+    """
+    V3000 molfile. Written instead of V2000 above 999 atoms or bonds, because
+    the V2000 counts line packs those into 3-character fields.
+    """
+    rows = [l[7:].strip() for l in lines if l.startswith('M  V30')]
+    counts = next((r for r in rows if r.startswith('COUNTS')), None)
+    if not counts:
+        raise ValueError('V3000 file has no COUNTS record')
+    na, nb = (int(x) for x in counts.split()[1:3])
+
+    els, pts, bonds, section = [], [], [], None
+    for r in rows:
+        if r == 'BEGIN ATOM': section = 'atom'; continue
+        if r == 'BEGIN BOND': section = 'bond'; continue
+        if r in ('END ATOM', 'END BOND'): section = None; continue
+        if not section:
+            continue
+        f = r.split()
+        if section == 'atom':
+            els.append(f[1])
+            pts.append((float(f[2]), float(f[3]), float(f[4])))
+        else:
+            bonds.append((int(f[2]) - 1, int(f[3]) - 1))
+
+    if len(els) != na or len(bonds) != nb:
+        raise ValueError(f'V3000 truncated: {len(els)}/{na} atoms, {len(bonds)}/{nb} bonds')
+    return na, nb, els, pts, bonds
+
+
 def parse_sdf(path):
     lines = open(path).read().splitlines()
     if len(lines) < 4:
         raise ValueError('too short')
+    if 'V3000' in lines[3]:
+        return parse_v3000(lines)
     na = int(lines[3][0:3])
     nb = int(lines[3][3:6])
     els = [lines[4 + i][31:34].strip() for i in range(na)]

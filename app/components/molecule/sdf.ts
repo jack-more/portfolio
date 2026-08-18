@@ -68,12 +68,56 @@ export function styleFor(element: string): ElementStyle {
 /** Elements ranked for the HUD composition readout. */
 export const HETERO = ['CU', 'S', 'P', 'N', 'O'];
 
+/**
+ * V3000 molfile. Emitted instead of V2000 once a structure exceeds 999 atoms
+ * or bonds, because the V2000 counts line packs those into 3-character fields.
+ * IGF1-LR3 (1254 atoms) is the first structure here to need it.
+ */
+function parseV3000(lines: string[], title: string): Molecule {
+  const rows = lines
+    .filter((l) => l.startsWith('M  V30'))
+    .map((l) => l.slice(7).trim());
+
+  const counts = rows.find((r) => r.startsWith('COUNTS'));
+  if (!counts) throw new Error('V3000 file has no COUNTS record');
+  const [atomCount, bondCount] = counts.split(/\s+/).slice(1, 3).map(Number);
+
+  const atoms: Atom[] = [];
+  const bonds: Bond[] = [];
+  let section: 'atom' | 'bond' | null = null;
+
+  for (const row of rows) {
+    if (row === 'BEGIN ATOM') { section = 'atom'; continue; }
+    if (row === 'BEGIN BOND') { section = 'bond'; continue; }
+    if (row === 'END ATOM' || row === 'END BOND') { section = null; continue; }
+    if (!section) continue;
+
+    const f = row.split(/\s+/);
+    if (section === 'atom') {
+      // index element x y z aamap [...]
+      atoms.push({ element: f[1], x: parseFloat(f[2]), y: parseFloat(f[3]), z: parseFloat(f[4]) });
+    } else {
+      // index order atom1 atom2 [...]
+      bonds.push({ order: parseInt(f[1], 10) || 1, a: parseInt(f[2], 10) - 1, b: parseInt(f[3], 10) - 1 });
+    }
+  }
+
+  if (atoms.length !== atomCount || bonds.length !== bondCount) {
+    throw new Error(
+      `V3000 block truncated: ${atoms.length}/${atomCount} atoms, ${bonds.length}/${bondCount} bonds`,
+    );
+  }
+  return finalize(title, atoms, bonds);
+}
+
 export function parseSdf(text: string): Molecule {
   const lines = text.split(/\r?\n/);
   if (lines.length < 4) throw new Error('SDF too short to contain a counts line');
 
   const title = lines[0].trim();
   const counts = lines[3];
+
+  if (counts.includes('V3000')) return parseV3000(lines, title);
 
   // The counts line is fixed-width (3 chars per field), but PubChem pads with
   // spaces so whitespace splitting is equivalent and more forgiving.
@@ -106,8 +150,14 @@ export function parseSdf(text: string): Molecule {
     });
   }
 
-  // Center on the centroid so rotation happens about the molecule, not the origin.
+  return finalize(title, atoms, bonds);
+}
+
+/** Center on the centroid and measure, shared by the V2000 and V3000 paths. */
+function finalize(title: string, atoms: Atom[], bonds: Bond[]): Molecule {
   const n = atoms.length;
+  if (!n) throw new Error('structure contains no atoms');
+
   let cx = 0, cy = 0, cz = 0;
   for (const a of atoms) { cx += a.x; cy += a.y; cz += a.z; }
   cx /= n; cy /= n; cz /= n;

@@ -240,6 +240,9 @@
   {
     "slug": "igf1lr3",
     "name": "IGF1-LR3",
-    "status": "missing"
+    "status": "ok",
+    "atoms": 1254,
+    "source": "UniProt P05019 + published extension \u00b7 ESMFold v1 fold",
+    "formulaVerified": "C400H619N111O115S9"
   }
 ]

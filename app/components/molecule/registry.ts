@@ -68,7 +68,13 @@ const CATALOG: { slug: string; sku: string; name: string; caveat?: string }[] = 
   { slug: 'ipamorelin', sku: 'SKO-032', name: 'Ipamorelin' },
   { slug: 'sermorelin', sku: 'SKO-035', name: 'Sermorelin' },
   { slug: 'tesamorelin', sku: 'SKO-005', name: 'Tesamorelin' },
-  { slug: 'cjc1295', sku: 'SKO-010', name: 'CJC-1295 no DAC' },
+  {
+    slug: 'cjc1295',
+    sku: 'SKO-010',
+    name: 'CJC-1295 no DAC',
+    caveat:
+      'Built from the published sequence — PubChem has no record for Mod GRF (1-29); a search for "CJC-1295" returns the DAC variant. Formula verified against the published C152H252N44O42.',
+  },
   { slug: 'thymosina1', sku: 'SKO-039', name: 'Thymosin Alpha-1' },
   { slug: 'ara290', sku: 'SKO-040', name: 'ARA-290' },
   { slug: 'aod9604', sku: 'SKO-041', name: 'AOD-9604' },
@@ -77,7 +83,13 @@ const CATALOG: { slug: string; sku: string; name: string; caveat?: string }[] = 
   { slug: 'mt1', sku: 'SKO-021', name: 'MT-1' },
   { slug: 'mt2', sku: 'SKO-022', name: 'MT-2' },
   { slug: 'amino1mq', sku: 'SKO-019', name: '5-Amino-1MQ' },
-  { slug: 'igf1lr3', sku: 'SKO-020', name: 'IGF1-LR3' },
+  {
+    slug: 'igf1lr3',
+    sku: 'SKO-020',
+    name: 'IGF1-LR3',
+    caveat:
+      'Predicted fold (ESMFold v1), not an experimental structure. Confidence is high across the IGF-1 core (pLDDT 0.71) and low across the 13-residue N-terminal extension (0.50), which is expected to be disordered. All three native disulfides were predicted correctly at 1.88–1.99 Å.',
+  },
   { slug: 'slupp332', sku: 'SKO-044', name: 'SLU-PP-332' },
 ];
 
