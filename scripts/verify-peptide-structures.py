@@ -120,11 +120,26 @@ def main():
             failures.append(slug)
             continue
 
-        if not row or not row.get('cid'):
-            # Unverifiable is a failure, not a pass. This is the exact gap that
-            # let the wrong KPV structure through.
-            print(f'FAIL  {slug:15s} {formula:24s} no manifest CID to verify against')
+        if not row:
+            print(f'FAIL  {slug:15s} {formula:24s} no manifest row')
             failures.append(slug)
+            continue
+
+        # Structures built from a published sequence have no PubChem record to
+        # compare against; they carry the published formula instead, which is
+        # an equally hard check on constitution.
+        if not row.get('cid'):
+            expected = row.get('formulaVerified')
+            if not expected:
+                # Unverifiable is a failure, not a pass. This is the exact gap
+                # that let the wrong KPV structure through.
+                print(f'FAIL  {slug:15s} {formula:24s} no CID and no published formula to verify against')
+                failures.append(slug)
+            elif expected != formula:
+                print(f'FAIL  {slug:15s} {formula:24s} != published {expected}')
+                failures.append(slug)
+            else:
+                print(f'ok    {slug:15s} {na:4d} atoms {nb:4d} bonds  {formula:24s} MW {mw:8.2f}  (vs published formula)')
             continue
 
         ref = pubchem_formula(row['cid'])

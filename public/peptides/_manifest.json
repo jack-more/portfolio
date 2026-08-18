@@ -164,8 +164,10 @@
   {
     "slug": "cjc1295",
     "name": "CJC-1295 no DAC",
-    "status": "missing",
-    "note": "no PubChem record for Mod GRF (1-29); plain \"CJC-1295\" is the DAC variant (MW 3647 vs 3368)"
+    "status": "ok",
+    "atoms": 490,
+    "source": "Published sequence \u00b7 RDKit ETKDGv3 conformer",
+    "formulaVerified": "C152H252N44O42"
   },
   {
     "slug": "pt141",
