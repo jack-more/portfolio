@@ -6,3 +6,9 @@ out
 .DS_Store
 remotion
 *.log
+
+# client work — never deploy
+SKO_Ads
+
+# Python env for RDKit conformer generation (scripts/generate-conformers.py)
+.venv-rdkit/

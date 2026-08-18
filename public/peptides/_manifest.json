@@ -1,0 +1,243 @@
+[
+  {
+    "slug": "kpv",
+    "name": "KPV",
+    "cid": "125672",
+    "matchedName": "cid:125672",
+    "atoms": 54,
+    "source": "PubChem CID 125672 \u00b7 computed 3D conformer",
+    "status": "ok"
+  },
+  {
+    "slug": "ghk",
+    "name": "GHK",
+    "cid": "73587",
+    "matchedName": "cid:73587",
+    "atoms": 48,
+    "source": "PubChem CID 73587 \u00b7 computed 3D conformer",
+    "status": "ok"
+  },
+  {
+    "slug": "glutathione",
+    "name": "Glutathione",
+    "cid": "124886",
+    "matchedName": "cid:124886",
+    "atoms": 37,
+    "source": "PubChem CID 124886 \u00b7 computed 3D conformer",
+    "status": "ok"
+  },
+  {
+    "slug": "nad",
+    "name": "NAD+",
+    "cid": "5892",
+    "matchedName": "cid:5892",
+    "atoms": 71,
+    "source": "PubChem CID 5892 \u00b7 computed 3D conformer",
+    "status": "ok"
+  },
+  {
+    "slug": "slupp332",
+    "name": "SLU-PP-332",
+    "cid": "5338394",
+    "matchedName": "cid:5338394",
+    "atoms": 36,
+    "source": "PubChem CID 5338394 \u00b7 computed 3D conformer",
+    "status": "ok"
+  },
+  {
+    "slug": "bpc157",
+    "name": "BPC-157",
+    "cid": "9941957",
+    "matchedName": "BPC-157",
+    "atoms": 198,
+    "source": "PubChem CID 9941957 IsomericSMILES \u00b7 RDKit ETKDGv3 conformer",
+    "status": "ok"
+  },
+  {
+    "slug": "tb500",
+    "name": "TB-500",
+    "cid": "62707662",
+    "matchedName": "TB-500",
+    "atoms": 130,
+    "source": "PubChem CID 62707662 IsomericSMILES \u00b7 RDKit ETKDGv3 conformer",
+    "status": "ok"
+  },
+  {
+    "slug": "semax",
+    "name": "Semax",
+    "cid": "9811102",
+    "matchedName": "Semax",
+    "atoms": 108,
+    "source": "PubChem CID 9811102 IsomericSMILES \u00b7 RDKit ETKDGv3 conformer",
+    "status": "ok"
+  },
+  {
+    "slug": "selank",
+    "name": "Selank",
+    "cid": "11765600",
+    "matchedName": "Selank",
+    "atoms": 110,
+    "source": "PubChem CID 11765600 IsomericSMILES \u00b7 RDKit ETKDGv3 conformer",
+    "status": "ok"
+  },
+  {
+    "slug": "dsip",
+    "name": "DSIP",
+    "cid": "68816",
+    "matchedName": "DSIP",
+    "atoms": 108,
+    "source": "PubChem CID 68816 IsomericSMILES \u00b7 RDKit ETKDGv3 conformer",
+    "status": "ok"
+  },
+  {
+    "slug": "kisspeptin10",
+    "name": "Kisspeptin-10",
+    "cid": "25240297",
+    "matchedName": "Kisspeptin-10",
+    "atoms": 177,
+    "source": "PubChem CID 25240297 IsomericSMILES \u00b7 RDKit ETKDGv3 conformer",
+    "status": "ok"
+  },
+  {
+    "slug": "motsc",
+    "name": "MOTS-c",
+    "cid": "146675088",
+    "matchedName": "MOTS-c",
+    "atoms": 305,
+    "source": "PubChem CID 146675088 IsomericSMILES \u00b7 RDKit ETKDGv3 conformer",
+    "status": "ok"
+  },
+  {
+    "slug": "ara290",
+    "name": "ARA-290",
+    "cid": "91810664",
+    "matchedName": "ARA-290",
+    "atoms": 172,
+    "source": "PubChem CID 91810664 IsomericSMILES \u00b7 RDKit ETKDGv3 conformer",
+    "status": "ok"
+  },
+  {
+    "slug": "aod9604",
+    "name": "AOD-9604",
+    "cid": "71300630",
+    "matchedName": "AOD-9604",
+    "atoms": 249,
+    "source": "PubChem CID 71300630 IsomericSMILES \u00b7 RDKit ETKDGv3 conformer",
+    "status": "ok"
+  },
+  {
+    "slug": "sermorelin",
+    "name": "Sermorelin",
+    "cid": "16132413",
+    "matchedName": "Sermorelin",
+    "atoms": 482,
+    "source": "PubChem CID 16132413 IsomericSMILES \u00b7 RDKit ETKDGv3 conformer",
+    "status": "ok"
+  },
+  {
+    "slug": "tesamorelin",
+    "name": "Tesamorelin",
+    "cid": "16137828",
+    "matchedName": "Tesamorelin",
+    "atoms": 727,
+    "source": "PubChem CID 16137828 IsomericSMILES \u00b7 RDKit ETKDGv3 conformer",
+    "status": "ok"
+  },
+  {
+    "slug": "thymosina1",
+    "name": "Thymosin Alpha-1",
+    "cid": "16130571",
+    "matchedName": "Thymalfasin",
+    "atoms": 432,
+    "source": "PubChem CID 16130571 IsomericSMILES \u00b7 RDKit ETKDGv3 conformer",
+    "status": "ok"
+  },
+  {
+    "slug": "ipamorelin",
+    "name": "Ipamorelin",
+    "cid": "9831659",
+    "matchedName": "Ipamorelin",
+    "atoms": 101,
+    "source": "PubChem CID 9831659 IsomericSMILES \u00b7 RDKit ETKDGv3 conformer",
+    "status": "ok"
+  },
+  {
+    "slug": "cjc1295",
+    "name": "CJC-1295 no DAC",
+    "status": "missing",
+    "note": "no PubChem record for Mod GRF (1-29); plain \"CJC-1295\" is the DAC variant (MW 3647 vs 3368)"
+  },
+  {
+    "slug": "pt141",
+    "name": "PT-141",
+    "cid": "9941379",
+    "matchedName": "Bremelanotide",
+    "atoms": 142,
+    "source": "PubChem CID 9941379 IsomericSMILES \u00b7 RDKit ETKDGv3 conformer",
+    "status": "ok"
+  },
+  {
+    "slug": "mt2",
+    "name": "MT-2",
+    "cid": "92432",
+    "matchedName": "Melanotan II",
+    "atoms": 143,
+    "source": "PubChem CID 92432 IsomericSMILES \u00b7 RDKit ETKDGv3 conformer",
+    "status": "ok"
+  },
+  {
+    "slug": "mt1",
+    "name": "MT-1",
+    "cid": "16197727",
+    "matchedName": "Afamelanotide",
+    "atoms": 229,
+    "source": "PubChem CID 16197727 IsomericSMILES \u00b7 RDKit ETKDGv3 conformer",
+    "status": "ok"
+  },
+  {
+    "slug": "ss31",
+    "name": "SS-31",
+    "cid": "11764719",
+    "matchedName": "Elamipretide",
+    "atoms": 95,
+    "source": "PubChem CID 11764719 IsomericSMILES \u00b7 RDKit ETKDGv3 conformer",
+    "status": "ok"
+  },
+  {
+    "slug": "tirzepatide",
+    "name": "Tirzepatide",
+    "cid": "166567236",
+    "matchedName": "Tirzepatide",
+    "atoms": 689,
+    "source": "PubChem CID 166567236 IsomericSMILES \u00b7 RDKit ETKDGv3 conformer",
+    "status": "ok"
+  },
+  {
+    "slug": "retatrutide",
+    "name": "Retatrutide",
+    "status": "missing"
+  },
+  {
+    "slug": "cagrilintide",
+    "name": "Cagrilintide",
+    "cid": "171397054",
+    "matchedName": "Cagrilintide",
+    "atoms": 621,
+    "source": "PubChem CID 171397054 IsomericSMILES \u00b7 RDKit ETKDGv3 conformer",
+    "status": "ok"
+  },
+  {
+    "slug": "amino1mq",
+    "name": "5-Amino-1MQ",
+    "cid": "950107",
+    "matchedName": "5-amino-1-methylquinolinium",
+    "atoms": 23,
+    "source": "PubChem CID 950107 \u00b7 computed 3D conformer",
+    "status": "ok"
+  },
+  {
+    "slug": "igf1lr3",
+    "name": "IGF1-LR3",
+    "status": "missing"
+  }
+]
