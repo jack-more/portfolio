@@ -1,0 +1,372 @@
+/*
+ * Wide banner module — sits at the top of a page, full-bleed.
+ * Tokens from skocompounds.com: --sko-primary-deep #0a1f5c,
+ * --sko-primary-bright #1447d6, Inter / Manrope.
+ */
+
+.banner {
+  --blue: #1447d6;
+  --blue-bright: #7db0ff;
+  --deep: #0a1f5c;
+  --bg: #050a18;
+  --line: rgba(20, 71, 214, 0.32);
+  --dim: #7b8798;
+
+  background: var(--bg);
+  color: #e6ecf5;
+  font-family: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, monospace;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  padding: 20px clamp(16px, 4vw, 40px) 26px;
+}
+
+/* ───────────── Stage ───────────── */
+
+.stage {
+  position: relative;
+  width: 100%;
+  /* Banner proportions: wide and shallow, capped so it never dominates. */
+  height: clamp(320px, 46vh, 460px);
+  border: 1px solid var(--line);
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 60% 70% at 50% 50%, rgba(20, 71, 214, 0.16), transparent 70%),
+    #04091a;
+}
+
+.canvas {
+  position: absolute;
+  inset: 0;
+}
+
+.vignette,
+.grain {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.vignette {
+  background: radial-gradient(
+    ellipse 80% 74% at 50% 50%,
+    transparent 44%,
+    rgba(2, 5, 14, 0.5) 84%,
+    rgba(2, 5, 14, 0.8) 100%
+  );
+}
+
+.grain {
+  opacity: 0.14;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Corner brackets */
+.bracket {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border: 0 solid var(--blue);
+  opacity: 0.75;
+  pointer-events: none;
+  z-index: 3;
+}
+.tl { top: 10px; left: 10px; border-top-width: 1px; border-left-width: 1px; }
+.tr { top: 10px; right: 10px; border-top-width: 1px; border-right-width: 1px; }
+.bl { bottom: 10px; left: 10px; border-bottom-width: 1px; border-left-width: 1px; }
+.br { bottom: 10px; right: 10px; border-bottom-width: 1px; border-right-width: 1px; }
+
+.orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 78%;
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba(20, 71, 214, 0.26);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ───────────── Stage overlays ───────────── */
+
+.stageTop,
+.stageBottom {
+  position: absolute;
+  left: clamp(18px, 3vw, 34px);
+  right: clamp(18px, 3vw, 34px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  z-index: 4;
+  pointer-events: none;
+}
+
+.stageTop { top: clamp(16px, 3vh, 26px); align-items: flex-start; }
+.stageBottom { bottom: clamp(16px, 3vh, 26px); }
+
+.identity { display: flex; flex-direction: column; gap: 5px; }
+
+.name {
+  margin: 0;
+  font-family: Manrope, Inter, system-ui, sans-serif;
+  font-size: clamp(20px, 2.6vw, 32px);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+  color: #ffffff;
+}
+
+.sku {
+  color: var(--dim);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+}
+
+.shop {
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 12px 20px;
+  border-radius: 7px;
+  border: 1px solid #1447d6;
+  background: linear-gradient(90deg, #0a1f5c 0%, #1447d6 50%, #0a1f5c 100%);
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: filter 140ms ease, transform 140ms ease;
+}
+
+.shop:hover { filter: brightness(1.2); }
+.shop:active { transform: translateY(1px); }
+
+.mono { color: var(--dim); font-size: 11px; }
+
+.readouts {
+  display: flex;
+  gap: 18px;
+  color: var(--dim);
+  font-size: 11px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.readouts > span:last-child { color: var(--blue-bright); }
+
+/* Scale bar — shared absolute scale across every structure. */
+.scale {
+  position: absolute;
+  right: clamp(18px, 3vw, 34px);
+  bottom: calc(clamp(16px, 3vh, 26px) + 26px);
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  z-index: 4;
+  pointer-events: none;
+}
+
+.scaleBar {
+  height: 5px;
+  border: 1px solid var(--blue-bright);
+  border-top: none;
+  transition: width 160ms ease;
+}
+
+.scaleLabel { color: var(--blue-bright); font-size: 11px; letter-spacing: 0.1em; }
+
+.probe {
+  position: absolute;
+  left: clamp(18px, 3vw, 34px);
+  bottom: calc(clamp(16px, 3vh, 26px) + 26px);
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 7px 11px;
+  background: rgba(8, 14, 28, 0.92);
+  border: 1px solid var(--line);
+  color: var(--blue-bright);
+  font-size: 11px;
+  z-index: 4;
+  pointer-events: none;
+}
+
+.probeSwatch { width: 9px; height: 9px; border-radius: 50%; }
+.probeCoord { color: var(--dim); }
+
+.loading,
+.error {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--dim);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+}
+
+.error { color: #d8663c; }
+
+/* ───────────── Controls ───────────── */
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+
+.toggles { display: flex; gap: 8px; flex-wrap: wrap; }
+
+.toggle {
+  padding: 9px 14px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 6px;
+  color: var(--dim);
+  font: inherit;
+  font-size: 10.5px;
+  letter-spacing: 0.13em;
+  cursor: pointer;
+  transition: color 140ms ease, border-color 140ms ease;
+}
+
+.toggle:hover { border-color: var(--line); color: #b9c4d4; }
+.toggleOn { color: var(--blue-bright); border-color: var(--line); }
+
+.provenance {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  min-width: 0;
+}
+
+.provenanceLabel {
+  color: var(--dim);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  flex-shrink: 0;
+}
+
+.provenanceValue {
+  color: #9aa6b8;
+  font-size: 11px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.caveat {
+  margin: 10px 0 0;
+  padding-left: 10px;
+  border-left: 2px solid rgba(20, 71, 214, 0.6);
+  color: #8d97a6;
+  font-size: 10.5px;
+  line-height: 1.6;
+  max-width: 90ch;
+}
+
+/* ───────────── Compound rail ───────────── */
+
+.railLabel {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin: 22px 0 10px;
+  color: var(--dim);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+}
+
+.railCount { color: #5d6a7d; letter-spacing: 0.1em; }
+
+/* Single scrolling row rather than a wrapping grid — a banner cannot afford
+   three rows of chips, and horizontal scanning suits a browse-then-buy flow. */
+.rail {
+  display: flex;
+  gap: 7px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 8px;
+  scroll-snap-type: x proximity;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(20, 71, 214, 0.55) transparent;
+  /* Fade both ends so it reads as continuing past the edge. */
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0,
+    #000 20px,
+    #000 calc(100% - 40px),
+    transparent 100%
+  );
+}
+
+.rail::-webkit-scrollbar { height: 6px; }
+.rail::-webkit-scrollbar-track { background: transparent; }
+.rail::-webkit-scrollbar-thumb {
+  background: rgba(20, 71, 214, 0.55);
+  border-radius: 3px;
+}
+.rail::-webkit-scrollbar-thumb:hover { background: rgba(20, 71, 214, 0.85); }
+
+.chip {
+  flex: 0 0 auto;
+  min-width: 132px;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+  padding: 9px 11px;
+  background: #101827;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  color: #d3dbe8;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: background 130ms ease, border-color 130ms ease, transform 130ms ease;
+}
+
+.chip:hover {
+  background: #17223a;
+  border-color: var(--line);
+}
+
+.chip:active { transform: translateY(1px); }
+
+.chipActive,
+.chipActive:hover {
+  background: linear-gradient(90deg, #0a1f5c 0%, #1447d6 50%, #0a1f5c 100%);
+  border-color: #1447d6;
+  color: #ffffff;
+}
+
+.chipName {
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+}
+
+.chipSku {
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  opacity: 0.55;
+}
+
+@media (max-width: 640px) {
+  .stageTop { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .readouts { gap: 10px; }
+  .chip { min-width: 112px; }
+}
