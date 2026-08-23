@@ -148,6 +148,9 @@ export default function SkoPage() {
             <span>
               <a href="https://jackmorello.com">jackmorello.com</a>
             </span>
+            <span>
+              <a href="/sko/ad-rankings-aug16-24.html">Ad rankings · Aug 16–24</a>
+            </span>
           </div>
         </header>
 

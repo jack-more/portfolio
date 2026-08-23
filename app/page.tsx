@@ -8,13 +8,25 @@ import MusicCard from "./components/MusicCard";
 
 const work = [
   {
+    company: "SKO Compounds",
+    desc: "Paid media and growth for a DTC research-peptide brand",
+    href: "https://skocompounds.com/",
+    details: [
+      "Run TikTok paid, lifecycle, and attribution for a Beverly Hills DTC brand, now past 35,000 orders shipped",
+      "Scaled daily spend 5x in one week while holding ~3.5x blended ROAS and sub-$60 CPA",
+      "Built the measurement stack: pixel + server-side events with verified dedupe, RedTrack spend sync, first-party click attribution, and an admin reporting layer",
+      "Run the creative pipeline end to end: UGC direction, AI-generated brand personas and cinematic spots, motion-graphics overlays, caption and title systems",
+      "Hit 7x ROAS on the best campaign by pairing urgency offers with creator footage",
+    ],
+  },
+  {
     company: "Incubella",
     desc: "Growth advisory and embedded client GTM",
     href: "https://www.incubella.co/",
     details: [
       "Partner at growth advisory firm building GTM systems for early-stage clients",
-      "Engagement: Devolved AI, embedded marketing lead for private AI platform",
       "Engagement: Riskiiit, secured client contract and built early Telegram-led GTM",
+      "Engagement: Devolved AI, embedded marketing lead for private AI platform",
       "AI-assisted workflows for campaign research, creative iteration, landing pages, reporting",
     ],
   },
@@ -144,18 +156,15 @@ export default function HomePage() {
 
           <DraggableCard title="Jack Morello">
             <p>
-              Hey, I&apos;m Jack! I&apos;ve spent the last 8 years doing growth
-              marketing and paid media on the agency side at iHeartMedia and
-              Laundry Service before going in-house to build marketing
-              from scratch at three venture-backed startups with massive growth.
-              I&apos;m currently growing early-stage products with Incubella,
-              working across GTM, positioning, acquisition, and launch systems.
+              I&apos;m Jack. I run growth for SKO Compounds, a DTC brand in
+              Beverly Hills: TikTok paid, lifecycle, attribution, and the
+              creative pipeline, and I build GTM for early-stage products
+              through Incubella. Before that, eight years in growth marketing
+              and paid media, first agency-side at iHeartMedia and Laundry
+              Service, then in-house building marketing from zero at three
+              venture-backed startups.
             </p>
-            <p style={{ marginTop: "0.75rem" }}>
-              I&apos;m based in Los Angeles. If you have something interesting
-              or just want to say hi, I love to meet people online!{" "}
-              <a href="mailto:jaidanmorello@gmail.com">Start a chat with me</a>.
-            </p>
+            <p style={{ marginTop: "0.75rem" }}>Based in Los Angeles.</p>
           </DraggableCard>
 
           <DraggableCard title="Work">
