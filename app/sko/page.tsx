@@ -154,6 +154,9 @@ export default function SkoPage() {
             <span>
               <a href="/sko/weekly-report-aug16-24.html">Weekly report · Aug 16–24</a>
             </span>
+            <span>
+              <a href="/sko/paid-ads-standards.html">Paid ads standards</a>
+            </span>
           </div>
         </header>
 
