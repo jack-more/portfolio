@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ballast Directions</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;800;900&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --page:#111112;--page-2:#191a1c;--txt:#e9e7e0;--dim:rgba(233,231,224,.6);
+    --g:"Archivo","Helvetica Neue",Arial,sans-serif;--m:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--page);color:var(--txt);font-family:var(--g);font-size:15px;line-height:1.6}
+  .tele{font-family:var(--m);font-size:10px;font-weight:500;letter-spacing:.15em;text-transform:uppercase}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 26px}
+  header{padding:52px 0 30px}
+  header h1{font-family:var(--g);font-weight:900;font-size:clamp(30px,4.6vw,52px);letter-spacing:-.035em;margin:0 0 12px;text-transform:uppercase}
+  header p{color:var(--dim);max-width:60ch;margin:0}
+  .cons{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:0;border-top:1px solid rgba(233,231,224,.24);margin:30px 0 8px}
+  .cons div{padding:14px 18px 18px 0;border-right:1px solid rgba(233,231,224,.16);border-bottom:1px solid rgba(233,231,224,.16)}
+  .cons b{display:block;font-family:var(--m);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#9dff5e;margin-bottom:6px}
+  .cons span{font-size:13.5px;color:var(--dim);line-height:1.5}
+
+  .v{margin:52px 0}
+  .v__lab{display:flex;align-items:baseline;gap:14px;padding-bottom:10px;margin-bottom:14px;border-bottom:1px solid rgba(233,231,224,.24)}
+  .v__lab h2{font-family:var(--g);font-weight:800;font-size:19px;letter-spacing:-.01em;margin:0;text-transform:uppercase}
+  .v__lab .k{font-family:var(--m);font-size:10px;letter-spacing:.14em;color:#9dff5e}
+  .v__note{color:var(--dim);font-size:13.5px;margin:0 0 16px;max-width:74ch}
+  .v__note b{color:var(--txt);font-weight:600}
+  .stageBox{position:relative;height:460px;overflow:hidden;border:1px solid rgba(233,231,224,.2);cursor:pointer}
+  .hintbar{position:absolute;bottom:0;left:0;right:0;z-index:9;padding:7px 12px;background:rgba(0,0,0,.6);color:#fff;font-family:var(--m);font-size:9.5px;letter-spacing:.15em;text-transform:uppercase}
+
+  /* ══ A · PROSPECTUS ══ */
+  .A{background:#07080b;position:absolute;inset:0}
+  .A .veil{position:absolute;inset:0;z-index:2}
+  .A .half{position:absolute;top:0;height:100%;width:50%;overflow:hidden;background:#cfccc0;transition:transform .85s cubic-bezier(.7,0,.2,1)}
+  .A .half--l{left:0}.A .half--r{right:0}
+  .A .doc{position:absolute;top:0;height:100%;width:200%;padding:26px 30px;display:flex;flex-direction:column;color:#15150f}
+  .A .half--l .doc{left:0}.A .half--r .doc{right:0}
+  .A .doc h3{font-family:var(--g);font-weight:600;font-size:clamp(30px,5vw,62px);letter-spacing:-.03em;margin:auto 0 10px;text-transform:uppercase}
+  .A .doc p{margin:0 0 auto;max-width:40ch;font-size:13px;color:#3c3a30}
+  .A .rowline{display:flex;justify-content:space-between;font-family:var(--m);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;border-bottom:1px solid #a9a597;padding:5px 0;max-width:380px}
+  .A .top,.A .bot{display:flex;justify-content:space-between;font-family:var(--m);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase}
+  .A .top{border-bottom:1px solid #15150f;padding-bottom:7px}
+  .A .bot{border-top:1px solid #15150f;padding-top:7px}
+  .stageBox:hover .A .half--l{transform:translateX(-102%)}
+  .stageBox:hover .A .half--r{transform:translateX(102%)}
+  .A canvas{position:absolute;inset:0;width:100%;height:100%;z-index:1}
+
+  /* ══ B · TERMINAL ══ */
+  .B{position:absolute;inset:0;background:#0a0a0a;overflow:hidden}
+  .B canvas{position:absolute;inset:0;width:100%;height:100%;opacity:0;transition:opacity .6s ease}
+  .stageBox:hover .B canvas{opacity:1}
+  .B .term{position:relative;z-index:2;padding:26px 30px;font-family:var(--m);font-size:12px;line-height:2;color:#d8d6cf;transition:opacity .6s ease,transform .6s ease}
+  .stageBox:hover .B .term{opacity:.14;transform:scale(.985)}
+  .B .term .k{color:#6f6d66}
+  .B .big{position:absolute;z-index:3;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .5s ease .15s;pointer-events:none}
+  .stageBox:hover .B .big{opacity:1}
+  .B .big h3{font-family:var(--g);font-weight:900;font-size:clamp(44px,9vw,116px);letter-spacing:-.045em;margin:0;text-transform:uppercase;color:transparent;-webkit-text-stroke:2px #9dff5e}
+
+  /* ══ C · INDEX ══ */
+  .C{position:absolute;inset:0;background:#b8b5a8;overflow:hidden}
+  .C .card{
+    position:absolute;background:#e8e5da;border:1px solid #8f8c7f;
+    padding:11px 13px;width:186px;color:#1b1b14;
+    font-family:var(--m);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;
+    box-shadow:2px 3px 0 rgba(0,0,0,.16);
+    transition:transform 1s cubic-bezier(.66,0,.2,1),opacity .8s ease;
+  }
+  .C .card b{display:block;font-family:var(--g);font-weight:700;font-size:13px;letter-spacing:-.01em;text-transform:none;margin-bottom:3px}
+  .C .title{position:absolute;z-index:5;left:30px;top:26px;color:#1b1b14}
+  .C .title h3{font-family:var(--g);font-weight:600;font-size:clamp(28px,4.6vw,54px);letter-spacing:-.03em;margin:0;text-transform:uppercase}
+  .C .title p{font-family:var(--m);font-size:9.5px;letter-spacing:.15em;text-transform:uppercase;margin:6px 0 0;color:#4a483d}
+
+  /* ══ D · LEDGER + BLEED ══ */
+  .D{position:absolute;inset:0;background:#c9c7bb;overflow:hidden}
+  .D canvas{position:absolute;inset:0;width:100%;height:100%;
+    -webkit-mask-image:radial-gradient(circle at 50% 62%,#000 0,transparent 62%);
+            mask-image:radial-gradient(circle at 50% 62%,#000 0,transparent 62%);
+    opacity:0;transition:opacity .8s ease;mix-blend-mode:multiply}
+  .stageBox:hover .D canvas{opacity:1}
+  .D .paper{position:relative;z-index:2;padding:26px 30px;color:#1b1b14;height:100%;display:flex;flex-direction:column}
+  .D .paper h3{font-family:var(--g);font-weight:600;font-size:clamp(28px,4.6vw,54px);letter-spacing:-.03em;margin:0 0 4px;text-transform:uppercase}
+  .D .paper .sm{font-family:var(--m);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:#4a483d}
+  .D .rows{margin-top:auto;border-top:1px solid #97958a}
+  .D .r{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #97958a;font-family:var(--m);font-size:10px;letter-spacing:.1em;text-transform:uppercase}
+  .D .r span:last-child{color:#4a483d}
+
+  footer{padding:44px 0 70px;color:var(--dim)}
+  @media (max-width:800px){.stageBox{height:400px}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <h1>Ballast &mdash; Four Directions</h1>
+    <p>Same constraints, four different answers. Hover any panel to see its reveal. Pick one and I'll build it out; or say which pieces from which.</p>
+
+    <div class="cons">
+      <div><b>Name</b><span>Ballast. No descriptor, no "agency".</span></div>
+      <div><b>Register</b><span>80s institutional — a wealth fund from Des Moines. Monolithic, unfashionable on purpose.</span></div>
+      <div><b>Cover</b><span>Deliberately boring. It should look like a document, not a website.</span></div>
+      <div><b>The juice</b><span>One insane creative element that breaks the dullness. Earned, not decorative.</span></div>
+      <div><b>Not</b><span>Not pink. Not a dead-company article. Not a generic agency page.</span></div>
+      <div><b>Content</b><span>Positioning, four practices, 15-name tiered roster, contact.</span></div>
+    </div>
+  </header>
+
+  <!-- A -->
+  <div class="v">
+    <div class="v__lab"><span class="k">A</span><h2>The Prospectus</h2></div>
+    <p class="v__note">A fund document — oat paper, plain type, a table of holdings. <b>The juice:</b> it splits down the middle and pulls apart, and there's a living organism behind the paper the whole time.</p>
+    <div class="stageBox">
+      <div class="A">
+        <canvas id="ca"></canvas>
+        <div class="veil">
+          <div class="half half--l"><div class="doc">
+            <div class="top"><span>Ballast</span><span>Los Angeles</span></div>
+            <h3>Ballast</h3>
+            <p>A performance and go-to-market practice. Paid media, launch, and the measurement underneath both.</p>
+            <div class="rowline"><span>Paid Media</span><span>Active</span></div>
+            <div class="rowline"><span>Go-To-Market</span><span>Active</span></div>
+            <div class="rowline"><span>Measurement</span><span>Active</span></div>
+            <div class="bot"><span>Statement</span><span>MMXXVI</span></div>
+          </div></div>
+          <div class="half half--r"><div class="doc">
+            <div class="top"><span>Ballast</span><span>Los Angeles</span></div>
+            <h3>Ballast</h3>
+            <p>A performance and go-to-market practice. Paid media, launch, and the measurement underneath both.</p>
+            <div class="rowline"><span>Paid Media</span><span>Active</span></div>
+            <div class="rowline"><span>Go-To-Market</span><span>Active</span></div>
+            <div class="rowline"><span>Measurement</span><span>Active</span></div>
+            <div class="bot"><span>Statement</span><span>MMXXVI</span></div>
+          </div></div>
+        </div>
+      </div>
+      <div class="hintbar">Hover &mdash; the document splits</div>
+    </div>
+  </div>
+
+  <!-- B -->
+  <div class="v">
+    <div class="v__lab"><span class="k">B</span><h2>The Readout</h2></div>
+    <p class="v__note">A monospace status terminal. Nothing but text and numbers — as dull as a server log. <b>The juice:</b> the log dissolves and the screen becomes a field of drifting light with the name burned through it.</p>
+    <div class="stageBox">
+      <div class="B">
+        <canvas id="cb"></canvas>
+        <div class="term">
+          <div><span class="k">&gt;</span> ballast --status</div>
+          <div><span class="k">practice</span> ....... paid media / go-to-market / measurement / creative</div>
+          <div><span class="k">location</span> ....... 34.0522&deg; N, 118.2437&deg; W</div>
+          <div><span class="k">engagements</span> .... 15 logged</div>
+          <div><span class="k">capacity</span> ....... accepting</div>
+          <div><span class="k">since</span> .......... MMXXVI</div>
+          <div><span class="k">&gt;</span> _</div>
+        </div>
+        <div class="big"><h3>Ballast</h3></div>
+      </div>
+      <div class="hintbar">Hover &mdash; the log dissolves</div>
+    </div>
+  </div>
+
+  <!-- C -->
+  <div class="v">
+    <div class="v__lab"><span class="k">C</span><h2>The Filing</h2></div>
+    <p class="v__note">An index-card system on grey board. Every client is a card, filed flat and square. <b>The juice:</b> the cards break formation and scatter into depth, like the drawer was kicked over.</p>
+    <div class="stageBox">
+      <div class="C" id="cc">
+        <div class="title"><h3>Ballast</h3><p>Client index &mdash; Los Angeles &mdash; MMXXVI</p></div>
+      </div>
+      <div class="hintbar">Hover &mdash; the cards scatter</div>
+    </div>
+  </div>
+
+  <!-- D -->
+  <div class="v">
+    <div class="v__lab"><span class="k">D</span><h2>The Bleed</h2></div>
+    <p class="v__note">An accounting ledger. Ruled lines, right-aligned figures, nothing else. <b>The juice:</b> something starts bleeding up through the paper from underneath — ink that won't stay put.</p>
+    <div class="stageBox">
+      <div class="D">
+        <canvas id="cd"></canvas>
+        <div class="paper">
+          <div class="sm">Ballast &mdash; Statement of Engagements</div>
+          <h3>Ballast</h3>
+          <div class="rows">
+            <div class="r"><span>SKO Compounds</span><span>Full Suite</span></div>
+            <div class="r"><span>Build Cities</span><span>Full Suite</span></div>
+            <div class="r"><span>Toyota</span><span>Paid Media</span></div>
+            <div class="r"><span>Disney</span><span>Go-To-Market</span></div>
+            <div class="r"><span>Rick Owens</span><span>Go-To-Market</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="hintbar">Hover &mdash; the ink comes through</div>
+    </div>
+  </div>
+
+  <footer class="tele">Ballast &mdash; direction study &mdash; pick one, or name the pieces worth keeping</footer>
+</div>
+
+<script>
+// ── A: wireframe organism ──────────────────────────
+(function(){
+  var c=document.getElementById('ca'),x=c.getContext('2d'),W,H;
+  function sz(){var r=c.getBoundingClientRect(),d=Math.min(devicePixelRatio||1,2);c.width=r.width*d;c.height=r.height*d;x.setTransform(d,0,0,d,0,0);W=r.width;H=r.height}
+  sz();addEventListener('resize',sz);
+  var LAT=22,LON=40,V=[];
+  for(var i=0;i<=LAT;i++){var v=i/LAT*Math.PI;
+    for(var j=0;j<=LON;j++){var u=j/LON*6.283;
+      var R=1+.24*Math.sin(3*u)*Math.cos(2*v)+.13*Math.sin(2*v+1.1)+.09*Math.cos(5*u);
+      V.push([R*Math.sin(v)*Math.cos(u),R*Math.cos(v),R*Math.sin(v)*Math.sin(u)]);}}
+  function f(t){
+    if(!W){requestAnimationFrame(f);return}
+    x.clearRect(0,0,W,H);
+    var a=t*.00018,ca=Math.cos(a),sa=Math.sin(a),ct=Math.cos(-.3),st=Math.sin(-.3);
+    var s=Math.min(W,H)*.4,cx=W/2,cy=H/2,P=[];
+    for(var i=0;i<V.length;i++){var p=V[i];
+      var X=p[0]*ca-p[2]*sa,Z=p[0]*sa+p[2]*ca,Y=p[1]*ct-Z*st,Z2=p[1]*st+Z*ct,pr=3/(3+Z2);
+      P.push([cx+X*s*pr,cy+Y*s*pr,Z2]);}
+    for(var i=0;i<LAT;i++)for(var j=0;j<LON;j++){
+      var a1=i*(LON+1)+j,pa=P[a1],pb=P[a1+1],pc=P[a1+LON+1],pd=P[a1+LON+2];
+      if(!pa||!pb||!pc||!pd)continue;
+      var d=(pa[2]+pb[2]+pc[2]+pd[2])/4,fr=d<0;
+      x.beginPath();x.moveTo(pa[0],pa[1]);x.lineTo(pb[0],pb[1]);x.lineTo(pd[0],pd[1]);x.lineTo(pc[0],pc[1]);x.closePath();
+      x.fillStyle=fr?'rgba(35,60,70,.16)':'rgba(20,32,42,.09)';x.fill();
+      x.lineWidth=fr?.8:.4;
+      x.strokeStyle=fr?'rgba(157,255,94,'+(.32+.4*(-d))+')':'rgba(57,230,255,.14)';x.stroke();}
+    var gx=cx+s*.28,gy=cy-s*.3,gr=s*.32,g=x.createRadialGradient(gx,gy,0,gx,gy,gr);
+    g.addColorStop(0,'rgba(255,255,255,.85)');g.addColorStop(.35,'rgba(157,255,94,.4)');g.addColorStop(1,'rgba(57,230,255,0)');
+    x.fillStyle=g;x.beginPath();x.arc(gx,gy,gr,0,6.283);x.fill();
+    requestAnimationFrame(f);}
+  requestAnimationFrame(f);
+})();
+
+// ── B: drifting light field ────────────────────────
+(function(){
+  var c=document.getElementById('cb'),x=c.getContext('2d'),W,H;
+  function sz(){var r=c.getBoundingClientRect(),d=Math.min(devicePixelRatio||1,2);c.width=r.width*d;c.height=r.height*d;x.setTransform(d,0,0,d,0,0);W=r.width;H=r.height}
+  sz();addEventListener('resize',sz);
+  var N=9,B=[];for(var i=0;i<N;i++)B.push({a:Math.random()*6.283,r:.18+Math.random()*.3,sp:.0002+Math.random()*.0005,ph:Math.random()*6.283,hue:i%3});
+  function f(t){
+    if(!W){requestAnimationFrame(f);return}
+    x.clearRect(0,0,W,H);
+    for(var i=0;i<N;i++){var b=B[i];
+      var px=W/2+Math.cos(t*b.sp+b.ph)*W*b.r, py=H/2+Math.sin(t*b.sp*1.3+b.ph)*H*b.r;
+      var rad=Math.min(W,H)*(.16+.1*Math.sin(t*.0004+b.ph));
+      var g=x.createRadialGradient(px,py,0,px,py,rad);
+      var col=b.hue===0?'157,255,94':(b.hue===1?'57,230,255':'255,255,255');
+      g.addColorStop(0,'rgba('+col+',.30)');g.addColorStop(1,'rgba('+col+',0)');
+      x.fillStyle=g;x.beginPath();x.arc(px,py,rad,0,6.283);x.fill();}
+    requestAnimationFrame(f);}
+  requestAnimationFrame(f);
+})();
+
+// ── C: index cards ─────────────────────────────────
+(function(){
+  var host=document.getElementById('cc');
+  var names=[['SKO Compounds','Full Suite'],['Build Cities','Full Suite'],['Toyota','Paid Media'],['Starbucks','Paid Media'],['LG','Paid Media'],['Starzplay','Paid Media'],['Sony','Go-To-Market'],['Peacock','Go-To-Market'],['Disney','Go-To-Market'],['NEAR Foundation','Go-To-Market'],['SailGP','Go-To-Market'],['Adidas','Go-To-Market'],['Rick Owens','Go-To-Market'],['SushiSwap','Go-To-Market'],['SCI-Arc','Go-To-Market']];
+  var cards=[];
+  names.forEach(function(n,i){
+    var d=document.createElement('div');d.className='card';
+    d.innerHTML='<b>'+n[0]+'</b>'+n[1];
+    var col=i%5,row=Math.floor(i/5);
+    var bx=30+col*200, by=132+row*82;
+    d.dataset.bx=bx;d.dataset.by=by;
+    d.style.transform='translate('+bx+'px,'+by+'px)';
+    d.dataset.sx=(Math.random()-.5)*760;
+    d.dataset.sy=(Math.random()-.5)*520;
+    d.dataset.sr=(Math.random()-.5)*90;
+    d.dataset.ss=(.5+Math.random()*1.1).toFixed(2);
+    host.appendChild(d);cards.push(d);
+  });
+  var box=host.closest('.stageBox');
+  box.addEventListener('mouseenter',function(){
+    cards.forEach(function(d){
+      d.style.transform='translate('+(+d.dataset.bx + +d.dataset.sx)+'px,'+(+d.dataset.by + +d.dataset.sy)+'px) rotate('+d.dataset.sr+'deg) scale('+d.dataset.ss+')';
+    });
+  });
+  box.addEventListener('mouseleave',function(){
+    cards.forEach(function(d){d.style.transform='translate('+d.dataset.bx+'px,'+d.dataset.by+'px)'});
+  });
+})();
+
+// ── D: ink bleed ───────────────────────────────────
+(function(){
+  var c=document.getElementById('cd'),x=c.getContext('2d'),W,H;
+  function sz(){var r=c.getBoundingClientRect(),d=Math.min(devicePixelRatio||1,2);c.width=r.width*d;c.height=r.height*d;x.setTransform(d,0,0,d,0,0);W=r.width;H=r.height}
+  sz();addEventListener('resize',sz);
+  var N=7,B=[];for(var i=0;i<N;i++)B.push({a:Math.random()*6.283,sp:.00016+Math.random()*.0004,ph:Math.random()*6.283,r:.2+Math.random()*.26});
+  function f(t){
+    if(!W){requestAnimationFrame(f);return}
+    x.clearRect(0,0,W,H);
+    for(var i=0;i<N;i++){var b=B[i];
+      var px=W*.5+Math.cos(t*b.sp+b.ph)*W*b.r,py=H*.62+Math.sin(t*b.sp*1.6+b.ph)*H*.3;
+      var rad=Math.min(W,H)*(.24+.12*Math.sin(t*.0005+b.ph));
+      var g=x.createRadialGradient(px,py,0,px,py,rad);
+      var col=i%3===0?'26,42,120':(i%3===1?'150,20,60':'20,90,70');
+      g.addColorStop(0,'rgba('+col+',.55)');g.addColorStop(1,'rgba('+col+',0)');
+      x.fillStyle=g;x.beginPath();x.arc(px,py,rad,0,6.283);x.fill();}
+    requestAnimationFrame(f);}
+  requestAnimationFrame(f);
+})();
+</script>
+</body>
+</html>
