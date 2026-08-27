@@ -4,21 +4,21 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Ballast — Weight, on purpose</title>
-<meta name="description" content="Ballast. A performance and go-to-market practice in Los Angeles. Paid media, launch, and the measurement underneath both.">
+<meta name="description" content="Ballast. A performance and go-to-market practice in Los Angeles. Most advertisers buy channels. Ballast buys intent, and measures each layer on what it actually did rather than on who was standing closest to the sale.">
 <link rel="canonical" href="https://ballast.la/">
 <link rel="icon" href="/favicon.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Ballast">
 <meta property="og:url" content="https://ballast.la/">
 <meta property="og:title" content="Ballast — Weight, on purpose">
-<meta property="og:description" content="A performance and go-to-market practice in Los Angeles. Paid media, launch, and the measurement underneath both.">
+<meta property="og:description" content="Most advertisers buy channels. Ballast buys intent, and measures each layer on what it actually did rather than on who was standing closest to the sale.">
 <meta property="og:image" content="https://ballast.la/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="The Ballast wordmark over an orange ellipse, above a cobalt band reading Weight, on purpose">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Ballast — Weight, on purpose">
-<meta name="twitter:description" content="A performance and go-to-market practice in Los Angeles. Paid media, launch, and the measurement underneath both.">
+<meta name="twitter:description" content="Most advertisers buy channels. Ballast buys intent, and measures each layer on what it actually did rather than on who was standing closest to the sale.">
 <meta name="twitter:image" content="https://ballast.la/og.png">
 <link rel="apple-touch-icon" href="/favicon.png">
 <meta name="theme-color" content="#0b5cf6">
@@ -140,7 +140,7 @@
 
   .front__sub{
     font-family:var(--g);font-weight:500;font-size:clamp(16px,1.8vw,21px);line-height:1.5;
-    max-width:34ch;margin:clamp(20px,2.6vw,30px) 0 0;color:rgba(10,13,24,.78);
+    max-width:42ch;margin:clamp(18px,2.3vw,26px) 0 0;color:rgba(10,13,24,.78);
   }
   .front__foot{
     display:grid;grid-template-columns:repeat(4,1fr);gap:16px;
@@ -193,7 +193,33 @@
     font-family:var(--m);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:rgba(10,13,24,.6);
   }
 
-  /* ── PANEL 03 · WHAT IT DOES ────────────────────────── */
+  /* ── PANEL 03 · INTENT LAYERS ───────────────────────── */
+  .strata{border:2px solid var(--ink)}
+  .stratum{
+    display:grid;grid-template-columns:minmax(190px,1.15fr) 1fr 1fr .82fr;
+    gap:clamp(14px,2vw,32px);
+    padding:clamp(20px,2.3vw,28px) clamp(16px,2vw,28px);
+    border-bottom:1px solid rgba(10,13,24,.22);border-left:10px solid var(--amber);
+    background:rgba(249,165,27,.10);
+  }
+  .stratum:nth-child(2){border-left-color:var(--orange);background:rgba(253,114,13,.13)}
+  .stratum:nth-child(3){border-left-color:#c94c02;background:rgba(222,85,2,.17)}
+  .stratum:nth-child(4){border-left-color:#7d2c02;background:rgba(143,50,2,.21);border-bottom:0}
+  .stratum__id{display:flex;align-items:baseline;gap:10px;margin-bottom:7px}
+  .stratum__id .no{font-family:var(--m);font-weight:600;font-size:11px;letter-spacing:.12em;color:rgba(10,13,24,.5)}
+  .stratum h3{font-family:var(--g);font-weight:900;font-size:clamp(17px,2vw,23px);letter-spacing:-.022em;text-transform:uppercase;margin:0;line-height:1.02}
+  .stratum__who{margin:0;font-size:14px;line-height:1.5;color:rgba(10,13,24,.68);max-width:26ch}
+  .stratum dl{margin:0}
+  .stratum dt{font-family:var(--n);font-weight:700;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(10,13,24,.5);margin-bottom:5px}
+  .stratum dd{margin:0;font-size:14px;line-height:1.5;font-weight:500}
+  .stratum--goal dd{font-weight:800;letter-spacing:-.01em}
+  .strata + .facts__note{max-width:none}
+  @media (max-width:900px){
+    .stratum{grid-template-columns:1fr;gap:16px;border-left-width:8px}
+    .stratum dl{border-top:1px solid rgba(10,13,24,.18);padding-top:12px}
+  }
+
+  /* ── PANEL 04 · WHAT IT DOES ────────────────────────── */
   .claims{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(10,13,24,.28)}
   .claim{padding:22px 26px 30px 0;border-right:1px solid rgba(10,13,24,.18)}
   .claim + .claim{padding-left:26px}
@@ -318,10 +344,10 @@
   "name": "Ballast",
   "url": "https://ballast.la/",
   "email": "jaidanmorello@gmail.com",
-  "description": "A performance and go-to-market practice. Paid media, launch, and the measurement underneath both.",
+  "description": "Most advertisers buy channels. Ballast buys intent, and measures each layer on what it actually did rather than on who was standing closest to the sale.",
   "address": { "@type": "PostalAddress", "addressLocality": "Los Angeles", "addressRegion": "CA", "addressCountry": "US" },
   "areaServed": "Worldwide",
-  "knowsAbout": ["Paid Media", "Go-To-Market", "Marketing Measurement", "Creative Production"]
+  "knowsAbout": ["Customer Intent", "Paid Media", "Go-To-Market", "Marketing Measurement", "Incrementality", "Creative Production"]
 }
 </script>
 </head>
@@ -333,6 +359,7 @@
     <span class="band__mark"><b>Ballast<sup>&reg;</sup></b> <span>Performance + Go-To-Market</span></span>
     <nav>
       <a href="#contents">Contents</a>
+      <a href="#intent">Intent</a>
       <a href="#does">What It Does</a>
       <a href="#use">Directions</a>
       <a href="#facts">Ingredients</a>
@@ -359,14 +386,14 @@
         <span class="fine">Formula No. 26<br><span style="color:rgba(10,13,24,.55)">Concentrated</span></span>
         <div class="burst" aria-hidden="true">
           <svg viewBox="0 0 100 100"><path fill="#0b5cf6" stroke="#0a0d18" stroke-width="1.6" d="M50.00,0.00L55.91,8.92L64.09,2.03L67.24,12.25L77.03,7.94L77.18,18.64L87.79,17.26L84.91,27.56L95.48,29.23L89.82,38.31L99.49,42.88L91.50,50.00L99.49,57.12L89.82,61.69L95.48,70.77L84.91,72.44L87.79,82.74L77.18,81.36L77.03,92.06L67.24,87.75L64.09,97.97L55.91,91.08L50.00,100.00L44.09,91.08L35.91,97.97L32.76,87.75L22.97,92.06L22.82,81.36L12.21,82.74L15.09,72.44L4.52,70.77L10.18,61.69L0.51,57.12L8.50,50.00L0.51,42.88L10.18,38.31L4.52,29.23L15.09,27.56L12.21,17.26L22.82,18.64L22.97,7.94L32.76,12.25L35.91,2.03L44.09,8.92Z"/></svg>
-          <span class="burst__t"><em>Holds</em>All<br>Three</span>
+          <span class="burst__t"><em>We buy</em>Intent</span>
         </div>
       </div>
 
       <div class="front__mid">
         <img class="lockup" src="/lockup.png" width="1400" height="591" alt="Ballast">
         <span class="flash"><i></i><b>Weight, on purpose</b></span>
-        <p class="front__sub">A performance and go-to-market practice. Paid media, launch, and the measurement underneath both.</p>
+        <p class="front__sub">Most advertisers buy channels. We buy intent &mdash; and measure each layer on what it actually did, not on who touched the sale last.</p>
       </div>
 
       <div class="front__foot fine">
@@ -407,12 +434,72 @@
     </div>
   </section>
 
-  <!-- ══ 03 · WHAT IT DOES ═══════════════════════════ -->
-  <section class="panel" id="does">
-    <span class="tab fine">Panel 03 — What It Does</span>
+  <!-- ══ 03 · INTENT LAYERS ══════════════════════════ -->
+  <section class="panel" id="intent">
+    <span class="tab fine">Panel 03 — Intent Layers</span>
     <div class="panel__in">
       <div class="hd">
         <span class="no">03</span>
+        <h2>Intent Layers</h2>
+        <span class="rt fine">Four states of demand</span>
+      </div>
+
+      <div class="strata">
+        <div class="stratum">
+          <div>
+            <div class="stratum__id"><span class="no">01</span></div>
+            <h3>In-Market</h3>
+            <p class="stratum__who">Actively looking for what you sell, right now.</p>
+          </div>
+          <dl><dt>We run</dt><dd>Branded search, shopping, retargeting</dd></dl>
+          <dl><dt>Measured on</dt><dd>Incrementality &mdash; not last click</dd></dl>
+          <dl class="stratum--goal"><dt>Serves</dt><dd>Revenue this month</dd></dl>
+        </div>
+
+        <div class="stratum">
+          <div>
+            <div class="stratum__id"><span class="no">02</span></div>
+            <h3>Comparing</h3>
+            <p class="stratum__who">Knows the problem, weighing you against the alternatives.</p>
+          </div>
+          <dl><dt>We run</dt><dd>Non-brand search, comparison placements, conquesting</dd></dl>
+          <dl><dt>Measured on</dt><dd>New-customer CAC</dd></dl>
+          <dl class="stratum--goal"><dt>Serves</dt><dd>Share of category</dd></dl>
+        </div>
+
+        <div class="stratum">
+          <div>
+            <div class="stratum__id"><span class="no">03</span></div>
+            <h3>Latent</h3>
+            <p class="stratum__who">Has the problem. Isn&rsquo;t looking yet, and won&rsquo;t search for you.</p>
+          </div>
+          <dl><dt>We run</dt><dd>Paid social, creator, video</dd></dl>
+          <dl><dt>Measured on</dt><dd>Lift in branded search and direct</dd></dl>
+          <dl class="stratum--goal"><dt>Serves</dt><dd>Next quarter&rsquo;s pipeline</dd></dl>
+        </div>
+
+        <div class="stratum">
+          <div>
+            <div class="stratum__id"><span class="no">04</span></div>
+            <h3>Lapsed</h3>
+            <p class="stratum__who">Bought once and stopped. The cheapest demand you already own.</p>
+          </div>
+          <dl><dt>We run</dt><dd>Lifecycle, win-back, suppression</dd></dl>
+          <dl><dt>Measured on</dt><dd>Repeat rate and LTV</dd></dl>
+          <dl class="stratum--goal"><dt>Serves</dt><dd>Margin</dd></dl>
+        </div>
+      </div>
+
+      <p class="facts__note fine">Every layer gets its own creative, its own offer, and its own metric. Judged on one shared number, three of the four always look like failures</p>
+    </div>
+  </section>
+
+  <!-- ══ 04 · WHAT IT DOES ═══════════════════════════ -->
+  <section class="panel" id="does">
+    <span class="tab fine">Panel 04 — What It Does</span>
+    <div class="panel__in">
+      <div class="hd">
+        <span class="no">04</span>
         <h2>What It Does</h2>
         <span class="rt fine">Four active systems</span>
       </div>
@@ -441,12 +528,12 @@
     </div>
   </section>
 
-  <!-- ══ 04 · DIRECTIONS FOR USE ═════════════════════ -->
+  <!-- ══ 05 · DIRECTIONS FOR USE ═════════════════════ -->
   <section class="panel panel--dark" id="use">
-    <span class="tab fine">Panel 04 — Directions</span>
+    <span class="tab fine">Panel 05 — Directions</span>
     <div class="panel__in">
       <div class="hd">
-        <span class="no">04</span>
+        <span class="no">05</span>
         <h2>Directions For Use</h2>
         <span class="rt fine">Apply weekly. Do not dilute.</span>
       </div>
@@ -454,41 +541,41 @@
         <div class="step">
           <span class="step__n">1</span>
           <div>
-            <h3>Hold all three</h3>
-            <p>Media, launch, and measurement sit with one team instead of three vendors. Nothing gets handed off at the seam.</p>
+            <h3>Map the demand</h3>
+            <p>Before any spend, we split the demand that already exists from the demand that has to be created. Those are different budgets and different jobs.</p>
           </div>
         </div>
         <div class="step">
           <span class="step__n">2</span>
           <div>
-            <h3>Set the band</h3>
-            <p>A CAC range is agreed before spend, and the account is structured against it rather than fitted to it afterward.</p>
+            <h3>Match the layer</h3>
+            <p>Creative, offer, and placement are built per layer. A latent-demand ad written like a capture ad fails at both.</p>
           </div>
         </div>
         <div class="step">
           <span class="step__n">3</span>
           <div>
-            <h3>Run the loop</h3>
-            <p>Creative ships on a weekly cadence, budget calls happen daily, and the attribution stack reconciles against the ledger.</p>
+            <h3>Measure per layer</h3>
+            <p>Capture on incrementality, latent on lift in branded search and direct, lifecycle on repeat rate. One blended number hides all three.</p>
           </div>
         </div>
         <div class="step">
           <span class="step__n">4</span>
           <div>
-            <h3>Read the number</h3>
-            <p>One number at the end of the week that both sides trust &mdash; because the people who buy the media also built the measurement.</p>
+            <h3>Roll up to the goal</h3>
+            <p>Each layer reports to the business goal it serves, reconciled weekly against the ledger rather than against what the platforms claim.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ══ 05 · ACTIVE INGREDIENTS ═════════════════════ -->
+  <!-- ══ 06 · ACTIVE INGREDIENTS ═════════════════════ -->
   <section class="panel" id="facts">
-    <span class="tab fine">Panel 05 — Ingredients</span>
+    <span class="tab fine">Panel 06 — Ingredients</span>
     <div class="panel__in">
       <div class="hd">
-        <span class="no">05</span>
+        <span class="no">06</span>
         <h2>Active Ingredients</h2>
         <span class="rt fine">Work log</span>
       </div>
@@ -537,12 +624,12 @@
     </div>
   </section>
 
-  <!-- ══ 06 · SERVING SUGGESTION ═════════════════════ -->
+  <!-- ══ 07 · SERVING SUGGESTION ═════════════════════ -->
   <section class="panel" id="work">
-    <span class="tab fine">Panel 06 — Serving Suggestion</span>
+    <span class="tab fine">Panel 07 — Serving Suggestion</span>
     <div class="panel__in">
       <div class="hd">
-        <span class="no">06</span>
+        <span class="no">07</span>
         <h2>Serving Suggestion</h2>
         <span class="rt fine">SKO Compounds &mdash; creative pipeline</span>
       </div>
@@ -576,12 +663,12 @@
     </div>
   </section>
 
-  <!-- ══ 07 · WARNINGS ═══════════════════════════════ -->
+  <!-- ══ 08 · WARNINGS ═══════════════════════════════ -->
   <section class="panel" id="warnings">
-    <span class="tab fine">Panel 07 — Warnings</span>
+    <span class="tab fine">Panel 08 — Warnings</span>
     <div class="panel__in">
       <div class="hd">
-        <span class="no">07</span>
+        <span class="no">08</span>
         <h2>Warnings</h2>
         <span class="rt fine">Read before purchase</span>
       </div>
@@ -589,13 +676,13 @@
       <div class="warn">
         <div class="warn__bar fine">
           <span>Caution</span>
-          <span>Contains no buoyancy</span>
+          <span>Last click is not evidence</span>
         </div>
         <div class="warn__body">
-          <h3>Most marketing is <em>buoyancy</em></h3>
+          <h3>Most budget pays for demand it <em>didn&rsquo;t create</em></h3>
           <div>
-            <p>We are the part that keeps the thing upright when the weather turns.</p>
-            <p>Most shops hand off the pieces &mdash; someone buys the media, someone else runs the launch, and nobody owns the measurement that decides whether either one worked. Holding all three is the only way to know which of them is lying to you.</p>
+            <p>Last click hands the credit to whoever was standing closest to the purchase.</p>
+            <p>Branded search always posts a beautiful CAC, because the person already knew your name. Something else put it there. Optimise on last click and you defund the layer that fills the top &mdash; then spend a quarter wondering why capture volume fell off a cliff.</p>
             <p>Our work runs from Toyota and Disney at agency scale to a Beverly Hills DTC brand where we hold the entire engine: the ad account, the creative pipeline, the attribution stack, and the number at the end of the week.</p>
           </div>
         </div>
@@ -605,9 +692,9 @@
 
 </main>
 
-<!-- ══ 08 · BASE ═════════════════════════════════════ -->
+<!-- ══ 09 · BASE ═════════════════════════════════════ -->
 <footer class="base" id="enquire">
-  <span class="tab fine">Panel 08 — Base</span>
+  <span class="tab fine">Panel 09 — Base</span>
   <div class="base__in">
     <a class="enq" href="mailto:jaidanmorello@gmail.com">Enquire</a>
     <div class="base__rule"></div>
