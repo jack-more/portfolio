@@ -161,36 +161,47 @@
   .burst__t em{font-style:normal;font-family:var(--n);font-weight:700;font-size:8.5px;letter-spacing:.14em;opacity:.9;margin-bottom:3px}
   @media (max-width:640px){.burst{display:none}}
 
-  /* ── PANEL 02 · CONTENTS (die-cut window) ───────────── */
-  .tank{border:2px solid var(--ink);background:#fff}
-  .tank__hd,.tank__ft{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:8px 16px}
-  .tank__hd{background:var(--ink);color:var(--paper)}
-  .tank__ft{border-top:2px solid var(--ink);color:rgba(10,13,24,.6)}
-  @media (max-width:560px){
-    .tank__hd,.tank__ft{flex-direction:column;align-items:flex-start;gap:3px}
-  }
-  .tank__hd .read{font-family:var(--m);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);white-space:nowrap}
-  .tank__glass{
-    position:relative;height:clamp(260px,33vw,390px);overflow:hidden;
-    background:linear-gradient(180deg,#fdfdff 0%,#f1f4fb 100%);
-    cursor:grab;touch-action:pan-y;
-  }
-  .tank__glass:active{cursor:grabbing}
-  .tank__glass canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
-  .tank--static .tank__glass{background:linear-gradient(180deg,#fdfdff 0%,#fdfdff 54%,#ff9e1a 54%,#de5502 100%)}
-  .tank--static .tank__glass canvas{display:none}
+  /* ── PANEL 02 · SIDE-BY-SIDE TEST ───────────────────── */
+  .rig{border:2px solid var(--ink);background:#fff}
+  .rig__hd{background:var(--ink);color:var(--paper);padding:8px 16px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+  .rig__hd .live{font-family:var(--m);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);white-space:nowrap}
+  .rig__stage{position:relative;height:clamp(230px,26vw,320px);overflow:hidden;background:var(--paper)}
+  .rig__stage canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+  .lanes{position:absolute;inset:0;display:grid;grid-template-columns:repeat(4,1fr);pointer-events:none;z-index:2}
+  .lane{border-right:1px solid rgba(10,13,24,.16);padding:9px 12px}
+  .lane:last-child{border-right:0}
+  .lane b{display:block;font-family:var(--n);font-weight:700;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(10,13,24,.62)}
+  .lane span{font-family:var(--m);font-size:9.5px;letter-spacing:.08em;color:rgba(10,13,24,.42)}
+  .lane:nth-child(1){background:rgba(143,50,2,.10)}
+  .lane:nth-child(2){background:rgba(222,85,2,.08)}
+  .lane:nth-child(3){background:rgba(253,114,13,.07)}
+  .lane:nth-child(4){background:rgba(11,92,246,.07)}
 
-  .ticks{position:absolute;inset:0;pointer-events:none;z-index:3}
-  .ticks i{position:absolute;left:0;width:24px;border-top:1px solid rgba(10,13,24,.34)}
-  .ticks i.maj{width:44px;border-top-color:rgba(10,13,24,.6)}
-  .ticks i::after{
-    content:attr(data-l);position:absolute;left:52px;top:-8px;
-    font-family:var(--m);font-size:9px;letter-spacing:.14em;color:rgba(10,13,24,.5);
+  .ledger2{border-top:2px solid var(--ink);padding:clamp(16px,2vw,24px) clamp(14px,2vw,22px);display:grid;gap:16px}
+  .row2{display:grid;grid-template-columns:minmax(150px,200px) 1fr auto;gap:14px;align-items:center}
+  .row2 > b{font-family:var(--n);font-weight:700;font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;color:rgba(10,13,24,.6)}
+  .bar{height:26px;border:1.5px solid var(--ink);display:flex;overflow:hidden;background:var(--paper)}
+  .bar i{display:block;height:100%;transition:width .45s cubic-bezier(.4,0,.2,1)}
+  .bar .search{background:var(--cobalt)}
+  .bar .social{background:var(--orange)}
+  .bar .other{background:rgba(10,13,24,.18)}
+  .row2 > span{font-family:var(--m);font-size:12px;font-weight:600;white-space:nowrap;font-variant-numeric:tabular-nums}
+  .keys{display:flex;gap:18px;flex-wrap:wrap;align-items:center}
+  .keys i{display:inline-block;width:10px;height:10px;margin-right:7px;vertical-align:-1px}
+  .keys .search{background:var(--cobalt)}.keys .social{background:var(--orange)}.keys .other{background:rgba(10,13,24,.18)}
+
+  .rig__ft{border-top:2px solid var(--ink);padding:12px 16px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+  .cut{
+    font-family:var(--g);font-weight:900;font-style:italic;font-size:14px;letter-spacing:-.01em;text-transform:uppercase;
+    background:var(--cobalt);color:#fff;border:2px solid var(--ink);padding:9px 16px;cursor:pointer;
   }
-  .fillline{position:absolute;left:0;right:0;z-index:4;pointer-events:none;border-top:1px dashed rgba(10,13,24,.5)}
-  .fillline span{
-    position:absolute;right:10px;top:-17px;
-    font-family:var(--m);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:rgba(10,13,24,.6);
+  .cut:hover{background:var(--ink)}
+  .cut[aria-pressed="true"]{background:var(--orange);color:var(--ink)}
+  .rig__ft .note{color:rgba(10,13,24,.55)}
+  @media (max-width:720px){
+    .row2{grid-template-columns:1fr;gap:7px}
+    .row2 > span{justify-self:start}
+    .lane span{display:none}
   }
 
   /* ── PANEL 03 · INTENT LAYERS ───────────────────────── */
@@ -213,7 +224,7 @@
   .stratum dt{font-family:var(--n);font-weight:700;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(10,13,24,.5);margin-bottom:5px}
   .stratum dd{margin:0;font-size:14px;line-height:1.5;font-weight:500}
   .stratum--goal dd{font-weight:800;letter-spacing:-.01em}
-  .strata + .facts__note{max-width:none}
+  .strata + .facts__note,.rig + .facts__note{max-width:none}
   @media (max-width:900px){
     .stratum{grid-template-columns:1fr;gap:16px;border-left-width:8px}
     .stratum dl{border-top:1px solid rgba(10,13,24,.18);padding-top:12px}
@@ -358,7 +369,7 @@
   <div class="band__in fine">
     <span class="band__mark"><b>Ballast<sup>&reg;</sup></b> <span>Performance + Go-To-Market</span></span>
     <nav>
-      <a href="#contents">Contents</a>
+      <a href="#demo">The Test</a>
       <a href="#intent">Intent</a>
       <a href="#does">What It Does</a>
       <a href="#use">Directions</a>
@@ -406,31 +417,56 @@
     </div>
   </section>
 
-  <!-- ══ 02 · CONTENTS ═══════════════════════════════ -->
-  <section class="panel" id="contents">
-    <span class="tab fine">Panel 02 — Contents</span>
+  <!-- ══ 02 · SIDE-BY-SIDE TEST ═════════════════════ -->
+  <section class="panel" id="demo">
+    <span class="tab fine">Panel 02 — Side-By-Side Test</span>
     <div class="panel__in">
       <div class="hd">
         <span class="no">02</span>
-        <h2>Contents</h2>
-        <span class="rt fine">Die-cut window</span>
+        <h2>Side-By-Side Test</h2>
+        <span class="rt fine">What the dashboard sees vs. what moved it</span>
       </div>
 
-      <div class="tank" id="tankWrap">
-        <div class="tank__hd fine">
-          <span>Ballast &mdash; one (1) unit</span>
-          <span class="read" id="tankRead">List 0.0&deg; &middot; Settled</span>
+      <div class="rig" id="rig">
+        <div class="rig__hd fine">
+          <span>Demonstration unit &mdash; 2,400 buyers</span>
+          <span class="live" id="rigLive">In-market 0 &middot; Social running</span>
         </div>
-        <div class="tank__glass" id="glass">
-          <canvas id="tank" aria-hidden="true"></canvas>
-          <div class="ticks" id="ticks" aria-hidden="true"></div>
-          <div class="fillline" id="fill" aria-hidden="true"><span>Fill line</span></div>
+        <div class="rig__stage" id="stage">
+          <canvas id="flow" aria-hidden="true"></canvas>
+          <div class="lanes" aria-hidden="true">
+            <div class="lane"><b>Latent</b><span>not looking</span></div>
+            <div class="lane"><b>Comparing</b><span>weighing options</span></div>
+            <div class="lane"><b>In-market</b><span>searching now</span></div>
+            <div class="lane"><b>Bought</b><span>converted</span></div>
+          </div>
         </div>
-        <div class="tank__ft fine">
-          <span>Contents may settle during shipping</span>
-          <span>Drag to disturb &mdash; it returns to level</span>
+
+        <div class="ledger2">
+          <div class="row2">
+            <b>Last click says</b>
+            <div class="bar" id="barLast"><i class="search" style="width:100%"></i><i class="social" style="width:0%"></i><i class="other" style="width:0%"></i></div>
+            <span id="numLast">Search 100%</span>
+          </div>
+          <div class="row2">
+            <b>What actually moved it</b>
+            <div class="bar" id="barTrue"><i class="search" style="width:12%"></i><i class="social" style="width:64%"></i><i class="other" style="width:24%"></i></div>
+            <span id="numTrue">Social 64%</span>
+          </div>
+          <div class="keys fine">
+            <span><i class="search"></i>Branded search</span>
+            <span><i class="social"></i>Paid social</span>
+            <span><i class="other"></i>Organic</span>
+          </div>
+        </div>
+
+        <div class="rig__ft fine">
+          <button class="cut" id="cutBtn" type="button" aria-pressed="false">Cut the social budget</button>
+          <span class="note">Simulated. Directional, not a forecast</span>
         </div>
       </div>
+
+      <p class="facts__note fine">Cut the social budget and the in-market pool empties in about ten seconds. Last click keeps reporting the same 93% the whole way down &mdash; which is why the dashboard never warns you</p>
     </div>
   </section>
 
@@ -716,310 +752,211 @@
 
 <script>
 /* ═══════════════════════════════════════════════════════
-   CONTENTS — a real ballast tank.
-   1-D shallow-water heightfield stepped on the CPU and
-   drawn with a WebGL2 fragment shader. Horizontal
-   acceleration (scroll, drag) piles the fluid to one side;
-   gravity and wave coupling bring it back to level.
-   Sediment is a second GL_POINTS pass with its own drag
-   and settling.
+   SIDE-BY-SIDE TEST
+   2,400 buyers move Latent → Comparing → In-market → Bought.
+   Paid social is what moves them out of Latent. Branded search
+   is what closes them. Last click therefore pays search for
+   demand social created — and keeps paying it after you cut
+   social, right up until the pipeline empties.
    ═══════════════════════════════════════════════════════ */
 (function(){
-  var wrap    = document.getElementById('tankWrap');
-  var glass   = document.getElementById('glass');
-  var cv      = document.getElementById('tank');
-  var readEl  = document.getElementById('tankRead');
-  var fillEl  = document.getElementById('fill');
-  var ticksEl = document.getElementById('ticks');
-  if(!wrap || !cv) return;
+  var rig   = document.getElementById('rig');
+  var stage = document.getElementById('stage');
+  var cv    = document.getElementById('flow');
+  var live  = document.getElementById('rigLive');
+  var btn   = document.getElementById('cutBtn');
+  var barL  = document.getElementById('barLast'),  numL = document.getElementById('numLast');
+  var barT  = document.getElementById('barTrue'),  numT = document.getElementById('numTrue');
+  if(!rig || !cv) return;
 
-  var BASE = 0.62;                            // rest waterline (0 = floor, 1 = top)
-  fillEl.style.top = (100 - BASE*100).toFixed(2) + '%';
-  [[0.16,''],[0.30,''],[0.44,''],[BASE,''],[0.82,'']].forEach(function(t){
-    var i = document.createElement('i');
-    i.style.top = (100 - t[0]*100).toFixed(2) + '%';
-    if(t[1]) i.className = 'maj';
-    i.setAttribute('data-l', t[1]);
-    ticksEl.appendChild(i);
-  });
+  var gl = cv.getContext('webgl2', {alpha:true, antialias:true});
+  if(!gl){ cv.style.display='none'; }
 
-  var gl = cv.getContext('webgl2', {alpha:true, antialias:true, premultipliedAlpha:false});
-  if(!gl){ wrap.classList.add('tank--static'); return; }
+  var N = 2400;
+  var px = new Float32Array(N*2);       // position, 0..1
+  var pc = new Float32Array(N);         // stage 0..3
+  var lane = new Uint8Array(N);
+  var offx = new Float32Array(N);
+  var vy   = new Float32Array(N);
+  var first= new Int8Array(N);          // -1 none, 0 organic, 1 social, 2 search
+  var hold = new Int16Array(N);
 
-  function sh(type, src){
-    var s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s);
-    if(!gl.getShaderParameter(s, gl.COMPILE_STATUS)) throw new Error(gl.getShaderInfoLog(s));
-    return s;
+  function seat(i, l){
+    lane[i]=l; offx[i]=(Math.random()-0.5)*0.17;
+    px[i*2]   = l*0.25 + 0.125 + offx[i];
+    px[i*2+1] = 0.10 + Math.random()*0.80;
+    vy[i] = (Math.random()-0.5)*0.10;
+    pc[i]=l;
   }
-  function prog(vs, fs){
-    var p = gl.createProgram();
-    gl.attachShader(p, sh(gl.VERTEX_SHADER, vs));
-    gl.attachShader(p, sh(gl.FRAGMENT_SHADER, fs));
-    gl.linkProgram(p);
-    if(!gl.getProgramParameter(p, gl.LINK_STATUS)) throw new Error(gl.getProgramInfoLog(p));
-    return p;
+  for(var i=0;i<N;i++){ seat(i,0); first[i]=-1; hold[i]=0; }
+
+  // ── programs ──
+  var prog=null, bPos, bC, vao, uDpr;
+  if(gl){
+    function sh(t,src){var x=gl.createShader(t);gl.shaderSource(x,src);gl.compileShader(x);
+      if(!gl.getShaderParameter(x,gl.COMPILE_STATUS))throw new Error(gl.getShaderInfoLog(x));return x;}
+    var VS='#version 300 es\n'+
+      'in vec2 a_pos; in float a_c;\n'+
+      'uniform float u_dpr; out float v_c;\n'+
+      'void main(){ gl_Position=vec4(vec2(a_pos.x,1.0-a_pos.y)*2.0-1.0,0.,1.);'+
+      ' gl_PointSize=(a_c>2.5?3.4:2.7)*u_dpr; v_c=a_c; }';
+    var FS='#version 300 es\n'+
+      'precision mediump float; in float v_c; out vec4 o;\n'+
+      'void main(){ float d=length(gl_PointCoord-0.5);\n'+
+      '  float a=1.0-smoothstep(0.28,0.5,d); if(a<=0.01) discard;\n'+
+      '  vec3 c;\n'+
+      '  if(v_c<0.5)      c=vec3(0.561,0.196,0.008);\n'+
+      '  else if(v_c<1.5) c=vec3(0.867,0.333,0.008);\n'+
+      '  else if(v_c<2.5) c=vec3(0.992,0.447,0.051);\n'+
+      '  else             c=vec3(0.043,0.361,0.965);\n'+
+      '  o=vec4(c, a*0.92); }';
+    try{
+      prog=gl.createProgram();
+      gl.attachShader(prog,sh(gl.VERTEX_SHADER,VS));
+      gl.attachShader(prog,sh(gl.FRAGMENT_SHADER,FS));
+      gl.linkProgram(prog);
+      if(!gl.getProgramParameter(prog,gl.LINK_STATUS)) throw new Error(gl.getProgramInfoLog(prog));
+    }catch(e){ prog=null; cv.style.display='none'; }
+  }
+  if(prog){
+    bPos=gl.createBuffer(); bC=gl.createBuffer();
+    var aP=gl.getAttribLocation(prog,'a_pos'), aC=gl.getAttribLocation(prog,'a_c');
+    uDpr=gl.getUniformLocation(prog,'u_dpr');
+    vao=gl.createVertexArray(); gl.bindVertexArray(vao);
+    gl.bindBuffer(gl.ARRAY_BUFFER,bPos); gl.bufferData(gl.ARRAY_BUFFER,px,gl.DYNAMIC_DRAW);
+    gl.enableVertexAttribArray(aP); gl.vertexAttribPointer(aP,2,gl.FLOAT,false,0,0);
+    gl.bindBuffer(gl.ARRAY_BUFFER,bC);  gl.bufferData(gl.ARRAY_BUFFER,pc,gl.DYNAMIC_DRAW);
+    gl.enableVertexAttribArray(aC); gl.vertexAttribPointer(aC,1,gl.FLOAT,false,0,0);
+    gl.bindVertexArray(null);
+    gl.enable(gl.BLEND); gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
   }
 
-  var LIQ_VS =
-    '#version 300 es\n' +
-    'in vec2 a_p; out vec2 v_uv;\n' +
-    'void main(){ v_uv = a_p*0.5+0.5; gl_Position = vec4(a_p,0.,1.); }';
-
-  var LIQ_FS =
-    '#version 300 es\n' +
-    'precision highp float;\n' +
-    'in vec2 v_uv; out vec4 o;\n' +
-    'uniform sampler2D u_h;\n' +
-    'uniform float u_time, u_base;\n' +
-    'uniform vec2 u_res;\n' +
-    'float hash(vec2 p){ return fract(sin(dot(p, vec2(127.1,311.7)))*43758.5453123); }\n' +
-    'float vnoise(vec2 p){\n' +
-    '  vec2 i=floor(p), f=fract(p); f=f*f*(3.0-2.0*f);\n' +
-    '  return mix(mix(hash(i),hash(i+vec2(1,0)),f.x),\n' +
-    '             mix(hash(i+vec2(0,1)),hash(i+vec2(1,1)),f.x), f.y);\n' +
-    '}\n' +
-    'float fbm(vec2 p){ float s=0.0,a=0.5; for(int i=0;i<4;i++){ s+=a*vnoise(p); p*=2.03; a*=0.5; } return s; }\n' +
-    'void main(){\n' +
-    '  vec2 uv = v_uv;\n' +
-    '  float h = u_base + texture(u_h, vec2(uv.x, 0.5)).r;\n' +
-    '  float d = h - uv.y;\n' +
-    '  float aa = 1.6 / u_res.y;\n' +
-    '  float inside = smoothstep(-aa, aa, d);\n' +
-    '  if(inside <= 0.002){ o = vec4(0.0); return; }\n' +
-    '  float depth = clamp(d / max(h, 0.001), 0.0, 1.0);\n' +
-    '  vec3 col = mix(vec3(1.000,0.694,0.145), vec3(0.788,0.263,0.008), pow(depth, 0.62));\n' +
-    '  col *= 1.0 - 0.16*smoothstep(0.10, 0.0, d);\n' +
-    '  float c = fbm(vec2(uv.x*5.5 + u_time*0.10, uv.y*8.5 - u_time*0.045));\n' +
-    '  col += (c - 0.5) * 0.20;\n' +
-    '  col = mix(col, vec3(0.560,0.176,0.016), smoothstep(0.70, 1.0, depth) * 0.6);\n' +
-    '  float m = 1.0 - smoothstep(0.0, 0.020, abs(d));\n' +
-    '  col = mix(col, vec3(1.0,0.855,0.549), m*0.70);\n' +
-    '  float line = 1.0 - smoothstep(0.0, 0.0038, abs(d));\n' +
-    '  col = mix(col, vec3(1.0,0.976,0.925), line*0.72);\n' +
-    '  o = vec4(col, inside);\n' +
-    '}';
-
-  var PT_VS =
-    '#version 300 es\n' +
-    'in vec2 a_pos; in float a_r;\n' +
-    'uniform float u_dpr;\n' +
-    'void main(){\n' +
-    '  gl_Position = vec4(a_pos*2.0-1.0, 0.0, 1.0);\n' +
-    '  gl_PointSize = a_r * u_dpr;\n' +
-    '}';
-
-  var PT_FS =
-    '#version 300 es\n' +
-    'precision mediump float; out vec4 o;\n' +
-    'void main(){\n' +
-    '  float d = length(gl_PointCoord - 0.5);\n' +
-    '  float a = 1.0 - smoothstep(0.30, 0.5, d);\n' +
-    '  o = vec4(0.290, 0.098, 0.008, a*0.80);\n' +
-    '}';
-
-  var pLiq, pPt;
-  try { pLiq = prog(LIQ_VS, LIQ_FS); pPt = prog(PT_VS, PT_FS); }
-  catch(e){ wrap.classList.add('tank--static'); return; }
-
-  var quad = gl.createBuffer();
-  gl.bindBuffer(gl.ARRAY_BUFFER, quad);
-  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 3,-1, -1,3]), gl.STATIC_DRAW);
-  var aP = gl.getAttribLocation(pLiq,'a_p');
-  var vaoLiq = gl.createVertexArray();
-  gl.bindVertexArray(vaoLiq);
-  gl.enableVertexAttribArray(aP);
-  gl.vertexAttribPointer(aP, 2, gl.FLOAT, false, 0, 0);
-  gl.bindVertexArray(null);
-
-  var uH = gl.getUniformLocation(pLiq,'u_h');
-  var uT = gl.getUniformLocation(pLiq,'u_time');
-  var uB = gl.getUniformLocation(pLiq,'u_base');
-  var uR = gl.getUniformLocation(pLiq,'u_res');
-
-  /* heightfield */
-  var N = 128;
-  var h = new Float32Array(N), vel = new Float32Array(N), tmp = new Float32Array(N);
-  var tex = gl.createTexture();
-  gl.bindTexture(gl.TEXTURE_2D, tex);
-  gl.texImage2D(gl.TEXTURE_2D, 0, gl.R16F, N, 1, 0, gl.RED, gl.FLOAT, h);
-  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
-  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
-  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
-  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
-
-  /* sediment */
-  var M = 640;
-  var pos = new Float32Array(M*2), rad = new Float32Array(M);
-  var pvx = new Float32Array(M), pvy = new Float32Array(M);
-  for(var i=0;i<M;i++){
-    pos[i*2]   = 0.02 + Math.random()*0.96;
-    pos[i*2+1] = 0.012 + Math.random()*BASE*0.85;
-    rad[i]     = 1.1 + Math.random()*2.4;
-  }
-  var bPos = gl.createBuffer(), bRad = gl.createBuffer();
-  gl.bindBuffer(gl.ARRAY_BUFFER, bRad);
-  gl.bufferData(gl.ARRAY_BUFFER, rad, gl.STATIC_DRAW);
-  var aPos = gl.getAttribLocation(pPt,'a_pos'), aR = gl.getAttribLocation(pPt,'a_r');
-  var uDpr = gl.getUniformLocation(pPt,'u_dpr');
-  var vaoPt = gl.createVertexArray();
-  gl.bindVertexArray(vaoPt);
-  gl.bindBuffer(gl.ARRAY_BUFFER, bPos);
-  gl.bufferData(gl.ARRAY_BUFFER, pos, gl.DYNAMIC_DRAW);
-  gl.enableVertexAttribArray(aPos); gl.vertexAttribPointer(aPos, 2, gl.FLOAT, false, 0, 0);
-  gl.bindBuffer(gl.ARRAY_BUFFER, bRad);
-  gl.enableVertexAttribArray(aR);   gl.vertexAttribPointer(aR, 1, gl.FLOAT, false, 0, 0);
-  gl.bindVertexArray(null);
-
-  /* sizing */
-  var W=0, H=0, DPR=1;
+  var DPR=1;
   function size(){
-    var r = glass.getBoundingClientRect();
-    DPR = Math.min(window.devicePixelRatio || 1, 2);
-    W = Math.max(1, Math.round(r.width));
-    H = Math.max(1, Math.round(r.height));
-    cv.width = Math.round(W*DPR); cv.height = Math.round(H*DPR);
-    gl.viewport(0, 0, cv.width, cv.height);
+    var r=stage.getBoundingClientRect();
+    DPR=Math.min(window.devicePixelRatio||1,2);
+    cv.width=Math.max(1,Math.round(r.width*DPR));
+    cv.height=Math.max(1,Math.round(r.height*DPR));
+    if(gl) gl.viewport(0,0,cv.width,cv.height);
   }
-  size();
-  window.addEventListener('resize', size);
+  size(); window.addEventListener('resize',size);
 
-  /* forcing */
-  var accel = 0;
-  var lastScroll = window.scrollY;
-  window.addEventListener('scroll', function(){
-    var d = window.scrollY - lastScroll; lastScroll = window.scrollY;
-    accel += Math.max(-40, Math.min(40, d)) * 0.0000105;
-  }, {passive:true});
 
-  var dragging = false, lastX = 0;
-  glass.addEventListener('pointerdown', function(e){
-    dragging = true; lastX = e.clientX;
-    try{ glass.setPointerCapture(e.pointerId); }catch(err){}
-  });
-  glass.addEventListener('pointermove', function(e){
-    if(!dragging) return;
-    var dx = e.clientX - lastX; lastX = e.clientX;
-    accel -= dx * 0.000078;
-  });
-  ['pointerup','pointercancel','pointerleave'].forEach(function(ev){
-    glass.addEventListener(ev, function(){ dragging = false; });
+  // ── model (all rates per second; dt-driven, frame-rate independent) ──
+  var socialOn = true;
+  var creditLast = {search:92, other:8};
+  var creditTrue = {search:8, social:68, organic:24};
+
+  var R_LATENT_ON  = 1/3.0;    // a social touch moves you out of latent in ~3s
+  var R_LATENT_OFF = 1/40.0;   // organic alone, ~40s
+  var R_COMPARE    = 1/2.0;
+  var R_MARKET     = 1/1.6;
+  var HOLD         = 1.2;      // seconds spent in "bought" before re-entering the pool
+
+  btn.addEventListener('click', function(){
+    socialOn = !socialOn;
+    btn.setAttribute('aria-pressed', String(!socialOn));
+    btn.textContent = socialOn ? 'Cut the social budget' : 'Restore the social budget';
   });
 
-  /* step */
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var C = 0.30, G = 0.0021, DAMP = 0.9962;
+  function chance(rate, dt){ return 1 - Math.exp(-rate*dt); }
 
-  function step(t){
-    var swell = Math.sin(t*0.00041)*0.0000090 + Math.sin(t*0.00097+1.3)*0.0000055;
-    var a = accel + swell;
-    accel *= 0.90;
+  function step(dt){
+    var decay = Math.pow(0.5, dt/4);          // ledgers track the last few seconds
+    creditLast.search*=decay; creditLast.other*=decay;
+    creditTrue.search*=decay; creditTrue.social*=decay; creditTrue.organic*=decay;
 
-    tmp.set(h);
+    var pLat = chance(socialOn ? R_LATENT_ON : R_LATENT_OFF, dt);
+    var pCmp = chance(R_COMPARE, dt);
+    var pMkt = chance(R_MARKET, dt);
+    var ease = 1 - Math.exp(-dt/0.18);
+
     for(var i=0;i<N;i++){
-      var x = i/(N-1) - 0.5;
-      var l = tmp[i>0 ? i-1 : 0];
-      var r = tmp[i<N-1 ? i+1 : N-1];
-      vel[i] += (l + r - 2*tmp[i]) * C;
-      vel[i] -= tmp[i] * G;
-      vel[i] += a * x;
-      vel[i] *= DAMP;
-    }
-    var maxV = 0;
-    for(var j=0;j<N;j++){
-      h[j] += vel[j];
-      if(h[j] >  0.19){ h[j] =  0.19; vel[j] *= -0.4; }
-      if(h[j] < -0.19){ h[j] = -0.19; vel[j] *= -0.4; }
-      var av = Math.abs(vel[j]); if(av > maxV) maxV = av;
-    }
+      var l=lane[i];
 
-    // viscosity: rounds the shock front a shallow-water solver would otherwise form
-    tmp.set(h);
-    for(var q=1;q<N-1;q++) h[q] += (tmp[q-1] + tmp[q+1] - 2*tmp[q]) * 0.085;
-
-    for(var k=0;k<M;k++){
-      var px = pos[k*2], py = pos[k*2+1];
-      var hi = Math.min(N-1, Math.max(0, Math.round(px*(N-1))));
-      var surf = BASE + h[hi];
-      if(py < surf){
-        pvy[k] -= 0.000165;
-        pvx[k] += a * 1.35;
-        pvx[k] *= 0.962; pvy[k] *= 0.962;
-      } else {
-        pvy[k] -= 0.00055;
-        pvx[k] *= 0.994; pvy[k] *= 0.994;
+      if(l===3){
+        hold[i] += dt*1000;
+        if(hold[i] > HOLD*1000){ first[i]=-1; hold[i]=0; seat(i,0); }
+      } else if(l===0){
+        if(Math.random() < pLat){
+          if(socialOn && Math.random() < 0.80) first[i]=1;
+          else if(Math.random() < 0.16)        first[i]=2;
+          else                                  first[i]=0;
+          lane[i]=1; offx[i]=(Math.random()-0.5)*0.17;
+        }
+      } else if(l===1){
+        if(Math.random() < pCmp){ lane[i]=2; offx[i]=(Math.random()-0.5)*0.17; }
+      } else if(l===2){
+        if(Math.random() < pMkt){
+          lane[i]=3; offx[i]=(Math.random()-0.5)*0.17; hold[i]=0;
+          if(Math.random() < 0.92) creditLast.search++; else creditLast.other++;
+          if(first[i]===1) creditTrue.social++;
+          else if(first[i]===2) creditTrue.search++;
+          else creditTrue.organic++;
+        }
       }
-      px += pvx[k]; py += pvy[k];
-      if(py < 0.012){ py = 0.012; pvy[k] *= -0.16; pvx[k] *= 0.84; }
-      if(py > surf - 0.004){ py = surf - 0.004; if(pvy[k] > 0) pvy[k] = 0; }
-      if(px < 0.008){ px = 0.008; pvx[k] *= -0.35; }
-      if(px > 0.992){ px = 0.992; pvx[k] *= -0.35; }
-      pos[k*2] = px; pos[k*2+1] = py;
+
+      var tx = lane[i]*0.25 + 0.125 + offx[i];
+      var xi = i*2;
+      px[xi]   += (tx - px[xi]) * ease;
+      px[xi+1] += vy[i]*dt;
+      if(px[xi+1] < 0.07){ px[xi+1]=0.07; vy[i]=-vy[i]; }
+      if(px[xi+1] > 0.93){ px[xi+1]=0.93; vy[i]=-vy[i]; }
+      pc[i] = lane[i];
     }
-    return maxV;
   }
 
-  /* draw */
-  gl.enable(gl.BLEND);
-  gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
-
-  function draw(t){
-    gl.clearColor(0,0,0,0);
-    gl.clear(gl.COLOR_BUFFER_BIT);
-
-    gl.activeTexture(gl.TEXTURE0);
-    gl.bindTexture(gl.TEXTURE_2D, tex);
-    gl.texSubImage2D(gl.TEXTURE_2D, 0, 0, 0, N, 1, gl.RED, gl.FLOAT, h);
-
-    gl.useProgram(pLiq);
-    gl.uniform1i(uH, 0);
-    gl.uniform1f(uT, t*0.001);
-    gl.uniform1f(uB, BASE);
-    gl.uniform2f(uR, cv.width, cv.height);
-    gl.bindVertexArray(vaoLiq);
-    gl.drawArrays(gl.TRIANGLES, 0, 3);
-
-    gl.useProgram(pPt);
-    gl.uniform1f(uDpr, DPR);
-    gl.bindVertexArray(vaoPt);
-    gl.bindBuffer(gl.ARRAY_BUFFER, bPos);
-    gl.bufferSubData(gl.ARRAY_BUFFER, 0, pos);
-    gl.drawArrays(gl.POINTS, 0, M);
+  function draw(){
+    if(!prog) return;
+    gl.clearColor(0,0,0,0); gl.clear(gl.COLOR_BUFFER_BIT);
+    gl.useProgram(prog); gl.uniform1f(uDpr,DPR);
+    gl.bindVertexArray(vao);
+    gl.bindBuffer(gl.ARRAY_BUFFER,bPos); gl.bufferSubData(gl.ARRAY_BUFFER,0,px);
+    gl.bindBuffer(gl.ARRAY_BUFFER,bC);   gl.bufferSubData(gl.ARRAY_BUFFER,0,pc);
+    gl.drawArrays(gl.POINTS,0,N);
     gl.bindVertexArray(null);
   }
 
-  /* readout */
-  var lastRead = 0;
-  function readout(maxV, now){
-    if(now - lastRead < 90) return;
-    lastRead = now;
-    // least-squares slope of the whole surface, not just the two ends
-    var sx=0, sy=0, sxy=0, sxx=0;
-    for(var i=0;i<N;i++){ var x=i/(N-1); sx+=x; sy+=h[i]; sxy+=x*h[i]; sxx+=x*x; }
-    var slope = (N*sxy - sx*sy) / Math.max(1e-9, (N*sxx - sx*sx));
-    var deg   = Math.atan2(slope * H, W) * 180 / Math.PI;
-    var settled = maxV < 0.00022;
-    readEl.textContent = 'List ' + (deg < 0 ? '−' : '') +
-      Math.abs(deg).toFixed(1) + '° · ' + (settled ? 'Settled' : 'Sloshing');
+  var lastUI=-1e9;
+  function ui(now){
+    if(now - lastUI < 260) return;
+    lastUI = now;
+    var pct = function(v,t){ return t>0 ? Math.round(v/t*100) : 0; };
+
+    var tl = creditLast.search + creditLast.other;
+    var ls = pct(creditLast.search,tl), lo = 100-ls;
+    barL.children[0].style.width = ls+'%';
+    barL.children[1].style.width = '0%';
+    barL.children[2].style.width = lo+'%';
+    numL.textContent = 'Search ' + ls + '%';
+
+    var tt = creditTrue.search + creditTrue.social + creditTrue.organic;
+    var ts = pct(creditTrue.search,tt), tso = pct(creditTrue.social,tt);
+    var to = Math.max(0, 100-ts-tso);
+    barT.children[0].style.width = ts+'%';
+    barT.children[1].style.width = tso+'%';
+    barT.children[2].style.width = to+'%';
+    var top = (tso >= to && tso >= ts) ? ['Social',tso] : (to >= ts ? ['Organic',to] : ['Search',ts]);
+    numT.textContent = top[0] + ' ' + top[1] + '%';
+
+    var inMarket = 0;
+    for(var k=0;k<N;k++) if(lane[k]===2) inMarket++;
+    live.textContent = 'In-market ' + inMarket + ' · ' + (socialOn ? 'Social running' : 'Social cut');
   }
 
-  /* loop — always scheduled, work skipped while off screen.
-     rAF is already parked by the browser when the tab is hidden. */
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var visible = true;
   if('IntersectionObserver' in window){
-    new IntersectionObserver(function(es){ visible = es[0].isIntersecting; },
-                             {rootMargin:'200px'}).observe(wrap);
+    new IntersectionObserver(function(e){ visible = e[0].isIntersecting; }, {rootMargin:'200px'}).observe(rig);
   }
-
   function frame(t){
-    if(visible){
-      var maxV = step(t);
-      draw(t);
-      readout(maxV, t);
-    }
+    if(visible){ step(t); draw(); ui(t); }
     requestAnimationFrame(frame);
   }
-
-  if(reduce){ draw(0); } else { requestAnimationFrame(frame); }
+  // warm up ~25s of model time so the panel is at steady state when first seen
+  for(var w=0; w<1500; w++) step(1/60);
+  draw(); ui(0);
+  if(!reduce) requestAnimationFrame(frame);
 })();
 </script>
 
