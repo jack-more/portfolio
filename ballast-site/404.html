@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ballast — Panel not found</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="/favicon.png">
+<meta name="theme-color" content="#0b5cf6">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;900&family=Archivo+Narrow:wght@600&display=swap">
+<style>
+  :root{--paper:#f9fafe;--ink:#0a0d18;--cobalt:#0b5cf6;--amber:#f9a51b}
+  *{box-sizing:border-box}
+  body{
+    margin:0;min-height:100svh;background:var(--paper);color:var(--ink);
+    font-family:"Archivo","Helvetica Neue",Arial,sans-serif;
+    display:flex;flex-direction:column;justify-content:center;
+    padding:clamp(24px,6vw,80px);gap:clamp(18px,2.6vw,30px);
+  }
+  .fine{font-family:"Archivo Narrow","Archivo",Arial,sans-serif;font-weight:600;font-size:11px;letter-spacing:.17em;text-transform:uppercase}
+  img{width:min(420px,78%);height:auto;display:block}
+  h1{font-weight:900;font-size:clamp(34px,7vw,76px);letter-spacing:-.035em;line-height:.95;text-transform:uppercase;margin:0;max-width:16ch}
+  p{max-width:46ch;margin:0;font-weight:500;font-size:clamp(15px,1.7vw,18px);color:rgba(10,13,24,.72)}
+  a.back{
+    display:inline-flex;align-items:center;gap:12px;align-self:flex-start;text-decoration:none;
+    background:var(--cobalt);color:#fff;border:2px solid var(--ink);padding:11px 20px;
+    font-weight:900;font-style:italic;font-size:clamp(14px,1.8vw,19px);letter-spacing:-.015em;text-transform:uppercase;
+  }
+  a.back i{width:8px;height:8px;background:var(--amber);display:block;flex:none}
+  a.back:hover{background:var(--ink)}
+  .rule{border-top:2px solid var(--ink);padding-top:12px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;color:rgba(10,13,24,.6)}
+</style>
+</head>
+<body>
+  <img src="/lockup.png" width="1400" height="591" alt="Ballast">
+  <h1>Panel not found</h1>
+  <p>That page isn&rsquo;t printed on this carton. The whole product is on one page.</p>
+  <a class="back" href="/"><i></i>Back to front panel</a>
+  <div class="rule fine">
+    <span>Error 404 &middot; Lot 26&#8209;LA&#8209;001</span>
+    <span>Ballast &mdash; Los Angeles</span>
+  </div>
+</body>
+</html>
