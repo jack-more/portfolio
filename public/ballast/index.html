@@ -3,318 +3,911 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Ballast</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;800;900&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<title>Ballast — Weight, on purpose</title>
+<meta name="description" content="Ballast. A performance and go-to-market practice in Los Angeles. Paid media, launch, and the measurement underneath both.">
+<link rel="icon" href="/ballast/favicon.png">
+<link rel="apple-touch-icon" href="/ballast/favicon.png">
+<meta name="theme-color" content="#0b5cf6">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Archivo+Narrow:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
 <style>
   :root{
-    --oat:#cfccc0;
-    --oat-line:#a9a597;
-    --ink:#15150f;
-    --void:#07080b;
-    --acid:#c6ff3d;
-    --cyan:#39e6ff;
+    /* sampled off the mark */
+    --paper:#f9fafe;
+    --paper-2:#eef1fa;
+    --ink:#0a0d18;
+    --cobalt:#0b5cf6;
+    --orange:#fd720d;
+    --amber:#f9a51b;
+
     --g:"Archivo","Helvetica Neue",Arial,sans-serif;
+    --n:"Archivo Narrow","Archivo",Arial,sans-serif;
     --m:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+
+    --pad:clamp(20px,4.4vw,52px);
+    --tab:0px;
   }
+  @media (min-width:1080px){ :root{ --tab:72px } }
+
   *{box-sizing:border-box}
   html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
-  body{margin:0;background:var(--void);color:var(--ink);font-family:var(--g);font-size:15px;line-height:1.6;overflow-x:hidden}
-  .tele{font-family:var(--m);font-size:10px;font-weight:500;letter-spacing:.15em;text-transform:uppercase}
-  .wrap{max-width:1280px;margin:0 auto;padding:0 30px}
-
-  /* ── stage: boring cover over living field ── */
-  .stage{position:relative;height:260vh}
-  .stage__pin{position:sticky;top:0;height:100svh;overflow:hidden}
-  #field{position:absolute;inset:0;width:100%;height:100%;z-index:0;background:var(--void)}
-
-  .veil{position:absolute;inset:0;z-index:2;pointer-events:none}
-  .veil__half{position:absolute;top:0;height:100%;width:50%;overflow:hidden;background:var(--oat);will-change:transform}
-  .veil__half--l{left:0}
-  .veil__half--r{right:0}
-  .veil__doc{position:absolute;top:0;height:100%;width:100vw;padding:38px 40px;display:flex;flex-direction:column}
-  .veil__half--l .veil__doc{left:0}
-  .veil__half--r .veil__doc{right:0}
-
-  /* the deliberately dull document */
-  .doc__head{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--ink);padding-bottom:9px}
-  .doc__mid{flex:1;display:flex;flex-direction:column;justify-content:center;max-width:1200px;margin:0 auto;width:100%}
-  .doc__mid h1{font-family:var(--g);font-weight:600;font-size:clamp(40px,7vw,104px);letter-spacing:-.03em;line-height:.95;margin:0 0 14px;text-transform:uppercase}
-  .doc__mid .sub{font-family:var(--g);font-weight:400;font-size:clamp(14px,1.5vw,19px);margin:0 0 26px;max-width:44ch;color:#3c3a30}
-  .doc__rows{border-top:1px solid var(--oat-line);max-width:560px}
-  .doc__row{display:flex;justify-content:space-between;gap:20px;padding:7px 0;border-bottom:1px solid var(--oat-line);font-family:var(--m);font-size:11px;letter-spacing:.09em;text-transform:uppercase}
-  .doc__row span:last-child{color:#57544a}
-  .doc__foot{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--ink);padding-top:9px}
-  .hint{display:flex;align-items:center;gap:8px}
-  .hint i{width:6px;height:6px;background:var(--ink);display:block;animation:bl 1.2s steps(2,start) infinite}
-  @keyframes bl{50%{opacity:0}}
-
-  /* what's underneath */
-  .under{position:absolute;inset:0;z-index:1;display:flex;align-items:center;justify-content:center;text-align:center;padding:0 22px;pointer-events:none}
-  .under h2{
-    font-family:var(--g);font-weight:900;font-size:clamp(46px,11vw,168px);
-    line-height:.84;letter-spacing:-.045em;margin:0;text-transform:uppercase;
-    color:transparent;-webkit-text-stroke:2px var(--acid);text-stroke:2px var(--acid);
-    opacity:0;transition:opacity .35s ease;
+  body{
+    margin:0;background:var(--paper);color:var(--ink);
+    font-family:var(--g);font-size:16px;line-height:1.62;
+    overflow-x:hidden;-webkit-font-smoothing:antialiased;
   }
-  .under p{
-    font-family:var(--m);font-size:11px;letter-spacing:.3em;text-transform:uppercase;
-    color:var(--cyan);margin:20px 0 0;opacity:0;transition:opacity .35s ease .1s;
+  ::selection{background:var(--cobalt);color:#fff}
+  img{max-width:100%;height:auto;display:block}
+
+  /* printed-paper grain, matched to the mark's own tooth */
+  .grain{
+    position:fixed;inset:0;z-index:200;pointer-events:none;opacity:.055;mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E");
   }
-  .stage.open .under h2,.stage.open .under p{opacity:1}
 
-  /* ── dark content below ── */
-  .dark{background:var(--void);color:#e7e5dc;position:relative;z-index:3}
-  section{padding:104px 0}
-  .sec-bar{display:flex;align-items:baseline;gap:16px;padding-bottom:12px;margin-bottom:36px;border-bottom:1px solid rgba(231,229,220,.35)}
-  .sec-bar h2{font-family:var(--g);font-weight:600;font-size:11px;letter-spacing:.2em;text-transform:uppercase;margin:0}
-  .sec-bar .n{font-family:var(--m);font-size:10px;letter-spacing:.14em;color:var(--acid)}
-  .two{display:grid;grid-template-columns:1.15fr 1fr;gap:56px;align-items:start}
-  .statement{font-family:var(--g);font-weight:900;font-size:clamp(28px,4.6vw,58px);line-height:1.0;letter-spacing:-.034em;text-transform:uppercase;margin:0;max-width:15ch}
-  .statement em{font-style:normal;color:var(--acid)}
-  .two p{font-size:15px;line-height:1.74;margin:0 0 15px;color:rgba(231,229,220,.72);max-width:50ch}
-  .two p:last-child{margin-bottom:0}
-  .grid4{display:grid;grid-template-columns:repeat(4,1fr)}
-  .cell{padding:26px 24px 34px 0;border-right:1px solid rgba(231,229,220,.22)}
-  .cell:last-child{border-right:0;padding-right:0}
-  .cell .n{font-family:var(--m);font-size:10px;letter-spacing:.14em;color:var(--acid);display:block;margin-bottom:15px}
-  .cell h3{font-family:var(--g);font-weight:800;font-size:18px;letter-spacing:-.015em;margin:0 0 10px;text-transform:uppercase}
-  .cell p{font-size:13px;line-height:1.65;color:rgba(231,229,220,.66);margin:0}
-  .ledger{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
-  .ledger td{padding:12px 0;border-bottom:1px solid rgba(231,229,220,.18);vertical-align:baseline}
-  .ledger tr:last-child td{border-bottom:1px solid rgba(231,229,220,.5)}
-  .l-n{font-family:var(--g);font-weight:600;font-size:clamp(16px,1.9vw,24px);letter-spacing:-.014em}
-  .l-t{font-family:var(--m);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;text-align:right;white-space:nowrap;padding-left:16px;color:rgba(231,229,220,.6)}
-  tr.flag .l-n{color:var(--acid)}
-  tr.flag .l-t{color:var(--acid)}
-  .cap-note{margin:15px 0 0;color:rgba(231,229,220,.55)}
-  .contact{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;padding:84px 0 66px;border-top:1px solid rgba(231,229,220,.35)}
-  .contact a{font-family:var(--g);font-weight:900;font-size:clamp(40px,8.6vw,120px);letter-spacing:-.05em;line-height:.8;text-transform:uppercase;text-decoration:none;color:transparent;-webkit-text-stroke:2px var(--acid);text-stroke:2px var(--acid)}
-  .contact a:hover{color:var(--acid)}
-  .contact a:focus-visible{outline:3px solid var(--acid);outline-offset:8px}
-  .colo{text-align:right;line-height:2;color:rgba(231,229,220,.55)}
+  /* ── type roles ─────────────────────────────────────── */
+  .fine{font-family:var(--n);font-weight:600;font-size:11px;letter-spacing:.17em;text-transform:uppercase;line-height:1.5}
+  .code{font-family:var(--m);font-weight:500;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase}
 
+  /* ── carton band (sticky header) ────────────────────── */
+  .band{
+    position:sticky;top:0;z-index:120;background:var(--cobalt);color:#fff;
+    border-bottom:2px solid var(--ink);
+  }
+  .band__in{
+    max-width:1320px;margin:0 auto;padding:0 var(--pad);
+    height:38px;display:flex;align-items:center;justify-content:space-between;gap:20px;
+  }
+  .band__mark{display:flex;align-items:center;gap:10px;white-space:nowrap}
+  .band__mark b{font-family:var(--g);font-weight:900;font-style:italic;font-size:14px;letter-spacing:-.01em}
+  .band__mark sup{font-size:8px;vertical-align:super;opacity:.85}
+  .band nav{display:flex;gap:20px}
+  .band nav a{color:#fff;text-decoration:none;opacity:.82}
+  .band nav a:hover{opacity:1;text-decoration:underline;text-underline-offset:3px}
+  .band__loc{opacity:.82}
+  @media (max-width:980px){.band nav{display:none}}
+  @media (max-width:600px){.band__mark span{display:none}.band__in{gap:12px}}
+
+  /* ── shared panel frame ─────────────────────────────── */
+  .panel{position:relative;border-bottom:1px dashed rgba(10,13,24,.34)}
+  .panel__in{max-width:1320px;margin:0 auto;padding:clamp(52px,7vw,96px) var(--pad) clamp(56px,7vw,100px);padding-left:calc(var(--pad) + var(--tab))}
+  .tab{
+    display:none;position:absolute;left:var(--pad);top:clamp(52px,7vw,96px);
+    transform-origin:0 0;transform:rotate(90deg) translateY(-100%);
+    white-space:nowrap;color:rgba(10,13,24,.42);
+  }
+  @media (min-width:1080px){.tab{display:block}}
+  .panel--dark .tab{color:rgba(255,255,255,.55)}
+  .base .tab{color:rgba(249,250,254,.42);top:clamp(56px,7vw,90px)}
+
+  .hd{display:flex;align-items:baseline;gap:14px;border-bottom:2px solid var(--ink);padding-bottom:10px;margin-bottom:clamp(28px,3.4vw,44px)}
+  .hd h2{font-family:var(--g);font-weight:900;font-size:clamp(19px,2.5vw,30px);letter-spacing:-.02em;text-transform:uppercase;margin:0}
+  .hd .no{font-family:var(--m);font-weight:600;font-size:11px;letter-spacing:.12em;color:var(--cobalt)}
+  .hd .rt{margin-left:auto;color:rgba(10,13,24,.5)}
+  @media (max-width:640px){.hd .rt{display:none}}
+  .panel--dark .hd{border-bottom-color:rgba(255,255,255,.9)}
+  .panel--dark .hd .no{color:var(--amber)}
+  .panel--dark .hd .rt{color:rgba(255,255,255,.6)}
+
+  /* fold ticks between panels */
+  .panel::after{
+    content:"";position:absolute;left:50%;bottom:-1px;width:56px;height:0;
+    border-top:1px solid rgba(10,13,24,.34);transform:translateX(-50%);
+  }
+
+  /* ── PANEL 01 · FRONT ───────────────────────────────── */
+  .front{position:relative;overflow:hidden;border-bottom:1px dashed rgba(10,13,24,.34)}
+  .crop{position:absolute;width:26px;height:26px;pointer-events:none;z-index:0;border-color:rgba(10,13,24,.55)}
+  .crop--tl{top:16px;left:16px;border-top:1px solid;border-left:1px solid}
+  .crop--tr{top:16px;right:16px;border-top:1px solid;border-right:1px solid}
+  .crop--bl{bottom:16px;left:16px;border-bottom:1px solid;border-left:1px solid}
+  .crop--br{bottom:16px;right:16px;border-bottom:1px solid;border-right:1px solid}
+  .reg{position:absolute;top:14px;left:50%;transform:translateX(-50%);width:22px;height:22px;z-index:0;pointer-events:none;opacity:.75}
+  .reg svg{display:block;width:100%;height:100%}
+  @media (max-width:760px){.crop{display:none}}
+
+  .front__in{
+    position:relative;z-index:1;max-width:1320px;margin:0 auto;
+    padding:clamp(46px,7vw,86px) var(--pad) clamp(22px,3vw,34px);
+    padding-left:calc(var(--pad) + var(--tab));
+    min-height:calc(100svh - 38px);display:flex;flex-direction:column;
+  }
+  .front__top{display:flex;justify-content:space-between;align-items:flex-start;gap:24px}
+  .front__mid{flex:1;display:flex;flex-direction:column;justify-content:center;padding:12px 0}
+  .lockup{width:min(780px,100%);height:auto;margin:0 0 clamp(22px,3vw,34px)}
+
+  .flash{
+    display:inline-flex;align-items:center;gap:12px;align-self:flex-start;
+    background:var(--cobalt);color:#fff;border:2px solid var(--ink);
+    padding:9px 18px 10px;
+  }
+  .flash b{font-family:var(--g);font-weight:900;font-style:italic;font-size:clamp(15px,2vw,22px);letter-spacing:-.015em;text-transform:uppercase}
+  .flash i{width:8px;height:8px;background:var(--amber);display:block;flex:none}
+
+  .front__sub{
+    font-family:var(--g);font-weight:500;font-size:clamp(16px,1.8vw,21px);line-height:1.5;
+    max-width:34ch;margin:clamp(20px,2.6vw,30px) 0 0;color:rgba(10,13,24,.78);
+  }
+  .front__foot{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:16px;
+    border-top:2px solid var(--ink);padding-top:12px;
+  }
+  .front__foot span{color:rgba(10,13,24,.66)}
+  .front__foot span b{display:block;color:var(--ink);font-family:var(--g);font-weight:800;font-size:13px;letter-spacing:.02em;margin-top:3px}
+  @media (max-width:760px){.front__foot{grid-template-columns:repeat(2,1fr);gap:14px}}
+
+  .burst{position:relative;width:clamp(104px,12vw,140px);flex:none}
+  .burst svg{display:block;width:100%;height:auto;animation:spin 44s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .burst__t{
+    position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;color:#fff;font-family:var(--g);font-weight:900;text-transform:uppercase;
+    font-size:clamp(11px,1.25vw,14px);line-height:1.12;letter-spacing:-.01em;
+  }
+  .burst__t em{font-style:normal;font-family:var(--n);font-weight:700;font-size:8.5px;letter-spacing:.14em;opacity:.9;margin-bottom:3px}
+  @media (max-width:640px){.burst{display:none}}
+
+  /* ── PANEL 02 · CONTENTS (die-cut window) ───────────── */
+  .tank{border:2px solid var(--ink);background:#fff}
+  .tank__hd,.tank__ft{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:8px 16px}
+  .tank__hd{background:var(--ink);color:var(--paper)}
+  .tank__ft{border-top:2px solid var(--ink);color:rgba(10,13,24,.6)}
+  @media (max-width:560px){
+    .tank__hd,.tank__ft{flex-direction:column;align-items:flex-start;gap:3px}
+  }
+  .tank__hd .read{font-family:var(--m);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);white-space:nowrap}
+  .tank__glass{
+    position:relative;height:clamp(260px,33vw,390px);overflow:hidden;
+    background:linear-gradient(180deg,#fdfdff 0%,#f1f4fb 100%);
+    cursor:grab;touch-action:pan-y;
+  }
+  .tank__glass:active{cursor:grabbing}
+  .tank__glass canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+  .tank--static .tank__glass{background:linear-gradient(180deg,#fdfdff 0%,#fdfdff 54%,#ff9e1a 54%,#de5502 100%)}
+  .tank--static .tank__glass canvas{display:none}
+
+  .ticks{position:absolute;inset:0;pointer-events:none;z-index:3}
+  .ticks i{position:absolute;left:0;width:24px;border-top:1px solid rgba(10,13,24,.34)}
+  .ticks i.maj{width:44px;border-top-color:rgba(10,13,24,.6)}
+  .ticks i::after{
+    content:attr(data-l);position:absolute;left:52px;top:-8px;
+    font-family:var(--m);font-size:9px;letter-spacing:.14em;color:rgba(10,13,24,.5);
+  }
+  .fillline{position:absolute;left:0;right:0;z-index:4;pointer-events:none;border-top:1px dashed rgba(10,13,24,.5)}
+  .fillline span{
+    position:absolute;right:10px;top:-17px;
+    font-family:var(--m);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:rgba(10,13,24,.6);
+  }
+
+  /* ── PANEL 03 · WHAT IT DOES ────────────────────────── */
+  .claims{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(10,13,24,.28)}
+  .claim{padding:22px 26px 30px 0;border-right:1px solid rgba(10,13,24,.18)}
+  .claim + .claim{padding-left:26px}
+  .claim:last-child{border-right:0;padding-right:0}
+  .claim .no{font-family:var(--m);font-weight:600;font-size:11px;letter-spacing:.12em;color:var(--cobalt);display:block;margin-bottom:14px}
+  .claim h3{font-family:var(--g);font-weight:900;font-size:clamp(17px,1.9vw,22px);letter-spacing:-.022em;text-transform:uppercase;margin:0 0 9px;line-height:1.05}
+  .claim p{font-size:14.5px;line-height:1.6;color:rgba(10,13,24,.7);margin:0}
   @media (max-width:900px){
-    .stage{height:220vh}
-    .two{grid-template-columns:1fr;gap:26px}
-    .grid4{grid-template-columns:repeat(2,1fr)}
-    .cell{border-right:0;border-bottom:1px solid rgba(231,229,220,.22);padding-right:0}
-    .veil__doc{padding:22px}
-    .wrap{padding:0 22px}
-    .under h2{-webkit-text-stroke-width:1.5px}
+    .claims{grid-template-columns:1fr}
+    .claim{border-right:0;border-bottom:1px solid rgba(10,13,24,.18);padding:20px 0 24px}
+    .claim + .claim{padding-left:0}
+    .claim:last-child{border-bottom:0}
   }
-  @media (prefers-reduced-motion:reduce){.hint i{animation:none}}
+
+  /* ── PANEL 04 · DIRECTIONS (cobalt) ─────────────────── */
+  .panel--dark{background:var(--cobalt);color:#fff;border-bottom-color:rgba(255,255,255,.4)}
+  .panel--dark::after{border-top-color:rgba(255,255,255,.4)}
+  .steps{display:grid;grid-template-columns:1fr 1fr;gap:0 clamp(30px,4vw,64px)}
+  .step{display:flex;gap:18px;padding:20px 0;border-top:1px solid rgba(255,255,255,.34)}
+  .step:nth-child(1),.step:nth-child(2){border-top:0;padding-top:0}
+  .step__n{
+    flex:none;width:38px;height:38px;border:2px solid #fff;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--g);font-weight:900;font-size:16px;
+  }
+  .step h3{font-family:var(--g);font-weight:900;font-size:clamp(16px,1.7vw,19px);letter-spacing:-.015em;text-transform:uppercase;margin:5px 0 7px;line-height:1.1}
+  .step p{margin:0;font-size:14.5px;line-height:1.6;color:rgba(255,255,255,.82);max-width:44ch}
+  @media (max-width:860px){
+    .steps{grid-template-columns:1fr}
+    .step:nth-child(2){border-top:1px solid rgba(255,255,255,.34);padding-top:20px}
+  }
+
+  /* ── PANEL 05 · ACTIVE INGREDIENTS ──────────────────── */
+  .facts{max-width:860px;border-top:9px solid var(--ink);border-bottom:9px solid var(--ink)}
+  .facts__cap{display:flex;justify-content:space-between;align-items:baseline;padding:10px 0 9px;border-bottom:4px solid var(--ink)}
+  .facts__cap b{font-family:var(--g);font-weight:900;font-size:15px;letter-spacing:.01em;text-transform:uppercase}
+  table.led{width:100%;border-collapse:collapse}
+  table.led th{
+    font-family:var(--n);font-weight:700;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;
+    text-align:left;padding:8px 0;border-bottom:1px solid var(--ink);color:rgba(10,13,24,.62);
+  }
+  table.led th:last-child{text-align:right}
+  table.led td{padding:11px 0;border-bottom:1px solid rgba(10,13,24,.2);vertical-align:baseline}
+  table.led tr:last-child td{border-bottom:0}
+  .led__n{font-family:var(--g);font-weight:800;font-size:clamp(16px,2vw,21px);letter-spacing:-.02em}
+  .led__s{font-family:var(--n);font-weight:600;font-size:11px;letter-spacing:.14em;text-transform:uppercase;text-align:right;white-space:nowrap;padding-left:18px;color:rgba(10,13,24,.6)}
+  tr.full .led__n{color:var(--cobalt)}
+  tr.full .led__s{color:var(--orange)}
+  tr.full .led__n::before{content:"";display:inline-block;width:9px;height:9px;background:var(--orange);border-radius:50%;margin-right:10px;vertical-align:middle}
+  table.led tbody tr:hover td{background:var(--paper-2)}
+  .facts__note{margin:14px 0 0;color:rgba(10,13,24,.55);max-width:70ch}
+
+  .marks{
+    margin-top:clamp(38px,4.6vw,64px);border-top:1px solid rgba(10,13,24,.28);
+    display:grid;grid-template-columns:repeat(4,minmax(0,1fr));
+  }
+  .marks div{
+    display:flex;align-items:center;justify-content:center;
+    padding:26px 18px;border-right:1px solid rgba(10,13,24,.14);border-bottom:1px solid rgba(10,13,24,.14);
+  }
+  .marks div:nth-child(4n){border-right:0}
+  .marks img{max-height:30px;max-width:126px;width:auto;object-fit:contain;opacity:.66;transition:opacity .2s ease}
+  .marks div:hover img{opacity:1}
+  @media (max-width:820px){
+    .marks{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .marks div:nth-child(4n){border-right:1px solid rgba(10,13,24,.14)}
+    .marks div:nth-child(2n){border-right:0}
+    .marks img{max-height:26px;max-width:110px}
+  }
+
+  /* ── PANEL 06 · SERVING SUGGESTION ──────────────────── */
+  .shots{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(12px,1.6vw,22px)}
+  .shot{margin:0}
+  .shot img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border:2px solid var(--ink);background:var(--paper-2)}
+  .shot figcaption{display:flex;justify-content:space-between;gap:10px;padding-top:8px;color:rgba(10,13,24,.55)}
+  @media (max-width:820px){.shots{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+  /* ── PANEL 07 · WARNINGS ────────────────────────────── */
+  .warn{border:2px solid var(--ink);background:#fff;max-width:1000px}
+  .warn__bar{background:var(--orange);border-bottom:2px solid var(--ink);padding:8px 20px;display:flex;justify-content:space-between;gap:16px}
+  .warn__bar span{color:var(--ink)}
+  .warn__body{padding:clamp(26px,3.4vw,42px) clamp(20px,3vw,40px);display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(26px,3.4vw,52px)}
+  .warn__body h3{
+    font-family:var(--g);font-weight:900;font-size:clamp(28px,4.2vw,54px);line-height:.98;letter-spacing:-.035em;
+    text-transform:uppercase;margin:0;max-width:12ch;
+  }
+  .warn__body h3 em{font-style:italic;color:var(--cobalt)}
+  .warn__body p{margin:0 0 14px;font-size:15px;line-height:1.72;color:rgba(10,13,24,.75)}
+  .warn__body p:first-child{font-weight:600;color:var(--ink)}
+  .warn__body p:last-child{margin-bottom:0}
+  @media (max-width:860px){.warn__body{grid-template-columns:1fr}}
+
+  /* ── PANEL 08 · BASE ────────────────────────────────── */
+  .base{background:var(--ink);color:var(--paper);position:relative}
+  .base__in{max-width:1320px;margin:0 auto;padding:clamp(56px,7vw,90px) var(--pad) 30px;padding-left:calc(var(--pad) + var(--tab))}
+  .base a.enq{
+    display:block;text-decoration:none;color:var(--paper);
+    font-family:var(--g);font-weight:900;font-style:italic;
+    font-size:clamp(52px,12.5vw,168px);line-height:.86;letter-spacing:-.05em;text-transform:uppercase;
+    transition:color .18s ease;
+  }
+  .base a.enq:hover{color:var(--amber)}
+  .base a.enq:focus-visible{outline:3px solid var(--amber);outline-offset:10px}
+  .base__rule{border-top:2px solid rgba(249,250,254,.5);margin:clamp(26px,3.4vw,42px) 0 20px}
+  .base__grid{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap}
+  .base__grid .fine,.base__grid .code{color:rgba(249,250,254,.66)}
+  .base__grid a{color:var(--paper)}
+  .colo{text-align:right;line-height:2}
+  @media (max-width:640px){.base__grid{flex-direction:column;align-items:flex-start;gap:22px}.colo{text-align:left}}
+  .barcode{display:flex;flex-direction:column;gap:5px;align-items:flex-start}
+  .barcode svg{width:150px;height:auto;fill:var(--paper);opacity:.9}
+
+  @media (prefers-reduced-motion:reduce){
+    .burst svg{animation:none}
+    html{scroll-behavior:auto}
+  }
 </style>
 </head>
 <body>
+<div class="grain" aria-hidden="true"></div>
 
-<div class="stage" id="stage">
-  <div class="stage__pin">
-    <canvas id="field" aria-hidden="true"></canvas>
-
-    <div class="under">
-      <div>
-        <h2>Ballast</h2>
-        <p>Weight, on purpose</p>
-      </div>
-    </div>
-
-    <div class="veil" id="veil">
-      <div class="veil__half veil__half--l" id="vl">
-        <div class="veil__doc">
-          <div class="doc__head tele"><span>Ballast</span><span>Los Angeles</span></div>
-          <div class="doc__mid">
-            <h1>Ballast</h1>
-            <p class="sub">A performance and go-to-market practice. Paid media, launch, and the measurement underneath both.</p>
-            <div class="doc__rows">
-              <div class="doc__row"><span>Paid Media</span><span>Active</span></div>
-              <div class="doc__row"><span>Go-To-Market</span><span>Active</span></div>
-              <div class="doc__row"><span>Measurement</span><span>Active</span></div>
-              <div class="doc__row"><span>Creative</span><span>Active</span></div>
-            </div>
-          </div>
-          <div class="doc__foot tele">
-            <span class="hint"><i></i>Scroll</span>
-            <span>MMXXVI</span>
-          </div>
-        </div>
-      </div>
-      <div class="veil__half veil__half--r" id="vr">
-        <div class="veil__doc">
-          <div class="doc__head tele"><span>Ballast</span><span>Los Angeles</span></div>
-          <div class="doc__mid">
-            <h1>Ballast</h1>
-            <p class="sub">A performance and go-to-market practice. Paid media, launch, and the measurement underneath both.</p>
-            <div class="doc__rows">
-              <div class="doc__row"><span>Paid Media</span><span>Active</span></div>
-              <div class="doc__row"><span>Go-To-Market</span><span>Active</span></div>
-              <div class="doc__row"><span>Measurement</span><span>Active</span></div>
-              <div class="doc__row"><span>Creative</span><span>Active</span></div>
-            </div>
-          </div>
-          <div class="doc__foot tele">
-            <span class="hint"><i></i>Scroll</span>
-            <span>MMXXVI</span>
-          </div>
-        </div>
-      </div>
-    </div>
+<header class="band">
+  <div class="band__in fine">
+    <span class="band__mark"><b>Ballast<sup>&reg;</sup></b> <span>Performance + Go-To-Market</span></span>
+    <nav>
+      <a href="#contents">Contents</a>
+      <a href="#does">What It Does</a>
+      <a href="#use">Directions</a>
+      <a href="#facts">Ingredients</a>
+      <a href="#work">Work</a>
+      <a href="#enquire">Enquire</a>
+    </nav>
+    <span class="band__loc">Los Angeles</span>
   </div>
-</div>
+</header>
 
-<div class="dark">
-  <section id="position">
-    <div class="wrap">
-      <div class="sec-bar"><span class="n">01</span><h2>Position</h2></div>
-      <div class="two">
-        <h3 class="statement">Most marketing is <em>buoyancy</em></h3>
-        <div>
-          <p>We are the part that keeps the thing upright when the weather turns.</p>
-          <p>Most shops hand off the pieces &mdash; someone buys the media, someone else runs the launch, and nobody owns the measurement that decides whether either one worked. Holding all three is the only way to know which of them is lying to you.</p>
-          <p>Our work runs from Toyota and Disney at agency scale to a Beverly Hills DTC brand where we hold the entire engine: the ad account, the creative pipeline, the attribution stack, and the number at the end of the week.</p>
+<main>
+
+  <!-- ══ 01 · FRONT ══════════════════════════════════ -->
+  <section class="front" id="top">
+    <span class="crop crop--tl" aria-hidden="true"></span>
+    <span class="crop crop--tr" aria-hidden="true"></span>
+    <span class="crop crop--bl" aria-hidden="true"></span>
+    <span class="crop crop--br" aria-hidden="true"></span>
+    <span class="reg" aria-hidden="true"><svg viewBox="0 0 22 22" fill="none" stroke="#0a0d18" stroke-width="1"><circle cx="11" cy="11" r="6.5"/><path d="M11 0v22M0 11h22"/></svg></span>
+    <span class="tab fine">Panel 01 — Front</span>
+    <div class="front__in">
+
+      <div class="front__top">
+        <span class="fine">Formula No. 26<br><span style="color:rgba(10,13,24,.55)">Concentrated</span></span>
+        <div class="burst" aria-hidden="true">
+          <svg viewBox="0 0 100 100"><path fill="#0b5cf6" stroke="#0a0d18" stroke-width="1.6" d="M50.00,0.00L55.91,8.92L64.09,2.03L67.24,12.25L77.03,7.94L77.18,18.64L87.79,17.26L84.91,27.56L95.48,29.23L89.82,38.31L99.49,42.88L91.50,50.00L99.49,57.12L89.82,61.69L95.48,70.77L84.91,72.44L87.79,82.74L77.18,81.36L77.03,92.06L67.24,87.75L64.09,97.97L55.91,91.08L50.00,100.00L44.09,91.08L35.91,97.97L32.76,87.75L22.97,92.06L22.82,81.36L12.21,82.74L15.09,72.44L4.52,70.77L10.18,61.69L0.51,57.12L8.50,50.00L0.51,42.88L10.18,38.31L4.52,29.23L15.09,27.56L12.21,17.26L22.82,18.64L22.97,7.94L32.76,12.25L35.91,2.03L44.09,8.92Z"/></svg>
+          <span class="burst__t"><em>Holds</em>All<br>Three</span>
+        </div>
+      </div>
+
+      <div class="front__mid">
+        <img class="lockup" src="/ballast/lockup.png" width="1400" height="591" alt="Ballast">
+        <span class="flash"><i></i><b>Weight, on purpose</b></span>
+        <p class="front__sub">A performance and go-to-market practice. Paid media, launch, and the measurement underneath both.</p>
+      </div>
+
+      <div class="front__foot fine">
+        <span>Net Wt.<b>Four Services</b></span>
+        <span>Formula<b>No. 26</b></span>
+        <span>Made In<b>Los Angeles</b></span>
+        <span>Est.<b>MMXXVI</b></span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ 02 · CONTENTS ═══════════════════════════════ -->
+  <section class="panel" id="contents">
+    <span class="tab fine">Panel 02 — Contents</span>
+    <div class="panel__in">
+      <div class="hd">
+        <span class="no">02</span>
+        <h2>Contents</h2>
+        <span class="rt fine">Die-cut window</span>
+      </div>
+
+      <div class="tank" id="tankWrap">
+        <div class="tank__hd fine">
+          <span>Ballast &mdash; one (1) unit</span>
+          <span class="read" id="tankRead">List 0.0&deg; &middot; Settled</span>
+        </div>
+        <div class="tank__glass" id="glass">
+          <canvas id="tank" aria-hidden="true"></canvas>
+          <div class="ticks" id="ticks" aria-hidden="true"></div>
+          <div class="fillline" id="fill" aria-hidden="true"><span>Fill line</span></div>
+        </div>
+        <div class="tank__ft fine">
+          <span>Contents may settle during shipping</span>
+          <span>Drag to disturb &mdash; it returns to level</span>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="practice">
-    <div class="wrap">
-      <div class="sec-bar"><span class="n">02</span><h2>Core_Systems</h2></div>
-      <div class="grid4">
-        <div class="cell"><span class="n">01</span><h3>Paid Media</h3><p>Account structure, creative testing, and daily budget calls against a defined CAC band.</p></div>
-        <div class="cell"><span class="n">02</span><h3>Go-To-Market</h3><p>Positioning, launch sequencing, and the distribution plan that carries it.</p></div>
-        <div class="cell"><span class="n">03</span><h3>Measurement</h3><p>Server-side events, attribution ladders, and reconciliation between what platforms claim and what the ledger shows.</p></div>
-        <div class="cell"><span class="n">04</span><h3>Creative</h3><p>Concept through delivery &mdash; UGC direction, generated film, and the systems that keep a library consistent.</p></div>
+  <!-- ══ 03 · WHAT IT DOES ═══════════════════════════ -->
+  <section class="panel" id="does">
+    <span class="tab fine">Panel 03 — What It Does</span>
+    <div class="panel__in">
+      <div class="hd">
+        <span class="no">03</span>
+        <h2>What It Does</h2>
+        <span class="rt fine">Four active systems</span>
+      </div>
+      <div class="claims">
+        <div class="claim">
+          <span class="no">01</span>
+          <h3>Paid Media</h3>
+          <p>Account structure, creative testing, and daily budget calls against a defined CAC band.</p>
+        </div>
+        <div class="claim">
+          <span class="no">02</span>
+          <h3>Go-To-Market</h3>
+          <p>Positioning, launch sequencing, and the distribution plan that carries it.</p>
+        </div>
+        <div class="claim">
+          <span class="no">03</span>
+          <h3>Measurement</h3>
+          <p>Server-side events, attribution ladders, and reconciliation between what platforms claim and what the ledger shows.</p>
+        </div>
+        <div class="claim">
+          <span class="no">04</span>
+          <h3>Creative</h3>
+          <p>Concept through delivery &mdash; UGC direction, generated film, and the systems that keep a library consistent.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="work">
-    <div class="wrap">
-      <div class="sec-bar"><span class="n">03</span><h2>Work_Log</h2></div>
-      <table class="ledger">
-        <tbody>
-          <tr class="flag"><td class="l-n">SKO Compounds</td><td class="l-t">Full Suite</td></tr>
-          <tr class="flag"><td class="l-n">Build Cities</td><td class="l-t">Full Suite</td></tr>
-          <tr><td class="l-n">Sony</td><td class="l-t">Go-To-Market</td></tr>
-          <tr><td class="l-n">Peacock</td><td class="l-t">Go-To-Market</td></tr>
-          <tr><td class="l-n">Disney</td><td class="l-t">Go-To-Market</td></tr>
-          <tr><td class="l-n">NEAR Foundation</td><td class="l-t">Go-To-Market</td></tr>
-          <tr><td class="l-n">SailGP</td><td class="l-t">Go-To-Market</td></tr>
-          <tr><td class="l-n">Adidas</td><td class="l-t">Go-To-Market</td></tr>
-          <tr><td class="l-n">Rick Owens</td><td class="l-t">Go-To-Market</td></tr>
-          <tr><td class="l-n">SushiSwap</td><td class="l-t">Go-To-Market</td></tr>
-          <tr><td class="l-n">SCI-Arc</td><td class="l-t">Go-To-Market</td></tr>
-          <tr><td class="l-n">Toyota</td><td class="l-t">Paid Media</td></tr>
-          <tr><td class="l-n">Starbucks</td><td class="l-t">Paid Media</td></tr>
-          <tr><td class="l-n">LG</td><td class="l-t">Paid Media</td></tr>
-          <tr><td class="l-n">Starzplay</td><td class="l-t">Paid Media</td></tr>
-        </tbody>
-      </table>
-      <p class="cap-note tele">Engagements at Ballast and prior agencies of record</p>
+  <!-- ══ 04 · DIRECTIONS FOR USE ═════════════════════ -->
+  <section class="panel panel--dark" id="use">
+    <span class="tab fine">Panel 04 — Directions</span>
+    <div class="panel__in">
+      <div class="hd">
+        <span class="no">04</span>
+        <h2>Directions For Use</h2>
+        <span class="rt fine">Apply weekly. Do not dilute.</span>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <span class="step__n">1</span>
+          <div>
+            <h3>Hold all three</h3>
+            <p>Media, launch, and measurement sit with one team instead of three vendors. Nothing gets handed off at the seam.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step__n">2</span>
+          <div>
+            <h3>Set the band</h3>
+            <p>A CAC range is agreed before spend, and the account is structured against it rather than fitted to it afterward.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step__n">3</span>
+          <div>
+            <h3>Run the loop</h3>
+            <p>Creative ships on a weekly cadence, budget calls happen daily, and the attribution stack reconciles against the ledger.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step__n">4</span>
+          <div>
+            <h3>Read the number</h3>
+            <p>One number at the end of the week that both sides trust &mdash; because the people who buy the media also built the measurement.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <div class="wrap">
-    <footer class="contact" id="contact">
-      <a href="mailto:jaidanmorello@gmail.com">Enquire</a>
-      <div class="colo tele">Ballast &mdash; Los Angeles<br>jaidanmorello@gmail.com</div>
-    </footer>
+  <!-- ══ 05 · ACTIVE INGREDIENTS ═════════════════════ -->
+  <section class="panel" id="facts">
+    <span class="tab fine">Panel 05 — Ingredients</span>
+    <div class="panel__in">
+      <div class="hd">
+        <span class="no">05</span>
+        <h2>Active Ingredients</h2>
+        <span class="rt fine">Work log</span>
+      </div>
+
+      <div class="facts">
+        <div class="facts__cap">
+          <b>Engagement Facts</b>
+          <span class="code">15 accounts</span>
+        </div>
+        <table class="led">
+          <thead>
+            <tr><th scope="col">Client</th><th scope="col">Scope</th></tr>
+          </thead>
+          <tbody>
+            <tr class="full"><td class="led__n">SKO Compounds</td><td class="led__s">Full Suite</td></tr>
+            <tr class="full"><td class="led__n">Build Cities</td><td class="led__s">Full Suite</td></tr>
+            <tr><td class="led__n">Sony</td><td class="led__s">Go-To-Market</td></tr>
+            <tr><td class="led__n">Peacock</td><td class="led__s">Go-To-Market</td></tr>
+            <tr><td class="led__n">Disney</td><td class="led__s">Go-To-Market</td></tr>
+            <tr><td class="led__n">NEAR Foundation</td><td class="led__s">Go-To-Market</td></tr>
+            <tr><td class="led__n">SailGP</td><td class="led__s">Go-To-Market</td></tr>
+            <tr><td class="led__n">Adidas</td><td class="led__s">Go-To-Market</td></tr>
+            <tr><td class="led__n">Rick Owens</td><td class="led__s">Go-To-Market</td></tr>
+            <tr><td class="led__n">SushiSwap</td><td class="led__s">Go-To-Market</td></tr>
+            <tr><td class="led__n">SCI-Arc</td><td class="led__s">Go-To-Market</td></tr>
+            <tr><td class="led__n">Toyota</td><td class="led__s">Paid Media</td></tr>
+            <tr><td class="led__n">Starbucks</td><td class="led__s">Paid Media</td></tr>
+            <tr><td class="led__n">LG</td><td class="led__s">Paid Media</td></tr>
+            <tr><td class="led__n">Starzplay</td><td class="led__s">Paid Media</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="facts__note fine">&#42; Engagements at Ballast and prior agencies of record</p>
+
+      <div class="marks">
+        <div><img src="/ballast/marks/sko.png" alt="SKO Compounds" loading="lazy" width="445" height="160"></div>
+        <div><img src="/ballast/marks/disney.png" alt="Disney" loading="lazy" width="387" height="160"></div>
+        <div><img src="/ballast/marks/peacock.png" alt="Peacock" loading="lazy" width="517" height="160"></div>
+        <div><img src="/ballast/marks/starzplay.png" alt="Starz Play" loading="lazy" width="520" height="73"></div>
+        <div><img src="/ballast/marks/near.png" alt="NEAR" loading="lazy" width="160" height="160"></div>
+        <div><img src="/ballast/marks/toyota.png" alt="Toyota" loading="lazy" width="520" height="85"></div>
+        <div><img src="/ballast/marks/starbucks.png" alt="Starbucks" loading="lazy" width="520" height="52"></div>
+        <div><img src="/ballast/marks/lg.png" alt="LG" loading="lazy" width="336" height="160"></div>
+      </div>
+      <p class="facts__note fine">Marks shown are the property of their respective owners</p>
+    </div>
+  </section>
+
+  <!-- ══ 06 · SERVING SUGGESTION ═════════════════════ -->
+  <section class="panel" id="work">
+    <span class="tab fine">Panel 06 — Serving Suggestion</span>
+    <div class="panel__in">
+      <div class="hd">
+        <span class="no">06</span>
+        <h2>Serving Suggestion</h2>
+        <span class="rt fine">SKO Compounds &mdash; creative pipeline</span>
+      </div>
+      <div class="shots">
+        <figure class="shot">
+          <img src="/ballast/work/shipwreck.jpg" width="880" height="1100" loading="lazy" alt="SKO Compounds vial photographed on a boat deck at sea">
+          <figcaption class="fine"><span>Deck</span><span>01</span></figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="/ballast/work/marble.jpg" width="880" height="1100" loading="lazy" alt="SKO Compounds vial on a marble plinth with palm shadow">
+          <figcaption class="fine"><span>Marble</span><span>02</span></figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="/ballast/work/helix.jpg" width="880" height="1100" loading="lazy" alt="SKO Compounds vial held inside a glass double helix">
+          <figcaption class="fine"><span>Helix</span><span>03</span></figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="/ballast/work/steam.jpg" width="880" height="1100" loading="lazy" alt="SKO Compounds vial behind fogged glass">
+          <figcaption class="fine"><span>Steam</span><span>04</span></figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="/ballast/work/court.jpg" width="880" height="1100" loading="lazy" alt="SKO Compounds vials in a badminton court flat lay">
+          <figcaption class="fine"><span>Court</span><span>05</span></figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="/ballast/work/ghkcu.jpg" width="880" height="1100" loading="lazy" alt="SKO Compounds GHK-Cu vial on dark marble">
+          <figcaption class="fine"><span>GHK&#8209;Cu</span><span>06</span></figcaption>
+        </figure>
+      </div>
+      <p class="facts__note fine">Serving suggestion. Creative produced for SKO Compounds, a full&#8209;suite engagement</p>
+    </div>
+  </section>
+
+  <!-- ══ 07 · WARNINGS ═══════════════════════════════ -->
+  <section class="panel" id="warnings">
+    <span class="tab fine">Panel 07 — Warnings</span>
+    <div class="panel__in">
+      <div class="hd">
+        <span class="no">07</span>
+        <h2>Warnings</h2>
+        <span class="rt fine">Read before purchase</span>
+      </div>
+
+      <div class="warn">
+        <div class="warn__bar fine">
+          <span>Caution</span>
+          <span>Contains no buoyancy</span>
+        </div>
+        <div class="warn__body">
+          <h3>Most marketing is <em>buoyancy</em></h3>
+          <div>
+            <p>We are the part that keeps the thing upright when the weather turns.</p>
+            <p>Most shops hand off the pieces &mdash; someone buys the media, someone else runs the launch, and nobody owns the measurement that decides whether either one worked. Holding all three is the only way to know which of them is lying to you.</p>
+            <p>Our work runs from Toyota and Disney at agency scale to a Beverly Hills DTC brand where we hold the entire engine: the ad account, the creative pipeline, the attribution stack, and the number at the end of the week.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ══ 08 · BASE ═════════════════════════════════════ -->
+<footer class="base" id="enquire">
+  <span class="tab fine">Panel 08 — Base</span>
+  <div class="base__in">
+    <a class="enq" href="mailto:jaidanmorello@gmail.com">Enquire</a>
+    <div class="base__rule"></div>
+    <div class="base__grid">
+      <div class="barcode" aria-hidden="true">
+        <svg viewBox="0 0 107 34" width="107" height="34"><rect x="0" y="0" width="1" height="34"/><rect x="2" y="0" width="2" height="34"/><rect x="5" y="0" width="3" height="34"/><rect x="9" y="0" width="2" height="34"/><rect x="15" y="0" width="1" height="34"/><rect x="17" y="0" width="2" height="34"/><rect x="20" y="0" width="1" height="34"/><rect x="24" y="0" width="2" height="34"/><rect x="27" y="0" width="4" height="34"/><rect x="32" y="0" width="2" height="34"/><rect x="35" y="0" width="1" height="34"/><rect x="38" y="0" width="3" height="34"/><rect x="42" y="0" width="1" height="34"/><rect x="47" y="0" width="2" height="34"/><rect x="50" y="0" width="1" height="34"/><rect x="54" y="0" width="1" height="34"/><rect x="57" y="0" width="1" height="34"/><rect x="59" y="0" width="2" height="34"/><rect x="65" y="0" width="1" height="34"/><rect x="69" y="0" width="1" height="34"/><rect x="71" y="0" width="2" height="34"/><rect x="74" y="0" width="2" height="34"/><rect x="77" y="0" width="3" height="34"/><rect x="81" y="0" width="1" height="34"/><rect x="84" y="0" width="4" height="34"/><rect x="89" y="0" width="1" height="34"/><rect x="92" y="0" width="1" height="34"/><rect x="96" y="0" width="2" height="34"/><rect x="99" y="0" width="1" height="34"/><rect x="104" y="0" width="1" height="34"/></svg>
+        <span class="code">0 26000 00001 4</span>
+      </div>
+      <div class="fine colo">
+        Ballast &mdash; Los Angeles<br>
+        <a href="mailto:jaidanmorello@gmail.com">jaidanmorello@gmail.com</a>
+      </div>
+    </div>
+    <p class="code" style="margin:26px 0 0;color:rgba(249,250,254,.45)">
+      Lot 26&#8209;LA&#8209;001 &nbsp;&middot;&nbsp; Best by: when the weather turns
+    </p>
   </div>
-</div>
+</footer>
 
 <script>
+/* ═══════════════════════════════════════════════════════
+   CONTENTS — a real ballast tank.
+   1-D shallow-water heightfield stepped on the CPU and
+   drawn with a WebGL2 fragment shader. Horizontal
+   acceleration (scroll, drag) piles the fluid to one side;
+   gravity and wave coupling bring it back to level.
+   Sediment is a second GL_POINTS pass with its own drag
+   and settling.
+   ═══════════════════════════════════════════════════════ */
 (function(){
-  var stage=document.getElementById('stage'),vl=document.getElementById('vl'),vr=document.getElementById('vr');
-  function onScroll(){
-    var r=stage.getBoundingClientRect();
-    var total=stage.offsetHeight-window.innerHeight;
-    var p=Math.min(1,Math.max(0,(-r.top)/total));
-    var e=Math.min(1,p/0.62);
-    e=e*e*(3-2*e);
-    vl.style.transform='translateX('+(-e*102)+'%)';
-    vr.style.transform='translateX('+( e*102)+'%)';
-    stage.classList.toggle('open',p>0.22);
-  }
-  onScroll();
-  window.addEventListener('scroll',onScroll,{passive:true});
-  window.addEventListener('resize',onScroll);
+  var wrap    = document.getElementById('tankWrap');
+  var glass   = document.getElementById('glass');
+  var cv      = document.getElementById('tank');
+  var readEl  = document.getElementById('tankRead');
+  var fillEl  = document.getElementById('fill');
+  var ticksEl = document.getElementById('ticks');
+  if(!wrap || !cv) return;
 
-  // ── the thing underneath ──
-  var c=document.getElementById('field'),ctx=c.getContext('2d');
-  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var W=0,H=0;
-  function size(){var r=c.getBoundingClientRect(),d=Math.min(window.devicePixelRatio||1,2);
-    c.width=r.width*d;c.height=r.height*d;ctx.setTransform(d,0,0,d,0,0);W=r.width;H=r.height;}
-  size();window.addEventListener('resize',size);
+  var BASE = 0.62;                            // rest waterline (0 = floor, 1 = top)
+  fillEl.style.top = (100 - BASE*100).toFixed(2) + '%';
+  [[0.16,''],[0.30,''],[0.44,''],[BASE,''],[0.82,'']].forEach(function(t){
+    var i = document.createElement('i');
+    i.style.top = (100 - t[0]*100).toFixed(2) + '%';
+    if(t[1]) i.className = 'maj';
+    i.setAttribute('data-l', t[1]);
+    ticksEl.appendChild(i);
+  });
 
-  var LAT=30,LON=54,verts=[];
-  function radius(u,v){
-    return 1
-      +0.24*Math.sin(3*u)*Math.cos(2*v)
-      +0.14*Math.sin(2*v+1.1)
-      +0.10*Math.cos(5*u+0.6)
-      -0.08*Math.sin(4*v);
+  var gl = cv.getContext('webgl2', {alpha:true, antialias:true, premultipliedAlpha:false});
+  if(!gl){ wrap.classList.add('tank--static'); return; }
+
+  function sh(type, src){
+    var s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s);
+    if(!gl.getShaderParameter(s, gl.COMPILE_STATUS)) throw new Error(gl.getShaderInfoLog(s));
+    return s;
   }
-  for(var i=0;i<=LAT;i++){
-    var v=i/LAT*Math.PI;
-    for(var j=0;j<=LON;j++){
-      var u=j/LON*Math.PI*2,R=radius(u,v);
-      verts.push([R*Math.sin(v)*Math.cos(u),R*Math.cos(v),R*Math.sin(v)*Math.sin(u)]);
+  function prog(vs, fs){
+    var p = gl.createProgram();
+    gl.attachShader(p, sh(gl.VERTEX_SHADER, vs));
+    gl.attachShader(p, sh(gl.FRAGMENT_SHADER, fs));
+    gl.linkProgram(p);
+    if(!gl.getProgramParameter(p, gl.LINK_STATUS)) throw new Error(gl.getProgramInfoLog(p));
+    return p;
+  }
+
+  var LIQ_VS =
+    '#version 300 es\n' +
+    'in vec2 a_p; out vec2 v_uv;\n' +
+    'void main(){ v_uv = a_p*0.5+0.5; gl_Position = vec4(a_p,0.,1.); }';
+
+  var LIQ_FS =
+    '#version 300 es\n' +
+    'precision highp float;\n' +
+    'in vec2 v_uv; out vec4 o;\n' +
+    'uniform sampler2D u_h;\n' +
+    'uniform float u_time, u_base;\n' +
+    'uniform vec2 u_res;\n' +
+    'float hash(vec2 p){ return fract(sin(dot(p, vec2(127.1,311.7)))*43758.5453123); }\n' +
+    'float vnoise(vec2 p){\n' +
+    '  vec2 i=floor(p), f=fract(p); f=f*f*(3.0-2.0*f);\n' +
+    '  return mix(mix(hash(i),hash(i+vec2(1,0)),f.x),\n' +
+    '             mix(hash(i+vec2(0,1)),hash(i+vec2(1,1)),f.x), f.y);\n' +
+    '}\n' +
+    'float fbm(vec2 p){ float s=0.0,a=0.5; for(int i=0;i<4;i++){ s+=a*vnoise(p); p*=2.03; a*=0.5; } return s; }\n' +
+    'void main(){\n' +
+    '  vec2 uv = v_uv;\n' +
+    '  float h = u_base + texture(u_h, vec2(uv.x, 0.5)).r;\n' +
+    '  float d = h - uv.y;\n' +
+    '  float aa = 1.6 / u_res.y;\n' +
+    '  float inside = smoothstep(-aa, aa, d);\n' +
+    '  if(inside <= 0.002){ o = vec4(0.0); return; }\n' +
+    '  float depth = clamp(d / max(h, 0.001), 0.0, 1.0);\n' +
+    '  vec3 col = mix(vec3(1.000,0.694,0.145), vec3(0.788,0.263,0.008), pow(depth, 0.62));\n' +
+    '  col *= 1.0 - 0.16*smoothstep(0.10, 0.0, d);\n' +
+    '  float c = fbm(vec2(uv.x*5.5 + u_time*0.10, uv.y*8.5 - u_time*0.045));\n' +
+    '  col += (c - 0.5) * 0.20;\n' +
+    '  col = mix(col, vec3(0.560,0.176,0.016), smoothstep(0.70, 1.0, depth) * 0.6);\n' +
+    '  float m = 1.0 - smoothstep(0.0, 0.020, abs(d));\n' +
+    '  col = mix(col, vec3(1.0,0.855,0.549), m*0.70);\n' +
+    '  float line = 1.0 - smoothstep(0.0, 0.0038, abs(d));\n' +
+    '  col = mix(col, vec3(1.0,0.976,0.925), line*0.72);\n' +
+    '  o = vec4(col, inside);\n' +
+    '}';
+
+  var PT_VS =
+    '#version 300 es\n' +
+    'in vec2 a_pos; in float a_r;\n' +
+    'uniform float u_dpr;\n' +
+    'void main(){\n' +
+    '  gl_Position = vec4(a_pos*2.0-1.0, 0.0, 1.0);\n' +
+    '  gl_PointSize = a_r * u_dpr;\n' +
+    '}';
+
+  var PT_FS =
+    '#version 300 es\n' +
+    'precision mediump float; out vec4 o;\n' +
+    'void main(){\n' +
+    '  float d = length(gl_PointCoord - 0.5);\n' +
+    '  float a = 1.0 - smoothstep(0.30, 0.5, d);\n' +
+    '  o = vec4(0.290, 0.098, 0.008, a*0.80);\n' +
+    '}';
+
+  var pLiq, pPt;
+  try { pLiq = prog(LIQ_VS, LIQ_FS); pPt = prog(PT_VS, PT_FS); }
+  catch(e){ wrap.classList.add('tank--static'); return; }
+
+  var quad = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, quad);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 3,-1, -1,3]), gl.STATIC_DRAW);
+  var aP = gl.getAttribLocation(pLiq,'a_p');
+  var vaoLiq = gl.createVertexArray();
+  gl.bindVertexArray(vaoLiq);
+  gl.enableVertexAttribArray(aP);
+  gl.vertexAttribPointer(aP, 2, gl.FLOAT, false, 0, 0);
+  gl.bindVertexArray(null);
+
+  var uH = gl.getUniformLocation(pLiq,'u_h');
+  var uT = gl.getUniformLocation(pLiq,'u_time');
+  var uB = gl.getUniformLocation(pLiq,'u_base');
+  var uR = gl.getUniformLocation(pLiq,'u_res');
+
+  /* heightfield */
+  var N = 128;
+  var h = new Float32Array(N), vel = new Float32Array(N), tmp = new Float32Array(N);
+  var tex = gl.createTexture();
+  gl.bindTexture(gl.TEXTURE_2D, tex);
+  gl.texImage2D(gl.TEXTURE_2D, 0, gl.R16F, N, 1, 0, gl.RED, gl.FLOAT, h);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+
+  /* sediment */
+  var M = 640;
+  var pos = new Float32Array(M*2), rad = new Float32Array(M);
+  var pvx = new Float32Array(M), pvy = new Float32Array(M);
+  for(var i=0;i<M;i++){
+    pos[i*2]   = 0.02 + Math.random()*0.96;
+    pos[i*2+1] = 0.012 + Math.random()*BASE*0.85;
+    rad[i]     = 1.1 + Math.random()*2.4;
+  }
+  var bPos = gl.createBuffer(), bRad = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, bRad);
+  gl.bufferData(gl.ARRAY_BUFFER, rad, gl.STATIC_DRAW);
+  var aPos = gl.getAttribLocation(pPt,'a_pos'), aR = gl.getAttribLocation(pPt,'a_r');
+  var uDpr = gl.getUniformLocation(pPt,'u_dpr');
+  var vaoPt = gl.createVertexArray();
+  gl.bindVertexArray(vaoPt);
+  gl.bindBuffer(gl.ARRAY_BUFFER, bPos);
+  gl.bufferData(gl.ARRAY_BUFFER, pos, gl.DYNAMIC_DRAW);
+  gl.enableVertexAttribArray(aPos); gl.vertexAttribPointer(aPos, 2, gl.FLOAT, false, 0, 0);
+  gl.bindBuffer(gl.ARRAY_BUFFER, bRad);
+  gl.enableVertexAttribArray(aR);   gl.vertexAttribPointer(aR, 1, gl.FLOAT, false, 0, 0);
+  gl.bindVertexArray(null);
+
+  /* sizing */
+  var W=0, H=0, DPR=1;
+  function size(){
+    var r = glass.getBoundingClientRect();
+    DPR = Math.min(window.devicePixelRatio || 1, 2);
+    W = Math.max(1, Math.round(r.width));
+    H = Math.max(1, Math.round(r.height));
+    cv.width = Math.round(W*DPR); cv.height = Math.round(H*DPR);
+    gl.viewport(0, 0, cv.width, cv.height);
+  }
+  size();
+  window.addEventListener('resize', size);
+
+  /* forcing */
+  var accel = 0;
+  var lastScroll = window.scrollY;
+  window.addEventListener('scroll', function(){
+    var d = window.scrollY - lastScroll; lastScroll = window.scrollY;
+    accel += Math.max(-40, Math.min(40, d)) * 0.0000105;
+  }, {passive:true});
+
+  var dragging = false, lastX = 0;
+  glass.addEventListener('pointerdown', function(e){
+    dragging = true; lastX = e.clientX;
+    try{ glass.setPointerCapture(e.pointerId); }catch(err){}
+  });
+  glass.addEventListener('pointermove', function(e){
+    if(!dragging) return;
+    var dx = e.clientX - lastX; lastX = e.clientX;
+    accel -= dx * 0.000078;
+  });
+  ['pointerup','pointercancel','pointerleave'].forEach(function(ev){
+    glass.addEventListener(ev, function(){ dragging = false; });
+  });
+
+  /* step */
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var C = 0.30, G = 0.0021, DAMP = 0.9962;
+
+  function step(t){
+    var swell = Math.sin(t*0.00041)*0.0000090 + Math.sin(t*0.00097+1.3)*0.0000055;
+    var a = accel + swell;
+    accel *= 0.90;
+
+    tmp.set(h);
+    for(var i=0;i<N;i++){
+      var x = i/(N-1) - 0.5;
+      var l = tmp[i>0 ? i-1 : 0];
+      var r = tmp[i<N-1 ? i+1 : N-1];
+      vel[i] += (l + r - 2*tmp[i]) * C;
+      vel[i] -= tmp[i] * G;
+      vel[i] += a * x;
+      vel[i] *= DAMP;
     }
-  }
-  var motes=[];
-  for(var m=0;m<70;m++){
-    var a=Math.random()*6.28,b=Math.acos(2*Math.random()-1),rr=1.3+Math.random()*.7;
-    motes.push([rr*Math.sin(b)*Math.cos(a),rr*Math.cos(b),rr*Math.sin(b)*Math.sin(a)]);
-  }
-  function draw(t){
-    if(!W||!H){requestAnimationFrame(draw);return}
-    ctx.clearRect(0,0,W,H);
-    var ang=reduce?0.7:t*0.00016,tilt=-0.3;
-    var scale=Math.min(W,H)*0.40,cx=W*0.5,cy=H*0.5;
-    var ca=Math.cos(ang),sa=Math.sin(ang),ct=Math.cos(tilt),st=Math.sin(tilt);
-    function proj(p){
-      var x=p[0]*ca-p[2]*sa,z=p[0]*sa+p[2]*ca;
-      var y=p[1]*ct-z*st,z2=p[1]*st+z*ct;
-      var per=3.0/(3.0+z2);
-      return [cx+x*scale*per,cy+y*scale*per,z2,per];
+    var maxV = 0;
+    for(var j=0;j<N;j++){
+      h[j] += vel[j];
+      if(h[j] >  0.19){ h[j] =  0.19; vel[j] *= -0.4; }
+      if(h[j] < -0.19){ h[j] = -0.19; vel[j] *= -0.4; }
+      var av = Math.abs(vel[j]); if(av > maxV) maxV = av;
     }
-    var P=new Array(verts.length);
-    for(var i=0;i<verts.length;i++)P[i]=proj(verts[i]);
-    for(var i=0;i<LAT;i++){
-      for(var j=0;j<LON;j++){
-        var a1=i*(LON+1)+j,b1=a1+1,c1=a1+LON+1,d1=c1+1;
-        var pa=P[a1],pb=P[b1],pc=P[c1],pd=P[d1];
-        if(!pa||!pb||!pc||!pd)continue;
-        var depth=(pa[2]+pb[2]+pc[2]+pd[2])/4,front=depth<0;
-        ctx.beginPath();
-        ctx.moveTo(pa[0],pa[1]);ctx.lineTo(pb[0],pb[1]);ctx.lineTo(pd[0],pd[1]);ctx.lineTo(pc[0],pc[1]);ctx.closePath();
-        ctx.fillStyle=front?'rgba(35,60,70,0.16)':'rgba(20,32,42,0.10)';
-        ctx.fill();
-        ctx.lineWidth=front?0.85:0.45;
-        ctx.strokeStyle=front
-          ?'rgba(198,255,61,'+(0.34+0.42*(-depth))+')'
-          :'rgba(57,230,255,0.16)';
-        ctx.stroke();
+
+    // viscosity: rounds the shock front a shallow-water solver would otherwise form
+    tmp.set(h);
+    for(var q=1;q<N-1;q++) h[q] += (tmp[q-1] + tmp[q+1] - 2*tmp[q]) * 0.085;
+
+    for(var k=0;k<M;k++){
+      var px = pos[k*2], py = pos[k*2+1];
+      var hi = Math.min(N-1, Math.max(0, Math.round(px*(N-1))));
+      var surf = BASE + h[hi];
+      if(py < surf){
+        pvy[k] -= 0.000165;
+        pvx[k] += a * 1.35;
+        pvx[k] *= 0.962; pvy[k] *= 0.962;
+      } else {
+        pvy[k] -= 0.00055;
+        pvx[k] *= 0.994; pvy[k] *= 0.994;
       }
+      px += pvx[k]; py += pvy[k];
+      if(py < 0.012){ py = 0.012; pvy[k] *= -0.16; pvx[k] *= 0.84; }
+      if(py > surf - 0.004){ py = surf - 0.004; if(pvy[k] > 0) pvy[k] = 0; }
+      if(px < 0.008){ px = 0.008; pvx[k] *= -0.35; }
+      if(px > 0.992){ px = 0.992; pvx[k] *= -0.35; }
+      pos[k*2] = px; pos[k*2+1] = py;
     }
-    var gx=cx+scale*0.26,gy=cy-scale*0.30,gr=scale*0.34;
-    var gd=ctx.createRadialGradient(gx,gy,0,gx,gy,gr);
-    gd.addColorStop(0,'rgba(255,255,255,0.9)');
-    gd.addColorStop(.32,'rgba(198,255,61,0.42)');
-    gd.addColorStop(1,'rgba(57,230,255,0)');
-    ctx.fillStyle=gd;ctx.beginPath();ctx.arc(gx,gy,gr,0,6.283);ctx.fill();
-    for(var k=0;k<motes.length;k++){
-      var p=proj(motes[k]);
-      if(p[2]>0.9)continue;
-      ctx.beginPath();ctx.arc(p[0],p[1],1.7*p[3],0,6.283);
-      ctx.fillStyle=(k%3===0?'rgba(57,230,255,':'rgba(198,255,61,')+(0.5+0.4*(-p[2]))+')';
-      ctx.fill();
-    }
-    requestAnimationFrame(draw);
+    return maxV;
   }
-  requestAnimationFrame(draw);
+
+  /* draw */
+  gl.enable(gl.BLEND);
+  gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+
+  function draw(t){
+    gl.clearColor(0,0,0,0);
+    gl.clear(gl.COLOR_BUFFER_BIT);
+
+    gl.activeTexture(gl.TEXTURE0);
+    gl.bindTexture(gl.TEXTURE_2D, tex);
+    gl.texSubImage2D(gl.TEXTURE_2D, 0, 0, 0, N, 1, gl.RED, gl.FLOAT, h);
+
+    gl.useProgram(pLiq);
+    gl.uniform1i(uH, 0);
+    gl.uniform1f(uT, t*0.001);
+    gl.uniform1f(uB, BASE);
+    gl.uniform2f(uR, cv.width, cv.height);
+    gl.bindVertexArray(vaoLiq);
+    gl.drawArrays(gl.TRIANGLES, 0, 3);
+
+    gl.useProgram(pPt);
+    gl.uniform1f(uDpr, DPR);
+    gl.bindVertexArray(vaoPt);
+    gl.bindBuffer(gl.ARRAY_BUFFER, bPos);
+    gl.bufferSubData(gl.ARRAY_BUFFER, 0, pos);
+    gl.drawArrays(gl.POINTS, 0, M);
+    gl.bindVertexArray(null);
+  }
+
+  /* readout */
+  var lastRead = 0;
+  function readout(maxV, now){
+    if(now - lastRead < 90) return;
+    lastRead = now;
+    // least-squares slope of the whole surface, not just the two ends
+    var sx=0, sy=0, sxy=0, sxx=0;
+    for(var i=0;i<N;i++){ var x=i/(N-1); sx+=x; sy+=h[i]; sxy+=x*h[i]; sxx+=x*x; }
+    var slope = (N*sxy - sx*sy) / Math.max(1e-9, (N*sxx - sx*sx));
+    var deg   = Math.atan2(slope * H, W) * 180 / Math.PI;
+    var settled = maxV < 0.00022;
+    readEl.textContent = 'List ' + (deg < 0 ? '−' : '') +
+      Math.abs(deg).toFixed(1) + '° · ' + (settled ? 'Settled' : 'Sloshing');
+  }
+
+  /* loop — always scheduled, work skipped while off screen.
+     rAF is already parked by the browser when the tab is hidden. */
+  var visible = true;
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(es){ visible = es[0].isIntersecting; },
+                             {rootMargin:'200px'}).observe(wrap);
+  }
+
+  function frame(t){
+    if(visible){
+      var maxV = step(t);
+      draw(t);
+      readout(maxV, t);
+    }
+    requestAnimationFrame(frame);
+  }
+
+  if(reduce){ draw(0); } else { requestAnimationFrame(frame); }
 })();
 </script>
+
 </body>
 </html>
