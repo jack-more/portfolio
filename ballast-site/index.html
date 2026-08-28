@@ -127,9 +127,37 @@
     min-height:calc(100svh - 38px);display:flex;flex-direction:column;
   }
   .front__top{display:flex;justify-content:space-between;align-items:flex-start;gap:24px}
-  .front__mid{flex:1;display:flex;flex-direction:column;justify-content:center;padding:12px 0}
+    .front__mid{
+    flex:1;display:grid;grid-template-columns:minmax(0,1fr) auto;
+    gap:clamp(24px,4vw,72px);align-items:center;padding:12px 0;
+  }
+  @media (max-width:1080px){.front__mid{grid-template-columns:1fr;align-items:start}}
   .lockup{width:min(560px,84%);height:auto;margin:0 0 clamp(26px,3.4vw,40px)}
 
+  .chips{display:flex;flex-direction:column;gap:11px;align-items:flex-start}
+  .chips__lab,.chips__note{color:rgba(10,13,24,.5)}
+  .chip{
+    text-decoration:none;color:var(--ink);
+    display:flex;align-items:center;gap:11px;white-space:nowrap;
+    background:#fff;border:2px solid var(--ink);padding:9px 15px 9px 11px;
+    box-shadow:3px 3px 0 rgba(10,13,24,.16);
+    font-family:var(--g);font-weight:900;font-size:14px;letter-spacing:-.015em;text-transform:uppercase;
+    transition:transform .16s ease, box-shadow .16s ease;
+  }
+  .chip b{font-family:var(--m);font-weight:600;font-size:10px;letter-spacing:.1em;color:rgba(10,13,24,.45)}
+  .chip i{width:11px;height:11px;display:block;flex:none;border:1.5px solid var(--ink)}
+  .chip:nth-of-type(1){transform:rotate(-1.6deg)}
+  .chip:nth-of-type(2){transform:rotate(1.1deg);margin-left:14px}
+  .chip:nth-of-type(3){transform:rotate(-.7deg);margin-left:5px}
+  .chip:nth-of-type(4){transform:rotate(1.8deg);margin-left:20px}
+  .chip:hover{transform:rotate(0deg) translateY(-2px);box-shadow:5px 5px 0 rgba(10,13,24,.22)}
+  .c1 i{background:var(--amber)}.c2 i{background:var(--orange)}
+  .c3 i{background:#c94c02}.c4 i{background:#7d2c02}
+  @media (max-width:1080px){
+    .chips{flex-direction:row;flex-wrap:wrap;gap:8px;margin-top:26px}
+    .chip{margin-left:0 !important;transform:none !important;font-size:12.5px;padding:7px 12px 7px 9px}
+    .chips__lab,.chips__note{display:none}
+  }
   .say{
     font-family:var(--g);font-weight:900;text-transform:uppercase;
     font-size:clamp(28px,5.4vw,74px);line-height:.94;letter-spacing:-.042em;
@@ -178,11 +206,32 @@
   .stratum dt{font-family:var(--n);font-weight:700;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(10,13,24,.5);margin-bottom:5px}
   .stratum dd{margin:0;font-size:14px;line-height:1.5;font-weight:500}
   .stratum--goal dd{font-weight:800;letter-spacing:-.01em}
-  .strata + .facts__note{max-width:none}
+  .strata + .facts__note,.promos + .facts__note{max-width:none}
   @media (max-width:900px){
     .stratum{grid-template-columns:1fr;gap:16px;border-left-width:8px}
     .stratum dl{border-top:1px solid rgba(10,13,24,.18);padding-top:12px}
   }
+
+  /* ── PANEL 03 · PROMOTIONS ──────────────────────────── */
+  .say--sm{font-size:clamp(24px,3.8vw,50px);max-width:24ch;margin:0 0 clamp(16px,2vw,24px)}
+  .promo__lead{margin:0 0 clamp(28px,3.4vw,44px);font-size:clamp(15px,1.6vw,18px);line-height:1.6;max-width:62ch;color:rgba(10,13,24,.74)}
+  .promos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,1.8vw,24px)}
+  .promo{
+    position:relative;border:2px solid var(--ink);background:#fff;overflow:hidden;
+    display:flex;flex-direction:column;transition:transform .18s ease,box-shadow .18s ease;
+  }
+  .promo:hover{transform:translateY(-4px);box-shadow:6px 6px 0 rgba(10,13,24,.18)}
+  .promo__cap{padding:9px 14px;border-bottom:2px solid var(--ink);display:flex;justify-content:space-between;gap:12px;color:var(--ink)}
+  .promo:nth-child(1) .promo__cap{background:var(--amber)}
+  .promo:nth-child(2) .promo__cap{background:var(--orange)}
+  .promo:nth-child(3) .promo__cap{background:var(--cobalt);color:#fff}
+  .promo__body{padding:clamp(20px,2.4vw,30px) clamp(16px,2vw,24px);display:flex;flex-direction:column;gap:11px;flex:1}
+  .promo h3{font-family:var(--g);font-weight:900;font-size:clamp(19px,2.3vw,27px);letter-spacing:-.028em;text-transform:uppercase;margin:0;line-height:1.02}
+  .promo h3 span{display:block;font-size:.6em;color:rgba(10,13,24,.5);letter-spacing:-.01em;margin-top:5px}
+  .promo:nth-child(3) h3 span{color:rgba(10,13,24,.5)}
+  .promo p{margin:0;font-size:14.5px;line-height:1.55;color:rgba(10,13,24,.72)}
+  .promo__ft{margin-top:auto;padding-top:12px;border-top:1px solid rgba(10,13,24,.2);color:rgba(10,13,24,.5)}
+  @media (max-width:900px){.promos{grid-template-columns:1fr}}
 
   /* ── PANEL 04 · WHAT IT DOES ────────────────────────── */
   .claims{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(10,13,24,.28)}
@@ -336,6 +385,7 @@
     <span class="band__mark"><b>Ballast<sup>&reg;</sup></b> <span>Performance + Go-To-Market</span></span>
     <nav>
       <a href="#intent">Intent</a>
+      <a href="#promos">Promotions</a>
       <a href="#does">What It Does</a>
       <a href="#use">Directions</a>
       <a href="#facts">Ingredients</a>
@@ -367,9 +417,19 @@
       </div>
 
       <div class="front__mid">
-        <img class="lockup" src="/lockup.png" width="1400" height="591" alt="Ballast">
-        <h1 class="say">We buy <em>intent</em>.<br>The rest buy channels.</h1>
-        <p class="front__sub fine">Paid media &middot; Go-to-market &middot; Measurement &mdash; run across eleven categories</p>
+        <div>
+          <img class="lockup" src="/lockup.png" width="1400" height="591" alt="Ballast">
+          <h1 class="say">We buy <em>intent</em>.<br>The rest buy channels.</h1>
+          <p class="front__sub fine">Paid media &middot; Go-to-market &middot; Measurement &mdash; run across eleven categories</p>
+        </div>
+        <div class="chips">
+          <span class="chips__lab fine">Intent comes in four</span>
+          <a class="chip c1" href="#intent"><b>01</b><i></i>In-market</a>
+          <a class="chip c2" href="#intent"><b>02</b><i></i>Comparing</a>
+          <a class="chip c3" href="#intent"><b>03</b><i></i>Latent</a>
+          <a class="chip c4" href="#intent"><b>04</b><i></i>Lapsed</a>
+          <span class="chips__note fine">Collect all four</span>
+        </div>
       </div>
 
       <div class="front__foot fine">
@@ -442,12 +502,56 @@
     </div>
   </section>
 
-  <!-- ══ 03 · WHAT IT DOES ═══════════════════════════ -->
-  <section class="panel" id="does">
-    <span class="tab fine">Panel 03 — What It Does</span>
+  <!-- ══ 03 · PROMOTIONS ═════════════════════════════ -->
+  <section class="panel" id="promos">
+    <span class="tab fine">Panel 03 — Promotions</span>
     <div class="panel__in">
       <div class="hd">
         <span class="no">03</span>
+        <h2>Promotions</h2>
+        <span class="rt fine">The prize is part of the media plan</span>
+      </div>
+
+      <p class="say say--sm">A box has always sold two things.<br>The product, and the <em>prize inside</em>.</p>
+      <p class="promo__lead">We design the second one. Incentive layers that give a person a reason to act now, built to be measured &mdash; then the media is bought against the demand they create, not against a guess.</p>
+
+      <div class="promos">
+        <div class="promo">
+          <div class="promo__cap fine"><span>Collectible</span><span>01</span></div>
+          <div class="promo__body">
+            <h3>Proof of Memories<span>NEAR &times; SailGP</span></h3>
+            <p>Race moments turned into something a fan could keep. The incentive manufactured the demand; the media only had to catch it.</p>
+            <div class="promo__ft fine">Web3 &middot; Live sport</div>
+          </div>
+        </div>
+        <div class="promo">
+          <div class="promo__cap fine"><span>Player venture</span><span>02</span></div>
+          <div class="promo__body">
+            <h3>Baron Davis<span>Engagement design</span></h3>
+            <p>Audience incentives built around a player-led venture, where the reason to participate has to be worth more than the reach.</p>
+            <div class="promo__ft fine">Sport &middot; Culture</div>
+          </div>
+        </div>
+        <div class="promo">
+          <div class="promo__cap fine"><span>Coded offer</span><span>03</span></div>
+          <div class="promo__body">
+            <h3>Platform Codes<span>SKO Compounds</span></h3>
+            <p>A different code per platform, so the offer is the attribution. What the dashboard cannot see, the redemption can.</p>
+            <div class="promo__ft fine">Health &amp; DTC</div>
+          </div>
+        </div>
+      </div>
+
+      <p class="facts__note fine">The incentive is the layer most shops never touch, and the only one that creates demand instead of renting it</p>
+    </div>
+  </section>
+
+  <!-- ══ 04 · WHAT IT DOES ═══════════════════════════ -->
+  <section class="panel" id="does">
+    <span class="tab fine">Panel 04 — What It Does</span>
+    <div class="panel__in">
+      <div class="hd">
+        <span class="no">04</span>
         <h2>What It Does</h2>
         <span class="rt fine">Four active systems</span>
       </div>
@@ -476,12 +580,12 @@
     </div>
   </section>
 
-  <!-- ══ 04 · DIRECTIONS FOR USE ═════════════════════ -->
+  <!-- ══ 05 · DIRECTIONS FOR USE ═════════════════════ -->
   <section class="panel panel--dark" id="use">
-    <span class="tab fine">Panel 04 — Directions</span>
+    <span class="tab fine">Panel 05 — Directions</span>
     <div class="panel__in">
       <div class="hd">
-        <span class="no">04</span>
+        <span class="no">05</span>
         <h2>Directions For Use</h2>
         <span class="rt fine">Apply weekly. Do not dilute.</span>
       </div>
@@ -518,12 +622,12 @@
     </div>
   </section>
 
-  <!-- ══ 05 · ACTIVE INGREDIENTS ═════════════════════ -->
+  <!-- ══ 06 · ACTIVE INGREDIENTS ═════════════════════ -->
   <section class="panel" id="facts">
-    <span class="tab fine">Panel 05 — Ingredients</span>
+    <span class="tab fine">Panel 06 — Ingredients</span>
     <div class="panel__in">
       <div class="hd">
-        <span class="no">05</span>
+        <span class="no">06</span>
         <h2>Active Ingredients</h2>
         <span class="rt fine">Where the method has been run</span>
       </div>
@@ -568,12 +672,12 @@
     </div>
   </section>
 
-  <!-- ══ 06 · SERVING SUGGESTION ═════════════════════ -->
+  <!-- ══ 07 · SERVING SUGGESTION ═════════════════════ -->
   <section class="panel" id="work">
-    <span class="tab fine">Panel 06 — Serving Suggestion</span>
+    <span class="tab fine">Panel 07 — Serving Suggestion</span>
     <div class="panel__in">
       <div class="hd">
-        <span class="no">06</span>
+        <span class="no">07</span>
         <h2>Serving Suggestion</h2>
         <span class="rt fine">SKO Compounds &mdash; creative pipeline</span>
       </div>
@@ -607,12 +711,12 @@
     </div>
   </section>
 
-  <!-- ══ 07 · WARNINGS ═══════════════════════════════ -->
+  <!-- ══ 08 · WARNINGS ═══════════════════════════════ -->
   <section class="panel" id="warnings">
-    <span class="tab fine">Panel 07 — Warnings</span>
+    <span class="tab fine">Panel 08 — Warnings</span>
     <div class="panel__in">
       <div class="hd">
-        <span class="no">07</span>
+        <span class="no">08</span>
         <h2>Warnings</h2>
         <span class="rt fine">Read before purchase</span>
       </div>
@@ -636,9 +740,9 @@
 
 </main>
 
-<!-- ══ 08 · BASE ═════════════════════════════════════ -->
+<!-- ══ 09 · BASE ═════════════════════════════════════ -->
 <footer class="base" id="enquire">
-  <span class="tab fine">Panel 08 — Base</span>
+  <span class="tab fine">Panel 09 — Base</span>
   <div class="base__in">
     <a class="enq" href="mailto:jaidanmorello@gmail.com">Enquire</a>
     <div class="base__rule"></div>
