@@ -67,23 +67,24 @@
   /* ── carton band (sticky header) ────────────────────── */
   .band{
     position:sticky;top:0;z-index:120;background:var(--paper);color:var(--ink);
-    border-bottom:1px solid rgba(10,13,24,.16);
+    border-bottom:1px solid rgba(10,13,24,.22);
   }
   .band__in{
     max-width:1320px;margin:0 auto;padding:0 var(--pad);
     height:56px;display:flex;align-items:center;justify-content:space-between;gap:24px;
   }
   .band__mark{display:flex;align-items:center;gap:10px;white-space:nowrap}
-  .band__mark b{font-family:var(--g);font-weight:800;font-style:normal;font-size:12px;letter-spacing:.19em}
+  .band__mark b{font-family:var(--g);font-weight:900;font-style:italic;font-size:15px;letter-spacing:.02em}
   .band__mark sup{font-size:8px;vertical-align:super;opacity:.85}
   .band nav{display:flex;gap:20px}
-  .band nav a{color:var(--ink);text-decoration:none;opacity:.62;font-size:10.5px;letter-spacing:.16em}
+  .band nav a{color:var(--ink);text-decoration:none;opacity:.72;font-size:10.5px;letter-spacing:.16em}
   .band nav a:hover{opacity:1}
   .band__loc{
-    display:inline-flex;align-items:center;background:var(--ink);color:var(--paper);
-    padding:9px 17px;border-radius:999px;font-size:10px;letter-spacing:.14em;
+    display:inline-flex;align-items:center;background:#fff;color:var(--ink);
+    border:2px solid var(--ink);
+    padding:9px 17px;font-size:10px;letter-spacing:.14em;font-weight:700;
   }
-  .band__loc:hover{background:var(--cobalt)}
+  .band__loc:hover{background:var(--cobalt);color:#fff}
   @media (max-width:980px){.band nav{display:none}}
   @media (max-width:600px){.band__mark span{display:none}.band__in{gap:12px}}
 
@@ -106,7 +107,16 @@
   }
 
   /* ── PANEL 01 · FRONT ───────────────────────────────── */
-  .front{position:relative;overflow:hidden;border-bottom:1px dashed rgba(10,13,24,.34)}
+    .front{
+    position:relative;overflow:hidden;border-bottom:0;
+    background:
+      radial-gradient(120% 88% at 50% 42%,
+        #FAA81C 0%, #F49313 22%, #F76A08 62%, #E85B04 88%, #D95104 100%);
+  }
+  .front::after{                      /* the mark's own printed tooth, at page scale */
+    content:"";position:absolute;inset:0;pointer-events:none;opacity:.10;mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
   .front__in{
     position:relative;z-index:1;max-width:1320px;margin:0 auto;
     padding:clamp(28px,4vh,58px) var(--pad) clamp(18px,2.4vh,30px);
@@ -117,38 +127,38 @@
     .front__mid{
     flex:1;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;text-align:left;padding:12px 0;
   }
-  .lockup{width:min(250px,44vw);height:auto;max-height:9vh;object-fit:contain;object-position:left;margin:0 0 clamp(22px,3.4vh,42px)}
+  .lockup{width:min(760px,80vw);height:auto;max-height:19vh;object-fit:contain;object-position:left;margin:0 0 clamp(22px,3.2vh,38px);filter:drop-shadow(0 8px 20px rgba(120,40,0,.30))}
 
   .cta{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-start;margin-top:clamp(22px,3vh,34px)}
   .cta a{
     display:inline-flex;align-items:center;gap:10px;text-decoration:none;
     font-family:var(--g);font-weight:900;font-style:italic;text-transform:uppercase;
-    font-size:clamp(11px,1.05vw,13px);letter-spacing:.04em;font-style:normal;
-    padding:11px 20px;border:1px solid var(--ink);border-radius:999px;
+    font-size:clamp(12px,1.25vw,15px);letter-spacing:-.01em;font-style:italic;
+    padding:12px 22px;border:2px solid var(--ink);box-shadow:4px 4px 0 rgba(10,13,24,.28);
     transition:background .16s ease,color .16s ease,transform .16s ease;
   }
   .cta a i{width:6px;height:6px;display:block;flex:none;border-radius:50%}
-  .cta .p{background:var(--ink);color:var(--paper);border-color:var(--ink)}
-  .cta .p i{background:var(--amber)}
-  .cta .p:hover{background:var(--cobalt);transform:none}
-  .cta .s{background:transparent;color:var(--ink)}
-  .cta .s i{background:var(--orange)}
-  .cta .s:hover{background:rgba(10,13,24,.06);transform:none}
+  .cta .p{background:#0B5CF6;color:#fff}
+  .cta .p i{background:#fff;border-radius:0}
+  .cta .p:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 rgba(10,13,24,.28)}
+  .cta .s{background:#fff;color:var(--ink)}
+  .cta .s i{background:#0B5CF6;border-radius:0}
+  .cta .s:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 rgba(10,13,24,.28)}
   .say{
-    font-family:var(--serif);font-weight:300;text-transform:none;
-    font-size:min(4.6vw, 7.2vh, 60px);line-height:1.14;letter-spacing:-.012em;
-    margin:0;max-width:15ch;color:var(--ink);
+    font-family:var(--g);font-weight:900;font-style:italic;text-transform:uppercase;
+    font-size:min(5vw, 7.2vh, 64px);line-height:.96;letter-spacing:-.038em;
+    margin:0;max-width:17ch;color:#fff;
   }
-  .say em{font-style:italic;color:var(--cobalt)}
+  .say em{font-style:italic;color:#0B5CF6;-webkit-text-stroke:0}
   .front__sub{
     margin:clamp(18px,2.2vw,26px) 0 0;color:rgba(10,13,24,.55);
   }
   .front__foot{
     display:grid;grid-template-columns:repeat(4,1fr);gap:16px;
-    border-top:2px solid var(--ink);padding-top:12px;
+    border-top:2px solid rgba(255,255,255,.55);padding-top:12px;
   }
-  .front__foot span{color:rgba(10,13,24,.66)}
-  .front__foot span b{display:block;color:var(--ink);font-family:var(--g);font-weight:800;font-size:13px;letter-spacing:.02em;margin-top:3px}
+  .front__foot span{color:rgba(255,255,255,.78)}
+  .front__foot span b{display:block;color:#fff;font-family:var(--g);font-weight:800;font-size:13px;letter-spacing:.02em;margin-top:3px}
   @media (max-width:760px){.front__foot{grid-template-columns:repeat(2,1fr);gap:14px}}
 
   .burst{position:relative;width:clamp(104px,12vw,140px);flex:none}
@@ -358,7 +368,7 @@
 
 <header class="band">
   <div class="band__in fine">
-    <span class="band__mark"><b>Ballast</b> <span style="opacity:.5">Performance + Go-To-Market</span></span>
+    <span class="band__mark"><b>Ballast</b> <span style="opacity:.68">Performance + Go-To-Market</span></span>
     <nav>
       <a href="#intent">Intent</a>
       <a href="#promos">Promotions</a>
@@ -384,13 +394,13 @@
     <div class="front__in">
 
       <div class="front__top">
-        <span class="fine">Available for work<br><span style="color:rgba(10,13,24,.45)">MMXXVI</span></span>
+        <span class="fine" style="color:rgba(255,255,255,.92)">Available for work<br><span style="color:rgba(255,255,255,.6)">MMXXVI</span></span>
       </div>
 
       <div class="front__mid">
         <div>
-          <img class="lockup" src="/lockup.png" width="1400" height="591" alt="Ballast">
-          <h1 class="say">We buy <em>intent</em>. Everyone else is buying channels.</h1>
+          <img class="lockup" src="/wordmark.png" width="1400" height="324" alt="Ballast">
+          <h1 class="say">We buy <em>intent</em>.<br>The rest buy channels.</h1>
           <p class="front__sub fine">Paid media &middot; Go-to-market &middot; Measurement<br>Eleven categories &middot; Los Angeles</p>
         <div class="cta">
           <a class="p" href="#enquire"><i></i>Start buying intent</a>
