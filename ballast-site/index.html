@@ -53,9 +53,14 @@
   ::selection{background:var(--cobalt);color:#fff}
   img{max-width:100%;height:auto;display:block}
 
+  /* live halftone screens — the layer everything scrolls over */
+  #screens{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;display:block}
+  body>header,body>main,body>footer{position:relative;z-index:1}
+  .panel--dark,.base,.warn,.promo,.chip,.facts,.shot img{position:relative}
+
   /* printed-paper grain, matched to the mark's own tooth */
   .grain{
-    position:fixed;inset:0;z-index:200;pointer-events:none;opacity:.055;mix-blend-mode:multiply;
+    position:fixed;inset:0;z-index:200;pointer-events:none;opacity:.035;mix-blend-mode:multiply;
     background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E");
   }
 
@@ -135,7 +140,7 @@
   .lockup{width:min(560px,84%);height:auto;margin:0 0 clamp(26px,3.4vw,40px)}
 
   .chips{display:flex;flex-direction:column;gap:11px;align-items:flex-start}
-  .chips__lab,.chips__note{color:rgba(10,13,24,.5)}
+  .chips__lab,.chips__note{color:rgba(10,13,24,.72)}
   .chip{
     text-decoration:none;color:var(--ink);
     display:flex;align-items:center;gap:11px;white-space:nowrap;
@@ -378,6 +383,7 @@
 </script>
 </head>
 <body>
+<canvas id="screens" aria-hidden="true"></canvas>
 <div class="grain" aria-hidden="true"></div>
 
 <header class="band">
@@ -512,8 +518,7 @@
         <span class="rt fine">The prize is part of the media plan</span>
       </div>
 
-      <p class="say say--sm">A box has always sold two things.<br>The product, and the <em>prize inside</em>.</p>
-      <p class="promo__lead">We design the second one. Incentive layers that give a person a reason to act now, built to be measured &mdash; then the media is bought against the demand they create, not against a guess.</p>
+      <p class="say say--sm">Anyone can buy the impression.<br>We build the <em>reason to act</em>.</p>
 
       <div class="promos">
         <div class="promo">
@@ -542,7 +547,7 @@
         </div>
       </div>
 
-      <p class="facts__note fine">The incentive is the layer most shops never touch, and the only one that creates demand instead of renting it</p>
+      <p class="facts__note fine">The layer most shops never touch, and the only one that makes demand instead of renting it</p>
     </div>
   </section>
 
@@ -761,6 +766,113 @@
     </p>
   </div>
 </footer>
+
+
+<script>
+/* ═══════════════════════════════════════════════════════
+   HALFTONE SCREENS
+   Two rotated halftone screens — orange at 15°, cobalt at
+   75°, the angles real CMYK separations use to avoid moiré.
+   Fixed behind the page; the dot field drifts on its own and
+   shears with scroll, so the paper is never dead.
+   ═══════════════════════════════════════════════════════ */
+(function(){
+  var cv = document.getElementById('screens');
+  if(!cv) return;
+  var gl = cv.getContext('webgl2', {alpha:true, antialias:false, premultipliedAlpha:false});
+  if(!gl){ cv.style.display='none'; return; }
+
+  var VS = '#version 300 es\n in vec2 p; void main(){ gl_Position=vec4(p,0.,1.); }';
+  var FS = [
+  '#version 300 es',
+  'precision highp float;',
+  'out vec4 o;',
+  'uniform vec2  u_res;',
+  'uniform float u_t;',
+  'uniform float u_scroll;',
+  'float hash(vec2 p){ return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453123); }',
+  'float vn(vec2 p){ vec2 i=floor(p), f=fract(p); f=f*f*(3.0-2.0*f);',
+  '  return mix(mix(hash(i),hash(i+vec2(1,0)),f.x), mix(hash(i+vec2(0,1)),hash(i+vec2(1,1)),f.x), f.y); }',
+  'float fbm(vec2 p){ float s=0.0,a=0.55; for(int i=0;i<4;i++){ s+=a*vn(p); p=p*2.02+17.3; a*=0.5; } return s; }',
+  'vec2 rot(vec2 p, float a){ float c=cos(a), s=sin(a); return mat2(c,-s,s,c)*p; }',
+  // one halftone screen: returns dot coverage 0..1
+  'float screenDot(vec2 uv, float v, float ang, float cell){',
+  '  vec2 g = rot(uv, ang) / cell;',
+  '  vec2 f = fract(g) - 0.5;',
+  '  float r = 0.52 * clamp(v, 0.0, 1.0);',
+  '  return 1.0 - smoothstep(r - 0.055, r + 0.015, length(f));',
+  '}',
+  'void main(){',
+  '  vec2 uv = gl_FragCoord.xy / u_res.y;',
+  '  vec2 q  = uv; q.y += u_scroll * 0.30;',
+  '  float t = u_t * 0.035;',
+  // two slow independent fields
+  '  float a = fbm(q*1.9 + vec2(t, -t*0.7));',
+  '  float b = fbm(q*1.5 + vec2(-t*0.8 + 4.1, t*0.55 + 9.7));',
+  '  a = 0.18 + 0.62*smoothstep(0.22, 0.92, a);',
+  '  b = 0.10 + 0.48*smoothstep(0.30, 0.95, b);',
+  '  float cell = 0.0072;',
+  '  float dOr = screenDot(uv, a, 0.2618, cell);',        // 15deg
+  '  float dCo = screenDot(uv, b, 1.3090, cell*1.06);',   // 75deg
+  '  vec3  col = vec3(0.0);',
+  '  float al  = 0.0;',
+  '  col += vec3(0.992,0.447,0.051) * dOr * 0.30;  al += dOr * 0.30;',
+  '  col += vec3(0.043,0.361,0.965) * dCo * 0.19;  al += dCo * 0.19;',
+  '  if(al <= 0.002) discard;',
+  '  o = vec4(col/max(al,0.0001), al);',
+  '}'].join('\n');
+
+  function sh(t,src){ var x=gl.createShader(t); gl.shaderSource(x,src); gl.compileShader(x);
+    if(!gl.getShaderParameter(x,gl.COMPILE_STATUS)) throw new Error(gl.getShaderInfoLog(x)); return x; }
+  var pr;
+  try{
+    pr = gl.createProgram();
+    gl.attachShader(pr, sh(gl.VERTEX_SHADER, VS));
+    gl.attachShader(pr, sh(gl.FRAGMENT_SHADER, FS));
+    gl.linkProgram(pr);
+    if(!gl.getProgramParameter(pr, gl.LINK_STATUS)) throw new Error(gl.getProgramInfoLog(pr));
+  }catch(e){ cv.style.display='none'; return; }
+
+  var buf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 3,-1, -1,3]), gl.STATIC_DRAW);
+  var loc = gl.getAttribLocation(pr,'p');
+  gl.enableVertexAttribArray(loc);
+  gl.vertexAttribPointer(loc,2,gl.FLOAT,false,0,0);
+  var uRes = gl.getUniformLocation(pr,'u_res'),
+      uT   = gl.getUniformLocation(pr,'u_t'),
+      uS   = gl.getUniformLocation(pr,'u_scroll');
+
+  gl.enable(gl.BLEND);
+  gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+
+  var DPR=1;
+  function size(){
+    DPR = Math.min(window.devicePixelRatio||1, 1.75);
+    cv.width  = Math.round(innerWidth*DPR);
+    cv.height = Math.round(innerHeight*DPR);
+    gl.viewport(0,0,cv.width,cv.height);
+  }
+  size(); addEventListener('resize', size);
+
+  var scrollN = 0;
+  addEventListener('scroll', function(){
+    scrollN = window.scrollY / Math.max(1, innerHeight);
+  }, {passive:true});
+
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function paint(t){
+    gl.clearColor(0,0,0,0); gl.clear(gl.COLOR_BUFFER_BIT);
+    gl.useProgram(pr);
+    gl.uniform2f(uRes, cv.width, cv.height);
+    gl.uniform1f(uT, reduce ? 0 : t*0.001);
+    gl.uniform1f(uS, scrollN);
+    gl.drawArrays(gl.TRIANGLES,0,3);
+  }
+  if(reduce){ paint(0); }
+  else { (function loop(t){ paint(t); requestAnimationFrame(loop); })(0); }
+})();
+</script>
 
 </body>
 </html>
