@@ -109,19 +109,22 @@
   /* ── PANEL 01 · FRONT ───────────────────────────────── */
     .front{
     position:relative;overflow:hidden;border-bottom:0;
+    /* four blooms at different centres, not one bullseye — so the mark's own
+       ellipse sits on the field instead of competing with a copy of itself */
     background:
-      /* the mark's own ground at page scale — 1.46:1, the measured ellipse ratio —
-         falling off through burnt orange into cobalt at the edges, the way the
-         outline surrounds the ground on the mark itself */
-      radial-gradient(ellipse 58vw 39vw at 50% 43%,
-        #FFC02E 0%, #FBA81B 10%, #F49313 22%, #F76A08 40%,
-        #E05704 56%, #A83A06 70%, #5B2436 82%, #1B2A66 92%, #0A1740 100%);
+      radial-gradient(52% 46% at 76% 16%, rgba(255,196,52,.95) 0%, rgba(255,196,52,0) 64%),
+      radial-gradient(58% 52% at 16% 34%, rgba(247,106,8,.90) 0%, rgba(247,106,8,0) 68%),
+      radial-gradient(64% 58% at 88% 76%, rgba(216,74,4,.85) 0%, rgba(216,74,4,0) 70%),
+      radial-gradient(90% 76% at 30% 96%, rgba(23,37,95,.90) 0%, rgba(23,37,95,0) 72%),
+      linear-gradient(152deg, #F08A0C 0%, #E05704 34%, #B23F05 62%, #3A2A5A 88%, #12204E 100%);
   }
   @media (max-width:900px){
     .front{
-      background:radial-gradient(ellipse 128vw 88vw at 50% 40%,
-        #FFC02E 0%, #FBA81B 10%, #F49313 22%, #F76A08 42%,
-        #E05704 58%, #A83A06 72%, #5B2436 84%, #1B2A66 94%, #0A1740 100%);
+      background:
+        radial-gradient(62% 32% at 74% 12%, rgba(255,196,52,.95) 0%, rgba(255,196,52,0) 62%),
+        radial-gradient(78% 38% at 14% 34%, rgba(247,106,8,.90) 0%, rgba(247,106,8,0) 66%),
+        radial-gradient(90% 44% at 84% 84%, rgba(23,37,95,.90) 0%, rgba(23,37,95,0) 70%),
+        linear-gradient(168deg, #F08A0C 0%, #E05704 36%, #B23F05 64%, #12204E 100%);
     }
   }
   .front::after{                      /* coarse film grain, the thing that stops a gradient reading as CSS */
@@ -138,7 +141,7 @@
     .front__mid{
     flex:1;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;text-align:left;padding:12px 0;
   }
-  .lockup{width:min(760px,80vw);height:auto;max-height:19vh;object-fit:contain;object-position:left;margin:0 0 clamp(22px,3.2vh,38px);filter:drop-shadow(0 8px 20px rgba(120,40,0,.30))}
+  .lockup{width:min(720px,74vw);height:auto;max-height:29vh;object-fit:contain;object-position:left;margin:0 0 clamp(16px,2.4vh,30px);filter:drop-shadow(0 10px 26px rgba(120,45,0,.30))}
 
   .cta{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-start;margin-top:clamp(22px,3vh,34px)}
   .cta a,.cta-btn{
@@ -220,20 +223,19 @@
   /* ── PANEL 03 · THE SPRINT ───────────────────────────── */
   .sprint{
     position:relative;overflow:hidden;border-bottom:1px solid rgba(10,13,24,.14);
-    background:radial-gradient(ellipse 58vw 40vw at 28% 50%,
-      #FFC02E 0%, #FBA81B 12%, #F49313 26%, #F76A08 46%,
-      #E05704 62%, #A83A06 76%, #5B2436 87%, #17255F 96%, #0A1740 100%);
+    background:
+      radial-gradient(46% 62% at 14% 22%, rgba(255,196,52,.92) 0%, rgba(255,196,52,0) 66%),
+      radial-gradient(54% 70% at 38% 78%, rgba(247,106,8,.88) 0%, rgba(247,106,8,0) 70%),
+      radial-gradient(60% 80% at 92% 40%, rgba(23,37,95,.92) 0%, rgba(23,37,95,0) 72%),
+      linear-gradient(118deg, #F08A0C 0%, #E05704 30%, #A83A06 58%, #2B2A5C 86%, #12204E 100%);
   }
   @media (max-width:900px){
     .sprint{
-      background:radial-gradient(ellipse 132vw 90vw at 50% 24%,
-        #FFC02E 0%, #FBA81B 10%, #F49313 22%, #F76A08 42%,
-        #E05704 58%, #A83A06 72%, #5B2436 84%, #17255F 94%, #0A1740 100%);
+      background:
+        radial-gradient(72% 34% at 20% 16%, rgba(255,196,52,.92) 0%, rgba(255,196,52,0) 64%),
+        radial-gradient(86% 40% at 70% 70%, rgba(23,37,95,.92) 0%, rgba(23,37,95,0) 70%),
+        linear-gradient(160deg, #F08A0C 0%, #E05704 34%, #A83A06 62%, #12204E 100%);
     }
-  }
-  .sprint::after{
-    content:"";position:absolute;inset:0;pointer-events:none;opacity:.24;mix-blend-mode:overlay;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.62' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E");
   }
   .sprint__in{
     position:relative;z-index:1;max-width:1320px;margin:0 auto;
@@ -491,7 +493,7 @@
 
       <div class="front__mid">
         <div>
-          <img class="lockup" src="/wordmark.png" width="1400" height="324" alt="Ballast">
+          <img class="lockup" src="/lockup.png" width="1400" height="591" alt="Ballast">
           <h1 class="say">We buy <em>intent</em>.<br>The rest buy channels.</h1>
           <p class="front__sub fine">Paid media &middot; Go-to-market &middot; Measurement<br>Eleven categories &middot; Los Angeles</p>
         <div class="cta">
