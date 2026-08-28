@@ -23,7 +23,7 @@
 <link rel="apple-touch-icon" href="/favicon.png">
 <meta name="theme-color" content="#0b5cf6">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Archivo+Narrow:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Archivo+Narrow:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:opsz,wght@6..72,300;6..72,400&display=swap">
 <style>
   :root{
     /* sampled off the mark */
@@ -37,6 +37,7 @@
     --g:"Archivo","Helvetica Neue",Arial,sans-serif;
     --n:"Archivo Narrow","Archivo",Arial,sans-serif;
     --m:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+    --serif:"Newsreader",Georgia,"Times New Roman",serif;
 
     --pad:clamp(20px,4.4vw,52px);
     --tab:0px;
@@ -65,35 +66,30 @@
 
   /* ── carton band (sticky header) ────────────────────── */
   .band{
-    position:sticky;top:0;z-index:120;background:var(--cobalt);color:#fff;
-    border-bottom:2px solid var(--ink);
+    position:sticky;top:0;z-index:120;background:var(--paper);color:var(--ink);
+    border-bottom:1px solid rgba(10,13,24,.16);
   }
   .band__in{
     max-width:1320px;margin:0 auto;padding:0 var(--pad);
-    height:38px;display:flex;align-items:center;justify-content:space-between;gap:20px;
+    height:56px;display:flex;align-items:center;justify-content:space-between;gap:24px;
   }
   .band__mark{display:flex;align-items:center;gap:10px;white-space:nowrap}
-  .band__mark b{font-family:var(--g);font-weight:900;font-style:italic;font-size:14px;letter-spacing:-.01em}
+  .band__mark b{font-family:var(--g);font-weight:800;font-style:normal;font-size:12px;letter-spacing:.19em}
   .band__mark sup{font-size:8px;vertical-align:super;opacity:.85}
   .band nav{display:flex;gap:20px}
-  .band nav a{color:#fff;text-decoration:none;opacity:.82}
-  .band nav a:hover{opacity:1;text-decoration:underline;text-underline-offset:3px}
-  .band__loc{opacity:.82}
+  .band nav a{color:var(--ink);text-decoration:none;opacity:.62;font-size:10.5px;letter-spacing:.16em}
+  .band nav a:hover{opacity:1}
+  .band__loc{
+    display:inline-flex;align-items:center;background:var(--ink);color:var(--paper);
+    padding:9px 17px;border-radius:999px;font-size:10px;letter-spacing:.14em;
+  }
+  .band__loc:hover{background:var(--cobalt)}
   @media (max-width:980px){.band nav{display:none}}
   @media (max-width:600px){.band__mark span{display:none}.band__in{gap:12px}}
 
   /* ── shared panel frame ─────────────────────────────── */
   .panel{position:relative;border-bottom:1px dashed rgba(10,13,24,.34)}
-  .panel__in{max-width:1320px;margin:0 auto;padding:clamp(52px,7vw,96px) var(--pad) clamp(56px,7vw,100px);padding-left:calc(var(--pad) + var(--tab))}
-  .tab{
-    display:none;position:absolute;left:var(--pad);top:clamp(52px,7vw,96px);
-    transform-origin:0 0;transform:rotate(90deg) translateY(-100%);
-    white-space:nowrap;color:rgba(10,13,24,.42);
-  }
-  @media (min-width:1080px){.tab{display:block}}
-  .panel--dark .tab{color:rgba(255,255,255,.55)}
-  .base .tab{color:rgba(249,250,254,.42);top:clamp(56px,7vw,90px)}
-
+  .panel__in{max-width:1320px;margin:0 auto;padding:clamp(52px,7vw,96px) var(--pad) clamp(56px,7vw,100px);padding-left:var(--pad)}
   .hd{display:flex;align-items:baseline;gap:14px;border-bottom:2px solid var(--ink);padding-bottom:10px;margin-bottom:clamp(28px,3.4vw,44px)}
   .hd h2{font-family:var(--g);font-weight:900;font-size:clamp(19px,2.5vw,30px);letter-spacing:-.02em;text-transform:uppercase;margin:0}
   .hd .no{font-family:var(--m);font-weight:600;font-size:11px;letter-spacing:.12em;color:var(--cobalt)}
@@ -111,49 +107,41 @@
 
   /* ── PANEL 01 · FRONT ───────────────────────────────── */
   .front{position:relative;overflow:hidden;border-bottom:1px dashed rgba(10,13,24,.34)}
-  .crop{position:absolute;width:26px;height:26px;pointer-events:none;z-index:0;border-color:rgba(10,13,24,.55)}
-  .crop--tl{top:16px;left:16px;border-top:1px solid;border-left:1px solid}
-  .crop--tr{top:16px;right:16px;border-top:1px solid;border-right:1px solid}
-  .crop--bl{bottom:16px;left:16px;border-bottom:1px solid;border-left:1px solid}
-  .crop--br{bottom:16px;right:16px;border-bottom:1px solid;border-right:1px solid}
-  .reg{position:absolute;top:14px;left:50%;transform:translateX(-50%);width:22px;height:22px;z-index:0;pointer-events:none;opacity:.75}
-  .reg svg{display:block;width:100%;height:100%}
-  @media (max-width:760px){.crop{display:none}}
 
   #spread{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;display:block}
   .front__in{
     position:relative;z-index:1;max-width:1320px;margin:0 auto;
     padding:clamp(28px,4vh,58px) var(--pad) clamp(18px,2.4vh,30px);
-    padding-left:calc(var(--pad) + var(--tab));
-    min-height:calc(100svh - 38px);display:flex;flex-direction:column;
+    padding-left:var(--pad);
+    min-height:calc(100svh - 56px);display:flex;flex-direction:column;
   }
   .front__top{display:flex;justify-content:space-between;align-items:flex-start;gap:24px}
     .front__mid{
-    flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:12px 0;
+    flex:1;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;text-align:left;padding:12px 0;
   }
-  .lockup{width:min(900px,76vw);height:auto;max-height:23vh;object-fit:contain;margin:0 0 clamp(14px,2vh,26px)}
+  .lockup{width:min(250px,44vw);height:auto;max-height:9vh;object-fit:contain;object-position:left;margin:0 0 clamp(22px,3.4vh,42px)}
 
-  .cta{display:flex;gap:clamp(8px,1vw,14px);flex-wrap:wrap;justify-content:center;margin-top:clamp(18px,2.6vh,30px)}
+  .cta{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-start;margin-top:clamp(22px,3vh,34px)}
   .cta a{
     display:inline-flex;align-items:center;gap:10px;text-decoration:none;
     font-family:var(--g);font-weight:900;font-style:italic;text-transform:uppercase;
-    font-size:clamp(13px,1.45vw,17px);letter-spacing:-.015em;
-    padding:11px 20px;border:2px solid var(--ink);
+    font-size:clamp(11px,1.05vw,13px);letter-spacing:.04em;font-style:normal;
+    padding:11px 20px;border:1px solid var(--ink);border-radius:999px;
     transition:background .16s ease,color .16s ease,transform .16s ease;
   }
-  .cta a i{width:8px;height:8px;display:block;flex:none}
-  .cta .p{background:var(--cobalt);color:#fff}
+  .cta a i{width:6px;height:6px;display:block;flex:none;border-radius:50%}
+  .cta .p{background:var(--ink);color:var(--paper);border-color:var(--ink)}
   .cta .p i{background:var(--amber)}
-  .cta .p:hover{background:var(--ink);transform:translateY(-2px)}
-  .cta .s{background:#fff;color:var(--ink)}
+  .cta .p:hover{background:var(--cobalt);transform:none}
+  .cta .s{background:transparent;color:var(--ink)}
   .cta .s i{background:var(--orange)}
-  .cta .s:hover{background:var(--amber);transform:translateY(-2px)}
+  .cta .s:hover{background:rgba(10,13,24,.06);transform:none}
   .say{
-    font-family:var(--g);font-weight:900;text-transform:uppercase;
-    font-size:min(5.2vw, 6.6vh, 62px);line-height:.94;letter-spacing:-.042em;
-    margin:0;max-width:18ch;
+    font-family:var(--serif);font-weight:300;text-transform:none;
+    font-size:min(4.6vw, 7.2vh, 60px);line-height:1.14;letter-spacing:-.012em;
+    margin:0;max-width:15ch;color:var(--ink);
   }
-  .say em{font-style:normal;color:var(--cobalt)}
+  .say em{font-style:italic;color:var(--cobalt)}
   .front__sub{
     margin:clamp(18px,2.2vw,26px) 0 0;color:rgba(10,13,24,.55);
   }
@@ -330,7 +318,7 @@
 
   /* ── PANEL 08 · BASE ────────────────────────────────── */
   .base{background:var(--ink);color:var(--paper);position:relative}
-  .base__in{max-width:1320px;margin:0 auto;padding:clamp(56px,7vw,90px) var(--pad) 30px;padding-left:calc(var(--pad) + var(--tab))}
+  .base__in{max-width:1320px;margin:0 auto;padding:clamp(56px,7vw,90px) var(--pad) 30px;padding-left:var(--pad)}
   .base a.enq{
     display:block;text-decoration:none;color:var(--paper);
     font-family:var(--g);font-weight:900;font-style:italic;
@@ -372,7 +360,7 @@
 
 <header class="band">
   <div class="band__in fine">
-    <span class="band__mark"><b>Ballast<sup>&reg;</sup></b> <span>Performance + Go-To-Market</span></span>
+    <span class="band__mark"><b>Ballast</b> <span style="opacity:.5">Performance + Go-To-Market</span></span>
     <nav>
       <a href="#intent">Intent</a>
       <a href="#promos">Promotions</a>
@@ -382,7 +370,7 @@
       <a href="#work">Work</a>
       <a href="#enquire">Enquire</a>
     </nav>
-    <span class="band__loc">Los Angeles</span>
+    <a class="band__loc" href="#enquire">Request access</a>
   </div>
 </header>
 
@@ -390,28 +378,23 @@
 
   <!-- ══ 01 · FRONT ══════════════════════════════════ -->
   <section class="front" id="top">
-    <span class="crop crop--tl" aria-hidden="true"></span>
-    <span class="crop crop--tr" aria-hidden="true"></span>
-    <span class="crop crop--bl" aria-hidden="true"></span>
-    <span class="crop crop--br" aria-hidden="true"></span>
-    <span class="reg" aria-hidden="true"><svg viewBox="0 0 22 22" fill="none" stroke="#0a0d18" stroke-width="1"><circle cx="11" cy="11" r="6.5"/><path d="M11 0v22M0 11h22"/></svg></span>
+    </span>
+    </span>
+    </span>
+    </span>
+    
     <canvas id="spread" aria-hidden="true"></canvas>
-    <span class="tab fine">Panel 01 — Front</span>
     <div class="front__in">
 
       <div class="front__top">
-        <span class="fine">Formula No. 26<br><span style="color:rgba(10,13,24,.55)">Concentrated</span></span>
-        <div class="burst" aria-hidden="true">
-          <svg viewBox="0 0 100 100"><path fill="#0b5cf6" stroke="#0a0d18" stroke-width="1.6" d="M50.00,0.00L55.91,8.92L64.09,2.03L67.24,12.25L77.03,7.94L77.18,18.64L87.79,17.26L84.91,27.56L95.48,29.23L89.82,38.31L99.49,42.88L91.50,50.00L99.49,57.12L89.82,61.69L95.48,70.77L84.91,72.44L87.79,82.74L77.18,81.36L77.03,92.06L67.24,87.75L64.09,97.97L55.91,91.08L50.00,100.00L44.09,91.08L35.91,97.97L32.76,87.75L22.97,92.06L22.82,81.36L12.21,82.74L15.09,72.44L4.52,70.77L10.18,61.69L0.51,57.12L8.50,50.00L0.51,42.88L10.18,38.31L4.52,29.23L15.09,27.56L12.21,17.26L22.82,18.64L22.97,7.94L32.76,12.25L35.91,2.03L44.09,8.92Z"/></svg>
-          <span class="burst__t"><em>One method</em>11<br>Verticals</span>
-        </div>
+        <span class="fine">Available for work<br><span style="color:rgba(10,13,24,.45)">MMXXVI</span></span>
       </div>
 
       <div class="front__mid">
         <div>
           <img class="lockup" src="/lockup.png" width="1400" height="591" alt="Ballast">
-          <h1 class="say">We buy <em>intent</em>.<br>The rest buy channels.</h1>
-          <p class="front__sub fine">Paid media &middot; Go-to-market &middot; Measurement &mdash; run across eleven categories</p>
+          <h1 class="say">We buy <em>intent</em>. Everyone else is buying channels.</h1>
+          <p class="front__sub fine">Paid media &middot; Go-to-market &middot; Measurement<br>Eleven categories &middot; Los Angeles</p>
         <div class="cta">
           <a class="p" href="#enquire"><i></i>Start buying intent</a>
           <a class="s" href="#promos"><i></i>Build incentive alignment</a>
@@ -421,10 +404,10 @@
       </div>
 
       <div class="front__foot fine">
-        <span>Net Wt.<b>Four Services</b></span>
-        <span>Formula<b>No. 26</b></span>
-        <span>Made In<b>Los Angeles</b></span>
-        <span>Est.<b>MMXXVI</b></span>
+        <span>Practice<b>Paid Media + GTM</b></span>
+        <span>Categories<b>Eleven</b></span>
+        <span>Based<b>Los Angeles</b></span>
+        <span>Contact<b>jaidanmorello@gmail.com</b></span>
       </div>
 
     </div>
@@ -432,7 +415,6 @@
 
   <!-- ══ 02 · INTENT LAYERS ══════════════════════════ -->
   <section class="panel" id="intent">
-    <span class="tab fine">Panel 02 — Intent Layers</span>
     <div class="panel__in">
       <div class="hd">
         <span class="no">02</span>
@@ -492,7 +474,6 @@
 
   <!-- ══ 03 · PROMOTIONS ═════════════════════════════ -->
   <section class="panel" id="promos">
-    <span class="tab fine">Panel 03 — Promotions</span>
     <div class="panel__in">
       <div class="hd">
         <span class="no">03</span>
@@ -535,7 +516,6 @@
 
   <!-- ══ 04 · WHAT IT DOES ═══════════════════════════ -->
   <section class="panel" id="does">
-    <span class="tab fine">Panel 04 — What It Does</span>
     <div class="panel__in">
       <div class="hd">
         <span class="no">04</span>
@@ -569,7 +549,6 @@
 
   <!-- ══ 05 · DIRECTIONS FOR USE ═════════════════════ -->
   <section class="panel panel--dark" id="use">
-    <span class="tab fine">Panel 05 — Directions</span>
     <div class="panel__in">
       <div class="hd">
         <span class="no">05</span>
@@ -611,7 +590,6 @@
 
   <!-- ══ 06 · ACTIVE INGREDIENTS ═════════════════════ -->
   <section class="panel" id="facts">
-    <span class="tab fine">Panel 06 — Ingredients</span>
     <div class="panel__in">
       <div class="hd">
         <span class="no">06</span>
@@ -661,7 +639,6 @@
 
   <!-- ══ 07 · SERVING SUGGESTION ═════════════════════ -->
   <section class="panel" id="work">
-    <span class="tab fine">Panel 07 — Serving Suggestion</span>
     <div class="panel__in">
       <div class="hd">
         <span class="no">07</span>
@@ -700,7 +677,6 @@
 
   <!-- ══ 08 · WARNINGS ═══════════════════════════════ -->
   <section class="panel" id="warnings">
-    <span class="tab fine">Panel 08 — Warnings</span>
     <div class="panel__in">
       <div class="hd">
         <span class="no">08</span>
@@ -729,7 +705,6 @@
 
 <!-- ══ 09 · BASE ═════════════════════════════════════ -->
 <footer class="base" id="enquire">
-  <span class="tab fine">Panel 09 — Base</span>
   <div class="base__in">
     <a class="enq" href="mailto:jaidanmorello@gmail.com">Enquire</a>
     <div class="base__rule"></div>
@@ -753,135 +728,77 @@
 
 
 <script>
-/* ═══════════════════════════════════════════════════════
-   SPREAD
-   Demand does not arrive, it propagates. A few seeds divide
-   into neighbours, neighbours divide again, and some of them
-   catch — outline means latent, filled means converted. The
-   colony keeps to the white space and never crosses the type.
-   ═══════════════════════════════════════════════════════ */
+/* Sparse marks that slowly divide into the white space, the way the
+   reference does it: thin outlines, no fill, no connectors, few of them. */
 (function(){
-  var host = document.getElementById('top');
-  var cv   = document.getElementById('spread');
-  if(!host || !cv) return;
-  var ctx = cv.getContext('2d');
-  if(!ctx) return;
-
-  var W=0,H=0,DPR=1, cells=[], keepOut=[];
-  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var host=document.getElementById('top'), cv=document.getElementById('spread');
+  if(!host||!cv) return;
+  var ctx=cv.getContext('2d'); if(!ctx) return;
+  var W=0,H=0,DPR=1,cells=[],keepOut=[],MAX=7;
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   function measure(){
-    var hr = host.getBoundingClientRect();
-    DPR = Math.min(window.devicePixelRatio||1, 2);
-    W = Math.max(1, Math.round(hr.width)); H = Math.max(1, Math.round(hr.height));
-    cv.width = Math.round(W*DPR); cv.height = Math.round(H*DPR);
-    ctx.setTransform(DPR,0,0,DPR,0,0);
-    keepOut = [];
-    ['.lockup','.say','.front__sub','.front__foot','.burst','.front__top > span']
-      .forEach(function(sel){
-        var el = host.querySelector(sel); if(!el) return;
-        var r = el.getBoundingClientRect();
-        keepOut.push({x:r.left-hr.left-16, y:r.top-hr.top-16, w:r.width+32, h:r.height+32});
-      });
+    var hr=host.getBoundingClientRect();
+    DPR=Math.min(window.devicePixelRatio||1,2);
+    W=Math.max(1,Math.round(hr.width)); H=Math.max(1,Math.round(hr.height));
+    cv.width=Math.round(W*DPR); cv.height=Math.round(H*DPR); ctx.setTransform(DPR,0,0,DPR,0,0);
+    keepOut=[];
+    ['.lockup','.say','.front__sub','.cta','.front__foot','.burst','.front__top > span']
+      .forEach(function(sel){ var el=host.querySelector(sel); if(!el) return;
+        var r=el.getBoundingClientRect();
+        keepOut.push({x:r.left-hr.left-34,y:r.top-hr.top-34,w:r.width+68,h:r.height+68}); });
   }
   function blocked(x,y,r){
-    if(x<r+14 || y<r+14 || x>W-r-14 || y>H-r-14) return true;
-    for(var i=0;i<keepOut.length;i++){
-      var k=keepOut[i];
-      if(x+r>k.x && x-r<k.x+k.w && y+r>k.y && y-r<k.y+k.h) return true;
-    }
-    for(var j=0;j<cells.length;j++){
-      var c=cells[j], dx=c.x-x, dy=c.y-y;
-      if(Math.sqrt(dx*dx+dy*dy) < c.tr + r + 12) return true;
-    }
+    if(x<r+30||y<r+30||x>W-r-30||y>H-r-30) return true;
+    for(var i=0;i<keepOut.length;i++){ var k=keepOut[i];
+      if(x+r>k.x&&x-r<k.x+k.w&&y+r>k.y&&y-r<k.y+k.h) return true; }
+    for(var j=0;j<cells.length;j++){ var c=cells[j],dx=c.x-x,dy=c.y-y;
+      if(Math.sqrt(dx*dx+dy*dy)<c.tr+r+70) return true; }
     return false;
   }
-  function make(x,y,gen,par){
-    return {x:x, y:y, r:0.5, tr:13+Math.random()*22, born:0, gen:gen, par:par||null,
-            ph:Math.random()*6.28, caught: Math.random() < 0.40, fade:0};
-  }
-  function seed(){
-    cells = []; var tries=0;
-    while(cells.length<5 && tries++<600){
+  function make(x,y){ return {x:x,y:y,r:0.5,tr:11+Math.random()*13,born:0,
+    ph:Math.random()*6.28,spin:(Math.random()-0.5)*0.35}; }
+  function place(){
+    for(var t=0;t<160;t++){
       var x=40+Math.random()*(W-80), y=40+Math.random()*(H-80);
-      if(!blocked(x,y,20)) cells.push(make(x,y,0,null));
-    }
+      if(!blocked(x,y,22)){ cells.push(make(x,y)); return true; }
+    } return false;
   }
-  function divide(){
-    if(cells.length >= 30) return;
-    var parents = cells.filter(function(c){ return c.r > c.tr*0.85; });
-    if(!parents.length) return;
-    var p = parents[(Math.random()*parents.length)|0];
-    for(var t=0;t<16;t++){
-      var a = Math.random()*6.283, d = p.tr + 34 + Math.random()*78;
-      var nx = p.x + Math.cos(a)*d, ny = p.y + Math.sin(a)*d;
-      if(!blocked(nx,ny,18)){ cells.push(make(nx,ny,p.gen+1,p)); return; }
-    }
+  function ring(c,t){
+    var N=11; ctx.beginPath();
+    for(var i=0;i<=N;i++){
+      var a=i/N*6.283+c.spin*t*0.25;
+      var rr=c.r*(1+0.085*Math.sin(a*3+c.ph)+0.05*Math.cos(a*5-c.ph));
+      var x=c.x+Math.cos(a)*rr, y=c.y+Math.sin(a)*rr;
+      i?ctx.lineTo(x,y):ctx.moveTo(x,y);
+    } ctx.closePath();
   }
-
-  // the mark's own ellipse, multiplying
-  var RATIO = 1.92;
-  function ell(c){ ctx.beginPath(); ctx.ellipse(c.x, c.y, c.r, c.r/RATIO, 0, 0, 6.283); }
-  function lineage(c, alpha){
-    if(!c.par) return;
-    ctx.beginPath(); ctx.moveTo(c.par.x, c.par.y); ctx.lineTo(c.x, c.y);
-    ctx.lineWidth = 1; ctx.strokeStyle = 'rgba(11,92,246,'+(0.28*alpha)+')'; ctx.stroke();
-  }
-
-  var last=0, sinceDiv=0, sinceCull=0;
-  function frame(t){
-    var dt = last ? Math.min(0.05,(t-last)/1000) : 1/60; last=t;
-    sinceDiv += dt; sinceCull += dt;
-    if(sinceDiv > 0.75){ sinceDiv = 0; divide(); }
-    if(sinceCull > 6.0 && cells.length > 24){ sinceCull = 0; cells[0].fade = 1; }
-
+  function paint(t){
     ctx.clearRect(0,0,W,H);
     for(var i=0;i<cells.length;i++){
       var c=cells[i];
-      var al = Math.min(1, c.born/0.9) * (c.fade ? c.fade : 1);
-      lineage(c, al);
+      var al=Math.min(1,c.born/1.2);
+      ring(c,t);
+      ctx.lineWidth=1.6;
+      ctx.strokeStyle=(i%4===3?'rgba(11,92,246,':'rgba(10,13,24,')+(0.62*al)+')';
+      ctx.stroke();
     }
-    for(var i=cells.length-1;i>=0;i--){
-      var c=cells[i];
-      c.born += dt;
-      c.r += (c.tr - c.r) * (1-Math.exp(-dt/0.9));
-      if(c.fade){ c.fade -= dt*0.5; if(c.fade<=0){ cells.splice(i,1); continue; } }
-      var alpha = Math.min(1, c.born/0.9) * (c.fade ? c.fade : 1);
-      var pulse = 1 + 0.05*Math.sin(t*0.0012 + c.ph);
-      var saved = c.r; c.r *= pulse;
-      if(c.caught){
-        var g = ctx.createRadialGradient(c.x, c.y-c.r*0.18, c.r*0.1, c.x, c.y, c.r);
-        g.addColorStop(0,'rgba(249,165,27,'+(0.95*alpha)+')');
-        g.addColorStop(1,'rgba(253,114,13,'+(0.95*alpha)+')');
-        ell(c); ctx.fillStyle=g; ctx.fill();
-      } else {
-        ell(c); ctx.lineWidth=2.8; ctx.strokeStyle='rgba(11,92,246,'+(0.85*alpha)+')'; ctx.stroke();
-      }
-      c.r = saved;
-    }
+  }
+  var last=0, since=0;
+  function frame(t){
+    var dt=last?Math.min(0.05,(t-last)/1000):1/60; last=t;
+    since+=dt;
+    if(since>3.4 && cells.length<MAX){ since=0; place(); }
+    for(var i=0;i<cells.length;i++){ var c=cells[i];
+      c.born+=dt; c.r+=(c.tr-c.r)*(1-Math.exp(-dt/1.1)); }
+    paint(t*0.001);
     requestAnimationFrame(frame);
   }
-
-  function boot(){ measure(); seed();
-    for(var q=0;q<6;q++){ cells.forEach(function(c){c.r=c.tr;}); divide(); }
-    cells.forEach(function(c){ c.r=c.tr; c.born=1.2; });  // the colony is already here; only new cells fade in
-  }
+  function boot(){ measure(); cells=[]; for(var i=0;i<4;i++) place();
+    cells.forEach(function(c){ c.r=c.tr; c.born=2; }); }
   boot();
-  addEventListener('resize', function(){ boot(); });
-  if(reduce){
-    for(var k=0;k<9;k++){ cells.forEach(function(c){c.r=c.tr;}); divide(); }
-    cells.forEach(function(c){ c.r=c.tr; c.born=2; });
-    ctx.clearRect(0,0,W,H);
-    cells.forEach(function(c){ lineage(c,1); });
-    cells.forEach(function(c){
-      if(c.caught){ var g=ctx.createRadialGradient(c.x,c.y-c.r*0.18,c.r*0.1,c.x,c.y,c.r);
-        g.addColorStop(0,'rgba(249,165,27,.95)'); g.addColorStop(1,'rgba(253,114,13,.95)');
-        ell(c); ctx.fillStyle=g; ctx.fill(); }
-      else { ell(c); ctx.lineWidth=2.2; ctx.strokeStyle='rgba(11,92,246,.62)'; ctx.stroke(); }
-    });
-  } else {
-    requestAnimationFrame(frame);
-  }
+  addEventListener('resize', boot);
+  if(reduce){ paint(0); } else { requestAnimationFrame(frame); }
 })();
 </script>
 
