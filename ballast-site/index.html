@@ -120,6 +120,7 @@
   .reg svg{display:block;width:100%;height:100%}
   @media (max-width:760px){.crop{display:none}}
 
+  #spread{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;display:block}
   .front__in{
     position:relative;z-index:1;max-width:1320px;margin:0 auto;
     padding:clamp(28px,4vh,58px) var(--pad) clamp(18px,2.4vh,30px);
@@ -379,6 +380,7 @@
     <span class="crop crop--bl" aria-hidden="true"></span>
     <span class="crop crop--br" aria-hidden="true"></span>
     <span class="reg" aria-hidden="true"><svg viewBox="0 0 22 22" fill="none" stroke="#0a0d18" stroke-width="1"><circle cx="11" cy="11" r="6.5"/><path d="M11 0v22M0 11h22"/></svg></span>
+    <canvas id="spread" aria-hidden="true"></canvas>
     <span class="tab fine">Panel 01 — Front</span>
     <div class="front__in">
 
@@ -729,6 +731,127 @@
 </footer>
 
 
+
+
+<script>
+/* ═══════════════════════════════════════════════════════
+   SPREAD
+   Demand does not arrive, it propagates. A few seeds divide
+   into neighbours, neighbours divide again, and some of them
+   catch — outline means latent, filled means converted. The
+   colony keeps to the white space and never crosses the type.
+   ═══════════════════════════════════════════════════════ */
+(function(){
+  var host = document.getElementById('top');
+  var cv   = document.getElementById('spread');
+  if(!host || !cv) return;
+  var ctx = cv.getContext('2d');
+  if(!ctx) return;
+
+  var W=0,H=0,DPR=1, cells=[], keepOut=[];
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function measure(){
+    var hr = host.getBoundingClientRect();
+    DPR = Math.min(window.devicePixelRatio||1, 2);
+    W = Math.max(1, Math.round(hr.width)); H = Math.max(1, Math.round(hr.height));
+    cv.width = Math.round(W*DPR); cv.height = Math.round(H*DPR);
+    ctx.setTransform(DPR,0,0,DPR,0,0);
+    keepOut = [];
+    ['.lockup','.say','.front__sub','.front__foot','.burst','.front__top > span']
+      .forEach(function(sel){
+        var el = host.querySelector(sel); if(!el) return;
+        var r = el.getBoundingClientRect();
+        keepOut.push({x:r.left-hr.left-16, y:r.top-hr.top-16, w:r.width+32, h:r.height+32});
+      });
+  }
+  function blocked(x,y,r){
+    if(x<r+14 || y<r+14 || x>W-r-14 || y>H-r-14) return true;
+    for(var i=0;i<keepOut.length;i++){
+      var k=keepOut[i];
+      if(x+r>k.x && x-r<k.x+k.w && y+r>k.y && y-r<k.y+k.h) return true;
+    }
+    for(var j=0;j<cells.length;j++){
+      var c=cells[j], dx=c.x-x, dy=c.y-y;
+      if(Math.sqrt(dx*dx+dy*dy) < c.tr + r + 12) return true;
+    }
+    return false;
+  }
+  function make(x,y,gen){
+    return {x:x, y:y, r:0.5, tr:11+Math.random()*20, born:0, gen:gen,
+            ph:Math.random()*6.28, spin:(Math.random()-0.5)*0.5,
+            caught: Math.random() < 0.30, fade:0};
+  }
+  function seed(){
+    cells = [];
+    var tries=0;
+    while(cells.length<5 && tries++<600){
+      var x=40+Math.random()*(W-80), y=40+Math.random()*(H-80);
+      if(!blocked(x,y,16)) cells.push(make(x,y,0));
+    }
+  }
+  function divide(){
+    if(cells.length >= 32) return;
+    var parents = cells.filter(function(c){ return c.r > c.tr*0.85; });
+    if(!parents.length) return;
+    var p = parents[(Math.random()*parents.length)|0];
+    for(var t=0;t<14;t++){
+      var a = Math.random()*6.283, d = p.tr + 26 + Math.random()*70;
+      var nx = p.x + Math.cos(a)*d, ny = p.y + Math.sin(a)*d;
+      if(!blocked(nx,ny,14)){ cells.push(make(nx,ny,p.gen+1)); return; }
+    }
+  }
+  function ring(c, t){
+    var N=13; ctx.beginPath();
+    for(var i=0;i<=N;i++){
+      var a = i/N*6.283 + c.spin*t*0.35;
+      var rr = c.r*(1 + 0.075*Math.sin(a*3+c.ph) + 0.045*Math.cos(a*5-c.ph*1.4));
+      var x = c.x+Math.cos(a)*rr, y = c.y+Math.sin(a)*rr;
+      i ? ctx.lineTo(x,y) : ctx.moveTo(x,y);
+    }
+    ctx.closePath();
+  }
+
+  var last=0, sinceDiv=0, sinceCull=0;
+  function frame(t){
+    var dt = last ? Math.min(0.05,(t-last)/1000) : 1/60; last=t;
+    sinceDiv += dt; sinceCull += dt;
+    if(sinceDiv > 0.75){ sinceDiv = 0; divide(); }
+    if(sinceCull > 6.0 && cells.length > 24){ sinceCull = 0; cells[0].fade = 1; }
+
+    ctx.clearRect(0,0,W,H);
+    for(var i=cells.length-1;i>=0;i--){
+      var c=cells[i];
+      c.born += dt;
+      c.r += (c.tr - c.r) * (1-Math.exp(-dt/0.9));
+      if(c.fade){ c.fade -= dt*0.5; if(c.fade<=0){ cells.splice(i,1); continue; } }
+      var alpha = Math.min(1, c.born/0.9) * (c.fade ? c.fade : 1);
+      ring(c, t*0.001);
+      if(c.caught){
+        ctx.fillStyle = 'rgba(253,114,13,'+(0.92*alpha)+')'; ctx.fill();
+        ctx.lineWidth = 2.6; ctx.strokeStyle = 'rgba(10,13,24,'+(0.8*alpha)+')'; ctx.stroke();
+      } else {
+        ctx.lineWidth = 3.4; ctx.strokeStyle = 'rgba(11,92,246,'+(0.85*alpha)+')'; ctx.stroke();
+      }
+    }
+    requestAnimationFrame(frame);
+  }
+
+  function boot(){ measure(); seed(); for(var q=0;q<5;q++){ cells.forEach(function(c){c.r=c.tr;}); divide(); } }
+  boot();
+  addEventListener('resize', function(){ boot(); });
+  if(reduce){
+    for(var k=0;k<9;k++) divide();
+    cells.forEach(function(c){ c.r=c.tr; c.born=2; });
+    ctx.clearRect(0,0,W,H);
+    cells.forEach(function(c){ ring(c,0);
+      if(c.caught){ ctx.fillStyle='rgba(253,114,13,.85)'; ctx.fill(); ctx.lineWidth=2; ctx.strokeStyle='rgba(10,13,24,.55)'; ctx.stroke(); }
+      else { ctx.lineWidth=2.4; ctx.strokeStyle='rgba(11,92,246,.55)'; ctx.stroke(); } });
+  } else {
+    requestAnimationFrame(frame);
+  }
+})();
+</script>
 
 </body>
 </html>
