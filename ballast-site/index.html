@@ -23,7 +23,7 @@
 <link rel="apple-touch-icon" href="/favicon.png">
 <meta name="theme-color" content="#0b5cf6">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Archivo+Narrow:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:opsz,wght@6..72,300;6..72,400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Archivo+Narrow:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
 <style>
   :root{
     /* sampled off the mark */
@@ -37,12 +37,9 @@
     --g:"Archivo","Helvetica Neue",Arial,sans-serif;
     --n:"Archivo Narrow","Archivo",Arial,sans-serif;
     --m:"IBM Plex Mono",ui-monospace,Menlo,monospace;
-    --serif:"Newsreader",Georgia,"Times New Roman",serif;
 
     --pad:clamp(20px,4.4vw,52px);
-    --tab:0px;
   }
-  @media (min-width:1080px){ :root{ --tab:72px } }
 
   *{box-sizing:border-box}
   html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
@@ -96,9 +93,6 @@
   .hd .no{font-family:var(--m);font-weight:600;font-size:11px;letter-spacing:.12em;color:var(--cobalt)}
   .hd .rt{margin-left:auto;color:rgba(10,13,24,.5)}
   @media (max-width:640px){.hd .rt{display:none}}
-  .panel--dark .hd{border-bottom-color:rgba(255,255,255,.9)}
-  .panel--dark .hd .no{color:var(--amber)}
-  .panel--dark .hd .rt{color:rgba(255,255,255,.6)}
 
   /* fold ticks between panels */
   .panel::after{
@@ -137,7 +131,6 @@
     padding-left:var(--pad);
     min-height:calc(100svh - 56px);display:flex;flex-direction:column;
   }
-  .front__top{display:flex;justify-content:space-between;align-items:flex-start;gap:24px}
     .front__mid{
     flex:1;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;text-align:left;padding:12px 0;
   }
@@ -164,9 +157,6 @@
     margin:0;max-width:17ch;color:#F7F3EA;
   }
   .say em{font-style:italic;color:#0B5CF6;-webkit-text-stroke:0}
-  .front__sub{
-    margin:clamp(18px,2.2vw,26px) 0 0;color:rgba(10,13,24,.55);
-  }
   .front__foot{
     display:grid;grid-template-columns:repeat(4,1fr);gap:16px;
     border-top:2px solid rgba(255,255,255,.55);padding-top:12px;
@@ -174,17 +164,6 @@
   .front__foot span{color:rgba(255,255,255,.78)}
   .front__foot span b{display:block;color:#fff;font-family:var(--g);font-weight:800;font-size:13px;letter-spacing:.02em;margin-top:3px}
   @media (max-width:760px){.front__foot{grid-template-columns:repeat(2,1fr);gap:14px}}
-
-  .burst{position:relative;width:clamp(104px,12vw,140px);flex:none}
-  .burst svg{display:block;width:100%;height:auto;animation:spin 44s linear infinite}
-  @keyframes spin{to{transform:rotate(360deg)}}
-  .burst__t{
-    position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
-    text-align:center;color:#fff;font-family:var(--g);font-weight:900;text-transform:uppercase;
-    font-size:clamp(11px,1.25vw,14px);line-height:1.12;letter-spacing:-.01em;
-  }
-  .burst__t em{font-style:normal;font-family:var(--n);font-weight:700;font-size:8.5px;letter-spacing:.14em;opacity:.9;margin-bottom:3px}
-  @media (max-width:640px){.burst{display:none}}
 
   /* ── outcome chips, them-vs-you, deliverables, close ─── */
   .outcomes{display:flex;flex-wrap:wrap;gap:8px;margin:clamp(16px,2.2vh,24px) 0 0}
@@ -197,7 +176,7 @@
   .outcomes a:hover{background:rgba(255,255,255,.28)}
   .outcomes a span{opacity:.75}
 
-  .versus{max-width:1000px;border:2px solid var(--ink);background:#fff}
+  .versus{border:2px solid var(--ink);background:#fff}
   .versus__hd,.versus__row{display:grid;grid-template-columns:1.05fr 1fr 1fr}
   .versus__hd{background:var(--ink);color:var(--paper)}
   .versus__hd div{padding:11px 16px;font-family:var(--n);font-weight:700;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase}
@@ -216,19 +195,21 @@
   .gets{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:0;border-top:2px solid rgba(255,255,255,.5);margin-top:clamp(20px,2.4vw,28px)}
   .gets div{padding:12px 14px 12px 0;border-bottom:1px solid rgba(255,255,255,.26);color:#fff;
     font-family:var(--g);font-weight:800;font-size:14px;letter-spacing:-.01em;display:flex;gap:10px;align-items:baseline}
-  .gets div i{width:7px;height:7px;background:var(--amber);display:block;flex:none;position:relative;top:-2px}
+  .gets div i{width:7px;height:7px;background:#fff;display:block;flex:none;position:relative;top:-2px}
 
-  .close{background:var(--ink);color:var(--paper)}
+  .close{background:var(--cobalt);color:#fff}
+  .close .cta .p{background:var(--paper);color:var(--ink)}
+  .close .cta .p i{background:var(--cobalt)}
   .close__in{max-width:1320px;margin:0 auto;padding:clamp(56px,7vw,96px) var(--pad);text-align:center}
   .close h2{font-family:var(--g);font-weight:900;font-style:italic;text-transform:uppercase;
     font-size:min(6vw,64px);line-height:.96;letter-spacing:-.04em;margin:0 auto;max-width:18ch}
-  .close p{margin:clamp(14px,1.8vw,20px) auto 0;max-width:52ch;color:rgba(249,250,254,.72);font-size:clamp(15px,1.6vw,18px)}
+  .close p{margin:clamp(14px,1.8vw,20px) auto 0;max-width:52ch;color:rgba(255,255,255,.82);font-size:clamp(15px,1.6vw,18px)}
   .close .cta{justify-content:center}
 
   /* ── the numbers ─────────────────────────────────────── */
   .stats{
     display:grid;grid-template-columns:repeat(4,minmax(0,1fr));
-    border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);
+    border-bottom:2px solid var(--ink);
     margin:0 0 clamp(34px,4vw,54px);
   }
   .stats div{padding:clamp(20px,2.4vw,30px) clamp(14px,1.6vw,22px) clamp(20px,2.4vw,30px) 0;
@@ -270,7 +251,6 @@
   .steps2 li::before{counter-increment:st;content:counter(st,decimal-leading-zero);
     font-family:var(--m);font-size:11px;font-weight:600;color:var(--cobalt);padding-top:3px}
   .steps2 li b{font-weight:800}
-  .case__note{margin:16px 0 0;padding-top:14px;border-top:2px solid var(--ink);font-weight:600;font-size:15px;line-height:1.55}
 
   /* ── PANEL 03 · THE SPRINT ───────────────────────────── */
   .sprint{
@@ -295,6 +275,10 @@
     display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(28px,4vw,64px);align-items:start;
   }
   @media (max-width:900px){.sprint__in{grid-template-columns:1fr}}
+  .sprint .hd{grid-column:1/-1;margin-bottom:0;border-bottom-color:rgba(255,255,255,.6)}
+  .sprint .hd h2{color:#fff}
+  .sprint .hd .no{color:#fff}
+  .sprint .hd .rt{color:rgba(255,255,255,.62)}
   .status{
     display:inline-flex;align-items:center;gap:9px;background:var(--ink);color:#fff;
     padding:8px 15px;font-family:var(--n);font-weight:700;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;
@@ -344,9 +328,8 @@
   }
 
   /* ── PANEL 03 · PROMOTIONS ──────────────────────────── */
-  .say--sm{font-size:clamp(24px,3.8vw,50px);line-height:1.02;max-width:24ch;margin:0 0 clamp(16px,2vw,24px);color:var(--ink)}
-  .promo__lead{margin:0 0 clamp(28px,3.4vw,44px);font-size:clamp(15px,1.6vw,18px);line-height:1.6;max-width:62ch;color:rgba(10,13,24,.74)}
-  .promos{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(14px,1.8vw,24px)}
+  .say--sm{font-size:clamp(24px,3.8vw,50px);line-height:1.02;max-width:none;margin:0 0 clamp(16px,2vw,24px);color:var(--ink)}
+  .promos{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,420px));gap:clamp(14px,1.8vw,24px);margin-top:clamp(14px,1.8vw,22px)}
   .promo{
     position:relative;border:2px solid var(--ink);background:#fff;overflow:hidden;
     display:flex;flex-direction:column;transition:transform .18s ease,box-shadow .18s ease;
@@ -354,52 +337,16 @@
   .promo:hover{transform:translateY(-4px);box-shadow:6px 6px 0 rgba(10,13,24,.18)}
   .promo__cap{padding:9px 14px;border-bottom:2px solid var(--ink);display:flex;justify-content:space-between;gap:12px;color:var(--ink)}
   .promo:nth-child(1) .promo__cap{background:var(--amber)}
-  .promo:nth-child(2) .promo__cap{background:var(--orange)}
-  .promo:nth-child(3) .promo__cap{background:var(--cobalt);color:#fff}
   .promo__body{padding:clamp(20px,2.4vw,30px) clamp(16px,2vw,24px);display:flex;flex-direction:column;gap:11px;flex:1}
   .promo h3{font-family:var(--g);font-weight:900;font-size:clamp(19px,2.3vw,27px);letter-spacing:-.028em;text-transform:uppercase;margin:0;line-height:1.02}
   .promo h3 span{display:block;font-size:.6em;color:rgba(10,13,24,.5);letter-spacing:-.01em;margin-top:5px}
-  .promo:nth-child(3) h3 span{color:rgba(10,13,24,.5)}
   .promo p{margin:0;font-size:14.5px;line-height:1.55;color:rgba(10,13,24,.72)}
-  .promo__ft{margin-top:auto;padding-top:12px;border-top:1px solid rgba(10,13,24,.2);color:rgba(10,13,24,.5)}
   @media (max-width:900px){.promos{grid-template-columns:1fr}}
-
-  /* ── PANEL 04 · WHAT IT DOES ────────────────────────── */
-  .claims{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(10,13,24,.28)}
-  .claim{padding:22px 26px 30px 0;border-right:1px solid rgba(10,13,24,.18)}
-  .claim + .claim{padding-left:26px}
-  .claim:last-child{border-right:0;padding-right:0}
-  .claim .no{font-family:var(--m);font-weight:600;font-size:11px;letter-spacing:.12em;color:var(--cobalt);display:block;margin-bottom:14px}
-  .claim h3{font-family:var(--g);font-weight:900;font-size:clamp(17px,1.9vw,22px);letter-spacing:-.022em;text-transform:uppercase;margin:0 0 9px;line-height:1.05}
-  .claim p{font-size:14.5px;line-height:1.6;color:rgba(10,13,24,.7);margin:0}
-  @media (max-width:900px){
-    .claims{grid-template-columns:1fr}
-    .claim{border-right:0;border-bottom:1px solid rgba(10,13,24,.18);padding:20px 0 24px}
-    .claim + .claim{padding-left:0}
-    .claim:last-child{border-bottom:0}
-  }
-
-  /* ── PANEL 04 · DIRECTIONS (cobalt) ─────────────────── */
-  .panel--dark{background:var(--cobalt);color:#fff;border-bottom-color:rgba(255,255,255,.4)}
-  .panel--dark::after{border-top-color:rgba(255,255,255,.4)}
-  .steps{display:grid;grid-template-columns:1fr 1fr;gap:0 clamp(30px,4vw,64px)}
-  .step{display:flex;gap:18px;padding:20px 0;border-top:1px solid rgba(255,255,255,.34)}
-  .step:nth-child(1),.step:nth-child(2){border-top:0;padding-top:0}
-  .step__n{
-    flex:none;width:38px;height:38px;border:2px solid #fff;border-radius:50%;
-    display:flex;align-items:center;justify-content:center;
-    font-family:var(--g);font-weight:900;font-size:16px;
-  }
-  .step h3{font-family:var(--g);font-weight:900;font-size:clamp(16px,1.7vw,19px);letter-spacing:-.015em;text-transform:uppercase;margin:5px 0 7px;line-height:1.1}
-  .step p{margin:0;font-size:14.5px;line-height:1.6;color:rgba(255,255,255,.82);max-width:44ch}
-  @media (max-width:860px){
-    .steps{grid-template-columns:1fr}
-    .step:nth-child(2){border-top:1px solid rgba(255,255,255,.34);padding-top:20px}
-  }
 
   /* ── PANEL 05 · ACTIVE INGREDIENTS ──────────────────── */
   .facts{max-width:860px;border-top:9px solid var(--ink);border-bottom:9px solid var(--ink)}
-  .facts__cap{display:flex;justify-content:space-between;align-items:baseline;padding:10px 0 9px;border-bottom:4px solid var(--ink)}
+  .facts__cap{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;padding:10px 0 9px;border-bottom:4px solid var(--ink)}
+  @media (max-width:560px){.facts__cap{display:block}.facts__cap .code{display:block;margin-top:5px}}
   .facts__cap b{font-family:var(--g);font-weight:900;font-size:15px;letter-spacing:.01em;text-transform:uppercase}
   table.led{width:100%;border-collapse:collapse}
   table.led th{
@@ -409,11 +356,6 @@
   table.led th:last-child{text-align:right}
   table.led td{padding:11px 0;border-bottom:1px solid rgba(10,13,24,.2);vertical-align:baseline}
   table.led tr:last-child td{border-bottom:0}
-  .led__n{font-family:var(--g);font-weight:800;font-size:clamp(16px,2vw,21px);letter-spacing:-.02em}
-  .led__s{font-family:var(--n);font-weight:600;font-size:11px;letter-spacing:.14em;text-transform:uppercase;text-align:right;white-space:nowrap;padding-left:18px;color:rgba(10,13,24,.6)}
-  tr.full .led__n{color:var(--cobalt)}
-  tr.full .led__s{color:var(--orange)}
-  tr.full .led__n::before{content:"";display:inline-block;width:9px;height:9px;background:var(--orange);border-radius:50%;margin-right:10px;vertical-align:middle}
   table.led tbody tr:hover td{background:var(--paper-2)}
   .facts__note{margin:14px 0 0;color:rgba(10,13,24,.55);max-width:70ch}
 
@@ -455,7 +397,7 @@
   @media (max-width:820px){.shots{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
   /* ── PANEL 07 · WARNINGS ────────────────────────────── */
-  .warn{border:2px solid var(--ink);background:#fff;max-width:1000px}
+  .warn{border:2px solid var(--ink);background:#fff}
   .warn__bar{background:var(--orange);border-bottom:2px solid var(--ink);padding:8px 20px;display:flex;justify-content:space-between;gap:16px}
   .warn__bar span{color:var(--ink)}
   .warn__body{padding:clamp(26px,3.4vw,42px) clamp(20px,3vw,40px);display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(26px,3.4vw,52px)}
@@ -490,7 +432,6 @@
   .barcode svg{width:150px;height:auto;fill:var(--paper);opacity:.9}
 
   @media (prefers-reduced-motion:reduce){
-    .burst svg{animation:none}
     html{scroll-behavior:auto}
   }
 </style>
@@ -520,8 +461,6 @@
       <a href="#versus">Compare</a>
       <a href="#intent">Intent</a>
       <a href="#promos">Promotions</a>
-      <a href="#does">What It Does</a>
-      <a href="#facts">Ingredients</a>
       <a href="#work">Work</a>
       <a href="#enquire">Enquire</a>
     </nav>
@@ -531,31 +470,21 @@
 
 <main>
 
-  <!-- ══ 01 · FRONT ══════════════════════════════════ -->
+  <!-- ══ 00 · FRONT ══════════════════════════════════ -->
   <section class="front" id="top">
-    </span>
-    </span>
-    </span>
-    </span>
-    
     <div class="front__in">
-
-      <div class="front__top">
-        <span class="fine" style="color:rgba(255,255,255,.92)">Available for work<br><span style="color:rgba(255,255,255,.6)">MMXXVI</span></span>
-      </div>
 
       <div class="front__mid">
         <div>
           <img class="lockup" src="/lockup.png" width="1400" height="591" alt="Ballast">
           <h1 class="say">We buy <em>intent</em>.<br>The rest buy channels.</h1>
-          <p class="front__sub fine">Paid media &middot; Go-to-market &middot; Measurement<br>Eleven categories &middot; Los Angeles</p>
         <div class="outcomes">
           <a href="#intent">Stop paying twice for the same customer <span>&rarr;</span></a>
           <a href="#intent">Know which layer actually moved it <span>&rarr;</span></a>
           <a href="#promos">Launch with the incentive built in <span>&rarr;</span></a>
         </div>
         <div class="cta">
-          <a class="p" href="#enquire"><i></i>Start buying intent</a>
+          <a class="p" href="mailto:jaidanmorello@gmail.com?subject=Ballast%20sprint%20waitlist"><i></i>Start buying intent</a>
           <a class="s" href="#promos"><i></i>Build incentive alignment</a>
         </div>
         </div>
@@ -574,11 +503,11 @@
 
   
 
-  <!-- ══ 06 · ACTIVE INGREDIENTS ═════════════════════ -->
+  <!-- ══ 01 · THE RECORD ═════════════════════════════ -->
   <section class="panel" id="facts">
     <div class="panel__in">
       <div class="hd">
-        <span class="no">02</span>
+        <span class="no">01</span>
         <h2>The Record</h2>
         <span class="rt fine">Where the method has been run</span>
       </div>
@@ -639,9 +568,14 @@
     </div>
   </section>
 
-<!-- ══ 03 · THE SPRINT ═════════════════════════════ -->
+<!-- ══ 02 · THE SPRINT ═════════════════════════════ -->
   <section class="sprint" id="sprint">
     <div class="sprint__in">
+      <div class="hd">
+        <span class="no">02</span>
+        <h2>The Sprint</h2>
+        <span class="rt fine">One price, one window</span>
+      </div>
       <div>
         <span class="status"><i></i>Fully booked</span>
         <p class="price">$16,000<small>Two-week sprint</small></p>
@@ -672,11 +606,11 @@
     </div>
   </section>
 
-    <!-- ══ 04 · THE COMPARISON ══════════════════════════ -->
+  <!-- ══ 03 · THE COMPARISON ═════════════════════════ -->
   <section class="panel" id="versus">
     <div class="panel__in">
       <div class="hd">
-        <span class="no">04</span>
+        <span class="no">03</span>
         <h2>Ballast vs. an agency</h2>
         <span class="rt fine">Same problem, different bill</span>
       </div>
@@ -696,7 +630,7 @@
   <section class="panel" id="intent">
     <div class="panel__in">
       <div class="hd">
-        <span class="no">05</span>
+        <span class="no">04</span>
         <h2>Intent Layers</h2>
         <span class="rt fine">Four states of demand</span>
       </div>
@@ -750,11 +684,11 @@
     </div>
   </section>
 
-  <!-- ══ 03 · PROMOTIONS ═════════════════════════════ -->
+  <!-- ══ 05 · PROMOTIONS ═════════════════════════════ -->
   <section class="panel" id="promos">
     <div class="panel__in">
       <div class="hd">
-        <span class="no">06</span>
+        <span class="no">05</span>
         <h2>Promotions</h2>
         <span class="rt fine">Incentive design</span>
       </div>
@@ -781,62 +715,22 @@
 
       <div class="promos">
         <div class="promo">
-          <div class="promo__cap fine"><span>Coded offer</span><span>01</span></div>
+          <div class="promo__cap fine"><span>Coded offer</span><span>Health &amp; DTC</span></div>
           <div class="promo__body">
             <h3>Platform Codes<span>SKO Compounds</span></h3>
             <p>A different code per platform, so the offer is the attribution. What the dashboard cannot see, the redemption can.</p>
-            <div class="promo__ft fine">Health &amp; DTC</div>
           </div>
         </div>
       </div>
-        </div>
-      </div>
 
     </div>
   </section>
 
-  <!-- ══ 04 · WHAT IT DOES ═══════════════════════════ -->
-  <section class="panel" id="does">
-    <div class="panel__in">
-      <div class="hd">
-        <span class="no">07</span>
-        <h2>What It Does</h2>
-        <span class="rt fine">Four active systems</span>
-      </div>
-      <div class="claims">
-        <div class="claim">
-          <span class="no">01</span>
-          <h3>Paid Media</h3>
-          <p>Account structure, creative testing, and daily budget calls against a defined CAC band.</p>
-        </div>
-        <div class="claim">
-          <span class="no">02</span>
-          <h3>Go-To-Market</h3>
-          <p>Positioning, launch sequencing, and the distribution plan that carries it.</p>
-        </div>
-        <div class="claim">
-          <span class="no">03</span>
-          <h3>Measurement</h3>
-          <p>Server-side events, attribution ladders, and reconciliation between what platforms claim and what the ledger shows.</p>
-        </div>
-        <div class="claim">
-          <span class="no">04</span>
-          <h3>Creative</h3>
-          <p>Concept through delivery &mdash; UGC direction, generated film, and the systems that keep a library consistent.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  
-
-  
-
-  <!-- ══ 07 · SERVING SUGGESTION ═════════════════════ -->
+  <!-- ══ 06 · SERVING SUGGESTION ═════════════════════ -->
   <section class="panel" id="work">
     <div class="panel__in">
       <div class="hd">
-        <span class="no">08</span>
+        <span class="no">06</span>
         <h2>Serving Suggestion</h2>
         <span class="rt fine">SKO Compounds &mdash; creative pipeline</span>
       </div>
@@ -870,11 +764,11 @@
     </div>
   </section>
 
-  <!-- ══ 08 · WARNINGS ═══════════════════════════════ -->
+  <!-- ══ 07 · WARNINGS ═══════════════════════════════ -->
   <section class="panel" id="warnings">
     <div class="panel__in">
       <div class="hd">
-        <span class="no">09</span>
+        <span class="no">07</span>
         <h2>Warnings</h2>
         <span class="rt fine">Read before purchase</span>
       </div>
@@ -889,7 +783,6 @@
           <div>
             <p>Last click hands the credit to whoever was standing closest to the purchase.</p>
             <p>Branded search always posts a beautiful CAC, because the person already knew your name. Something else put it there. Optimise on last click and you defund the layer that fills the top &mdash; then spend a quarter wondering why capture volume fell off a cliff.</p>
-            <p>Our work runs from Toyota and Disney at agency scale to a Beverly Hills DTC brand where we hold the entire engine: the ad account, the creative pipeline, the attribution stack, and the number at the end of the week.</p>
           </div>
         </div>
       </div>
@@ -898,19 +791,18 @@
 
 </main>
 
-<!-- ══ 09 · BASE ═════════════════════════════════════ -->
-<!-- ══ 09 · CLOSE ════════════════════════════════════ -->
+<!-- ══ 08 · CLOSE ════════════════════════════════════ -->
 <section class="close">
   <div class="close__in">
     <h2>Two weeks from now you could know which half works.</h2>
     <p>One fixed price, one fixed window, one account at a time. The next opening goes to the waitlist first.</p>
     <div class="cta">
       <a class="p" href="mailto:jaidanmorello@gmail.com?subject=Ballast%20sprint%20waitlist"><i></i>Join the waitlist</a>
-      <a class="s" href="#versus"><i></i>Compare it to an agency</a>
     </div>
   </div>
 </section>
 
+<!-- ══ 09 · BASE ═════════════════════════════════════ -->
 <footer class="base" id="enquire">
   <div class="base__in">
     <a class="enq" href="mailto:jaidanmorello@gmail.com">Enquire</a>
