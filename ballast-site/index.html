@@ -299,7 +299,7 @@
   /* ── PANEL 03 · PROMOTIONS ──────────────────────────── */
   .say--sm{font-size:clamp(24px,3.8vw,50px);line-height:1.02;max-width:24ch;margin:0 0 clamp(16px,2vw,24px);color:var(--ink)}
   .promo__lead{margin:0 0 clamp(28px,3.4vw,44px);font-size:clamp(15px,1.6vw,18px);line-height:1.6;max-width:62ch;color:rgba(10,13,24,.74)}
-  .promos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,1.8vw,24px)}
+  .promos{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(14px,1.8vw,24px)}
   .promo{
     position:relative;border:2px solid var(--ink);background:#fff;overflow:hidden;
     display:flex;flex-direction:column;transition:transform .18s ease,box-shadow .18s ease;
@@ -709,13 +709,7 @@
             <div class="promo__ft fine">Web3 &middot; Live sport</div>
           </div>
         </div>
-        <div class="promo">
-          <div class="promo__cap fine"><span>Player venture</span><span>02</span></div>
-          <div class="promo__body">
-            <h3>Baron Davis<span>Engagement design</span></h3>
-            <p>Audience incentives built around a player-led venture, where the reason to participate has to be worth more than the reach.</p>
-            <div class="promo__ft fine">Sport &middot; Culture</div>
-          </div>
+        
         </div>
         <div class="promo">
           <div class="promo__cap fine"><span>Coded offer</span><span>03</span></div>
