@@ -131,11 +131,26 @@
     .front__mid{
     flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:12px 0;
   }
-  .lockup{width:min(900px,76vw);height:auto;max-height:28vh;object-fit:contain;margin:0 0 clamp(16px,2.4vh,32px)}
+  .lockup{width:min(900px,76vw);height:auto;max-height:23vh;object-fit:contain;margin:0 0 clamp(14px,2vh,26px)}
 
+  .cta{display:flex;gap:clamp(8px,1vw,14px);flex-wrap:wrap;justify-content:center;margin-top:clamp(18px,2.6vh,30px)}
+  .cta a{
+    display:inline-flex;align-items:center;gap:10px;text-decoration:none;
+    font-family:var(--g);font-weight:900;font-style:italic;text-transform:uppercase;
+    font-size:clamp(13px,1.45vw,17px);letter-spacing:-.015em;
+    padding:11px 20px;border:2px solid var(--ink);
+    transition:background .16s ease,color .16s ease,transform .16s ease;
+  }
+  .cta a i{width:8px;height:8px;display:block;flex:none}
+  .cta .p{background:var(--cobalt);color:#fff}
+  .cta .p i{background:var(--amber)}
+  .cta .p:hover{background:var(--ink);transform:translateY(-2px)}
+  .cta .s{background:#fff;color:var(--ink)}
+  .cta .s i{background:var(--orange)}
+  .cta .s:hover{background:var(--amber);transform:translateY(-2px)}
   .say{
     font-family:var(--g);font-weight:900;text-transform:uppercase;
-    font-size:min(5.2vw, 7.4vh, 66px);line-height:.94;letter-spacing:-.042em;
+    font-size:min(5.2vw, 6.6vh, 62px);line-height:.94;letter-spacing:-.042em;
     margin:0;max-width:18ch;
   }
   .say em{font-style:normal;color:var(--cobalt)}
@@ -397,6 +412,10 @@
           <img class="lockup" src="/lockup.png" width="1400" height="591" alt="Ballast">
           <h1 class="say">We buy <em>intent</em>.<br>The rest buy channels.</h1>
           <p class="front__sub fine">Paid media &middot; Go-to-market &middot; Measurement &mdash; run across eleven categories</p>
+        <div class="cta">
+          <a class="p" href="#enquire"><i></i>Start buying intent</a>
+          <a class="s" href="#promos"><i></i>Build incentive alignment</a>
+        </div>
         </div>
 
       </div>
@@ -777,39 +796,36 @@
     }
     return false;
   }
-  function make(x,y,gen){
-    return {x:x, y:y, r:0.5, tr:11+Math.random()*20, born:0, gen:gen,
-            ph:Math.random()*6.28, spin:(Math.random()-0.5)*0.5,
-            caught: Math.random() < 0.30, fade:0};
+  function make(x,y,gen,par){
+    return {x:x, y:y, r:0.5, tr:13+Math.random()*22, born:0, gen:gen, par:par||null,
+            ph:Math.random()*6.28, caught: Math.random() < 0.40, fade:0};
   }
   function seed(){
-    cells = [];
-    var tries=0;
+    cells = []; var tries=0;
     while(cells.length<5 && tries++<600){
       var x=40+Math.random()*(W-80), y=40+Math.random()*(H-80);
-      if(!blocked(x,y,16)) cells.push(make(x,y,0));
+      if(!blocked(x,y,20)) cells.push(make(x,y,0,null));
     }
   }
   function divide(){
-    if(cells.length >= 32) return;
+    if(cells.length >= 30) return;
     var parents = cells.filter(function(c){ return c.r > c.tr*0.85; });
     if(!parents.length) return;
     var p = parents[(Math.random()*parents.length)|0];
-    for(var t=0;t<14;t++){
-      var a = Math.random()*6.283, d = p.tr + 26 + Math.random()*70;
+    for(var t=0;t<16;t++){
+      var a = Math.random()*6.283, d = p.tr + 34 + Math.random()*78;
       var nx = p.x + Math.cos(a)*d, ny = p.y + Math.sin(a)*d;
-      if(!blocked(nx,ny,14)){ cells.push(make(nx,ny,p.gen+1)); return; }
+      if(!blocked(nx,ny,18)){ cells.push(make(nx,ny,p.gen+1,p)); return; }
     }
   }
-  function ring(c, t){
-    var N=13; ctx.beginPath();
-    for(var i=0;i<=N;i++){
-      var a = i/N*6.283 + c.spin*t*0.35;
-      var rr = c.r*(1 + 0.075*Math.sin(a*3+c.ph) + 0.045*Math.cos(a*5-c.ph*1.4));
-      var x = c.x+Math.cos(a)*rr, y = c.y+Math.sin(a)*rr;
-      i ? ctx.lineTo(x,y) : ctx.moveTo(x,y);
-    }
-    ctx.closePath();
+
+  // the mark's own ellipse, multiplying
+  var RATIO = 1.92;
+  function ell(c){ ctx.beginPath(); ctx.ellipse(c.x, c.y, c.r, c.r/RATIO, 0, 0, 6.283); }
+  function lineage(c, alpha){
+    if(!c.par) return;
+    ctx.beginPath(); ctx.moveTo(c.par.x, c.par.y); ctx.lineTo(c.x, c.y);
+    ctx.lineWidth = 1; ctx.strokeStyle = 'rgba(11,92,246,'+(0.28*alpha)+')'; ctx.stroke();
   }
 
   var last=0, sinceDiv=0, sinceCull=0;
@@ -820,33 +836,49 @@
     if(sinceCull > 6.0 && cells.length > 24){ sinceCull = 0; cells[0].fade = 1; }
 
     ctx.clearRect(0,0,W,H);
+    for(var i=0;i<cells.length;i++){
+      var c=cells[i];
+      var al = Math.min(1, c.born/0.9) * (c.fade ? c.fade : 1);
+      lineage(c, al);
+    }
     for(var i=cells.length-1;i>=0;i--){
       var c=cells[i];
       c.born += dt;
       c.r += (c.tr - c.r) * (1-Math.exp(-dt/0.9));
       if(c.fade){ c.fade -= dt*0.5; if(c.fade<=0){ cells.splice(i,1); continue; } }
       var alpha = Math.min(1, c.born/0.9) * (c.fade ? c.fade : 1);
-      ring(c, t*0.001);
+      var pulse = 1 + 0.05*Math.sin(t*0.0012 + c.ph);
+      var saved = c.r; c.r *= pulse;
       if(c.caught){
-        ctx.fillStyle = 'rgba(253,114,13,'+(0.92*alpha)+')'; ctx.fill();
-        ctx.lineWidth = 2.6; ctx.strokeStyle = 'rgba(10,13,24,'+(0.8*alpha)+')'; ctx.stroke();
+        var g = ctx.createRadialGradient(c.x, c.y-c.r*0.18, c.r*0.1, c.x, c.y, c.r);
+        g.addColorStop(0,'rgba(249,165,27,'+(0.95*alpha)+')');
+        g.addColorStop(1,'rgba(253,114,13,'+(0.95*alpha)+')');
+        ell(c); ctx.fillStyle=g; ctx.fill();
       } else {
-        ctx.lineWidth = 3.4; ctx.strokeStyle = 'rgba(11,92,246,'+(0.85*alpha)+')'; ctx.stroke();
+        ell(c); ctx.lineWidth=2.8; ctx.strokeStyle='rgba(11,92,246,'+(0.85*alpha)+')'; ctx.stroke();
       }
+      c.r = saved;
     }
     requestAnimationFrame(frame);
   }
 
-  function boot(){ measure(); seed(); for(var q=0;q<5;q++){ cells.forEach(function(c){c.r=c.tr;}); divide(); } }
+  function boot(){ measure(); seed();
+    for(var q=0;q<6;q++){ cells.forEach(function(c){c.r=c.tr;}); divide(); }
+    cells.forEach(function(c){ c.r=c.tr; c.born=1.2; });  // the colony is already here; only new cells fade in
+  }
   boot();
   addEventListener('resize', function(){ boot(); });
   if(reduce){
-    for(var k=0;k<9;k++) divide();
+    for(var k=0;k<9;k++){ cells.forEach(function(c){c.r=c.tr;}); divide(); }
     cells.forEach(function(c){ c.r=c.tr; c.born=2; });
     ctx.clearRect(0,0,W,H);
-    cells.forEach(function(c){ ring(c,0);
-      if(c.caught){ ctx.fillStyle='rgba(253,114,13,.85)'; ctx.fill(); ctx.lineWidth=2; ctx.strokeStyle='rgba(10,13,24,.55)'; ctx.stroke(); }
-      else { ctx.lineWidth=2.4; ctx.strokeStyle='rgba(11,92,246,.55)'; ctx.stroke(); } });
+    cells.forEach(function(c){ lineage(c,1); });
+    cells.forEach(function(c){
+      if(c.caught){ var g=ctx.createRadialGradient(c.x,c.y-c.r*0.18,c.r*0.1,c.x,c.y,c.r);
+        g.addColorStop(0,'rgba(249,165,27,.95)'); g.addColorStop(1,'rgba(253,114,13,.95)');
+        ell(c); ctx.fillStyle=g; ctx.fill(); }
+      else { ell(c); ctx.lineWidth=2.2; ctx.strokeStyle='rgba(11,92,246,.62)'; ctx.stroke(); }
+    });
   } else {
     requestAnimationFrame(frame);
   }
