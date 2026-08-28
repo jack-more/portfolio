@@ -141,20 +141,20 @@
   .lockup{width:min(760px,80vw);height:auto;max-height:19vh;object-fit:contain;object-position:left;margin:0 0 clamp(22px,3.2vh,38px);filter:drop-shadow(0 8px 20px rgba(120,40,0,.30))}
 
   .cta{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-start;margin-top:clamp(22px,3vh,34px)}
-  .cta a{
+  .cta a,.cta-btn{
     display:inline-flex;align-items:center;gap:10px;text-decoration:none;
     font-family:var(--g);font-weight:900;font-style:italic;text-transform:uppercase;
     font-size:clamp(12px,1.25vw,15px);letter-spacing:-.01em;font-style:italic;
     padding:12px 22px;border:2px solid var(--ink);box-shadow:4px 4px 0 rgba(10,13,24,.28);
     transition:background .16s ease,color .16s ease,transform .16s ease;
   }
-  .cta a i{width:6px;height:6px;display:block;flex:none;border-radius:50%}
-  .cta .p{background:#0B5CF6;color:#fff}
-  .cta .p i{background:#fff;border-radius:0}
-  .cta .p:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 rgba(10,13,24,.28)}
-  .cta .s{background:#fff;color:var(--ink)}
-  .cta .s i{background:#0B5CF6;border-radius:0}
-  .cta .s:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 rgba(10,13,24,.28)}
+  .cta a i,.cta-btn i{width:6px;height:6px;display:block;flex:none;border-radius:50%}
+  .cta .p,.cta-btn.p{background:#0B5CF6;color:#fff}
+  .cta .p i,.cta-btn.p i{background:#fff;border-radius:0}
+  .cta .p:hover,.cta-btn.p:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 rgba(10,13,24,.28)}
+  .cta .s,.cta-btn.s{background:#fff;color:var(--ink)}
+  .cta .s i,.cta-btn.s i{background:#0B5CF6;border-radius:0}
+  .cta .s:hover,.cta-btn.s:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 rgba(10,13,24,.28)}
   .say{
     font-family:var(--g);font-weight:900;font-style:italic;text-transform:uppercase;
     font-size:min(5vw, 7.2vh, 64px);line-height:.96;letter-spacing:-.038em;
@@ -216,6 +216,52 @@
     .wrow .wshot{aspect-ratio:3/2}
     .wrow .wsay{font-size:clamp(18px,5vw,26px)}
   }
+
+  /* ── PANEL 03 · THE SPRINT ───────────────────────────── */
+  .sprint{
+    position:relative;overflow:hidden;border-bottom:1px solid rgba(10,13,24,.14);
+    background:radial-gradient(ellipse 58vw 40vw at 28% 50%,
+      #FFC02E 0%, #FBA81B 12%, #F49313 26%, #F76A08 46%,
+      #E05704 62%, #A83A06 76%, #5B2436 87%, #17255F 96%, #0A1740 100%);
+  }
+  @media (max-width:900px){
+    .sprint{
+      background:radial-gradient(ellipse 132vw 90vw at 50% 24%,
+        #FFC02E 0%, #FBA81B 10%, #F49313 22%, #F76A08 42%,
+        #E05704 58%, #A83A06 72%, #5B2436 84%, #17255F 94%, #0A1740 100%);
+    }
+  }
+  .sprint::after{
+    content:"";position:absolute;inset:0;pointer-events:none;opacity:.24;mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.62' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .sprint__in{
+    position:relative;z-index:1;max-width:1320px;margin:0 auto;
+    padding:clamp(48px,6vw,92px) var(--pad);
+    display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(28px,4vw,64px);align-items:start;
+  }
+  @media (max-width:900px){.sprint__in{grid-template-columns:1fr}}
+  .status{
+    display:inline-flex;align-items:center;gap:9px;background:var(--ink);color:#fff;
+    padding:8px 15px;font-family:var(--n);font-weight:700;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;
+  }
+  .status i{width:8px;height:8px;border-radius:50%;background:var(--amber);display:block;flex:none;
+    animation:pulse 2.4s ease-in-out infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+  .price{
+    font-family:var(--g);font-weight:900;font-style:italic;text-transform:uppercase;color:#fff;
+    font-size:min(8.5vw,104px);line-height:.88;letter-spacing:-.05em;margin:clamp(16px,2vw,24px) 0 0;
+  }
+  .price small{display:block;font-size:.32em;letter-spacing:-.02em;color:rgba(255,255,255,.82);margin-top:.35em}
+  .sprint p.lede{margin:clamp(14px,1.8vw,20px) 0 0;font-size:clamp(15px,1.6vw,18px);line-height:1.6;
+    color:rgba(255,255,255,.9);max-width:44ch;font-weight:500}
+  .weeks{border-top:2px solid rgba(255,255,255,.5)}
+  .week{display:grid;grid-template-columns:74px 1fr;gap:16px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.28)}
+  .week b{font-family:var(--m);font-weight:600;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.65);padding-top:3px}
+  .week h4{margin:0 0 5px;font-family:var(--g);font-weight:900;font-size:clamp(15px,1.7vw,19px);letter-spacing:-.018em;text-transform:uppercase;color:#fff}
+  .week p{margin:0;font-size:14px;line-height:1.55;color:rgba(255,255,255,.78)}
+  .sprint__cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:clamp(22px,2.6vw,32px)}
+  .sprint__fine{margin-top:14px;color:rgba(255,255,255,.6)}
 
   /* ── PANEL 03 · INTENT LAYERS ───────────────────────── */
   .strata{border:2px solid var(--ink)}
@@ -416,6 +462,7 @@
     <span class="band__mark"><b>Ballast</b> <span style="opacity:.68">Performance + Go-To-Market</span></span>
     <nav>
       <a href="#world">World</a>
+      <a href="#sprint">Sprint</a>
       <a href="#intent">Intent</a>
       <a href="#promos">Promotions</a>
       <a href="#does">What It Does</a>
@@ -424,7 +471,7 @@
       <a href="#work">Work</a>
       <a href="#enquire">Enquire</a>
     </nav>
-    <a class="band__loc" href="#enquire">Request access</a>
+    <a class="band__loc" href="#sprint">Fully booked &mdash; waitlist</a>
   </div>
 </header>
 
@@ -508,11 +555,34 @@
 
   </section>
 
-  <!-- ══ 03 · INTENT LAYERS ══════════════════════════ -->
+  <!-- ══ 03 · THE SPRINT ═════════════════════════════ -->
+  <section class="sprint" id="sprint">
+    <div class="sprint__in">
+      <div>
+        <span class="status"><i></i>Fully booked</span>
+        <p class="price">$16,000<small>Two-week sprint</small></p>
+        <p class="lede">One fixed price, one fixed window. You get the demand mapped, the layers matched, the measurement standing, and a number both sides trust at the end of it.</p>
+        <div class="sprint__cta">
+          <a class="cta-btn p" href="mailto:jaidanmorello@gmail.com?subject=Ballast%20sprint%20waitlist"><i></i>Join the waitlist</a>
+          <a class="cta-btn s" href="#intent"><i></i>See the method</a>
+        </div>
+        <p class="sprint__fine fine">Next opening released to the waitlist first</p>
+      </div>
+
+      <div class="weeks">
+        <div class="week"><b>Week 1</b><div><h4>Map the demand</h4><p>Existing demand split from demand that has to be created, and the intent layers named for your category.</p></div></div>
+        <div class="week"><b>Week 1</b><div><h4>Match the layer</h4><p>Creative, offer and placement built per layer, including the incentive that gives someone a reason to act now.</p></div></div>
+        <div class="week"><b>Week 2</b><div><h4>Stand up measurement</h4><p>Each layer gets its own metric. Capture on incrementality, latent on lift, lifecycle on repeat rate.</p></div></div>
+        <div class="week"><b>Week 2</b><div><h4>Hand over the number</h4><p>One number per business goal, reconciled against the ledger rather than against what the platforms claim.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ 04 · INTENT LAYERS ══════════════════════════ -->
   <section class="panel" id="intent">
     <div class="panel__in">
       <div class="hd">
-        <span class="no">03</span>
+        <span class="no">04</span>
         <h2>Intent Layers</h2>
         <span class="rt fine">Four states of demand</span>
       </div>
@@ -571,7 +641,7 @@
   <section class="panel" id="promos">
     <div class="panel__in">
       <div class="hd">
-        <span class="no">04</span>
+        <span class="no">05</span>
         <h2>Promotions</h2>
         <span class="rt fine">The prize is part of the media plan</span>
       </div>
@@ -613,7 +683,7 @@
   <section class="panel" id="does">
     <div class="panel__in">
       <div class="hd">
-        <span class="no">05</span>
+        <span class="no">06</span>
         <h2>What It Does</h2>
         <span class="rt fine">Four active systems</span>
       </div>
@@ -646,7 +716,7 @@
   <section class="panel panel--dark" id="use">
     <div class="panel__in">
       <div class="hd">
-        <span class="no">06</span>
+        <span class="no">07</span>
         <h2>Directions For Use</h2>
         <span class="rt fine">Apply weekly. Do not dilute.</span>
       </div>
@@ -687,7 +757,7 @@
   <section class="panel" id="facts">
     <div class="panel__in">
       <div class="hd">
-        <span class="no">07</span>
+        <span class="no">08</span>
         <h2>Active Ingredients</h2>
         <span class="rt fine">Where the method has been run</span>
       </div>
@@ -736,7 +806,7 @@
   <section class="panel" id="work">
     <div class="panel__in">
       <div class="hd">
-        <span class="no">08</span>
+        <span class="no">09</span>
         <h2>Serving Suggestion</h2>
         <span class="rt fine">SKO Compounds &mdash; creative pipeline</span>
       </div>
@@ -774,7 +844,7 @@
   <section class="panel" id="warnings">
     <div class="panel__in">
       <div class="hd">
-        <span class="no">09</span>
+        <span class="no">10</span>
         <h2>Warnings</h2>
         <span class="rt fine">Read before purchase</span>
       </div>
