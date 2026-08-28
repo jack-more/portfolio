@@ -161,56 +161,6 @@
   .burst__t em{font-style:normal;font-family:var(--n);font-weight:700;font-size:8.5px;letter-spacing:.14em;opacity:.9;margin-bottom:3px}
   @media (max-width:640px){.burst{display:none}}
 
-  /* ── PANEL 02 · SIDE-BY-SIDE TEST ───────────────────── */
-  .rig{border:2px solid var(--ink);background:#fff}
-  .rig__hd{background:var(--ink);color:var(--paper);padding:8px 16px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
-  .rig__hd .live{font-family:var(--m);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);white-space:nowrap}
-  .rig__stage{position:relative;height:clamp(150px,17vw,200px);overflow:hidden;background:var(--paper)}
-  .rig__stage canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
-  .lanes{position:absolute;inset:0;display:grid;grid-template-columns:repeat(4,1fr);pointer-events:none;z-index:2}
-  .lane{border-right:1px dashed rgba(10,13,24,.20);padding:8px 11px}
-  .lane:last-child{border-right:0}
-  .lane b{display:block;font-family:var(--n);font-weight:700;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(10,13,24,.62)}
-  .lane span{font-family:var(--m);font-size:9.5px;letter-spacing:.08em;color:rgba(10,13,24,.42)}
-  .lane:nth-child(1){background:rgba(143,50,2,.10)}
-  .lane:nth-child(2){background:rgba(222,85,2,.08)}
-  .lane:nth-child(3){background:rgba(253,114,13,.07)}
-  .lane:nth-child(4){background:rgba(11,92,246,.07)}
-
-  .chart{position:relative;border-top:2px solid var(--ink);height:clamp(150px,17vw,190px);background:var(--paper)}
-  .chart canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
-  .chart__key{position:absolute;top:9px;left:12px;display:flex;gap:16px;flex-wrap:wrap;pointer-events:none}
-  .chart__key span{font-family:var(--n);font-weight:700;font-size:10px;letter-spacing:.14em;text-transform:uppercase}
-  .chart__key i{display:inline-block;width:14px;height:3px;margin-right:7px;vertical-align:3px}
-  .k-mkt{color:#b4470a}.k-mkt i{background:var(--orange)}
-  .k-cred{color:var(--cobalt)}.k-cred i{background:var(--cobalt)}
-  .ledger2{border-top:2px solid var(--ink);padding:clamp(16px,2vw,24px) clamp(14px,2vw,22px);display:grid;gap:16px}
-  .row2{display:grid;grid-template-columns:minmax(150px,200px) 1fr auto;gap:14px;align-items:center}
-  .row2 > b{font-family:var(--n);font-weight:700;font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;color:rgba(10,13,24,.6)}
-  .bar{height:26px;border:1.5px solid var(--ink);display:flex;overflow:hidden;background:var(--paper)}
-  .bar i{display:block;height:100%;transition:width .45s cubic-bezier(.4,0,.2,1)}
-  .bar .search{background:var(--cobalt)}
-  .bar .social{background:var(--orange)}
-  .bar .other{background:rgba(10,13,24,.18)}
-  .row2 > span{font-family:var(--m);font-size:12px;font-weight:600;white-space:nowrap;font-variant-numeric:tabular-nums}
-  .keys{display:flex;gap:18px;flex-wrap:wrap;align-items:center}
-  .keys i{display:inline-block;width:10px;height:10px;margin-right:7px;vertical-align:-1px}
-  .keys .search{background:var(--cobalt)}.keys .social{background:var(--orange)}.keys .other{background:rgba(10,13,24,.18)}
-
-  .rig__ft{border-top:2px solid var(--ink);padding:12px 16px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
-  .cut{
-    font-family:var(--g);font-weight:900;font-style:italic;font-size:14px;letter-spacing:-.01em;text-transform:uppercase;
-    background:var(--cobalt);color:#fff;border:2px solid var(--ink);padding:9px 16px;cursor:pointer;
-  }
-  .cut:hover{background:var(--ink)}
-  .cut[aria-pressed="true"]{background:var(--orange);color:var(--ink)}
-  .rig__ft .note{color:rgba(10,13,24,.55)}
-  @media (max-width:720px){
-    .row2{grid-template-columns:1fr;gap:7px}
-    .row2 > span{justify-self:start}
-    .lane span{display:none}
-  }
-
   /* ── PANEL 03 · INTENT LAYERS ───────────────────────── */
   .strata{border:2px solid var(--ink)}
   .stratum{
@@ -231,7 +181,7 @@
   .stratum dt{font-family:var(--n);font-weight:700;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(10,13,24,.5);margin-bottom:5px}
   .stratum dd{margin:0;font-size:14px;line-height:1.5;font-weight:500}
   .stratum--goal dd{font-weight:800;letter-spacing:-.01em}
-  .strata + .facts__note,.rig + .facts__note{max-width:none}
+  .strata + .facts__note{max-width:none}
   @media (max-width:900px){
     .stratum{grid-template-columns:1fr;gap:16px;border-left-width:8px}
     .stratum dl{border-top:1px solid rgba(10,13,24,.18);padding-top:12px}
@@ -292,7 +242,7 @@
 
   .catrow td{padding:15px 0 16px}
   .cat__n{display:block;font-family:var(--g);font-weight:800;font-size:clamp(15px,1.85vw,20px);letter-spacing:-.02em;text-transform:uppercase;line-height:1.1}
-  .cat__note{display:block;margin-top:6px;font-size:13.5px;line-height:1.55;color:rgba(10,13,24,.66);max-width:52ch}
+  .cat__note{display:block;margin-top:7px;font-size:14.5px;line-height:1.45;color:rgba(10,13,24,.62);max-width:46ch}
   .cat__c{font-family:var(--n);font-weight:600;font-size:11.5px;letter-spacing:.11em;text-transform:uppercase;text-align:right;padding-left:20px;color:rgba(10,13,24,.72);vertical-align:top;white-space:normal;min-width:150px}
   .catrow.full .cat__n{color:var(--cobalt)}
   .catrow.full .cat__n::before{content:"";display:inline-block;width:9px;height:9px;background:var(--orange);border-radius:50%;margin-right:10px;vertical-align:middle}
@@ -388,7 +338,6 @@
   <div class="band__in fine">
     <span class="band__mark"><b>Ballast<sup>&reg;</sup></b> <span>Performance + Go-To-Market</span></span>
     <nav>
-      <a href="#demo">The Test</a>
       <a href="#intent">Intent</a>
       <a href="#does">What It Does</a>
       <a href="#use">Directions</a>
@@ -436,73 +385,12 @@
     </div>
   </section>
 
-  <!-- ══ 02 · SIDE-BY-SIDE TEST ═════════════════════ -->
-  <section class="panel" id="demo">
-    <span class="tab fine">Panel 02 — Side-By-Side Test</span>
+  <!-- ══ 02 · INTENT LAYERS ══════════════════════════ -->
+  <section class="panel" id="intent">
+    <span class="tab fine">Panel 02 — Intent Layers</span>
     <div class="panel__in">
       <div class="hd">
         <span class="no">02</span>
-        <h2>Side-By-Side Test</h2>
-        <span class="rt fine">What the dashboard sees vs. what moved it</span>
-      </div>
-
-      <div class="rig" id="rig">
-        <div class="rig__hd fine">
-          <span>Demonstration unit &mdash; 2,400 buyers &middot; last 30 seconds</span>
-          <span class="live" id="rigLive">In-market 0 &middot; Social running</span>
-        </div>
-        <div class="rig__stage" id="stage">
-          <canvas id="flow" aria-hidden="true"></canvas>
-          <div class="lanes" aria-hidden="true">
-            <div class="lane"><b>Latent</b><span>not looking</span></div>
-            <div class="lane"><b>Comparing</b><span>weighing options</span></div>
-            <div class="lane"><b>In-market</b><span>searching now</span></div>
-            <div class="lane"><b>Bought</b><span>converted</span></div>
-          </div>
-        </div>
-
-        <div class="chart">
-          <canvas id="hist" aria-hidden="true"></canvas>
-          <div class="chart__key">
-            <span class="k-mkt"><i></i>In-market buyers</span>
-            <span class="k-cred"><i></i>Credit last click gives search</span>
-          </div>
-        </div>
-
-        <div class="ledger2">
-          <div class="row2">
-            <b>Last click says</b>
-            <div class="bar" id="barLast"><i class="search" style="width:100%"></i><i class="social" style="width:0%"></i><i class="other" style="width:0%"></i></div>
-            <span id="numLast">Search 100%</span>
-          </div>
-          <div class="row2">
-            <b>What actually moved it</b>
-            <div class="bar" id="barTrue"><i class="search" style="width:12%"></i><i class="social" style="width:64%"></i><i class="other" style="width:24%"></i></div>
-            <span id="numTrue">Social 64%</span>
-          </div>
-          <div class="keys fine">
-            <span><i class="search"></i>Branded search</span>
-            <span><i class="social"></i>Paid social</span>
-            <span><i class="other"></i>Organic</span>
-          </div>
-        </div>
-
-        <div class="rig__ft fine">
-          <button class="cut" id="cutBtn" type="button" aria-pressed="false">Cut the social budget</button>
-          <span class="note">Simulated. Directional, not a forecast</span>
-        </div>
-      </div>
-
-      <p class="facts__note fine">Cut the social budget and the in-market pool drops by four fifths in five seconds. Last click keeps reporting the same 92% the whole way down &mdash; which is why the dashboard never warns you</p>
-    </div>
-  </section>
-
-  <!-- ══ 03 · INTENT LAYERS ══════════════════════════ -->
-  <section class="panel" id="intent">
-    <span class="tab fine">Panel 03 — Intent Layers</span>
-    <div class="panel__in">
-      <div class="hd">
-        <span class="no">03</span>
         <h2>Intent Layers</h2>
         <span class="rt fine">Four states of demand</span>
       </div>
@@ -557,12 +445,12 @@
     </div>
   </section>
 
-  <!-- ══ 04 · WHAT IT DOES ═══════════════════════════ -->
+  <!-- ══ 03 · WHAT IT DOES ═══════════════════════════ -->
   <section class="panel" id="does">
-    <span class="tab fine">Panel 04 — What It Does</span>
+    <span class="tab fine">Panel 03 — What It Does</span>
     <div class="panel__in">
       <div class="hd">
-        <span class="no">04</span>
+        <span class="no">03</span>
         <h2>What It Does</h2>
         <span class="rt fine">Four active systems</span>
       </div>
@@ -591,12 +479,12 @@
     </div>
   </section>
 
-  <!-- ══ 05 · DIRECTIONS FOR USE ═════════════════════ -->
+  <!-- ══ 04 · DIRECTIONS FOR USE ═════════════════════ -->
   <section class="panel panel--dark" id="use">
-    <span class="tab fine">Panel 05 — Directions</span>
+    <span class="tab fine">Panel 04 — Directions</span>
     <div class="panel__in">
       <div class="hd">
-        <span class="no">05</span>
+        <span class="no">04</span>
         <h2>Directions For Use</h2>
         <span class="rt fine">Apply weekly. Do not dilute.</span>
       </div>
@@ -633,12 +521,12 @@
     </div>
   </section>
 
-  <!-- ══ 06 · ACTIVE INGREDIENTS ═════════════════════ -->
+  <!-- ══ 05 · ACTIVE INGREDIENTS ═════════════════════ -->
   <section class="panel" id="facts">
-    <span class="tab fine">Panel 06 — Ingredients</span>
+    <span class="tab fine">Panel 05 — Ingredients</span>
     <div class="panel__in">
       <div class="hd">
-        <span class="no">06</span>
+        <span class="no">05</span>
         <h2>Active Ingredients</h2>
         <span class="rt fine">Where the method has been run</span>
       </div>
@@ -653,17 +541,17 @@
             <tr><th scope="col">Category</th><th scope="col">Accounts</th></tr>
           </thead>
           <tbody>
-            <tr class="catrow"><td><span class="cat__n">Streaming &amp; Film</span><span class="cat__note">Awareness and first-choice tracking move weeks before a ticket sells, and the conversion happens somewhere you will never get a pixel. You are buying against a date you cannot move.</span></td><td class="cat__c">Sony · Peacock · Disney · Starzplay</td></tr>
-            <tr class="catrow"><td><span class="cat__n">Automotive</span><span class="cat__note">Tier one builds the consideration set, tier three closes it and books the credit. The whole category is one long argument about who gets paid for demand somebody else created.</span></td><td class="cat__c">Toyota</td></tr>
-            <tr class="catrow"><td><span class="cat__n">Coffee &amp; Retail</span><span class="cat__note">Nobody is in-market for coffee, they are in a routine. The only honest question is whether the ad moved the visit, the daypart or the basket &mdash; and a click answers none of the three.</span></td><td class="cat__c">Starbucks</td></tr>
-            <tr class="catrow"><td><span class="cat__n">Consumer Electronics</span><span class="cat__note">The retailer owns the last click, so the brand ends up bidding against Best Buy for a customer it already made. The decision itself happens on a spec sheet nobody controls.</span></td><td class="cat__c">LG</td></tr>
-            <tr class="catrow"><td><span class="cat__n">Sportswear</span><span class="cat__note">Sell-through in ninety seconds proves nothing. Resale price the following week proves everything, and it prices demand that was built weeks earlier by people who were never on the media plan.</span></td><td class="cat__c">Adidas</td></tr>
-            <tr class="catrow"><td><span class="cat__n">Luxury Fashion</span><span class="cat__note">Nobody cross-shops, so there is no comparison layer to buy. Every lever that works elsewhere &mdash; urgency, codes, heavy retargeting &mdash; is a withdrawal from the only asset the house owns.</span></td><td class="cat__c">Rick Owens</td></tr>
-            <tr class="catrow"><td><span class="cat__n">Web3</span><span class="cat__note">A wallet connect is not a customer and TVL is not demand. Paid acquisition mostly rents mercenaries; the real read is what is still there ninety days after the incentive ends.</span></td><td class="cat__c">NEAR Foundation · SushiSwap</td></tr>
-            <tr class="catrow"><td><span class="cat__n">Live Sport</span><span class="cat__note">The funnel resets in a new city every few weeks. Latent spend only compounds if you are building a following rather than renting the same audience twice a season.</span></td><td class="cat__c">SailGP</td></tr>
-            <tr class="catrow"><td><span class="cat__n">Architecture &amp; Education</span><span class="cat__note">The applicant searches, the parent pays, and the deposit lands eighteen months after the click that gets credited for it. The consideration set was fixed years earlier by who teaches there.</span></td><td class="cat__c">SCI-Arc</td></tr>
-            <tr class="catrow full"><td><span class="cat__n">Health &amp; DTC</span><span class="cat__note">You cannot say the thing the customer is typing into the search bar. Compliance writes the creative, the creative shapes the funnel, and one policy strike takes the account with it.</span></td><td class="cat__c">SKO Compounds<em>Full suite</em></td></tr>
-            <tr class="catrow full"><td><span class="cat__n">Urbanism &amp; Property</span><span class="cat__note">The entire buyer pool might be four hundred people. Reach is worthless; the job is knowing which four hundred, and in-market barely exists until money actually moves.</span></td><td class="cat__c">Build Cities<em>Full suite</em></td></tr>
+            <tr class="catrow"><td><span class="cat__n">Streaming &amp; Film</span><span class="cat__note">Opening weekend is decided long before the first ad runs.</span></td><td class="cat__c">Sony · Peacock · Disney · Starzplay</td></tr>
+            <tr class="catrow"><td><span class="cat__n">Automotive</span><span class="cat__note">The credit lands three tiers from where the demand was made.</span></td><td class="cat__c">Toyota</td></tr>
+            <tr class="catrow"><td><span class="cat__n">Coffee &amp; Retail</span><span class="cat__note">Nobody is in-market for coffee. They are in a routine.</span></td><td class="cat__c">Starbucks</td></tr>
+            <tr class="catrow"><td><span class="cat__n">Consumer Electronics</span><span class="cat__note">The decision happens on a spec sheet you do not own.</span></td><td class="cat__c">LG</td></tr>
+            <tr class="catrow"><td><span class="cat__n">Sportswear</span><span class="cat__note">The drop is the receipt. The demand was built months earlier.</span></td><td class="cat__c">Adidas</td></tr>
+            <tr class="catrow"><td><span class="cat__n">Luxury Fashion</span><span class="cat__note">Nobody cross-shops. Desire has no comparison layer.</span></td><td class="cat__c">Rick Owens</td></tr>
+            <tr class="catrow"><td><span class="cat__n">Web3</span><span class="cat__note">A wallet is not a customer. Ninety days tells you who was.</span></td><td class="cat__c">NEAR Foundation · SushiSwap</td></tr>
+            <tr class="catrow"><td><span class="cat__n">Live Sport</span><span class="cat__note">New city, new funnel. Only a following survives the calendar.</span></td><td class="cat__c">SailGP</td></tr>
+            <tr class="catrow"><td><span class="cat__n">Architecture &amp; Education</span><span class="cat__note">One decision a year, and the person choosing is not the person paying.</span></td><td class="cat__c">SCI-Arc</td></tr>
+            <tr class="catrow full"><td><span class="cat__n">Health &amp; DTC</span><span class="cat__note">What you are permitted to say is the strategy.</span></td><td class="cat__c">SKO Compounds<em>Full suite</em></td></tr>
+            <tr class="catrow full"><td><span class="cat__n">Urbanism &amp; Property</span><span class="cat__note">Four hundred people matter. Reach is a rounding error.</span></td><td class="cat__c">Build Cities<em>Full suite</em></td></tr>
           </tbody>
         </table>
       </div>
@@ -683,12 +571,12 @@
     </div>
   </section>
 
-  <!-- ══ 07 · SERVING SUGGESTION ═════════════════════ -->
+  <!-- ══ 06 · SERVING SUGGESTION ═════════════════════ -->
   <section class="panel" id="work">
-    <span class="tab fine">Panel 07 — Serving Suggestion</span>
+    <span class="tab fine">Panel 06 — Serving Suggestion</span>
     <div class="panel__in">
       <div class="hd">
-        <span class="no">07</span>
+        <span class="no">06</span>
         <h2>Serving Suggestion</h2>
         <span class="rt fine">SKO Compounds &mdash; creative pipeline</span>
       </div>
@@ -722,12 +610,12 @@
     </div>
   </section>
 
-  <!-- ══ 08 · WARNINGS ═══════════════════════════════ -->
+  <!-- ══ 07 · WARNINGS ═══════════════════════════════ -->
   <section class="panel" id="warnings">
-    <span class="tab fine">Panel 08 — Warnings</span>
+    <span class="tab fine">Panel 07 — Warnings</span>
     <div class="panel__in">
       <div class="hd">
-        <span class="no">08</span>
+        <span class="no">07</span>
         <h2>Warnings</h2>
         <span class="rt fine">Read before purchase</span>
       </div>
@@ -751,9 +639,9 @@
 
 </main>
 
-<!-- ══ 09 · BASE ═════════════════════════════════════ -->
+<!-- ══ 08 · BASE ═════════════════════════════════════ -->
 <footer class="base" id="enquire">
-  <span class="tab fine">Panel 09 — Base</span>
+  <span class="tab fine">Panel 08 — Base</span>
   <div class="base__in">
     <a class="enq" href="mailto:jaidanmorello@gmail.com">Enquire</a>
     <div class="base__rule"></div>
@@ -772,278 +660,6 @@
     </p>
   </div>
 </footer>
-
-<script>
-/* ═══════════════════════════════════════════════════════
-   SIDE-BY-SIDE TEST
-   2,400 buyers move Latent → Comparing → In-market → Bought.
-   Paid social is what moves them out of Latent. Branded search
-   is what closes them. Last click therefore pays search for
-   demand social created — and keeps paying it after you cut
-   social, right up until the pipeline empties.
-   ═══════════════════════════════════════════════════════ */
-(function(){
-  var rig   = document.getElementById('rig');
-  var stage = document.getElementById('stage');
-  var cv    = document.getElementById('flow');
-  var live  = document.getElementById('rigLive');
-  var btn   = document.getElementById('cutBtn');
-  var barL  = document.getElementById('barLast'),  numL = document.getElementById('numLast');
-  var barT  = document.getElementById('barTrue'),  numT = document.getElementById('numTrue');
-  if(!rig || !cv) return;
-
-  var gl = cv.getContext('webgl2', {alpha:true, antialias:true});
-  if(!gl){ cv.style.display='none'; }
-
-  var N = 2400;
-  var px = new Float32Array(N*2);       // position, 0..1
-  var pc = new Float32Array(N);         // stage 0..3
-  var lane = new Uint8Array(N);
-  var age  = new Float32Array(N);
-  var offx = new Float32Array(N);
-  var vy   = new Float32Array(N);
-  var first= new Int8Array(N);          // -1 none, 0 organic, 1 social, 2 search
-  var hold = new Int16Array(N);
-
-  function seat(i, l){
-    lane[i]=l; age[i]=0; offx[i]=(Math.random()-0.5)*0.17;
-    px[i*2]   = l*0.25 + 0.125 + offx[i];
-    px[i*2+1] = 0.10 + Math.random()*0.80;
-    vy[i] = (Math.random()-0.5)*0.10;
-    pc[i]=l;
-  }
-  for(var i=0;i<N;i++){ seat(i,0); first[i]=-1; hold[i]=0; }
-
-  // ── programs ──
-  var prog=null, bPos, bC, vao, uDpr;
-  if(gl){
-    function sh(t,src){var x=gl.createShader(t);gl.shaderSource(x,src);gl.compileShader(x);
-      if(!gl.getShaderParameter(x,gl.COMPILE_STATUS))throw new Error(gl.getShaderInfoLog(x));return x;}
-    var VS='#version 300 es\n'+
-      'in vec2 a_pos; in float a_c;\n'+
-      'uniform float u_dpr; out float v_c;\n'+
-      'void main(){ gl_Position=vec4(vec2(a_pos.x,1.0-a_pos.y)*2.0-1.0,0.,1.);'+
-      ' gl_PointSize=(a_c>2.5?3.4:2.7)*u_dpr; v_c=a_c; }';
-    var FS='#version 300 es\n'+
-      'precision mediump float; in float v_c; out vec4 o;\n'+
-      'void main(){ float d=length(gl_PointCoord-0.5);\n'+
-      '  float a=1.0-smoothstep(0.28,0.5,d); if(a<=0.01) discard;\n'+
-      '  vec3 c;\n'+
-      '  if(v_c<0.5)      c=vec3(0.561,0.196,0.008);\n'+
-      '  else if(v_c<1.5) c=vec3(0.867,0.333,0.008);\n'+
-      '  else if(v_c<2.5) c=vec3(0.992,0.447,0.051);\n'+
-      '  else             c=vec3(0.043,0.361,0.965);\n'+
-      '  o=vec4(c, a*0.92); }';
-    try{
-      prog=gl.createProgram();
-      gl.attachShader(prog,sh(gl.VERTEX_SHADER,VS));
-      gl.attachShader(prog,sh(gl.FRAGMENT_SHADER,FS));
-      gl.linkProgram(prog);
-      if(!gl.getProgramParameter(prog,gl.LINK_STATUS)) throw new Error(gl.getProgramInfoLog(prog));
-    }catch(e){ prog=null; cv.style.display='none'; }
-  }
-  if(prog){
-    bPos=gl.createBuffer(); bC=gl.createBuffer();
-    var aP=gl.getAttribLocation(prog,'a_pos'), aC=gl.getAttribLocation(prog,'a_c');
-    uDpr=gl.getUniformLocation(prog,'u_dpr');
-    vao=gl.createVertexArray(); gl.bindVertexArray(vao);
-    gl.bindBuffer(gl.ARRAY_BUFFER,bPos); gl.bufferData(gl.ARRAY_BUFFER,px,gl.DYNAMIC_DRAW);
-    gl.enableVertexAttribArray(aP); gl.vertexAttribPointer(aP,2,gl.FLOAT,false,0,0);
-    gl.bindBuffer(gl.ARRAY_BUFFER,bC);  gl.bufferData(gl.ARRAY_BUFFER,pc,gl.DYNAMIC_DRAW);
-    gl.enableVertexAttribArray(aC); gl.vertexAttribPointer(aC,1,gl.FLOAT,false,0,0);
-    gl.bindVertexArray(null);
-    gl.enable(gl.BLEND); gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
-  }
-
-  var DPR=1;
-  function size(){
-    var r=stage.getBoundingClientRect();
-    DPR=Math.min(window.devicePixelRatio||1,2);
-    cv.width=Math.max(1,Math.round(r.width*DPR));
-    cv.height=Math.max(1,Math.round(r.height*DPR));
-    if(gl) gl.viewport(0,0,cv.width,cv.height);
-  }
-  size(); window.addEventListener('resize',size);
-
-
-  // ── model (all rates per second; dt-driven, frame-rate independent) ──
-  var socialOn = true;
-  var creditLast = {search:92, other:8};
-  var creditTrue = {search:8, social:68, organic:24};
-
-  var R_LATENT_ON  = 1/3.0;    // a social touch moves you out of latent in ~3s
-  var R_LATENT_OFF = 1/40.0;   // organic alone, ~40s
-  var R_COMPARE    = 1/1.4;
-  var R_MARKET     = 1/1.1;
-  var HOLD         = 1.2;      // seconds spent in "bought" before re-entering the pool
-
-  btn.addEventListener('click', function(){
-    socialOn = !socialOn;
-    btn.setAttribute('aria-pressed', String(!socialOn));
-    cutMarks.push(hist.length);
-    btn.textContent = socialOn ? 'Cut the social budget' : 'Restore the social budget';
-  });
-
-  function chance(rate, dt){ return 1 - Math.exp(-rate*dt); }
-
-  function step(dt){
-    var decay = Math.pow(0.5, dt/4);          // ledgers track the last few seconds
-    creditLast.search*=decay; creditLast.other*=decay;
-    creditTrue.search*=decay; creditTrue.social*=decay; creditTrue.organic*=decay;
-
-    var pLat = chance(socialOn ? R_LATENT_ON : R_LATENT_OFF, dt);
-    var pCmp = chance(R_COMPARE, dt);
-    var pMkt = chance(R_MARKET, dt);
-    var ease = 1 - Math.exp(-dt/0.55);
-
-    for(var i=0;i<N;i++){
-      var l=lane[i];
-
-      if(l===3){
-        hold[i] += dt*1000;
-        if(hold[i] > HOLD*1000){ first[i]=-1; hold[i]=0; seat(i,0); }
-      } else if(l===0){
-        if(Math.random() < pLat){
-          if(socialOn && Math.random() < 0.80) first[i]=1;
-          else if(Math.random() < 0.16)        first[i]=2;
-          else                                  first[i]=0;
-          lane[i]=1; age[i]=0; offx[i]=(Math.random()-0.5)*0.17;
-        }
-      } else if(l===1){
-        if(Math.random() < pCmp){ lane[i]=2; age[i]=0; offx[i]=(Math.random()-0.5)*0.17; }
-      } else if(l===2){
-        if(Math.random() < pMkt){
-          lane[i]=3; age[i]=0; offx[i]=(Math.random()-0.5)*0.17; hold[i]=0;
-          if(Math.random() < 0.92) creditLast.search++; else creditLast.other++;
-          if(first[i]===1) creditTrue.social++;
-          else if(first[i]===2) creditTrue.search++;
-          else creditTrue.organic++;
-        }
-      }
-
-      var tx = lane[i]*0.25 + 0.125 + offx[i];
-      var xi = i*2;
-      px[xi]   += (tx - px[xi]) * ease;
-      px[xi+1] += vy[i]*dt;
-      if(px[xi+1] < 0.07){ px[xi+1]=0.07; vy[i]=-vy[i]; }
-      if(px[xi+1] > 0.93){ px[xi+1]=0.93; vy[i]=-vy[i]; }
-      pc[i] = lane[i];
-    }
-  }
-
-  function draw(){
-    if(!prog) return;
-    gl.clearColor(0,0,0,0); gl.clear(gl.COLOR_BUFFER_BIT);
-    gl.useProgram(prog); gl.uniform1f(uDpr,DPR);
-    gl.bindVertexArray(vao);
-    gl.bindBuffer(gl.ARRAY_BUFFER,bPos); gl.bufferSubData(gl.ARRAY_BUFFER,0,px);
-    gl.bindBuffer(gl.ARRAY_BUFFER,bC);   gl.bufferSubData(gl.ARRAY_BUFFER,0,pc);
-    gl.drawArrays(gl.POINTS,0,N);
-    gl.bindVertexArray(null);
-  }
-
-  // ── rolling history: the two lines that disagree ──
-  var hcv = document.getElementById('hist');
-  var h2  = hcv ? hcv.getContext('2d') : null;
-  var HN  = 150, hist = [], sinceSample = 0, cutMarks = [];
-
-  function drawChart(){
-    if(!h2) return;
-    var r = hcv.parentNode.getBoundingClientRect();
-    var d = Math.min(window.devicePixelRatio||1, 2);
-    if(hcv.width !== Math.round(r.width*d)){ hcv.width=Math.round(r.width*d); hcv.height=Math.round(r.height*d); }
-    var W=hcv.width, H=hcv.height;
-    h2.setTransform(1,0,0,1,0,0); h2.clearRect(0,0,W,H);
-    var padT=34*d, padB=20*d, padR=64*d, padL=12*d;
-    var plotH = H-padT-padB, plotW = W-padL-padR;
-    if(hist.length < 2) return;
-
-    // baseline grid
-    h2.strokeStyle='rgba(10,13,24,.14)'; h2.lineWidth=1*d;
-    for(var g=0; g<=2; g++){
-      var gy = padT + plotH*(g/2);
-      h2.beginPath(); h2.moveTo(padL,gy); h2.lineTo(padL+plotW,gy); h2.stroke();
-    }
-    var count = Math.min(HN, hist.length);
-    var xAt=function(i){ return padL + plotW*(count<2?1:i/(count-1)); };
-
-    // cut markers
-    h2.strokeStyle='rgba(10,13,24,.35)'; h2.setLineDash([4*d,4*d]);
-    for(var m=0;m<cutMarks.length;m++){
-      var mi = cutMarks[m] - (hist.length-HN < 0 ? 0 : hist.length-HN);
-      if(mi>=0 && mi<count){ h2.beginPath(); h2.moveTo(xAt(mi),padT); h2.lineTo(xAt(mi),padT+plotH); h2.stroke(); }
-    }
-    h2.setLineDash([]);
-
-    function line(key, max, colour){
-      h2.strokeStyle=colour; h2.lineWidth=2.4*d; h2.beginPath();
-      var off = Math.max(0, hist.length-HN);
-      for(var i=off;i<hist.length;i++){
-        var v = Math.min(1, hist[i][key]/max);
-        var x = xAt(i-off), y = padT + plotH*(1-v);
-        i===off ? h2.moveTo(x,y) : h2.lineTo(x,y);
-      }
-      h2.stroke();
-      var last = hist[hist.length-1][key];
-      var ly = padT + plotH*(1 - Math.min(1,last/max));
-      h2.fillStyle=colour; h2.beginPath(); h2.arc(xAt(count-1),ly,3.2*d,0,6.283); h2.fill();
-      h2.font='700 '+(12*d)+'px "IBM Plex Mono",monospace'; h2.textBaseline='middle';
-      h2.fillText(key==='mkt' ? String(Math.round(last)) : Math.round(last)+'%', padL+plotW+8*d, ly);
-    }
-    line('cred',100,'#0b5cf6');
-    line('mkt', 620,'#fd720d');
-  }
-
-  var lastUI=-1e9;
-  function ui(now){
-    if(now - lastUI < 260) return;
-    lastUI = now;
-    var pct = function(v,t){ return t>0 ? Math.round(v/t*100) : 0; };
-
-    var tl = creditLast.search + creditLast.other;
-    var ls = pct(creditLast.search,tl), lo = 100-ls;
-    barL.children[0].style.width = ls+'%';
-    barL.children[1].style.width = '0%';
-    barL.children[2].style.width = lo+'%';
-    numL.textContent = 'Search ' + ls + '%';
-
-    var tt = creditTrue.search + creditTrue.social + creditTrue.organic;
-    var ts = pct(creditTrue.search,tt), tso = pct(creditTrue.social,tt);
-    var to = Math.max(0, 100-ts-tso);
-    barT.children[0].style.width = ts+'%';
-    barT.children[1].style.width = tso+'%';
-    barT.children[2].style.width = to+'%';
-    var top = (tso >= to && tso >= ts) ? ['Social',tso] : (to >= ts ? ['Organic',to] : ['Search',ts]);
-    numT.textContent = top[0] + ' ' + top[1] + '%';
-
-    var inMarket = 0;
-    for(var k=0;k<N;k++) if(lane[k]===2) inMarket++;
-    hist.push({mkt:inMarket, cred:ls});
-    if(hist.length > HN*2){ hist=hist.slice(-HN); cutMarks=cutMarks.map(function(c){return c-(HN);}).filter(function(c){return c>=0;}); }
-    drawChart();
-    live.textContent = 'In-market ' + inMarket + ' · ' + (socialOn ? 'Social running' : 'Social cut');
-  }
-
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var visible = true;
-  if('IntersectionObserver' in window){
-    new IntersectionObserver(function(e){ visible = e[0].isIntersecting; }, {rootMargin:'200px'}).observe(rig);
-  }
-  function frame(t){
-    if(visible){ step(t); draw(); ui(t); }
-    requestAnimationFrame(frame);
-  }
-  // warm up ~25s of model time so the panel is at steady state when first seen
-  for(var w=0; w<1500; w++) step(1/60);
-  draw(); ui(0);
-  if(reduce){
-    // still a working demonstration, just not an animated one
-    setInterval(function(){ step(0.25); draw(); ui(performance.now()); }, 250);
-  } else {
-    requestAnimationFrame(frame);
-  }
-})();
-</script>
 
 </body>
 </html>
