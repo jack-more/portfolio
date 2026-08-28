@@ -225,6 +225,28 @@
   .close p{margin:clamp(14px,1.8vw,20px) auto 0;max-width:52ch;color:rgba(249,250,254,.72);font-size:clamp(15px,1.6vw,18px)}
   .close .cta{justify-content:center}
 
+  /* ── the numbers ─────────────────────────────────────── */
+  .stats{
+    display:grid;grid-template-columns:repeat(4,minmax(0,1fr));
+    border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);
+    margin:0 0 clamp(34px,4vw,54px);
+  }
+  .stats div{padding:clamp(20px,2.4vw,30px) clamp(14px,1.6vw,22px) clamp(20px,2.4vw,30px) 0;
+    border-right:1px solid rgba(10,13,24,.18)}
+  .stats div:last-child{border-right:0}
+  .stats b{
+    display:block;font-family:var(--g);font-weight:900;font-style:italic;
+    font-size:clamp(34px,5.2vw,68px);line-height:.9;letter-spacing:-.045em;color:var(--ink);
+  }
+  .stats b em{font-style:italic;color:var(--orange)}
+  .stats span{display:block;margin-top:9px;color:rgba(10,13,24,.68);font-size:13.5px;line-height:1.45;max-width:22ch}
+  @media (max-width:820px){
+    .stats{grid-template-columns:1fr 1fr}
+    .stats div:nth-child(2n){border-right:0}
+    .stats div{border-bottom:1px solid rgba(10,13,24,.18);padding-right:14px}
+    .stats div:nth-last-child(-n+2){border-bottom:0}
+  }
+
   /* ── PANEL 03 · THE SPRINT ───────────────────────────── */
   .sprint{
     position:relative;overflow:hidden;border-bottom:1px solid rgba(10,13,24,.14);
@@ -468,7 +490,7 @@
   <div class="band__in fine">
     <span class="band__mark"><b>Ballast</b> <span style="opacity:.68">Performance + Go-To-Market</span></span>
     <nav>
-      <a href="#facts">Proof</a>
+      <a href="#facts">Record</a>
       <a href="#sprint">Sprint</a>
       <a href="#versus">Compare</a>
       <a href="#intent">Intent</a>
@@ -532,8 +554,15 @@
     <div class="panel__in">
       <div class="hd">
         <span class="no">02</span>
-        <h2>Active Ingredients</h2>
+        <h2>The Record</h2>
         <span class="rt fine">Where the method has been run</span>
+      </div>
+
+      <div class="stats">
+        <div><b><em>4&times;</em></b><span>Blended return on ad spend, held at scale</span></div>
+        <div><b>$500k</b><span>Monthly spend managed, at peak</span></div>
+        <div><b>11</b><span>Categories the method has been run in</span></div>
+        <div><b>15</b><span>Accounts across Ballast and prior agencies</span></div>
       </div>
 
       <div class="facts">
