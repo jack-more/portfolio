@@ -110,12 +110,23 @@
     .front{
     position:relative;overflow:hidden;border-bottom:0;
     background:
-      radial-gradient(120% 88% at 50% 42%,
-        #FAA81C 0%, #F49313 22%, #F76A08 62%, #E85B04 88%, #D95104 100%);
+      /* the mark's own ground at page scale — 1.46:1, the measured ellipse ratio —
+         falling off through burnt orange into cobalt at the edges, the way the
+         outline surrounds the ground on the mark itself */
+      radial-gradient(ellipse 50vw 34vw at 50% 43%,
+        #FFC02E 0%, #FBA81B 10%, #F49313 22%, #F76A08 40%,
+        #E05704 56%, #A83A06 70%, #5B2436 82%, #1B2A66 92%, #0A1740 100%);
   }
-  .front::after{                      /* the mark's own printed tooth, at page scale */
-    content:"";position:absolute;inset:0;pointer-events:none;opacity:.10;mix-blend-mode:overlay;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
+  @media (max-width:900px){
+    .front{
+      background:radial-gradient(ellipse 128vw 88vw at 50% 40%,
+        #FFC02E 0%, #FBA81B 10%, #F49313 22%, #F76A08 42%,
+        #E05704 58%, #A83A06 72%, #5B2436 84%, #1B2A66 94%, #0A1740 100%);
+    }
+  }
+  .front::after{                      /* coarse film grain, the thing that stops a gradient reading as CSS */
+    content:"";position:absolute;inset:0;pointer-events:none;opacity:.26;mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.62' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E");
   }
   .front__in{
     position:relative;z-index:1;max-width:1320px;margin:0 auto;
@@ -147,7 +158,7 @@
   .say{
     font-family:var(--g);font-weight:900;font-style:italic;text-transform:uppercase;
     font-size:min(5vw, 7.2vh, 64px);line-height:.96;letter-spacing:-.038em;
-    margin:0;max-width:17ch;color:#fff;
+    margin:0;max-width:17ch;color:#F7F3EA;
   }
   .say em{font-style:italic;color:#0B5CF6;-webkit-text-stroke:0}
   .front__sub{
