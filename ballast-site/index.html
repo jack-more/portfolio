@@ -94,10 +94,19 @@
   .hd .rt{margin-left:auto;color:rgba(10,13,24,.5)}
   @media (max-width:640px){.hd .rt{display:none}}
 
+  .panel--ink{background:var(--ink);color:var(--paper);border-bottom-color:rgba(249,250,254,.26)}
+  .panel--ink .hd{border-bottom-color:rgba(249,250,254,.62)}
+  .panel--ink .hd h2{color:#fff}
+  .panel--ink .hd .no{color:var(--amber)}
+  .panel--ink .hd .rt{color:rgba(249,250,254,.55)}
+
   /* fold ticks between panels */
   .panel::after{
     content:"";position:absolute;left:50%;bottom:-1px;width:56px;height:0;
     border-top:1px solid rgba(10,13,24,.34);transform:translateX(-50%);
+  }
+  .panel--ink::after{
+    border-top-color:rgba(249,250,254,.38);
   }
 
   /* ── PANEL 01 · FRONT ───────────────────────────────── */
@@ -134,7 +143,7 @@
     .front__mid{
     flex:1;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;text-align:left;padding:12px 0;
   }
-  .lockup{width:min(720px,74vw);height:auto;max-height:29vh;object-fit:contain;object-position:left;margin:0 0 clamp(16px,2.4vh,30px);filter:drop-shadow(0 10px 26px rgba(120,45,0,.30))}
+  .lockup{width:min(760px,78vw);height:auto;max-height:32vh;object-fit:contain;object-position:left;margin:0 0 clamp(16px,2.4vh,30px);filter:drop-shadow(0 10px 26px rgba(120,45,0,.30))}
 
   .cta{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-start;margin-top:clamp(22px,3vh,34px)}
   .cta a,.cta-btn{
@@ -153,8 +162,8 @@
   .cta .s:hover,.cta-btn.s:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 rgba(10,13,24,.28)}
   .say{
     font-family:var(--g);font-weight:900;font-style:italic;text-transform:uppercase;
-    font-size:min(5vw, 7.2vh, 64px);line-height:.96;letter-spacing:-.038em;
-    margin:0;max-width:17ch;color:#F7F3EA;
+    font-size:min(5.6vw, 8.2vh, 78px);line-height:.94;letter-spacing:-.042em;
+    margin:0;max-width:24ch;color:#F7F3EA;
   }
   .say em{font-style:italic;color:#0B5CF6;-webkit-text-stroke:0}
   .front__foot{
@@ -165,31 +174,29 @@
   .front__foot span b{display:block;color:#fff;font-family:var(--g);font-weight:800;font-size:13px;letter-spacing:.02em;margin-top:3px}
   @media (max-width:760px){.front__foot{grid-template-columns:repeat(2,1fr);gap:14px}}
 
-  /* ── outcome chips, them-vs-you, deliverables, close ─── */
-  .outcomes{display:flex;flex-wrap:wrap;gap:8px;margin:clamp(16px,2.2vh,24px) 0 0}
-  .outcomes a{
-    display:inline-flex;align-items:center;gap:9px;text-decoration:none;
-    background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.55);color:#fff;
-    padding:8px 15px;font-family:var(--n);font-weight:700;font-size:11px;letter-spacing:.1em;text-transform:uppercase;
-    transition:background .16s ease;
-  }
-  .outcomes a:hover{background:rgba(255,255,255,.28)}
-  .outcomes a span{opacity:.75}
-
-  .versus{border:2px solid var(--ink);background:#fff}
+  /* ── them-vs-you, deliverables, close ────────────────── */
+  .versus{border:2px solid var(--paper);background:rgba(249,250,254,.03)}
   .versus__hd,.versus__row{display:grid;grid-template-columns:1.05fr 1fr 1fr}
-  .versus__hd{background:var(--ink);color:var(--paper)}
+  .versus__hd{background:var(--paper);color:var(--ink)}
   .versus__hd div{padding:11px 16px;font-family:var(--n);font-weight:700;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase}
-  .versus__hd div:nth-child(2){color:var(--amber)}
-  .versus__row{border-top:1px solid rgba(10,13,24,.18)}
+  .versus__hd div:nth-child(2){color:var(--orange)}
+  .versus__row{border-top:1px solid rgba(249,250,254,.24)}
   .versus__row div{padding:14px 16px;font-size:14.5px;line-height:1.45}
-  .versus__row div:first-child{font-family:var(--n);font-weight:700;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(10,13,24,.55)}
-  .versus__row div:nth-child(2){font-weight:800;background:rgba(249,147,19,.10)}
-  .versus__row div:nth-child(3){color:rgba(10,13,24,.6)}
+  .versus__row div:first-child{font-family:var(--n);font-weight:700;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(249,250,254,.5)}
+  .versus__row div:nth-child(2){font-weight:800;color:#fff;background:rgba(249,250,254,.07)}
+  .versus__row div:nth-child(3){color:rgba(249,250,254,.52)}
   @media (max-width:760px){
-    .versus__hd,.versus__row{grid-template-columns:1fr}
+    .versus__row{grid-template-columns:1fr}
     .versus__row div:first-child{padding-bottom:2px}
-    .versus__hd div:first-child{display:none}
+    /* stacked, the column heads have nothing left to head — label the cells */
+    .versus__hd{display:none}
+    .versus__row div:nth-child(2)::before,
+    .versus__row div:nth-child(3)::before{
+      display:block;font-family:var(--n);font-weight:700;font-size:9.5px;
+      letter-spacing:.16em;text-transform:uppercase;margin-bottom:5px;
+    }
+    .versus__row div:nth-child(2)::before{content:"Ballast";color:var(--orange)}
+    .versus__row div:nth-child(3)::before{content:"Traditional agency";color:rgba(249,250,254,.38)}
   }
 
   .gets{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:0;border-top:2px solid rgba(255,255,255,.5);margin-top:clamp(20px,2.4vw,28px)}
@@ -229,14 +236,13 @@
   }
 
   .held{margin:0 0 clamp(34px,4vw,54px)}
-  .held__lab{display:flex;align-items:flex-start;color:rgba(10,13,24,.5)}
-  .held__lab span{padding-top:2px}
-  .held__row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border-top:1px solid rgba(10,13,24,.22)}
+  .held__lab{margin:0 0 13px;color:rgba(10,13,24,.5)}
+  .held__row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:1px solid rgba(10,13,24,.22)}
   .held__row div{padding:14px 22px 16px 0;border-right:1px solid rgba(10,13,24,.14)}
   .held__row div:last-child{border-right:0}
   .held__row b{display:block;font-family:var(--g);font-weight:900;font-size:clamp(16px,1.9vw,21px);letter-spacing:-.022em;text-transform:uppercase}
   .held__row span{display:block;margin-top:5px;font-size:13.5px;line-height:1.45;color:rgba(10,13,24,.62)}
-  @media (max-width:760px){.held__row{grid-template-columns:1fr}.held__lab{border-bottom:0!important;padding-bottom:4px}.held__row div{border-right:0;border-bottom:1px solid rgba(10,13,24,.14)}}
+  @media (max-width:760px){.held__row{grid-template-columns:1fr}.held__row div{border-right:0;border-bottom:1px solid rgba(10,13,24,.14)}}
 
   /* the NEAR mechanism, told properly */
   .case{border:2px solid var(--ink);background:#fff;margin-bottom:clamp(14px,1.8vw,22px)}
@@ -397,17 +403,17 @@
   @media (max-width:820px){.shots{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
   /* ── PANEL 07 · WARNINGS ────────────────────────────── */
-  .warn{border:2px solid var(--ink);background:#fff}
-  .warn__bar{background:var(--orange);border-bottom:2px solid var(--ink);padding:8px 20px;display:flex;justify-content:space-between;gap:16px}
+  .warn{border:0;background:none}
+  .warn__bar{background:var(--orange);padding:9px 20px;display:flex;justify-content:space-between;gap:16px}
   .warn__bar span{color:var(--ink)}
-  .warn__body{padding:clamp(26px,3.4vw,42px) clamp(20px,3vw,40px);display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(26px,3.4vw,52px)}
+  .warn__body{padding:clamp(30px,4vw,54px) 0 0;display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(26px,3.4vw,52px);align-items:end}
   .warn__body h3{
-    font-family:var(--g);font-weight:900;font-size:clamp(28px,4.2vw,54px);line-height:.98;letter-spacing:-.035em;
-    text-transform:uppercase;margin:0;max-width:12ch;
+    font-family:var(--g);font-weight:900;font-size:clamp(30px,4.8vw,62px);line-height:.96;letter-spacing:-.038em;
+    text-transform:uppercase;margin:0;max-width:12ch;color:#fff;
   }
   .warn__body h3 em{font-style:italic;color:var(--cobalt)}
-  .warn__body p{margin:0 0 14px;font-size:15px;line-height:1.72;color:rgba(10,13,24,.75)}
-  .warn__body p:first-child{font-weight:600;color:var(--ink)}
+  .warn__body p{margin:0 0 15px;font-size:16px;line-height:1.7;color:rgba(249,250,254,.7)}
+  .warn__body p:first-child{font-weight:600;color:#fff}
   .warn__body p:last-child{margin-bottom:0}
   @media (max-width:860px){.warn__body{grid-template-columns:1fr}}
 
@@ -478,11 +484,6 @@
         <div>
           <img class="lockup" src="/lockup.png" width="1400" height="591" alt="Ballast">
           <h1 class="say">We buy <em>intent</em>.<br>The rest buy channels.</h1>
-        <div class="outcomes">
-          <a href="#intent">Stop paying twice for the same customer <span>&rarr;</span></a>
-          <a href="#intent">Know which layer actually moved it <span>&rarr;</span></a>
-          <a href="#promos">Launch with the incentive built in <span>&rarr;</span></a>
-        </div>
         <div class="cta">
           <a class="p" href="mailto:jaidanmorello@gmail.com?subject=Ballast%20sprint%20waitlist"><i></i>Start buying intent</a>
           <a class="s" href="#promos"><i></i>Build incentive alignment</a>
@@ -503,11 +504,36 @@
 
   
 
-  <!-- ══ 01 · THE RECORD ═════════════════════════════ -->
-  <section class="panel" id="facts">
+  <!-- ══ 01 · WARNINGS ═══════════════════════════════ -->
+  <section class="panel panel--ink" id="warnings">
     <div class="panel__in">
       <div class="hd">
         <span class="no">01</span>
+        <h2>Warnings</h2>
+        <span class="rt fine">Read before purchase</span>
+      </div>
+
+      <div class="warn">
+        <div class="warn__bar fine">
+          <span>Caution</span>
+          <span>Last click is not evidence</span>
+        </div>
+        <div class="warn__body">
+          <h3>Most budget pays for demand it <em>didn&rsquo;t create</em></h3>
+          <div>
+            <p>Last click hands the credit to whoever was standing closest to the purchase.</p>
+            <p>Branded search always posts a beautiful CAC, because the person already knew your name. Something else put it there. Optimise on last click and you defund the layer that fills the top &mdash; then spend a quarter wondering why capture volume fell off a cliff.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ 02 · THE RECORD ═════════════════════════════ -->
+  <section class="panel" id="facts">
+    <div class="panel__in">
+      <div class="hd">
+        <span class="no">02</span>
         <h2>The Record</h2>
         <span class="rt fine">Where the method has been run</span>
       </div>
@@ -520,8 +546,8 @@
       </div>
 
       <div class="held">
+        <p class="held__lab fine">Where the 4&times; held</p>
         <div class="held__row">
-          <div class="held__lab"><span class="fine">Where the 4&times; held</span></div>
           <div><b>Toyota</b><span>African American and Asian American segments</span></div>
           <div><b>Starbucks</b><span>Pacific Northwest</span></div>
           <div><b>Starzplay</b><span>International</span></div>
@@ -568,11 +594,11 @@
     </div>
   </section>
 
-<!-- ══ 02 · THE SPRINT ═════════════════════════════ -->
+<!-- ══ 03 · THE SPRINT ═════════════════════════════ -->
   <section class="sprint" id="sprint">
     <div class="sprint__in">
       <div class="hd">
-        <span class="no">02</span>
+        <span class="no">03</span>
         <h2>The Sprint</h2>
         <span class="rt fine">One price, one window</span>
       </div>
@@ -606,11 +632,11 @@
     </div>
   </section>
 
-  <!-- ══ 03 · THE COMPARISON ═════════════════════════ -->
-  <section class="panel" id="versus">
+  <!-- ══ 04 · THE COMPARISON ═════════════════════════ -->
+  <section class="panel panel--ink" id="versus">
     <div class="panel__in">
       <div class="hd">
-        <span class="no">03</span>
+        <span class="no">04</span>
         <h2>Ballast vs. an agency</h2>
         <span class="rt fine">Same problem, different bill</span>
       </div>
@@ -626,11 +652,11 @@
     </div>
   </section>
 
-<!-- ══ 04 · INTENT LAYERS ══════════════════════════ -->
+<!-- ══ 05 · INTENT LAYERS ══════════════════════════ -->
   <section class="panel" id="intent">
     <div class="panel__in">
       <div class="hd">
-        <span class="no">04</span>
+        <span class="no">05</span>
         <h2>Intent Layers</h2>
         <span class="rt fine">Four states of demand</span>
       </div>
@@ -684,11 +710,11 @@
     </div>
   </section>
 
-  <!-- ══ 05 · PROMOTIONS ═════════════════════════════ -->
+  <!-- ══ 06 · PROMOTIONS ═════════════════════════════ -->
   <section class="panel" id="promos">
     <div class="panel__in">
       <div class="hd">
-        <span class="no">05</span>
+        <span class="no">06</span>
         <h2>Promotions</h2>
         <span class="rt fine">Incentive design</span>
       </div>
@@ -726,11 +752,11 @@
     </div>
   </section>
 
-  <!-- ══ 06 · SERVING SUGGESTION ═════════════════════ -->
+  <!-- ══ 07 · SERVING SUGGESTION ═════════════════════ -->
   <section class="panel" id="work">
     <div class="panel__in">
       <div class="hd">
-        <span class="no">06</span>
+        <span class="no">07</span>
         <h2>Serving Suggestion</h2>
         <span class="rt fine">SKO Compounds &mdash; creative pipeline</span>
       </div>
@@ -761,31 +787,6 @@
         </figure>
       </div>
       <p class="facts__note fine">SKO Compounds</p>
-    </div>
-  </section>
-
-  <!-- ══ 07 · WARNINGS ═══════════════════════════════ -->
-  <section class="panel" id="warnings">
-    <div class="panel__in">
-      <div class="hd">
-        <span class="no">07</span>
-        <h2>Warnings</h2>
-        <span class="rt fine">Read before purchase</span>
-      </div>
-
-      <div class="warn">
-        <div class="warn__bar fine">
-          <span>Caution</span>
-          <span>Last click is not evidence</span>
-        </div>
-        <div class="warn__body">
-          <h3>Most budget pays for demand it <em>didn&rsquo;t create</em></h3>
-          <div>
-            <p>Last click hands the credit to whoever was standing closest to the purchase.</p>
-            <p>Branded search always posts a beautiful CAC, because the person already knew your name. Something else put it there. Optimise on last click and you defund the layer that fills the top &mdash; then spend a quarter wondering why capture volume fell off a cliff.</p>
-          </div>
-        </div>
-      </div>
     </div>
   </section>
 
