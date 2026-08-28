@@ -165,10 +165,10 @@
   .rig{border:2px solid var(--ink);background:#fff}
   .rig__hd{background:var(--ink);color:var(--paper);padding:8px 16px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
   .rig__hd .live{font-family:var(--m);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);white-space:nowrap}
-  .rig__stage{position:relative;height:clamp(230px,26vw,320px);overflow:hidden;background:var(--paper)}
+  .rig__stage{position:relative;height:clamp(150px,17vw,200px);overflow:hidden;background:var(--paper)}
   .rig__stage canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
   .lanes{position:absolute;inset:0;display:grid;grid-template-columns:repeat(4,1fr);pointer-events:none;z-index:2}
-  .lane{border-right:1px solid rgba(10,13,24,.16);padding:9px 12px}
+  .lane{border-right:1px dashed rgba(10,13,24,.20);padding:8px 11px}
   .lane:last-child{border-right:0}
   .lane b{display:block;font-family:var(--n);font-weight:700;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(10,13,24,.62)}
   .lane span{font-family:var(--m);font-size:9.5px;letter-spacing:.08em;color:rgba(10,13,24,.42)}
@@ -177,6 +177,13 @@
   .lane:nth-child(3){background:rgba(253,114,13,.07)}
   .lane:nth-child(4){background:rgba(11,92,246,.07)}
 
+  .chart{position:relative;border-top:2px solid var(--ink);height:clamp(150px,17vw,190px);background:var(--paper)}
+  .chart canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+  .chart__key{position:absolute;top:9px;left:12px;display:flex;gap:16px;flex-wrap:wrap;pointer-events:none}
+  .chart__key span{font-family:var(--n);font-weight:700;font-size:10px;letter-spacing:.14em;text-transform:uppercase}
+  .chart__key i{display:inline-block;width:14px;height:3px;margin-right:7px;vertical-align:3px}
+  .k-mkt{color:#b4470a}.k-mkt i{background:var(--orange)}
+  .k-cred{color:var(--cobalt)}.k-cred i{background:var(--cobalt)}
   .ledger2{border-top:2px solid var(--ink);padding:clamp(16px,2vw,24px) clamp(14px,2vw,22px);display:grid;gap:16px}
   .row2{display:grid;grid-template-columns:minmax(150px,200px) 1fr auto;gap:14px;align-items:center}
   .row2 > b{font-family:var(--n);font-weight:700;font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;color:rgba(10,13,24,.6)}
@@ -441,7 +448,7 @@
 
       <div class="rig" id="rig">
         <div class="rig__hd fine">
-          <span>Demonstration unit &mdash; 2,400 buyers</span>
+          <span>Demonstration unit &mdash; 2,400 buyers &middot; last 30 seconds</span>
           <span class="live" id="rigLive">In-market 0 &middot; Social running</span>
         </div>
         <div class="rig__stage" id="stage">
@@ -451,6 +458,14 @@
             <div class="lane"><b>Comparing</b><span>weighing options</span></div>
             <div class="lane"><b>In-market</b><span>searching now</span></div>
             <div class="lane"><b>Bought</b><span>converted</span></div>
+          </div>
+        </div>
+
+        <div class="chart">
+          <canvas id="hist" aria-hidden="true"></canvas>
+          <div class="chart__key">
+            <span class="k-mkt"><i></i>In-market buyers</span>
+            <span class="k-cred"><i></i>Credit last click gives search</span>
           </div>
         </div>
 
@@ -478,7 +493,7 @@
         </div>
       </div>
 
-      <p class="facts__note fine">Cut the social budget and the in-market pool empties in about ten seconds. Last click keeps reporting the same 93% the whole way down &mdash; which is why the dashboard never warns you</p>
+      <p class="facts__note fine">Cut the social budget and the in-market pool drops by four fifths in five seconds. Last click keeps reporting the same 92% the whole way down &mdash; which is why the dashboard never warns you</p>
     </div>
   </section>
 
@@ -638,17 +653,17 @@
             <tr><th scope="col">Category</th><th scope="col">Accounts</th></tr>
           </thead>
           <tbody>
-            <tr class="catrow"><td><span class="cat__n">Streaming &amp; Film</span><span class="cat__note">Demand spikes on a release date and decays inside two weeks. The capture window is the whole game.</span></td><td class="cat__c">Sony · Peacock · Disney · Starzplay</td></tr>
-            <tr class="catrow"><td><span class="cat__n">Automotive</span><span class="cat__note">Six-month consideration. Latent spend today lands in next year&rsquo;s ledger, so it has to be defended on lift, not CAC.</span></td><td class="cat__c">Toyota</td></tr>
-            <tr class="catrow"><td><span class="cat__n">Coffee &amp; Retail</span><span class="cat__note">Habit, not consideration. The job is frequency, and last click cannot see frequency at all.</span></td><td class="cat__c">Starbucks</td></tr>
-            <tr class="catrow"><td><span class="cat__n">Consumer Electronics</span><span class="cat__note">Spec comparison is the entire middle funnel. The comparing layer is where the money actually moves.</span></td><td class="cat__c">LG</td></tr>
-            <tr class="catrow"><td><span class="cat__n">Sportswear</span><span class="cat__note">Drop culture. Demand is manufactured against a calendar, then captured in minutes.</span></td><td class="cat__c">Adidas</td></tr>
-            <tr class="catrow"><td><span class="cat__n">Luxury Fashion</span><span class="cat__note">Intent is identity, not need. There is almost no comparison layer, and discounting destroys the asset.</span></td><td class="cat__c">Rick Owens</td></tr>
-            <tr class="catrow"><td><span class="cat__n">Web3</span><span class="cat__note">A technical audience that is allergic to advertising. Latent demand gets built in communities, not feeds.</span></td><td class="cat__c">NEAR Foundation · SushiSwap</td></tr>
-            <tr class="catrow"><td><span class="cat__n">Live Sport</span><span class="cat__note">Fixture-driven. Every event resets the funnel, so the same buyer passes through all four layers repeatedly.</span></td><td class="cat__c">SailGP</td></tr>
-            <tr class="catrow"><td><span class="cat__n">Architecture &amp; Education</span><span class="cat__note">One decision a year, enormous consideration cost, and the person deciding is not the person paying.</span></td><td class="cat__c">SCI-Arc</td></tr>
-            <tr class="catrow full"><td><span class="cat__n">Health &amp; DTC</span><span class="cat__note">Regulated claims. What you are allowed to say is the strategy, not the brief.</span></td><td class="cat__c">SKO Compounds<em>Full suite</em></td></tr>
-            <tr class="catrow full"><td><span class="cat__n">Urbanism &amp; Property</span><span class="cat__note">Long dwell, high ticket, and the in-market signal stays almost invisible right up until it converts.</span></td><td class="cat__c">Build Cities<em>Full suite</em></td></tr>
+            <tr class="catrow"><td><span class="cat__n">Streaming &amp; Film</span><span class="cat__note">Awareness and first-choice tracking move weeks before a ticket sells, and the conversion happens somewhere you will never get a pixel. You are buying against a date you cannot move.</span></td><td class="cat__c">Sony · Peacock · Disney · Starzplay</td></tr>
+            <tr class="catrow"><td><span class="cat__n">Automotive</span><span class="cat__note">Tier one builds the consideration set, tier three closes it and books the credit. The whole category is one long argument about who gets paid for demand somebody else created.</span></td><td class="cat__c">Toyota</td></tr>
+            <tr class="catrow"><td><span class="cat__n">Coffee &amp; Retail</span><span class="cat__note">Nobody is in-market for coffee, they are in a routine. The only honest question is whether the ad moved the visit, the daypart or the basket &mdash; and a click answers none of the three.</span></td><td class="cat__c">Starbucks</td></tr>
+            <tr class="catrow"><td><span class="cat__n">Consumer Electronics</span><span class="cat__note">The retailer owns the last click, so the brand ends up bidding against Best Buy for a customer it already made. The decision itself happens on a spec sheet nobody controls.</span></td><td class="cat__c">LG</td></tr>
+            <tr class="catrow"><td><span class="cat__n">Sportswear</span><span class="cat__note">Sell-through in ninety seconds proves nothing. Resale price the following week proves everything, and it prices demand that was built weeks earlier by people who were never on the media plan.</span></td><td class="cat__c">Adidas</td></tr>
+            <tr class="catrow"><td><span class="cat__n">Luxury Fashion</span><span class="cat__note">Nobody cross-shops, so there is no comparison layer to buy. Every lever that works elsewhere &mdash; urgency, codes, heavy retargeting &mdash; is a withdrawal from the only asset the house owns.</span></td><td class="cat__c">Rick Owens</td></tr>
+            <tr class="catrow"><td><span class="cat__n">Web3</span><span class="cat__note">A wallet connect is not a customer and TVL is not demand. Paid acquisition mostly rents mercenaries; the real read is what is still there ninety days after the incentive ends.</span></td><td class="cat__c">NEAR Foundation · SushiSwap</td></tr>
+            <tr class="catrow"><td><span class="cat__n">Live Sport</span><span class="cat__note">The funnel resets in a new city every few weeks. Latent spend only compounds if you are building a following rather than renting the same audience twice a season.</span></td><td class="cat__c">SailGP</td></tr>
+            <tr class="catrow"><td><span class="cat__n">Architecture &amp; Education</span><span class="cat__note">The applicant searches, the parent pays, and the deposit lands eighteen months after the click that gets credited for it. The consideration set was fixed years earlier by who teaches there.</span></td><td class="cat__c">SCI-Arc</td></tr>
+            <tr class="catrow full"><td><span class="cat__n">Health &amp; DTC</span><span class="cat__note">You cannot say the thing the customer is typing into the search bar. Compliance writes the creative, the creative shapes the funnel, and one policy strike takes the account with it.</span></td><td class="cat__c">SKO Compounds<em>Full suite</em></td></tr>
+            <tr class="catrow full"><td><span class="cat__n">Urbanism &amp; Property</span><span class="cat__note">The entire buyer pool might be four hundred people. Reach is worthless; the job is knowing which four hundred, and in-market barely exists until money actually moves.</span></td><td class="cat__c">Build Cities<em>Full suite</em></td></tr>
           </tbody>
         </table>
       </div>
@@ -784,13 +799,14 @@
   var px = new Float32Array(N*2);       // position, 0..1
   var pc = new Float32Array(N);         // stage 0..3
   var lane = new Uint8Array(N);
+  var age  = new Float32Array(N);
   var offx = new Float32Array(N);
   var vy   = new Float32Array(N);
   var first= new Int8Array(N);          // -1 none, 0 organic, 1 social, 2 search
   var hold = new Int16Array(N);
 
   function seat(i, l){
-    lane[i]=l; offx[i]=(Math.random()-0.5)*0.17;
+    lane[i]=l; age[i]=0; offx[i]=(Math.random()-0.5)*0.17;
     px[i*2]   = l*0.25 + 0.125 + offx[i];
     px[i*2+1] = 0.10 + Math.random()*0.80;
     vy[i] = (Math.random()-0.5)*0.10;
@@ -857,13 +873,14 @@
 
   var R_LATENT_ON  = 1/3.0;    // a social touch moves you out of latent in ~3s
   var R_LATENT_OFF = 1/40.0;   // organic alone, ~40s
-  var R_COMPARE    = 1/2.0;
-  var R_MARKET     = 1/1.6;
+  var R_COMPARE    = 1/1.4;
+  var R_MARKET     = 1/1.1;
   var HOLD         = 1.2;      // seconds spent in "bought" before re-entering the pool
 
   btn.addEventListener('click', function(){
     socialOn = !socialOn;
     btn.setAttribute('aria-pressed', String(!socialOn));
+    cutMarks.push(hist.length);
     btn.textContent = socialOn ? 'Cut the social budget' : 'Restore the social budget';
   });
 
@@ -877,7 +894,7 @@
     var pLat = chance(socialOn ? R_LATENT_ON : R_LATENT_OFF, dt);
     var pCmp = chance(R_COMPARE, dt);
     var pMkt = chance(R_MARKET, dt);
-    var ease = 1 - Math.exp(-dt/0.18);
+    var ease = 1 - Math.exp(-dt/0.55);
 
     for(var i=0;i<N;i++){
       var l=lane[i];
@@ -890,13 +907,13 @@
           if(socialOn && Math.random() < 0.80) first[i]=1;
           else if(Math.random() < 0.16)        first[i]=2;
           else                                  first[i]=0;
-          lane[i]=1; offx[i]=(Math.random()-0.5)*0.17;
+          lane[i]=1; age[i]=0; offx[i]=(Math.random()-0.5)*0.17;
         }
       } else if(l===1){
-        if(Math.random() < pCmp){ lane[i]=2; offx[i]=(Math.random()-0.5)*0.17; }
+        if(Math.random() < pCmp){ lane[i]=2; age[i]=0; offx[i]=(Math.random()-0.5)*0.17; }
       } else if(l===2){
         if(Math.random() < pMkt){
-          lane[i]=3; offx[i]=(Math.random()-0.5)*0.17; hold[i]=0;
+          lane[i]=3; age[i]=0; offx[i]=(Math.random()-0.5)*0.17; hold[i]=0;
           if(Math.random() < 0.92) creditLast.search++; else creditLast.other++;
           if(first[i]===1) creditTrue.social++;
           else if(first[i]===2) creditTrue.search++;
@@ -925,6 +942,58 @@
     gl.bindVertexArray(null);
   }
 
+  // ── rolling history: the two lines that disagree ──
+  var hcv = document.getElementById('hist');
+  var h2  = hcv ? hcv.getContext('2d') : null;
+  var HN  = 150, hist = [], sinceSample = 0, cutMarks = [];
+
+  function drawChart(){
+    if(!h2) return;
+    var r = hcv.parentNode.getBoundingClientRect();
+    var d = Math.min(window.devicePixelRatio||1, 2);
+    if(hcv.width !== Math.round(r.width*d)){ hcv.width=Math.round(r.width*d); hcv.height=Math.round(r.height*d); }
+    var W=hcv.width, H=hcv.height;
+    h2.setTransform(1,0,0,1,0,0); h2.clearRect(0,0,W,H);
+    var padT=34*d, padB=20*d, padR=64*d, padL=12*d;
+    var plotH = H-padT-padB, plotW = W-padL-padR;
+    if(hist.length < 2) return;
+
+    // baseline grid
+    h2.strokeStyle='rgba(10,13,24,.14)'; h2.lineWidth=1*d;
+    for(var g=0; g<=2; g++){
+      var gy = padT + plotH*(g/2);
+      h2.beginPath(); h2.moveTo(padL,gy); h2.lineTo(padL+plotW,gy); h2.stroke();
+    }
+    var count = Math.min(HN, hist.length);
+    var xAt=function(i){ return padL + plotW*(count<2?1:i/(count-1)); };
+
+    // cut markers
+    h2.strokeStyle='rgba(10,13,24,.35)'; h2.setLineDash([4*d,4*d]);
+    for(var m=0;m<cutMarks.length;m++){
+      var mi = cutMarks[m] - (hist.length-HN < 0 ? 0 : hist.length-HN);
+      if(mi>=0 && mi<count){ h2.beginPath(); h2.moveTo(xAt(mi),padT); h2.lineTo(xAt(mi),padT+plotH); h2.stroke(); }
+    }
+    h2.setLineDash([]);
+
+    function line(key, max, colour){
+      h2.strokeStyle=colour; h2.lineWidth=2.4*d; h2.beginPath();
+      var off = Math.max(0, hist.length-HN);
+      for(var i=off;i<hist.length;i++){
+        var v = Math.min(1, hist[i][key]/max);
+        var x = xAt(i-off), y = padT + plotH*(1-v);
+        i===off ? h2.moveTo(x,y) : h2.lineTo(x,y);
+      }
+      h2.stroke();
+      var last = hist[hist.length-1][key];
+      var ly = padT + plotH*(1 - Math.min(1,last/max));
+      h2.fillStyle=colour; h2.beginPath(); h2.arc(xAt(count-1),ly,3.2*d,0,6.283); h2.fill();
+      h2.font='700 '+(12*d)+'px "IBM Plex Mono",monospace'; h2.textBaseline='middle';
+      h2.fillText(key==='mkt' ? String(Math.round(last)) : Math.round(last)+'%', padL+plotW+8*d, ly);
+    }
+    line('cred',100,'#0b5cf6');
+    line('mkt', 620,'#fd720d');
+  }
+
   var lastUI=-1e9;
   function ui(now){
     if(now - lastUI < 260) return;
@@ -949,6 +1018,9 @@
 
     var inMarket = 0;
     for(var k=0;k<N;k++) if(lane[k]===2) inMarket++;
+    hist.push({mkt:inMarket, cred:ls});
+    if(hist.length > HN*2){ hist=hist.slice(-HN); cutMarks=cutMarks.map(function(c){return c-(HN);}).filter(function(c){return c>=0;}); }
+    drawChart();
     live.textContent = 'In-market ' + inMarket + ' · ' + (socialOn ? 'Social running' : 'Social cut');
   }
 
@@ -964,7 +1036,12 @@
   // warm up ~25s of model time so the panel is at steady state when first seen
   for(var w=0; w<1500; w++) step(1/60);
   draw(); ui(0);
-  if(!reduce) requestAnimationFrame(frame);
+  if(reduce){
+    // still a working demonstration, just not an animated one
+    setInterval(function(){ step(0.25); draw(); ui(performance.now()); }, 250);
+  } else {
+    requestAnimationFrame(frame);
+  }
 })();
 </script>
 
