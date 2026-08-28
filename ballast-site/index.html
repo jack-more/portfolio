@@ -127,45 +127,35 @@
 
   .front__in{
     position:relative;z-index:1;max-width:1320px;margin:0 auto;
-    padding:clamp(46px,7vw,86px) var(--pad) clamp(22px,3vw,34px);
+    padding:clamp(28px,4vh,58px) var(--pad) clamp(18px,2.4vh,30px);
     padding-left:calc(var(--pad) + var(--tab));
     min-height:calc(100svh - 38px);display:flex;flex-direction:column;
   }
   .front__top{display:flex;justify-content:space-between;align-items:flex-start;gap:24px}
     .front__mid{
-    flex:1;display:grid;grid-template-columns:minmax(0,1fr) auto;
+    flex:1;display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr);
     gap:clamp(24px,4vw,72px);align-items:center;padding:12px 0;
   }
   @media (max-width:1080px){.front__mid{grid-template-columns:1fr;align-items:start}}
-  .lockup{width:min(560px,84%);height:auto;margin:0 0 clamp(26px,3.4vw,40px)}
+  .lockup{width:min(430px,90%);height:auto;max-height:15vh;object-fit:contain;object-position:left;margin:0 0 clamp(16px,2.2vh,26px)}
 
-  .chips{display:flex;flex-direction:column;gap:11px;align-items:flex-start}
-  .chips__lab,.chips__note{color:rgba(10,13,24,.72)}
-  .chip{
-    text-decoration:none;color:var(--ink);
-    display:flex;align-items:center;gap:11px;white-space:nowrap;
-    background:#fff;border:2px solid var(--ink);padding:9px 15px 9px 11px;
-    box-shadow:3px 3px 0 rgba(10,13,24,.16);
-    font-family:var(--g);font-weight:900;font-size:14px;letter-spacing:-.015em;text-transform:uppercase;
-    transition:transform .16s ease, box-shadow .16s ease;
+  .hwork{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:clamp(8px,1vw,14px);height:100%;max-height:62vh;align-self:center;min-height:0}
+  .hwork a{position:relative;display:block;overflow:hidden;border:2px solid var(--ink);background:var(--paper-2);
+    transition:transform .18s ease, box-shadow .18s ease}
+  .hwork a{min-height:0}
+  .hwork img{width:100%;height:100%;object-fit:cover;display:block}
+  .hwork a:hover{transform:translateY(-3px);box-shadow:5px 5px 0 rgba(10,13,24,.2)}
+  .hwork b{
+    position:absolute;left:0;right:0;bottom:0;padding:6px 9px;
+    background:var(--ink);color:var(--paper);
+    font-family:var(--n);font-weight:700;font-size:9.5px;letter-spacing:.15em;text-transform:uppercase;
+    opacity:0;transform:translateY(100%);transition:opacity .18s ease, transform .18s ease;
   }
-  .chip b{font-family:var(--m);font-weight:600;font-size:10px;letter-spacing:.1em;color:rgba(10,13,24,.45)}
-  .chip i{width:11px;height:11px;display:block;flex:none;border:1.5px solid var(--ink)}
-  .chip:nth-of-type(1){transform:rotate(-1.6deg)}
-  .chip:nth-of-type(2){transform:rotate(1.1deg);margin-left:14px}
-  .chip:nth-of-type(3){transform:rotate(-.7deg);margin-left:5px}
-  .chip:nth-of-type(4){transform:rotate(1.8deg);margin-left:20px}
-  .chip:hover{transform:rotate(0deg) translateY(-2px);box-shadow:5px 5px 0 rgba(10,13,24,.22)}
-  .c1 i{background:var(--amber)}.c2 i{background:var(--orange)}
-  .c3 i{background:#c94c02}.c4 i{background:#7d2c02}
-  @media (max-width:1080px){
-    .chips{flex-direction:row;flex-wrap:wrap;gap:8px;margin-top:26px}
-    .chip{margin-left:0 !important;transform:none !important;font-size:12.5px;padding:7px 12px 7px 9px}
-    .chips__lab,.chips__note{display:none}
-  }
+  .hwork a:hover b{opacity:1;transform:translateY(0)}
+  @media (max-width:1080px){.hwork{max-height:none;height:auto;margin-top:28px}.hwork img{aspect-ratio:4/5;height:auto}}
   .say{
     font-family:var(--g);font-weight:900;text-transform:uppercase;
-    font-size:clamp(28px,5.4vw,74px);line-height:.94;letter-spacing:-.042em;
+    font-size:min(5.2vw, 8.4vh, 66px);line-height:.94;letter-spacing:-.042em;
     margin:0;max-width:18ch;
   }
   .say em{font-style:normal;color:var(--cobalt)}
@@ -428,13 +418,11 @@
           <h1 class="say">We buy <em>intent</em>.<br>The rest buy channels.</h1>
           <p class="front__sub fine">Paid media &middot; Go-to-market &middot; Measurement &mdash; run across eleven categories</p>
         </div>
-        <div class="chips">
-          <span class="chips__lab fine">Intent comes in four</span>
-          <a class="chip c1" href="#intent"><b>01</b><i></i>In-market</a>
-          <a class="chip c2" href="#intent"><b>02</b><i></i>Comparing</a>
-          <a class="chip c3" href="#intent"><b>03</b><i></i>Latent</a>
-          <a class="chip c4" href="#intent"><b>04</b><i></i>Lapsed</a>
-          <span class="chips__note fine">Collect all four</span>
+        <div class="hwork">
+          <a href="#work"><img src="/work/shipwreck.jpg" width="880" height="1100" alt="SKO Compounds on a boat deck"><b>SKO &mdash; Deck</b></a>
+          <a href="#work"><img src="/work/helix.jpg" width="880" height="1100" alt="SKO Compounds in a glass helix"><b>SKO &mdash; Helix</b></a>
+          <a href="#work"><img src="/work/court.jpg" width="880" height="1100" alt="SKO Compounds court flat lay"><b>SKO &mdash; Court</b></a>
+          <a href="#work"><img src="/work/ghkcu.jpg" width="880" height="1100" alt="SKO Compounds GHK-Cu on dark marble"><b>SKO &mdash; GHK&#8209;Cu</b></a>
         </div>
       </div>
 
