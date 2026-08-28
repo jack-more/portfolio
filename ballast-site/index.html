@@ -107,8 +107,6 @@
 
   /* ── PANEL 01 · FRONT ───────────────────────────────── */
   .front{position:relative;overflow:hidden;border-bottom:1px dashed rgba(10,13,24,.34)}
-
-  #spread{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;display:block}
   .front__in{
     position:relative;z-index:1;max-width:1320px;margin:0 auto;
     padding:clamp(28px,4vh,58px) var(--pad) clamp(18px,2.4vh,30px);
@@ -383,7 +381,6 @@
     </span>
     </span>
     
-    <canvas id="spread" aria-hidden="true"></canvas>
     <div class="front__in">
 
       <div class="front__top">
@@ -727,80 +724,6 @@
 
 
 
-<script>
-/* Sparse marks that slowly divide into the white space, the way the
-   reference does it: thin outlines, no fill, no connectors, few of them. */
-(function(){
-  var host=document.getElementById('top'), cv=document.getElementById('spread');
-  if(!host||!cv) return;
-  var ctx=cv.getContext('2d'); if(!ctx) return;
-  var W=0,H=0,DPR=1,cells=[],keepOut=[],MAX=7;
-  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  function measure(){
-    var hr=host.getBoundingClientRect();
-    DPR=Math.min(window.devicePixelRatio||1,2);
-    W=Math.max(1,Math.round(hr.width)); H=Math.max(1,Math.round(hr.height));
-    cv.width=Math.round(W*DPR); cv.height=Math.round(H*DPR); ctx.setTransform(DPR,0,0,DPR,0,0);
-    keepOut=[];
-    ['.lockup','.say','.front__sub','.cta','.front__foot','.burst','.front__top > span']
-      .forEach(function(sel){ var el=host.querySelector(sel); if(!el) return;
-        var r=el.getBoundingClientRect();
-        keepOut.push({x:r.left-hr.left-34,y:r.top-hr.top-34,w:r.width+68,h:r.height+68}); });
-  }
-  function blocked(x,y,r){
-    if(x<r+30||y<r+30||x>W-r-30||y>H-r-30) return true;
-    for(var i=0;i<keepOut.length;i++){ var k=keepOut[i];
-      if(x+r>k.x&&x-r<k.x+k.w&&y+r>k.y&&y-r<k.y+k.h) return true; }
-    for(var j=0;j<cells.length;j++){ var c=cells[j],dx=c.x-x,dy=c.y-y;
-      if(Math.sqrt(dx*dx+dy*dy)<c.tr+r+70) return true; }
-    return false;
-  }
-  function make(x,y){ return {x:x,y:y,r:0.5,tr:11+Math.random()*13,born:0,
-    ph:Math.random()*6.28,spin:(Math.random()-0.5)*0.35}; }
-  function place(){
-    for(var t=0;t<160;t++){
-      var x=40+Math.random()*(W-80), y=40+Math.random()*(H-80);
-      if(!blocked(x,y,22)){ cells.push(make(x,y)); return true; }
-    } return false;
-  }
-  function ring(c,t){
-    var N=11; ctx.beginPath();
-    for(var i=0;i<=N;i++){
-      var a=i/N*6.283+c.spin*t*0.25;
-      var rr=c.r*(1+0.085*Math.sin(a*3+c.ph)+0.05*Math.cos(a*5-c.ph));
-      var x=c.x+Math.cos(a)*rr, y=c.y+Math.sin(a)*rr;
-      i?ctx.lineTo(x,y):ctx.moveTo(x,y);
-    } ctx.closePath();
-  }
-  function paint(t){
-    ctx.clearRect(0,0,W,H);
-    for(var i=0;i<cells.length;i++){
-      var c=cells[i];
-      var al=Math.min(1,c.born/1.2);
-      ring(c,t);
-      ctx.lineWidth=1.6;
-      ctx.strokeStyle=(i%4===3?'rgba(11,92,246,':'rgba(10,13,24,')+(0.62*al)+')';
-      ctx.stroke();
-    }
-  }
-  var last=0, since=0;
-  function frame(t){
-    var dt=last?Math.min(0.05,(t-last)/1000):1/60; last=t;
-    since+=dt;
-    if(since>3.4 && cells.length<MAX){ since=0; place(); }
-    for(var i=0;i<cells.length;i++){ var c=cells[i];
-      c.born+=dt; c.r+=(c.tr-c.r)*(1-Math.exp(-dt/1.1)); }
-    paint(t*0.001);
-    requestAnimationFrame(frame);
-  }
-  function boot(){ measure(); cells=[]; for(var i=0;i<4;i++) place();
-    cells.forEach(function(c){ c.r=c.tr; c.born=2; }); }
-  boot();
-  addEventListener('resize', boot);
-  if(reduce){ paint(0); } else { requestAnimationFrame(frame); }
-})();
-</script>
 
 </body>
 </html>
