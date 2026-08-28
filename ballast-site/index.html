@@ -247,6 +247,30 @@
     .stats div:nth-last-child(-n+2){border-bottom:0}
   }
 
+  .held{margin:0 0 clamp(34px,4vw,54px)}
+  .held__lab{display:block;color:rgba(10,13,24,.5);margin-bottom:12px}
+  .held__row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:1px solid rgba(10,13,24,.22)}
+  .held__row div{padding:14px 22px 16px 0;border-right:1px solid rgba(10,13,24,.14)}
+  .held__row div:last-child{border-right:0}
+  .held__row b{display:block;font-family:var(--g);font-weight:900;font-size:clamp(16px,1.9vw,21px);letter-spacing:-.022em;text-transform:uppercase}
+  .held__row span{display:block;margin-top:5px;font-size:13.5px;line-height:1.45;color:rgba(10,13,24,.62)}
+  @media (max-width:760px){.held__row{grid-template-columns:1fr}.held__row div{border-right:0;border-bottom:1px solid rgba(10,13,24,.14)}}
+
+  /* the NEAR mechanism, told properly */
+  .case{border:2px solid var(--ink);background:#fff;margin-bottom:clamp(14px,1.8vw,22px)}
+  .case__cap{background:var(--cobalt);color:#fff;padding:10px 18px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .case__body{padding:clamp(22px,2.6vw,34px) clamp(18px,2.2vw,30px);display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(24px,3vw,48px)}
+  @media (max-width:860px){.case__body{grid-template-columns:1fr}}
+  .case h3{margin:0;font-family:var(--g);font-weight:900;font-size:clamp(24px,3.4vw,44px);letter-spacing:-.035em;text-transform:uppercase;line-height:.98}
+  .case h3 span{display:block;font-size:.44em;color:rgba(10,13,24,.5);margin-top:8px;letter-spacing:-.01em}
+  .case__lede{margin:14px 0 0;font-size:15px;line-height:1.6;color:rgba(10,13,24,.74)}
+  .steps2{counter-reset:st;border-top:1px solid rgba(10,13,24,.2)}
+  .steps2 li{list-style:none;display:grid;grid-template-columns:30px minmax(0,1fr);gap:14px;padding:13px 0;border-bottom:1px solid rgba(10,13,24,.14);font-size:14.5px;line-height:1.5}
+  .steps2 li::before{counter-increment:st;content:counter(st,decimal-leading-zero);
+    font-family:var(--m);font-size:11px;font-weight:600;color:var(--cobalt);padding-top:3px}
+  .steps2 li b{font-weight:800}
+  .case__note{margin:16px 0 0;padding-top:14px;border-top:2px solid var(--ink);font-weight:600;font-size:15px;line-height:1.55}
+
   /* ── PANEL 03 · THE SPRINT ───────────────────────────── */
   .sprint{
     position:relative;overflow:hidden;border-bottom:1px solid rgba(10,13,24,.14);
@@ -565,6 +589,15 @@
         <div><b>15</b><span>Accounts across Ballast and prior agencies</span></div>
       </div>
 
+      <div class="held">
+        <span class="held__lab fine">Where the 4&times; held</span>
+        <div class="held__row">
+          <div><b>Toyota</b><span>African American and Asian American segments</span></div>
+          <div><b>Starbucks</b><span>Pacific Northwest</span></div>
+          <div><b>Starzplay</b><span>International</span></div>
+        </div>
+      </div>
+
       <div class="facts">
         <div class="facts__cap">
           <b>Engagement Facts</b>
@@ -729,24 +762,35 @@
 
       <p class="say say--sm">Anyone can buy the impression.<br>We build the <em>reason to act</em>.</p>
 
-      <div class="promos">
-        <div class="promo">
-          <div class="promo__cap fine"><span>Collectible</span><span>01</span></div>
-          <div class="promo__body">
-            <h3>Proof of Memories<span>NEAR &times; SailGP</span></h3>
-            <p>Race moments turned into something a fan could keep. The incentive manufactured the demand; the media only had to catch it.</p>
-            <div class="promo__ft fine">Web3 &middot; Live sport</div>
+      <div class="case">
+        <div class="case__cap fine"><span>Incentive design &mdash; NEAR &times; SailGP</span><span>Web3 &middot; Live sport</span></div>
+        <div class="case__body">
+          <div>
+            <h3>Proof of Memories<span>The incentive did the onboarding</span></h3>
+            <p class="case__lede">Wallet creation is the hardest conversion in web3. Nobody sets up a wallet because they were asked to. They set one up because something they wanted was on the other side of it.</p>
+          </div>
+          <div>
+            <ol class="steps2">
+              <li><span><b>Tap the NFT, and the wallet is created.</b> No seed phrase, no setup screen, no decision to make.</span></li>
+              <li><span><b>Take a picture at the event.</b> A lightweight app, nothing to install and learn.</span></li>
+              <li><span><b>Your shot joins the grid.</b> Every other attendee, their wallets and their X accounts, in one live wall.</span></li>
+              <li><span><b>The NFT mints on the backend</b> and is redeemable against a drink or merch on the day.</span></li>
+            </ol>
+            <p class="case__note">A drink and a photo wall did what an onboarding flow could not.</p>
           </div>
         </div>
-        
-        </div>
+      </div>
+
+      <div class="promos">
         <div class="promo">
-          <div class="promo__cap fine"><span>Coded offer</span><span>03</span></div>
+          <div class="promo__cap fine"><span>Coded offer</span><span>01</span></div>
           <div class="promo__body">
             <h3>Platform Codes<span>SKO Compounds</span></h3>
             <p>A different code per platform, so the offer is the attribution. What the dashboard cannot see, the redemption can.</p>
             <div class="promo__ft fine">Health &amp; DTC</div>
           </div>
+        </div>
+      </div>
         </div>
       </div>
 
