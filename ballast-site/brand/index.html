@@ -12,7 +12,7 @@
 <style>
   :root{
     --paper:#f9fafe; --paper2:#eef1fa; --ink:#0a0d18;
-    --cobalt:#0b5cf6; --orange:#f76a08; --amber:#f49313; --rim:#f68f0c;
+    --cobalt:#0b5cf6; --orange:#fd720d; --amber:#f9a51b; --deep:#12204e;
     --g:"Archivo","Helvetica Neue",Arial,sans-serif;
     --n:"Archivo Narrow","Archivo",Arial,sans-serif;
     --m:"IBM Plex Mono",ui-monospace,Menlo,monospace;
@@ -54,19 +54,60 @@
   .d1{font-weight:900;font-style:italic;font-size:clamp(34px,6vw,76px);letter-spacing:-.045em;text-transform:uppercase}
   .d2{font-weight:900;font-size:clamp(26px,4vw,52px);letter-spacing:-.035em;text-transform:uppercase}
   .d3{font-weight:800;font-size:clamp(17px,2vw,24px);letter-spacing:-.02em;text-transform:uppercase}
-  .b1{font-weight:500;font-size:17px;line-height:1.62;letter-spacing:0;text-transform:none;max-width:60ch}
+  .b1{font-weight:400;font-size:16px;line-height:1.62;letter-spacing:0;text-transform:none;max-width:60ch}
   .m1{font-family:var(--m);font-size:12px;letter-spacing:.1em;text-transform:uppercase}
 
   .grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(14px,2vw,24px)}
   .demo{border:2px solid var(--ink);background:#fff;padding:clamp(18px,2vw,26px);display:flex;flex-direction:column;gap:14px;align-items:flex-start}
 
-  .lozenge{width:146px;height:100px;border-radius:50%/50%;background:radial-gradient(60% 62% at 50% 46%,var(--amber) 0%,var(--orange) 74%,var(--rim) 100%)}
-  .btn{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--g);font-weight:900;font-style:italic;text-transform:uppercase;font-size:14px;letter-spacing:-.01em;padding:11px 20px;border:2px solid var(--ink);background:var(--cobalt);color:#fff}
-  .btn i{width:8px;height:8px;background:var(--amber);display:block}
+  .lozenge{width:146px;height:100px;border-radius:50%/50%;background:radial-gradient(60% 62% at 50% 46%,#f49313 0%,#f76a08 74%,#f68f0c 100%)}
+
+  /* the ground, as the hero actually builds it */
+  .bloom{
+    height:220px;border:2px solid var(--ink);
+    background:
+      radial-gradient(52% 46% at 76% 16%, rgba(255,196,52,.95) 0%, rgba(255,196,52,0) 64%),
+      radial-gradient(58% 52% at 16% 34%, rgba(247,106,8,.90) 0%, rgba(247,106,8,0) 68%),
+      radial-gradient(64% 58% at 88% 76%, rgba(216,74,4,.85) 0%, rgba(216,74,4,0) 70%),
+      radial-gradient(90% 76% at 30% 96%, rgba(23,37,95,.90) 0%, rgba(23,37,95,0) 72%),
+      linear-gradient(152deg, #F08A0C 0%, #E05704 34%, #B23F05 62%, #3A2A5A 88%, #12204E 100%);
+  }
+  .bullseye{
+    height:220px;border:2px solid var(--ink);position:relative;
+    background:radial-gradient(closest-side at 50% 50%, #f9a51b 0%, #fd720d 60%, #b23f05 100%);
+  }
+  .bullseye::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(45deg,transparent 47.5%,var(--ink) 47.5%,var(--ink) 52.5%,transparent 52.5%);
+  }
+
+  /* components, verbatim from the site */
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;text-decoration:none;
+    font-family:var(--g);font-weight:900;font-style:italic;text-transform:uppercase;
+    font-size:14px;letter-spacing:-.01em;padding:11px 20px;border:2px solid var(--ink);
+    box-shadow:4px 4px 0 rgba(10,13,24,.28);
+    transition:transform .16s ease,box-shadow .16s ease;
+  }
+  .btn:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 rgba(10,13,24,.28)}
+  .btn i{width:6px;height:6px;display:block;flex:none}
+  .btn.p{background:var(--cobalt);color:#fff}
+  .btn.p i{background:#fff}
   .btn.alt{background:#fff;color:var(--ink)}
-  .btn.alt i{background:var(--orange)}
-  .tag{display:inline-flex;align-items:center;gap:8px;border:2px solid var(--ink);background:#fff;padding:7px 13px;font-family:var(--g);font-weight:900;font-size:12px;text-transform:uppercase;letter-spacing:-.005em}
-  .tag i{width:9px;height:9px;display:block;border:1.5px solid var(--ink)}
+  .btn.alt i{background:var(--cobalt)}
+  .chip{
+    display:inline-flex;align-items:center;gap:9px;background:var(--ink);color:#fff;
+    padding:8px 15px;font-family:var(--n);font-weight:700;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;
+  }
+  .chip i{width:8px;height:8px;border-radius:50%;background:var(--amber);display:block;flex:none;animation:pulse 2.4s ease-in-out infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+  .hddemo{width:100%;display:flex;align-items:baseline;gap:14px;border-bottom:2px solid var(--ink);padding-bottom:10px}
+  .hddemo .n{font-family:var(--m);font-weight:600;font-size:11px;letter-spacing:.12em;color:var(--cobalt)}
+  .hddemo b{font-family:var(--g);font-weight:900;font-size:19px;letter-spacing:-.02em;text-transform:uppercase}
+  .hddemo .r{margin-left:auto;color:rgba(10,13,24,.5)}
+  .tapedemo{width:100%;border-top:1px solid rgba(10,13,24,.22);border-bottom:1px solid rgba(10,13,24,.22);padding:10px 0;overflow:hidden;white-space:nowrap}
+  .tapedemo span{font-family:var(--m);font-weight:500;font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:0 20px}
+  .tapedemo i{font-style:normal;color:var(--orange);font-size:11px}
 
   .rules{display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,2vw,26px)}
   .rules>div{border:2px solid var(--ink);background:#fff}
@@ -87,7 +128,7 @@
   <div class="wrap">
     <img src="/lockup.png" alt="Ballast">
     <h1>Brand system,<br>derived from the mark</h1>
-    <p class="dim">Every value below was measured off the logo file itself &mdash; the oblique angle, the ellipse ratio, the outline weight, the colour ramp. Nothing here is a preference. It is what the mark already is, written down so everything else can agree with it.</p>
+    <p class="dim">The mark's own numbers were measured off the logo file &mdash; the oblique, the ellipse ratio, the outline weight. The rest of the system was built on top of them and is documented here as the site actually runs it, not as it was first imagined.</p>
   </div>
 </header>
 
@@ -104,50 +145,73 @@
       <tr><td>Minimum width</td><td>160px digital / 34mm print</td></tr>
       <tr><td>Clear space</td><td>One ellipse height on every side</td></tr>
     </table>
-    <p class="dim" style="margin-top:18px">The 23&deg; oblique is the single most distinctive property. It is steep &mdash; roughly twice a normal italic &mdash; and it is why the mark reads as motion. Nothing else in the system should try to match it; if a second element leans at 23&deg;, the mark stops being the thing that leans.</p>
+    <p class="dim" style="margin-top:18px">The 23&deg; oblique is the single most distinctive property. It is steep &mdash; roughly twice a normal italic &mdash; and it is why the mark reads as motion. Nothing else in the system leans at 23&deg;; if a second element does, the mark stops being the thing that leans.</p>
+    <p class="dim" style="margin-top:12px"><b>The lockup is the wordmark and its ellipse together.</b> They are never separated: the ellipse is not a background shape, a pattern element, or a page ground. <span class="code">wordmark.png</span> &mdash; the type without the ellipse &mdash; exists for cobalt and dark grounds only.</p>
   </div>
 </section>
 
 <section>
   <div class="wrap">
-    <div class="hd"><span class="n">02</span><h2>Colour</h2><span class="r lab">Sampled from the file</span></div>
+    <div class="hd"><span class="n">02</span><h2>Colour</h2><span class="r lab">Tokens, as the site runs them</span></div>
     <div class="sw">
-      <div><i style="background:#0b5cf6"></i><b>Cobalt</b><span class="code">#0B5CF6 &middot; structure, outline, links</span></div>
-      <div><i style="background:#f76a08"></i><b>Orange</b><span class="code">#F76A08 &middot; the ground, energy</span></div>
-      <div><i style="background:#f49313"></i><b>Amber</b><span class="code">#F49313 &middot; core of the ramp, accents</span></div>
-      <div><i style="background:#0a0d18"></i><b>Ink</b><span class="code">#0A0D18 &middot; type, rules, outlines</span></div>
-      <div><i style="background:#f9fafe;box-shadow:inset 0 0 0 1px rgba(10,13,24,.14)"></i><b>Paper</b><span class="code">#F9FAFE &middot; the only background</span></div>
-      <div><i style="background:radial-gradient(60% 62% at 50% 46%,#f49313 0%,#f76a08 74%,#f68f0c 100%)"></i><b>The Ramp</b><span class="code">amber &rarr; orange &rarr; warm rim</span></div>
+      <div><i style="background:#0b5cf6"></i><b>Cobalt</b><span class="code">#0B5CF6 &middot; structure, emphasis, the close</span></div>
+      <div><i style="background:#fd720d"></i><b>Orange</b><span class="code">#FD720D &middot; caution bars, accents, the tape stars</span></div>
+      <div><i style="background:#f9a51b"></i><b>Amber</b><span class="code">#F9A51B &middot; the booked light, numbers on ink</span></div>
+      <div><i style="background:#0a0d18"></i><b>Ink</b><span class="code">#0A0D18 &middot; type, outlines, dark panels</span></div>
+      <div><i style="background:#f9fafe;box-shadow:inset 0 0 0 1px rgba(10,13,24,.14)"></i><b>Paper</b><span class="code">#F9FAFE &middot; the default ground</span></div>
+      <div><i style="background:#12204e"></i><b>Deep water</b><span class="code">#12204E &middot; where the gradients sink</span></div>
     </div>
-    <p class="dim" style="margin-top:20px">The ground is not a flat orange. It runs amber at the core, deepens to orange at 74%, then warms again at the rim &mdash; which is why it glows. Any orange field in the system uses that ramp, never a flat fill.</p>
+    <p class="dim" style="margin-top:20px">The mark itself carries its own sampled ramp &mdash; amber core <span class="code">#F49313</span>, orange at 74% <span class="code">#F76A08</span>, warm rim <span class="code">#F68F0C</span> &mdash; which is why the ellipse glows. The UI accents run slightly hotter than the mark; that is deliberate, so type and chips read at small sizes.</p>
+    <p class="dim" style="margin-top:12px">The page is not all paper. It runs paper &rarr; ink &rarr; gradient &rarr; cobalt in a deliberate rhythm, so no two heavy sections sit on the same ground twice in a row.</p>
   </div>
 </section>
 
 <section>
   <div class="wrap">
-    <div class="hd"><span class="n">03</span><h2>Typography</h2><span class="r lab">Archivo, one family</span></div>
+    <div class="hd"><span class="n">03</span><h2>The Ground</h2><span class="r lab">Blooms, never a bullseye</span></div>
+    <div class="grid2">
+      <div class="demo" style="padding:0;gap:0">
+        <div class="bloom" style="width:100%;border:0;border-bottom:2px solid var(--ink)"></div>
+        <div style="padding:14px 18px 18px"><span class="lab dim">Right</span>
+        <p class="dim" style="font-size:14px;margin:6px 0 0">Four radial blooms at different centres over a diagonal base that sinks into deep water. Off-axis, asymmetric, glowing. This is the hero and sprint ground, verbatim.</p></div>
+      </div>
+      <div class="demo" style="padding:0;gap:0">
+        <div class="bullseye" style="width:100%;border:0;border-bottom:2px solid var(--ink)"></div>
+        <div style="padding:14px 18px 18px"><span class="lab dim">Wrong</span>
+        <p class="dim" style="font-size:14px;margin:6px 0 0">A concentric radial is a bullseye &mdash; a copy of the mark's own ellipse, competing with the thing standing in front of it. Never behind the mark, never as a field.</p></div>
+      </div>
+    </div>
+    <p class="dim" style="margin-top:20px">Orange never appears as a flat fill at panel scale. Both gradient grounds carry a coarse film-grain overlay at low opacity &mdash; the thing that stops CSS reading as CSS. That grain and the fixed 5% paper grain are the only textures in the system.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="hd"><span class="n">04</span><h2>Typography</h2><span class="r lab">Archivo, one family</span></div>
     <div class="spec"><p class="t d1">Display oblique</p></div>
     <div class="spec"><p class="t d2">Display upright</p></div>
     <div class="spec"><p class="t d3">Section heading</p></div>
-    <div class="spec"><p class="t b1">Body copy sits at 500 weight, 17px, 1.62 leading. Long enough to say something, short enough that nobody has to work for it. Never justified, never centred below three lines.</p></div>
+    <div class="spec"><p class="t b1">Body copy sits at 400&ndash;500 weight, 16px, 1.62 leading. Long enough to say something, short enough that nobody has to work for it. Never justified, never centred below three lines.</p></div>
     <div class="spec"><p class="t m1">Data &middot; labels &middot; codes &middot; IBM Plex Mono</p></div>
-    <p class="dim" style="margin-top:18px"><b>One family does the work.</b> Archivo at 900 italic rhymes with the mark without competing with it; at 800&ndash;900 upright it carries headings; at 500 it reads as body. Plex Mono is the only second voice, and only for data. A light serif was tried and is wrong: it descends from a different century than the mark and makes the logo look like a sticker somebody left on an essay.</p>
+    <p class="dim" style="margin-top:18px"><b>One family does the work.</b> Archivo at 900 italic rhymes with the mark without competing with it; at 800&ndash;900 upright it carries headings; at 400&ndash;500 it reads as body. Archivo Narrow at 600&ndash;700, letterspaced and uppercase, is the fine-print voice. Plex Mono is the only second family, and only for data, codes and section numbers. A light serif was tried and is wrong: it descends from a different century than the mark and makes the logo look like a sticker somebody left on an essay.</p>
   </div>
 </section>
 
 <section>
   <div class="wrap">
-    <div class="hd"><span class="n">04</span><h2>Geometry</h2><span class="r lab">The lozenge and the die-cut</span></div>
+    <div class="hd"><span class="n">05</span><h2>Geometry</h2><span class="r lab">The lozenge and the die-cut</span></div>
     <div class="grid2">
       <div class="demo">
         <span class="lab dim">The lozenge &mdash; 1.46 : 1</span>
         <div class="lozenge"></div>
-        <p class="dim" style="font-size:14px;margin:0">The ellipse from the mark is the only organic shape in the system. It appears at 1.46:1, never circular, never blobbed, always carrying the ramp.</p>
+        <p class="dim" style="font-size:14px;margin:0">The ellipse from the mark is the only organic shape in the system. It appears at 1.46:1, never circular, never blobbed, always carrying the ramp &mdash; and only as part of the lockup or as a deliberate specimen like this one.</p>
       </div>
       <div class="demo">
         <span class="lab dim">The die-cut</span>
-        <div style="display:flex;gap:10px;flex-wrap:wrap"><span class="tag"><i style="background:#f49313"></i>In-market</span><span class="tag"><i style="background:#f76a08"></i>Latent</span></div>
-        <p class="dim" style="font-size:14px;margin:0">Everything is cut out and outlined the way the wordmark is: 2px ink, square corners, white fill. Buttons, tags, panels, images. No shadows, no soft edges, no gradients on anything but the ellipse.</p>
+        <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center">
+          <a class="btn alt" href="#" onclick="return false"><i></i>Pressed on hover</a>
+        </div>
+        <p class="dim" style="font-size:14px;margin:0">Everything interactive is cut out the way the wordmark is: 2px ink outline, square corners, hard offset shadow at 4px, and a physical press on hover &mdash; the element moves into its own shadow. No soft shadows, no rounded corners, no glows.</p>
       </div>
     </div>
   </div>
@@ -155,21 +219,27 @@
 
 <section>
   <div class="wrap">
-    <div class="hd"><span class="n">05</span><h2>Components</h2><span class="r lab">Built from the two rules above</span></div>
+    <div class="hd"><span class="n">06</span><h2>Components</h2><span class="r lab">Verbatim from the site</span></div>
     <div class="grid2">
       <div class="demo">
-        <span class="lab dim">Buttons</span>
-        <a class="btn" href="#"><i></i>Start buying intent</a>
-        <a class="btn alt" href="#"><i></i>Build incentive alignment</a>
+        <span class="lab dim">Buttons &mdash; one primary per view</span>
+        <a class="btn p" href="#" onclick="return false"><i></i>Start buying intent</a>
+        <a class="btn alt" href="#" onclick="return false"><i></i>See the record</a>
       </div>
       <div class="demo">
-        <span class="lab dim">Data row</span>
-        <div style="width:100%;border-top:2px solid var(--ink);padding-top:10px;display:flex;justify-content:space-between;gap:16px">
-          <span class="lab dim">Categories</span><span style="font-weight:800">Eleven</span>
-        </div>
-        <div style="width:100%;border-top:1px solid rgba(10,13,24,.2);padding-top:10px;display:flex;justify-content:space-between;gap:16px">
-          <span class="lab dim">Based</span><span style="font-weight:800">Los Angeles</span>
-        </div>
+        <span class="lab dim">Status chip &mdash; the booked light</span>
+        <span class="chip"><i></i>Fully booked</span>
+        <p class="dim" style="font-size:14px;margin:0">The amber dot pulses. It is one of three things on the whole site allowed to move.</p>
+      </div>
+      <div class="demo">
+        <span class="lab dim">Section header</span>
+        <div class="hddemo"><span class="n">02</span><b>The Record</b><span class="r lab">Where the method has been run</span></div>
+        <p class="dim" style="font-size:14px;margin:0">Mono number in cobalt, heading in 900, right-hand label in the fine-print voice. Numbers run in page order with no gaps.</p>
+      </div>
+      <div class="demo">
+        <span class="lab dim">The tape</span>
+        <div class="tapedemo"><span>We buy intent</span><i>&#10033;</i><span>4&times; blended ROAS</span><i>&#10033;</i><span>$2M+ monthly spend</span><i>&#10033;</i></div>
+        <p class="dim" style="font-size:14px;margin:0">The record as repeating carton tape: mono type, orange stars, one slow crawl under the hero. Static when the visitor prefers reduced motion.</p>
       </div>
     </div>
   </div>
@@ -177,28 +247,28 @@
 
 <section>
   <div class="wrap">
-    <div class="hd"><span class="n">06</span><h2>Rules</h2><span class="r lab">Learned the hard way</span></div>
+    <div class="hd"><span class="n">07</span><h2>Rules</h2><span class="r lab">Learned the hard way</span></div>
     <div class="rules">
       <div class="do">
         <h3>Do</h3>
         <ul>
           <li>Let the mark be the loudest thing on any surface it appears on.</li>
-          <li>Use the ramp for orange, never a flat fill.</li>
-          <li>Outline at 2px ink, square corners, white fill.</li>
-          <li>Keep the lozenge at 1.46:1 whenever it is used as a shape.</li>
-          <li>Set data in Plex Mono and everything else in Archivo.</li>
-          <li>Earn motion: it should show a real state changing, or it should not move.</li>
+          <li>Keep the wordmark and its ellipse together. Always.</li>
+          <li>Build orange grounds from off-centre blooms sinking into deep water.</li>
+          <li>Outline at 2px ink, square corners, offset shadow, press on hover.</li>
+          <li>Set data in Plex Mono, fine print in Archivo Narrow, everything else in Archivo.</li>
+          <li>Let packaging voice label the structure &mdash; Warnings, Serving Suggestion, lot codes &mdash; while body copy talks like a person.</li>
         </ul>
       </div>
       <div class="no">
         <h3>Don't</h3>
         <ul>
+          <li>Strip the ellipse off the mark, or echo it as a background shape.</li>
+          <li>Fill anything panel-sized with flat orange, or any concentric radial.</li>
           <li>Pair the mark with a light editorial serif.</li>
-          <li>Draw irregular blobs, cells or organic shapes. The lozenge is the only curve.</li>
-          <li>Fill space with texture &mdash; halftone fields, noise, dot screens.</li>
-          <li>Build a boxed demo, simulation or chart to explain the offer.</li>
+          <li>Move anything except the booked light, the button press and the tape.</li>
+          <li>Explain the joke. If a line explains the line above it, cut it.</li>
           <li>Lean anything else at the mark's 23&deg;.</li>
-          <li>Use packaging voice as copy. The mark already says it.</li>
         </ul>
       </div>
     </div>
