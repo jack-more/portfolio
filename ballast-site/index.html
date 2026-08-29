@@ -110,6 +110,19 @@
   .panel--ink .hd .no{color:var(--amber)}
   .panel--ink .hd .rt{color:rgba(249,250,254,.55)}
 
+  /* side-seam printing, wide screens only */
+  @media (min-width:1440px){
+    .panel::before,.sprint::before{
+      content:attr(data-seam);position:absolute;top:clamp(52px,7vw,96px);
+      left:calc(50% - 660px - 40px);z-index:1;
+      writing-mode:vertical-rl;transform:rotate(180deg);
+      font-family:var(--m);font-weight:500;font-size:9.5px;letter-spacing:.3em;text-transform:uppercase;
+      color:rgba(10,13,24,.32);
+    }
+    .panel--ink::before{color:rgba(249,250,254,.32)}
+    .sprint::before{color:rgba(255,255,255,.4)}
+  }
+
   /* fold ticks between panels */
   .panel::after{
     content:"";position:absolute;left:50%;bottom:-1px;width:56px;height:0;
@@ -226,7 +239,21 @@
   .close h2{font-family:var(--g);font-weight:900;font-style:italic;text-transform:uppercase;
     font-size:min(6vw,64px);line-height:.96;letter-spacing:-.04em;margin:0 auto;max-width:18ch}
   .close p{margin:clamp(14px,1.8vw,20px) auto 0;max-width:52ch;color:rgba(255,255,255,.82);font-size:clamp(15px,1.6vw,18px)}
-  .close .cta{justify-content:center}
+  .close .cta{justify-content:center;margin-top:0}
+  .coupon{
+    position:relative;display:inline-block;margin-top:clamp(24px,3vw,36px);
+    border:2px dashed rgba(255,255,255,.8);padding:9px;
+  }
+  .coupon__cut{
+    position:absolute;top:-13px;left:26px;background:var(--cobalt);padding:0 8px;
+    color:#fff;font-size:17px;line-height:1;font-style:normal;
+  }
+  .coupon__in{
+    background:var(--paper);color:var(--ink);
+    padding:clamp(18px,2.4vw,28px) clamp(22px,3vw,40px);
+    display:flex;flex-direction:column;align-items:center;gap:14px;
+  }
+  .coupon__in .code{color:rgba(10,13,24,.55)}
 
   /* ── the numbers ─────────────────────────────────────── */
   .stats{
@@ -300,16 +327,20 @@
   .sprint .hd h2{color:#fff}
   .sprint .hd .no{color:#fff}
   .sprint .hd .rt{color:rgba(255,255,255,.62)}
-  .status{
-    display:inline-flex;align-items:center;gap:9px;background:var(--ink);color:#fff;
-    padding:8px 15px;font-family:var(--n);font-weight:700;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;
-  }
-  .status i{width:8px;height:8px;border-radius:50%;background:var(--amber);display:block;flex:none;
-    animation:pulse 2.4s ease-in-out infinite}
-  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
   .price{
+    position:relative;display:inline-block;
     font-family:var(--g);font-weight:900;font-style:italic;text-transform:uppercase;color:#fff;
     font-size:min(8.5vw,104px);line-height:.88;letter-spacing:-.05em;margin:clamp(16px,2vw,24px) 0 0;
+  }
+  .stamp{
+    position:absolute;top:-.72em;right:-.3em;transform:rotate(-8deg);opacity:.95;
+    border:2.5px solid #fff;outline:1.5px solid #fff;outline-offset:2.5px;
+    padding:.28em .55em;color:#fff;white-space:nowrap;
+    font-family:var(--g);font-weight:800;font-style:normal;font-size:clamp(10px,1.2vw,13px);
+    letter-spacing:.22em;text-transform:uppercase;line-height:1;
+  }
+  @media (max-width:700px){
+    .stamp{position:static;display:inline-block;margin-top:16px;transform:rotate(-4deg)}
   }
   .price small{display:block;font-size:.32em;letter-spacing:-.02em;color:rgba(255,255,255,.82);margin-top:.35em}
   .sprint p.lede{margin:clamp(14px,1.8vw,20px) 0 0;font-size:clamp(15px,1.6vw,18px);line-height:1.6;
@@ -323,18 +354,20 @@
   .sprint__fine{margin-top:14px;color:rgba(255,255,255,.6)}
 
   /* ── PANEL 03 · INTENT LAYERS ───────────────────────── */
-  .strata{border:2px solid var(--ink)}
+  .strata{border:2px solid var(--ink);border-top:9px solid var(--ink);border-bottom:9px solid var(--ink);background:#fff}
   .stratum{
     display:grid;grid-template-columns:minmax(190px,1.15fr) 1fr 1fr .82fr;
     gap:clamp(14px,2vw,32px);
     padding:clamp(20px,2.3vw,28px) clamp(16px,2vw,28px);
-    border-bottom:1px solid rgba(10,13,24,.22);border-left:10px solid var(--amber);
-    background:rgba(249,165,27,.10);
+    border-bottom:1px solid var(--ink);background:#fff;
   }
-  .stratum:nth-child(2){border-left-color:var(--orange);background:rgba(253,114,13,.13)}
-  .stratum:nth-child(3){border-left-color:#c94c02;background:rgba(222,85,2,.17)}
-  .stratum:nth-child(4){border-left-color:#7d2c02;background:rgba(143,50,2,.21);border-bottom:0}
-  .stratum__id{display:flex;align-items:baseline;gap:10px;margin-bottom:7px}
+  .stratum:nth-child(4){border-bottom:0}
+  /* the heat chip: demand cools as the layers go down */
+  .stratum__id{display:flex;align-items:center;gap:10px;margin-bottom:7px}
+  .stratum__id::before{content:"";width:11px;height:11px;flex:none;background:var(--amber);outline:1.5px solid var(--ink);outline-offset:1.5px}
+  .stratum:nth-child(2) .stratum__id::before{background:var(--orange)}
+  .stratum:nth-child(3) .stratum__id::before{background:#c94c02}
+  .stratum:nth-child(4) .stratum__id::before{background:#7d2c02}
   .stratum__id .no{font-family:var(--m);font-weight:600;font-size:11px;letter-spacing:.12em;color:rgba(10,13,24,.5)}
   .stratum h3{font-family:var(--g);font-weight:900;font-size:clamp(17px,2vw,23px);letter-spacing:-.022em;text-transform:uppercase;margin:0;line-height:1.02}
   .stratum__who{margin:0;font-size:14px;line-height:1.5;color:rgba(10,13,24,.68);max-width:26ch}
@@ -344,7 +377,7 @@
   .stratum--goal dd{font-weight:800;letter-spacing:-.01em}
   .strata + .facts__note,.promos + .facts__note{max-width:none}
   @media (max-width:900px){
-    .stratum{grid-template-columns:1fr;gap:16px;border-left-width:8px}
+    .stratum{grid-template-columns:1fr;gap:16px}
     .stratum dl{border-top:1px solid rgba(10,13,24,.18);padding-top:12px}
   }
 
@@ -455,6 +488,18 @@
   .base__grid a{color:var(--paper)}
   .colo{text-align:right;line-height:2}
   @media (max-width:640px){.base__grid{flex-direction:column;align-items:flex-start;gap:22px}.colo{text-align:left}}
+  .press{display:flex;align-items:center;gap:0;margin:0 0 22px}
+  .press i{width:26px;height:12px;display:block}
+  .press .code{margin-left:14px;color:rgba(249,250,254,.45)}
+  .press__reg{
+    width:14px;height:14px;border:1px solid rgba(249,250,254,.7);border-radius:50%;
+    margin-left:12px;position:relative;flex:none;
+  }
+  .press__reg::before,.press__reg::after{
+    content:"";position:absolute;background:rgba(249,250,254,.7);
+  }
+  .press__reg::before{left:50%;top:-3px;bottom:-3px;width:1px}
+  .press__reg::after{top:50%;left:-3px;right:-3px;height:1px}
   .barcode{display:flex;flex-direction:column;gap:5px;align-items:flex-start}
   .barcode svg{width:150px;height:auto;fill:var(--paper);opacity:.9}
 
@@ -535,7 +580,7 @@
   </div>
 
   <!-- ══ 01 · WARNINGS ═══════════════════════════════ -->
-  <section class="panel panel--ink" id="warnings">
+  <section class="panel panel--ink" id="warnings" data-seam="Panel 01 &middot; Warnings">
     <div class="panel__in">
       <div class="hd">
         <span class="no">01</span>
@@ -560,7 +605,7 @@
   </section>
 
   <!-- ══ 02 · THE RECORD ═════════════════════════════ -->
-  <section class="panel" id="facts">
+  <section class="panel" id="facts" data-seam="Panel 02 &middot; The Record">
     <div class="panel__in">
       <div class="hd">
         <span class="no">02</span>
@@ -625,7 +670,7 @@
   </section>
 
   <!-- ══ 03 · SERVING SUGGESTION ═════════════════════ -->
-  <section class="panel" id="work">
+  <section class="panel" id="work" data-seam="Panel 03 &middot; Serving Suggestion">
     <div class="panel__in panel__in--hd">
       <div class="hd">
         <span class="no">03</span>
@@ -662,7 +707,7 @@
   </section>
 
 <!-- ══ 04 · THE SPRINT ═════════════════════════════ -->
-  <section class="sprint" id="sprint">
+  <section class="sprint" id="sprint" data-seam="Panel 04 &middot; The Sprint">
     <div class="sprint__in">
       <div class="hd">
         <span class="no">04</span>
@@ -670,8 +715,7 @@
         <span class="rt fine">One price, one window</span>
       </div>
       <div>
-        <span class="status"><i></i>Fully booked</span>
-        <p class="price">$16,000<small>Two-week sprint</small></p>
+        <p class="price">$16,000<small>Two-week sprint</small><span class="stamp" aria-hidden="true">Fully booked</span></p>
         <p class="lede">One price. One window. One account at a time.</p>
         <div class="sprint__cta">
           <a class="cta-btn p" href="mailto:jaidanmorello@gmail.com?subject=Ballast%20sprint%20waitlist"><i></i>Join the waitlist</a>
@@ -700,7 +744,7 @@
   </section>
 
   <!-- ══ 05 · THE COMPARISON ═════════════════════════ -->
-  <section class="panel panel--ink" id="versus">
+  <section class="panel panel--ink" id="versus" data-seam="Panel 05 &middot; The Comparison">
     <div class="panel__in">
       <div class="hd">
         <span class="no">05</span>
@@ -720,7 +764,7 @@
   </section>
 
 <!-- ══ 06 · INTENT LAYERS ══════════════════════════ -->
-  <section class="panel" id="intent">
+  <section class="panel" id="intent" data-seam="Panel 06 &middot; Intent Layers">
     <div class="panel__in">
       <div class="hd">
         <span class="no">06</span>
@@ -778,7 +822,7 @@
   </section>
 
   <!-- ══ 07 · PROMOTIONS ═════════════════════════════ -->
-  <section class="panel" id="promos">
+  <section class="panel" id="promos" data-seam="Panel 07 &middot; Promotions">
     <div class="panel__in">
       <div class="hd">
         <span class="no">07</span>
@@ -826,8 +870,15 @@
   <div class="close__in">
     <h2>Two weeks from now you could know which half works.</h2>
     <p>One fixed price, one fixed window, one account at a time. The next opening goes to the waitlist first.</p>
-    <div class="cta">
-      <a class="p" href="mailto:jaidanmorello@gmail.com?subject=Ballast%20sprint%20waitlist"><i></i>Join the waitlist</a>
+    <div class="coupon">
+      <span class="coupon__cut" aria-hidden="true">&#9986;</span>
+      <div class="coupon__in">
+        <span class="code">Good for one (1) two-week sprint</span>
+        <div class="cta">
+          <a class="p" href="mailto:jaidanmorello@gmail.com?subject=Ballast%20sprint%20waitlist"><i></i>Join the waitlist</a>
+        </div>
+        <span class="code coupon__terms">No cash value &middot; Lot 26&#8209;LA&#8209;001</span>
+      </div>
     </div>
   </div>
 </section>
@@ -837,6 +888,11 @@
   <div class="base__in">
     <a class="enq" href="mailto:jaidanmorello@gmail.com">Enquire</a>
     <div class="base__rule"></div>
+    <div class="press" aria-hidden="true">
+      <i style="background:#0b5cf6"></i><i style="background:#fd720d"></i><i style="background:#f9a51b"></i><i style="background:#12204e"></i><i style="background:#f9fafe"></i><i style="background:repeating-linear-gradient(90deg,#f9fafe 0 3px,#0a0d18 3px 6px)"></i>
+      <span class="press__reg"></span>
+      <span class="code">Press check &middot; MMXXVI</span>
+    </div>
     <div class="base__grid">
       <div class="barcode" aria-hidden="true">
         <svg viewBox="0 0 107 34" width="107" height="34"><rect x="0" y="0" width="1" height="34"/><rect x="2" y="0" width="2" height="34"/><rect x="5" y="0" width="3" height="34"/><rect x="9" y="0" width="2" height="34"/><rect x="15" y="0" width="1" height="34"/><rect x="17" y="0" width="2" height="34"/><rect x="20" y="0" width="1" height="34"/><rect x="24" y="0" width="2" height="34"/><rect x="27" y="0" width="4" height="34"/><rect x="32" y="0" width="2" height="34"/><rect x="35" y="0" width="1" height="34"/><rect x="38" y="0" width="3" height="34"/><rect x="42" y="0" width="1" height="34"/><rect x="47" y="0" width="2" height="34"/><rect x="50" y="0" width="1" height="34"/><rect x="54" y="0" width="1" height="34"/><rect x="57" y="0" width="1" height="34"/><rect x="59" y="0" width="2" height="34"/><rect x="65" y="0" width="1" height="34"/><rect x="69" y="0" width="1" height="34"/><rect x="71" y="0" width="2" height="34"/><rect x="74" y="0" width="2" height="34"/><rect x="77" y="0" width="3" height="34"/><rect x="81" y="0" width="1" height="34"/><rect x="84" y="0" width="4" height="34"/><rect x="89" y="0" width="1" height="34"/><rect x="92" y="0" width="1" height="34"/><rect x="96" y="0" width="2" height="34"/><rect x="99" y="0" width="1" height="34"/><rect x="104" y="0" width="1" height="34"/></svg>

@@ -95,12 +95,12 @@
   .btn.p i{background:#fff}
   .btn.alt{background:#fff;color:var(--ink)}
   .btn.alt i{background:var(--cobalt)}
-  .chip{
-    display:inline-flex;align-items:center;gap:9px;background:var(--ink);color:#fff;
-    padding:8px 15px;font-family:var(--n);font-weight:700;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;
+  .stampd{
+    display:inline-block;transform:rotate(-6deg);
+    border:2.5px solid var(--ink);outline:1.5px solid var(--ink);outline-offset:2.5px;
+    padding:.3em .6em;color:var(--ink);
+    font-family:var(--g);font-weight:800;font-size:13px;letter-spacing:.22em;text-transform:uppercase;line-height:1;
   }
-  .chip i{width:8px;height:8px;border-radius:50%;background:var(--amber);display:block;flex:none;animation:pulse 2.4s ease-in-out infinite}
-  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
   .hddemo{width:100%;display:flex;align-items:baseline;gap:14px;border-bottom:2px solid var(--ink);padding-bottom:10px}
   .hddemo .n{font-family:var(--m);font-weight:600;font-size:11px;letter-spacing:.12em;color:var(--cobalt)}
   .hddemo b{font-family:var(--g);font-weight:900;font-size:19px;letter-spacing:-.02em;text-transform:uppercase}
@@ -227,9 +227,9 @@
         <a class="btn alt" href="#" onclick="return false"><i></i>See the record</a>
       </div>
       <div class="demo">
-        <span class="lab dim">Status chip &mdash; the booked light</span>
-        <span class="chip"><i></i>Fully booked</span>
-        <p class="dim" style="font-size:14px;margin:0">The amber dot pulses. It is one of three things on the whole site allowed to move.</p>
+        <span class="lab dim">The stamp</span>
+        <span class="stampd">Fully booked</span>
+        <p class="dim" style="font-size:14px;margin:0">Availability is stamped over the price the way a distributor stamps a crate: double ring, rotated off-square, white on the gradient. Print furniture &mdash; the seam text, the press-check strip, the coupon's cut line &mdash; carries the carton, not decoration.</p>
       </div>
       <div class="demo">
         <span class="lab dim">Section header</span>
@@ -266,7 +266,7 @@
           <li>Strip the ellipse off the mark, or echo it as a background shape.</li>
           <li>Fill anything panel-sized with flat orange, or any concentric radial.</li>
           <li>Pair the mark with a light editorial serif.</li>
-          <li>Move anything except the booked light, the button press and the tape.</li>
+          <li>Move anything except the button press and the tape.</li>
           <li>Explain the joke. If a line explains the line above it, cut it.</li>
           <li>Lean anything else at the mark's 23&deg;.</li>
         </ul>
