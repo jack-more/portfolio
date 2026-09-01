@@ -116,6 +116,7 @@
   .bay__tools{display:flex;gap:7px;padding:0 clamp(12px,1.6vw,18px) 12px;flex-wrap:wrap}
   .bay__tools span{border:1px solid var(--grule);padding:6px 11px;font-family:var(--m);font-size:8.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--chalk)}
   .bay__tools span.on{border-color:var(--verm);color:var(--verm)}
+  .bay__tools span.lock{margin-left:auto;border-color:var(--gold);color:var(--gold)}
   .restore{position:absolute;left:12px;bottom:12px;display:flex;align-items:center;gap:8px;background:rgba(11,14,18,.78);border:1px solid var(--verm);padding:5px 10px;font-family:var(--m);font-size:8.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--verm)}
   .payline{border:1px solid var(--gold);background:rgba(199,154,63,.07);padding:9px 12px;font-family:var(--m);font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--gold)}
   .ranks{border:1px solid var(--grule);padding:10px 12px}
@@ -224,7 +225,7 @@
       <div class="chain">
         <div><b>Archivists</b><span>Fans who find footage, cut it into clips, and label everything properly. Their job is making each player&rsquo;s folders rich.</span></div>
         <div><b>Editors</b><span>Fans who pull from those folders and make great mixes. Good folders make good mixes fast.</span></div>
-        <div><b>AI</b><span>Does the grunt work at a scale people can&rsquo;t: proposes the labels, matches every clip to the box score, restores old footage, and cuts to the beat. It never decides what matters.</span></div>
+        <div><b>AI</b><span>Does the grunt work at a scale people can&rsquo;t: proposes the labels, matches every clip to the box score, and builds the edit &mdash; cuts, ramps, transitions. It never decides what matters and never alters the footage.</span></div>
         <div><b>Players</b><span>Own their archive, get wildly more visible from the mixes, and put up prizes for the work they want done.</span></div>
         <div><b>Fans</b><span>Get the best history reader in sports &mdash; and the ones who fall in love with it become the next archivists.</span></div>
       </div>
@@ -345,7 +346,7 @@
 <!-- ══ 06 · SCREEN 3: THE EDITOR'S BAY ═════════════ -->
 <section class="slide">
   <div class="slide__in">
-    <div class="slide__hd"><span class="no">06</span><h2>The bay</h2><span class="rt fine">Restored footage, cut to your track</span></div>
+    <div class="slide__hd"><span class="no">06</span><h2>The bay</h2><span class="rt fine">Your track, their footage, untouched</span></div>
     <div class="slide__bd">
       <div class="frame">
         <div class="hud">
@@ -359,13 +360,16 @@
             <div class="bay__go">Find shots</div>
           </div>
           <div class="bay__tools">
-            <span class="on">Restore &amp; upscale &middot; on</span>
-            <span class="on">Match cuts to beat</span>
+            <span class="on">Cuts on the beat</span>
+            <span class="on">Speed ramps</span>
+            <span>Zoom punches</span>
+            <span>Transitions</span>
             <span>Vertical reframe</span>
             <span>3 alt assemblies</span>
+            <span class="lock">Originals locked</span>
           </div>
           <div class="bay__results">
-            <div class="bay__hit bay__hit--on"><i style="background-image:url(__CLIP1__)"></i><b>Outdoor &middot; golden hour &middot; 98 &middot; restored 4K</b></div>
+            <div class="bay__hit bay__hit--on"><i style="background-image:url(__CLIP1__)"></i><b>Outdoor &middot; golden hour &middot; 98 &middot; original</b></div>
             <div class="bay__hit"><i style="background-image:url(__CLIP2__)"></i><b>Arena &middot; baseline &middot; 07</b></div>
             <div class="bay__hit"><i style="background-image:url(__CLIP3__)"></i><b>Tunnel &middot; flash &middot; 02</b></div>
             <div class="bay__hit"><i></i><b>+ 38 more matches</b></div>
@@ -377,7 +381,7 @@
         </div>
       </div>
       <div class="plate-note">
-        <p style="margin:0"><b>Natural-language search returns shots already restored and already cut to your track.</b> Upscaling makes &rsquo;90s broadcast tape survive a vertical edit, cuts land on the beat, and three assemblies come back to choose between. Choosing is the job. The archive is built to plug outside tools into.</p>
+        <p style="margin:0"><b>Search returns the shots. The AI builds the edit around them &mdash; cuts on the beat, speed ramps, zoom punches, transitions, three assemblies to choose between.</b> It never touches a frame of the original. The footage stays exactly as it was recorded; everything AI does happens on the timeline. Choosing which cut is good remains the job.</p>
         <span class="code">Screen 3 of 4</span>
       </div>
     </div>
@@ -427,7 +431,7 @@
     <div class="slide__hd"><span class="no">08</span><h2>Rules</h2><span class="rt fine">Non-negotiable</span></div>
     <div class="slide__bd">
       <div class="grid2">
-        <div class="card"><span class="code">Rule 01</span><h3>AI does everything except the judgment</h3><p>It proposes, restores, matches and assembles. It never decides what matters, and it never makes footage. People are paid for the calls machines can&rsquo;t make &mdash; which is also the only part nobody can copy.</p></div>
+        <div class="card"><span class="code">Rule 01</span><h3>AI never touches the footage</h3><p>It proposes labels, matches box scores, times cuts and builds transitions &mdash; all of it on the timeline, none of it on the original. No upscaling, no generated frames, no invented detail. The record stays as it was recorded, which is the only reason it will be worth licensing.</p></div>
         <div class="card"><span class="code">Rule 02</span><h3>Prizes come from players</h3><p>The best rewards aren&rsquo;t cash &mdash; they&rsquo;re a signed ball, a call, a seat at a game, funded by the player whose history you kept. Quiet incentives, from the person you did it for.</p></div>
         <div class="card"><span class="code">Rule 03</span><h3>Credit is permanent</h3><p>Every clip carries the name of who saved it, forever &mdash; on the site and on every mix it appears in. Like a Wikipedia edit history, but public and proud.</p></div>
         <div class="card"><span class="code">Rule 04</span><h3>Players own their vaults</h3><p>The archive is open to explore and build on, but each legend owns their own footage and stories &mdash; open-sourced in spirit, theirs on paper.</p></div>
