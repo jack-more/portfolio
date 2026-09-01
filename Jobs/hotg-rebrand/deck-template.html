@@ -1,0 +1,483 @@
+<title>History of the Game</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,700;0,800;0,900;1,800;1,900&family=Archivo+Narrow:wght@600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Oswald:wght@300;500;600;700&family=Public+Sans:wght@400;600&display=swap">
+<style>
+  :root{
+    --paper:#f9fafe;--ink:#0a0d18;--cobalt:#0b5cf6;--orange:#fd720d;--amber:#f9a51b;
+    --g:"Archivo","Helvetica Neue",Arial,sans-serif;
+    --n:"Archivo Narrow","Archivo",Arial,sans-serif;
+    --m:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+    --gink:#0B0E12;--gink2:#12171E;--gink3:#171D26;--grule:#333D4A;
+    --stock:#F1EBDF;--verm:#E14B2A;--gold:#C79A3F;--chalk:#E9ECF0;--gmist:#8B98A6;
+    --osw:"Oswald","Archivo Narrow",sans-serif;--pub:"Public Sans","Archivo",sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-snap-type:y mandatory;scroll-behavior:smooth}
+  body{margin:0;background:var(--ink);color:var(--ink);font-family:var(--g);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  .fine{font-family:var(--n);font-weight:700;font-size:11px;letter-spacing:.17em;text-transform:uppercase}
+  .code{font-family:var(--m);font-weight:500;font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+
+  .slide{min-height:100svh;scroll-snap-align:start;position:relative;display:flex;flex-direction:column;background:var(--paper);border-bottom:1px solid rgba(10,13,24,.25)}
+  .slide__in{width:min(1240px,100%);margin:0 auto;flex:1;display:flex;flex-direction:column;padding:clamp(24px,3.6vh,44px) clamp(22px,4vw,56px)}
+  .slide__hd{display:flex;align-items:baseline;gap:14px;border-bottom:2px solid var(--ink);padding-bottom:10px;margin-bottom:clamp(16px,2.6vh,30px)}
+  .slide__hd .no{font-family:var(--m);font-weight:600;font-size:11px;letter-spacing:.12em;color:var(--cobalt)}
+  .slide__hd h2{font-family:var(--g);font-weight:900;font-size:clamp(18px,2.2vw,26px);letter-spacing:-.02em;text-transform:uppercase;margin:0}
+  .slide__hd .rt{margin-left:auto;color:rgba(10,13,24,.5)}
+  .slide__bd{flex:1;display:flex;flex-direction:column;justify-content:center}
+  .slide__ft{display:flex;justify-content:space-between;gap:20px;padding-top:14px;color:rgba(10,13,24,.42)}
+  .say{font-family:var(--g);font-weight:900;font-style:italic;text-transform:uppercase;letter-spacing:-.038em;line-height:.96;margin:0;text-wrap:balance}
+  .oneline{font-size:clamp(16px,1.9vw,21px);line-height:1.55;max-width:62ch;margin:0 0 clamp(20px,3.2vh,32px);font-weight:500}
+  .oneline b{font-weight:800}
+  .aside{margin:clamp(12px,2vh,20px) 0 0;color:rgba(10,13,24,.55);font-size:14px;max-width:72ch}
+
+  /* ── cover ── */
+  .cover{background:var(--gink)}
+  .cover__img{position:absolute;inset:0;background:url(__COVER__) center 30%/cover no-repeat;opacity:.85}
+  .cover__img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,14,18,.25) 0%,rgba(11,14,18,.05) 40%,rgba(11,14,18,.82) 88%)}
+  .cover .slide__in{position:relative;z-index:1}
+  .cover__top{display:flex;justify-content:space-between;align-items:baseline;color:#fff}
+  .cover__top b{font-family:var(--g);font-weight:900;font-style:italic;font-size:16px}
+  .cover__mid{flex:1;display:flex;flex-direction:column;justify-content:flex-end}
+  .cover h1{font-family:var(--osw);font-weight:700;text-transform:uppercase;font-size:clamp(48px,8.6vw,116px);line-height:.92;letter-spacing:.01em;margin:0;color:var(--stock)}
+  .cover h1 em{font-style:normal;color:var(--verm)}
+  .cover__sub{margin:clamp(14px,2.2vh,22px) 0 clamp(18px,3vh,30px);color:rgba(241,235,223,.92);font-size:clamp(16px,1.8vw,20px);font-weight:500;max-width:52ch;font-family:var(--pub)}
+  .cover__ft{display:flex;justify-content:space-between;gap:20px;border-top:1px solid rgba(241,235,223,.4);padding-top:12px;color:rgba(241,235,223,.8)}
+
+  /* ── the chain ── */
+  .chain{border-top:2px solid var(--ink);max-width:900px}
+  .chain div{display:grid;grid-template-columns:190px 1fr;gap:clamp(14px,2.5vw,36px);padding:13px 0;border-bottom:1px solid rgba(10,13,24,.18)}
+  .chain b{font-family:var(--g);font-weight:900;font-size:clamp(14px,1.6vw,18px);letter-spacing:-.015em;text-transform:uppercase}
+  .chain span{font-size:15px;line-height:1.55}
+
+  /* ── equation ── */
+  .eq{display:flex;align-items:stretch;gap:clamp(6px,1vw,12px);flex-wrap:wrap}
+  .eq__chip{border:2px solid var(--ink);background:#fff;box-shadow:4px 4px 0 rgba(10,13,24,.16);padding:clamp(10px,1.4vw,16px) clamp(12px,1.6vw,18px);flex:1;min-width:150px}
+  .eq__chip b{display:block;font-family:var(--g);font-weight:900;font-style:italic;font-size:clamp(13px,1.4vw,17px);letter-spacing:-.02em;text-transform:uppercase}
+  .eq__chip span{display:block;font-size:12px;color:rgba(10,13,24,.62);margin-top:3px;line-height:1.45}
+  .eq__op{align-self:center;font-family:var(--m);font-size:clamp(16px,2vw,24px);color:var(--orange);font-weight:600;flex:none}
+  .funnel{display:flex;align-items:center;gap:clamp(8px,1.4vw,18px);margin-top:clamp(18px,3vh,28px);flex-wrap:wrap}
+  .funnel__out{border:2px solid var(--ink);background:var(--ink);color:#fff;padding:12px 18px;font-family:var(--g);font-weight:900;font-style:italic;text-transform:uppercase;font-size:clamp(14px,1.6vw,18px)}
+  .funnel__arr{font-family:var(--m);color:var(--orange);font-size:18px}
+  .funnel__ch{border:2px solid var(--ink);background:#fff;padding:9px 14px;font-family:var(--n);font-weight:700;font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+  .funnel__ch small{display:block;font-family:var(--m);font-size:9px;letter-spacing:.06em;color:rgba(10,13,24,.5);text-transform:uppercase;margin-top:2px}
+
+  /* ═══ game frame ═══ */
+  .frame{aspect-ratio:16/9.2;width:min(100%,calc((100svh - 235px)*16/9.2));margin:0 auto;background:var(--gink);border:2px solid var(--ink);box-shadow:6px 6px 0 rgba(10,13,24,.2);position:relative;overflow:hidden;color:var(--chalk);font-family:var(--pub);display:flex;flex-direction:column}
+  .frame *{line-height:1.35}
+  .hud{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:10px 16px;border-bottom:1px solid var(--grule);background:var(--gink2)}
+  .hud__logo{font-family:var(--osw);font-weight:700;font-size:12px;letter-spacing:.26em;text-transform:uppercase;color:var(--stock)}
+  .hud__logo i{font-style:normal;color:var(--verm)}
+  .hud__bal{display:flex;align-items:center;gap:8px;font-family:var(--m);font-size:11.5px;color:var(--gold)}
+  .hud__bal::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--gold);display:inline-block}
+  .hud__tabs{display:flex;gap:16px;font-family:var(--osw);font-weight:500;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gmist)}
+  .hud__tabs b{font-weight:600;color:var(--chalk);border-bottom:2px solid var(--verm);padding-bottom:2px}
+  .plate-note{display:flex;justify-content:space-between;gap:18px;margin-top:12px;width:min(100%,calc((100svh - 235px)*16/9.2));margin-left:auto;margin-right:auto;color:rgba(10,13,24,.55);font-size:13px}
+  .plate-note b{font-weight:800;color:var(--ink)}
+  .plate-note .code{white-space:nowrap;color:rgba(10,13,24,.45);padding-top:2px}
+
+  /* ── screen 1: the desk ── */
+  .desk1{flex:1;display:grid;grid-template-columns:1fr 236px;min-height:0}
+  .desk1__folders{border-right:1px solid var(--grule);padding:clamp(14px,1.8vw,24px);display:flex;flex-direction:column;gap:10px;min-height:0;overflow:hidden}
+  .desk1__folders h5{margin:0 0 4px;font-family:var(--osw);font-weight:600;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--gmist)}
+  .folders{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+  .folder{border:1px solid var(--grule);background:var(--gink3)}
+  .folder__thumb{aspect-ratio:16/8.4;background:var(--gink2) center/cover no-repeat;border-bottom:1px solid var(--grule)}
+  .folder__meta{padding:8px 10px}
+  .folder__meta b{display:block;font-family:var(--osw);font-weight:600;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--stock)}
+  .folder__meta span{display:block;font-family:var(--m);font-size:8.5px;letter-spacing:.05em;color:var(--gmist);margin:4px 0 6px;text-transform:uppercase}
+  .fill{height:4px;background:var(--gink);border:1px solid var(--grule);position:relative}
+  .fill i{position:absolute;inset:1px auto 1px 1px;background:var(--verm)}
+  .folder--gold .fill i{background:var(--gold)}
+  .desk1__player{background:var(--gink2);display:flex;flex-direction:column;min-height:0}
+  .desk1__pimg{flex:1;background:url(__SELECT__) center 18%/cover no-repeat;min-height:0}
+  .desk1__pmeta{padding:12px 14px;border-top:1px solid var(--grule)}
+  .desk1__pmeta b{display:block;font-family:var(--osw);font-weight:700;font-size:17px;letter-spacing:.06em;text-transform:uppercase;color:var(--stock)}
+  .desk1__pmeta span{display:block;font-family:var(--m);font-size:9px;letter-spacing:.05em;color:var(--gmist);margin-top:4px;text-transform:uppercase}
+
+  /* ── screen 2: clip & label ── */
+  .lab{flex:1;display:grid;grid-template-columns:1.5fr 1fr;min-height:0}
+  .lab__view{border-right:1px solid var(--grule);display:flex;flex-direction:column;min-height:0}
+  .lab__img{flex:1;background:url(__CLIP1__) center/cover no-repeat;position:relative;min-height:0}
+  .lab__img::after{content:"REC 0:14 / 0:22";position:absolute;right:12px;top:10px;font-family:var(--m);font-size:9px;letter-spacing:.1em;color:var(--stock);background:rgba(11,14,18,.7);padding:4px 8px}
+  .lab__scrub{height:34px;border-top:1px solid var(--grule);background:var(--gink2);position:relative}
+  .lab__scrub i{position:absolute;top:6px;bottom:6px;left:32%;width:22%;background:rgba(226,75,42,.35);border:1px solid var(--verm)}
+  .lab__side{padding:clamp(12px,1.8vw,20px);background:var(--gink2);display:flex;flex-direction:column;gap:12px;overflow:hidden}
+  .lab__side h5{margin:0;font-family:var(--osw);font-weight:600;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--gmist)}
+  .tags{display:flex;gap:6px;flex-wrap:wrap}
+  .tags span{border:1px solid var(--grule);padding:4px 9px;font-family:var(--m);font-size:9px;letter-spacing:.06em;text-transform:uppercase;color:var(--chalk)}
+  .tags span.add{color:var(--gmist);border-style:dashed}
+  .tags span i{font-style:normal;color:var(--gmist);font-size:8px;margin-left:6px}
+  .tags span.ok{border-color:var(--stock);color:var(--stock);background:rgba(241,235,223,.08)}
+  .tags span.sug{border-style:dashed;color:var(--gmist)}
+  .tags span.no{color:#5f6670;border-color:#242b34;text-decoration:line-through}
+  .tags span.fix{border-color:var(--verm);color:var(--verm)}
+  .aihdr{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+  .aihdr em{font-style:normal;font-family:var(--m);font-size:8.5px;color:var(--verm);letter-spacing:.1em;text-transform:uppercase}
+  .bay__tools{display:flex;gap:7px;padding:0 clamp(12px,1.6vw,18px) 12px;flex-wrap:wrap}
+  .bay__tools span{border:1px solid var(--grule);padding:6px 11px;font-family:var(--m);font-size:8.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--chalk)}
+  .bay__tools span.on{border-color:var(--verm);color:var(--verm)}
+  .restore{position:absolute;left:12px;bottom:12px;display:flex;align-items:center;gap:8px;background:rgba(11,14,18,.78);border:1px solid var(--verm);padding:5px 10px;font-family:var(--m);font-size:8.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--verm)}
+  .payline{border:1px solid var(--gold);background:rgba(199,154,63,.07);padding:9px 12px;font-family:var(--m);font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--gold)}
+  .ranks{border:1px solid var(--grule);padding:10px 12px}
+  .ranks b{display:block;font-family:var(--osw);font-weight:600;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--stock);margin-bottom:7px}
+  .rankbar{height:6px;background:var(--gink);border:1px solid var(--grule);position:relative}
+  .rankbar i{position:absolute;inset:1px auto 1px 1px;width:78%;background:var(--gold)}
+  .ranks span{display:block;margin-top:6px;font-family:var(--m);font-size:8.5px;color:var(--gmist);text-transform:uppercase}
+  .submit{margin-top:auto;background:var(--verm);color:#fff;text-align:center;padding:11px;font-family:var(--osw);font-weight:700;font-size:11.5px;letter-spacing:.24em;text-transform:uppercase}
+
+  /* ── screen 3: editor bay ── */
+  .bay{flex:1;display:flex;flex-direction:column;min-height:0}
+  .bay__search{display:flex;gap:10px;padding:clamp(12px,1.6vw,18px);border-bottom:1px solid var(--grule);align-items:center}
+  .bay__q{flex:1;border:1px solid var(--grule);background:var(--gink3);padding:11px 14px;font-family:var(--m);font-size:11px;letter-spacing:.03em;color:var(--chalk)}
+  .bay__q i{font-style:normal;color:var(--gmist)}
+  .bay__go{background:var(--verm);color:#fff;padding:11px 16px;font-family:var(--osw);font-weight:600;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;flex:none}
+  .bay__results{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;padding:clamp(12px,1.6vw,18px)}
+  .bay__hit{border:1px solid var(--grule);background:var(--gink3)}
+  .bay__hit i{display:block;aspect-ratio:16/9;background:var(--gink2) center/cover no-repeat}
+  .bay__hit b{display:block;padding:6px 8px;font-family:var(--m);font-weight:500;font-size:8px;letter-spacing:.05em;color:var(--gmist);text-transform:uppercase}
+  .bay__hit--on{border-color:var(--verm)}
+  .bay__hit--on b{color:var(--stock)}
+  .bay__tl{margin-top:auto;border-top:1px solid var(--grule);background:var(--gink2);padding:12px clamp(12px,1.6vw,18px);display:flex;gap:8px;align-items:center}
+  .bay__block{height:26px;border:1px solid var(--verm);background:rgba(226,75,42,.25);flex:2}
+  .bay__block--b{border-color:var(--gold);background:rgba(199,154,63,.22);flex:3}
+  .bay__block--c{border-color:var(--grule);background:var(--gink3);flex:1.4}
+  .bay__cta{flex:none;background:var(--gold);color:var(--gink);padding:9px 14px;font-family:var(--osw);font-weight:700;font-size:10px;letter-spacing:.18em;text-transform:uppercase}
+
+  /* ── screen 4: the mix ── */
+  .mix{flex:1;display:grid;grid-template-columns:minmax(0,.9fr) 1.1fr;min-height:0}
+  .mix__cover{border-right:1px solid var(--grule);background:url(__MIXCOVER__) center/cover no-repeat;min-height:0}
+  .mix__meta{padding:clamp(14px,2vw,26px);background:var(--gink2);display:flex;flex-direction:column;gap:12px;overflow:hidden}
+  .mix__meta h3{margin:0;font-family:var(--osw);font-weight:700;font-size:clamp(22px,2.6vw,34px);letter-spacing:.03em;text-transform:uppercase;color:var(--stock)}
+  .mix__meta h3 small{display:block;font-weight:300;font-size:.42em;letter-spacing:.3em;color:var(--gmist)}
+  .mix__stats{display:flex;gap:14px;font-family:var(--m);font-size:9.5px;letter-spacing:.06em;color:var(--gmist);text-transform:uppercase}
+  .credits{border:1px solid var(--grule);padding:10px 12px}
+  .credits b{display:block;font-family:var(--osw);font-weight:600;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gmist);margin-bottom:7px}
+  .credits div{display:flex;justify-content:space-between;gap:10px;padding:5px 0;border-bottom:1px solid rgba(51,61,74,.5);font-family:var(--m);font-size:9.5px;letter-spacing:.04em;color:var(--chalk);text-transform:uppercase}
+  .credits div:last-child{border-bottom:0}
+  .credits i{font-style:normal;color:var(--gmist)}
+  .prize{border:1px solid var(--gold);background:rgba(199,154,63,.07);padding:10px 12px;font-family:var(--m);font-size:9.5px;letter-spacing:.05em;color:var(--gold);text-transform:uppercase}
+  .mix__cta{margin-top:auto;display:flex;gap:10px}
+  .mix__cta span{flex:1;text-align:center;padding:11px;font-family:var(--osw);font-weight:700;font-size:11px;letter-spacing:.22em;text-transform:uppercase}
+  .mix__cta span:first-child{background:var(--verm);color:#fff}
+  .mix__cta span:last-child{border:1px solid var(--grule);color:var(--chalk)}
+
+  /* ── principles / nba ── */
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,2vw,22px)}
+  .card{border:2px solid var(--ink);background:#fff;box-shadow:5px 5px 0 rgba(10,13,24,.16);padding:clamp(16px,2.2vw,26px)}
+  .card h3{font-family:var(--g);font-weight:900;font-size:clamp(16px,1.8vw,21px);letter-spacing:-.02em;text-transform:uppercase;margin:0 0 8px}
+  .card p{margin:0;font-size:14px;line-height:1.6;color:rgba(10,13,24,.72)}
+  .card .code{display:block;margin-bottom:10px;color:var(--cobalt)}
+
+  /* ── close ── */
+  .slide--close{background:var(--cobalt);border-bottom:0}
+  .slide--close .slide__ft{color:rgba(255,255,255,.6)}
+  .close__say{font-size:clamp(30px,4.8vw,64px);color:#fff;max-width:18ch}
+  .order{margin-top:clamp(22px,3.6vh,36px);border-top:2px solid rgba(255,255,255,.6);max-width:860px}
+  .order div{display:grid;grid-template-columns:44px 210px 1fr;gap:clamp(14px,2.5vw,32px);padding:13px 0;border-bottom:1px solid rgba(255,255,255,.3);align-items:baseline}
+  .order .code{color:rgba(255,255,255,.6)}
+  .order b{font-family:var(--g);font-weight:900;font-size:clamp(15px,1.7vw,19px);letter-spacing:-.02em;text-transform:uppercase;color:#fff}
+  .order span{font-size:14px;color:rgba(255,255,255,.88)}
+  .close__contact{margin-top:clamp(20px,3.2vh,30px)}
+  .close__contact a{display:inline-flex;align-items:center;gap:10px;text-decoration:none;background:var(--paper);color:var(--ink);border:2px solid var(--ink);box-shadow:4px 4px 0 rgba(10,13,24,.3);padding:13px 24px;font-family:var(--g);font-weight:900;font-style:italic;text-transform:uppercase;font-size:15px}
+  .close__contact a i{width:7px;height:7px;background:var(--cobalt);display:block}
+  .close__contact a:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 rgba(10,13,24,.3)}
+
+  @media (max-width:900px){
+    .frame{aspect-ratio:auto;min-height:74svh}
+    .desk1,.lab,.mix{grid-template-columns:1fr}
+    .desk1__folders,.lab__view,.mix__cover{border-right:0;border-bottom:1px solid var(--grule)}
+    .mix__cover{min-height:220px}
+    .desk1__pimg{min-height:220px}
+    .lab__img{min-height:200px}
+    .folders{grid-template-columns:1fr 1fr}
+    .bay__results{grid-template-columns:1fr 1fr}
+    .grid2{grid-template-columns:1fr}
+    .chain div{grid-template-columns:1fr;gap:4px}
+    .order div{grid-template-columns:34px 1fr;grid-template-rows:auto auto}
+    .order span{grid-column:1/-1}
+  }
+  @media print{
+    html{scroll-snap-type:none}
+    .slide{min-height:0;height:100vh;page-break-after:always;border-bottom:0}
+  }
+</style>
+
+<!-- ══ 01 · COVER ══════════════════════════════════ -->
+<section class="slide cover">
+  <div class="cover__img" aria-hidden="true"></div>
+  <div class="slide__in">
+    <div class="cover__top"><b>Ballast</b><span class="fine" style="color:rgba(241,235,223,.85)">Prepared for Baron Davis &amp; Chiz Cunningham</span></div>
+    <div class="cover__mid">
+      <h1>History of<br>the <em>Game</em></h1>
+      <p class="cover__sub">A home for basketball history, kept by the fans who love it &mdash; and a way for them to get paid doing it.</p>
+    </div>
+    <div class="cover__ft fine"><span>Jack Morello</span><span>09.01.2026</span><span>01 / 10</span></div>
+  </div>
+</section>
+
+<!-- ══ 02 · THE IDEA ═══════════════════════════════ -->
+<section class="slide">
+  <div class="slide__in">
+    <div class="slide__hd"><span class="no">02</span><h2>The idea, in plain words</h2><span class="rt fine">What Wikipedia did for facts</span></div>
+    <div class="slide__bd">
+      <p class="oneline">Right now, basketball history lives in random uploads and dying hard drives. <b>This site gives every player one organized home for their footage</b> &mdash; and the people who do the organizing get paid and get credit, the way early Wikipedia editors got respect.</p>
+      <div class="chain">
+        <div><b>Archivists</b><span>Fans who find footage, cut it into clips, and label everything properly. Their job is making each player&rsquo;s folders rich.</span></div>
+        <div><b>Editors</b><span>Fans who pull from those folders and make great mixes. Good folders make good mixes fast.</span></div>
+        <div><b>AI</b><span>Does the grunt work at a scale people can&rsquo;t: proposes the labels, matches every clip to the box score, restores old footage, and cuts to the beat. It never decides what matters.</span></div>
+        <div><b>Players</b><span>Own their archive, get wildly more visible from the mixes, and put up prizes for the work they want done.</span></div>
+        <div><b>Fans</b><span>Get the best history reader in sports &mdash; and the ones who fall in love with it become the next archivists.</span></div>
+      </div>
+    </div>
+    <div class="slide__ft fine"><span>History of the Game</span><span>02 / 10</span></div>
+  </div>
+</section>
+
+<!-- ══ 03 · THE MATH ═══════════════════════════════ -->
+<section class="slide">
+  <div class="slide__in">
+    <div class="slide__hd"><span class="no">03</span><h2>Why this wins</h2><span class="rt fine">Each part multiplies the others</span></div>
+    <div class="slide__bd">
+      <div class="eq">
+        <div class="eq__chip"><b>Design</b><span>It looks and feels like a great game, not a database.</span></div>
+        <span class="eq__op">&times;</span>
+        <div class="eq__chip"><b>The reader</b><span>The best place on the internet to explore a player&rsquo;s history.</span></div>
+        <span class="eq__op">&times;</span>
+        <div class="eq__chip"><b>Archivist pay</b><span>Real money and rank for organizing footage.</span></div>
+        <span class="eq__op">&times;</span>
+        <div class="eq__chip"><b>Editor tools</b><span>AI search and rough cuts make great mixes easy.</span></div>
+        <span class="eq__op">&times;</span>
+        <div class="eq__chip"><b>Player reach</b><span>Legends push it because it makes them bigger.</span></div>
+      </div>
+      <div class="funnel">
+        <span class="funnel__out">= A constant stream of great content</span>
+        <span class="funnel__arr">&rarr;</span>
+        <span class="funnel__ch">History OTG<small>flagship channel</small></span>
+        <span class="funnel__ch">Mixes<small>editor showcase</small></span>
+        <span class="funnel__ch">Era shorts<small>clips, all platforms</small></span>
+        <span class="funnel__ch">Player channels<small>per legend</small></span>
+      </div>
+      <p class="aside">One channel or four is an open call &mdash; we flesh that out together. Either way, everything the site produces can run on every platform.</p>
+    </div>
+    <div class="slide__ft fine"><span>History of the Game</span><span>03 / 10</span></div>
+  </div>
+</section>
+
+<!-- ══ 04 · SCREEN 1: THE DESK ═════════════════════ -->
+<section class="slide">
+  <div class="slide__in">
+    <div class="slide__hd"><span class="no">04</span><h2>Screen 1 &mdash; A player&rsquo;s desk</h2><span class="rt fine">Rough mockups, drawn to show the idea</span></div>
+    <div class="slide__bd">
+      <div class="frame">
+        <div class="hud">
+          <span class="hud__logo">History <i>of the</i> Game</span>
+          <div class="hud__tabs"><b>Desk</b><span>Clip</span><span>Edit</span><span>Mixes</span></div>
+          <span class="hud__bal">2,410</span>
+        </div>
+        <div class="desk1">
+          <div class="desk1__folders">
+            <h5>Baron Davis &mdash; footage folders</h5>
+            <div class="folders">
+              <div class="folder"><div class="folder__thumb" style="background-image:url(__CLIP2__)"></div><div class="folder__meta"><b>Dunks &amp; finishes</b><span>214 clips &middot; 82% labeled</span><div class="fill"><i style="width:82%"></i></div></div></div>
+              <div class="folder folder--gold"><div class="folder__thumb" style="background-image:url(__CLIP1__)"></div><div class="folder__meta"><b>Handles</b><span>167 clips &middot; 96% labeled</span><div class="fill"><i style="width:96%"></i></div></div></div>
+              <div class="folder"><div class="folder__thumb" style="background-image:url(__CLIP3__)"></div><div class="folder__meta"><b>Tunnel &amp; fits</b><span>58 clips &middot; 44% labeled</span><div class="fill"><i style="width:44%"></i></div></div></div>
+              <div class="folder"><div class="folder__meta"><b>Interviews</b><span>31 clips &middot; 22% labeled</span><div class="fill"><i style="width:22%"></i></div></div></div>
+              <div class="folder"><div class="folder__meta"><b>We Believe run</b><span>Bounty open &middot; player-funded</span><div class="fill"><i style="width:12%"></i></div></div></div>
+              <div class="folder"><div class="folder__meta"><b>Game winners</b><span>9 clips &middot; needs work</span><div class="fill"><i style="width:8%"></i></div></div></div>
+            </div>
+          </div>
+          <div class="desk1__player">
+            <div class="desk1__pimg"></div>
+            <div class="desk1__pmeta"><b>Baron Davis</b><span>12,408 moments saved by 3,120 fans</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="plate-note">
+        <p style="margin:0"><b>Every player gets a desk like this: their whole career, organized into folders.</b> Each folder shows how full and how well-labeled it is &mdash; so an archivist can see at a glance where the work is, and a thin folder is an open invitation. The player can fund a bounty on any folder they want filled.</p>
+        <span class="code">Screen 1 of 4</span>
+      </div>
+    </div>
+    <div class="slide__ft fine"><span>History of the Game</span><span>04 / 10</span></div>
+  </div>
+</section>
+
+<!-- ══ 05 · SCREEN 2: CLIP & LABEL ═════════════════ -->
+<section class="slide">
+  <div class="slide__in">
+    <div class="slide__hd"><span class="no">05</span><h2>Screen 2 &mdash; Checking the machine</h2><span class="rt fine">The archivist&rsquo;s job. This is where people earn.</span></div>
+    <div class="slide__bd">
+      <div class="frame">
+        <div class="hud">
+          <span class="hud__logo">History <i>of the</i> Game</span>
+          <div class="hud__tabs"><span>Desk</span><b>Clip</b><span>Edit</span><span>Mixes</span></div>
+          <span class="hud__bal">2,410</span>
+        </div>
+        <div class="lab">
+          <div class="lab__view">
+            <div class="lab__img"></div>
+            <div class="lab__scrub"><i></i></div>
+          </div>
+          <div class="lab__side">
+            <div class="aihdr"><h5>AI first pass</h5><em>7 proposed &middot; you decide</em></div>
+            <div class="tags">
+              <span class="ok">Crossover<i>98%</i></span>
+              <span class="ok">Outdoor court<i>96%</i></span>
+              <span class="sug">Golden hour<i>71%</i></span>
+              <span class="no">Fadeaway<i>wrong</i></span>
+              <span class="fix">Left hand<i>you added</i></span>
+              <span class="add">+ add label</span>
+            </div>
+            <div class="payline">Matched to box score: Q3 8:42 &middot; 4/11/07 &middot; vs Utah</div>
+            <div class="ranks"><b>Your rank: Archivist</b><div class="rankbar"><i></i></div><span>Pays 12 for the call &mdash; you corrected 2 of 7. Accuracy is what raises your rate.</span></div>
+            <div class="submit">Confirm and file</div>
+          </div>
+        </div>
+      </div>
+      <div class="plate-note">
+        <p style="margin:0"><b>The AI labels it first, and gets some of it wrong. You&rsquo;re paid to be the one who knows the difference.</b> Confirm what&rsquo;s right, kill what isn&rsquo;t, add what it missed &mdash; and it matched the clip to the box score while you worked. Better job than typing tags, and the only version that scales to a million clips.</p>
+        <span class="code">Screen 2 of 4</span>
+      </div>
+    </div>
+    <div class="slide__ft fine"><span>History of the Game</span><span>05 / 10</span></div>
+  </div>
+</section>
+
+<!-- ══ 06 · SCREEN 3: THE EDITOR'S BAY ═════════════ -->
+<section class="slide">
+  <div class="slide__in">
+    <div class="slide__hd"><span class="no">06</span><h2>Screen 3 &mdash; The editor&rsquo;s bay</h2><span class="rt fine">Built for people who edit for a living</span></div>
+    <div class="slide__bd">
+      <div class="frame">
+        <div class="hud">
+          <span class="hud__logo">History <i>of the</i> Game</span>
+          <div class="hud__tabs"><span>Desk</span><span>Clip</span><b>Edit</b><span>Mixes</span></div>
+          <span class="hud__bal">2,410</span>
+        </div>
+        <div class="bay">
+          <div class="bay__search">
+            <div class="bay__q"><i>Search the archive:</i> every crossover on an outdoor court, golden hour, late 90s</div>
+            <div class="bay__go">Find shots</div>
+          </div>
+          <div class="bay__tools">
+            <span class="on">Restore &amp; upscale &middot; on</span>
+            <span class="on">Match cuts to beat</span>
+            <span>Vertical reframe</span>
+            <span>3 alt assemblies</span>
+          </div>
+          <div class="bay__results">
+            <div class="bay__hit bay__hit--on"><i style="background-image:url(__CLIP1__)"></i><b>Outdoor &middot; golden hour &middot; 98 &middot; restored 4K</b></div>
+            <div class="bay__hit"><i style="background-image:url(__CLIP2__)"></i><b>Arena &middot; baseline &middot; 07</b></div>
+            <div class="bay__hit"><i style="background-image:url(__CLIP3__)"></i><b>Tunnel &middot; flash &middot; 02</b></div>
+            <div class="bay__hit"><i></i><b>+ 38 more matches</b></div>
+          </div>
+          <div class="bay__tl">
+            <div class="bay__block"></div><div class="bay__block bay__block--b"></div><div class="bay__block bay__block--c"></div>
+            <div class="bay__cta">Assemble to the beat</div>
+          </div>
+        </div>
+      </div>
+      <div class="plate-note">
+        <p style="margin:0"><b>Ask for the shots in plain English, get them back already restored, already cut to your track.</b> The AI upscales the old broadcast footage so &rsquo;90s tape survives a vertical edit, matches the cuts to the beat, and hands you three assemblies to choose between. You still decide which one is good &mdash; that part is the job. Bring your own AI tools too; the archive is built to plug into.</p>
+        <span class="code">Screen 3 of 4</span>
+      </div>
+    </div>
+    <div class="slide__ft fine"><span>History of the Game</span><span>06 / 10</span></div>
+  </div>
+</section>
+
+<!-- ══ 07 · SCREEN 4: THE MIX ══════════════════════ -->
+<section class="slide">
+  <div class="slide__in">
+    <div class="slide__hd"><span class="no">07</span><h2>Screen 4 &mdash; A finished mix</h2><span class="rt fine">Everyone in the chain gets credit</span></div>
+    <div class="slide__bd">
+      <div class="frame">
+        <div class="hud">
+          <span class="hud__logo">History <i>of the</i> Game</span>
+          <div class="hud__tabs"><span>Desk</span><span>Clip</span><span>Edit</span><b>Mixes</b></div>
+          <span class="hud__bal">2,410</span>
+        </div>
+        <div class="mix">
+          <div class="mix__cover"></div>
+          <div class="mix__meta">
+            <h3><small>A History of the Game mix</small>We Believe &mdash; Vol. 1</h3>
+            <div class="mix__stats"><span>4:12</span><span>2.1M views</span><span>Built from 41 clips</span></div>
+            <div class="credits">
+              <b>Credited on this mix</b>
+              <div><span>M. Okafor</span><i>Editor</i></div>
+              <div><span>K. Reyes + 11 archivists</span><i>Clips &amp; labels</i></div>
+              <div><span>Baron Davis</span><i>Footage &amp; stories</i></div>
+            </div>
+            <div class="prize">Player prize this month: top mix wins a signed ball</div>
+            <div class="mix__cta"><span>Watch</span><span>Share everywhere</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="plate-note">
+        <p style="margin:0"><b>The mix is what the outside world sees, and it carries everyone&rsquo;s name.</b> The editor is credited, every archivist whose clips were used is credited, and the player&rsquo;s prize gives the community something to chase that money can&rsquo;t buy. Every mix that travels makes the player bigger and pulls new fans in.</p>
+        <span class="code">Screen 4 of 4</span>
+      </div>
+    </div>
+    <div class="slide__ft fine"><span>History of the Game</span><span>07 / 10</span></div>
+  </div>
+</section>
+
+<!-- ══ 08 · THE RULES ══════════════════════════════ -->
+<section class="slide">
+  <div class="slide__in">
+    <div class="slide__hd"><span class="no">08</span><h2>The rules that keep it honest</h2><span class="rt fine">Early-Wikipedia spirit, written down</span></div>
+    <div class="slide__bd">
+      <div class="grid2">
+        <div class="card"><span class="code">Rule 01</span><h3>AI does everything except the judgment</h3><p>It proposes, restores, matches and assembles. It never decides what matters, and it never makes footage. People are paid for the calls machines can&rsquo;t make &mdash; which is also the only part nobody can copy.</p></div>
+        <div class="card"><span class="code">Rule 02</span><h3>Prizes come from players</h3><p>The best rewards aren&rsquo;t cash &mdash; they&rsquo;re a signed ball, a call, a seat at a game, funded by the player whose history you kept. Quiet incentives, from the person you did it for.</p></div>
+        <div class="card"><span class="code">Rule 03</span><h3>Credit is permanent</h3><p>Every clip carries the name of who saved it, forever &mdash; on the site and on every mix it appears in. Like a Wikipedia edit history, but public and proud.</p></div>
+        <div class="card"><span class="code">Rule 04</span><h3>Players own their vaults</h3><p>The archive is open to explore and build on, but each legend owns their own footage and stories &mdash; open-sourced in spirit, theirs on paper.</p></div>
+      </div>
+    </div>
+    <div class="slide__ft fine"><span>History of the Game</span><span>08 / 10</span></div>
+  </div>
+</section>
+
+<!-- ══ 09 · WHY THE NBA ════════════════════════════ -->
+<section class="slide">
+  <div class="slide__in">
+    <div class="slide__hd"><span class="no">09</span><h2>Why the NBA ends up wanting in</h2><span class="rt fine">The raise writes itself when this works</span></div>
+    <div class="slide__bd">
+      <p class="oneline">The league&rsquo;s history is its most under-used asset. This builds the thing they can&rsquo;t: <b>a living, organized, rights-clean archive with a fan workforce that loves maintaining it.</b></p>
+      <div class="chain">
+        <div><b>For the league</b><span>Decades of footage finally organized, labeled, and searchable &mdash; by people, verified, at a quality money can&rsquo;t buy.</span></div>
+        <div><b>For the players</b><span>Retired legends get bigger every month their archive grows &mdash; new fans meeting old greatness daily.</span></div>
+        <div><b>The data</b><span>The labeled archive is also the best basketball training data in existence &mdash; an asset that appreciates on its own.</span></div>
+        <div><b>The moment</b><span>Start with Baron and legends who say yes. When the mixes are everywhere and the archive is undeniable, that&rsquo;s what Baron raises on &mdash; with the league in the room.</span></div>
+      </div>
+    </div>
+    <div class="slide__ft fine"><span>History of the Game</span><span>09 / 10</span></div>
+  </div>
+</section>
+
+<!-- ══ 10 · HOW IT STARTS ══════════════════════════ -->
+<section class="slide slide--close">
+  <div class="slide__in">
+    <div class="slide__hd" style="border-bottom-color:rgba(255,255,255,.6)"><span class="no" style="color:#fff">10</span><h2 style="color:#fff">How it starts</h2><span class="rt fine" style="color:rgba(255,255,255,.6)">Small, and in order</span></div>
+    <div class="slide__bd">
+      <p class="say close__say">One player. One desk. Real fans.</p>
+      <div class="order">
+        <div><span class="code">01</span><b>Build the four screens</b><span>Baron&rsquo;s desk, working: folders, clipping, AI search, and the first mixes &mdash; a real site a fan can use.</span></div>
+        <div><span class="code">02</span><b>Invite the first hundred</b><span>The people already making basketball edits for free. Pay them for a month and watch what they build.</span></div>
+        <div><span class="code">03</span><b>Show, then raise</b><span>Walk in with a living archive, real mixes with real views, and legends asking to be next.</span></div>
+      </div>
+      <div class="close__contact"><a href="mailto:jaidanmorello@gmail.com"><i></i>jaidanmorello@gmail.com</a></div>
+    </div>
+    <div class="slide__ft fine"><span>Ballast &mdash; Los Angeles &middot; MMXXVI</span><span>10 / 10</span></div>
+  </div>
+</section>
+
+<script>
+  const slides=[...document.querySelectorAll('.slide')];
+  let idx=0;
+  const sync=()=>{const y=window.scrollY+innerHeight/2;idx=slides.findIndex(s=>y>=s.offsetTop&&y<s.offsetTop+s.offsetHeight);if(idx<0)idx=0;};
+  addEventListener('scroll',sync,{passive:true});
+  addEventListener('keydown',e=>{
+    if(['ArrowDown','ArrowRight',' ','PageDown'].includes(e.key)){e.preventDefault();sync();slides[Math.min(idx+1,slides.length-1)].scrollIntoView({behavior:'smooth'});}
+    if(['ArrowUp','ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();sync();slides[Math.max(idx-1,0)].scrollIntoView({behavior:'smooth'});}
+  });
+</script>

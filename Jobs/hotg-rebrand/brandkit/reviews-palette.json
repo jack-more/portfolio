@@ -1,0 +1,64 @@
+{
+  "reviews": [
+    {
+      "stage": "palette",
+      "name": "The Archive",
+      "premise": "Card stock and ink, the way a real filing system looks. One hot signal for live work, one gold for earned standing.",
+      "keywords": ["archival", "earned", "specific"],
+      "palette": [
+        {"hex": "#0B0E12", "name": "Ink"},
+        {"hex": "#F1EBDF", "name": "Card Stock"},
+        {"hex": "#E14B2A", "name": "Vermilion"},
+        {"hex": "#C79A3F", "name": "Gold"},
+        {"hex": "#333D4A", "name": "Rule"},
+        {"hex": "#8B98A6", "name": "Mist"}
+      ],
+      "logo_ideas": [
+        "A film frame that doubles as a filing tab",
+        "A stacked index-card mark"
+      ],
+      "background_color": "#F1EBDF",
+      "text_color": "#0B0E12"
+    },
+    {
+      "stage": "palette",
+      "name": "Court Light",
+      "premise": "Warmer and closer to the floor — hardwood and arena tungsten, with the same vermilion doing the work.",
+      "keywords": ["warm", "physical", "nostalgic"],
+      "palette": [
+        {"hex": "#12100D", "name": "Baseline"},
+        {"hex": "#EFE3CE", "name": "Hardwood Light"},
+        {"hex": "#E14B2A", "name": "Vermilion"},
+        {"hex": "#B8792F", "name": "Tungsten"},
+        {"hex": "#3E3830", "name": "Rule"},
+        {"hex": "#9A8F80", "name": "Dust"}
+      ],
+      "logo_ideas": [
+        "A backboard-derived frame mark",
+        "A worn stamp impression"
+      ],
+      "background_color": "#EFE3CE",
+      "text_color": "#12100D"
+    },
+    {
+      "stage": "palette",
+      "name": "Broadcast",
+      "premise": "Cooler and more technical — a tape library, not a scrapbook. Reads as infrastructure the league would trust.",
+      "keywords": ["technical", "institutional", "clean"],
+      "palette": [
+        {"hex": "#0A0D12", "name": "Ink"},
+        {"hex": "#ECEDE9", "name": "Stock"},
+        {"hex": "#E14B2A", "name": "Vermilion"},
+        {"hex": "#4E7CA8", "name": "Tape Blue"},
+        {"hex": "#2C333D", "name": "Rule"},
+        {"hex": "#8E959D", "name": "Mist"}
+      ],
+      "logo_ideas": [
+        "A reel-and-tab composite",
+        "A bracketed index mark"
+      ],
+      "background_color": "#ECEDE9",
+      "text_color": "#0A0D12"
+    }
+  ]
+}
