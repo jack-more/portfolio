@@ -93,6 +93,11 @@
   .desk1__pmeta{padding:12px 14px;border-top:1px solid var(--grule)}
   .desk1__pmeta b{display:block;font-family:var(--osw);font-weight:700;font-size:17px;letter-spacing:.06em;text-transform:uppercase;color:var(--stock)}
   .desk1__pmeta span{display:block;font-family:var(--m);font-size:9px;letter-spacing:.05em;color:var(--gmist);margin-top:4px;text-transform:uppercase}
+  .avatar{border-top:1px solid var(--grule);padding:10px;display:flex;flex-direction:column;gap:7px;align-items:center;background:var(--gink3)}
+  .avatar img{width:74px;height:74px;object-fit:contain;display:block}
+  .avatar__bar{width:100%;display:flex;align-items:center;gap:6px;border:1px solid var(--grule);padding:5px 7px;font-family:var(--m);font-size:7.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--chalk)}
+  .avatar__bar i{font-style:normal;color:var(--gmist)}
+  .avatar__bar em{font-style:normal;margin-left:auto;color:var(--gold)}
 
   /* ── screen 2: clip & label ── */
   .lab{flex:1;display:grid;grid-template-columns:1.5fr 1fr;min-height:0}
@@ -150,6 +155,8 @@
   .fx{display:flex;justify-content:space-between;align-items:center;gap:6px;border:1px solid var(--grule);padding:6px 8px;font-family:var(--m);font-size:8px;letter-spacing:.05em;text-transform:uppercase;color:var(--chalk)}
   .fx em{font-style:normal;color:var(--gold);white-space:nowrap}
   .fx--on{border-color:var(--verm);color:var(--verm)}
+  .fx--free{border-color:rgba(51,61,74,.7);color:var(--gmist)}
+  .fx--free em{color:var(--gmist)}
   .fx--on em{color:var(--verm)}
   .ed__run{margin-top:auto;background:var(--verm);color:#fff;text-align:center;padding:9px;font-family:var(--osw);font-weight:700;font-size:9.5px;letter-spacing:.18em;text-transform:uppercase}
   /* timeline */
@@ -222,6 +229,9 @@
   .econ__rule{grid-column:1/-1;margin-top:4px}
   .econ__rule .say{font-size:clamp(19px,2.4vw,30px)}
   .econ__rule .say em{color:var(--verm)}
+  .freebar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;border:2px solid var(--ink);background:var(--ink);color:var(--paper);padding:10px 14px;margin-bottom:clamp(14px,2vh,20px)}
+  .freebar b{font-family:var(--g);font-weight:900;font-size:13px;text-transform:uppercase;letter-spacing:.02em;margin-right:6px}
+  .freebar span{font-family:var(--m);font-size:10px;letter-spacing:.07em;text-transform:uppercase;color:rgba(249,250,254,.72);border:1px solid rgba(249,250,254,.3);padding:4px 9px}
 
   /* ── the house ── */
   .house{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,22px)}
@@ -366,11 +376,15 @@
           <div class="desk1__player">
             <div class="desk1__pimg"></div>
             <div class="desk1__pmeta"><b>Baron Davis</b><span>12,408 moments saved by 3,120 fans</span></div>
+            <div class="avatar">
+              <img src="__AVATAR__" alt="">
+              <div class="avatar__bar"><i>Try:</i> hit the crossover<em>2</em></div>
+            </div>
           </div>
         </div>
       </div>
       <div class="plate-note">
-        <p style="margin:0"><b>A career broken into folders, each one showing how full it is and how much is labeled.</b> Archivists go where the gaps are. Players fund bounties on the folders they want filled, which is how the archive grows in the direction the people in it actually care about.</p>
+        <p style="margin:0"><b>A career broken into folders, each one showing how full it is and how much is labeled.</b> Archivists go where the gaps are; players fund bounties on the folders they want filled. The arcade avatar in the corner is a side toy &mdash; prompt it to run a move for a couple of tokens. Stylized on purpose, so nothing here is ever mistaken for footage.</p>
         <span class="code">Screen 1 of 4</span>
       </div>
     </div>
@@ -451,14 +465,17 @@
               <div class="ed__transport"><i></i><span class="tc">00:00:14:08</span><span>/ 00:02:41:00</span><span style="margin-left:auto">Fit</span><span>100%</span></div>
             </div>
             <div class="ed__fx">
-              <h6>AI tools</h6>
-              <div class="fx fx--on">Cut to beat<em>free</em></div>
-              <div class="fx fx--on">Speed ramp<em>12</em></div>
-              <div class="fx">Zoom punch<em>12</em></div>
-              <div class="fx">Whip transition<em>20</em></div>
-              <div class="fx">Auto reframe<em>30</em></div>
-              <div class="fx">3 assemblies<em>120</em></div>
-              <div class="ed__run">Render &middot; 164 tokens</div>
+              <h6>Free</h6>
+              <div class="fx fx--free">Cut to beat<em>&mdash;</em></div>
+              <div class="fx fx--free">Transitions<em>&mdash;</em></div>
+              <div class="fx fx--free">Export 1080<em>&mdash;</em></div>
+              <h6 style="margin-top:6px">Compute</h6>
+              <div class="fx fx--on">Era match &rsquo;98&rarr;&rsquo;07<em>40</em></div>
+              <div class="fx fx--on">Pack: Reyes Vol.2<em>20</em></div>
+              <div class="fx">Auto reframe 9:16<em>30</em></div>
+              <div class="fx">Sound design<em>25</em></div>
+              <div class="fx">Multi-angle sync<em>35</em></div>
+              <div class="ed__run">Render &middot; 60 tokens</div>
             </div>
           </div>
           <div class="tl">
@@ -475,7 +492,7 @@
         </div>
       </div>
       <div class="plate-note">
-        <p style="margin:0"><b>A full editor in the browser &mdash; bin, monitor, multitrack timeline, beat grid &mdash; that has to beat CapCut on the things editors actually feel.</b> Every AI tool prices in tokens, so compute is visible before you spend it. None of it touches the original frame; effects live on the timeline. Choosing which cut is good remains the job.</p>
+        <p style="margin:0"><b>A full editor in the browser that has to beat CapCut on the things editors feel.</b> Cutting, transitions and 1080 export are free forever. Tokens buy the heavy work &mdash; era match, so &rsquo;98 tape and &rsquo;07 broadcast cut together without looking like two different films; packs authored by other editors, who take a cut when theirs gets used. Every effect is a layer. The original frame is never touched.</p>
         <span class="code">Screen 3 of 4</span>
       </div>
     </div>
@@ -570,7 +587,7 @@
   <div class="slide__in">
     <div class="slide__hd"><span class="no">09</span><h2>The economy</h2><span class="rt fine">One token, two doors</span></div>
     <div class="slide__bd">
-      <p class="oneline"><b>Tokens are compute credits.</b> Buy them, or earn them working the archive. They pay for AI in the editor and they enter raffles &mdash; that dual use is what makes them worth money and worth grinding for.</p>
+      <p class="oneline"><b>Tokens are compute credits.</b> Buy them, or earn them working the archive. Nothing needed to contribute is ever behind them &mdash; they buy speed and scale. That, plus raffle entry, is what makes them worth money and worth grinding for.</p>
       <div class="econ">
         <div class="led">
           <div class="led__cap"><b>In</b><span class="code">Cash and labor</span></div>
@@ -587,6 +604,10 @@
           <div class="led__row"><p><b>Charity.</b> A fixed share of every auction clears to the player&rsquo;s cause.</p><span class="code">Every lot</span></div>
         </div>
         <div class="econ__rule">
+          <div class="freebar">
+            <b>Free forever</b>
+            <span>Search</span><span>Watch</span><span>Clip &amp; label</span><span>Cut &amp; transitions</span><span>1080 export</span><span>Enter raffles you earned into</span>
+          </div>
           <p class="say">Buy the compute, or <em>earn it</em>.</p>
           <p class="aside">Every token can be earned, so nobody has to pay to take part &mdash; that keeps the archive the fastest way in and keeps the draws clean. Paid entry into prize draws is regulated state by state and wants counsel before launch; the earn path is what makes it workable.</p>
         </div>
