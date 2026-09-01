@@ -128,6 +128,46 @@
 
   /* ── screen 3: editor bay ── */
   .bay{flex:1;display:flex;flex-direction:column;min-height:0}
+  /* editor proper */
+  .ed{flex:1;display:grid;grid-template-columns:150px 1fr 168px;min-height:0}
+  .ed__bin{border-right:1px solid var(--grule);padding:10px;overflow:hidden;display:flex;flex-direction:column;gap:7px}
+  .ed__bin h6{margin:0;font-family:var(--osw);font-weight:600;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--gmist)}
+  .ed__clip{border:1px solid var(--grule);background:var(--gink3);display:flex;gap:7px;align-items:center;padding:4px}
+  .ed__clip i{width:38px;aspect-ratio:16/10;background:var(--gink2) center/cover no-repeat;flex:none;display:block}
+  .ed__clip b{font-family:var(--m);font-weight:500;font-size:7.5px;letter-spacing:.04em;color:var(--gmist);text-transform:uppercase}
+  .ed__clip--on{border-color:var(--verm)}
+  .ed__clip--on b{color:var(--stock)}
+  .ed__mon{display:flex;flex-direction:column;min-height:0;background:#05070a}
+  .ed__view{flex:1;background:url(__CLIP1__) center/cover no-repeat;position:relative;min-height:0}
+  .ed__safe{position:absolute;inset:8% 30%;border:1px solid rgba(241,235,223,.28)}
+  .ed__badge{position:absolute;left:10px;top:9px;font-family:var(--m);font-size:8px;letter-spacing:.1em;color:var(--stock);background:rgba(5,7,10,.72);padding:3px 7px;text-transform:uppercase}
+  .ed__transport{display:flex;align-items:center;gap:12px;padding:7px 12px;border-top:1px solid var(--grule);background:var(--gink2)}
+  .ed__transport i{width:0;height:0;border-left:9px solid var(--stock);border-top:6px solid transparent;border-bottom:6px solid transparent;display:block}
+  .ed__transport span{font-family:var(--m);font-size:8.5px;letter-spacing:.08em;color:var(--gmist)}
+  .ed__transport span.tc{color:var(--stock)}
+  .ed__fx{background:var(--gink2);padding:10px;display:flex;flex-direction:column;gap:6px;overflow:hidden}
+  .ed__fx h6{margin:0 0 2px;font-family:var(--osw);font-weight:600;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--gmist)}
+  .fx{display:flex;justify-content:space-between;align-items:center;gap:6px;border:1px solid var(--grule);padding:6px 8px;font-family:var(--m);font-size:8px;letter-spacing:.05em;text-transform:uppercase;color:var(--chalk)}
+  .fx em{font-style:normal;color:var(--gold);white-space:nowrap}
+  .fx--on{border-color:var(--verm);color:var(--verm)}
+  .fx--on em{color:var(--verm)}
+  .ed__run{margin-top:auto;background:var(--verm);color:#fff;text-align:center;padding:9px;font-family:var(--osw);font-weight:700;font-size:9.5px;letter-spacing:.18em;text-transform:uppercase}
+  /* timeline */
+  .tl{border-top:1px solid var(--grule);background:var(--gink2);padding:8px 12px 10px;display:flex;flex-direction:column;gap:5px}
+  .tl__ruler{height:11px;position:relative;border-bottom:1px solid var(--grule)}
+  .tl__ruler i{position:absolute;top:3px;bottom:0;width:1px;background:var(--grule)}
+  .tl__head{position:absolute;top:0;bottom:-46px;width:1px;background:var(--verm);z-index:2}
+  .tl__head::before{content:"";position:absolute;top:0;left:-3px;width:7px;height:7px;background:var(--verm)}
+  .tl__track{display:flex;gap:3px;height:22px;position:relative}
+  .tl__c{background:var(--gink3);border:1px solid var(--grule);position:relative;overflow:hidden}
+  .tl__c i{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.55}
+  .tl__c--on{border-color:var(--verm)}
+  .tl__tr{display:flex;gap:3px;height:16px;align-items:stretch}
+  .tl__wav{flex:1;display:flex;align-items:center;gap:1.5px;background:var(--gink3);border:1px solid var(--grule);padding:0 3px;overflow:hidden}
+  .tl__wav span{flex:1;background:var(--gold);opacity:.5}
+  .tl__beats{display:flex;gap:0;height:8px;position:relative}
+  .tl__beats i{position:absolute;top:0;bottom:0;width:1px;background:var(--gold);opacity:.6}
+  .tl__lab{font-family:var(--m);font-size:7px;letter-spacing:.1em;color:var(--gmist);text-transform:uppercase;width:34px;flex:none;align-self:center}
   .bay__search{display:flex;gap:10px;padding:clamp(12px,1.6vw,18px);border-bottom:1px solid var(--grule);align-items:center}
   .bay__q{flex:1;border:1px solid var(--grule);background:var(--gink3);padding:11px 14px;font-family:var(--m);font-size:11px;letter-spacing:.03em;color:var(--chalk)}
   .bay__q i{font-style:normal;color:var(--gmist)}
@@ -169,6 +209,38 @@
   .card p{margin:0;font-size:14px;line-height:1.6;color:rgba(10,13,24,.72)}
   .card .code{display:block;margin-bottom:10px;color:var(--cobalt)}
 
+  /* ── ledgers ── */
+  .econ{display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,2vw,24px);align-items:start}
+  .led{border:2px solid var(--ink);border-top:9px solid var(--ink);background:#fff}
+  .led__cap{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:10px 15px;border-bottom:2px solid var(--ink)}
+  .led__cap b{font-family:var(--g);font-weight:900;font-size:15px;text-transform:uppercase}
+  .led__row{display:grid;grid-template-columns:1fr auto;gap:14px;padding:10px 15px;border-bottom:1px solid rgba(10,13,24,.16);align-items:baseline}
+  .led__row:last-child{border-bottom:0}
+  .led__row p{margin:0;font-size:13.5px;line-height:1.45}
+  .led__row p b{font-weight:800}
+  .led__row .code{color:rgba(10,13,24,.45);white-space:nowrap}
+  .econ__rule{grid-column:1/-1;margin-top:4px}
+  .econ__rule .say{font-size:clamp(19px,2.4vw,30px)}
+  .econ__rule .say em{color:var(--verm)}
+
+  /* ── the house ── */
+  .house{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,22px)}
+  .lot{border:2px solid var(--ink);background:var(--gink);color:var(--chalk);overflow:hidden;position:relative;box-shadow:6px 6px 0 rgba(10,13,24,.18);display:flex;flex-direction:column}
+  .lot__img{aspect-ratio:4/3;background-size:cover;background-position:center;border-bottom:1px solid var(--grule)}
+  .lot__img--flat{background:radial-gradient(70% 70% at 50% 30%, #2a2f3c 0%, #12171E 70%)}
+  .lot__img--flat2{background:radial-gradient(70% 70% at 50% 35%, #3a2418 0%, #12171E 72%)}
+  .lot__tier{padding:6px 12px;font-family:var(--osw);font-weight:600;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gink)}
+  .lot--amethyst .lot__tier{background:linear-gradient(90deg,#8B5CC7 0%,#6B3FA0 60%,#4A2A72 100%);color:#fff}
+  .lot--gold .lot__tier{background:linear-gradient(90deg,#E3C069 0%,#C79A3F 60%,#9A7529 100%)}
+  .lot--auction .lot__tier{background:var(--verm);color:#fff}
+  .lot__bd{padding:12px 14px 14px;display:flex;flex-direction:column;gap:7px;flex:1;font-family:var(--pub)}
+  .lot__bd b{font-family:var(--osw);font-weight:600;font-size:14px;letter-spacing:.03em;text-transform:uppercase;color:var(--stock);line-height:1.15}
+  .lot__row{display:flex;justify-content:space-between;gap:10px;font-family:var(--m);font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;padding-bottom:5px;border-bottom:1px solid rgba(51,61,74,.6)}
+  .lot__row i{font-style:normal;color:var(--gmist)}
+  .lot__row span{color:var(--stock)}
+  .lot__cta{margin-top:auto;background:var(--stock);color:var(--gink);text-align:center;padding:9px;font-family:var(--osw);font-weight:700;font-size:10px;letter-spacing:.2em;text-transform:uppercase}
+  .lot__cta--cash{background:var(--verm);color:#fff}
+
   /* ── close ── */
   .slide--close{background:var(--cobalt);border-bottom:0}
   .slide--close .slide__ft{color:rgba(255,255,255,.6)}
@@ -184,6 +256,10 @@
   .close__contact a:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 rgba(10,13,24,.3)}
 
   @media (max-width:900px){
+    .econ,.house{grid-template-columns:1fr}
+    .ed{grid-template-columns:1fr}
+    .ed__bin,.ed__mon{border-right:0;border-bottom:1px solid var(--grule)}
+    .ed__view{min-height:190px}
     .frame{aspect-ratio:auto;min-height:74svh}
     .desk1,.lab,.mix{grid-template-columns:1fr}
     .desk1__folders,.lab__view,.mix__cover{border-right:0;border-bottom:1px solid var(--grule)}
@@ -210,9 +286,9 @@
     <div class="cover__top"><b>Ballast</b><span class="fine" style="color:rgba(241,235,223,.85)">Prepared for Baron Davis &amp; Chizz Cunningham</span></div>
     <div class="cover__mid">
       <h1>History of<br>the <em>Game</em></h1>
-      <p class="cover__sub">The internet already keeps basketball history for free. This pays for it, organizes it, and makes every second of it searchable.</p>
+      <p class="cover__sub">Every second of basketball history exists somewhere. Almost none of it is findable, and the people keeping it alive do it for free.</p>
     </div>
-    <div class="cover__ft fine"><span>Jack Morello</span><span>09.01.2026</span><span>01 / 10</span></div>
+    <div class="cover__ft fine"><span>Jack Morello</span><span>09.01.2026</span><span>01 / 12</span></div>
   </div>
 </section>
 
@@ -230,7 +306,7 @@
         <div><b>Fans</b><span>Get the best history reader in sports &mdash; and the ones who fall in love with it become the next archivists.</span></div>
       </div>
     </div>
-    <div class="slide__ft fine"><span>History of the Game</span><span>02 / 10</span></div>
+    <div class="slide__ft fine"><span>History of the Game</span><span>02 / 12</span></div>
   </div>
 </section>
 
@@ -260,7 +336,7 @@
       </div>
       <p class="aside">Channel structure is the open question: one flagship feed, or four with separate jobs. Everything produced runs on every platform either way.</p>
     </div>
-    <div class="slide__ft fine"><span>History of the Game</span><span>03 / 10</span></div>
+    <div class="slide__ft fine"><span>History of the Game</span><span>03 / 12</span></div>
   </div>
 </section>
 
@@ -298,7 +374,7 @@
         <span class="code">Screen 1 of 4</span>
       </div>
     </div>
-    <div class="slide__ft fine"><span>History of the Game</span><span>04 / 10</span></div>
+    <div class="slide__ft fine"><span>History of the Game</span><span>04 / 12</span></div>
   </div>
 </section>
 
@@ -339,53 +415,71 @@
         <span class="code">Screen 2 of 4</span>
       </div>
     </div>
-    <div class="slide__ft fine"><span>History of the Game</span><span>05 / 10</span></div>
+    <div class="slide__ft fine"><span>History of the Game</span><span>05 / 12</span></div>
   </div>
 </section>
 
 <!-- ══ 06 · SCREEN 3: THE EDITOR'S BAY ═════════════ -->
 <section class="slide">
   <div class="slide__in">
-    <div class="slide__hd"><span class="no">06</span><h2>The bay</h2><span class="rt fine">Your track, their footage, untouched</span></div>
+    <div class="slide__hd"><span class="no">06</span><h2>The bay</h2><span class="rt fine">A real editor, not a search page</span></div>
     <div class="slide__bd">
       <div class="frame">
         <div class="hud">
           <span class="hud__logo">History <i>of the</i> Game</span>
           <div class="hud__tabs"><span>Desk</span><span>Clip</span><b>Edit</b><span>Mixes</span></div>
-          <span class="hud__bal">2,410</span>
+          <span class="hud__bal">8,140</span>
         </div>
         <div class="bay">
           <div class="bay__search">
-            <div class="bay__q"><i>Search the archive:</i> every crossover on an outdoor court, golden hour, late 90s</div>
-            <div class="bay__go">Find shots</div>
+            <div class="bay__q"><i>Find:</i> every crossover on an outdoor court, golden hour, late 90s</div>
+            <div class="bay__go">Search</div>
           </div>
-          <div class="bay__tools">
-            <span class="on">Cuts on the beat</span>
-            <span class="on">Speed ramps</span>
-            <span>Zoom punches</span>
-            <span>Transitions</span>
-            <span>Vertical reframe</span>
-            <span>3 alt assemblies</span>
-            <span class="lock">Originals locked</span>
+          <div class="ed">
+            <div class="ed__bin">
+              <h6>Results &middot; 41</h6>
+              <div class="ed__clip ed__clip--on"><i style="background-image:url(__CLIP1__)"></i><b>Outdoor<br>&rsquo;98</b></div>
+              <div class="ed__clip"><i style="background-image:url(__CLIP2__)"></i><b>Baseline<br>&rsquo;07</b></div>
+              <div class="ed__clip"><i style="background-image:url(__CLIP3__)"></i><b>Tunnel<br>&rsquo;02</b></div>
+              <div class="ed__clip"><i></i><b>+38 more</b></div>
+            </div>
+            <div class="ed__mon">
+              <div class="ed__view">
+                <div class="ed__safe"></div>
+                <span class="ed__badge">9:16 &middot; original &middot; 1080</span>
+              </div>
+              <div class="ed__transport"><i></i><span class="tc">00:00:14:08</span><span>/ 00:02:41:00</span><span style="margin-left:auto">Fit</span><span>100%</span></div>
+            </div>
+            <div class="ed__fx">
+              <h6>AI tools</h6>
+              <div class="fx fx--on">Cut to beat<em>free</em></div>
+              <div class="fx fx--on">Speed ramp<em>12</em></div>
+              <div class="fx">Zoom punch<em>12</em></div>
+              <div class="fx">Whip transition<em>20</em></div>
+              <div class="fx">Auto reframe<em>30</em></div>
+              <div class="fx">3 assemblies<em>120</em></div>
+              <div class="ed__run">Render &middot; 164 tokens</div>
+            </div>
           </div>
-          <div class="bay__results">
-            <div class="bay__hit bay__hit--on"><i style="background-image:url(__CLIP1__)"></i><b>Outdoor &middot; golden hour &middot; 98 &middot; original</b></div>
-            <div class="bay__hit"><i style="background-image:url(__CLIP2__)"></i><b>Arena &middot; baseline &middot; 07</b></div>
-            <div class="bay__hit"><i style="background-image:url(__CLIP3__)"></i><b>Tunnel &middot; flash &middot; 02</b></div>
-            <div class="bay__hit"><i></i><b>+ 38 more matches</b></div>
-          </div>
-          <div class="bay__tl">
-            <div class="bay__block"></div><div class="bay__block bay__block--b"></div><div class="bay__block bay__block--c"></div>
-            <div class="bay__cta">Assemble to the beat</div>
+          <div class="tl">
+            <div class="tl__ruler"><i style="left:8.3%"></i><i style="left:16.7%"></i><i style="left:25.0%"></i><i style="left:33.3%"></i><i style="left:41.7%"></i><i style="left:50.0%"></i><i style="left:58.3%"></i><i style="left:66.7%"></i><i style="left:75.0%"></i><i style="left:83.3%"></i><i style="left:91.7%"></i><span class="tl__head" style="left:34%"></span></div>
+            <div class="tl__track">
+              <div class="tl__c" style="flex:2"><i style="background-image:url(__CLIP2__)"></i></div>
+              <div class="tl__c tl__c--on" style="flex:3"><i style="background-image:url(__CLIP1__)"></i></div>
+              <div class="tl__c" style="flex:1.4"><i style="background-image:url(__CLIP3__)"></i></div>
+              <div class="tl__c" style="flex:2.2"><i style="background-image:url(__CLIP2__)"></i></div>
+            </div>
+            <div class="tl__tr"><span class="tl__lab">Audio</span><div class="tl__wav"><span style="height:22%"></span><span style="height:58%"></span><span style="height:36%"></span><span style="height:80%"></span><span style="height:44%"></span><span style="height:92%"></span><span style="height:30%"></span><span style="height:66%"></span><span style="height:48%"></span><span style="height:88%"></span><span style="height:26%"></span><span style="height:72%"></span><span style="height:40%"></span><span style="height:84%"></span><span style="height:34%"></span><span style="height:60%"></span><span style="height:50%"></span><span style="height:94%"></span><span style="height:28%"></span><span style="height:68%"></span><span style="height:42%"></span><span style="height:78%"></span><span style="height:32%"></span><span style="height:86%"></span><span style="height:46%"></span><span style="height:62%"></span><span style="height:24%"></span><span style="height:76%"></span><span style="height:38%"></span><span style="height:90%"></span><span style="height:52%"></span><span style="height:70%"></span></div></div>
+            <div class="tl__tr"><span class="tl__lab">Beat</span><div class="tl__beats" style="flex:1"><i style="left:0.0%"></i><i style="left:6.2%"></i><i style="left:12.5%"></i><i style="left:18.8%"></i><i style="left:25.0%"></i><i style="left:31.2%"></i><i style="left:37.5%"></i><i style="left:43.8%"></i><i style="left:50.0%"></i><i style="left:56.2%"></i><i style="left:62.5%"></i><i style="left:68.8%"></i><i style="left:75.0%"></i><i style="left:81.2%"></i><i style="left:87.5%"></i><i style="left:93.8%"></i></div></div>
           </div>
         </div>
       </div>
       <div class="plate-note">
-        <p style="margin:0"><b>Search returns the shots. The AI builds the edit around them &mdash; cuts on the beat, speed ramps, zoom punches, transitions, three assemblies to choose between.</b> It never touches a frame of the original. The footage stays exactly as it was recorded; everything AI does happens on the timeline. Choosing which cut is good remains the job.</p>
+        <p style="margin:0"><b>A full editor in the browser &mdash; bin, monitor, multitrack timeline, beat grid &mdash; that has to beat CapCut on the things editors actually feel.</b> Every AI tool prices in tokens, so compute is visible before you spend it. None of it touches the original frame; effects live on the timeline. Choosing which cut is good remains the job.</p>
         <span class="code">Screen 3 of 4</span>
       </div>
     </div>
-    <div class="slide__ft fine"><span>History of the Game</span><span>06 / 10</span></div>
+    <div class="slide__ft fine"><span>History of the Game</span><span>06 / 12</span></div>
   </div>
 </section>
 
@@ -421,14 +515,91 @@
         <span class="code">Screen 4 of 4</span>
       </div>
     </div>
-    <div class="slide__ft fine"><span>History of the Game</span><span>07 / 10</span></div>
+    <div class="slide__ft fine"><span>History of the Game</span><span>07 / 12</span></div>
   </div>
 </section>
 
-<!-- ══ 08 · THE RULES ══════════════════════════════ -->
+<!-- ══ 08 · THE HOUSE ══════════════════════════════ -->
 <section class="slide">
   <div class="slide__in">
-    <div class="slide__hd"><span class="no">08</span><h2>Rules</h2><span class="rt fine">Non-negotiable</span></div>
+    <div class="slide__hd"><span class="no">08</span><h2>The house</h2><span class="rt fine">Where tokens go to die</span></div>
+    <div class="slide__bd">
+      <div class="house">
+        <div class="lot lot--amethyst">
+          <div class="lot__img" style="background-image:url(__JERSEY__)"></div>
+          <div class="lot__tier">Amethyst &middot; 1 of 1</div>
+          <div class="lot__bd">
+            <b>Signed game-worn jersey</b>
+            <div class="lot__row"><i>Entry</i><span>55,000</span></div>
+            <div class="lot__row"><i>Entries in</i><span>4,182</span></div>
+            <div class="lot__row"><i>You hold</i><span>3</span></div>
+            <div class="lot__cta">Enter raffle</div>
+          </div>
+        </div>
+        <div class="lot lot--gold">
+          <div class="lot__img lot__img--flat"></div>
+          <div class="lot__tier">Gold &middot; 5 seats</div>
+          <div class="lot__bd">
+            <b>Call with the player</b>
+            <div class="lot__row"><i>Entry</i><span>12,000</span></div>
+            <div class="lot__row"><i>Entries in</i><span>9,610</span></div>
+            <div class="lot__row"><i>Closes</i><span>4d 02h</span></div>
+            <div class="lot__cta">Enter raffle</div>
+          </div>
+        </div>
+        <div class="lot lot--auction">
+          <div class="lot__img lot__img--flat2"></div>
+          <div class="lot__tier">Live auction &middot; cash</div>
+          <div class="lot__bd">
+            <b>Courtside pair, opening night</b>
+            <div class="lot__row"><i>Current bid</i><span>$4,200</span></div>
+            <div class="lot__row"><i>To charity</i><span>50%</span></div>
+            <div class="lot__row"><i>Closes</i><span>11h 40m</span></div>
+            <div class="lot__cta lot__cta--cash">Place bid</div>
+          </div>
+        </div>
+      </div>
+      <p class="aside">Raffles burn tokens. Auctions take cash and split it with the player&rsquo;s charity. Odds and entry counts stay on the card &mdash; the moment those are hidden it becomes a different kind of business.</p>
+    </div>
+    <div class="slide__ft fine"><span>History of the Game</span><span>08 / 12</span></div>
+  </div>
+</section>
+
+<!-- ══ 09 · THE ECONOMY ════════════════════════════ -->
+<section class="slide">
+  <div class="slide__in">
+    <div class="slide__hd"><span class="no">09</span><h2>The economy</h2><span class="rt fine">One token, two doors</span></div>
+    <div class="slide__bd">
+      <p class="oneline"><b>Tokens are compute credits.</b> Buy them, or earn them working the archive. They pay for AI in the editor and they enter raffles &mdash; that dual use is what makes them worth money and worth grinding for.</p>
+      <div class="econ">
+        <div class="led">
+          <div class="led__cap"><b>In</b><span class="code">Cash and labor</span></div>
+          <div class="led__row"><p><b>Token sales.</b> Editors in a hurry buy compute. The margin line.</p><span class="code">Daily</span></div>
+          <div class="led__row"><p><b>B2B contracts.</b> Rights-holders pay to get their own libraries organized.</p><span class="code">Contract</span></div>
+          <div class="led__row"><p><b>Auctions &amp; sponsors.</b> Cash for lots, brands funding prize pools.</p><span class="code">Event</span></div>
+          <div class="led__row"><p><b>Corpus licensing.</b> The labeled archive as a search API and dataset.</p><span class="code">Year two</span></div>
+        </div>
+        <div class="led">
+          <div class="led__cap"><b>Out</b><span class="code">Compute and people</span></div>
+          <div class="led__row"><p><b>AI compute.</b> Real cost per render &mdash; the token has a floor under it.</p><span class="code">Per use</span></div>
+          <div class="led__row"><p><b>Archivist pay.</b> Cash for verified work, separate from tokens.</p><span class="code">Weekly</span></div>
+          <div class="led__row"><p><b>Prizes.</b> Funded by players and sponsors, never out of wages.</p><span class="code">Monthly</span></div>
+          <div class="led__row"><p><b>Charity.</b> A fixed share of every auction clears to the player&rsquo;s cause.</p><span class="code">Every lot</span></div>
+        </div>
+        <div class="econ__rule">
+          <p class="say">Buy the compute, or <em>earn it</em>.</p>
+          <p class="aside">Every token can be earned, so nobody has to pay to take part &mdash; that keeps the archive the fastest way in and keeps the draws clean. Paid entry into prize draws is regulated state by state and wants counsel before launch; the earn path is what makes it workable.</p>
+        </div>
+      </div>
+    </div>
+    <div class="slide__ft fine"><span>History of the Game</span><span>09 / 12</span></div>
+  </div>
+</section>
+
+<!-- ══ 10 · THE RULES ══════════════════════════════ -->
+<section class="slide">
+  <div class="slide__in">
+    <div class="slide__hd"><span class="no">10</span><h2>Rules</h2><span class="rt fine">Non-negotiable</span></div>
     <div class="slide__bd">
       <div class="grid2">
         <div class="card"><span class="code">Rule 01</span><h3>AI never touches the footage</h3><p>It proposes labels, matches box scores, times cuts and builds transitions &mdash; all of it on the timeline, none of it on the original. No upscaling, no generated frames, no invented detail. The record stays as it was recorded, which is the only reason it will be worth licensing.</p></div>
@@ -437,14 +608,14 @@
         <div class="card"><span class="code">Rule 04</span><h3>Players own their vaults</h3><p>The archive is open to explore and build on, but each legend owns their own footage and stories &mdash; open-sourced in spirit, theirs on paper.</p></div>
       </div>
     </div>
-    <div class="slide__ft fine"><span>History of the Game</span><span>08 / 10</span></div>
+    <div class="slide__ft fine"><span>History of the Game</span><span>10 / 12</span></div>
   </div>
 </section>
 
 <!-- ══ 09 · WHY THE NBA ════════════════════════════ -->
 <section class="slide">
   <div class="slide__in">
-    <div class="slide__hd"><span class="no">09</span><h2>The league</h2><span class="rt fine">What they cannot build themselves</span></div>
+    <div class="slide__hd"><span class="no">11</span><h2>The league</h2><span class="rt fine">What they cannot build themselves</span></div>
     <div class="slide__bd">
       <p class="oneline">The league&rsquo;s history is its most under-used asset. This builds the thing they can&rsquo;t: <b>a living, organized, rights-clean archive with a fan workforce that loves maintaining it.</b></p>
       <div class="chain">
@@ -454,14 +625,14 @@
         <div><b>The moment</b><span>Start with Baron and legends who say yes. When the mixes are everywhere and the archive is undeniable, that&rsquo;s what Baron raises on &mdash; with the league in the room.</span></div>
       </div>
     </div>
-    <div class="slide__ft fine"><span>History of the Game</span><span>09 / 10</span></div>
+    <div class="slide__ft fine"><span>History of the Game</span><span>11 / 12</span></div>
   </div>
 </section>
 
 <!-- ══ 10 · HOW IT STARTS ══════════════════════════ -->
 <section class="slide slide--close">
   <div class="slide__in">
-    <div class="slide__hd" style="border-bottom-color:rgba(255,255,255,.6)"><span class="no" style="color:#fff">10</span><h2 style="color:#fff">Sequence</h2><span class="rt fine" style="color:rgba(255,255,255,.6)">One player, one desk, first hundred</span></div>
+    <div class="slide__hd" style="border-bottom-color:rgba(255,255,255,.6)"><span class="no" style="color:#fff">12</span><h2 style="color:#fff">Sequence</h2><span class="rt fine" style="color:rgba(255,255,255,.6)">One player, one desk, first hundred</span></div>
     <div class="slide__bd">
       <p class="say close__say">One player. One desk. Real fans.</p>
       <div class="order">
@@ -471,7 +642,7 @@
       </div>
       <div class="close__contact"><a href="mailto:jaidanmorello@gmail.com"><i></i>jaidanmorello@gmail.com</a></div>
     </div>
-    <div class="slide__ft fine"><span>Ballast &mdash; Los Angeles &middot; MMXXVI</span><span>10 / 10</span></div>
+    <div class="slide__ft fine"><span>Ballast &mdash; Los Angeles &middot; MMXXVI</span><span>12 / 12</span></div>
   </div>
 </section>
 
