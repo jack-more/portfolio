@@ -1,0 +1,320 @@
+<title>For Baron Davis</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,700;0,800;0,900;1,800;1,900&family=Archivo+Narrow:wght@600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Oswald:wght@300;500;600;700&family=Public+Sans:wght@400;600&display=swap">
+<style>
+  :root{
+    --paper:#f9fafe;--ink:#0a0d18;--cobalt:#0b5cf6;
+    --g:"Archivo","Helvetica Neue",Arial,sans-serif;
+    --n:"Archivo Narrow","Archivo",Arial,sans-serif;
+    --m:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+    --gink:#0B0E12;--gink2:#12171E;--gink3:#171D26;--grule:#333D4A;
+    --stock:#F1EBDF;--verm:#E14B2A;--gold:#C79A3F;--chalk:#E9ECF0;--gmist:#8B98A6;
+    --osw:"Oswald","Archivo Narrow",sans-serif;--pub:"Public Sans","Archivo",sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-snap-type:y mandatory;scroll-behavior:smooth}
+  body{margin:0;background:var(--ink);color:var(--ink);font-family:var(--g);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  .fine{font-family:var(--n);font-weight:700;font-size:11px;letter-spacing:.17em;text-transform:uppercase}
+  .code{font-family:var(--m);font-weight:500;font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+
+  .slide{min-height:100svh;scroll-snap-align:start;position:relative;display:flex;flex-direction:column;background:var(--paper);border-bottom:1px solid rgba(10,13,24,.25)}
+  .slide__in{width:min(1180px,100%);margin:0 auto;flex:1;display:flex;flex-direction:column;padding:clamp(26px,4vh,50px) clamp(22px,4.5vw,60px)}
+  .slide__hd{display:flex;align-items:baseline;gap:14px;border-bottom:2px solid var(--ink);padding-bottom:10px;margin-bottom:clamp(18px,3vh,34px)}
+  .slide__hd .no{font-family:var(--m);font-weight:600;font-size:11px;letter-spacing:.12em;color:var(--cobalt)}
+  .slide__hd h2{font-family:var(--g);font-weight:900;font-size:clamp(18px,2.2vw,26px);letter-spacing:-.02em;text-transform:uppercase;margin:0}
+  .slide__hd .rt{margin-left:auto;color:rgba(10,13,24,.5)}
+  .slide__bd{flex:1;display:flex;flex-direction:column;justify-content:center}
+  .slide__ft{display:flex;justify-content:space-between;gap:20px;padding-top:14px;color:rgba(10,13,24,.42)}
+
+  .big{font-family:var(--g);font-weight:900;font-style:italic;text-transform:uppercase;letter-spacing:-.038em;line-height:.96;margin:0;text-wrap:balance;font-size:clamp(30px,4.6vw,62px)}
+  .big em{font-style:italic;color:var(--verm)}
+  .lede{font-size:clamp(17px,2vw,23px);line-height:1.5;max-width:56ch;margin:clamp(16px,2.6vh,26px) 0 0;font-weight:500}
+  .lede b{font-weight:800}
+  .aside{margin:clamp(14px,2.2vh,22px) 0 0;color:rgba(10,13,24,.55);font-size:14.5px;max-width:70ch}
+
+  /* cover */
+  .cover{background:var(--gink)}
+  .cover__img{position:absolute;inset:0;background:url(__COVER__) center 32%/cover no-repeat;opacity:.82}
+  .cover__img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,14,18,.3) 0%,rgba(11,14,18,.06) 38%,rgba(11,14,18,.86) 90%)}
+  .cover .slide__in{position:relative;z-index:1}
+  .cover__top{display:flex;justify-content:space-between;align-items:baseline;color:rgba(241,235,223,.9)}
+  .cover__top b{font-family:var(--g);font-weight:900;font-style:italic;font-size:16px;color:#fff}
+  .cover__mid{flex:1;display:flex;flex-direction:column;justify-content:flex-end}
+  .cover h1{font-family:var(--osw);font-weight:700;text-transform:uppercase;font-size:clamp(44px,8vw,104px);line-height:.92;letter-spacing:.01em;margin:0;color:var(--stock)}
+  .cover h1 em{font-style:normal;color:var(--verm)}
+  .cover__sub{margin:clamp(14px,2.2vh,22px) 0 clamp(18px,3vh,30px);color:rgba(241,235,223,.92);font-size:clamp(16px,1.9vw,21px);font-weight:500;max-width:46ch;font-family:var(--pub)}
+  .cover__ft{display:flex;justify-content:space-between;gap:20px;border-top:1px solid rgba(241,235,223,.4);padding-top:12px;color:rgba(241,235,223,.8)}
+
+  /* rows */
+  .rows{border-top:2px solid var(--ink);max-width:940px}
+  .rows div{display:grid;grid-template-columns:210px 1fr;gap:clamp(14px,2.5vw,38px);padding:15px 0;border-bottom:1px solid rgba(10,13,24,.18)}
+  .rows b{font-family:var(--g);font-weight:900;font-size:clamp(14px,1.6vw,18px);letter-spacing:-.015em;text-transform:uppercase}
+  .rows span{font-size:15.5px;line-height:1.55}
+
+  /* the split — now vs then */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,2.4vw,28px)}
+  .col{border:2px solid var(--ink);background:#fff;box-shadow:5px 5px 0 rgba(10,13,24,.14)}
+  .col__cap{padding:10px 16px;border-bottom:2px solid var(--ink);display:flex;justify-content:space-between;gap:12px}
+  .col--now .col__cap{background:var(--ink);color:var(--paper)}
+  .col--then .col__cap{background:var(--verm);color:#fff}
+  .col ul{margin:0;padding:16px 20px 20px 34px}
+  .col li{margin-bottom:10px;font-size:15px;line-height:1.5}
+  .col li:last-child{margin-bottom:0}
+  .col--now li{color:rgba(10,13,24,.66)}
+
+  /* frame */
+  .frame{aspect-ratio:16/9.2;width:min(100%,calc((100svh - 250px)*16/9.2));margin:0 auto;background:var(--gink);border:2px solid var(--ink);box-shadow:6px 6px 0 rgba(10,13,24,.2);position:relative;overflow:hidden;color:var(--chalk);font-family:var(--pub);display:flex;flex-direction:column}
+  .frame *{line-height:1.35}
+  .hud{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:10px 16px;border-bottom:1px solid var(--grule);background:var(--gink2)}
+  .hud__logo{font-family:var(--osw);font-weight:700;font-size:12px;letter-spacing:.26em;text-transform:uppercase;color:var(--stock)}
+  .hud__logo i{font-style:normal;color:var(--verm)}
+  .hud__tabs{display:flex;gap:16px;font-family:var(--osw);font-weight:500;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gmist)}
+  .hud__tabs b{font-weight:600;color:var(--chalk);border-bottom:2px solid var(--verm);padding-bottom:2px}
+  .desk1{flex:1;display:grid;grid-template-columns:1fr 232px;min-height:0}
+  .desk1__folders{border-right:1px solid var(--grule);padding:clamp(14px,1.8vw,24px);display:flex;flex-direction:column;gap:10px;min-height:0;overflow:hidden}
+  .desk1__folders h5{margin:0 0 4px;font-family:var(--osw);font-weight:600;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--gmist)}
+  .folders{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+  .folder{border:1px solid var(--grule);background:var(--gink3)}
+  .folder__thumb{aspect-ratio:16/8.4;background:var(--gink2) center/cover no-repeat;border-bottom:1px solid var(--grule)}
+  .folder__meta{padding:8px 10px}
+  .folder__meta b{display:block;font-family:var(--osw);font-weight:600;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--stock)}
+  .folder__meta span{display:block;font-family:var(--m);font-size:8.5px;letter-spacing:.05em;color:var(--gmist);margin:4px 0 6px;text-transform:uppercase}
+  .fill{height:4px;background:var(--gink);border:1px solid var(--grule);position:relative}
+  .fill i{position:absolute;inset:1px auto 1px 1px;background:var(--verm)}
+  .folder--gold .fill i{background:var(--gold)}
+  .desk1__player{background:var(--gink2);display:flex;flex-direction:column;min-height:0}
+  .desk1__pimg{flex:1;background:url(__SELECT__) center 18%/cover no-repeat;min-height:0}
+  .desk1__pmeta{padding:12px 14px;border-top:1px solid var(--grule)}
+  .desk1__pmeta b{display:block;font-family:var(--osw);font-weight:700;font-size:17px;letter-spacing:.06em;text-transform:uppercase;color:var(--stock)}
+  .desk1__pmeta span{display:block;font-family:var(--m);font-size:9px;letter-spacing:.05em;color:var(--gmist);margin-top:4px;text-transform:uppercase}
+  .plate-note{display:flex;justify-content:space-between;gap:18px;margin-top:12px;width:min(100%,calc((100svh - 250px)*16/9.2));margin-left:auto;margin-right:auto;color:rgba(10,13,24,.55);font-size:13px}
+  .plate-note b{font-weight:800;color:var(--ink)}
+  .plate-note .code{white-space:nowrap;color:rgba(10,13,24,.45);padding-top:2px}
+
+  /* cards */
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,2vw,22px)}
+  .card{border:2px solid var(--ink);background:#fff;box-shadow:5px 5px 0 rgba(10,13,24,.14);padding:clamp(17px,2.2vw,26px)}
+  .card h3{font-family:var(--g);font-weight:900;font-size:clamp(16px,1.85vw,21px);letter-spacing:-.02em;text-transform:uppercase;margin:0 0 8px}
+  .card p{margin:0;font-size:14.5px;line-height:1.6;color:rgba(10,13,24,.72)}
+  .card .code{display:block;margin-bottom:10px;color:var(--cobalt)}
+
+  /* the ask */
+  .ask{border-top:2px solid var(--ink);max-width:900px}
+  .ask > div{display:grid;grid-template-columns:52px 1fr;gap:clamp(14px,2.4vw,30px);padding:16px 0;border-bottom:1px solid rgba(10,13,24,.18);align-items:baseline}
+  .ask > div > div{display:block}
+  .ask .code{color:var(--cobalt)}
+  .ask b{display:block;font-family:var(--g);font-weight:900;font-size:clamp(16px,1.8vw,21px);letter-spacing:-.02em;text-transform:uppercase;margin-bottom:4px}
+  .ask > div > div > span{display:block;font-size:15px;line-height:1.55;color:rgba(10,13,24,.72);max-width:62ch}
+
+  /* close */
+  .slide--close{background:var(--cobalt);border-bottom:0}
+  .slide--close .slide__ft{color:rgba(255,255,255,.6)}
+  .close__say{color:#fff;max-width:15ch;font-size:clamp(34px,5.4vw,74px)}
+  .close__p{margin:clamp(18px,3vh,28px) 0 0;color:rgba(255,255,255,.9);font-size:clamp(16px,1.8vw,20px);max-width:52ch;font-weight:500}
+  .close__contact{margin-top:clamp(22px,3.6vh,34px)}
+  .close__contact a{display:inline-flex;align-items:center;gap:10px;text-decoration:none;background:var(--paper);color:var(--ink);border:2px solid var(--ink);box-shadow:4px 4px 0 rgba(10,13,24,.3);padding:14px 26px;font-family:var(--g);font-weight:900;font-style:italic;text-transform:uppercase;font-size:16px}
+  .close__contact a i{width:7px;height:7px;background:var(--cobalt);display:block}
+  .close__contact a:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 rgba(10,13,24,.3)}
+
+  @media (max-width:900px){
+    .split,.grid2{grid-template-columns:1fr}
+    .rows div{grid-template-columns:1fr;gap:4px}
+    .ask div{grid-template-columns:38px 1fr}
+    .frame{aspect-ratio:auto;min-height:70svh}
+    .desk1{grid-template-columns:1fr}
+    .desk1__folders{border-right:0;border-bottom:1px solid var(--grule)}
+    .desk1__pimg{min-height:210px}
+    .folders{grid-template-columns:1fr 1fr}
+  }
+  @media print{html{scroll-snap-type:none}.slide{min-height:0;height:100vh;page-break-after:always;border-bottom:0}}
+</style>
+
+<!-- ══ 01 · COVER ══════════════════════════════════ -->
+<section class="slide cover">
+  <div class="cover__img" aria-hidden="true"></div>
+  <div class="slide__in">
+    <div class="cover__top"><b>Ballast</b><span class="fine">For Baron Davis</span></div>
+    <div class="cover__mid">
+      <h1>History of<br>the <em>Game</em></h1>
+      <p class="cover__sub">Your career, organized by the people who never stopped watching it.</p>
+    </div>
+    <div class="cover__ft fine"><span>Jack Morello</span><span>09.01.2026</span><span>01 / 09</span></div>
+  </div>
+</section>
+
+<!-- ══ 02 · WHERE IT LIVES NOW ═════════════════════ -->
+<section class="slide">
+  <div class="slide__in">
+    <div class="slide__hd"><span class="no">02</span><h2>Where it lives now</h2><span class="rt fine">The honest picture</span></div>
+    <div class="slide__bd">
+      <p class="big">Your best nights are on <em>somebody else&rsquo;s hard drive</em>.</p>
+      <div class="split" style="margin-top:clamp(22px,3.6vh,38px)">
+        <div class="col col--now">
+          <div class="col__cap fine"><span>Today</span><span>Scattered</span></div>
+          <ul>
+            <li>Clips live in re-uploads, dead links, and private drives.</li>
+            <li>No way to search for a specific play, game, or night.</li>
+            <li>Quality degrades with every re-upload.</li>
+            <li>The people preserving it get no credit and no pay.</li>
+            <li>A nineteen-year-old who&rsquo;d love your game will never find it.</li>
+          </ul>
+        </div>
+        <div class="col col--then">
+          <div class="col__cap fine"><span>After</span><span>One place</span></div>
+          <ul>
+            <li>Every clip in one archive, labeled and dated.</li>
+            <li>Searchable down to the possession.</li>
+            <li>Originals kept untouched, permanently.</li>
+            <li>Everyone who worked on it is named on it.</li>
+            <li>New fans find you every week, on purpose.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="slide__ft fine"><span>History of the Game</span><span>02 / 09</span></div>
+  </div>
+</section>
+
+<!-- ══ 03 · WHAT WE'D BUILD ════════════════════════ -->
+<section class="slide">
+  <div class="slide__in">
+    <div class="slide__hd"><span class="no">03</span><h2>Your archive</h2><span class="rt fine">What it looks like</span></div>
+    <div class="slide__bd">
+      <div class="frame">
+        <div class="hud">
+          <span class="hud__logo">History <i>of the</i> Game</span>
+          <div class="hud__tabs"><b>Archive</b><span>Clips</span><span>Stories</span><span>Mixes</span></div>
+          <span class="code" style="color:var(--gold)">Baron Davis</span>
+        </div>
+        <div class="desk1">
+          <div class="desk1__folders">
+            <h5>Baron Davis &mdash; footage folders</h5>
+            <div class="folders">
+              <div class="folder"><div class="folder__thumb" style="background-image:url(__CLIP2__)"></div><div class="folder__meta"><b>Dunks &amp; finishes</b><span>214 clips &middot; 82% labeled</span><div class="fill"><i style="width:82%"></i></div></div></div>
+              <div class="folder folder--gold"><div class="folder__thumb" style="background-image:url(__CLIP1__)"></div><div class="folder__meta"><b>Handles</b><span>167 clips &middot; 96% labeled</span><div class="fill"><i style="width:96%"></i></div></div></div>
+              <div class="folder"><div class="folder__thumb" style="background-image:url(__CLIP3__)"></div><div class="folder__meta"><b>Tunnel &amp; fits</b><span>58 clips &middot; 44% labeled</span><div class="fill"><i style="width:44%"></i></div></div></div>
+              <div class="folder"><div class="folder__meta"><b>We Believe run</b><span>Your bounty &middot; open</span><div class="fill"><i style="width:24%"></i></div></div></div>
+              <div class="folder"><div class="folder__meta"><b>Interviews</b><span>31 clips &middot; 22% labeled</span><div class="fill"><i style="width:22%"></i></div></div></div>
+              <div class="folder"><div class="folder__meta"><b>Your stories</b><span>Recorded by you</span><div class="fill"><i style="width:12%"></i></div></div></div>
+            </div>
+          </div>
+          <div class="desk1__player">
+            <div class="desk1__pimg"></div>
+            <div class="desk1__pmeta"><b>Baron Davis</b><span>12,408 moments saved by 3,120 fans</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="plate-note">
+        <p style="margin:0"><b>One page that holds your whole career, broken into folders anyone can search.</b> The bars show how much of each is done. Anything still thin, you can put a bounty on and the archivists go fill it.</p>
+        <span class="code">Rough mockup</span>
+      </div>
+    </div>
+    <div class="slide__ft fine"><span>History of the Game</span><span>03 / 09</span></div>
+  </div>
+</section>
+
+<!-- ══ 04 · WHO DOES THE WORK ══════════════════════ -->
+<section class="slide">
+  <div class="slide__in">
+    <div class="slide__hd"><span class="no">04</span><h2>Who does the work</h2><span class="rt fine">Not us. Not strangers.</span></div>
+    <div class="slide__bd">
+      <p class="lede">The people who already keep your highlights alive &mdash; the ones cutting clips at 2am for no money and no credit. <b>We find them, pay them, and put their name on the work.</b></p>
+      <div class="rows" style="margin-top:clamp(20px,3.2vh,34px)">
+        <div><b>Archivists</b><span>Fans who find the footage, cut it, and label it properly. Every clip carries the name of who saved it.</span></div>
+        <div><b>Keepers</b><span>You appoint five. They curate your archive and decide what belongs. It is an honor, not a job application &mdash; and only you hand it out.</span></div>
+        <div><b>Editors</b><span>They build the mixes that travel. Every one credits you and the archivists behind it.</span></div>
+        <div><b>Us</b><span>We build the tools and run the operation. We do not own your footage and we never will.</span></div>
+      </div>
+    </div>
+    <div class="slide__ft fine"><span>History of the Game</span><span>04 / 09</span></div>
+  </div>
+</section>
+
+<!-- ══ 05 · WHAT YOU CONTROL ═══════════════════════ -->
+<section class="slide">
+  <div class="slide__in">
+    <div class="slide__hd"><span class="no">05</span><h2>What you control</h2><span class="rt fine">All of it</span></div>
+    <div class="slide__bd">
+      <div class="grid2">
+        <div class="card"><span class="code">01</span><h3>You own the archive</h3><p>Your footage, your stories, your likeness. Ours is the workshop, not the vault. If you walk, the archive walks with you &mdash; in writing, before anything starts.</p></div>
+        <div class="card"><span class="code">02</span><h3>Nothing goes out unapproved</h3><p>You or your Keepers clear what gets published. Anything you want down comes down, no conversation required.</p></div>
+        <div class="card"><span class="code">03</span><h3>The footage is never altered</h3><p>No upscaling, no generated frames, nothing invented. Edits are layers on top; the original stays exactly as it was recorded.</p></div>
+        <div class="card"><span class="code">04</span><h3>Your name, always attached</h3><p>Every clip, every mix, every credential traces back to you. The archive grows your name by design, not as a side effect.</p></div>
+      </div>
+    </div>
+    <div class="slide__ft fine"><span>History of the Game</span><span>05 / 09</span></div>
+  </div>
+</section>
+
+<!-- ══ 06 · WHAT COMES BACK ════════════════════════ -->
+<section class="slide">
+  <div class="slide__in">
+    <div class="slide__hd"><span class="no">06</span><h2>What comes back</h2><span class="rt fine">Reach, revenue, and a new room</span></div>
+    <div class="slide__bd">
+      <p class="big">A generation that missed you <em>gets to meet you</em>.</p>
+      <div class="rows" style="margin-top:clamp(20px,3.4vh,36px)">
+        <div><b>Reach</b><span>Every mix built from your archive travels, and each one sends people back to the source. Your best year becomes discoverable again.</span></div>
+        <div><b>Numbers your team can use</b><span>Every mix reports real reach, attached to your name. That is evidence in a room where the argument is what you are worth &mdash; and it costs nothing to produce.</span></div>
+        <div><b>A share</b><span>You take a cut of what your archive earns. Nothing to set up, nothing to run.</span></div>
+        <div><b>Your stories, kept</b><span>Sit down a few times and tell them properly. Preserved in your voice, attached to the footage they belong to, for good.</span></div>
+      </div>
+    </div>
+    <div class="slide__ft fine"><span>History of the Game</span><span>06 / 09</span></div>
+  </div>
+</section>
+
+<!-- ══ 07 · THE ASK ════════════════════════════════ -->
+<section class="slide">
+  <div class="slide__in">
+    <div class="slide__hd"><span class="no">07</span><h2>What we need from you</h2><span class="rt fine">Three things, and they are small</span></div>
+    <div class="slide__bd">
+      <div class="ask">
+        <div><span class="code">01</span><div><b>Access to what you already have</b><span>Whatever is in your garage, your phone, your old drives. We handle the rest &mdash; finding, cutting, labeling, clearing.</span></div></div>
+        <div><span class="code">02</span><div><b>A few afternoons</b><span>Tell the stories on camera. Not a documentary shoot; a couple of sittings, done properly, kept forever.</span></div></div>
+        <div><span class="code">03</span><div><b>Five names</b><span>Your Keepers. The fans you trust with your own history. We will help you find them if you would rather we did.</span></div></div>
+      </div>
+      <p class="aside">No money, no day job, no committing your name to anything you have not seen first. If you want out after the first month, everything built is yours to take.</p>
+    </div>
+    <div class="slide__ft fine"><span>History of the Game</span><span>07 / 09</span></div>
+  </div>
+</section>
+
+<!-- ══ 08 · WHY YOU FIRST ══════════════════════════ -->
+<section class="slide">
+  <div class="slide__in">
+    <div class="slide__hd"><span class="no">08</span><h2>Why you first</h2><span class="rt fine">This does not work without a player who convenes</span></div>
+    <div class="slide__bd">
+      <p class="lede">Anyone can build the software. <b>Almost nobody can get a room of retired players to open up their own footage and actually talk.</b> That is the part of this that cannot be bought, and it is the reason to start here rather than anywhere else.</p>
+      <div class="rows" style="margin-top:clamp(20px,3.2vh,34px)">
+        <div><b>You know everyone</b><span>The next archive comes because you told someone it was worth doing.</span></div>
+        <div><b>You have the range</b><span>Playing, media, building companies. You already know why the footage matters and why the business has to work.</span></div>
+        <div><b>It carries your name</b><span>History of the Game is yours. This gives it something real underneath it.</span></div>
+      </div>
+    </div>
+    <div class="slide__ft fine"><span>History of the Game</span><span>08 / 09</span></div>
+  </div>
+</section>
+
+<!-- ══ 09 · CLOSE ══════════════════════════════════ -->
+<section class="slide slide--close">
+  <div class="slide__in">
+    <div class="slide__hd" style="border-bottom-color:rgba(255,255,255,.6)"><span class="no" style="color:#fff">09</span><h2 style="color:#fff">Start</h2><span class="rt fine" style="color:rgba(255,255,255,.6)">Half an hour, whenever suits you</span></div>
+    <div class="slide__bd">
+      <p class="big close__say">Let&rsquo;s go find your tape.</p>
+      <p class="close__p">Thirty minutes to walk you through it properly. If it is not for you, you have lost half an hour and we will still send you everything we have already found.</p>
+      <div class="close__contact"><a href="mailto:jaidanmorello@gmail.com"><i></i>jaidanmorello@gmail.com</a></div>
+    </div>
+    <div class="slide__ft fine"><span>Ballast &mdash; Los Angeles</span><span>09 / 09</span></div>
+  </div>
+</section>
+
+<script>
+  const slides=[...document.querySelectorAll('.slide')];
+  let idx=0;
+  const sync=()=>{const y=window.scrollY+innerHeight/2;idx=slides.findIndex(s=>y>=s.offsetTop&&y<s.offsetTop+s.offsetHeight);if(idx<0)idx=0;};
+  addEventListener('scroll',sync,{passive:true});
+  addEventListener('keydown',e=>{
+    if(['ArrowDown','ArrowRight',' ','PageDown'].includes(e.key)){e.preventDefault();sync();slides[Math.min(idx+1,slides.length-1)].scrollIntoView({behavior:'smooth'});}
+    if(['ArrowUp','ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();sync();slides[Math.max(idx-1,0)].scrollIntoView({behavior:'smooth'});}
+  });
+</script>
