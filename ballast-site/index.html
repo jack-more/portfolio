@@ -26,171 +26,220 @@
 <style>
   :root{
     --paper:#F6F1EA;
-    --paper-2:#EFE8DF;
     --ink:#0A0D18;
     --mute:#6E6862;
-    --line:rgba(10,13,24,.14);
-    --line-2:rgba(10,13,24,.32);
     --cobalt:#0B5CF6;
+    --orange:#FD720D;
+    --deep:#12204E;
+    --line:rgba(10,13,24,.16);
     --g:"Geist","Helvetica Neue",Arial,sans-serif;
     --m:"Geist Mono",ui-monospace,Menlo,monospace;
-    --w:1240px;
-    --pad:clamp(20px,4.6vw,56px);
+    --pad:clamp(16px,2.6vw,40px);
   }
   *{box-sizing:border-box}
   html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
   @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--g);font-weight:400;font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;font-feature-settings:"ss01","cv11"}
-  ::selection{background:var(--cobalt);color:#fff}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--g);font-weight:400;font-size:17px;line-height:1.5;-webkit-font-smoothing:antialiased;font-feature-settings:"ss01","cv11"}
+  ::selection{background:var(--orange);color:var(--ink)}
   img{max-width:100%;height:auto;display:block}
   a{color:inherit}
+  h1,h2,h3,h4,p,ul{margin:0}
+  ul{padding:0;list-style:none}
 
-  .wrap{max-width:var(--w);margin:0 auto;padding:0 var(--pad)}
-  .mono{font-family:var(--m);font-weight:400;font-size:12px;letter-spacing:.02em;color:var(--mute)}
+  .pad{padding-left:var(--pad);padding-right:var(--pad)}
+  .mono{font-family:var(--m);font-weight:400;font-size:13px;letter-spacing:.04em;text-transform:uppercase}
   .num{font-variant-numeric:tabular-nums}
+  .lead{font-weight:500;font-size:clamp(20px,1.9vw,26px);line-height:1.28;letter-spacing:-.012em}
+  .display{font-weight:300;letter-spacing:-.05em;line-height:.92}
 
   /* ── nav ─────────────────────────────────────────── */
-  .nav{position:sticky;top:0;z-index:50;background:rgba(246,241,234,.86);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-  .nav__in{height:62px;display:flex;align-items:center;justify-content:space-between;gap:24px}
-  .nav__brand{font-weight:500;font-size:16px;letter-spacing:-.01em;text-decoration:none}
-  .nav__links{display:flex;gap:26px}
-  .nav__links a{text-decoration:none;font-size:14.5px;color:var(--mute);transition:color .15s}
+  .nav{position:sticky;top:0;z-index:50;background:var(--paper);border-bottom:1px solid var(--line)}
+  .nav__in{height:56px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+  .nav__brand{font-family:var(--m);font-size:13px;letter-spacing:.06em;text-transform:uppercase;font-weight:500;text-decoration:none}
+  .nav__links{display:flex;gap:28px}
+  .nav__links a{text-decoration:none;font-family:var(--m);font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--mute);transition:color .15s}
   .nav__links a:hover{color:var(--ink)}
-  .btn{display:inline-flex;align-items:center;gap:10px;text-decoration:none;background:var(--ink);color:var(--paper);padding:11px 18px;font-size:14.5px;font-weight:500;letter-spacing:-.005em;transition:background .15s,transform .15s}
-  .btn:hover{background:var(--cobalt)}
-  .btn--lg{padding:15px 24px;font-size:16px}
-  .btn--ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1px var(--line-2)}
+  .btn{display:inline-flex;align-items:center;gap:10px;text-decoration:none;background:var(--cobalt);color:#fff;padding:10px 16px;border-radius:999px;font-family:var(--m);font-size:13px;letter-spacing:.04em;text-transform:uppercase;font-weight:500;border:1px solid var(--cobalt);transition:background .15s,color .15s,border-color .15s;cursor:pointer}
+  .btn:hover{background:var(--ink);border-color:var(--ink)}
+  .btn--ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
   .btn--ghost:hover{background:var(--ink);color:var(--paper)}
-  @media (max-width:760px){.nav__links{display:none}}
+  .btn--lg{padding:16px 24px;font-size:14px}
 
   /* ── hero ────────────────────────────────────────── */
-  .hero{padding:clamp(56px,9vh,120px) 0 clamp(48px,7vh,88px)}
-  .lockup{width:min(300px,46vw);margin:0 0 clamp(40px,7vh,84px)}
-  .hero h1{
-    font-weight:300;font-size:clamp(46px,8.4vw,112px);line-height:.98;letter-spacing:-.035em;margin:0;max-width:14ch;text-wrap:balance;
+  .hero{padding-top:clamp(28px,4vh,48px)}
+  .hero__meta{display:flex;justify-content:space-between;gap:16px;color:var(--cobalt);padding-bottom:clamp(40px,7vh,88px)}
+  .hero__meta span:nth-child(3){display:none}
+  .lockup{width:min(100%,560px);margin-bottom:clamp(40px,8vh,96px)}
+  .hero h1{font-size:clamp(60px,11.4vw,168px);max-width:12ch}
+  .hero h1 b{font-weight:300;color:var(--cobalt)}
+  .hero__row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:end;padding:clamp(28px,5vh,56px) 0 clamp(36px,6vh,72px)}
+  .hero__sub{max-width:34ch}
+  .hero__cta{display:flex;gap:12px;flex-wrap:wrap;justify-content:flex-end}
+
+  /* ── stats band ──────────────────────────────────── */
+  .band{background:var(--cobalt);color:var(--paper)}
+  .stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;padding:clamp(40px,7vh,88px) 0}
+  .stats b{display:block;font-weight:300;font-size:clamp(56px,7.6vw,120px);letter-spacing:-.05em;line-height:.9}
+  .stats span{display:block;margin-top:18px;max-width:22ch;color:rgba(246,241,234,.78)}
+  .stats__note{padding-bottom:22px;color:rgba(246,241,234,.62)}
+
+  /* ── manifesto ───────────────────────────────────── */
+  .man{padding-top:clamp(72px,12vh,140px);padding-bottom:clamp(56px,9vh,110px)}
+  .man__labels{display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;margin-bottom:clamp(28px,5vh,56px)}
+  .man__labels span:first-child{color:var(--orange)}
+  .man__labels span:last-child{color:var(--cobalt)}
+  .man__cols{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);max-width:1080px;margin:0 auto}
+  .man__cols p{font-weight:500;font-size:clamp(22px,2.3vw,30px);line-height:1.2;letter-spacing:-.02em}
+  .man__cols p b{font-weight:500;color:var(--cobalt)}
+  .strip{display:flex;justify-content:space-between;gap:16px;color:var(--cobalt);border-top:1px solid var(--line);padding:18px 0;margin-top:clamp(56px,9vh,110px)}
+
+  /* ── problem (cobalt block) ──────────────────────── */
+  .block{padding-top:clamp(56px,9vh,112px);padding-bottom:clamp(56px,9vh,112px)}
+  .block--cobalt{background:var(--cobalt);color:var(--paper)}
+  .block--ink{background:var(--ink);color:var(--paper)}
+  .block__hd{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:24px;margin-bottom:clamp(36px,6vh,72px)}
+  .block h2{font-weight:300;font-size:clamp(40px,5.6vw,84px);letter-spacing:-.04em;line-height:.98;max-width:14ch}
+  .block--cobalt .mono{color:rgba(246,241,234,.7)}
+  .block--ink .mono{color:var(--orange)}
+  .argue{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:24px}
+  .argue .prose{max-width:60ch}
+  .argue .prose p{margin-bottom:18px}
+  .argue .prose b{font-weight:500}
+  .layers{margin-top:clamp(36px,6vh,64px);border-top:1px solid rgba(246,241,234,.3)}
+  .layers__hd{padding:18px 0 6px;color:rgba(246,241,234,.7)}
+  .layer{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,5fr) minmax(0,4fr);gap:20px;padding:20px 0;border-bottom:1px solid rgba(246,241,234,.3)}
+  .layer b{font-weight:500;font-size:22px;letter-spacing:-.015em}
+  .layer span{color:rgba(246,241,234,.82)}
+  .layer span+span{font-family:var(--m);font-size:13px;letter-spacing:.02em;color:var(--paper)}
+
+  /* ── record (ink block) ──────────────────────────── */
+  .rec__group{padding:36px 0 10px;color:var(--orange)}
+  .rec__group:first-of-type{padding-top:0}
+  .row{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,3fr) minmax(0,4fr);gap:24px;align-items:baseline;padding:22px 0;border-top:1px solid rgba(246,241,234,.22)}
+  .row b{font-weight:300;font-size:clamp(26px,3vw,44px);letter-spacing:-.035em;line-height:1}
+  .row small{font-family:var(--m);font-size:13px;letter-spacing:.03em;text-transform:uppercase;color:rgba(246,241,234,.7)}
+  .row p{color:rgba(246,241,234,.82);max-width:40ch}
+
+  /* ── sprint stack ────────────────────────────────── */
+  .sprint{padding-top:clamp(72px,12vh,140px)}
+  .sprint__hd{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:24px;margin-bottom:clamp(28px,5vh,56px)}
+  .sprint__hd h2{font-weight:300;font-size:clamp(40px,5.6vw,84px);letter-spacing:-.04em;line-height:.98;max-width:14ch}
+  .sprint__hd .mono{color:var(--cobalt)}
+  .status{display:inline-flex;align-items:center;gap:10px;margin-top:22px;font-family:var(--m);font-size:13px;letter-spacing:.03em;text-transform:uppercase}
+  .status i{width:9px;height:9px;border-radius:50%;background:var(--orange);display:inline-block}
+  .stack{display:grid;gap:12px;padding-bottom:12px}
+  .stk{position:sticky;top:68px;min-height:min(72vh,620px);padding:clamp(24px,3.4vw,48px);display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:24px;border-radius:4px}
+  .stk:nth-child(1){background:var(--orange);color:var(--ink)}
+  .stk:nth-child(2){background:var(--ink);color:var(--paper)}
+  .stk:nth-child(3){background:var(--cobalt);color:var(--paper)}
+  .stk:nth-child(4){background:var(--deep);color:var(--paper)}
+  .stk .mono{opacity:.75}
+  .stk h3{font-weight:300;font-size:clamp(36px,4.4vw,68px);letter-spacing:-.04em;line-height:.98;margin-top:14px;max-width:12ch}
+  .stk__body{align-self:end}
+  .deliv{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 32px}
+  .deliv li{padding:14px 0;border-top:1px solid rgba(10,13,24,.28);font-weight:500;font-size:20px;letter-spacing:-.012em}
+  .weeks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 32px}
+  .week span{display:block;font-family:var(--m);font-size:13px;letter-spacing:.03em;text-transform:uppercase;opacity:.7;margin-bottom:8px}
+  .week b{display:block;font-weight:500;font-size:22px;letter-spacing:-.015em;margin-bottom:8px}
+  .week p{opacity:.85}
+  .price{font-weight:300;font-size:clamp(72px,10vw,160px);letter-spacing:-.05em;line-height:.9}
+  .price small{display:block;font-family:var(--m);font-size:14px;letter-spacing:.04em;text-transform:uppercase;margin-top:22px;opacity:.85}
+  .vs{display:grid;gap:0}
+  .vs div{padding:18px 0;border-top:1px solid rgba(246,241,234,.28)}
+  .vs b{display:block;font-weight:500;font-size:22px;letter-spacing:-.015em;margin-bottom:6px}
+  .vs p{opacity:.85;max-width:52ch}
+
+  /* ── proof ───────────────────────────────────────── */
+  .proof{padding-top:clamp(72px,12vh,140px);padding-bottom:clamp(48px,8vh,96px)}
+  .proof__hd{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:24px;margin-bottom:clamp(28px,5vh,56px)}
+  .proof__hd .mono{color:var(--cobalt)}
+  .proof__hd h2{font-weight:300;font-size:clamp(40px,5.6vw,84px);letter-spacing:-.04em;line-height:.98;max-width:14ch}
+  .proof__hd p{max-width:48ch;margin-top:12px;color:var(--mute)}
+  .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line);border-left:1px solid var(--line)}
+  .cell{padding:28px 24px 30px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);min-height:250px;display:flex;flex-direction:column}
+  .cell b{font-weight:300;font-size:clamp(56px,6.4vw,96px);letter-spacing:-.05em;line-height:.9;color:var(--cobalt)}
+  .cell b small{display:block;font-family:var(--m);font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--mute);margin-top:10px}
+  .cell h4{font-weight:500;font-size:20px;letter-spacing:-.012em;margin-top:auto;padding-top:28px}
+  .cell p{color:var(--mute);margin-top:4px}
+  .marks{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:28px;align-items:center;padding:40px 0 16px}
+  .marks img{filter:grayscale(1) brightness(.2);opacity:.75;max-height:32px;width:auto;margin:0 auto}
+  .proof__note{color:var(--mute);font-size:14px}
+
+  /* ── book ────────────────────────────────────────── */
+  .book{padding-top:clamp(72px,12vh,140px);padding-bottom:clamp(72px,12vh,140px);border-top:1px solid var(--line)}
+  .book__hd{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:24px;margin-bottom:clamp(28px,5vh,56px)}
+  .book__hd .mono{color:var(--cobalt)}
+  .book__hd h2{font-weight:300;font-size:clamp(48px,7.4vw,112px);letter-spacing:-.05em;line-height:.94;max-width:11ch}
+  .book__hd p{max-width:46ch;margin-top:12px;color:var(--mute)}
+  .cal{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);border:1px solid var(--ink);background:#fff}
+  .cal__month{padding:28px;border-right:1px solid var(--ink)}
+  .cal__nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+  .cal__nav b{font-weight:500;font-size:22px;letter-spacing:-.015em}
+  .cal__nav div{display:flex;gap:6px}
+  .cal__nav button{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:transparent;cursor:pointer;font:inherit;font-size:16px;color:var(--ink)}
+  .cal__nav button:hover:not(:disabled){border-color:var(--ink)}
+  .cal__nav button:disabled{opacity:.3;cursor:default}
+  .cal__dow{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));text-align:center;color:var(--mute);margin-bottom:6px}
+  .cal__days{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px}
+  .day{aspect-ratio:1;display:flex;align-items:center;justify-content:center;border-radius:50%;border:0;background:transparent;font:inherit;font-size:16px;color:var(--ink);cursor:pointer;font-variant-numeric:tabular-nums}
+  .day:hover:not(:disabled){background:var(--paper)}
+  .day:disabled{color:rgba(10,13,24,.28);cursor:default}
+  .day.is-on{background:var(--cobalt);color:#fff}
+  .day.is-today{box-shadow:inset 0 0 0 1px var(--line)}
+  .cal__side{padding:28px;display:flex;flex-direction:column}
+  .cal__side .mono{color:var(--cobalt);margin-bottom:12px}
+  .slots{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-bottom:22px}
+  .slot{padding:12px 10px;border:1px solid var(--line);background:transparent;font:inherit;font-size:15px;color:var(--ink);cursor:pointer;font-variant-numeric:tabular-nums;border-radius:2px}
+  .slot:hover{border-color:var(--ink)}
+  .slot.is-on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+  .cal__pick{font-weight:500;font-size:20px;letter-spacing:-.012em;min-height:52px;margin-bottom:6px}
+  .cal__local{color:var(--mute);font-size:14px;margin-bottom:22px}
+  .cal__acts{display:grid;gap:8px;margin-top:auto}
+  .cal__acts .btn{justify-content:center}
+  .cal__acts .btn[aria-disabled="true"]{opacity:.4;pointer-events:none}
+  .cal__note{color:var(--mute);font-size:14px;margin-top:16px}
+  .cal__note a{color:var(--ink)}
+
+  /* ── footer ──────────────────────────────────────── */
+  .foot{background:var(--ink);color:var(--paper);padding-top:clamp(48px,8vh,88px);padding-bottom:28px}
+  .foot__top{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,4fr) minmax(0,4fr);gap:24px;padding-bottom:clamp(40px,7vh,80px)}
+  .foot .mono{color:var(--orange);margin-bottom:14px;display:block}
+  .foot a{text-decoration:none;font-weight:500;font-size:22px;letter-spacing:-.015em;display:block;line-height:1.5}
+  .foot a:hover{color:var(--orange)}
+  .foot__word{font-weight:300;font-size:clamp(88px,18vw,300px);letter-spacing:-.06em;line-height:.8;color:var(--paper);border-top:1px solid rgba(246,241,234,.22);padding-top:40px}
+  .foot .foot__bot{display:flex;justify-content:space-between;gap:16px;color:rgba(246,241,234,.55);margin-top:28px}
+
+  /* ── responsive ──────────────────────────────────── */
+  @media (max-width:980px){
+    .nav__links{display:none}
+    .hero__row,.man__cols,.block__hd,.argue,.sprint__hd,.proof__hd,.book__hd,.foot__top{grid-template-columns:minmax(0,1fr)}
+    .hero__cta{justify-content:flex-start}
+    .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .layer{grid-template-columns:minmax(0,1fr);gap:6px}
+    .row{grid-template-columns:minmax(0,1fr);gap:6px}
+    .stk{grid-template-columns:minmax(0,1fr);min-height:0;position:relative;top:auto}
+    .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .marks{grid-template-columns:repeat(4,minmax(0,1fr))}
+    .cal{grid-template-columns:minmax(0,1fr)}
+    .cal__month{border-right:0;border-bottom:1px solid var(--ink)}
+    .strip{flex-wrap:wrap;gap:10px 24px}
   }
-  .hero h1 b{font-weight:400}
-  .hero__sub{margin:clamp(26px,4vh,40px) 0 0;font-size:clamp(18px,1.7vw,22px);line-height:1.5;max-width:52ch;color:var(--ink)}
-  .hero__sub span{color:var(--mute)}
-  .hero__cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:clamp(28px,4vh,40px)}
-
-  /* ── numbers ─────────────────────────────────────── */
-  .stats{border-top:1px solid var(--line-2);border-bottom:1px solid var(--line);display:grid;grid-template-columns:repeat(4,1fr)}
-  .stats div{padding:clamp(24px,3.2vh,36px) 20px clamp(24px,3.2vh,36px) 0;border-right:1px solid var(--line)}
-  .stats div:last-child{border-right:0}
-  .stats b{display:block;font-weight:300;font-size:clamp(40px,5.4vw,72px);line-height:.95;letter-spacing:-.035em}
-  .stats span{display:block;margin-top:12px;font-size:14.5px;color:var(--mute);max-width:20ch}
-  .stats__note{padding:14px 0 0;color:var(--mute);font-size:13px}
-  @media (max-width:760px){
-    .stats{grid-template-columns:1fr 1fr}
-    .stats div:nth-child(2n){border-right:0}
-    .stats div{border-bottom:1px solid var(--line)}
-    .stats div:nth-last-child(-n+2){border-bottom:0}
+  @media (max-width:560px){
+    .stats{grid-template-columns:minmax(0,1fr)}
+    .grid{grid-template-columns:minmax(0,1fr)}
+    .deliv,.weeks{grid-template-columns:minmax(0,1fr)}
+    .hero__meta span:nth-child(2){display:none}
+    .marks{grid-template-columns:repeat(2,minmax(0,1fr))}
   }
-
-  /* ── section frame ───────────────────────────────── */
-  .sec{padding:clamp(72px,11vh,150px) 0;border-bottom:1px solid var(--line)}
-  .sec__grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,6vw,96px);align-items:start}
-  .sec h2{font-weight:300;font-size:clamp(32px,4.4vw,58px);line-height:1.02;letter-spacing:-.03em;margin:0;text-wrap:balance}
-  .sec h2 b{font-weight:400}
-  .sec__kick{margin:18px 0 0;color:var(--mute);font-size:16.5px;max-width:34ch;line-height:1.5}
-  .sticky{position:sticky;top:90px}
-  @media (max-width:900px){.sec__grid{grid-template-columns:1fr}.sticky{position:static}}
-
-  /* ── categories ──────────────────────────────────── */
-  .cats{border-top:1px solid var(--line-2)}
-  .cats__group{padding:18px 0 6px;color:var(--mute);font-size:13px}
-  .cat{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:20px;padding:16px 0;border-bottom:1px solid var(--line);align-items:baseline}
-  .cat b{font-weight:500;font-size:17px;letter-spacing:-.01em;display:block}
-  .cat b small{display:block;font-weight:400;font-size:14px;color:var(--mute);margin-top:3px}
-  .cat p{margin:0;font-size:15px;line-height:1.5;color:var(--ink)}
-  .cat--full b::after{content:"Full suite";font-family:var(--m);font-weight:400;font-size:11px;letter-spacing:.02em;color:var(--cobalt);margin-left:10px;vertical-align:middle}
-  @media (max-width:640px){.cat{grid-template-columns:1fr;gap:6px}}
-
-  /* ── the problem / the method ────────────────────── */
-  .prose p{margin:0 0 18px;font-size:clamp(17px,1.5vw,19.5px);line-height:1.6;max-width:58ch}
-  .prose p:last-child{margin-bottom:0}
-  .prose p b{font-weight:500}
-  .method{margin-top:clamp(36px,5vh,56px);border-top:1px solid var(--line-2)}
-  .method__hd{padding:16px 0 8px;font-size:14px;color:var(--mute)}
-  .layer{display:grid;grid-template-columns:150px minmax(0,1.3fr) minmax(0,1fr);gap:18px;padding:15px 0;border-bottom:1px solid var(--line);align-items:baseline}
-  .layer b{font-weight:500;font-size:16.5px;letter-spacing:-.01em}
-  .layer span{font-size:15px;color:var(--ink)}
-  .layer span:last-child{color:var(--mute)}
-  @media (max-width:640px){.layer{grid-template-columns:1fr;gap:4px}}
-
-  /* ── sprint card ─────────────────────────────────── */
-  .card{background:#fff;border:1px solid var(--line);box-shadow:0 1px 2px rgba(10,13,24,.04),0 18px 48px rgba(10,13,24,.06)}
-  .card__top{padding:clamp(22px,3vw,34px) clamp(22px,3vw,34px) 0;display:flex;justify-content:space-between;gap:16px;align-items:baseline;flex-wrap:wrap}
-  .card__top h3{margin:0;font-weight:400;font-size:clamp(24px,2.6vw,32px);letter-spacing:-.025em}
-  .status{display:inline-flex;align-items:center;gap:8px;font-family:var(--m);font-size:12px;color:var(--mute)}
-  .status i{width:7px;height:7px;border-radius:50%;background:var(--cobalt);display:block}
-  .card__rows{padding:0 clamp(22px,3vw,34px)}
-  .crow{display:grid;grid-template-columns:44px minmax(0,1fr);gap:20px;padding:22px 0;border-top:1px solid var(--line);align-items:start}
-  .crow:first-child{border-top:0;margin-top:14px}
-  .crow .mono{padding-top:4px}
-  .crow h4{margin:0 0 10px;font-weight:500;font-size:15px;letter-spacing:-.005em}
-  .crow ul{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:6px 24px}
-  .crow li{font-size:15px;color:var(--ink);padding-left:14px;position:relative}
-  .crow li::before{content:"";position:absolute;left:0;top:.62em;width:5px;height:5px;background:var(--ink)}
-  .crow .big{font-weight:300;font-size:clamp(30px,3.6vw,46px);letter-spacing:-.03em;line-height:1;margin:0}
-  .crow .big small{display:block;font-size:15px;letter-spacing:0;color:var(--mute);margin-top:8px;font-weight:400}
-  .weeks{display:grid;grid-template-columns:1fr 1fr;gap:0 28px}
-  .week{padding:8px 0}
-  .week span{display:block;font-family:var(--m);font-size:12px;color:var(--mute);margin-bottom:4px}
-  .week b{font-weight:500;font-size:15px;display:block}
-  .week p{margin:3px 0 0;font-size:14px;color:var(--mute);line-height:1.5}
-  .card__ft{margin-top:8px;padding:clamp(20px,3vw,30px) clamp(22px,3vw,34px);border-top:1px solid var(--line);background:var(--paper);display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
-  .card__ft p{margin:0;font-size:14.5px;color:var(--mute);max-width:46ch}
-  .vs{margin-top:22px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-  .vs div{padding-top:14px;border-top:1px solid var(--line-2);font-size:14.5px;line-height:1.5}
-  .vs b{display:block;font-weight:500;margin-bottom:4px}
-  @media (max-width:640px){.crow ul{grid-template-columns:1fr}.weeks,.vs{grid-template-columns:1fr}}
-
-  /* ── proof grid ──────────────────────────────────── */
-  .proof{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
-  .proof div{background:var(--paper);padding:clamp(20px,2.6vw,30px)}
-  .proof b{display:block;font-weight:300;font-size:clamp(34px,3.8vw,52px);letter-spacing:-.035em;line-height:.95}
-  .proof b small{font-size:.42em;letter-spacing:-.01em;color:var(--mute);margin-left:4px}
-  .proof h4{margin:16px 0 4px;font-weight:500;font-size:16.5px;letter-spacing:-.01em}
-  .proof p{margin:0;font-size:14.5px;color:var(--mute);line-height:1.5}
-  @media (max-width:860px){.proof{grid-template-columns:1fr 1fr}}
-  @media (max-width:560px){.proof{grid-template-columns:1fr}}
-  .marks{margin-top:clamp(32px,5vh,52px);display:grid;grid-template-columns:repeat(8,1fr);gap:18px;align-items:center}
-  .marks img{max-height:24px;width:auto;margin:0 auto;opacity:.5;filter:grayscale(1)}
-  @media (max-width:860px){.marks{grid-template-columns:repeat(4,1fr);gap:26px 18px}}
-  .proof__note{margin:18px 0 0;font-size:13px;color:var(--mute)}
-
-  /* ── contact ─────────────────────────────────────── */
-  .contact{padding:clamp(80px,13vh,170px) 0}
-  .contact h2{font-weight:300;font-size:clamp(40px,7vw,96px);line-height:.98;letter-spacing:-.035em;margin:0;max-width:12ch}
-  .contact p{margin:clamp(22px,3.5vh,34px) 0 0;font-size:clamp(17px,1.6vw,20px);max-width:48ch;line-height:1.55}
-  .contact .btn{margin-top:clamp(26px,4vh,40px)}
-  .contact a.mail{display:inline-block;margin-top:18px;font-size:15px;color:var(--mute);text-decoration:none;border-bottom:1px solid var(--line-2)}
-  .contact a.mail:hover{color:var(--ink)}
-
-  .foot{border-top:1px solid var(--line);padding:26px 0 40px}
-  .foot__in{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:13.5px;color:var(--mute)}
-  .foot a{text-decoration:none}
 </style>
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "Ballast",
-  "url": "https://ballast.la/",
-  "email": "jaidanmorello@gmail.com",
-  "description": "Paid media and go-to-market for brands in categories most agencies won't touch, at a scale most never see.",
-  "address": { "@type": "PostalAddress", "addressLocality": "Los Angeles", "addressRegion": "CA", "addressCountry": "US" },
-  "areaServed": "Worldwide",
-  "knowsAbout": ["Paid Media", "Go-To-Market", "Incrementality", "Marketing Measurement", "Regulated Advertising", "Health and DTC", "Web3", "Streaming", "Automotive"]
-}
+{"@context":"https://schema.org","@type":"ProfessionalService","name":"Ballast","url":"https://ballast.la/","email":"jaidanmorello@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Los Angeles","addressRegion":"CA","addressCountry":"US"},"description":"Paid media and go-to-market for brands in categories most agencies won't touch, at a scale most never see.","areaServed":"Worldwide"}
 </script>
 </head>
 <body>
 
 <header class="nav">
-  <div class="wrap nav__in">
+  <div class="pad nav__in">
     <a class="nav__brand" href="#top">Ballast</a>
     <nav class="nav__links">
       <a href="#record">Record</a>
@@ -198,79 +247,76 @@
       <a href="#sprint">Sprint</a>
       <a href="#proof">Results</a>
     </nav>
-    <a class="btn" href="mailto:jaidanmorello@gmail.com?subject=Ballast%20%E2%80%94%20call">Book a call</a>
+    <a class="btn" href="#book">Book a call</a>
   </div>
 </header>
 
 <main id="top">
 
   <!-- hero -->
-  <section class="hero">
-    <div class="wrap">
-      <img class="lockup" src="/lockup.png" width="1400" height="591" alt="Ballast">
-      <h1>$2M+ a month.<br>Held at <b>4&times;</b>.</h1>
-      <p class="hero__sub">Paid media and go-to-market for brands in categories most agencies won&rsquo;t touch, at a scale most never see. <span>Los Angeles.</span></p>
+  <section class="hero pad">
+    <div class="hero__meta mono">
+      <span>Paid media &amp; go-to-market</span>
+      <span>Los Angeles</span>
+      <span>Working worldwide</span>
+      <span>Regulated &middot; At scale</span>
+    </div>
+    <img class="lockup" src="/lockup.png" width="1400" height="591" alt="Ballast">
+    <h1 class="display">$2M+ a month.<br>Held at <b>4&times;</b>.</h1>
+    <div class="hero__row">
+      <p class="hero__sub lead">Paid media and go-to-market for brands in categories most agencies won&rsquo;t touch, at a scale most never see.</p>
       <div class="hero__cta">
-        <a class="btn btn--lg" href="mailto:jaidanmorello@gmail.com?subject=Ballast%20%E2%80%94%20call">Book a call</a>
-        <a class="btn btn--lg btn--ghost" href="#sprint">The sprint, from $16,000</a>
+        <a class="btn btn--lg" href="#book">Book a call</a>
+        <a class="btn btn--lg btn--ghost" href="#sprint">The sprint &middot; $16,000</a>
       </div>
     </div>
   </section>
 
-  <!-- numbers -->
-  <section id="record">
-    <div class="wrap">
-      <div class="stats num">
-        <div><b>4&times;</b><span>Return on ad spend, blended, at peak scale</span></div>
-        <div><b>$2M+</b><span>Monthly spend at peak, on Starbucks and Toyota</span></div>
-        <div><b>11</b><span>Categories</span></div>
-        <div><b>15</b><span>Accounts</span></div>
-      </div>
-      <p class="stats__note">Engagements at Ballast and prior agencies of record.</p>
+  <!-- stats band -->
+  <section class="band pad" id="record">
+    <div class="stats num">
+      <div><b>4&times;</b><span>Return on ad spend, blended, at peak scale</span></div>
+      <div><b>$2M+</b><span>Monthly spend at peak, on Starbucks and Toyota</span></div>
+      <div><b>11</b><span>Categories, from compounds to coffee</span></div>
+      <div><b>15</b><span>Accounts, at Ballast and prior agencies of record</span></div>
     </div>
+    <p class="stats__note mono">The record &middot; verbatim &middot; nothing rounded up</p>
   </section>
 
-  <!-- who it's for -->
-  <section class="sec">
-    <div class="wrap sec__grid">
-      <div class="sticky">
-        <h2>Categories most agencies <b>won&rsquo;t touch.</b></h2>
-        <p class="sec__kick">And the household names most agencies never reach. Both, on the same record.</p>
-      </div>
-      <div class="cats">
-        <div class="cats__group">Regulated and policy-sensitive</div>
-        <div class="cat cat--full"><b>Health &amp; DTC<small>SKO Compounds</small></b><p>What you are permitted to say is the strategy. We hold the whole engine: the ad account, the creative pipeline, the attribution stack, and the number at the end of the week.</p></div>
-        <div class="cat"><b>Web3<small>NEAR Foundation &middot; SushiSwap &middot; Dtravel</small></b><p>Stayed live and compliant through token launches where most operators got shut off. A wallet is not a customer; ninety days tells you who was.</p></div>
-
-        <div class="cats__group">At scale</div>
-        <div class="cat"><b>Automotive<small>Toyota</small></b><p>The credit lands three tiers from where the demand was made.</p></div>
-        <div class="cat"><b>Coffee &amp; Retail<small>Starbucks</small></b><p>Nobody is in-market for coffee. They are in a routine.</p></div>
-        <div class="cat"><b>Streaming &amp; Film<small>Sony &middot; Peacock &middot; Disney &middot; Starzplay</small></b><p>Opening weekend is decided long before the first ad runs.</p></div>
-        <div class="cat"><b>Consumer Electronics<small>LG</small></b><p>The decision happens on a spec sheet you do not own.</p></div>
-        <div class="cat"><b>Sportswear<small>Adidas</small></b><p>The drop is the receipt. The demand was built months earlier.</p></div>
-        <div class="cat"><b>Luxury Fashion<small>Rick Owens</small></b><p>Nobody cross-shops. Desire has no comparison layer.</p></div>
-        <div class="cat"><b>Live Sport<small>SailGP</small></b><p>New city, new funnel. Only a following survives the calendar.</p></div>
-        <div class="cat"><b>Architecture &amp; Education<small>SCI-Arc</small></b><p>One decision a year, and the person choosing is not the person paying.</p></div>
-        <div class="cat cat--full"><b>Urbanism &amp; Property<small>Build Cities</small></b><p>Four hundred people matter. Reach is a rounding error.</p></div>
-      </div>
+  <!-- manifesto -->
+  <section class="man pad">
+    <div class="man__labels mono">
+      <span>Regulated &mdash; the category</span>
+      <span>Scale &mdash; the number</span>
+    </div>
+    <div class="man__cols">
+      <p>Categories most agencies won&rsquo;t touch. Compounds, tokens, health. Where <b>what you are permitted to say</b> is the strategy, and the platform decides whether you run at all.</p>
+      <p>A scale most agencies never see. Toyota, Starbucks, Sony. <b>$2M+ a month</b> where a missed week is a real number, and the return held at four.</p>
+    </div>
+    <div class="strip mono">
+      <span>Los Angeles</span>
+      <span>11 categories</span>
+      <span>15 accounts</span>
+      <span>4&times; blended</span>
     </div>
   </section>
 
   <!-- the problem, then the method -->
-  <section class="sec" id="problem">
-    <div class="wrap sec__grid">
-      <div class="sticky">
-        <h2>Most budget pays for demand it <b>didn&rsquo;t create.</b></h2>
-        <p class="sec__kick">What is happening in your account right now, and what we do about it.</p>
-      </div>
+  <section class="block block--cobalt pad" id="problem">
+    <div class="block__hd">
+      <span class="mono">The problem</span>
+      <h2>Most budget pays for demand it didn&rsquo;t create.</h2>
+    </div>
+    <div class="argue">
+      <p class="lead">What is happening in your account right now, and what we do about it.</p>
       <div>
         <div class="prose">
           <p><b>Last click hands the credit to whoever was standing closest to the purchase.</b> Branded search posts a beautiful CAC because the person already knew your name. Something else put it there.</p>
           <p>Optimise on last click and you defund the layer that fills the top, then spend a quarter wondering why capture volume fell off.</p>
           <p>In a regulated category the platform also decides whether you get to run at all. Accounts get cut without explanation, learning resets every time you scale, and creative gets rewritten into something that no longer converts. Compliance is not a checklist we run at the end. It is how the account is built on day one.</p>
         </div>
-        <div class="method">
-          <div class="method__hd">We buy intent, not channels. Four layers, each measured on its own number.</div>
+        <div class="layers">
+          <div class="layers__hd mono">The method &mdash; four layers, each on its own number</div>
           <div class="layer"><b>In-market</b><span>Branded search, shopping, retargeting</span><span>Incrementality, not last click</span></div>
           <div class="layer"><b>Comparing</b><span>Non-brand search, comparison placements, conquesting</span><span>New-customer CAC</span></div>
           <div class="layer"><b>Latent</b><span>Paid social, creator, video</span><span>Lift in branded search and direct</span></div>
@@ -280,110 +326,231 @@
     </div>
   </section>
 
+  <!-- the record -->
+  <section class="block block--ink pad">
+    <div class="block__hd">
+      <span class="mono">The record</span>
+      <h2>Eleven categories. Both ends of the market.</h2>
+    </div>
+    <div class="rec">
+      <div class="rec__group mono">Regulated and policy-sensitive</div>
+      <div class="row"><b>Health &amp; DTC</b><small>SKO Compounds</small><p>What you are permitted to say is the strategy. We hold the whole engine: the ad account, the creative pipeline, the attribution stack, and the number at the end of the week.</p></div>
+      <div class="row"><b>Web3</b><small>NEAR Foundation &middot; SushiSwap &middot; Dtravel</small><p>Stayed live and compliant through token launches where most operators got shut off. A wallet is not a customer; ninety days tells you who was.</p></div>
+
+      <div class="rec__group mono">At scale</div>
+      <div class="row"><b>Automotive</b><small>Toyota</small><p>The credit lands three tiers from where the demand was made.</p></div>
+      <div class="row"><b>Coffee &amp; Retail</b><small>Starbucks</small><p>Nobody is in-market for coffee. They are in a routine.</p></div>
+      <div class="row"><b>Streaming &amp; Film</b><small>Sony &middot; Peacock &middot; Disney &middot; Starzplay</small><p>Opening weekend is decided long before the first ad runs.</p></div>
+      <div class="row"><b>Consumer Electronics</b><small>LG</small><p>The decision happens on a spec sheet you do not own.</p></div>
+      <div class="row"><b>Sportswear</b><small>Adidas</small><p>The drop is the receipt. The demand was built months earlier.</p></div>
+      <div class="row"><b>Luxury Fashion</b><small>Rick Owens</small><p>Nobody cross-shops. Desire has no comparison layer.</p></div>
+      <div class="row"><b>Live Sport</b><small>SailGP</small><p>New city, new funnel. Only a following survives the calendar.</p></div>
+      <div class="row"><b>Architecture &amp; Education</b><small>SCI-Arc</small><p>One decision a year, and the person choosing is not the person paying.</p></div>
+      <div class="row"><b>Urbanism &amp; Property</b><small>Build Cities</small><p>Four hundred people matter. Reach is a rounding error.</p></div>
+    </div>
+  </section>
+
   <!-- the sprint -->
-  <section class="sec" id="sprint">
-    <div class="wrap sec__grid">
-      <div class="sticky">
-        <h2>One price. One window. <b>One account at a time.</b></h2>
-        <p class="sec__kick">A two-week sprint that leaves you with the stack, the map, and the number &mdash; not a deck and a login you cannot read.</p>
-      </div>
+  <section class="sprint pad" id="sprint">
+    <div class="sprint__hd">
       <div>
-        <div class="card">
-          <div class="card__top">
-            <h3>The sprint</h3>
-            <span class="status"><i></i>Fully booked &middot; next window opens to the waitlist first</span>
-          </div>
-          <div class="card__rows">
-            <div class="crow">
-              <span class="mono">01</span>
-              <div>
-                <h4>What you get</h4>
-                <ul>
-                  <li>Intent map</li><li>Account structure</li><li>CAC band</li><li>Creative direction</li>
-                  <li>Incentive design</li><li>Server-side events</li><li>Attribution ladder</li><li>Weekly reporting</li>
-                </ul>
-              </div>
-            </div>
-            <div class="crow">
-              <span class="mono">02</span>
-              <div>
-                <h4>Two weeks</h4>
-                <div class="weeks">
-                  <div class="week"><span>Week 1</span><b>Map the demand</b><p>Existing demand split from demand that has to be created, and the intent layers named for your category.</p></div>
-                  <div class="week"><span>Week 1</span><b>Match the layer</b><p>Creative, offer and placement built per layer, including the incentive that gives someone a reason to act now.</p></div>
-                  <div class="week"><span>Week 2</span><b>Stand up measurement</b><p>Each layer gets its own metric. Capture on incrementality, latent on lift, lifecycle on repeat rate.</p></div>
-                  <div class="week"><span>Week 2</span><b>Hand over the number</b><p>One number per business goal, reconciled against the ledger rather than against what the platforms claim.</p></div>
-                </div>
-              </div>
-            </div>
-            <div class="crow">
-              <span class="mono">03</span>
-              <div>
-                <p class="big num">$16,000<small>Flat. Not a retainer.</small></p>
-              </div>
-            </div>
-          </div>
-          <div class="card__ft">
-            <p>Join the waitlist and you hear first when the next window opens.</p>
-            <a class="btn" href="mailto:jaidanmorello@gmail.com?subject=Ballast%20sprint%20waitlist">Join the waitlist</a>
-          </div>
+        <span class="mono">The sprint</span>
+        <div><span class="status"><i></i>Fully booked &middot; next window opens to the waitlist first</span></div>
+      </div>
+      <h2>One price. One window. One account at a time.</h2>
+    </div>
+    <div class="stack">
+      <div class="stk">
+        <div><span class="mono">01 &mdash; What you get</span><h3>The stack, the map, and the number.</h3></div>
+        <ul class="deliv stk__body">
+          <li>Intent map</li><li>Account structure</li><li>CAC band</li><li>Creative direction</li>
+          <li>Incentive design</li><li>Server-side events</li><li>Attribution ladder</li><li>Weekly reporting</li>
+        </ul>
+      </div>
+      <div class="stk">
+        <div><span class="mono">02 &mdash; Two weeks</span><h3>Map it, match it, measure it, hand it over.</h3></div>
+        <div class="weeks stk__body">
+          <div class="week"><span>Week 1</span><b>Map the demand</b><p>Existing demand split from demand that has to be created, and the intent layers named for your category.</p></div>
+          <div class="week"><span>Week 1</span><b>Match the layer</b><p>Creative, offer and placement built per layer, including the incentive that gives someone a reason to act now.</p></div>
+          <div class="week"><span>Week 2</span><b>Stand up measurement</b><p>Each layer gets its own metric. Capture on incrementality, latent on lift, lifecycle on repeat rate.</p></div>
+          <div class="week"><span>Week 2</span><b>Hand over the number</b><p>One number per business goal, reconciled against the ledger rather than against what the platforms claim.</p></div>
         </div>
-        <div class="vs">
-          <div><b>Flat $16,000</b>A retainer runs $15k&ndash;40k a month and takes six to twelve weeks to get running.</div>
-          <div><b>The person you met</b>Does the work. Your account is not pooled with nine others or handed to a junior in month three.</div>
-          <div><b>You own it after</b>The stack, the map and the number. Built by the people buying the media, not handed to another team.</div>
+      </div>
+      <div class="stk">
+        <div><span class="mono">03 &mdash; Starting at</span><h3>Flat. Not a retainer.</h3></div>
+        <div class="stk__body">
+          <p class="price num">$16,000<small>Two weeks &middot; one account &middot; no retainer</small></p>
+        </div>
+      </div>
+      <div class="stk">
+        <div><span class="mono">04 &mdash; Against a retainer</span><h3>What you keep when we leave.</h3></div>
+        <div class="stk__body">
+          <div class="vs">
+            <div><b>Flat $16,000</b><p>A retainer runs $15k&ndash;40k a month and takes six to twelve weeks to get running.</p></div>
+            <div><b>The person you met</b><p>Does the work. Your account is not pooled with nine others or handed to a junior in month three.</p></div>
+            <div><b>You own it after</b><p>The stack, the map and the number. Built by the people buying the media, not handed to another team.</p></div>
+          </div>
+          <p style="margin-top:28px"><a class="btn btn--ghost" style="color:var(--paper);border-color:var(--paper)" href="mailto:jaidanmorello@gmail.com?subject=Ballast%20sprint%20waitlist">Join the waitlist</a></p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- proof -->
-  <section class="sec" id="proof">
-    <div class="wrap">
-      <div class="sec__grid" style="margin-bottom:clamp(32px,5vh,56px)">
-        <div><h2>Where the number <b>held.</b></h2></div>
-        <div><p class="sec__kick" style="margin-top:6px;max-width:44ch">The 4&times; is blended across the record. These are the accounts where it held at scale, and the ones where staying live was the result.</p></div>
+  <section class="proof pad" id="proof">
+    <div class="proof__hd">
+      <span class="mono">Results</span>
+      <div>
+        <h2>Where the number held.</h2>
+        <p>The 4&times; is blended across the record. These are the accounts where it held at scale, and the ones where staying live was the result.</p>
       </div>
-      <div class="proof num">
-        <div><b>4&times;</b><h4>Toyota</h4><p>African American and Asian American segments.</p></div>
-        <div><b>4&times;</b><h4>Starbucks</h4><p>Pacific Northwest.</p></div>
-        <div><b>4&times;</b><h4>Starzplay</h4><p>International.</p></div>
-        <div><b>5.8&times;<small>at peak</small></b><h4>NEAR Foundation &middot; Dtravel</h4><p>$150k a month at peak through token launches. Stayed live and compliant where most operators got shut off.</p></div>
-        <div><b>Full<small>suite</small></b><h4>SKO Compounds</h4><p>Health &amp; DTC. The ad account, the creative pipeline, the attribution stack, and the weekly number.</p></div>
-        <div><b>Full<small>suite</small></b><h4>Build Cities</h4><p>Urbanism &amp; property. Four hundred people matter; reach is a rounding error.</p></div>
-      </div>
-      <div class="marks" aria-label="Client marks">
-        <img src="/marks/toyota.png" alt="Toyota" loading="lazy" width="520" height="85">
-        <img src="/marks/starbucks.png" alt="Starbucks" loading="lazy" width="520" height="52">
-        <img src="/marks/disney.png" alt="Disney" loading="lazy" width="387" height="160">
-        <img src="/marks/peacock.png" alt="Peacock" loading="lazy" width="517" height="160">
-        <img src="/marks/starzplay.png" alt="Starz Play" loading="lazy" width="520" height="73">
-        <img src="/marks/lg.png" alt="LG" loading="lazy" width="336" height="160">
-        <img src="/marks/near.png" alt="NEAR" loading="lazy" width="160" height="160">
-        <img src="/marks/sko.png" alt="SKO Compounds" loading="lazy" width="445" height="160">
-      </div>
-      <p class="proof__note">Marks are the property of their respective owners. Engagements at Ballast and prior agencies of record.</p>
     </div>
+    <div class="grid num">
+      <div class="cell"><b>4&times;</b><h4>Toyota</h4><p>African American and Asian American segments.</p></div>
+      <div class="cell"><b>4&times;</b><h4>Starbucks</h4><p>Pacific Northwest.</p></div>
+      <div class="cell"><b>4&times;</b><h4>Starzplay</h4><p>International.</p></div>
+      <div class="cell"><b>5.8&times;<small>at peak</small></b><h4>NEAR Foundation &middot; Dtravel</h4><p>$150k a month at peak through token launches. Stayed live and compliant where most operators got shut off.</p></div>
+      <div class="cell"><b>Full<small>suite</small></b><h4>SKO Compounds</h4><p>Health &amp; DTC. The ad account, the creative pipeline, the attribution stack, and the weekly number.</p></div>
+      <div class="cell"><b>Full<small>suite</small></b><h4>Build Cities</h4><p>Urbanism &amp; property. Four hundred people matter; reach is a rounding error.</p></div>
+    </div>
+    <div class="marks" aria-label="Client marks">
+      <img src="/marks/toyota.png" alt="Toyota" loading="lazy" width="520" height="85">
+      <img src="/marks/starbucks.png" alt="Starbucks" loading="lazy" width="520" height="52">
+      <img src="/marks/disney.png" alt="Disney" loading="lazy" width="387" height="160">
+      <img src="/marks/peacock.png" alt="Peacock" loading="lazy" width="517" height="160">
+      <img src="/marks/starzplay.png" alt="Starz Play" loading="lazy" width="520" height="73">
+      <img src="/marks/lg.png" alt="LG" loading="lazy" width="336" height="160">
+      <img src="/marks/near.png" alt="NEAR" loading="lazy" width="160" height="160">
+      <img src="/marks/sko.png" alt="SKO Compounds" loading="lazy" width="445" height="160">
+    </div>
+    <p class="proof__note">Marks are the property of their respective owners. Engagements at Ballast and prior agencies of record.</p>
   </section>
 
-  <!-- contact -->
-  <section class="contact" id="contact">
-    <div class="wrap">
-      <h2>Book a call.</h2>
-      <p>Thirty minutes on your account, your category, and whether a sprint is the right shape. If it isn&rsquo;t, you still leave knowing where your budget is going.</p>
-      <a class="btn btn--lg" href="mailto:jaidanmorello@gmail.com?subject=Ballast%20%E2%80%94%20call">Book a call</a><br>
-      <a class="mail" href="mailto:jaidanmorello@gmail.com">jaidanmorello@gmail.com</a>
+  <!-- book -->
+  <section class="book pad" id="book">
+    <div class="book__hd">
+      <span class="mono">Book a call</span>
+      <div>
+        <h2>Thirty minutes on your account.</h2>
+        <p>Pick a day and a time. It goes straight onto both calendars. If a sprint is not the right shape, you still leave knowing where your budget is going.</p>
+      </div>
+    </div>
+    <div class="cal" id="cal">
+      <div class="cal__month">
+        <div class="cal__nav">
+          <b id="calTitle">&nbsp;</b>
+          <div>
+            <button type="button" id="calPrev" aria-label="Previous month">&larr;</button>
+            <button type="button" id="calNext" aria-label="Next month">&rarr;</button>
+          </div>
+        </div>
+        <div class="cal__dow mono"><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span><span>Su</span></div>
+        <div class="cal__days" id="calDays"></div>
+      </div>
+      <div class="cal__side">
+        <span class="mono">Time &middot; Pacific</span>
+        <div class="slots" id="calSlots"></div>
+        <div class="cal__pick" id="calPick">Pick a day.</div>
+        <div class="cal__local" id="calLocal">&nbsp;</div>
+        <div class="cal__acts">
+          <a class="btn btn--lg" id="calGoogle" href="#" target="_blank" rel="noopener" aria-disabled="true">Add to Google Calendar</a>
+          <a class="btn btn--lg btn--ghost" id="calMail" href="mailto:jaidanmorello@gmail.com?subject=Ballast%20%E2%80%94%20call">Or email the slot</a>
+        </div>
+        <p class="cal__note">The invite lands with <a href="mailto:jaidanmorello@gmail.com">jaidanmorello@gmail.com</a> as the guest. Not on Google? Email works.</p>
+      </div>
     </div>
   </section>
 
 </main>
 
-<footer class="foot">
-  <div class="wrap foot__in">
-    <span>Ballast &mdash; Los Angeles</span>
-    <a href="mailto:jaidanmorello@gmail.com">jaidanmorello@gmail.com</a>
+<footer class="foot pad">
+  <div class="foot__top">
+    <div><span class="mono">Email</span><a href="mailto:jaidanmorello@gmail.com">jaidanmorello@gmail.com</a></div>
+    <div><span class="mono">Where</span><a href="#book">Los Angeles</a><a href="#book">Working worldwide</a></div>
+    <div><span class="mono">Site</span><a href="#record">Record</a><a href="#problem">Method</a><a href="#sprint">Sprint</a><a href="#proof">Results</a></div>
   </div>
+  <div class="foot__word">Ballast</div>
+  <div class="foot__bot mono"><span>Ballast &mdash; Los Angeles</span><span>Paid media &amp; go-to-market</span></div>
 </footer>
 
+<script>
+(function(){
+  var TZ='America/Los_Angeles', GUEST='jaidanmorello@gmail.com', DUR=30;
+  var SLOTS=['09:00','09:30','10:00','10:30','11:00','13:00','13:30','14:00','14:30','15:00'];
+  var MONTHS=['January','February','March','April','May','June','July','August','September','October','November','December'];
+  var DOWS=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  var today=new Date(); today.setHours(0,0,0,0);
+  var view=new Date(today.getFullYear(),today.getMonth(),1);
+  var maxMonth=new Date(today.getFullYear(),today.getMonth()+3,1);
+  var day=null, slot=null;
+  var $=function(id){return document.getElementById(id)};
+  var days=$('calDays'),title=$('calTitle'),prev=$('calPrev'),next=$('calNext'),slots=$('calSlots'),pick=$('calPick'),local=$('calLocal'),g=$('calGoogle'),m=$('calMail');
+  function pad(n){return (n<10?'0':'')+n}
+  function key(d){return d.getFullYear()+pad(d.getMonth()+1)+pad(d.getDate())}
+  function bookable(d){var w=d.getDay();return d>=today&&w!==0&&w!==6}
+  function renderMonth(){
+    title.textContent=MONTHS[view.getMonth()]+' '+view.getFullYear();
+    prev.disabled=view<=new Date(today.getFullYear(),today.getMonth(),1);
+    next.disabled=view>=maxMonth;
+    days.innerHTML='';
+    var first=(view.getDay()+6)%7;
+    for(var i=0;i<first;i++){var e=document.createElement('span');days.appendChild(e)}
+    var n=new Date(view.getFullYear(),view.getMonth()+1,0).getDate();
+    for(var d=1;d<=n;d++){
+      var dt=new Date(view.getFullYear(),view.getMonth(),d);
+      var b=document.createElement('button');b.type='button';b.className='day';b.textContent=d;
+      if(!bookable(dt))b.disabled=true;
+      if(key(dt)===key(today))b.classList.add('is-today');
+      if(day&&key(dt)===key(day))b.classList.add('is-on');
+      (function(dt){b.addEventListener('click',function(){day=dt;renderMonth();renderSlots();update()})})(dt);
+      days.appendChild(b);
+    }
+  }
+  function renderSlots(){
+    slots.innerHTML='';
+    SLOTS.forEach(function(s){
+      var b=document.createElement('button');b.type='button';b.className='slot'+(s===slot?' is-on':'');
+      var h=+s.slice(0,2),mi=s.slice(3);b.textContent=((h+11)%12+1)+':'+mi+(h<12?' am':' pm');
+      b.addEventListener('click',function(){slot=s;renderSlots();update()});
+      slots.appendChild(b);
+    });
+  }
+  function fmtLocal(dateStr,timeStr){
+    try{
+      var probe=new Date(dateStr.slice(0,4)+'-'+dateStr.slice(4,6)+'-'+dateStr.slice(6,8)+'T'+timeStr+':00Z');
+      var laParts=new Intl.DateTimeFormat('en-US',{timeZone:TZ,hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(probe);
+      var laH=+laParts.find(function(p){return p.type==='hour'}).value%24,laM=+laParts.find(function(p){return p.type==='minute'}).value;
+      var offset=(laH*60+laM)-(+timeStr.slice(0,2)*60+ +timeStr.slice(3));
+      if(offset>720)offset-=1440;if(offset<-720)offset+=1440;
+      var real=new Date(probe.getTime()-offset*60000);
+      var here=Intl.DateTimeFormat().resolvedOptions().timeZone;
+      if(here===TZ)return '';
+      return 'That is '+new Intl.DateTimeFormat('en-US',{hour:'numeric',minute:'2-digit',timeZoneName:'short'}).format(real)+' where you are.';
+    }catch(e){return ''}
+  }
+  function update(){
+    if(!day){pick.textContent='Pick a day.';local.innerHTML='&nbsp;';g.setAttribute('aria-disabled','true');g.href='#';return}
+    var label=DOWS[day.getDay()]+' '+day.getDate()+' '+MONTHS[day.getMonth()].slice(0,3);
+    if(!slot){pick.textContent=label+'. Pick a time.';local.innerHTML='&nbsp;';g.setAttribute('aria-disabled','true');g.href='#';return}
+    var h=+slot.slice(0,2),mi=slot.slice(3);
+    var pretty=label+', '+((h+11)%12+1)+':'+mi+(h<12?' am':' pm')+' PT';
+    pick.textContent=pretty;
+    var dk=key(day),st=dk+'T'+slot.replace(':','')+'00';
+    var endMin=h*60+ +mi+DUR,en=dk+'T'+pad(Math.floor(endMin/60))+pad(endMin%60)+'00';
+    var text='Ballast call',details='Thirty minutes on your account. Booked from ballast.la.';
+    g.href='https://calendar.google.com/calendar/render?action=TEMPLATE'
+      +'&text='+encodeURIComponent(text)
+      +'&dates='+st+'/'+en+'&ctz='+encodeURIComponent(TZ)
+      +'&details='+encodeURIComponent(details)
+      +'&add='+encodeURIComponent(GUEST);
+    g.setAttribute('aria-disabled','false');
+    m.href='mailto:'+GUEST+'?subject='+encodeURIComponent('Ballast call — '+pretty)+'&body='+encodeURIComponent('Hi Jack,\n\nI would like to book a call: '+pretty+'.\n\n');
+    local.textContent=fmtLocal(dk,slot)||' ';
+  }
+  prev.addEventListener('click',function(){view=new Date(view.getFullYear(),view.getMonth()-1,1);renderMonth()});
+  next.addEventListener('click',function(){view=new Date(view.getFullYear(),view.getMonth()+1,1);renderMonth()});
+  renderMonth();renderSlots();update();
+})();
+</script>
 </body>
 </html>
