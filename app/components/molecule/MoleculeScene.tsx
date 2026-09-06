@@ -33,7 +33,11 @@ export interface ScaleInfo {
   pxPerAngstrom: number;
 }
 
+export type SceneTheme = 'default' | 'sko' | 'sko-white';
+
 export interface MoleculeSceneProps {
+  /** 'sko' = chrome on Pigment, 'sko-white' = chrome on white. */
+  theme?: SceneTheme;
   molecule: Molecule;
   onHoverAtom: (atomIndex: number | null) => void;
   onScale?: (info: ScaleInfo) => void;
@@ -68,12 +72,29 @@ function fitDistance(extent: number) {
  * Soft studio environment built from a canvas gradient. Gives the spheres
  * something to reflect without fetching an HDR from a CDN.
  */
-function makeEnvironment(): THREE.Texture {
+function makeEnvironment(theme: SceneTheme = 'default'): THREE.Texture {
   const canvas = document.createElement('canvas');
   canvas.width = 64;
   canvas.height = 256;
   const ctx = canvas.getContext('2d')!;
   const g = ctx.createLinearGradient(0, 0, 0, 256);
+  if (theme !== 'default') {
+    // Chrome needs something to mirror: a hot white sky, a thin bright horizon
+    // and the brand blue below, so every sphere carries Pigment in its shadow
+    // and white in its highlight. The white ground keeps the blue underneath.
+    g.addColorStop(0.0, '#ffffff');
+    g.addColorStop(0.3, '#e9f0ff');
+    g.addColorStop(0.5, '#ffffff');
+    g.addColorStop(0.56, theme === 'sko-white' ? '#c9d6f5' : '#0148FE');
+    g.addColorStop(0.8, theme === 'sko-white' ? '#7f97d6' : '#0130C0');
+    g.addColorStop(1.0, theme === 'sko-white' ? '#3d5bb5' : '#020B77');
+    ctx.fillStyle = g;
+    ctx.fillRect(0, 0, 64, 256);
+    const tex = new THREE.CanvasTexture(canvas);
+    tex.mapping = THREE.EquirectangularReflectionMapping;
+    tex.colorSpace = THREE.SRGBColorSpace;
+    return tex;
+  }
   // High contrast top-to-bottom. A flat environment lights every part of a
   // sphere equally, which is exactly what makes a render look pasted-on.
   g.addColorStop(0.0, '#ffffff'); // hot top — drives the specular
@@ -104,7 +125,7 @@ interface Built {
  * the blue on the heteroatoms bleeds into the cage instead of stopping at
  * the sphere.
  */
-function buildMolecule(mol: Molecule, showHydrogen: boolean): Built {
+function buildMolecule(mol: Molecule, showHydrogen: boolean, theme: SceneTheme = 'default'): Built {
   const visible = (i: number) =>
     showHydrogen || mol.atoms[i]?.element.toUpperCase() !== 'H';
 
@@ -192,18 +213,31 @@ function buildMolecule(mol: Molecule, showHydrogen: boolean): Built {
 
     const sphereList = spheres.get(el);
     if (sphereList?.length) {
-      const mat = new THREE.MeshPhysicalMaterial({
-        color,
-        metalness: style.metalness,
-        roughness: style.roughness,
-        emissive: color,
-        emissiveIntensity: style.emissive,
-        // Tight clearcoat highlight: a small, sharp spec is what tells the eye
-        // a shaded circle is actually a sphere.
-        clearcoat: 0.9,
-        clearcoatRoughness: 0.12,
-        envMapIntensity: 1.25,
-      });
+      const mat =
+        theme === 'default'
+          ? new THREE.MeshPhysicalMaterial({
+              color,
+              metalness: style.metalness,
+              roughness: style.roughness,
+              emissive: color,
+              emissiveIntensity: style.emissive,
+              // Tight clearcoat highlight: a small, sharp spec is what tells the eye
+              // a shaded circle is actually a sphere.
+              clearcoat: 0.9,
+              clearcoatRoughness: 0.12,
+              envMapIntensity: 1.25,
+            })
+          : // SKO: every atom is the same liquid chrome. The element still drives
+            // the radius and the hover chip keeps its colour, so the chemistry
+            // stays readable without painting the molecule.
+            new THREE.MeshPhysicalMaterial({
+              color: 0xffffff,
+              metalness: 1,
+              roughness: 0.1,
+              clearcoat: 1,
+              clearcoatRoughness: 0.05,
+              envMapIntensity: 1.7,
+            });
       materials.push(mat);
       const mesh = new THREE.InstancedMesh(sphereGeo, mat, sphereList.length);
       sphereList.forEach((m, i) => mesh.setMatrixAt(i, m));
@@ -218,14 +252,22 @@ function buildMolecule(mol: Molecule, showHydrogen: boolean): Built {
 
     const stickList = sticks.get(el);
     if (stickList?.length) {
-      const mat = new THREE.MeshPhysicalMaterial({
-        color,
-        metalness: 0.05,
-        roughness: 0.42,
-        emissive: color,
-        emissiveIntensity: style.emissive * 0.3,
-        envMapIntensity: 0.9,
-      });
+      const mat =
+        theme === 'default'
+          ? new THREE.MeshPhysicalMaterial({
+              color,
+              metalness: 0.05,
+              roughness: 0.42,
+              emissive: color,
+              emissiveIntensity: style.emissive * 0.3,
+              envMapIntensity: 0.9,
+            })
+          : new THREE.MeshPhysicalMaterial({
+              color: 0xffffff,
+              metalness: 1,
+              roughness: 0.16,
+              envMapIntensity: 1.5,
+            });
       materials.push(mat);
       const mesh = new THREE.InstancedMesh(stickGeo, mat, stickList.length);
       stickList.forEach((m, i) => mesh.setMatrixAt(i, m));
@@ -259,7 +301,10 @@ export default function MoleculeScene({
   spin = true,
   showHydrogen = false,
   lockScale = false,
+  theme = 'default',
 }: MoleculeSceneProps) {
+  const themeRef = useRef(theme);
+  themeRef.current = theme;
   const containerRef = useRef<HTMLDivElement>(null);
   const spinRef = useRef(spin);
   spinRef.current = spin;
@@ -295,15 +340,17 @@ export default function MoleculeScene({
     const container = containerRef.current;
     if (!container) return;
 
+    const th = themeRef.current;
+    const ground = th === 'sko' ? '#0130C0' : th === 'sko-white' ? '#ffffff' : '#04091a';
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color('#04091a');
+    scene.background = new THREE.Color(ground);
     // Depth cue: atoms further from the camera fade toward the background, so
     // the structure reads as a volume instead of a flat decal. Bounds are
     // recomputed per frame from the camera distance.
-    const fog = new THREE.Fog('#04091a', 1, 100);
+    const fog = new THREE.Fog(ground, 1, 100);
     scene.fog = fog;
 
-    const env = makeEnvironment();
+    const env = makeEnvironment(th);
     scene.environment = env;
 
     // far plane generous: an extended 700-atom peptide spans hundreds of angstroms.
@@ -330,7 +377,11 @@ export default function MoleculeScene({
 
     // Hemisphere gives a sky/ground gradient across each sphere rather than a
     // single flat fill value.
-    scene.add(new THREE.HemisphereLight(0xcfe2ff, 0x0a1430, 1.1));
+    scene.add(
+      th === 'default'
+        ? new THREE.HemisphereLight(0xcfe2ff, 0x0a1430, 1.1)
+        : new THREE.HemisphereLight(0xffffff, th === 'sko-white' ? 0xc9d6f5 : 0x0130c0, 0.9),
+    );
 
     const key = new THREE.DirectionalLight(0xf4f8ff, 5.6);
     key.position.set(-5, 7, 5);
@@ -521,7 +572,7 @@ export default function MoleculeScene({
     const s = sceneRef.current;
     if (!s) return;
 
-    const built = buildMolecule(molecule, showHydrogen);
+    const built = buildMolecule(molecule, showHydrogen, themeRef.current);
     built.meshes.forEach((mesh, i) => {
       mesh.userData.atomIndexFor = built.atomIndexFor[i];
     });

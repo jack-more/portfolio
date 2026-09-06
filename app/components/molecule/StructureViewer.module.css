@@ -370,3 +370,57 @@
   .readouts { gap: 10px; }
   .chip { min-width: 112px; }
 }
+
+
+/* ───────────── SKO edition three ─────────────
+   Pigment ground, chrome molecule, Syncopate on the name, mono everywhere else.
+   'sko-white' swaps the ground to white and the type to Ink. */
+.banner[data-theme="sko"],
+.banner[data-theme="sko-white"] {
+  --blue: #0130C0;
+  --blue-bright: #88A9E3;
+  --deep: #020B77;
+  --bg: #0130C0;
+  --line: rgba(255, 255, 255, 0.28);
+  --dim: rgba(255, 255, 255, 0.62);
+  color: #ffffff;
+  font-family: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+.banner[data-theme="sko-white"] {
+  --bg: #ffffff;
+  --line: rgba(2, 11, 119, 0.22);
+  --dim: rgba(2, 11, 119, 0.6);
+  --blue-bright: #0130C0;
+  color: #020B77;
+}
+.banner[data-theme="sko"] .name,
+.banner[data-theme="sko-white"] .name {
+  font-family: Syncopate, ui-sans-serif, system-ui, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0;
+  font-size: clamp(16px, 2vw, 26px);
+  line-height: 1.1;
+}
+.banner[data-theme="sko-white"] .name { color: #020B77; }
+.banner[data-theme="sko"] .shop,
+.banner[data-theme="sko-white"] .shop {
+  background: #ffffff;
+  color: #0130C0;
+  border: 0;
+  border-radius: 0;
+  font-family: Syncopate, sans-serif;
+  font-weight: 700;
+  font-size: 10px;
+}
+.banner[data-theme="sko-white"] .shop { background: #0130C0; color: #ffffff; }
+.banner[data-theme="sko"] .toggle,
+.banner[data-theme="sko-white"] .toggle,
+.banner[data-theme="sko"] .chip,
+.banner[data-theme="sko-white"] .chip { border-radius: 0; }
+.banner[data-theme="sko"] .vignette,
+.banner[data-theme="sko-white"] .vignette,
+.banner[data-theme="sko"] .grain,
+.banner[data-theme="sko-white"] .grain { display: none; }
+.banner[data-theme="sko"] .stage,
+.banner[data-theme="sko-white"] .stage { border-radius: 0; }

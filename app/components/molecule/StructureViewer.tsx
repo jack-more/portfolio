@@ -3,7 +3,7 @@
 import { lazy, Suspense, useEffect, useMemo, useRef, useState } from 'react';
 import { Molecule, parseSdf, formula, molecularWeight, composition, styleFor } from './sdf';
 import { buildLibrary, FALLBACK, ManifestEntry, PeptideEntry, SHOP_URL } from './registry';
-import type { ScaleInfo } from './MoleculeScene';
+import type { ScaleInfo, SceneTheme } from './MoleculeScene';
 import styles from './StructureViewer.module.css';
 
 /**
@@ -15,7 +15,7 @@ import styles from './StructureViewer.module.css';
  */
 const MoleculeScene = lazy(() => import('./MoleculeScene'));
 
-export default function StructureViewer() {
+export default function StructureViewer({ theme = 'default' }: { theme?: SceneTheme }) {
   // The library is empty until the manifest loads — every structure is
   // manifest-tracked, so there is no static fallback set to show first.
   const [library, setLibrary] = useState<PeptideEntry[]>(FALLBACK);
@@ -123,7 +123,7 @@ export default function StructureViewer() {
   }, [scale]);
 
   return (
-    <section className={styles.banner} aria-label="Compound structure explorer">
+    <section className={styles.banner} data-theme={theme} aria-label="Compound structure explorer">
       {/* ─────────── Stage ─────────── */}
       <div className={styles.stage}>
         <span className={`${styles.bracket} ${styles.tl}`} />
@@ -145,6 +145,7 @@ export default function StructureViewer() {
                 spin={spin}
                 showHydrogen={showHydrogen}
                 lockScale={lockScale}
+                theme={theme}
               />
             </Suspense>
           )}
