@@ -11,9 +11,10 @@ export default function Embed() {
   const zoom = Number(q.get('z') ?? '1.3') || 1.3;
   const ox = Number(q.get('ox') ?? '0') || 0;
   const spin = q.get('spin') !== '0';
+  const label = q.get('label') !== '0';
   return (
     <div style={{ position: 'absolute', inset: 0, background: t === 'sko' ? '#0130C0' : '#ffffff' }}>
-      <StructureViewer theme={t} embed initial={c} cycle={cycle} zoom={zoom} offsetX={ox} autoSpin={spin} />
+      <StructureViewer theme={t} embed initial={c} cycle={cycle} zoom={zoom} offsetX={ox} autoSpin={spin} showLabel={label} />
     </div>
   );
 }

@@ -29,9 +29,11 @@ export interface StructureViewerProps {
   offsetX?: number;
   /** Embed mode: auto-rotate on load. Off means it only turns when dragged. */
   autoSpin?: boolean;
+  /** Embed mode: show the compound name in the corner. */
+  showLabel?: boolean;
 }
 
-export default function StructureViewer({ theme = 'default', embed = false, initial, cycle = 0, zoom = 1, offsetX = 0, autoSpin = true }: StructureViewerProps) {
+export default function StructureViewer({ theme = 'default', embed = false, initial, cycle = 0, zoom = 1, offsetX = 0, autoSpin = true, showLabel = true }: StructureViewerProps) {
   // The library is empty until the manifest loads — every structure is
   // manifest-tracked, so there is no static fallback set to show first.
   const [library, setLibrary] = useState<PeptideEntry[]>(FALLBACK);
@@ -240,7 +242,7 @@ export default function StructureViewer({ theme = 'default', embed = false, init
       </div>
 
       {/* ─────────── Controls ─────────── */}
-      {embed && entry && <span className={styles.embedName}>{entry.name} · drag to turn</span>}
+      {embed && showLabel && entry && <span className={styles.embedName}>{entry.name} · drag to turn</span>}
       {!embed && <div className={styles.controls}>
         <div className={styles.toggles}>
           <button
