@@ -152,6 +152,9 @@ export default function SkoPage() {
               <a href="/sko/ad-rankings-aug16-24.html">Ad rankings · Aug 16–24</a>
             </span>
             <span>
+              <a href="/sko/weekly-report-aug30-sep7.html">Weekly report · Aug 30–Sep 7</a>
+            </span>
+            <span>
               <a href="/sko/weekly-report-aug16-24.html">Weekly report · Aug 16–24</a>
             </span>
             <span>

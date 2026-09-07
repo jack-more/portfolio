@@ -1,0 +1,160 @@
+<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>SKO Weekly Ads Report — Aug 30–Sep 7</title><style>
+body{background:#0f1424;color:#e9ecf4;font-family:-apple-system,Helvetica,Arial,sans-serif;margin:0;padding:40px 20px;line-height:1.55}
+main{max-width:840px;margin:0 auto}
+h1{font-size:30px;color:#fff} h2{font-size:22px;margin-top:40px;color:#aebaf0;border-bottom:1px solid #2a3350;padding-bottom:8px}
+h3{font-size:17px;color:#e9ecf4;margin-top:26px}
+a{color:#7d9bff} strong{color:#fff}
+.tw{overflow-x:auto} table{border-collapse:collapse;width:100%;font-size:14px;font-variant-numeric:tabular-nums;margin:14px 0}
+th{text-align:left;color:#9aa3bd;font-size:12px;text-transform:uppercase;letter-spacing:.05em;padding:8px 10px;border-bottom:1px solid #2a3350}
+td{padding:8px 10px;border-bottom:1px solid #1d2440}
+hr{border:none;border-top:1px solid #2a3350;margin:36px 0}
+li{margin-bottom:6px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));gap:10px;margin:14px 0 18px}
+.kpi{border:1px solid #2a3350;border-radius:9px;padding:10px 12px;background:#161d33}
+.kpi span{display:block;font-size:11px;color:#9aa3bd;text-transform:uppercase;letter-spacing:.04em}
+.kpi b{font-size:20px;color:#e9ecf4}.kpi.hero b{color:#4ade80}
+td.hero{color:#4ade80;font-weight:700}td.loss{color:#f87171;font-weight:700}
+.note{border-left:3px solid #7d9bff;background:#161d33;padding:12px 16px;margin:16px 0;font-size:14px}
+.warn{border-left-color:#f87171}
+.tl td:first-child{white-space:nowrap;color:#9aa3bd}
+small{color:#9aa3bd}
+</style>
+<main>
+<h1>SKO Paid Ads — Weekly Report (Aug 30–Sep 7, 2026)</h1>
+<p><small>Source: TikTok Ads Manager export, Aug 30–Sep 7, 7-day click / 1-day view, platform-reported. The export has no day column, so the range is what Ads Manager gave, not a clean Monday–Sunday. Sep 7 is partial. Meta did not run this week. Prepared by Jack Morello, Sep 7.</small></p>
+
+<h2>Topline</h2>
+<div class="kpis">
+<div class="kpi"><span>Spend</span><b>$16,609</b></div>
+<div class="kpi"><span>Purchases</span><b>381</b></div>
+<div class="kpi"><span>Revenue</span><b>$69,068</b></div>
+<div class="kpi hero"><span>ROAS</span><b>4.16×</b></div>
+<div class="kpi"><span>CPA</span><b>$43.59</b></div>
+<div class="kpi"><span>Impressions</span><b>1.25M</b></div>
+<div class="kpi"><span>CTR</span><b>0.88%</b></div>
+</div>
+<p>Against the standards: target CPA is $49, breakeven is $85. The account landed at <strong>$43.59</strong>, under target, in a week where it was dark for four days and the Labor Day campaign burned $3.5K on one creative. The floor held because the Ethan ads carried it.</p>
+
+<div class="note warn"><strong>Read this before quoting the 381.</strong> On Sep 3 the new tag container went live with its own TikTok Purchase tag, sending TikTok two Purchase events per order from about noon to 4 PM. It was paused at 4 PM and the pixel has been single-counted since (Sep 4: 100 matched purchases, 6 orphans, versus 201 orphans on Sep 3). Some of Sep 3's conversions are doubled. The effect on the week is small, maybe 10–15 purchases, and it does not change any conclusion below.</div>
+
+<h2>What happened this week</h2>
+<table class="tl">
+<tr><td>Aug 30–Sep 2</td><td><strong>Dark.</strong> $16,767 outstanding on the ad account, ads not serving, $0 spend for four days.</td></tr>
+<tr><td>Sep 2–3</td><td><strong>Tracking rebuilt.</strong> Found the site was loading a container from a dead subdomain (never executed) while a stub container double-fired GA4 purchases at ~2.7 per buyer. Swapped the loader, emptied the stub, pointed TikTok's GA4 integration at the clean property. Ad URL now carries <code>ttclid</code> and <code>utm_content</code>.</td></tr>
+<tr><td>Sep 3</td><td><strong>Balance paid, LABOR launched.</strong> 18 creatives, one ad group, $4,200/day, $53 cost cap. Smart creative put 69% of day-one budget on one 9-second clip. Duplicate Purchase tag found and paused at 4 PM.</td></tr>
+<tr><td>Sep 3</td><td><strong>Hayden's "30 conversions" question.</strong> Admin showed 23 paid orders with a TikTok click matched for the day. The admin labels 11 of them "Affiliate" because the buyer used ETHAN10 at checkout, even though they came from Ethan's TikTok ad. TikTok's number was roughly right; the label was misleading.</td></tr>
+<tr><td>Sep 6</td><td><strong>URL rejected.</strong> "Prohibited Industry – Weight Loss," on the landing page, not the ad. The homepage exposes GLP-class product names and category copy. Built a clean landing page (<code>/lp</code>) that takes the offer from URL parameters; ads repointed. Appeal on the original still open.</td></tr>
+<tr><td>Sep 6</td><td>Jack paused creatives under 0.6% CTR with over 1.4K impressions in LABOR.</td></tr>
+</table>
+
+<h2>TikTok — by campaign</h2>
+<div class="tw"><table>
+<tr><th>Campaign</th><th>Spend</th><th>Purch</th><th>Revenue</th><th>ROAS</th><th>CPA</th><th>CTR</th></tr>
+<tr><td>LABOR DAY – MASTER</td><td>$8,365</td><td>157</td><td>$27,707</td><td>3.31×</td><td class="loss">$53.28</td><td>1.04%</td></tr>
+<tr><td>ETHAN UGC 2</td><td>$3,818</td><td>97</td><td>$15,121</td><td>3.96×</td><td class="hero">$39.36</td><td>0.82%</td></tr>
+<tr><td>Ethan purchase (ETHAN UGC)</td><td>$2,769</td><td>53</td><td>$10,582</td><td>3.82×</td><td>$52.24</td><td>0.73%</td></tr>
+<tr><td>ETHAN UGC RESTOCK</td><td>$437</td><td>15</td><td>$4,233</td><td class="hero">9.69×</td><td class="hero">$29.12</td><td>0.85%</td></tr>
+<tr><td>Fresh Batch + TIKTOK15</td><td>$415</td><td>8</td><td>$1,816</td><td>4.37×</td><td>$51.91</td><td>0.64%</td></tr>
+<tr><td>SUMMER30 Survivors + Survivors2</td><td>$311</td><td>11</td><td>$1,777</td><td>5.72×</td><td>$28.26</td><td>0.62%</td></tr>
+<tr><td>WINNERS – TIKTOK15</td><td>$169</td><td>6</td><td>$733</td><td>4.34×</td><td>$28.17</td><td>0.58%</td></tr>
+<tr><td>Higgsfield Sales #1 (LAST CHANCE)</td><td>$129</td><td>10</td><td>$2,376</td><td class="hero">18.43×</td><td class="hero">$12.89</td><td>1.63%</td></tr>
+<tr><td>COLOR CAPTION – RESTOCK</td><td>$128</td><td>0</td><td>$0</td><td class="loss">0</td><td>—</td><td>0.76%</td></tr>
+<tr><td>Farm League</td><td>$61</td><td>2</td><td>$250</td><td>4.08×</td><td>$30.66</td><td>0.56%</td></tr>
+</table></div>
+<p>Half the money went to LABOR and it returned 41% of the purchases at the worst CPA of any campaign that spent real money. The three Ethan campaigns took 42% of spend and returned 43% of purchases at a blended $42. The small TIKTOK15 pools and the Higgsfield round keep doing what they did in August: tiny spend, best ROAS in the account, because they only get served to people who already convert.</p>
+
+<h2>LABOR — creative level</h2>
+<p>18 creatives in one smart-creative ad. This is the whole week's story in one table.</p>
+<div class="tw"><table>
+<tr><th>Creative</th><th>Spend</th><th>CTR</th><th>Purch</th><th>ROAS</th><th>CPA</th><th>AOV</th></tr>
+<tr><td>uwant-ethan-laborday-9s</td><td>$3,542</td><td>1.02%</td><td>33</td><td class="loss">1.58×</td><td class="loss">$107</td><td>$170</td></tr>
+<tr><td>ethan_laborday_08s (clipvault)</td><td>$771</td><td>1.30%</td><td>20</td><td>5.11×</td><td>$38.53</td><td>$197</td></tr>
+<tr><td>singod_BOTS</td><td>$740</td><td>0.96%</td><td>24</td><td class="hero">6.66×</td><td class="hero">$30.84</td><td>$205</td></tr>
+<tr><td>singod_HOW</td><td>$644</td><td>1.54%</td><td>15</td><td>4.33×</td><td>$42.96</td><td>$186</td></tr>
+<tr><td>everyone-labor-ethan-8s</td><td>$520</td><td>1.67%</td><td>21</td><td class="hero">8.56×</td><td class="hero">$24.75</td><td>$212</td></tr>
+<tr><td>biggestsale-ethan-8s</td><td>$409</td><td>1.15%</td><td>9</td><td class="loss">2.24×</td><td>$45.48</td><td>$102</td></tr>
+<tr><td>freestuff-ethan-8s</td><td>$354</td><td>1.08%</td><td>7</td><td>3.15×</td><td>$50.55</td><td>$159</td></tr>
+<tr><td>singod_CELEBRATE</td><td>$253</td><td>0.64%</td><td>6</td><td>2.75×</td><td>$42.09</td><td>$116</td></tr>
+<tr><td>LastCall-laborday-8s</td><td>$217</td><td>1.05%</td><td>6</td><td>4.98×</td><td>$36.11</td><td>$180</td></tr>
+<tr><td>pulltrig-ethan-12s</td><td>$203</td><td>0.78%</td><td>7</td><td>5.74×</td><td>$29.00</td><td>$166</td></tr>
+<tr><td>singod_LUCKY</td><td>$185</td><td>1.00%</td><td>4</td><td>2.58×</td><td>$46.19</td><td>$119</td></tr>
+<tr><td>singod_PRICE</td><td>$123</td><td>0.95%</td><td>2</td><td class="loss">1.39×</td><td>$61.28</td><td>$85</td></tr>
+<tr><td>AI_Editor ×5 (TikTok's editor)</td><td>$383</td><td>0.48%</td><td>3</td><td class="loss">1.02×</td><td>$128</td><td>$131</td></tr>
+<tr><td>highclass (AI presenter)</td><td>$23</td><td>0.19%</td><td>0</td><td class="loss">0</td><td>—</td><td>—</td></tr>
+</table></div>
+
+<h3>The uwant lesson</h3>
+<p>The picker chose the clip with the best early click rate and fed it 42% of the campaign's total spend. It converts one click in 77. The next four creatives together spent $2,675 and returned 80 purchases, $33 each. Uwant spent $3,542 and returned 33 at $107. <strong>One creative cost the campaign roughly $2,100 against the account average.</strong> CTR was not the tell. Clicks per order was.</p>
+
+<h3>A correction on my day-one call</h3>
+<p>On Sep 3 I recommended shifting budget to biggestsale-ethan-8s, which was at $46 CPA on 8 purchases. On the full week it is 2.24× with a $102 AOV, the lowest in the group. The clips that actually held up are everyone-labor-ethan (8.56×), singod_BOTS (6.66×), pulltrig (5.74×) and the clipvault cut (5.11×). Day-one CPA on single digits of purchases is noise. What was not noise was uwant's clicks-per-order, and that call stands.</p>
+
+<h3>What worked in the copy</h3>
+<p>The three best Ethan clips all name the offer in the first line and end on the code. "Everyone" and "biggest sale" are the same script with different openers; one did 8.56× and one did 2.24×. The difference is the first two seconds. Singod's BOTS and HOW clips, which are him talking about the product and how ordering works, beat his CELEBRATE, LUCKY and PRICE clips by 2–3×. Product beats mood.</p>
+
+<h3>AI content, again</h3>
+<p>Five TikTok AI Editor clips and the AI presenter clip: $406, 3 purchases, $135 each. Same finding as August. AI product photography sells (the Higgsfield round is 18× this week on a tiny budget). AI people don't.</p>
+
+<h2>Ethan ads — creative level</h2>
+<div class="tw"><table>
+<tr><th>Ad · creative</th><th>Spend</th><th>CTR</th><th>Purch</th><th>ROAS</th><th>CPA</th><th>AOV</th></tr>
+<tr><td>UGC 2 · 655CF7C6</td><td>$1,296</td><td>0.67%</td><td>16</td><td class="loss">1.80×</td><td class="loss">$81.01</td><td>$146</td></tr>
+<tr><td>UGC 2 · 0B27E9EB</td><td>$994</td><td>1.07%</td><td>24</td><td>3.56×</td><td>$41.40</td><td>$147</td></tr>
+<tr><td>UGC 2 · A0FAA5A8</td><td>$713</td><td>0.73%</td><td>26</td><td>4.69×</td><td>$27.43</td><td>$129</td></tr>
+<tr><td>UGC 2 · 50A6782D</td><td>$336</td><td>0.88%</td><td>10</td><td>4.65×</td><td>$33.60</td><td>$156</td></tr>
+<tr><td>UGC 2 · 7A392A61</td><td>$323</td><td>0.87%</td><td>18</td><td class="hero">12.10×</td><td class="hero">$17.94</td><td>$217</td></tr>
+<tr><td>UGC 2 · F120DAF3</td><td>$156</td><td>0.84%</td><td>3</td><td>2.78×</td><td>$52.03</td><td>$144</td></tr>
+<tr><td>UGC · vKCU0o8b (the original)</td><td>$2,051</td><td>0.70%</td><td>29</td><td class="loss">2.88×</td><td class="loss">$70.73</td><td>$204</td></tr>
+<tr><td>UGC · lEe0p2xn</td><td>$718</td><td>1.00%</td><td>24</td><td class="hero">6.52×</td><td class="hero">$29.90</td><td>$195</td></tr>
+<tr><td>RESTOCK · SKO10_08s captioned</td><td>$318</td><td>0.90%</td><td>12</td><td class="hero">8.54×</td><td class="hero">$26.51</td><td>$226</td></tr>
+<tr><td>RESTOCK · biggestrestock clipvault</td><td>$117</td><td>0.77%</td><td>0</td><td class="loss">0</td><td>—</td><td>—</td></tr>
+</table></div>
+<p>Same pattern as LABOR, inside the Ethan ads. In UGC 2, the picker's favourite (655CF7C6, $1,296) is the worst converter at $81; the clip it starved (7A392A61, $323) is the best in the account at $17.94 and a $217 AOV. In the original UGC ad, the video that built the account (vKCU0o8b) is now at $70.73 after 347K impressions this week. It is tired. Its sibling lEe0p2xn is at $29.90 on a fifth of the spend.</p>
+
+<h2>Farm League</h2>
+<div class="tw"><table>
+<tr><th>Creative</th><th>Spend</th><th>Purch</th><th>ROAS</th><th>CPA</th></tr>
+<tr><td>Dennis · Hudson BH</td><td>$37</td><td>1</td><td>2.05×</td><td>$37</td></tr>
+<tr><td>Hanna · Testing 15s</td><td>$16</td><td>1</td><td>10.67×</td><td>$16</td></tr>
+<tr><td>Hanna · Beverly Hills, 24hr shipping · Dennis · Shipping</td><td>$8</td><td>0</td><td>—</td><td>—</td></tr>
+</table></div>
+<p>$61 total; the campaign was paused with "Review not approved" most of the week. Nothing to conclude on this sample. The August finding stands: Hanna converts, Dennis doesn't. Payout for August at the agreed 5% of platform-reported purchase value: <strong>Hanna $489.41, Dennis $195.02</strong>, still owed.</p>
+
+<h2>Tracking — what changed and what it means for the numbers</h2>
+<ul>
+<li><strong>One container, one property.</strong> GTM-TMG5WDJQ is the only container on the site and it loads. GA4 property 543439378 is the only one receiving. The old property (549569344) is abandoned; its data was duplicated ~2.7× and should not be quoted.</li>
+<li><strong>TikTok receives one Purchase per order.</strong> Verified in Events Manager: Sep 4 shows 100 server-and-browser matched purchases against 6 browser-only. Sep 3 showed 198 against 201, the duplicate. The extra tag is paused (container v9).</li>
+<li><strong>Click IDs land.</strong> The ad URL carries <code>ttclid</code>; the store writes it to a cookie and to its own attribution records on the landing session. Verified on <code>/lp</code> with a test click.</li>
+<li><strong>Phone is now sent</strong> on every TikTok event from GTM, alongside email. Expect EMQ to move over the next two weeks.</li>
+<li><strong>The admin's "TikTok Ads" label undercounts by about half.</strong> Any order using an affiliate code is filed under Affiliate even when the pixel matched a TikTok click. When reconciling, use the source filter (pixel-matched), not the label.</li>
+</ul>
+
+<h2>Reconciliation — platform claim vs our ledger</h2>
+<p>Full-week ledger export was not available at the time of writing; the reconciliation below is the one day I could count by hand.</p>
+<div class="tw"><table>
+<tr><th>Sep 3 (through 3:50 PM PT)</th><th>Count</th></tr>
+<tr><td>TikTok attributed conversions (Ads Manager, ~3:20 PM)</td><td>30</td></tr>
+<tr><td>Paid orders in admin with a TikTok click matched</td><td>23</td></tr>
+<tr><td>… of which labelled "TikTok Ads"</td><td>12</td></tr>
+<tr><td>… of which labelled "Affiliate" (ETHAN10 at checkout, TikTok click)</td><td>11</td></tr>
+</table></div>
+<p>Ratio on that day: TikTok claims 1.3× what the store can match to a click. That is view-through plus the Sep 3 duplicate, not the 2–3× gap of August. When the ledger export is in, this section gets the full week.</p>
+
+<h2>The rejection and the landing page</h2>
+<p>TikTok's reviewer reads the landing page. The homepage carries "GLP-1 / GIP Dual Receptor Agonist" as a category name, "GLP-3" in a product name, "appetite regulation," "adipose tissue," and a "Metabolic Reference Bundle." The disclaimer doesn't matter; the classifier does. A competitor running the same compounds on TikTok has zero of those words anywhere on their site.</p>
+<p>Fix in place: <code>skocompounds.com/lp</code>. Clean of every trigger word, 11 non-GLP SKUs, same cart and tracking, and the offer comes from the URL (<code>lp_code</code>, <code>lp_offer</code>) so no sale is ever hard-coded. Evergreen with no parameters. All new ads point here. Tickets for Lovable cover the site-wide word scrub, the product photography on the main site, and the storefront rebuild.</p>
+
+<h2>Next week</h2>
+<ol>
+<li><strong>Pause uwant.</strong> It is still on. Every day it runs is ~$500 of spend at $107 a purchase.</li>
+<li><strong>Split the LABOR winners into their own ad group</strong> post-sale, with TIKTOK15: everyone-labor-ethan, singod_BOTS, pulltrig, the clipvault cut. Four creatives, not eighteen. The August dilution finding held again this week.</li>
+<li><strong>Rest vKCU0o8b.</strong> 347K impressions in a week at $70. Move its budget to lEe0p2xn and the RESTOCK captioned cut.</li>
+<li><strong>In UGC 2, pause 655CF7C6</strong> and let 7A392A61 and A0FAA5A8 take the budget.</li>
+<li><strong>Move the Ethan ads to <code>/lp</code></strong> once the LABOR duplicate clears review, so the next rejection can't take the whole account down.</li>
+<li><strong>Ship the word scrub.</strong> Until it's live, the homepage can't be an ad destination.</li>
+<li><strong>Pay Farm League August</strong> and re-shoot Hanna. Dennis is done.</li>
+</ol>
+
+<hr>
+<p><small>Platform numbers are TikTok's, 7-day click / 1-day view, and will drift up for a few days as the window closes. Standards: target CPA $49, breakeven $85, contribution 39% on a $218 post-discount AOV. See <a href="/sko/paid-ads-standards.html">paid ads standards</a> and the <a href="/sko/weekly-report-aug16-24.html">Aug 16–24 report</a>.</small></p>
+</main>
