@@ -40,6 +40,8 @@ export interface MoleculeSceneProps {
   theme?: SceneTheme;
   /** Framing multiplier: 1 fits the bounding sphere, 1.6 fills a hero. */
   zoom?: number;
+  /** Shift the view horizontally, as a fraction of the width: 0.2 puts the structure right of centre so type can sit on the left. */
+  offsetX?: number;
   molecule: Molecule;
   onHoverAtom: (atomIndex: number | null) => void;
   onScale?: (info: ScaleInfo) => void;
@@ -321,7 +323,10 @@ export default function MoleculeScene({
   lockScale = false,
   theme = 'default',
   zoom = 1,
+  offsetX = 0,
 }: MoleculeSceneProps) {
+  const offsetRef = useRef(offsetX);
+  offsetRef.current = offsetX;
   const themeRef = useRef(theme);
   themeRef.current = theme;
   const containerRef = useRef<HTMLDivElement>(null);
@@ -432,6 +437,10 @@ export default function MoleculeScene({
       const h = container.clientHeight;
       if (!w || !h) return;
       camera.aspect = w / h;
+      // A view offset moves the structure across the frame without moving the
+      // orbit target, so the type can own one side of a full-bleed hero.
+      const ox = offsetRef.current;
+      if (ox) camera.setViewOffset(w, h, -ox * w, 0, w, h); else camera.clearViewOffset();
       camera.updateProjectionMatrix();
       renderer.setSize(w, h, false);
     };

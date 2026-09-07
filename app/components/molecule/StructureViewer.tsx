@@ -25,9 +25,11 @@ export interface StructureViewerProps {
   cycle?: number;
   /** Framing multiplier for embed mode. */
   zoom?: number;
+  /** Horizontal view offset for embed mode, fraction of width. */
+  offsetX?: number;
 }
 
-export default function StructureViewer({ theme = 'default', embed = false, initial, cycle = 0, zoom = 1 }: StructureViewerProps) {
+export default function StructureViewer({ theme = 'default', embed = false, initial, cycle = 0, zoom = 1, offsetX = 0 }: StructureViewerProps) {
   // The library is empty until the manifest loads — every structure is
   // manifest-tracked, so there is no static fallback set to show first.
   const [library, setLibrary] = useState<PeptideEntry[]>(FALLBACK);
@@ -172,6 +174,7 @@ export default function StructureViewer({ theme = 'default', embed = false, init
                 lockScale={lockScale}
                 theme={theme}
                 zoom={zoom}
+                offsetX={offsetX}
               />
             </Suspense>
           )}
@@ -235,7 +238,7 @@ export default function StructureViewer({ theme = 'default', embed = false, init
       </div>
 
       {/* ─────────── Controls ─────────── */}
-      {embed && entry && <span className={styles.embedName}>{entry.name}</span>}
+      {embed && entry && <span className={styles.embedName}>{entry.name} · drag to turn</span>}
       {!embed && <div className={styles.controls}>
         <div className={styles.toggles}>
           <button
