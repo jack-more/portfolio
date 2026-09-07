@@ -15,7 +15,19 @@ import styles from './StructureViewer.module.css';
  */
 const MoleculeScene = lazy(() => import('./MoleculeScene'));
 
-export default function StructureViewer({ theme = 'default' }: { theme?: SceneTheme }) {
+export interface StructureViewerProps {
+  theme?: SceneTheme;
+  /** Embed mode: the stage alone, filling its container. No rail, no readouts, no controls. */
+  embed?: boolean;
+  /** Registry slug to open on (embed mode), e.g. 'bpc157'. */
+  initial?: string;
+  /** Seconds between compounds in embed mode; 0 stays on `initial`. */
+  cycle?: number;
+  /** Framing multiplier for embed mode. */
+  zoom?: number;
+}
+
+export default function StructureViewer({ theme = 'default', embed = false, initial, cycle = 0, zoom = 1 }: StructureViewerProps) {
   // The library is empty until the manifest loads — every structure is
   // manifest-tracked, so there is no static fallback set to show first.
   const [library, setLibrary] = useState<PeptideEntry[]>(FALLBACK);
@@ -63,13 +75,26 @@ export default function StructureViewer({ theme = 'default' }: { theme?: SceneTh
         const lib = buildLibrary(m);
         if (!lib.length) return;
         setLibrary(lib);
-        setEntry((cur) => cur ?? lib[0]);
+        const want = initial ? lib.find((p) => p.file === `${initial}.sdf`) : undefined;
+        setEntry((cur) => want ?? cur ?? lib[0]);
       })
       .catch(() => {
         /* keep FALLBACK — viewer still works with whatever is statically known */
       });
     return () => { cancelled = true; };
   }, []);
+
+  // Embed mode: walk the library on a timer, so a hero turns through the catalogue on its own.
+  useEffect(() => {
+    if (!embed || !cycle || library.length < 2) return;
+    const t = setInterval(() => {
+      setEntry((cur) => {
+        const i = Math.max(0, library.findIndex((p) => p.file === cur?.file));
+        return library[(i + 1) % library.length];
+      });
+    }, cycle * 1000);
+    return () => clearInterval(t);
+  }, [embed, cycle, library]);
 
   useEffect(() => {
     if (!entry) return;
@@ -123,7 +148,7 @@ export default function StructureViewer({ theme = 'default' }: { theme?: SceneTh
   }, [scale]);
 
   return (
-    <section className={styles.banner} data-theme={theme} aria-label="Compound structure explorer">
+    <section className={styles.banner} data-theme={theme} data-embed={embed ? '1' : undefined} aria-label="Compound structure explorer">
       {/* ─────────── Stage ─────────── */}
       <div className={styles.stage}>
         <span className={`${styles.bracket} ${styles.tl}`} />
@@ -146,6 +171,7 @@ export default function StructureViewer({ theme = 'default' }: { theme?: SceneTh
                 showHydrogen={showHydrogen}
                 lockScale={lockScale}
                 theme={theme}
+                zoom={zoom}
               />
             </Suspense>
           )}
@@ -156,7 +182,7 @@ export default function StructureViewer({ theme = 'default' }: { theme?: SceneTh
         <div className={styles.grain} />
 
         {/* Overlay: identity left, action right */}
-        <div className={styles.stageTop}>
+        {!embed && <div className={styles.stageTop}>
           <div className={styles.identity}>
             <h2 className={styles.name}>{entry?.name ?? '—'}</h2>
             <span className={styles.sku}>{entry?.sku ?? ''}</span>
@@ -171,9 +197,9 @@ export default function StructureViewer({ theme = 'default' }: { theme?: SceneTh
             SHOP{entry ? ` ${entry.name.toUpperCase()}` : ''}
             <span aria-hidden="true"> →</span>
           </a>
-        </div>
+        </div>}
 
-        <div className={styles.stageBottom}>
+        {!embed && <div className={styles.stageBottom}>
           <span className={styles.mono}>{stats ? stats.formula : '—'}</span>
           <span className={styles.readouts}>
             {stats && (
@@ -185,16 +211,16 @@ export default function StructureViewer({ theme = 'default' }: { theme?: SceneTh
               </>
             )}
           </span>
-        </div>
+        </div>}
 
-        {scaleBar && (
+        {!embed && scaleBar && (
           <div className={styles.scale}>
             <div className={styles.scaleBar} style={{ width: `${scaleBar.px}px` }} />
             <span className={styles.scaleLabel}>{scaleBar.angstroms} Å</span>
           </div>
         )}
 
-        {hoveredAtom && (
+        {!embed && hoveredAtom && (
           <div className={styles.probe}>
             <span
               className={styles.probeSwatch}
@@ -209,7 +235,8 @@ export default function StructureViewer({ theme = 'default' }: { theme?: SceneTh
       </div>
 
       {/* ─────────── Controls ─────────── */}
-      <div className={styles.controls}>
+      {embed && entry && <span className={styles.embedName}>{entry.name}</span>}
+      {!embed && <div className={styles.controls}>
         <div className={styles.toggles}>
           <button
             className={`${styles.toggle} ${spin ? styles.toggleOn : ''}`}
@@ -236,17 +263,17 @@ export default function StructureViewer({ theme = 'default' }: { theme?: SceneTh
           <span className={styles.provenanceLabel}>COORDINATE_SOURCE</span>
           <span className={styles.provenanceValue}>{entry?.source ?? '—'}</span>
         </div>
-      </div>
+      </div>}
 
-      {entry?.caveat && <p className={styles.caveat}>{entry.caveat}</p>}
+      {!embed && entry?.caveat && <p className={styles.caveat}>{entry.caveat}</p>}
 
       {/* ─────────── Compound grid ─────────── */}
-      <div className={styles.railLabel}>
+      {!embed && <div className={styles.railLabel}>
         <span>COMPOUND_LIBRARY</span>
         <span className={styles.railCount}>{library.length} structures</span>
-      </div>
+      </div>}
 
-      <div className={styles.rail} ref={railRef} role="listbox" aria-label="Compounds">
+      {!embed && <div className={styles.rail} ref={railRef} role="listbox" aria-label="Compounds">
         {library.map((p) => (
           <button
             key={p.sku}
@@ -260,7 +287,7 @@ export default function StructureViewer({ theme = 'default' }: { theme?: SceneTh
             <span className={styles.chipSku}>{p.sku}</span>
           </button>
         ))}
-      </div>
+      </div>}
     </section>
   );
 }

@@ -38,6 +38,8 @@ export type SceneTheme = 'default' | 'sko' | 'sko-white';
 export interface MoleculeSceneProps {
   /** 'sko' = chrome on Pigment, 'sko-white' = chrome on white. */
   theme?: SceneTheme;
+  /** Framing multiplier: 1 fits the bounding sphere, 1.6 fills a hero. */
+  zoom?: number;
   molecule: Molecule;
   onHoverAtom: (atomIndex: number | null) => void;
   onScale?: (info: ScaleInfo) => void;
@@ -82,12 +84,28 @@ function makeEnvironment(theme: SceneTheme = 'default'): THREE.Texture {
     // Chrome needs something to mirror: a hot white sky, a thin bright horizon
     // and the brand blue below, so every sphere carries Pigment in its shadow
     // and white in its highlight. The white ground keeps the blue underneath.
-    g.addColorStop(0.0, '#ffffff');
-    g.addColorStop(0.3, '#e9f0ff');
-    g.addColorStop(0.5, '#ffffff');
-    g.addColorStop(0.56, theme === 'sko-white' ? '#c9d6f5' : '#0148FE');
-    g.addColorStop(0.8, theme === 'sko-white' ? '#7f97d6' : '#0130C0');
-    g.addColorStop(1.0, theme === 'sko-white' ? '#3d5bb5' : '#020B77');
+    if (theme === 'sko-white') {
+      // On white the chrome has nothing dark to mirror, so it reads as frosted
+      // plastic. A hard navy horizon band and a mid floor give every sphere a
+      // dark line through it: that line is what makes chrome read as chrome.
+      // Silver, not blue: the dark band is near-black with only a trace of navy,
+      // so the spheres read as chrome in a white studio with the blue off-frame.
+      g.addColorStop(0.0, '#ffffff');
+      g.addColorStop(0.3, '#e4e8ef');
+      g.addColorStop(0.44, '#ffffff');
+      g.addColorStop(0.47, '#262b38');
+      g.addColorStop(0.58, '#0b0f1c');
+      g.addColorStop(0.7, '#2c3242');
+      g.addColorStop(0.86, '#9aa3b5');
+      g.addColorStop(1.0, '#f4f6fa');
+    } else {
+      g.addColorStop(0.0, '#ffffff');
+      g.addColorStop(0.3, '#e9f0ff');
+      g.addColorStop(0.5, '#ffffff');
+      g.addColorStop(0.56, '#0148FE');
+      g.addColorStop(0.8, '#0130C0');
+      g.addColorStop(1.0, '#020B77');
+    }
     ctx.fillStyle = g;
     ctx.fillRect(0, 0, 64, 256);
     const tex = new THREE.CanvasTexture(canvas);
@@ -231,12 +249,12 @@ function buildMolecule(mol: Molecule, showHydrogen: boolean, theme: SceneTheme =
             // the radius and the hover chip keeps its colour, so the chemistry
             // stays readable without painting the molecule.
             new THREE.MeshPhysicalMaterial({
-              color: 0xffffff,
+              color: theme === 'sko-white' ? 0xd9dfe9 : 0xffffff,
               metalness: 1,
-              roughness: 0.1,
+              roughness: theme === 'sko-white' ? 0.06 : 0.1,
               clearcoat: 1,
               clearcoatRoughness: 0.05,
-              envMapIntensity: 1.7,
+              envMapIntensity: theme === 'sko-white' ? 1.15 : 1.7,
             });
       materials.push(mat);
       const mesh = new THREE.InstancedMesh(sphereGeo, mat, sphereList.length);
@@ -263,10 +281,10 @@ function buildMolecule(mol: Molecule, showHydrogen: boolean, theme: SceneTheme =
               envMapIntensity: 0.9,
             })
           : new THREE.MeshPhysicalMaterial({
-              color: 0xffffff,
+              color: theme === 'sko-white' ? 0xd9dfe9 : 0xffffff,
               metalness: 1,
-              roughness: 0.16,
-              envMapIntensity: 1.5,
+              roughness: theme === 'sko-white' ? 0.1 : 0.16,
+              envMapIntensity: theme === 'sko-white' ? 1.15 : 1.5,
             });
       materials.push(mat);
       const mesh = new THREE.InstancedMesh(stickGeo, mat, stickList.length);
@@ -302,6 +320,7 @@ export default function MoleculeScene({
   showHydrogen = false,
   lockScale = false,
   theme = 'default',
+  zoom = 1,
 }: MoleculeSceneProps) {
   const themeRef = useRef(theme);
   themeRef.current = theme;
@@ -589,7 +608,10 @@ export default function MoleculeScene({
   // Camera framing. Separate from geometry so toggling scale mode re-frames
   // without rebuilding every instanced mesh.
   useEffect(() => {
-    const fit = fitDistance(lockScale ? REFERENCE_EXTENT : molecule.extent);
+    // Fit against the narrower axis: a portrait or square stage would otherwise
+    // clip a wide structure at the sides.
+    const aspect = sceneRef.current?.camera.aspect ?? 1;
+    const fit = fitDistance(lockScale ? REFERENCE_EXTENT : molecule.extent) / Math.min(1, aspect) / Math.max(0.5, zoom);
     orbitRef.current.fit = fit;
     orbitRef.current.distance = fit;
 
@@ -607,7 +629,7 @@ export default function MoleculeScene({
     // Keep the light's throw proportional to the molecule, so a 4 Å compound
     // and a 52 Å peptide get the same shadow character.
     s.key.position.set(-0.62, 0.87, 0.62).multiplyScalar(r * 2.6);
-  }, [molecule, lockScale]);
+  }, [zoom, molecule, lockScale]);
 
   return <div ref={containerRef} style={{ width: '100%', height: '100%' }} />;
 }

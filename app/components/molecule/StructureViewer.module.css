@@ -424,3 +424,11 @@
 .banner[data-theme="sko-white"] .grain { display: none; }
 .banner[data-theme="sko"] .stage,
 .banner[data-theme="sko-white"] .stage { border-radius: 0; }
+
+/* ───────────── Embed mode: the stage alone, filling its container ───────────── */
+.banner[data-embed="1"] { padding: 0; background: transparent; position: relative; height: 100%; min-height: 100%; }
+.banner[data-embed="1"] .stage { height: 100%; min-height: 100%; border: 0; background: #ffffff; }
+.banner[data-theme="sko"][data-embed="1"] .stage { background: #0130C0; }
+.banner[data-embed="1"] .bracket, .banner[data-embed="1"] .orbit, .banner[data-embed="1"] .vignette, .banner[data-embed="1"] .grain { display: none; }
+.banner[data-embed="1"] .loading, .banner[data-embed="1"] .error { color: #88A9E3; }
+.embedName { position: absolute; left: 18px; bottom: 14px; font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: #6f86b8; z-index: 3; pointer-events: none; }
