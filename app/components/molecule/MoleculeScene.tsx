@@ -42,6 +42,8 @@ export interface MoleculeSceneProps {
   zoom?: number;
   /** Shift the view horizontally, as a fraction of the width: 0.2 puts the structure right of centre so type can sit on the left. */
   offsetX?: number;
+  /** Wheel zooms the structure. Off in an embed, so the page scrolls past it. */
+  wheelZoom?: boolean;
   molecule: Molecule;
   onHoverAtom: (atomIndex: number | null) => void;
   onScale?: (info: ScaleInfo) => void;
@@ -324,7 +326,10 @@ export default function MoleculeScene({
   theme = 'default',
   zoom = 1,
   offsetX = 0,
+  wheelZoom = true,
 }: MoleculeSceneProps) {
+  const wheelRef = useRef(wheelZoom);
+  wheelRef.current = wheelZoom;
   const offsetRef = useRef(offsetX);
   offsetRef.current = offsetX;
   const themeRef = useRef(theme);
@@ -502,12 +507,14 @@ export default function MoleculeScene({
     };
 
     container.style.cursor = 'grab';
+    // In an embed the page owns vertical scroll and swipe; the structure only turns on a horizontal drag.
+    container.style.touchAction = wheelRef.current ? 'none' : 'pan-y';
     container.addEventListener('pointerdown', onPointerDown);
     window.addEventListener('pointerup', onPointerUp);
     window.addEventListener('pointercancel', onPointerUp);
     container.addEventListener('pointermove', onPointerMove);
     container.addEventListener('pointerleave', onLeave);
-    container.addEventListener('wheel', onWheel, { passive: false });
+    if (wheelRef.current) container.addEventListener('wheel', onWheel, { passive: false });
 
     // ── Loop ──
     let raf = 0;
