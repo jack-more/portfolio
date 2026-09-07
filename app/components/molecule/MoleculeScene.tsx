@@ -34,6 +34,8 @@ export interface ScaleInfo {
 }
 
 export type SceneTheme = 'default' | 'sko' | 'sko-white' | 'sko-snow';
+/** The material on the SKO themes: silver chrome, or the blue-white 'frost' plastic. */
+export type SceneFinish = 'chrome' | 'frost';
 
 export interface MoleculeSceneProps {
   /** 'sko' = chrome on Pigment, 'sko-white' = chrome on white. */
@@ -44,6 +46,8 @@ export interface MoleculeSceneProps {
   offsetX?: number;
   /** Wheel zooms the structure. Off in an embed, so the page scrolls past it. */
   wheelZoom?: boolean;
+  /** Silver chrome, or the blue-white frost plastic. */
+  finish?: SceneFinish;
   molecule: Molecule;
   onHoverAtom: (atomIndex: number | null) => void;
   onScale?: (info: ScaleInfo) => void;
@@ -78,12 +82,13 @@ function fitDistance(extent: number) {
  * Soft studio environment built from a canvas gradient. Gives the spheres
  * something to reflect without fetching an HDR from a CDN.
  */
-function makeEnvironment(theme: SceneTheme = 'default'): THREE.Texture {
+function makeEnvironment(theme: SceneTheme = 'default', finish: SceneFinish = 'chrome'): THREE.Texture {
   const canvas = document.createElement('canvas');
   canvas.width = 64;
   canvas.height = 256;
   const ctx = canvas.getContext('2d')!;
   const g = ctx.createLinearGradient(0, 0, 0, 256);
+  if (theme === 'sko-snow' && finish === 'frost') theme = 'sko'; // frost mirrors the plain blue sky
   if (theme === 'sko-snow') {
     // Snow: alpine sky above, a dark horizon line, blue-lit snow below. The dark
     // band is what keeps the chrome silver instead of pale blue plastic.
@@ -165,7 +170,7 @@ interface Built {
  * the blue on the heteroatoms bleeds into the cage instead of stopping at
  * the sphere.
  */
-function buildMolecule(mol: Molecule, showHydrogen: boolean, theme: SceneTheme = 'default'): Built {
+function buildMolecule(mol: Molecule, showHydrogen: boolean, theme: SceneTheme = 'default', finish: SceneFinish = 'chrome'): Built {
   const visible = (i: number) =>
     showHydrogen || mol.atoms[i]?.element.toUpperCase() !== 'H';
 
@@ -271,12 +276,12 @@ function buildMolecule(mol: Molecule, showHydrogen: boolean, theme: SceneTheme =
             // the radius and the hover chip keeps its colour, so the chemistry
             // stays readable without painting the molecule.
             new THREE.MeshPhysicalMaterial({
-              color: theme === 'sko-white' || theme === 'sko-snow' ? 0xd9dfe9 : 0xffffff,
+              color: finish === 'frost' ? 0xffffff : theme === 'sko-white' || theme === 'sko-snow' ? 0xd9dfe9 : 0xffffff,
               metalness: 1,
-              roughness: theme === 'sko-white' || theme === 'sko-snow' ? 0.06 : 0.1,
+              roughness: finish === 'frost' ? 0.1 : theme === 'sko-white' || theme === 'sko-snow' ? 0.06 : 0.1,
               clearcoat: 1,
               clearcoatRoughness: 0.05,
-              envMapIntensity: theme === 'sko-white' ? 1.15 : theme === 'sko-snow' ? 1.3 : 1.7,
+              envMapIntensity: finish === 'frost' ? 1.7 : theme === 'sko-white' ? 1.15 : theme === 'sko-snow' ? 1.3 : 1.7,
             });
       materials.push(mat);
       const mesh = new THREE.InstancedMesh(sphereGeo, mat, sphereList.length);
@@ -303,10 +308,10 @@ function buildMolecule(mol: Molecule, showHydrogen: boolean, theme: SceneTheme =
               envMapIntensity: 0.9,
             })
           : new THREE.MeshPhysicalMaterial({
-              color: theme === 'sko-white' || theme === 'sko-snow' ? 0xd9dfe9 : 0xffffff,
+              color: finish === 'frost' ? 0xffffff : theme === 'sko-white' || theme === 'sko-snow' ? 0xd9dfe9 : 0xffffff,
               metalness: 1,
-              roughness: theme === 'sko-white' || theme === 'sko-snow' ? 0.1 : 0.16,
-              envMapIntensity: theme === 'sko-white' ? 1.15 : theme === 'sko-snow' ? 1.3 : 1.5,
+              roughness: finish === 'frost' ? 0.16 : theme === 'sko-white' || theme === 'sko-snow' ? 0.1 : 0.16,
+              envMapIntensity: finish === 'frost' ? 1.5 : theme === 'sko-white' ? 1.15 : theme === 'sko-snow' ? 1.3 : 1.5,
             });
       materials.push(mat);
       const mesh = new THREE.InstancedMesh(stickGeo, mat, stickList.length);
@@ -345,7 +350,10 @@ export default function MoleculeScene({
   zoom = 1,
   offsetX = 0,
   wheelZoom = true,
+  finish = 'chrome',
 }: MoleculeSceneProps) {
+  const finishRef = useRef(finish);
+  finishRef.current = finish;
   const wheelRef = useRef(wheelZoom);
   wheelRef.current = wheelZoom;
   const offsetRef = useRef(offsetX);
@@ -399,7 +407,7 @@ export default function MoleculeScene({
     const fog = new THREE.Fog(ground, 1, 100);
     if (!snow) scene.fog = fog;
 
-    const env = makeEnvironment(th);
+    const env = makeEnvironment(th, finishRef.current);
     scene.environment = env;
 
     // far plane generous: an extended 700-atom peptide spans hundreds of angstroms.
@@ -628,7 +636,7 @@ export default function MoleculeScene({
     const s = sceneRef.current;
     if (!s) return;
 
-    const built = buildMolecule(molecule, showHydrogen, themeRef.current);
+    const built = buildMolecule(molecule, showHydrogen, themeRef.current, finishRef.current);
     built.meshes.forEach((mesh, i) => {
       mesh.userData.atomIndexFor = built.atomIndexFor[i];
     });

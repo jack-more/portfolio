@@ -14,9 +14,10 @@ export default function Embed() {
   const spin = q.get('spin') !== '0';
   const label = q.get('label') !== '0';
   const wheel = q.get('wheel') === '1';
+  const finish = q.get('m') === 'frost' ? 'frost' : 'chrome';
   return (
     <div style={{ position: 'absolute', inset: 0, background: t === 'sko' ? '#0130C0' : t === 'sko-snow' ? 'url(/sko/snow.jpg) center 62% / cover no-repeat #9db8e6' : '#ffffff' }}>
-      <StructureViewer theme={t} embed initial={c} cycle={cycle} zoom={zoom} offsetX={ox} autoSpin={spin} showLabel={label} wheelZoom={wheel} />
+      <StructureViewer theme={t} embed initial={c} cycle={cycle} zoom={zoom} offsetX={ox} autoSpin={spin} showLabel={label} wheelZoom={wheel} finish={finish} />
     </div>
   );
 }
