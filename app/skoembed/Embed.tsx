@@ -7,14 +7,15 @@ export default function Embed() {
   const q = useSearchParams();
   const c = q.get('c') ?? 'bpc157';
   const cycle = Number(q.get('cycle') ?? '0') || 0;
-  const t = q.get('t') === 'pigment' ? 'sko' : 'sko-white';
+  const tq = q.get('t');
+  const t = tq === 'pigment' ? 'sko' : tq === 'snow' ? 'sko-snow' : 'sko-white';
   const zoom = Number(q.get('z') ?? '1.3') || 1.3;
   const ox = Number(q.get('ox') ?? '0') || 0;
   const spin = q.get('spin') !== '0';
   const label = q.get('label') !== '0';
   const wheel = q.get('wheel') === '1';
   return (
-    <div style={{ position: 'absolute', inset: 0, background: t === 'sko' ? '#0130C0' : '#ffffff' }}>
+    <div style={{ position: 'absolute', inset: 0, background: t === 'sko' ? '#0130C0' : t === 'sko-snow' ? 'url(/sko/snow.jpg) center 62% / cover no-repeat #9db8e6' : '#ffffff' }}>
       <StructureViewer theme={t} embed initial={c} cycle={cycle} zoom={zoom} offsetX={ox} autoSpin={spin} showLabel={label} wheelZoom={wheel} />
     </div>
   );

@@ -33,7 +33,7 @@ export interface ScaleInfo {
   pxPerAngstrom: number;
 }
 
-export type SceneTheme = 'default' | 'sko' | 'sko-white';
+export type SceneTheme = 'default' | 'sko' | 'sko-white' | 'sko-snow';
 
 export interface MoleculeSceneProps {
   /** 'sko' = chrome on Pigment, 'sko-white' = chrome on white. */
@@ -85,6 +85,7 @@ function makeEnvironment(theme: SceneTheme = 'default'): THREE.Texture {
   const ctx = canvas.getContext('2d')!;
   const g = ctx.createLinearGradient(0, 0, 0, 256);
   if (theme !== 'default') {
+    if (theme === 'sko-snow') theme = 'sko';
     // Chrome needs something to mirror: a hot white sky, a thin bright horizon
     // and the brand blue below, so every sphere carries Pigment in its shadow
     // and white in its highlight. The white ground keeps the blue underneath.
@@ -347,7 +348,7 @@ export default function MoleculeScene({
   // `fit` is the reference the zoom limits are expressed against.
   const orbitRef = useRef({
     theta: 0,
-    phi: Math.PI / 2,
+    phi: theme === 'sko-snow' ? Math.PI / 2 - 0.32 : Math.PI / 2,
     distance: fitDistance(6),
     fit: fitDistance(6),
   });
@@ -370,14 +371,16 @@ export default function MoleculeScene({
     if (!container) return;
 
     const th = themeRef.current;
-    const ground = th === 'sko' ? '#0130C0' : th === 'sko-white' ? '#ffffff' : '#04091a';
+    const snow = th === 'sko-snow';
+    const ground = th === 'sko' ? '#0130C0' : th === 'sko-white' ? '#ffffff' : snow ? '#9db8e6' : '#04091a';
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color(ground);
+    // Snow: the canvas is transparent and the snow plate sits behind it in the page; the structure casts onto it.
+    scene.background = snow ? null : new THREE.Color(ground);
     // Depth cue: atoms further from the camera fade toward the background, so
     // the structure reads as a volume instead of a flat decal. Bounds are
     // recomputed per frame from the camera distance.
     const fog = new THREE.Fog(ground, 1, 100);
-    scene.fog = fog;
+    if (!snow) scene.fog = fog;
 
     const env = makeEnvironment(th);
     scene.environment = env;
@@ -385,7 +388,8 @@ export default function MoleculeScene({
     // far plane generous: an extended 700-atom peptide spans hundreds of angstroms.
     const camera = new THREE.PerspectiveCamera(FOV, 1, 0.5, 5000);
 
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: snow });
+    if (snow) renderer.setClearColor(0x000000, 0);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
     renderer.toneMappingExposure = 1.4;
@@ -409,7 +413,7 @@ export default function MoleculeScene({
     scene.add(
       th === 'default'
         ? new THREE.HemisphereLight(0xcfe2ff, 0x0a1430, 1.1)
-        : new THREE.HemisphereLight(0xffffff, th === 'sko-white' ? 0xc9d6f5 : 0x0130c0, 0.9),
+        : new THREE.HemisphereLight(0xffffff, th === 'sko-white' ? 0xc9d6f5 : snow ? 0xcfe0ff : 0x0130c0, 0.9),
     );
 
     const key = new THREE.DirectionalLight(0xf4f8ff, 5.6);
@@ -485,7 +489,7 @@ export default function MoleculeScene({
         o.theta -= (e.clientX - last.x) * 0.006;
         o.phi -= (e.clientY - last.y) * 0.006;
         // Keep off the poles so the view never flips.
-        o.phi = Math.max(0.15, Math.min(Math.PI - 0.15, o.phi));
+        o.phi = Math.max(0.15, Math.min(themeRef.current === 'sko-snow' ? Math.PI / 2 - 0.04 : Math.PI - 0.15, o.phi));
         last = { x: e.clientX, y: e.clientY };
       }
     };
@@ -611,6 +615,18 @@ export default function MoleculeScene({
     built.meshes.forEach((mesh, i) => {
       mesh.userData.atomIndexFor = built.atomIndexFor[i];
     });
+    if (themeRef.current === 'sko-snow') {
+      let minY = Infinity;
+      molecule.atoms.forEach((a) => { if (a.y < minY) minY = a.y; });
+      const ground = new THREE.Mesh(
+        new THREE.PlaneGeometry(molecule.extent * 40, molecule.extent * 40),
+        new THREE.ShadowMaterial({ color: 0x0b1f5a, opacity: 0.42, transparent: true }),
+      );
+      ground.rotation.x = -Math.PI / 2;
+      ground.position.y = minY - 0.9;
+      ground.receiveShadow = true;
+      built.group.add(ground);
+    }
     s.root.add(built.group);
     spanRef.current = molecule.span;
     extentRef.current = molecule.extent;
