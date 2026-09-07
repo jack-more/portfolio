@@ -27,9 +27,11 @@ export interface StructureViewerProps {
   zoom?: number;
   /** Horizontal view offset for embed mode, fraction of width. */
   offsetX?: number;
+  /** Embed mode: auto-rotate on load. Off means it only turns when dragged. */
+  autoSpin?: boolean;
 }
 
-export default function StructureViewer({ theme = 'default', embed = false, initial, cycle = 0, zoom = 1, offsetX = 0 }: StructureViewerProps) {
+export default function StructureViewer({ theme = 'default', embed = false, initial, cycle = 0, zoom = 1, offsetX = 0, autoSpin = true }: StructureViewerProps) {
   // The library is empty until the manifest loads — every structure is
   // manifest-tracked, so there is no static fallback set to show first.
   const [library, setLibrary] = useState<PeptideEntry[]>(FALLBACK);
@@ -39,7 +41,7 @@ export default function StructureViewer({ theme = 'default', embed = false, init
   const [loading, setLoading] = useState(true);
   const [hovered, setHovered] = useState<number | null>(null);
   const [scale, setScale] = useState<ScaleInfo | null>(null);
-  const [spin, setSpin] = useState(true);
+  const [spin, setSpin] = useState(autoSpin);
   // Hydrogens roughly double the atom count and hide the backbone. Off by default.
   const [showHydrogen, setShowHydrogen] = useState(false);
   // Off by default: fit-to-frame is the readable default, true scale is the
