@@ -84,8 +84,25 @@ function makeEnvironment(theme: SceneTheme = 'default'): THREE.Texture {
   canvas.height = 256;
   const ctx = canvas.getContext('2d')!;
   const g = ctx.createLinearGradient(0, 0, 0, 256);
+  if (theme === 'sko-snow') {
+    // Snow: alpine sky above, a dark horizon line, blue-lit snow below. The dark
+    // band is what keeps the chrome silver instead of pale blue plastic.
+    g.addColorStop(0.0, '#dbe8ff');
+    g.addColorStop(0.28, '#3f7bf0');
+    g.addColorStop(0.44, '#0b3fd8');
+    g.addColorStop(0.49, '#0a1440');
+    g.addColorStop(0.55, '#1a2a5e');
+    g.addColorStop(0.62, '#8aa6dc');
+    g.addColorStop(0.8, '#dfe9fb');
+    g.addColorStop(1.0, '#ffffff');
+    ctx.fillStyle = g;
+    ctx.fillRect(0, 0, 64, 256);
+    const tex = new THREE.CanvasTexture(canvas);
+    tex.mapping = THREE.EquirectangularReflectionMapping;
+    tex.colorSpace = THREE.SRGBColorSpace;
+    return tex;
+  }
   if (theme !== 'default') {
-    if (theme === 'sko-snow') theme = 'sko';
     // Chrome needs something to mirror: a hot white sky, a thin bright horizon
     // and the brand blue below, so every sphere carries Pigment in its shadow
     // and white in its highlight. The white ground keeps the blue underneath.
@@ -254,12 +271,12 @@ function buildMolecule(mol: Molecule, showHydrogen: boolean, theme: SceneTheme =
             // the radius and the hover chip keeps its colour, so the chemistry
             // stays readable without painting the molecule.
             new THREE.MeshPhysicalMaterial({
-              color: theme === 'sko-white' ? 0xd9dfe9 : 0xffffff,
+              color: theme === 'sko-white' || theme === 'sko-snow' ? 0xd9dfe9 : 0xffffff,
               metalness: 1,
-              roughness: theme === 'sko-white' ? 0.06 : 0.1,
+              roughness: theme === 'sko-white' || theme === 'sko-snow' ? 0.06 : 0.1,
               clearcoat: 1,
               clearcoatRoughness: 0.05,
-              envMapIntensity: theme === 'sko-white' ? 1.15 : 1.7,
+              envMapIntensity: theme === 'sko-white' ? 1.15 : theme === 'sko-snow' ? 1.3 : 1.7,
             });
       materials.push(mat);
       const mesh = new THREE.InstancedMesh(sphereGeo, mat, sphereList.length);
@@ -286,10 +303,10 @@ function buildMolecule(mol: Molecule, showHydrogen: boolean, theme: SceneTheme =
               envMapIntensity: 0.9,
             })
           : new THREE.MeshPhysicalMaterial({
-              color: theme === 'sko-white' ? 0xd9dfe9 : 0xffffff,
+              color: theme === 'sko-white' || theme === 'sko-snow' ? 0xd9dfe9 : 0xffffff,
               metalness: 1,
-              roughness: theme === 'sko-white' ? 0.1 : 0.16,
-              envMapIntensity: theme === 'sko-white' ? 1.15 : 1.5,
+              roughness: theme === 'sko-white' || theme === 'sko-snow' ? 0.1 : 0.16,
+              envMapIntensity: theme === 'sko-white' ? 1.15 : theme === 'sko-snow' ? 1.3 : 1.5,
             });
       materials.push(mat);
       const mesh = new THREE.InstancedMesh(stickGeo, mat, stickList.length);
