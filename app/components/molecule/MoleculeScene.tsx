@@ -511,6 +511,14 @@ export default function MoleculeScene({
 
       if (dragging) {
         const o = orbitRef.current;
+        if (themeRef.current === 'sko-snow') {
+          // On snow the camera and the light stay put and the structure itself turns,
+          // so its shadow stays anchored on the same patch of snow and only changes shape.
+          const root = sceneRef.current?.root;
+          if (root) root.rotation.y -= (e.clientX - last.x) * 0.006;
+          last = { x: e.clientX, y: e.clientY };
+          return;
+        }
         o.theta -= (e.clientX - last.x) * 0.006;
         o.phi -= (e.clientY - last.y) * 0.006;
         // Keep off the poles so the view never flips.
@@ -554,7 +562,7 @@ export default function MoleculeScene({
       raf = requestAnimationFrame(animate);
       const dt = clock.getDelta();
 
-      if (spinRef.current && !dragging) orbitRef.current.theta += dt * 0.16;
+      if (spinRef.current && !dragging) { if (themeRef.current === 'sko-snow') { const root = sceneRef.current?.root; if (root) root.rotation.y += dt * 0.16; } else orbitRef.current.theta += dt * 0.16; }
 
       const { theta, phi, distance } = orbitRef.current;
       camera.position.set(
