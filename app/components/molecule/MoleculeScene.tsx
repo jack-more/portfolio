@@ -522,7 +522,7 @@ export default function MoleculeScene({
         o.theta -= (e.clientX - last.x) * 0.006;
         o.phi -= (e.clientY - last.y) * 0.006;
         // Keep off the poles so the view never flips.
-        o.phi = Math.max(0.15, Math.min(themeRef.current === 'sko-snow' ? Math.PI / 2 - 0.04 : Math.PI - 0.15, o.phi));
+        o.phi = Math.max(0.15, Math.min(Math.PI - 0.15, o.phi)); // snow returned above: its camera never pitches
         last = { x: e.clientX, y: e.clientY };
       }
     };
