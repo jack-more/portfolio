@@ -6,7 +6,7 @@
 import { getStore } from "@netlify/blobs";
 import { createHash } from "node:crypto";
 
-const PASS_SHA256 = "2c60f1899a202714db2c79a2e668131947e032b3b92d8be66207bf4711686e23";
+const PASS_SHA256 = "e6e3dce02f184c82af8a33833a23495c1b36f6ad4062b16d65eff24858d9caf6";
 const ORIGINS = ["https://jack-more.github.io", "http://localhost:8123", "http://127.0.0.1:8123"];
 const KINDS = ["entry", "campaign", "creator", "payout"];
 const MAX_BYTES = 40_000;
@@ -26,7 +26,7 @@ const json = (body, status, origin) =>
   });
 
 const passOk = (req) => {
-  const pass = req.headers.get("x-team-pass") || "";
+  const pass = (req.headers.get("x-team-pass") || "").trim().toLowerCase();
   return createHash("sha256").update(pass).digest("hex") === PASS_SHA256;
 };
 
