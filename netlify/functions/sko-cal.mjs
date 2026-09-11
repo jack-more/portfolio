@@ -1,12 +1,9 @@
 // SKO marketing calendar API: shared storage for the team calendar at
 // jack-more.github.io/sko-calendar. Items live in Netlify Blobs, one key each
 // (entry/<id>, campaign/<id>, creator/<id>, payout/<id>), so two people editing different items never
-// overwrite each other. Every request carries the team passcode; only its
-// SHA-256 is kept here.
+// overwrite each other. Open to anyone with the link (no passcode, by request).
 import { getStore } from "@netlify/blobs";
-import { createHash } from "node:crypto";
 
-const PASS_SHA256 = "e6e3dce02f184c82af8a33833a23495c1b36f6ad4062b16d65eff24858d9caf6";
 const ORIGINS = ["https://jack-more.github.io", "http://localhost:8123", "http://127.0.0.1:8123"];
 const KINDS = ["entry", "campaign", "creator", "payout"];
 const MAX_BYTES = 40_000;
@@ -25,18 +22,12 @@ const json = (body, status, origin) =>
     headers: { "content-type": "application/json", "cache-control": "no-store", ...cors(origin) },
   });
 
-const passOk = (req) => {
-  const pass = (req.headers.get("x-team-pass") || "").trim().toLowerCase();
-  return createHash("sha256").update(pass).digest("hex") === PASS_SHA256;
-};
-
 const validId = (id) => typeof id === "string" && /^[a-z0-9-]{6,40}$/i.test(id);
 const MAX_CHUNK = 5 * 1024 * 1024; // browsers upload files in 4 MB pieces; functions cap bodies near 6 MB
 
 export default async (req) => {
   const origin = req.headers.get("origin") || "";
   if (req.method === "OPTIONS") return new Response(null, { status: 204, headers: cors(origin) });
-  if (!passOk(req)) return json({ error: "bad_pass" }, 401, origin);
 
   // Content files (videos, images, docs), stored as numbered pieces: files/<asset>/<i>.
   const url = new URL(req.url);
