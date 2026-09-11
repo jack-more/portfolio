@@ -1,6 +1,6 @@
 // SKO marketing calendar API: shared storage for the team calendar at
 // jack-more.github.io/sko-calendar. Items live in Netlify Blobs, one key each
-// (entry/<id>, campaign/<id>), so two people editing different items never
+// (entry/<id>, campaign/<id>, creator/<id>, payout/<id>), so two people editing different items never
 // overwrite each other. Every request carries the team passcode; only its
 // SHA-256 is kept here.
 import { getStore } from "@netlify/blobs";
@@ -8,7 +8,7 @@ import { createHash } from "node:crypto";
 
 const PASS_SHA256 = "2c60f1899a202714db2c79a2e668131947e032b3b92d8be66207bf4711686e23";
 const ORIGINS = ["https://jack-more.github.io", "http://localhost:8123", "http://127.0.0.1:8123"];
-const KINDS = ["entry", "campaign"];
+const KINDS = ["entry", "campaign", "creator", "payout"];
 const MAX_BYTES = 40_000;
 
 const cors = (origin) => ({
@@ -31,11 +31,34 @@ const passOk = (req) => {
 };
 
 const validId = (id) => typeof id === "string" && /^[a-z0-9-]{6,40}$/i.test(id);
+const MAX_CHUNK = 5 * 1024 * 1024; // browsers upload files in 4 MB pieces; functions cap bodies near 6 MB
 
 export default async (req) => {
   const origin = req.headers.get("origin") || "";
   if (req.method === "OPTIONS") return new Response(null, { status: 204, headers: cors(origin) });
   if (!passOk(req)) return json({ error: "bad_pass" }, 401, origin);
+
+  // Content files (videos, images, docs), stored as numbered pieces: files/<asset>/<i>.
+  const url = new URL(req.url);
+  const fileId = url.searchParams.get("file");
+  if (fileId !== null) {
+    const i = Number(url.searchParams.get("i"));
+    if (!validId(fileId) || !Number.isInteger(i) || i < 0 || i > 4000) return json({ error: "bad_file" }, 400, origin);
+    const files = getStore({ name: "sko-cal-files" });
+    const key = `files/${fileId}/${i}`;
+    if (req.method === "GET") {
+      const buf = await files.get(key, { type: "arrayBuffer" });
+      if (!buf) return json({ error: "not_found" }, 404, origin);
+      return new Response(buf, { status: 200, headers: { "content-type": "application/octet-stream", "cache-control": "private, max-age=31536000, immutable", ...cors(origin) } });
+    }
+    if (req.method === "POST") {
+      const buf = await req.arrayBuffer();
+      if (!buf.byteLength || buf.byteLength > MAX_CHUNK) return json({ error: "bad_chunk" }, 413, origin);
+      await files.set(key, buf);
+      return json({ ok: true, bytes: buf.byteLength }, 200, origin);
+    }
+    return json({ error: "method" }, 405, origin);
+  }
 
   const store = getStore({ name: "sko-cal", consistency: "strong" });
 
@@ -46,7 +69,7 @@ export default async (req) => {
       const items = await Promise.all(blobs.map((b) => store.get(b.key, { type: "json" })));
       out[kind] = items.filter(Boolean);
     }
-    return json({ entries: out.entry, campaigns: out.campaign, at: new Date().toISOString() }, 200, origin);
+    return json({ entries: out.entry, campaigns: out.campaign, creators: out.creator, payouts: out.payout, at: new Date().toISOString() }, 200, origin);
   }
 
   if (req.method === "POST") {
@@ -57,6 +80,13 @@ export default async (req) => {
       return json({ error: "bad_json" }, 400, origin);
     }
     const { op, kind } = body || {};
+    if (op === "delfile") {
+      const n = Number(body.chunks);
+      if (!validId(body.id) || !Number.isInteger(n) || n < 1 || n > 4000) return json({ error: "bad_file" }, 400, origin);
+      const files = getStore({ name: "sko-cal-files" });
+      await Promise.all(Array.from({ length: n }, (_, i) => files.delete(`files/${body.id}/${i}`)));
+      return json({ ok: true }, 200, origin);
+    }
     if (!KINDS.includes(kind)) return json({ error: "bad_kind" }, 400, origin);
 
     if (op === "put") {
