@@ -22,7 +22,7 @@
 <link rel="apple-touch-icon" href="/favicon.png">
 <meta name="theme-color" content="#F6F1EA">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500&family=Geist+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap">
 <style>
   :root{
     --paper:#F6F1EA;
@@ -75,6 +75,39 @@
   .hero__row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:end;padding:clamp(28px,5vh,56px) 0 clamp(36px,6vh,72px)}
   .hero__sub{max-width:34ch}
   .hero__cta{display:flex;gap:12px;flex-wrap:wrap;justify-content:flex-end}
+
+
+  /* ── collage, R+D, team ──────────────────────────── */
+  .serif{font-family:"Instrument Serif",Georgia,serif;font-weight:400;letter-spacing:-.02em;line-height:.98}
+  .hero__grid{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,6fr);gap:clamp(24px,4vw,64px);align-items:center;padding-bottom:clamp(36px,6vh,72px)}
+  .hero__txt .lockup{width:min(100%,300px);margin-bottom:clamp(28px,5vh,56px)}
+  .hero__txt h1{font-size:clamp(52px,7.2vw,112px);max-width:10ch;margin-bottom:clamp(20px,3vh,32px)}
+  .hero__txt .hero__sub{max-width:36ch;margin-bottom:clamp(24px,4vh,40px)}
+  .hero__txt .hero__sub b{font-weight:500;color:var(--cobalt)}
+  .hero__txt .hero__cta{justify-content:flex-start}
+  .collage{position:relative;aspect-ratio:1/1;width:100%;isolation:isolate;background:var(--paper)}
+  .collage .pc{position:absolute;height:auto}
+  .mul{mix-blend-mode:multiply}
+  .cutp{filter:drop-shadow(3px 5px 5px rgba(10,13,24,.28))}
+  .collage__line{position:absolute;inset:0;width:100%;height:100%}
+  .rd{padding-top:clamp(72px,12vh,140px);padding-bottom:clamp(56px,9vh,110px)}
+  .rd__hd{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:24px;margin-bottom:clamp(28px,5vh,56px)}
+  .rd__hd .mono{color:var(--cobalt)}
+  .rd__hd h2{font-size:clamp(48px,6.4vw,104px)}
+  .rdrow{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,4fr) minmax(0,4fr);gap:24px;padding:22px 0;border-top:1px solid var(--line);align-items:baseline}
+  .rdrow b{font-weight:500;font-size:clamp(22px,2vw,28px);letter-spacing:-.015em}
+  .rdrow p{color:var(--mute)}
+  .rdrow p+p{color:var(--ink)}
+  .rdrow a{color:var(--cobalt)}
+  .team{padding-top:clamp(72px,12vh,140px);padding-bottom:clamp(56px,9vh,110px);border-top:1px solid var(--line)}
+  .team__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,3vw,48px)}
+  .person{display:flex;flex-direction:column;gap:4px}
+  .person__img{position:relative;aspect-ratio:1/1;isolation:isolate;background:var(--paper);margin-bottom:14px}
+  .person__img .mul{position:absolute;left:6%;top:8%;width:88%}
+  .person__img .cutp{position:absolute;left:50%;bottom:6%;width:70%;transform:translateX(-50%)}
+  .person b{font-weight:500;font-size:24px;letter-spacing:-.015em}
+  .person span{color:var(--mute)}
+  .person .mono{color:var(--cobalt)}
 
   /* ── stats band ──────────────────────────────────── */
   .band{background:var(--cobalt);color:var(--paper)}
@@ -212,8 +245,10 @@
   /* ── responsive ──────────────────────────────────── */
   @media (max-width:980px){
     .nav__links{display:none}
-    .hero__row,.man__cols,.block__hd,.argue,.sprint__hd,.proof__hd,.book__hd,.foot__top{grid-template-columns:minmax(0,1fr)}
+    .hero__grid,.rd__hd,.rdrow,.hero__row,.man__cols,.block__hd,.argue,.sprint__hd,.proof__hd,.book__hd,.foot__top{grid-template-columns:minmax(0,1fr)}
     .hero__cta{justify-content:flex-start}
+    .rdrow{gap:6px}
+    .collage{max-width:560px}
     .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
     .layer{grid-template-columns:minmax(0,1fr);gap:6px}
     .row{grid-template-columns:minmax(0,1fr);gap:6px}
@@ -229,6 +264,7 @@
     .grid{grid-template-columns:minmax(0,1fr)}
     .deliv,.weeks{grid-template-columns:minmax(0,1fr)}
     .hero__meta span:nth-child(2){display:none}
+    .team__grid{grid-template-columns:minmax(0,1fr)}
     .marks{grid-template-columns:repeat(2,minmax(0,1fr))}
   }
 </style>
@@ -242,10 +278,12 @@
   <div class="pad nav__in">
     <a class="nav__brand" href="#top">Ballast</a>
     <nav class="nav__links">
+      <a href="#rd">R+D</a>
       <a href="#record">Record</a>
       <a href="#problem">Method</a>
       <a href="#sprint">Sprint</a>
       <a href="#proof">Results</a>
+      <a href="#team">Team</a>
     </nav>
     <a class="btn" href="#book">Book a call</a>
   </div>
@@ -261,13 +299,28 @@
       <span>Working worldwide</span>
       <span>Regulated &middot; At scale</span>
     </div>
-    <img class="lockup" src="/lockup.png" width="1400" height="591" alt="Ballast">
-    <h1 class="display">$2M+ a month.<br>Held at <b>4&times;</b>.</h1>
-    <div class="hero__row">
-      <p class="hero__sub lead">Paid media and go-to-market for brands in categories most agencies won&rsquo;t touch, at a scale most never see.</p>
-      <div class="hero__cta">
-        <a class="btn btn--lg" href="#book">Book a call</a>
-        <a class="btn btn--lg btn--ghost" href="#sprint">The sprint &middot; $16,000</a>
+    <div class="hero__grid">
+      <div class="hero__txt">
+        <img class="lockup" src="/lockup.png" width="1400" height="591" alt="Ballast">
+        <h1 class="serif">Research, development and paid media.</h1>
+        <p class="hero__sub lead">We research the market, build the tools the account needs, and buy the media. <b>$2M+ a month at peak, held at 4&times;.</b></p>
+        <div class="hero__cta">
+          <a class="btn btn--lg" href="#book">Book a call</a>
+          <a class="btn btn--lg btn--ghost" href="#rd">What we have built</a>
+        </div>
+      </div>
+      <div class="collage" aria-hidden="true">
+        <svg class="collage__line" viewBox="0 0 100 100" preserveAspectRatio="none"><polyline points="0,78 18,70 30,74 46,52 60,56 74,30 100,8" fill="none" stroke="#FD720D" stroke-width=".5" vector-effect="non-scaling-stroke"/></svg>
+        <img class="pc mul" style="left:2%;top:8%;width:60%;transform:rotate(-3deg)" src="/kit/paper_cobalt.jpg" alt="">
+        <img class="pc mul" style="left:58%;top:30%;width:36%;transform:rotate(4deg)" src="/kit/paper_orange.jpg" alt="">
+        <img class="pc mul" style="left:26%;top:60%;width:40%;transform:rotate(2deg)" src="/kit/paper_cobalt.jpg" alt="">
+        <img class="pc mul" style="left:68%;top:0%;width:30%;transform:rotate(5deg)" src="/kit/tv.jpg" alt="">
+        <img class="pc mul" style="left:0%;top:62%;width:23%;transform:rotate(-8deg)" src="/kit/phone.jpg" alt="">
+        <img class="pc mul" style="left:68%;top:74%;width:31%;transform:rotate(-4deg)" src="/kit/sneaker.jpg" alt="">
+        <img class="pc cutp" style="left:10%;top:13%;width:44%" src="/kit/jack.webp" alt="">
+        <img class="pc cutp" style="left:60%;top:31%;width:31%" src="/kit/chris.webp" alt="">
+        <img class="pc cutp" style="left:30%;top:60%;width:32%" src="/kit/bilal.webp" alt="">
+        <img class="pc mul" style="left:50%;top:50%;width:13%;transform:rotate(-10deg)" src="/kit/seal.jpg" alt="">
       </div>
     </div>
   </section>
@@ -281,6 +334,22 @@
       <div><b>15</b><span>Accounts</span></div>
     </div>
     <p class="stats__note mono">Engagements at Ballast and prior agencies of record</p>
+  </section>
+
+  <!-- research and development -->
+  <section class="rd pad" id="rd">
+    <div class="rd__hd">
+      <span class="mono">Research and development</span>
+      <h2 class="serif">What we have built.</h2>
+    </div>
+    <div class="rd__rows">
+      <div class="rdrow"><b>Adsim</b><p>A campaign simulator. Every rate in it is a published figure, shown with its source and date.</p><p>Plans a month of spend across channels before any money moves. <a href="https://jackmorello.com/adsim">Open Adsim</a></p></div>
+      <div class="rdrow"><b>Claim-checked ad cutter</b><p>Turns raw interview footage into vertical ad variants with captions and an end card.</p><p>Refuses to render if a banned claim is spoken or appears on screen.</p></div>
+      <div class="rdrow"><b>Attribution audit</b><p>Splits unattributed orders four ways and compares new-customer return with break-even.</p><p>Shows which channel is creating demand and which is collecting it.</p></div>
+      <div class="rdrow"><b>AI-crawler audit</b><p>Tests what AI assistants can actually read on a storefront.</p><p>Found a store that rendered as a blank page to them, and designed the fix.</p></div>
+      <div class="rdrow"><b>Loyalty economy</b><p>Points, levels, a game, and what each one costs and earns.</p><p>A rewards system with the earning and the spending worked out before launch.</p></div>
+      <div class="rdrow"><b>Research briefings</b><p>A question, the evidence, the sources, and a position to act on.</p><p>Most recent: how fans have followed sport since 1921, and what that means for a media platform.</p></div>
+    </div>
   </section>
 
   <!-- manifesto -->
@@ -424,6 +493,19 @@
       <img src="/marks/sko.png" alt="SKO Compounds" loading="lazy" width="445" height="160">
     </div>
     <p class="proof__note">Marks are the property of their respective owners. Engagements at Ballast and prior agencies of record.</p>
+  </section>
+
+  <!-- team -->
+  <section class="team pad" id="team">
+    <div class="rd__hd">
+      <span class="mono">Team</span>
+      <h2 class="serif">Who does the work.</h2>
+    </div>
+    <div class="team__grid">
+      <div class="person"><div class="person__img"><img class="mul" src="/kit/paper_cobalt.jpg" alt=""><img class="cutp" src="/kit/jack.webp" alt="Jack Morello"></div><b>Jack Morello</b><span>Paid media and go-to-market</span><span class="mono">Los Angeles</span></div>
+      <div class="person"><div class="person__img"><img class="mul" style="transform:rotate(3deg)" src="/kit/paper_orange.jpg" alt=""><img class="cutp" src="/kit/chris.webp" alt="Chris Pennino"></div><b>Chris Pennino</b><span>Design and creative</span><span class="mono">Los Angeles</span></div>
+      <div class="person"><div class="person__img"><img class="mul" style="transform:rotate(-2deg) scaleX(-1)" src="/kit/paper_cobalt.jpg" alt=""><img class="cutp" src="/kit/bilal.webp" alt="Bilal Dhouib"></div><b>Bilal Dhouib</b><span>Growth and marketing</span><span class="mono">Montreal</span></div>
+    </div>
   </section>
 
   <!-- book -->

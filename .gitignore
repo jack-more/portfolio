@@ -12,3 +12,6 @@ SKO_Ads
 
 # Python env for RDKit conformer generation (scripts/generate-conformers.py)
 .venv-rdkit/
+
+ballast-site/kit/raw/
+ballast-site/kit/tools/fgmask
