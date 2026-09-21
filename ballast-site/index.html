@@ -267,6 +267,35 @@
     .team__grid{grid-template-columns:minmax(0,1fr)}
     .marks{grid-template-columns:repeat(2,minmax(0,1fr))}
   }
+
+  /* ── scene hero ──────────────────────────────────── */
+  .nav{position:fixed;left:50%;top:14px;transform:translateX(-50%);width:min(960px,calc(100% - 24px));background:rgba(10,13,24,.46);-webkit-backdrop-filter:blur(18px) saturate(1.4);backdrop-filter:blur(18px) saturate(1.4);border:1px solid rgba(255,255,255,.18);border-radius:999px}
+  .nav .nav__in{height:52px;padding-left:22px;padding-right:8px}
+  .nav__brand{color:#fff}
+  .nav__links a{color:rgba(255,255,255,.74)}
+  .nav__links a:hover{color:#fff}
+  .nav .btn{background:var(--orange);border-color:var(--orange);color:var(--ink)}
+  .nav .btn:hover{background:#fff;border-color:#fff;color:var(--ink)}
+  .scene{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:center;overflow:hidden;background:#0B3FB0;color:#fff;isolation:isolate}
+  .scene__bg{position:absolute;left:-3%;top:-3%;width:106%;max-width:none;height:106%;object-fit:cover;object-position:50% 72%;z-index:-2;animation:sceneDrift 48s ease-in-out infinite alternate}
+  @keyframes sceneDrift{from{transform:scale(1) translate3d(0,0,0)}to{transform:scale(1.06) translate3d(-1.2%,-1%,0)}}
+  .scene::after{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(ellipse 70% 46% at 50% 40%,rgba(6,32,110,.42),rgba(6,32,110,0) 70%)}
+  .scene__petals{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+  .scene__in{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;text-align:center;padding-top:84px;padding-bottom:clamp(90px,20vh,260px)}
+  .scene__lockup{width:clamp(150px,13vw,240px);height:auto;margin-bottom:clamp(14px,2.2vh,24px);filter:drop-shadow(0 6px 22px rgba(6,28,96,.45))}
+  .scene__chip{display:inline-block;padding:9px 18px;border-radius:999px;border:1px solid rgba(255,255,255,.45);background:rgba(255,255,255,.14);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);color:#fff;margin-bottom:clamp(20px,3.4vh,40px)}
+  .scene h1{font-size:clamp(44px,min(6.7vw,13.5vh),140px);line-height:.96;letter-spacing:-.015em;text-transform:uppercase;text-shadow:0 2px 40px rgba(6,28,96,.45);margin:0 0 clamp(18px,3vh,32px)}
+  .scene h1 span{display:block}
+  .scene__sub{max-width:52ch;font-size:clamp(17px,1.35vw,22px);line-height:1.45;color:rgba(255,255,255,.94);text-shadow:0 1px 18px rgba(6,28,96,.6);margin:0 0 clamp(22px,3.6vh,38px)}
+  .scene__sub b{font-weight:500;color:#fff}
+  .scene__cta{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;padding:8px;border-radius:999px;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.16);-webkit-backdrop-filter:blur(16px) saturate(1.3);backdrop-filter:blur(16px) saturate(1.3)}
+  .scene__go{background:var(--orange);border-color:var(--orange);color:var(--ink)}
+  .scene__go:hover{background:#fff;border-color:#fff;color:var(--ink)}
+  .scene__ghost{background:transparent;border-color:transparent;color:#fff}
+  .scene__ghost:hover{background:rgba(255,255,255,.22);border-color:transparent;color:#fff}
+  .scene__foot{position:absolute;left:0;right:0;bottom:22px;z-index:1;display:flex;justify-content:space-between;color:#fff;text-shadow:0 1px 12px rgba(0,0,0,.45)}
+  @media (max-width:760px){.nav__links{display:none}.scene__bg{object-position:50% 78%}.scene__cta{background:none;border:0;padding:0;-webkit-backdrop-filter:none;backdrop-filter:none}.scene__ghost{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.4);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}.scene__foot span:last-child{display:none}}
+  @media (prefers-reduced-motion:reduce){.scene__bg{animation:none}}
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"ProfessionalService","name":"Ballast","url":"https://ballast.la/","email":"jaidanmorello@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Los Angeles","addressRegion":"CA","addressCountry":"US"},"description":"Paid media and go-to-market for brands in categories most agencies won't touch, at a scale most never see.","areaServed":"Worldwide"}
@@ -292,35 +321,20 @@
 <main id="top">
 
   <!-- hero -->
-  <section class="hero pad">
-    <div class="hero__meta mono">
-      <span>Paid media &amp; go-to-market</span>
-      <span>Los Angeles</span>
-      <span>Working worldwide</span>
-      <span>Regulated &middot; At scale</span>
-    </div>
-    <div class="hero__grid">
-      <div class="hero__txt">
-        <img class="lockup" src="/lockup.png" width="1400" height="591" alt="Ballast">
-        <h1 class="serif">Research, development and paid media.</h1>
-        <p class="hero__sub lead">We research the market, build the tools the account needs, and buy the media. <b>$2M+ a month at peak, held at 4&times;.</b></p>
-        <div class="hero__cta">
-          <a class="btn btn--lg" href="#book">Book a call</a>
-          <a class="btn btn--lg btn--ghost" href="#rd">What we have built</a>
-        </div>
-      </div>
-      <div class="collage" aria-hidden="true">
-        <svg class="collage__line" viewBox="0 0 100 100" preserveAspectRatio="none"><polyline points="0,78 18,70 30,74 46,52 60,56 74,30 100,8" fill="none" stroke="#FD720D" stroke-width=".5" vector-effect="non-scaling-stroke"/></svg>
-        <img class="pc mul" style="left:2%;top:8%;width:60%;transform:rotate(-3deg)" src="/kit/paper_cobalt.jpg" alt="">
-        <img class="pc mul" style="left:58%;top:30%;width:36%;transform:rotate(4deg)" src="/kit/paper_orange.jpg" alt="">
-        <img class="pc mul" style="left:26%;top:60%;width:40%;transform:rotate(2deg)" src="/kit/paper_cobalt.jpg" alt="">
-        <img class="pc mul" style="left:68%;top:74%;width:31%;transform:rotate(-4deg)" src="/kit/sneaker.jpg" alt="">
-        <img class="pc cutp" style="left:11%;top:15%;width:42%;transform:rotate(-4deg)" src="/kit/alpha/tv.webp" alt="">
-        <img class="pc cutp" style="left:66%;top:20%;width:21%;transform:rotate(5deg)" src="/kit/alpha/mic.webp" alt="">
-        <img class="pc cutp" style="left:36%;top:60%;width:20%;transform:rotate(-6deg)" src="/kit/alpha/phone.webp" alt="">
-        <img class="pc mul" style="left:50%;top:50%;width:13%;transform:rotate(-10deg)" src="/kit/seal.jpg" alt="">
+  <section class="scene" id="scene">
+    <img class="scene__bg" src="/hero/poppies.webp" width="2400" height="1340" alt="A hillside of orange California poppies under a deep blue sky" fetchpriority="high">
+    <canvas class="scene__petals" id="petals" aria-hidden="true"></canvas>
+    <div class="scene__in pad">
+      <img class="scene__lockup" src="/lockup.png" width="1400" height="591" alt="Ballast">
+      <span class="scene__chip mono">Los Angeles &middot; Working worldwide</span>
+      <h1 class="serif">Research, development <span>and paid media</span></h1>
+      <p class="scene__sub">We research the market, build the tools the account needs, and buy the media. <b>$2M+ a month at peak, held at 4&times;.</b></p>
+      <div class="scene__cta">
+        <a class="btn btn--lg scene__go" href="#book">Book a call</a>
+        <a class="btn btn--lg scene__ghost" href="#rd">What we have built</a>
       </div>
     </div>
+    <div class="scene__foot mono pad"><span>Paid media &amp; go-to-market</span><span>Regulated &middot; At scale</span></div>
   </section>
 
   <!-- stats band -->
@@ -630,6 +644,21 @@
   prev.addEventListener('click',function(){view=new Date(view.getFullYear(),view.getMonth()-1,1);renderMonth()});
   next.addEventListener('click',function(){view=new Date(view.getFullYear(),view.getMonth()+1,1);renderMonth()});
   renderMonth();renderSlots();update();
+})();
+</script>
+<script>
+(function(){
+  var c=document.getElementById('petals'); if(!c||matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var x=c.getContext('2d'),W,H,D=Math.min(devicePixelRatio||1,2),P=[],on=true;
+  function size(){W=c.clientWidth;H=c.clientHeight;c.width=W*D;c.height=H*D;x.setTransform(D,0,0,D,0,0)}
+  function mk(top){var s=6+Math.random()*12;return{x:Math.random()*W*1.2-W*.1,y:top?-20:Math.random()*H,s:s,vx:.25+Math.random()*.7,vy:.18+Math.random()*.5+s*.012,r:Math.random()*6.28,vr:(Math.random()-.5)*.03,w:Math.random()*6.28,a:.55+Math.random()*.4,c:Math.random()<.5?'#FD720D':(Math.random()<.5?'#FF9A2E':'#F25C05')}}
+  function tick(){if(!on)return;x.clearRect(0,0,W,H);for(var i=0;i<P.length;i++){var p=P[i];p.w+=.02;p.x+=p.vx+Math.sin(p.w)*.5;p.y+=p.vy;p.r+=p.vr;if(p.y>H+24||p.x>W+40){P[i]=mk(true);continue}
+    x.save();x.translate(p.x,p.y);x.rotate(p.r);x.scale(1,.55+.4*Math.sin(p.w*1.7));x.globalAlpha=p.a;x.fillStyle=p.c;x.beginPath();x.moveTo(0,-p.s*.5);x.bezierCurveTo(p.s*.62,-p.s*.5,p.s*.62,p.s*.42,0,p.s*.55);x.bezierCurveTo(-p.s*.62,p.s*.42,-p.s*.62,-p.s*.5,0,-p.s*.5);x.fill();x.restore()}
+    requestAnimationFrame(tick)}
+  size();for(var i=0,n=Math.round(Math.min(46,W/32));i<n;i++)P.push(mk(false));
+  addEventListener('resize',size);
+  new IntersectionObserver(function(e){var v=e[0].isIntersecting;if(v&&!on){on=true;tick()}else on=v}).observe(c);
+  tick();
 })();
 </script>
 </body>
