@@ -93,6 +93,7 @@
   .rd{padding-top:clamp(72px,12vh,140px);padding-bottom:clamp(56px,9vh,110px)}
   .rd__hd{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:24px;margin-bottom:clamp(28px,5vh,56px)}
   .rd__hd .mono{color:var(--cobalt)}
+  .rd__lead{grid-column:2;max-width:60ch;color:var(--mute);font-size:clamp(17px,1.3vw,21px);line-height:1.45;margin-top:14px}
   .rd__hd h2{font-size:clamp(48px,6.4vw,104px)}
   .rdrow{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,4fr) minmax(0,4fr);gap:24px;padding:22px 0;border-top:1px solid var(--line);align-items:baseline}
   .rdrow b{font-weight:500;font-size:clamp(22px,2vw,28px);letter-spacing:-.015em}
@@ -286,7 +287,7 @@
   .scene__chip{display:inline-block;padding:9px 18px;border-radius:999px;border:1px solid rgba(255,255,255,.45);background:rgba(255,255,255,.14);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);color:#fff;margin-bottom:clamp(20px,3.4vh,40px)}
   .scene h1{font-size:clamp(44px,min(6.7vw,13.5vh),140px);line-height:.96;letter-spacing:-.015em;text-transform:uppercase;text-shadow:0 2px 40px rgba(6,28,96,.45);margin:0 0 clamp(18px,3vh,32px)}
   .scene h1 span{display:block}
-  .scene__sub{max-width:52ch;font-size:clamp(17px,1.35vw,22px);line-height:1.45;color:rgba(255,255,255,.94);text-shadow:0 1px 18px rgba(6,28,96,.6);margin:0 0 clamp(22px,3.6vh,38px)}
+  .scene__sub{max-width:62ch;font-size:clamp(17px,1.35vw,22px);line-height:1.45;color:rgba(255,255,255,.94);text-shadow:0 1px 18px rgba(6,28,96,.6);margin:0 0 clamp(22px,3.6vh,38px)}
   .scene__sub b{font-weight:500;color:#fff}
   .scene__cta{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;padding:8px;border-radius:999px;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.16);-webkit-backdrop-filter:blur(16px) saturate(1.3);backdrop-filter:blur(16px) saturate(1.3)}
   .scene__go{background:var(--orange);border-color:var(--orange);color:var(--ink)}
@@ -298,7 +299,7 @@
   @media (prefers-reduced-motion:reduce){.scene__bg{animation:none}}
 </style>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"ProfessionalService","name":"Ballast","url":"https://ballast.la/","email":"jaidanmorello@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Los Angeles","addressRegion":"CA","addressCountry":"US"},"description":"Research, development and media distribution for brands in categories most agencies won't touch, at a scale most never see.","areaServed":"Worldwide"}
+{"@context":"https://schema.org","@type":"ProfessionalService","name":"Ballast","url":"https://ballast.la/","email":"jack@ballast.la","address":{"@type":"PostalAddress","addressLocality":"Los Angeles","addressRegion":"CA","addressCountry":"US"},"description":"Research, development and media distribution for brands in categories most agencies won't touch, at a scale most never see.","areaServed":"Worldwide"}
 </script>
 </head>
 <body>
@@ -328,7 +329,7 @@
       <img class="scene__lockup" src="/lockup.png" width="1400" height="591" alt="Ballast">
       <span class="scene__chip mono">Los Angeles &middot; Working worldwide</span>
       <h1 class="serif">Research, development <span>and media distribution</span></h1>
-      <p class="scene__sub">We research the market, build the tools the account needs, and buy the media. <b>$2M+ a month at peak, held at 4&times;.</b></p>
+      <p class="scene__sub">We work out what is worth running, then build the distribution to run it: the channels you buy and the channels you own. <b>$2M+ a month at peak, held at 4&times;.</b></p>
       <div class="scene__cta">
         <a class="btn btn--lg scene__go" href="#book">Book a call</a>
         <a class="btn btn--lg scene__ghost" href="#rd">What we have built</a>
@@ -353,10 +354,11 @@
     <div class="rd__hd">
       <span class="mono">Research and development</span>
       <h2 class="serif">What we have built.</h2>
+      <p class="rd__lead">Research first, so the money goes on evidence. Then distribution that is bought and built: paid media that reaches people now, and owned channels that keep them for the next release.</p>
     </div>
     <div class="rd__rows">
-      <div class="rdrow"><b>Market research</b><p>Who buys in the category, where demand already exists, and where it has to be created.</p><p>The intent map every account starts from, with sources and dates on every figure.</p></div>
-      <div class="rdrow"><b>Channel strategy</b><p>Which channels to buy, which to build, and in what order.</p><p>A plan for a month of spend before any money moves, and the owned channels that keep an audience for the next release.</p></div>
+      <div class="rdrow"><b>Market research</b><p>Who buys in the category, where demand already exists, and where it has to be created.</p><p>Fit is tested through owned channels before paid media starts, so every dollar is funded on evidence.</p></div>
+      <div class="rdrow"><b>Channel strategy</b><p>Which channels to buy, which to build, and in what order.</p><p>Bought reach is paid for every time. The channels we build stay reachable for every release after, and they belong to you.</p></div>
       <div class="rdrow"><b>Measurement</b><p>One metric per business goal, reconciled against revenue rather than platform-reported conversions.</p><p>Attribution that shows which channel is creating demand and which is collecting it.</p></div>
       <div class="rdrow"><b>Creative and offer</b><p>Creative, offer and placement built per intent layer, with the incentive that gives someone a reason to act now.</p><p>Compliant by design in regulated categories.</p></div>
       <div class="rdrow"><b>Loyalty economy</b><p>Points, levels, a game, and what each one costs and earns, built and running for a DTC brand.</p><p>The earning and the spending worked out before launch, so the rewards pay for themselves.</p></div>
@@ -472,7 +474,7 @@
             <div><b>The person you met</b><p>Does the work. Your account is not pooled with nine others or handed to a junior in month three.</p></div>
             <div><b>You own it after</b><p>The account structure, the intent map and the reporting stay with you.</p></div>
           </div>
-          <p style="margin-top:28px"><a class="btn btn--ghost" style="color:var(--paper);border-color:var(--paper)" href="mailto:jaidanmorello@gmail.com?subject=Ballast%20sprint%20waitlist">Join the waitlist</a></p>
+          <p style="margin-top:28px"><a class="btn btn--ghost" style="color:var(--paper);border-color:var(--paper)" href="mailto:jack@ballast.la?subject=Ballast%20sprint%20waitlist">Join the waitlist</a></p>
         </div>
       </div>
     </div>
@@ -515,9 +517,9 @@
       <h2 class="serif">Who does the work.</h2>
     </div>
     <div class="team__grid">
-      <div class="person"><div class="person__img"><img class="mul" src="/kit/paper_cobalt.jpg" alt=""><img class="cutp" src="/kit/jack.webp" alt="Jack Morello"></div><b>Jack Morello</b><span>Media distribution, bought and built</span><span class="mono">Los Angeles</span></div>
-      <div class="person"><div class="person__img"><img class="mul" style="transform:rotate(3deg)" src="/kit/paper_orange.jpg" alt=""><img class="cutp" src="/kit/chris.webp" alt="Chris Pennino"></div><b>Chris Pennino</b><span>Design and creative</span><span class="mono">Los Angeles</span></div>
-      <div class="person"><div class="person__img"><img class="mul" style="transform:rotate(-2deg) scaleX(-1)" src="/kit/paper_cobalt.jpg" alt=""><img class="cutp" src="/kit/bilal.webp" alt="Bilal Dhouib"></div><b>Bilal Dhouib</b><span>Growth and marketing</span><span class="mono">Montreal</span></div>
+      <div class="person"><div class="person__img"><img class="mul" src="/kit/paper_cobalt.jpg" alt=""><img class="cutp" src="/kit/jack.webp" alt="Jack Morello"></div><b>Jack Morello</b><span>Research and distribution</span><span class="mono">Los Angeles</span></div>
+      <div class="person"><div class="person__img"><img class="mul" style="transform:rotate(3deg)" src="/kit/paper_orange.jpg" alt=""><img class="cutp" src="/kit/chris.webp" alt="Chris Pennino"></div><b>Chris Pennino</b><span>Creative direction and worldbuilding</span><span class="mono">Los Angeles</span></div>
+      <div class="person"><div class="person__img"><img class="mul" style="transform:rotate(-2deg) scaleX(-1)" src="/kit/paper_cobalt.jpg" alt=""><img class="cutp" src="/kit/bilal.webp" alt="Bilal Dhouib"></div><b>Bilal Dhouib</b><span>Growth</span><span class="mono">Montreal</span></div>
     </div>
   </section>
 
@@ -527,7 +529,7 @@
       <span class="mono">Book a call</span>
       <div>
         <h2>Thirty minutes on your account.</h2>
-        <p>Pick a day and a time. It goes straight onto both calendars. If a sprint is not the right shape, you still leave knowing where your budget is going.</p>
+        <p>Pick a day and a time. It goes straight onto both calendars. Thirty minutes on what is worth running and how to distribute it. You leave knowing where your budget is going.</p>
       </div>
     </div>
     <div class="cal" id="cal">
@@ -549,9 +551,9 @@
         <div class="cal__local" id="calLocal">&nbsp;</div>
         <div class="cal__acts">
           <a class="btn btn--lg" id="calGoogle" href="#" target="_blank" rel="noopener" aria-disabled="true">Add to Google Calendar</a>
-          <a class="btn btn--lg btn--ghost" id="calMail" href="mailto:jaidanmorello@gmail.com?subject=Ballast%20%E2%80%94%20call">Or email the slot</a>
+          <a class="btn btn--lg btn--ghost" id="calMail" href="mailto:jack@ballast.la?subject=Ballast%20%E2%80%94%20call">Or email the slot</a>
         </div>
-        <p class="cal__note">The invite lands with <a href="mailto:jaidanmorello@gmail.com">jaidanmorello@gmail.com</a> as the guest. Not on Google? Email works.</p>
+        <p class="cal__note">The invite lands with <a href="mailto:jack@ballast.la">jack@ballast.la</a> as the guest. Not on Google? Email works.</p>
       </div>
     </div>
   </section>
@@ -560,7 +562,7 @@
 
 <footer class="foot pad">
   <div class="foot__top">
-    <div><span class="mono">Email</span><a href="mailto:jaidanmorello@gmail.com">jaidanmorello@gmail.com</a></div>
+    <div><span class="mono">Email</span><a href="mailto:jack@ballast.la">jack@ballast.la</a></div>
     <div><span class="mono">Where</span><a href="#book">Los Angeles</a><a href="#book">Working worldwide</a></div>
     <div><span class="mono">Site</span><a href="#record">Record</a><a href="#problem">Method</a><a href="#sprint">Sprint</a><a href="#proof">Results</a></div>
   </div>
@@ -570,7 +572,7 @@
 
 <script>
 (function(){
-  var TZ='America/Los_Angeles', GUEST='jaidanmorello@gmail.com', DUR=30;
+  var TZ='America/Los_Angeles', GUEST='jack@ballast.la', DUR=30;
   var SLOTS=['09:00','09:30','10:00','10:30','11:00','13:00','13:30','14:00','14:30','15:00'];
   var MONTHS=['January','February','March','April','May','June','July','August','September','October','November','December'];
   var DOWS=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
