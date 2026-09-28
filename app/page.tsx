@@ -8,14 +8,26 @@ import MusicCard from "./components/MusicCard";
 
 const work = [
   {
+    company: "Ballast Research",
+    desc: "Founder. Research, development and media distribution",
+    href: "https://ballast.la/",
+    details: [
+      "Founded Ballast Research LLC in Los Angeles, 2026",
+      "Research first, so the budget goes on evidence, then distribution that is bought and built: paid media that reaches people now, owned channels that keep them",
+      "Two-week sprint: intent map, account structure, incentive design, server-side events, attribution and weekly reporting",
+      "Built a loyalty economy for a DTC brand, and ticketing, live-event rewards and fan participation vouchers for SailGP",
+    ],
+  },
+  {
     company: "SKO Compounds",
     desc: "Paid media and growth for a DTC research-peptide brand",
     href: "https://skocompounds.com/",
     details: [
-      "Run TikTok paid, lifecycle, and attribution for a Beverly Hills DTC brand, now past 35,000 orders shipped",
+      "Ran TikTok paid, lifecycle, and attribution for a Beverly Hills DTC brand past 40,000 orders shipped",
       "Scaled daily spend 5x in one week while holding ~3.5x blended ROAS and sub-$60 CPA",
       "Built the measurement stack: pixel + server-side events with verified dedupe, RedTrack spend sync, first-party click attribution, and an admin reporting layer",
-      "Run the creative pipeline end to end: UGC direction, AI-generated brand personas and cinematic spots, motion-graphics overlays, caption and title systems",
+      "Ran the creative pipeline end to end: UGC direction, AI-generated brand personas and cinematic spots, motion-graphics overlays, caption and title systems",
+      "Designed the loyalty program: points, levels and The Drop, a daily Plinko game",
       "Hit 7x ROAS on the best campaign by pairing urgency offers with creator footage",
     ],
   },
@@ -35,7 +47,7 @@ const work = [
     desc: "Paid media for Toyota, Starzplay, Starbucks",
     href: "https://www.iheartmedia.com/",
     details: [
-      "Managed $200K-$400K/mo across 5+ concurrent accounts",
+      "Peak spend over $2M a month on Starbucks and Toyota, held at 4x blended ROAS",
       "Built creative testing framework that drove 25%+ ROAS lift QoQ",
       "Day-to-day client lead for Toyota and Starzplay",
       "Campaigns across Meta, Snapchat, Twitter, programmatic DSPs",
@@ -84,8 +96,9 @@ const work = [
 ];
 
 const online = [
+  { label: "Ballast", action: "Visit", href: "https://ballast.la" },
   { label: "LinkedIn", action: "Connect", href: "https://www.linkedin.com/in/jackmorello" },
-  { label: "Email", action: "Send", href: "mailto:jaidanmorello@gmail.com" },
+  { label: "Email", action: "Send", href: "mailto:jack@ballast.la" },
   { label: "Instagram", action: "Follow", href: "https://instagram.com/jackmorello" },
   { label: "GitHub", action: "View", href: "https://github.com/jack-more" },
   { label: "Adsim", action: "Sim a campaign", href: "/adsim" },
@@ -156,13 +169,14 @@ export default function HomePage() {
 
           <DraggableCard title="Jack Morello">
             <p>
-              I&apos;m Jack. I run growth for SKO Compounds, a DTC brand in
-              Beverly Hills: TikTok paid, lifecycle, attribution, and the
-              creative pipeline, and I build GTM for early-stage products
-              through Incubella. Before that, eight years in growth marketing
-              and paid media, first agency-side at iHeartMedia and Laundry
-              Service, then in-house building marketing from zero at three
-              venture-backed startups.
+              I&apos;m Jack. I run{" "}
+              <a href="https://ballast.la" target="_blank" rel="noopener noreferrer">Ballast Research</a>,
+              a research, development and media distribution studio: we find
+              out what is worth running, then build the distribution to run
+              it. Before that, eight years in growth and paid media: agency-side
+              at iHeartMedia and Laundry Service, in-house building marketing
+              from zero at three venture-backed startups, and most recently
+              growth at SKO Compounds, a DTC brand in Beverly Hills.
             </p>
             <p style={{ marginTop: "0.75rem" }}>Based in Los Angeles.</p>
           </DraggableCard>

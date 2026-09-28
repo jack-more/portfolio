@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 
 export const metadata: Metadata = {
   title: 'Jack Morello',
-  description: 'Paid media strategist and performance marketer based in Los Angeles.',
+  description: 'Jack Morello runs Ballast Research: research, development and media distribution, Los Angeles.',
 };
 
 export default function RootLayout({

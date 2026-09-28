@@ -88,7 +88,11 @@ a:hover {
 
 @media (max-width: 900px) {
   .layout {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .col-left > *,
+  .col-right > * {
+    max-width: 100%;
   }
   .col-right {
     align-items: flex-start;
@@ -719,5 +723,35 @@ a:hover {
 @media (max-width: 640px) {
   .artwork-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+/* ---- Phone: long row descriptions wrap instead of widening the page ---- */
+
+@media (max-width: 640px) {
+  .row-right {
+    white-space: normal;
+    flex-shrink: 1;
+    text-align: right;
+  }
+  .work-row-wrapper .row {
+    flex-wrap: wrap;
+    row-gap: 0;
+  }
+  .work-row-wrapper .row-left {
+    white-space: normal;
+    flex-shrink: 1;
+  }
+  .work-row-wrapper .row-dash {
+    display: none;
+  }
+  .work-row-wrapper .row-expand {
+    order: 2;
+    margin-left: auto;
+  }
+  .work-row-wrapper .row-right {
+    order: 3;
+    flex-basis: 100%;
+    text-align: left;
   }
 }
