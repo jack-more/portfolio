@@ -277,25 +277,37 @@
   .nav__links a:hover{color:#fff}
   .nav .btn{background:var(--orange);border-color:var(--orange);color:var(--ink)}
   .nav .btn:hover{background:#fff;border-color:#fff;color:var(--ink)}
-  .scene{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:center;overflow:hidden;background:#0B3FB0;color:#fff;isolation:isolate}
+  .scene{position:relative;min-height:100svh;display:flex;flex-direction:column;overflow:hidden;background:#0B3FB0;color:#fff;isolation:isolate}
   .scene__bg{position:absolute;left:-3%;top:-3%;width:106%;max-width:none;height:106%;object-fit:cover;object-position:50% 72%;z-index:-2;animation:sceneDrift 48s ease-in-out infinite alternate}
   @keyframes sceneDrift{from{transform:scale(1) translate3d(0,0,0)}to{transform:scale(1.06) translate3d(-1.2%,-1%,0)}}
-  .scene::after{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(ellipse 70% 46% at 50% 40%,rgba(6,32,110,.42),rgba(6,32,110,0) 70%)}
+  .scene::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(7,30,104,.64) 0%,rgba(7,30,104,.4) 38%,rgba(7,30,104,0) 62%),linear-gradient(90deg,rgba(7,30,104,.42) 0%,rgba(7,30,104,0) 58%)}
   .scene__petals{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
-  .scene__in{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;text-align:center;padding-top:84px;padding-bottom:clamp(90px,20vh,260px)}
-  .scene__lockup{width:clamp(150px,13vw,240px);height:auto;margin-bottom:clamp(14px,2.2vh,24px);filter:drop-shadow(0 6px 22px rgba(6,28,96,.45))}
-  .scene__chip{display:inline-block;padding:9px 18px;border-radius:999px;border:1px solid rgba(255,255,255,.45);background:rgba(255,255,255,.14);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);color:#fff;margin-bottom:clamp(20px,3.4vh,40px)}
-  .scene h1{font-size:clamp(44px,min(6.7vw,13.5vh),140px);line-height:.96;letter-spacing:-.015em;text-transform:uppercase;text-shadow:0 2px 40px rgba(6,28,96,.45);margin:0 0 clamp(18px,3vh,32px)}
+  .scene__in{position:relative;z-index:1;flex:1;display:grid;grid-template-rows:auto 1fr auto;gap:clamp(24px,4vh,48px);padding-top:clamp(92px,13vh,128px);padding-bottom:clamp(20px,4vh,44px)}
+  .scene__top{display:flex;flex-direction:column;align-items:flex-start}
+  .scene__lockup{width:clamp(140px,11vw,210px);height:auto;margin-bottom:clamp(16px,2.6vh,28px);filter:drop-shadow(0 6px 22px rgba(6,28,96,.45))}
+  .scene h1{font-size:clamp(46px,min(7.4vw,15vh),156px);line-height:.92;letter-spacing:-.018em;text-transform:uppercase;text-shadow:0 2px 30px rgba(6,28,96,.62),0 0 2px rgba(6,28,96,.35);margin:0}
   .scene h1 span{display:block}
-  .scene__sub{max-width:62ch;font-size:clamp(17px,1.35vw,22px);line-height:1.45;color:rgba(255,255,255,.94);text-shadow:0 1px 18px rgba(6,28,96,.6);margin:0 0 clamp(22px,3.6vh,38px)}
-  .scene__sub b{font-weight:500;color:#fff}
-  .scene__cta{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;padding:8px;border-radius:999px;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.16);-webkit-backdrop-filter:blur(16px) saturate(1.3);backdrop-filter:blur(16px) saturate(1.3)}
+  .plate{grid-row:3;justify-self:start;width:min(100%,660px);background:var(--paper);color:var(--ink);border-radius:6px;padding:clamp(22px,2.4vw,32px);box-shadow:0 24px 70px rgba(6,28,96,.32),0 2px 6px rgba(6,28,96,.12)}
+  .plate__lede{font-family:"Instrument Serif",Georgia,serif;font-size:clamp(28px,2.4vw,40px);line-height:1.04;letter-spacing:-.01em;margin:0 0 10px}
+  .plate__body{font-size:clamp(17px,1.15vw,20px);line-height:1.45;color:var(--ink);max-width:40ch;margin:0}
+  .plate__proof{display:grid;grid-template-columns:auto auto;justify-content:start;gap:0;margin:clamp(18px,2.4vh,26px) 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .plate__proof div{padding:14px 28px 14px 0}
+  .plate__proof div + div{padding-left:28px;border-left:1px solid var(--line)}
+  .plate__proof b{display:block;font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-size:clamp(40px,3.4vw,58px);line-height:.95;color:var(--cobalt)}
+  .plate__proof span{display:block;margin-top:6px;font-size:14.5px;color:var(--mute)}
+  .plate__cta{display:flex;gap:10px;flex-wrap:wrap}
+  @media (min-width:1100px){
+    .plate{width:min(100%,1120px);display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:0 clamp(28px,3vw,48px);align-items:center}
+    .plate__text{padding-right:clamp(28px,3vw,48px);border-right:1px solid var(--line)}
+    .plate__proof{margin:0 0 18px;border-top:0}
+    .plate__proof div{padding-top:0}
+  }
   .scene__go{background:var(--orange);border-color:var(--orange);color:var(--ink)}
-  .scene__go:hover{background:#fff;border-color:#fff;color:var(--ink)}
-  .scene__ghost{background:transparent;border-color:transparent;color:#fff}
-  .scene__ghost:hover{background:rgba(255,255,255,.22);border-color:transparent;color:#fff}
-  .scene__foot{position:absolute;left:0;right:0;bottom:22px;z-index:1;display:flex;justify-content:space-between;color:#fff;text-shadow:0 1px 12px rgba(0,0,0,.45)}
-  @media (max-width:760px){.nav__links{display:none}.scene__bg{object-position:50% 78%}.scene__cta{background:none;border:0;padding:0;-webkit-backdrop-filter:none;backdrop-filter:none}.scene__ghost{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.4);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}.scene__foot span:last-child{display:none}}
+  .scene__go:hover{background:var(--ink);border-color:var(--ink);color:#fff}
+  .scene__ghost{background:transparent;border-color:var(--ink);color:var(--ink)}
+  .scene__ghost:hover{background:var(--ink);border-color:var(--ink);color:#fff}
+  .scene__where{grid-row:3;align-self:end;justify-self:end;color:#fff;text-shadow:0 1px 12px rgba(0,0,0,.5)}
+  @media (max-width:760px){.nav__links{display:none}.scene__bg{object-position:58% 80%}.scene__in{grid-template-rows:auto 1fr auto;padding-top:88px}.scene__where{display:none}.plate__proof div{padding-right:18px}.plate__proof div + div{padding-left:18px}}
   @media (prefers-reduced-motion:reduce){.scene__bg{animation:none}}
 </style>
 <script type="application/ld+json">
@@ -326,16 +338,25 @@
     <img class="scene__bg" src="/hero/poppies.webp" width="2400" height="1340" alt="A hillside of orange California poppies under a deep blue sky" fetchpriority="high">
     <canvas class="scene__petals" id="petals" aria-hidden="true"></canvas>
     <div class="scene__in pad">
-      <img class="scene__lockup" src="/lockup.png" width="1400" height="591" alt="Ballast">
-      <span class="scene__chip mono">Los Angeles &middot; Working worldwide</span>
-      <h1 class="serif">Research, development <span>and media distribution</span></h1>
-      <p class="scene__sub">First we find out what is worth running. Then we build the distribution to run it: the reach you buy, and the audience you keep. <b>$2M+ a month at peak, held at 4&times;.</b></p>
-      <div class="scene__cta">
-        <a class="btn btn--lg scene__go" href="#book">Book a call</a>
-        <a class="btn btn--lg scene__ghost" href="#rd">What we have built</a>
+      <div class="scene__top">
+        <img class="scene__lockup" src="/lockup.png" width="1400" height="591" alt="Ballast">
+        <h1 class="serif">Research, development <span>and media distribution</span></h1>
       </div>
+      <div class="plate">
+        <div class="plate__text">
+          <p class="plate__lede">First we find out what is worth running.</p>
+          <p class="plate__body">Then we build the distribution to run it: the reach you buy, and the audience you keep.</p>
+        </div>
+        <div class="plate__side">
+        <div class="plate__proof num"><div><b>$2M+</b><span>a month at peak</span></div><div><b>4&times;</b><span>held at that scale</span></div></div>
+        <div class="plate__cta">
+          <a class="btn btn--lg scene__go" href="#book">Book a call</a>
+          <a class="btn btn--lg scene__ghost" href="#rd">What we have built</a>
+        </div>
+        </div>
+      </div>
+      <span class="scene__where mono">Los Angeles &middot; Working worldwide</span>
     </div>
-    <div class="scene__foot mono pad"><span>Media distribution &middot; bought and built</span><span>Regulated &middot; At scale</span></div>
   </section>
 
   <!-- stats band -->
