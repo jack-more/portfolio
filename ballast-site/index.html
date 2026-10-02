@@ -572,7 +572,7 @@
           <a class="btn btn--lg" id="calGoogle" href="#" target="_blank" rel="noopener" aria-disabled="true">Add to Google Calendar</a>
           <a class="btn btn--lg btn--ghost" id="calMail" href="mailto:jack@ballast.la?subject=Ballast%20%E2%80%94%20call">Email instead</a>
         </div>
-        <p class="cal__note">The invite goes to <a href="mailto:jack@ballast.la">jack@ballast.la</a>. Not on Google? Email works.</p>
+        <p class="cal__note">The invite goes straight to Jack&rsquo;s calendar. Not on Google? Email <a href="mailto:jack@ballast.la">jack@ballast.la</a>.</p>
       </div>
     </div>
   </section>
@@ -591,7 +591,7 @@
 
 <script>
 (function(){
-  var TZ='America/Los_Angeles', GUEST='jack@ballast.la', DUR=30;
+  var TZ='America/Los_Angeles', GUEST='jack@ballast.la', INVITE='jaidanmorello@gmail.com', DUR=30;
   var SLOTS=['09:00','09:30','10:00','10:30','11:00','13:00','13:30','14:00','14:30','15:00'];
   var MONTHS=['January','February','March','April','May','June','July','August','September','October','November','December'];
   var DOWS=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
@@ -658,7 +658,7 @@
       +'&text='+encodeURIComponent(text)
       +'&dates='+st+'/'+en+'&ctz='+encodeURIComponent(TZ)
       +'&details='+encodeURIComponent(details)
-      +'&add='+encodeURIComponent(GUEST);
+      +'&add='+encodeURIComponent(INVITE);
     g.setAttribute('aria-disabled','false');
     m.href='mailto:'+GUEST+'?subject='+encodeURIComponent('Ballast call — '+pretty)+'&body='+encodeURIComponent('Hi Jack,\n\nI would like to book a call: '+pretty+'.\n\n');
     local.textContent=fmtLocal(dk,slot)||' ';
