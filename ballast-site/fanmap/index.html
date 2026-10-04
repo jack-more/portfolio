@@ -1733,7 +1733,9 @@ $("#cVids").addEventListener("change",e=>{CC.vids=e.target.checked;CC.sel=null;C
 $("#cRepel").addEventListener("input",e=>{CC.repel=+e.target.value;if(!CG.sim)return;CG.sim.force("charge").strength(n=>n.type==="video"?-5:-CC.repel);CG.sim.alpha(.4).restart()});
 $("#cDist").addEventListener("input",e=>{CC.dist=+e.target.value;if(!CG.sim)return;CG.sim.force("link").distance(l=>l.kind==="vid"?16:CC.dist);CG.sim.alpha(.4).restart()});
 $("#cQ").addEventListener("input",e=>{CC.q=e.target.value.trim().toLowerCase();CC.sel=null;cDraw()});
-$("#cQ").addEventListener("keydown",e=>{if(e.key!=="Enter"||!CC.q)return;const m=CG.nodes.filter(n=>n.name.toLowerCase().includes(CC.q));if(m.length===1){CC.sel=m[0];cSide()}cZoomTo(n=>m.includes(n))});
+$("#cQ").addEventListener("keydown",e=>{if(e.key!=="Enter"||!CC.q)return;const m=CG.nodes.filter(n=>n.name.toLowerCase().includes(CC.q)),named=m.filter(n=>n.type!=="video");
+  const one=named.find(n=>n.name.toLowerCase()===CC.q)||(named.length===1?named[0]:m.length===1?m[0]:null);
+  if(one){CC.sel=one;cSide();cDraw();cZoomTo(n=>n===one||one.nb.has(n))}else cZoomTo(n=>m.includes(n))});
 $("#cFit").addEventListener("click",()=>cZoomTo(()=>true));
 
 function renderBoard(){
