@@ -559,6 +559,36 @@ a{color:var(--ink)}
 .clist button{appearance:none;border:0;cursor:pointer;text-align:left;border-radius:10px;padding:8px 10px;font:600 13.5px/1.2 var(--sans);color:var(--c-ink);display:flex;justify-content:space-between;gap:8px}
 .clist button small{font-weight:400;opacity:.75}
 .clist button[aria-pressed="true"]{outline:2px solid var(--c-ink);outline-offset:-2px}
+/* circles: graph */
+.view--cir .graph{background:#151517}
+.view--cir canvas{display:block;width:100%;height:100%;cursor:grab;touch-action:none}
+.view--cir canvas.hov{cursor:pointer}
+.view--cir .graph .tip{background:#F4F1EA;color:#121314;box-shadow:0 6px 24px rgba(0,0,0,.35);max-width:280px}
+.view--cir .graph .tip img{display:block;width:100%;border-radius:3px;margin:0 0 7px}
+.view--cir .graph .tip b{font-weight:700}
+.view--cir .graph .tip span{display:block;opacity:.7;margin-top:2px}
+.view--cir .wbtns button{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.16);color:#ECE8DF;font:500 13px/1 var(--sans);text-transform:none;letter-spacing:0}
+.view--cir .focusbar{background:#F4F1EA;color:#121314;font-size:13.5px}
+.view--cir .focusbar button{font:600 12px/1 var(--sans);text-transform:none;background:#121314;color:#F4F1EA}
+.chint{position:absolute;left:14px;bottom:12px;font-size:12px;color:rgba(236,232,223,.42);pointer-events:none}
+.clist{display:grid;grid-template-columns:1fr 1fr;gap:1px 4px}
+.clist button{appearance:none;border:0;background:transparent;cursor:pointer;text-align:left;border-radius:6px;padding:6px 7px;font:500 13px/1.2 var(--sans);color:var(--ink);display:grid;grid-template-columns:10px minmax(0,1fr) auto;gap:9px;align-items:center}
+.clist button i{width:10px;height:10px;border-radius:50%}
+.clist button small{font-weight:400;color:var(--mute);opacity:1}
+.clist button:hover{background:var(--sheet)}
+.clist button[aria-pressed="true"]{background:#121314;color:#F4F1EA;outline:0}
+.clist button[aria-pressed="true"] small{color:#BDB6A9}
+.cleg{display:flex;flex-direction:column;gap:7px;font-size:13px;line-height:1.3}
+.cleg span{display:flex;gap:9px;align-items:center}
+.cleg i{width:11px;height:11px;border-radius:50%;flex:none}
+.cleg i.ring{box-shadow:0 0 0 1.5px #F4F1EA,0 0 0 2.5px #121314}
+.cleg i.sm{width:6px;height:6px;margin:0 2.5px}
+.ctog{display:flex;gap:8px;align-items:center;font-size:13.5px;cursor:pointer}
+.ctog input{accent-color:#121314;width:15px;height:15px;margin:0}
+.crange{display:grid;grid-template-columns:96px minmax(0,1fr);align-items:center;gap:8px;font-size:13px;color:var(--ink)}
+.crange input{width:100%;accent-color:#121314}
+.side .vthumb{display:block;margin:4px 0 10px}
+.side .vthumb img{display:block;width:100%;border-radius:4px}
 </style>
 
 <div class="app">
@@ -693,27 +723,30 @@ a{color:var(--ink)}
   <section class="panel view view--cir" id="p-circles" role="tabpanel" aria-labelledby="t-circles" hidden>
     <aside class="rail">
       <h1 class="rail__title">Circles</h1>
-      <p class="rail__help">Broadcast pushes one way. Inside the platforms, fans move in overlapping circles around teams, players and eras. Circles here are computed from which editors cover which players.</p>
-      <div class="schem" aria-hidden="true">
-        <figure><svg viewBox="0 0 120 80" width="100%"><circle cx="18" cy="40" r="11" fill="#121314"/><line x1="29" y1="40" x2="104" y2="8" stroke="#121314" stroke-width=".6"/><circle cx="106" cy="8" r="2.4" fill="#BDB6A9"/><line x1="29" y1="40" x2="104" y2="16" stroke="#121314" stroke-width=".6"/><circle cx="106" cy="16" r="2.4" fill="#BDB6A9"/><line x1="29" y1="40" x2="104" y2="24" stroke="#121314" stroke-width=".6"/><circle cx="106" cy="24" r="2.4" fill="#BDB6A9"/><line x1="29" y1="40" x2="104" y2="32" stroke="#121314" stroke-width=".6"/><circle cx="106" cy="32" r="2.4" fill="#BDB6A9"/><line x1="29" y1="40" x2="104" y2="40" stroke="#121314" stroke-width=".6"/><circle cx="106" cy="40" r="2.4" fill="#BDB6A9"/><line x1="29" y1="40" x2="104" y2="48" stroke="#121314" stroke-width=".6"/><circle cx="106" cy="48" r="2.4" fill="#BDB6A9"/><line x1="29" y1="40" x2="104" y2="56" stroke="#121314" stroke-width=".6"/><circle cx="106" cy="56" r="2.4" fill="#BDB6A9"/><line x1="29" y1="40" x2="104" y2="64" stroke="#121314" stroke-width=".6"/><circle cx="106" cy="64" r="2.4" fill="#BDB6A9"/><line x1="29" y1="40" x2="104" y2="72" stroke="#121314" stroke-width=".6"/><circle cx="106" cy="72" r="2.4" fill="#BDB6A9"/></svg><figcaption>Broadcast<span>One source, one direction</span></figcaption></figure>
-        <figure><svg viewBox="0 0 120 80" width="100%"><circle cx="42" cy="34" r="26" fill="#ECE37A" fill-opacity=".55"/><circle cx="76" cy="30" r="24" fill="#A8C2B5" fill-opacity=".6"/><circle cx="62" cy="56" r="20" fill="#E8B07A" fill-opacity=".55"/><circle cx="60" cy="40" r="6" fill="#FF6D1F"/><circle cx="34" cy="26" r="3" fill="#2E7D1F"/><circle cx="84" cy="24" r="3" fill="#2E7D1F"/><circle cx="58" cy="62" r="3" fill="#2E7D1F"/><circle cx="46" cy="44" r="2" fill="#121314"/><circle cx="74" cy="40" r="2" fill="#121314"/></svg><figcaption>Circles<span>Many sources, shared by fans</span></figcaption></figure>
-      </div>
-      <div class="ctl"><span class="label">Who&rsquo;s who</span>
-        <div class="roles">
-          <span><i style="background:#FF6D1F"></i>Tastemakers: big accounts spanning many circles</span>
-          <span><i style="background:#2E7D1F"></i>Specialist editors: fans who make the content</span>
-          <span><i style="background:#E3301F"></i>Players&rsquo; own channels</span>
-          <span><i style="background:#fff;border:1.5px solid #121314"></i>Broadcast, networks and media companies</span>
-          <span><i style="background:#121314"></i>Players</span>
+      <p class="rail__help">Every dot is a player, an account or a recent video. Accounts link to the players they cover; videos link to their channel and the players in them. Fan circles form where accounts share players.</p>
+      <div class="ctl"><span class="label">Search</span><input class="f" type="search" id="cQ" placeholder="Player, account or video" aria-label="Search the graph"></div>
+      <div class="ctl"><span class="label">Circles</span><div class="clist" id="cList"></div></div>
+      <div class="ctl"><span class="label">Dots</span>
+        <div class="cleg">
+          <span><i class="ring" style="background:#ECE37A"></i>Players, coloured by circle</span>
+          <span><i style="background:#A8C2B5"></i>Specialist editors, in their main circle&rsquo;s colour</span>
+          <span><i style="background:#F4F1EA;border:1px solid #BDB6A9"></i>Tastemakers: big accounts across many circles</span>
+          <span><i style="background:#8C8A86"></i>Broadcast, networks, players&rsquo; own channels</span>
+          <span><i class="sm" style="background:#6E6B66"></i>Recent videos</span>
         </div></div>
       <div class="ctl"><span class="label">Size accounts by</span><select class="f" id="cSize" aria-label="Size accounts by"><option value="recent">Views, last 90 days</option><option value="audience">Followers</option><option value="hit">Views per follower</option></select></div>
-      <div class="ctl"><span class="label">Circles</span><div class="clist" id="cList"></div></div>
+      <label class="ctog"><input type="checkbox" id="cVids" checked> Show recent videos</label>
+      <div class="ctl"><span class="label">Forces</span>
+        <label class="crange">Repel<input type="range" id="cRepel" min="10" max="200" value="110"></label>
+        <label class="crange">Link distance<input type="range" id="cDist" min="10" max="140" value="60"></label>
+      </div>
     </aside>
     <div class="graph" id="cgraph">
-      <svg id="csvg" role="img" aria-label="Fan circles: players, editors and tastemakers"></svg>
+      <canvas id="ccv" role="img" aria-label="Fan circles graph: players, accounts and recent videos"></canvas>
       <div class="tip" id="ctip" hidden></div>
       <div class="focusbar" id="cfocus" hidden></div>
       <div class="wbtns"><button type="button" id="cFit">Fit</button></div>
+      <div class="chint">Scroll to zoom · drag to move · click a dot to open it</div>
     </div>
     <aside class="side" id="cside" aria-live="polite"></aside>
   </section>
@@ -1520,107 +1553,188 @@ $("#hMore").addEventListener("click",()=>{H.n+=60;renderHits()});
 $("#hClear").addEventListener("click",()=>{Object.assign(H,{q:"",player:"",team:"",kind:"",size:"",fmt:"",league:"",n:60});$("#hFmt").value="";$("#hLeague").value="";$("#hQ").value="";$("#hPlayer").value="";$("#hTeam").value="";$("#hKind").value="";$("#hSize").value="";renderHits()});
 
 
-/* ---------- circles ---------- */
+/* ---------- circles (graph) ---------- */
+const SCHEM="<figure><svg viewBox=\"0 0 120 80\" width=\"100%\"><circle cx=\"18\" cy=\"40\" r=\"11\" fill=\"#121314\"/><line x1=\"29\" y1=\"40\" x2=\"104\" y2=\"8\" stroke=\"#121314\" stroke-width=\".6\"/><circle cx=\"106\" cy=\"8\" r=\"2.4\" fill=\"#BDB6A9\"/><line x1=\"29\" y1=\"40\" x2=\"104\" y2=\"16\" stroke=\"#121314\" stroke-width=\".6\"/><circle cx=\"106\" cy=\"16\" r=\"2.4\" fill=\"#BDB6A9\"/><line x1=\"29\" y1=\"40\" x2=\"104\" y2=\"24\" stroke=\"#121314\" stroke-width=\".6\"/><circle cx=\"106\" cy=\"24\" r=\"2.4\" fill=\"#BDB6A9\"/><line x1=\"29\" y1=\"40\" x2=\"104\" y2=\"32\" stroke=\"#121314\" stroke-width=\".6\"/><circle cx=\"106\" cy=\"32\" r=\"2.4\" fill=\"#BDB6A9\"/><line x1=\"29\" y1=\"40\" x2=\"104\" y2=\"40\" stroke=\"#121314\" stroke-width=\".6\"/><circle cx=\"106\" cy=\"40\" r=\"2.4\" fill=\"#BDB6A9\"/><line x1=\"29\" y1=\"40\" x2=\"104\" y2=\"48\" stroke=\"#121314\" stroke-width=\".6\"/><circle cx=\"106\" cy=\"48\" r=\"2.4\" fill=\"#BDB6A9\"/><line x1=\"29\" y1=\"40\" x2=\"104\" y2=\"56\" stroke=\"#121314\" stroke-width=\".6\"/><circle cx=\"106\" cy=\"56\" r=\"2.4\" fill=\"#BDB6A9\"/><line x1=\"29\" y1=\"40\" x2=\"104\" y2=\"64\" stroke=\"#121314\" stroke-width=\".6\"/><circle cx=\"106\" cy=\"64\" r=\"2.4\" fill=\"#BDB6A9\"/><line x1=\"29\" y1=\"40\" x2=\"104\" y2=\"72\" stroke=\"#121314\" stroke-width=\".6\"/><circle cx=\"106\" cy=\"72\" r=\"2.4\" fill=\"#BDB6A9\"/></svg><figcaption>Broadcast<span>One source, one direction</span></figcaption></figure>\n        <figure><svg viewBox=\"0 0 120 80\" width=\"100%\"><circle cx=\"42\" cy=\"34\" r=\"26\" fill=\"#ECE37A\" fill-opacity=\".55\"/><circle cx=\"76\" cy=\"30\" r=\"24\" fill=\"#A8C2B5\" fill-opacity=\".6\"/><circle cx=\"62\" cy=\"56\" r=\"20\" fill=\"#E8B07A\" fill-opacity=\".55\"/><circle cx=\"60\" cy=\"40\" r=\"6\" fill=\"#FF6D1F\"/><circle cx=\"34\" cy=\"26\" r=\"3\" fill=\"#2E7D1F\"/><circle cx=\"84\" cy=\"24\" r=\"3\" fill=\"#2E7D1F\"/><circle cx=\"58\" cy=\"62\" r=\"3\" fill=\"#2E7D1F\"/><circle cx=\"46\" cy=\"44\" r=\"2\" fill=\"#121314\"/><circle cx=\"74\" cy=\"40\" r=\"2\" fill=\"#121314\"/></svg><figcaption>Circles<span>Many sources, shared by fans</span></figcaption></figure>";
 const CIR=JSON.parse(document.getElementById("cirData").textContent);
-const CC={size:"recent",focus:null,sel:null,built:false};
-const ROLECOL={tastemaker:"#FF6D1F",specialist:"#2E7D1F",player:"#E3301F",broadcast:"#FFFFFF",community:"#A8C2B5"};
-function cClusterOf(p){return CIR.pc[p]}
+const CL={};for(const cl of CIR.clusters)CL[cl.id]=cl;
+const CC={size:"recent",focus:null,sel:null,hover:null,q:"",vids:true,repel:110,dist:60};
+const CG={built:"",nodes:[],links:[],t:d3.zoomIdentity,w:0,h:0,dpr:1};
+const ROLE_NAME={tastemaker:"Tastemaker",specialist:"Specialist editor",player:"Player's own channel",broadcast:"Broadcast / network",community:"Community"};
+const G={bg:"#151517",ink:"#ECE8DF",sub:"#B9B4AA",acc:"#FF6D1F",tm:"#F4F1EA",other:"#8C8A86",vid:"#6E6B66"};
+const GFONT="Schibsted Grotesk, ui-sans-serif, sans-serif";
 function renderCList(){const box=$("#cList");box.innerHTML="";
-  for(const cl of CIR.clusters){box.append(el("button",{type:"button",style:"background:"+cl.color,"aria-pressed":CC.focus===cl.id,onclick:()=>{CC.focus=CC.focus===cl.id?null:cl.id;CC.sel=null;applyCFocus();cSide()}},el("span",{text:cl.name}),el("small",{text:cl.players.length+" players"})))}}
+  for(const cl of CIR.clusters)box.append(el("button",{type:"button","aria-pressed":CC.focus===cl.id,onclick:()=>cFocus(CC.focus===cl.id?null:cl.id)},el("i",{style:"background:"+cl.color}),el("span",{text:cl.name}),el("small",{text:String(cl.players.length)})))}
+function cMetric(c){return CC.size==="audience"?Number(c.audience_n)||0:CC.size==="hit"?Number(c.hit_ratio)||0:Number(c.views_90d)||0}
+function cBuild(){
+  const byId={};for(const c of S.creators)byId[c.id]=c;
+  const nodes=[],links=[],idx={};
+  const add=n=>{n.nb=new Set();idx[n.id]=n;nodes.push(n);return n};
+  for(const cl of CIR.clusters)for(const p of cl.players)add({id:"p:"+p,type:"player",name:p,cl:cl.id,col:cl.color,grp:new Set([cl.id])});
+  for(const[cid,ps]of Object.entries(CIR.cov)){const c=byId[cid];if(!c)continue;const role=CIR.roles[cid]||"specialist",t={};
+    for(const[p,n]of Object.entries(ps)){const k=CIR.pc[p];if(k)t[k]=(t[k]||0)+n}
+    const prim=(Object.entries(t).sort((a,b)=>b[1]-a[1])[0]||[])[0];
+    const a=add({id:cid,type:"acct",role,name:c.name,c,cl:prim,grp:new Set(Object.keys(t)),col:role==="tastemaker"?G.tm:role==="specialist"&&CL[prim]?CL[prim].color:G.other});
+    for(const[p,n]of Object.entries(ps))if(idx["p:"+p])links.push({source:a,target:idx["p:"+p],w:n,kind:"cov"})}
+  if(CC.vids){const vs=HITS.filter(h=>idx[h.cid]&&h.p.some(p=>idx["p:"+p])).sort((a,b)=>b.v-a.v).slice(0,600);
+    for(const h of vs){const ps=h.p.filter(p=>idx["p:"+p]);const v=add({id:"v:"+h.id,type:"video",name:h.t||"Untitled",h,cl:CIR.pc[ps[0]],grp:new Set(ps.map(p=>CIR.pc[p])),col:G.vid});
+      links.push({source:v,target:idx[h.cid],w:1,kind:"vid"});for(const p of ps)links.push({source:v,target:idx["p:"+p],w:1,kind:"vid"})}}
+  for(const l of links){l.source.nb.add(l.target);l.target.nb.add(l.source)}
+  // anchor each circle: circles that share accounts sit next to each other, tastemakers float free in the middle
+  const accIn={};for(const cl of CIR.clusters)accIn[cl.id]=new Set();
+  for(const n of nodes)if(n.type==="acct"&&n.role!=="tastemaker")for(const g of n.grp)accIn[g].add(n.id);
+  const an=CIR.clusters.map((cl,i)=>({id:cl.id,x:Math.cos(i/CIR.clusters.length*Math.PI*2)*300,y:Math.sin(i/CIR.clusters.length*Math.PI*2)*300})),al=[];
+  for(let i=0;i<an.length;i++)for(let j=i+1;j<an.length;j++){const A=accIn[an[i].id],B=accIn[an[j].id];let sh=0;for(const x of A)if(B.has(x))sh++;const sim=sh/Math.max(1,Math.min(A.size,B.size));if(sim>.1)al.push({source:an[i].id,target:an[j].id,sim})}
+  const as=d3.forceSimulation(an).force("link",d3.forceLink(al).id(d=>d.id).distance(l=>520*(1-.5*l.sim)).strength(l=>.1+l.sim*.5)).force("charge",d3.forceManyBody().strength(-900)).force("x",d3.forceX(0).strength(.05)).force("y",d3.forceY(0).strength(.05)).stop();
+  for(let i=0;i<300;i++)as.tick();
+  for(const a of an)CL[a.id]._ax=a.x*1.45,CL[a.id]._ay=a.y*.95;
+  for(const n of nodes){const c=n.role==="tastemaker"?null:CL[n.cl];n.x=(c?c._ax:0)+(Math.random()-.5)*80;n.y=(c?c._ay:0)+(Math.random()-.5)*80}
+  CG.nodes=nodes;CG.links=links;CG.idx=idx;cRadii();
+  if(CG.sim)CG.sim.stop();
+  CG.sim=d3.forceSimulation(nodes)
+    .force("link",d3.forceLink(links).distance(l=>l.kind==="vid"?16:CC.dist).strength(l=>(l.kind==="vid"?.5:1)/Math.min(l.source.nb.size,l.target.nb.size)))
+    .force("charge",d3.forceManyBody().strength(n=>n.type==="video"?-5:-CC.repel).distanceMax(600))
+    .force("collide",d3.forceCollide(n=>n.r+(n.type==="video"?.6:2.5)))
+    .force("x",d3.forceX(n=>n.role==="tastemaker"||!CL[n.cl]?0:CL[n.cl]._ax).strength(n=>n.role==="tastemaker"?.02:n.type==="player"?.1:.06))
+    .force("y",d3.forceY(n=>n.role==="tastemaker"||!CL[n.cl]?0:CL[n.cl]._ay).strength(n=>n.role==="tastemaker"?.02:n.type==="player"?.1:.06))
+    .stop();
+  for(let i=0;i<260;i++)CG.sim.tick();
+  CG.sim.on("tick",cDraw).alpha(.12).restart();
+}
+function cRadii(){
+  const acc=CG.nodes.filter(n=>n.type==="acct"),vals=acc.map(n=>cMetric(n.c)).filter(v=>v>0);
+  const lo=Math.log10(d3.min(vals)||1),hi=Math.log10(d3.max(vals)||10);
+  for(const n of acc){const v=cMetric(n.c),t=v>0?(hi===lo?1:(Math.log10(v)-lo)/(hi-lo)):0;n.r=(n.role==="tastemaker"?6:2.6)+(n.role==="tastemaker"?13:10)*t}
+  const vv=CG.nodes.filter(n=>n.type==="video").map(n=>n.h.v),vlo=Math.log10(d3.min(vv)||1),vhi=Math.log10(d3.max(vv)||10);
+  for(const n of CG.nodes){if(n.type==="player")n.r=4+Math.sqrt([...n.nb].filter(x=>x.type==="acct").length)*1.9;
+    if(n.type==="video")n.r=1.5+2.6*(vhi===vlo?1:(Math.log10(n.h.v||1)-vlo)/(vhi-vlo))}
+}
+function cSize(){const g=$("#cgraph"),cv=$("#ccv"),r=g.getBoundingClientRect();CG.w=r.width;CG.h=r.height;CG.dpr=window.devicePixelRatio||1;
+  cv.width=Math.round(r.width*CG.dpr);cv.height=Math.round(r.height*CG.dpr);CG.ctx=cv.getContext("2d")}
+function cOn(){ // which nodes are lit: hover/selection neighbourhood, else search, else circle focus
+  const a=CC.hover||(CC.sel&&CC.sel.nb?CC.sel:null);
+  if(a){const s=new Set([a,...a.nb]);return n=>s.has(n)}
+  if(CC.q){const q=CC.q;return n=>n.name.toLowerCase().includes(q)}
+  if(CC.focus){const f=CC.focus;return n=>n.grp.has(f)}
+  return null}
+function cDraw(){const ctx=CG.ctx;if(!ctx)return;const t=CG.t,k=t.k;
+  ctx.setTransform(CG.dpr,0,0,CG.dpr,0,0);ctx.fillStyle=G.bg;ctx.fillRect(0,0,CG.w,CG.h);
+  ctx.translate(t.x,t.y);ctx.scale(k,k);
+  const on=cOn(),act=CC.hover||(CC.sel&&CC.sel.nb?CC.sel:null);
+  // links
+  const lw=Math.max(.35,.75/Math.sqrt(k));
+  const pass=(filter,style,width)=>{ctx.beginPath();for(const l of CG.links)if(filter(l)){ctx.moveTo(l.source.x,l.source.y);ctx.lineTo(l.target.x,l.target.y)}ctx.strokeStyle=style;ctx.lineWidth=width;ctx.stroke()};
+  if(!on){pass(l=>l.kind==="vid","rgba(236,232,223,.05)",lw);pass(l=>l.kind==="cov","rgba(236,232,223,.13)",lw)}
+  else{pass(l=>!(on(l.source)&&on(l.target)),"rgba(236,232,223,.025)",lw);
+    if(act){pass(l=>l.source===act||l.target===act,"rgba(255,109,31,.85)",lw*1.8);pass(l=>l.source!==act&&l.target!==act&&on(l.source)&&on(l.target),"rgba(236,232,223,.10)",lw)}
+    else pass(l=>on(l.source)&&on(l.target),"rgba(236,232,223,.22)",lw)}
+  // nodes: videos first, then accounts, then players on top
+  const order=["video","acct","player"];
+  for(const ty of order)for(const n of CG.nodes){if(n.type!==ty)continue;
+    ctx.globalAlpha=!on||on(n)?1:.12;
+    ctx.beginPath();ctx.arc(n.x,n.y,n.r,0,Math.PI*2);ctx.fillStyle=n===act?G.acc:n.col;ctx.fill();
+    if(n.type==="player"){ctx.lineWidth=1.3;ctx.strokeStyle=G.bg;ctx.stroke();ctx.beginPath();ctx.arc(n.x,n.y,n.r+1.9,0,Math.PI*2);ctx.lineWidth=.9;ctx.strokeStyle="rgba(236,232,223,.75)";ctx.stroke()}
+    if(n===CC.sel){ctx.beginPath();ctx.arc(n.x,n.y,n.r+4.5,0,Math.PI*2);ctx.lineWidth=1.6;ctx.strokeStyle=G.acc;ctx.stroke()}}
+  ctx.globalAlpha=1;
+  // labels fade in with zoom, like Obsidian
+  const fsS=Math.max(10,Math.min(14,11.5*Math.sqrt(k))),fs=fsS/k;
+  ctx.textAlign="center";ctx.textBaseline="top";ctx.lineJoin="round";
+  const fade=(th)=>Math.max(0,Math.min(1,(k-th)/.35));
+  for(const ty of ["video","acct","player"])for(const n of CG.nodes){if(n.type!==ty)continue;
+    let a;const lit=on&&on(n);
+    if(on&&!lit)continue;
+    if(act&&lit)a=n.type==="video"&&n!==act?fade(1.6):1;
+    else if(n.type==="video")a=fade(2.6);
+    else{const sr=n.r*k,th=n.type==="player"?8.5:n.role==="tastemaker"?11:12;a=Math.max(0,Math.min(1,(sr-th)/2.5));if(k>1.6)a=Math.max(a,fade(1.6))}
+    if(on&&!act&&lit&&n.type!=="video")a=Math.max(a,.9);
+    if(a<=0)continue;
+    const big=n.type==="player"||n.role==="tastemaker";
+    ctx.font=(big?"700 ":"500 ")+(n.type==="video"?fs*.9:fs)+"px "+GFONT;
+    let s=n.name;if(s.length>44)s=s.slice(0,42)+"…";
+    ctx.globalAlpha=a;ctx.lineWidth=3/k;ctx.strokeStyle=G.bg;ctx.strokeText(s,n.x,n.y+n.r+3/k);
+    ctx.fillStyle=n===act?G.acc:big?G.ink:G.sub;ctx.fillText(s,n.x,n.y+n.r+3/k)}
+  ctx.globalAlpha=1}
+function cFind(mx,my){const[x,y]=CG.t.invert([mx,my]),k=CG.t.k;let best=null,bd=Infinity;
+  for(const n of CG.nodes){const dx=n.x-x,dy=n.y-y,d=dx*dx+dy*dy,rr=Math.max(n.r,5/k)+2/k,pri=n.type==="video"?1.5:1;if(d<rr*rr&&d*pri<bd){bd=d*pri;best=n}}return best}
+function cBounds(list){const q=list.length>40?.015:0,xs=list.map(n=>n.x).sort((a,b)=>a-b),ys=list.map(n=>n.y).sort((a,b)=>a-b),at=(a,f)=>a[Math.min(a.length-1,Math.max(0,Math.round(f*(a.length-1))))];return[at(xs,q)-20,at(ys,q)-20,at(xs,1-q)+20,at(ys,1-q)+20]}
+function cZoomTo(pred,dur=650){const list=CG.nodes.filter(pred);if(!list.length)return;const[x0,y0,x1,y1]=cBounds(list),pad=40;
+  const k=Math.min(3,.94/Math.max((x1-x0+pad*2)/CG.w,(y1-y0+pad*2)/CG.h));
+  const tr=d3.zoomIdentity.translate(CG.w/2,CG.h/2).scale(k).translate(-(x0+x1)/2,-(y0+y1)/2);
+  const s=d3.select("#ccv");(dur?s.transition().duration(dur):s).call(CG.zoom.transform,tr)}
+function cFocus(id){CC.focus=id;CC.sel=null;CC.q="";$("#cQ").value="";renderCList();cSide();cDraw();cFocusBar();if(id)cZoomTo(n=>n.grp.has(id)&&n.type!=="video");else cZoomTo(()=>true)}
+function cFocusBar(){const fb=$("#cfocus"),f=CC.focus;if(!f){fb.hidden=true;return}fb.hidden=false;fb.innerHTML="";
+  fb.append("Showing "+CL[f].name+" ",el("button",{type:"button",onclick:()=>cFocus(null)},"Show all"))}
+function cTip(n,mx,my){const tip=$("#ctip");if(!n){tip.hidden=true;return}tip.hidden=false;tip.innerHTML="";
+  if(n.type==="video"){const c=CG.idx[n.h.cid];tip.append(el("img",{src:"https://i.ytimg.com/vi/"+n.h.id+"/mqdefault.jpg",alt:""}),el("b",{text:n.name}),el("span",{text:(c?c.name+" · ":"")+fmtN(n.h.v)+" views"+(n.h.a!=null?" · "+agoShort(n.h.a):"")}))}
+  else if(n.type==="player"){const acc=[...n.nb].filter(x=>x.type==="acct").length;tip.append(el("b",{text:n.name}),el("span",{text:CL[n.cl].name+" · covered by "+acc+(acc===1?" account":" accounts")}))}
+  else{tip.append(el("b",{text:n.name}),el("span",{text:ROLE_NAME[n.role]+" · reaches "+n.grp.size+(n.grp.size===1?" circle":" circles")+" · "+(CC.size==="hit"?fmtX(cMetric(n.c)):fmtN(cMetric(n.c))||"–")+" "+({recent:"views, 90 days",audience:"followers",hit:"followers"})[CC.size]}))}
+  let x=mx+16,y=my+16;if(x>CG.w-290)x=mx-296;if(y>CG.h-(n.type==="video"?240:80))y=my-(n.type==="video"?236:70);tip.style.left=x+"px";tip.style.top=y+"px"}
+function cWire(){if(CG.wired)return;CG.wired=true;
+  const cv=$("#ccv");
+  CG.zoom=d3.zoom().scaleExtent([.12,8]).on("zoom",e=>{CG.t=e.transform;cDraw()});
+  d3.select(cv).call(d3.drag().container(cv).subject(e=>cFind(e.x,e.y))
+      .on("start",e=>{if(!e.active)CG.sim.alphaTarget(.25).restart();e.subject.fx=e.subject.x;e.subject.fy=e.subject.y;$("#ctip").hidden=true})
+      .on("drag",e=>{const[x,y]=CG.t.invert(d3.pointer(e.sourceEvent,cv));e.subject.fx=x;e.subject.fy=y})
+      .on("end",e=>{if(!e.active)CG.sim.alphaTarget(0);e.subject.fx=null;e.subject.fy=null}))
+    .call(CG.zoom).on("dblclick.zoom",null);
+  cv.addEventListener("mousemove",e=>{const r=cv.getBoundingClientRect(),mx=e.clientX-r.left,my=e.clientY-r.top,n=cFind(mx,my);
+    cv.classList.toggle("hov",!!n);if(n!==CC.hover){CC.hover=n;cDraw()}cTip(n,mx,my)});
+  cv.addEventListener("mouseleave",()=>{CC.hover=null;cTip(null);cDraw()});
+  cv.addEventListener("click",e=>{const r=cv.getBoundingClientRect(),n=cFind(e.clientX-r.left,e.clientY-r.top);CC.sel=n||null;cSide();cDraw()});
+  new ResizeObserver(()=>{if($("#p-circles").hidden||!CG.nodes.length)return;cSize();cDraw()}).observe($("#cgraph"));
+}
 function renderCircles(){
   if($("#p-circles").hidden||!window.d3)return;
   renderCList();
   if(!S.loaded.c)return;
-  const svgEl=$("#csvg"),box=svgEl.getBoundingClientRect(),w=box.width||1000,h=box.height||700;
-  const svg=d3.select(svgEl);svg.selectAll("*").remove();svg.attr("viewBox",[-w/2,-h/2,w,h]);
-  const byId={};for(const c of S.creators)byId[c.id]=c;
-  const metric=c=>CC.size==="audience"?Number(c.audience_n)||0:CC.size==="hit"?Number(c.hit_ratio)||0:Number(c.views_90d)||0;
-  // accounts per circle
-  const accIn={},primary={};
-  for(const cl of CIR.clusters)accIn[cl.id]=new Set();
-  for(const[cid,ps]of Object.entries(CIR.cov)){const tally={};for(const[p,n]of Object.entries(ps)){const k=CIR.pc[p];if(!k)continue;accIn[k].add(cid);tally[k]=(tally[k]||0)+n}
-    const best=Object.entries(tally).sort((a,b)=>b[1]-a[1])[0];if(best)primary[cid]=best[0]}
-  // circle layout: overlap more where circles share accounts
-  const cn=CIR.clusters.map((cl,i)=>{const a=i/CIR.clusters.length*Math.PI*2;return{id:cl.id,cl,n:accIn[cl.id].size,x:Math.cos(a)*w*.3,y:Math.sin(a)*h*.3}});
-  const maxN=d3.max(cn,d=>d.n)||1;
-  const scale=Math.min(w,h)/900;
-  for(const d of cn)d.r=(46+Math.sqrt(d.n/maxN)*120)*scale;
-  const cl2=[];for(let i=0;i<cn.length;i++)for(let j=i+1;j<cn.length;j++){const A=accIn[cn[i].id],B=accIn[cn[j].id];let sh=0;for(const x of A)if(B.has(x))sh++;const sim=sh/Math.max(1,Math.min(A.size,B.size));if(sim>0.15)cl2.push({source:cn[i].id,target:cn[j].id,sim})}
-  const fs=d3.forceSimulation(cn).force("link",d3.forceLink(cl2).id(d=>d.id).distance(l=>(l.source.r+l.target.r)*(1-0.45*l.sim)).strength(l=>.2+l.sim*.6))
-    .force("charge",d3.forceManyBody().strength(-40)).force("collide",d3.forceCollide(d=>d.r*.72)).force("x",d3.forceX(0).strength(.06)).force("y",d3.forceY(0).strength(.09)).stop();
-  for(let i=0;i<400;i++)fs.tick();
-  const cpos={};for(const d of cn)cpos[d.id]=d;
-  const root=svg.append("g");
-  const zoom=d3.zoom().scaleExtent([.4,4]).on("zoom",e=>root.attr("transform",e.transform));svg.call(zoom).on("dblclick.zoom",null);
-  const linesG=root.append("g");
-  const circ=root.append("g").selectAll("g").data(cn).join("g").style("cursor","pointer")
-    .on("click",(e,d)=>{e.stopPropagation();CC.focus=CC.focus===d.id?null:d.id;CC.sel=null;applyCFocus();cSide();renderCList()});
-  circ.append("circle").attr("cx",d=>d.x).attr("cy",d=>d.y).attr("r",d=>d.r).attr("fill",d=>d.cl.color).attr("fill-opacity",.42).attr("stroke",d=>d.cl.color).attr("stroke-width",2).style("mix-blend-mode","multiply");
-  const FONT="Schibsted Grotesk, ui-sans-serif, sans-serif";
-  circ.append("text").attr("x",d=>d.x).attr("y",d=>d.y-d.r*.42).attr("text-anchor","middle").attr("font-family",FONT).attr("font-weight",800).attr("font-size",d=>Math.max(13,Math.min(20,d.r/7))).attr("fill","#121314").text(d=>d.cl.name);
-  circ.append("text").attr("x",d=>d.x).attr("y",d=>d.y-d.r*.42+16).attr("text-anchor","middle").attr("font-family",FONT).attr("font-size",11.5).attr("fill","#3A3A38").text(d=>d.cl.players.slice(0,3).map(p=>p.split(" ").slice(-1)[0]).join(" · "));
-  // specialists inside each circle (top 3 by metric)
-  const spec=[];
-  for(const d of cn){const mine=[...accIn[d.id]].filter(cid=>primary[cid]===d.id&&CIR.roles[cid]==="specialist"&&byId[cid]).map(cid=>byId[cid]).sort((a,b)=>metric(b)-metric(a)).slice(0,3);
-    mine.forEach((c,i)=>{const a=Math.PI*(0.15+0.35*i);spec.push({c,cid:c.id,role:"specialist",x:d.x+Math.cos(a)*d.r*.45-d.r*.22,y:d.y+Math.sin(a)*d.r*.42+d.r*.05})})}
-  // tastemakers in the overlaps
-  const tm=Object.entries(CIR.roles).filter(([k,r])=>r==="tastemaker"&&byId[k]).map(([k])=>byId[k]).sort((a,b)=>metric(b)-metric(a)).slice(0,10).map(c=>{let sx=0,sy=0,sw=0;const t={};for(const[p,n]of Object.entries(CIR.cov[c.id]||{})){const k=CIR.pc[p];if(!k)continue;t[k]=(t[k]||0)+n}
-    for(const[k,n]of Object.entries(t)){sx+=cpos[k].x*n;sy+=cpos[k].y*n;sw+=n}return{c,cid:c.id,role:"tastemaker",x:sw?sx/sw:0,y:sw?sy/sw:0,circles:Object.keys(t)}});
-  const items=[...spec,...tm];
-  const vals=items.map(d=>metric(d.c)).filter(v=>v>0),lo=Math.log10(d3.min(vals)||1),hi=Math.log10(d3.max(vals)||10);
-  for(const d of items){const v=metric(d.c);const t=v>0?(hi===lo?1:(Math.log10(v)-lo)/(hi-lo)):0;d.r=(d.role==="tastemaker"?9:5)+(d.role==="tastemaker"?16:9)*t}
-  // nudge tastemakers apart
-  const ts=d3.forceSimulation(tm).force("collide",d3.forceCollide(d=>d.r+16)).force("x",d3.forceX(d=>d.x).strength(.3)).force("y",d3.forceY(d=>d.y).strength(.3)).stop();for(let i=0;i<120;i++)ts.tick();
-  const it=root.append("g").selectAll("g").data(items).join("g").style("cursor","pointer").attr("transform",d=>`translate(${d.x},${d.y})`);
-  it.append("circle").attr("r",d=>d.r).attr("fill",d=>d.role==="tastemaker"?"#FF6D1F":"#2E7D1F").attr("stroke","#F4F1EA").attr("stroke-width",1.5);
-  it.append("text").attr("x",d=>d.r+5).attr("y",4).attr("font-family",FONT).attr("font-size",d=>d.role==="tastemaker"?12.5:11).attr("font-weight",d=>d.role==="tastemaker"?800:600).attr("fill",d=>d.role==="tastemaker"?"#A63E06":"#1F4F14").attr("paint-order","stroke").attr("stroke","#F4F1EA").attr("stroke-width",3).text(d=>d.c.name);
-  const tip=$("#ctip"),gb=$("#cgraph");
-  it.on("mouseenter",(e,d)=>{tip.hidden=false;tip.innerHTML="";
-      const cls=[...new Set(Object.keys(CIR.cov[d.cid]||{}).map(p=>CIR.pc[p]).filter(Boolean))];
-      tip.append(el("b",{text:d.c.name}),el("span",{text:(d.role==="tastemaker"?"Tastemaker":"Specialist editor")+" · reaches "+cls.length+(cls.length===1?" circle":" circles")+" · "+(CC.size==="hit"?fmtX(metric(d.c)):fmtN(metric(d.c))||"–")+" "+({recent:"views, 90 days",audience:"followers",hit:"followers"})[CC.size]}));
-      linesG.selectAll("line").data(cls.map(k=>cpos[k])).join("line").attr("x1",d.x).attr("y1",d.y).attr("x2",c=>c.x).attr("y2",c=>c.y).attr("stroke",d.role==="tastemaker"?"#FF6D1F":"#2E7D1F").attr("stroke-width",1.6).attr("stroke-dasharray","3 3")})
-    .on("mousemove",e=>{const r=gb.getBoundingClientRect();let x=e.clientX-r.left+14,y=e.clientY-r.top+14;if(x>r.width-270)x-=290;tip.style.left=x+"px";tip.style.top=y+"px"})
-    .on("mouseleave",()=>{tip.hidden=true;linesG.selectAll("*").remove()})
-    .on("click",(e,d)=>{e.stopPropagation();CC.sel={kind:"acct",cid:d.cid,c:d.c,role:d.role,ps:CIR.cov[d.cid]||{}};cSide()});
-  svg.on("click",()=>{CC.sel=null;CC.focus=null;applyCFocus();cSide();renderCList()});
-  const fit=()=>{const xs=cn.flatMap(d=>[d.x-d.r,d.x+d.r]),ys=cn.flatMap(d=>[d.y-d.r,d.y+d.r]);const x0=d3.min(xs)-30,x1=d3.max(xs)+30,y0=d3.min(ys)-30,y1=d3.max(ys)+30;const k=Math.min(2.5,.96/Math.max((x1-x0)/w,(y1-y0)/h));svg.call(zoom.transform,d3.zoomIdentity.scale(k).translate(-(x0+x1)/2,-(y0+y1)/2))};
-  CC.fit=fit;fit();
-  CC.circ=circ;CC.items=it;CC.accIn=accIn;
-  applyCFocus();cSide();
+  cWire();cSize();
+  const key=S.creators.length+"|"+CC.vids;
+  if(CG.built!==key){CG.built=key;cBuild();cZoomTo(()=>true,0)}
+  cDraw();cFocusBar();cSide();
 }
-function applyCFocus(){if(!CC.circ)return;const f=CC.focus;
-  CC.circ.style("opacity",d=>!f||d.id===f?1:.22);
-  CC.items.style("opacity",d=>!f||(CC.accIn[f]&&CC.accIn[f].has(d.cid))?1:.12);
-  const fb=$("#cfocus");if(!f){fb.hidden=true;return}
-  const cl=CIR.clusters.find(c=>c.id===f);fb.hidden=false;fb.innerHTML="";fb.append("Showing "+cl.name+" ",el("button",{type:"button",onclick:()=>{CC.focus=null;applyCFocus();cSide();renderCList()}},"Show all"))}
 function cSide(){const side=$("#cside");side.innerHTML="";const byId={};for(const c of S.creators)byId[c.id]=c;
-  const list=(title,items)=>{if(!items.length)return;side.append(el("span",{class:"label",text:title}));const ol=el("ol",{class:"rank"});for(const[n,v,href]of items)ol.append(el("li",{},href?el("a",{href,target:"_blank",rel:"noopener noreferrer",style:"display:grid;grid-template-columns:22px minmax(0,1fr) auto;gap:8px;padding:7px 0;border-top:1px solid var(--rule);text-decoration:none;color:var(--ink);font-size:13.5px"},el("span",{}),el("span",{style:"overflow:hidden;text-overflow:ellipsis;white-space:nowrap",text:n}),el("b",{style:"color:var(--g1)",text:v})):el("span",{style:"display:block;padding:7px 0;border-top:1px solid var(--rule);font-size:13.5px",text:n+"  "+v})));side.append(ol)};
+  const list=(title,items)=>{if(!items.length)return;side.append(el("span",{class:"label",text:title}));const ol=el("ol",{class:"rank"});for(const[n,v,href]of items)ol.append(el("li",{},href?el("a",{href,target:"_blank",rel:"noopener noreferrer",style:"display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;padding:7px 0;border-top:1px solid var(--rule);text-decoration:none;color:var(--ink);font-size:13.5px"},el("span",{style:"overflow:hidden;text-overflow:ellipsis;white-space:nowrap",text:n}),el("b",{style:"color:var(--g1)",text:v})):el("span",{style:"display:block;padding:7px 0;border-top:1px solid var(--rule);font-size:13.5px",text:n+"  "+v})));side.append(ol)};
   const d=CC.sel;
-  if(false){side.append(el("span",{class:"label",text:(CIR.clusters.find(c=>c.id===d.cl)||{}).name||""}),el("h3",{text:d.p}));
-    const cov=CC.links.filter(l=>l.target.id===d.id).map(l=>l.source).sort((a,b)=>b.v-a.v);
-    list("Who covers him",cov.slice(0,12).map(n=>[n.c.name+" · "+({tastemaker:"tastemaker",specialist:"specialist",player:"own channel",broadcast:"broadcast",community:"community"})[n.role],fmtN(n.c.views_90d)||fmtN(n.c.audience_n)||"",safeUrl(n.c.url)]));
-    list("Biggest recent videos about him",HITS.filter(h=>h.p.includes(d.p)).sort((a,b)=>b.v-a.v).slice(0,8).map(h=>[h.t,fmtN(h.v),hitLink(h)]));return}
-  if(d&&d.kind==="acct"){side.append(el("span",{class:"label",text:({tastemaker:"Tastemaker",specialist:"Specialist editor",player:"Player's own channel",broadcast:"Broadcast / network",community:"Community"})[d.role]}),el("h3",{text:d.c.name}));
-    const cls=[...new Set(Object.keys(d.ps).map(p=>CIR.pc[p]).filter(Boolean))].map(id=>CIR.clusters.find(c=>c.id===id).name);
+  if(d&&d.type==="video"){const h=d.h,c=byId[h.cid];
+    side.append(el("span",{class:"label",text:h.k==="short"?"Short":"Video"}),el("h3",{text:d.name}),
+      el("a",{class:"vthumb",href:hitLink(h),target:"_blank",rel:"noopener noreferrer"},el("img",{src:"https://i.ytimg.com/vi/"+h.id+"/mqdefault.jpg",alt:""})),
+      el("p",{text:fmtN(h.v)+" views"+(h.a!=null?" · posted "+agoShort(h.a):"")+(h.r?" · "+fmtX(h.r)+" the channel's followers":"")}));
+    if(c)side.append(el("p",{text:"From "+c.name+(c.audience_n?" ("+fmtN(c.audience_n)+" followers)":"")+"."}));
+    if(h.p.length)side.append(el("p",{text:"Players: "+h.p.join(", ")+"."}));
+    side.append(el("p",{},el("a",{href:hitLink(h),target:"_blank",rel:"noopener noreferrer",text:"Watch on YouTube ↗"})));return}
+  if(d&&d.type==="player"){side.append(el("span",{class:"label",text:"Player · "+CL[d.cl].name}),el("h3",{text:d.name}));
+    const cov=Object.entries(CIR.cov).filter(([cid,ps])=>ps[d.name]&&byId[cid]).map(([cid,ps])=>[byId[cid],ps[d.name]]).sort((a,b)=>b[1]-a[1]);
+    side.append(el("p",{text:"Covered by "+cov.length+(cov.length===1?" account.":" accounts.")}));
+    list("Who covers them",cov.slice(0,12).map(([c,n])=>[c.name+" · "+(ROLE_NAME[CIR.roles[c.id]]||"").toLowerCase(),n+(n===1?" upload":" uploads"),safeUrl(c.url)]));
+    list("Biggest recent videos",HITS.filter(h=>h.p.includes(d.name)).sort((a,b)=>b.v-a.v).slice(0,8).map(h=>[h.t,fmtN(h.v),hitLink(h)]));return}
+  if(d&&d.type==="acct"){const ps=CIR.cov[d.id]||{};side.append(el("span",{class:"label",text:ROLE_NAME[d.role]}),el("h3",{text:d.c.name}));
+    const cls=[...d.grp].map(id=>CL[id].name);
     side.append(el("p",{text:"In "+cls.length+(cls.length===1?" circle: ":" circles: ")+cls.join(", ")+"."}));
     if(specText(d.c))side.append(el("p",{style:"font-weight:600",text:specText(d.c)}));
-    list("Biggest recent videos",HITS.filter(h=>h.cid===d.cid).sort((a,b)=>b.v-a.v).slice(0,6).map(h=>[h.t,fmtN(h.v),hitLink(h)]));
+    list("Players it covers",Object.entries(ps).sort((a,b)=>b[1]-a[1]).slice(0,10).map(([p,n])=>[p,n+(n===1?" upload":" uploads")]));
+    list("Biggest recent videos",HITS.filter(h=>h.cid===d.id).sort((a,b)=>b.v-a.v).slice(0,6).map(h=>[h.t,fmtN(h.v),hitLink(h)]));
     const u=safeUrl(d.c.url);if(u)side.append(el("p",{},el("a",{href:u,target:"_blank",rel:"noopener noreferrer",text:"Open "+(d.c.platform||"channel")+" ↗"})));return}
   const f=CC.focus;
-  if(f){const cl=CIR.clusters.find(c=>c.id===f);side.append(el("span",{class:"label",text:"Circle"}),el("h3",{text:cl.name}));
+  if(f){const cl=CL[f];side.append(el("span",{class:"label",text:"Circle"}),el("h3",{text:cl.name}));
     side.append(el("p",{text:cl.players.join(", ")+"."}));
     const accs=Object.entries(CIR.cov).filter(([cid,ps])=>Object.keys(ps).some(p=>CIR.pc[p]===f)).map(([cid])=>byId[cid]).filter(Boolean);
     list("Specialists inside this circle",accs.filter(c=>CIR.roles[c.id]==="specialist").sort((a,b)=>(b.views_90d||0)-(a.views_90d||0)).slice(0,10).map(c=>[c.name,fmtN(c.views_90d)||fmtN(c.audience_n)||"",safeUrl(c.url)]));
     list("Tastemakers reaching it",accs.filter(c=>CIR.roles[c.id]==="tastemaker").sort((a,b)=>(b.views_90d||0)-(a.views_90d||0)).slice(0,8).map(c=>[c.name,fmtN(c.views_90d)||fmtN(c.audience_n)||"",safeUrl(c.url)]));
     list("Biggest recent videos in this circle",HITS.filter(h=>h.p.some(p=>CIR.pc[p]===f)).sort((a,b)=>b.v-a.v).slice(0,8).map(h=>[h.t,fmtN(h.v),hitLink(h)]));return}
-  side.append(el("span",{class:"label",text:"How to read it"}),el("h3",{text:CIR.clusters.length+" circles, "+Object.keys(CIR.cov).length+" accounts"}));
-  side.append(el("p",{text:"Each circle is a group of players whose fans are served by the same editors. Circles overlap more when they share editors. Green dots are each circle's top specialists. Orange dots are tastemakers, placed between the circles they reach. Hover one to see its reach; click a circle to open it."}));
+  const nA=CG.nodes.filter(n=>n.type==="acct").length,nP=CG.nodes.filter(n=>n.type==="player").length,nV=CG.nodes.filter(n=>n.type==="video").length;
+  side.append(el("span",{class:"label",text:"How to read it"}),el("h3",{text:nP+" players, "+nA+" accounts"+(nV?", "+nV+" videos":"")}));
+  side.append(el("p",{text:"Specialist editors cluster around the players they cover, and those clusters are the fan circles. Tastemakers (white) cover everyone, so they sit in the middle and join the circles together. Hover a dot to light up its connections. Click one to open it."}));
+  {const sc=el("div",{class:"schem","aria-hidden":"true"});sc.innerHTML=SCHEM;side.append(sc)}
   const tm=Object.entries(CIR.roles).filter(([k,r])=>r==="tastemaker").map(([k])=>byId[k]).filter(Boolean).sort((a,b)=>(b.views_90d||0)-(a.views_90d||0));
   list("Biggest tastemakers",tm.slice(0,10).map(c=>[c.name,fmtN(c.views_90d)||fmtN(c.audience_n)||"",safeUrl(c.url)]));
-  side.append(el("p",{class:"wnote",text:"Circles are computed from YouTube and TikTok coverage on 3 Oct 2026. Players with few dedicated editors (Baron Davis, Steve Nash, Jason Williams) attach to their nearest circle; that thinness is itself a finding."}));
+  side.append(el("p",{class:"wnote",text:"Built from YouTube and TikTok coverage measured on 3 Oct 2026; videos are the 600 most-viewed recent uploads tagged to a player by title. Players with few dedicated editors (Baron Davis, Steve Nash, Jason Williams) attach to their nearest circle; that thinness is itself a finding."}));
 }
-$("#cSize").addEventListener("change",e=>{CC.size=e.target.value;renderCircles()});
-$("#cFit").addEventListener("click",()=>CC.fit&&CC.fit());
+$("#cSize").addEventListener("change",e=>{CC.size=e.target.value;if(!CG.sim)return;cRadii();CG.sim.force("collide").radius(n=>n.r+(n.type==="video"?.6:2.5));CG.sim.alpha(.3).restart();cSide()});
+$("#cVids").addEventListener("change",e=>{CC.vids=e.target.checked;CC.sel=null;CC.hover=null;renderCircles()});
+$("#cRepel").addEventListener("input",e=>{CC.repel=+e.target.value;if(!CG.sim)return;CG.sim.force("charge").strength(n=>n.type==="video"?-5:-CC.repel);CG.sim.alpha(.4).restart()});
+$("#cDist").addEventListener("input",e=>{CC.dist=+e.target.value;if(!CG.sim)return;CG.sim.force("link").distance(l=>l.kind==="vid"?16:CC.dist);CG.sim.alpha(.4).restart()});
+$("#cQ").addEventListener("input",e=>{CC.q=e.target.value.trim().toLowerCase();CC.sel=null;cDraw()});
+$("#cQ").addEventListener("keydown",e=>{if(e.key!=="Enter"||!CC.q)return;const m=CG.nodes.filter(n=>n.name.toLowerCase().includes(CC.q));if(m.length===1){CC.sel=m[0];cSide()}cZoomTo(n=>m.includes(n))});
+$("#cFit").addEventListener("click",()=>cZoomTo(()=>true));
 
 function renderBoard(){
   const b=$("#board");b.innerHTML="";
