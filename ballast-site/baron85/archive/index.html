@@ -111,21 +111,32 @@ a.blob:hover{outline:2px solid #0B5CF6;outline-offset:2px}
   <div class="labels" id="labels"></div>
 </div>
 
-<div class="foot"><span>Accounts and counts read 2 Oct 2026; X followers read 5 Oct 2026. Hit = best video in the last 90 days ÷ followers.</span><span>Pieces marked “to catalog” are not in the archive yet. <a href="https://ballast.la/" style="color:inherit">Ballast</a></span></div>
+<div class="foot"><span>Accounts read 2 Oct 2026; YouTube views and X followers read 5 Oct 2026. Hit = best video in the last 90 days ÷ followers.</span><span>Pieces marked “to catalog” are not in the archive yet. <a href="https://ballast.la/" style="color:inherit">Ballast</a></span></div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
 // the archive: one face per type of content. Every piece links to where it lives now.
 const FACES = [
-  {id:"footage", label:"game footage", color:"#2F5BEA", tier:"Tier 2 · licensed archival. Playmakers channels already hold an NBA licence.",
-   items:[["Over the top of Kirilenko, May 11 2007. Top fan upload: 1.83M views, 19 years old","https://www.youtube.com/watch?v=8w_1ZEk4mds"],
-          ["We Believe: first 8 seed to beat a 1 seed in a seven-game series, 2007",""],
-          ["89 feet at Milwaukee, Feb 17 2001",""],
-          ["Drew League handles: 933K on HoopmixtapeBlog","https://www.youtube.com/@HoopmixtapeBlog"]]},
-  {id:"interviews", label:"shows", color:"#F4C2DC", tier:"Tier 1 · his own words. He is on the panel circuit right now.",
-   items:[["Gil's Arena appearance, late Sept 2026, co-posted to his account","https://www.instagram.com/gilsarena0/"],
-          ["Tiger A. Smith cuts of the panel: 99.3K and 62.7K, 25–26 Sep","https://www.youtube.com/@TigerASmith"],
-          ["Enjoy Basketball throwback from the San Francisco live show","https://www.tiktok.com/@enjoybball"]]},
+  {id:"footage", label:"game footage", color:"#2F5BEA", tier:"Tier 2 · licensed archival. His top clips are 9–20 years old and sit on other people's channels.",
+   items:[["Over the top of Kirilenko · NBA · 2.16M","https://www.youtube.com/watch?v=tYpwjB0IzoU"],
+          ["Over the top of Kirilenko · orangino · 1.83M","https://www.youtube.com/watch?v=8w_1ZEk4mds"],
+          ["89 feet · Secret Base · 1.15M","https://www.youtube.com/watch?v=ndmBCqds_gc"],
+          ["The long shot · EverythingBall · 1.06M","https://www.youtube.com/watch?v=zWUEnbPsVfo"],
+          ["Drew League handles · HoopmixtapeBlog · 933K","https://www.youtube.com/@HoopmixtapeBlog"],
+          ["Top 10 career plays · NBA · 890K","https://www.youtube.com/watch?v=k9NUCr38ykE"],
+          ["Dunk on Shaq · D1PHAM · 751K","https://www.youtube.com/watch?v=rMnh9u6QzfY"],
+          ["And-one over Pau Gasol · DaPerfectionist · 583K","https://www.youtube.com/watch?v=6l85W651WVI"],
+          ["Ultimate Hornets mixtape · NBA · 445K","https://www.youtube.com/watch?v=mcvWx93Q9VE"]]},
+  {id:"interviews", label:"shows", color:"#F4C2DC", tier:"Tier 1 · his own words. His biggest videos of the last five years are long-form shows.",
+   items:[["How he turned an NBA career into a portfolio · REVOLT · 3.3M","https://www.youtube.com/watch?v=MQkOEQKoMKo"],
+          ["Roast Me · All Def · 2.7M","https://www.youtube.com/watch?v=pqCN0wyfE78"],
+          ["NEXT UP · All Def · 1.5M","https://www.youtube.com/watch?v=2b9uttEGDaI"],
+          ["Gil's Arena · 750K","https://www.youtube.com/watch?v=Abfr37khMQE"],
+          ["Bootleg Kev · 698K","https://www.youtube.com/watch?v=GUWpjGxr1FI"],
+          ["ALL THE SMOKE ep. 88 · 668K","https://www.youtube.com/watch?v=piTpiBgtaGA"],
+          ["The Breakfast Club, with Paul Pierce · 628K","https://www.youtube.com/watch?v=omEtXYa1UkI"],
+          ["Knuckleheads · The Players' Tribune · 515K","https://www.youtube.com/watch?v=ue6BcjTdesI"],
+          ["Gil's Arena cuts · Tiger A. Smith · 99K and 63K, Sept 2026","https://www.youtube.com/@TigerASmith"]]},
   {id:"personal", label:"his accounts", color:"#E3F23F", tier:"Tier 1 · player-owned. Where every other face should point back.",
    items:[["Instagram @iambarondavis · 349K","https://www.instagram.com/iambarondavis/"],
           ["X @BaronDavis · 841K","https://x.com/BaronDavis"]]},
@@ -138,6 +149,12 @@ const FACES = [
   {id:"mixes", label:"fan mixes", color:"#C9A8F0", tier:"Tier 3 · fan edits. No mix of his passes 350K.",
    items:[["Baron Davis Ultimate Mix · wetagua · 347K","https://www.youtube.com/@wetagua"],
           ["“1 minute of Baron Davis bag work” · 3.9K, 4 Sep","https://www.tiktok.com/@bagwork504"]]},
+  {id:"games", label:"video games", color:"#F28C7C", tier:"Licensed now: 2K and EA have both issued him as a legend card. The old games' code and assets belong to their publishers; using them takes a licence.",
+   items:[["2K18 Warriors classic team · Chris Smoove · 235K","https://www.youtube.com/watch?v=qau0HG3Zs-w"],
+          ["99 OVR card, NBA Live Mobile 19 · QJB · 147K","https://www.youtube.com/watch?v=UCeVEXU54dI"],
+          ["Galaxy Opal card, 2K21 · CarlosStory · 57K","https://www.youtube.com/watch?v=iutrvedwdTs"],
+          ["Pink Diamond card, 2K19 · HTB · 34K","https://www.youtube.com/watch?v=GqLsY4r1tAA"],
+          ["On the We Believe Warriors · NBA 2KTV · 31K","https://www.youtube.com/watch?v=HKpG6ZhvaO8"]]},
   {id:"memorabilia", label:"vault", color:"#9FE0BE", tier:"Vault · auctions and unlocks; Minutes cover 10–20% of a bid",
    items:[["Signed items",""],["Locked vault moments",""]]},
 ];
@@ -149,8 +166,8 @@ const SEGMENTS = [
    inc:"Every HOTG release credits him and links back to his accounts.",
    accts:[["Baron Davis","Instagram","349K","https://www.instagram.com/iambarondavis/"],["Baron Davis","X","841K","https://x.com/BaronDavis"],["BIG","teambig.io","his platform","https://www.teambig.io"],["BIG Summits","X","","https://x.com/bigsummits_"]]},
   {name:"The panel circuit", to:["interviews","big","ventures"],
-   inc:"Shows he is on now, and legends' shows he could be. Commissions: fans pool Minutes to book an appearance; paid on delivery.",
-   accts:[["Gil's Arena","YouTube","1.29M","https://www.youtube.com/@GilsArenaShow"],["Gil's Arena","Instagram","228K · co-posts with him","https://www.instagram.com/gilsarena0/"],["Tiger A. Smith","YouTube","24.3K · 16.7× hit","https://www.youtube.com/@TigerASmith",1],["Mind the Game","YouTube","915K · 2.1× hit","https://www.youtube.com/@MindTheGamePodcast"],["Cousins with Vince & T-Mac","YouTube","124K","https://www.youtube.com/@VinceAndTmac"],["Hoopin' N Hollerin'","YouTube","299K","https://www.youtube.com/@hoopinhollerin"],["The LOWLights","YouTube","111K · 7.0× hit","https://www.youtube.com/@TheLOWLights-q1g",1],["Enjoy Basketball","TikTok","463.5K","https://www.tiktok.com/@enjoybball"]]},
+   inc:"Shows he is on now, shows he has done, and legends' shows he could be. Commissions: fans pool Minutes to book an appearance; paid on delivery.",
+   accts:[["Gil's Arena","YouTube","1.29M","https://www.youtube.com/@GilsArenaShow"],["Gil's Arena","Instagram","228K · co-posts with him","https://www.instagram.com/gilsarena0/"],["Tiger A. Smith","YouTube","24.3K · 16.7× hit","https://www.youtube.com/@TigerASmith",1],["Mind the Game","YouTube","915K · 2.1× hit","https://www.youtube.com/@MindTheGamePodcast"],["Cousins with Vince & T-Mac","YouTube","124K","https://www.youtube.com/@VinceAndTmac"],["Hoopin' N Hollerin'","YouTube","299K","https://www.youtube.com/@hoopinhollerin"],["The LOWLights","YouTube","111K · 7.0× hit","https://www.youtube.com/@TheLOWLights-q1g",1],["Enjoy Basketball","TikTok","463.5K","https://www.tiktok.com/@enjoybball"],["REVOLT","YouTube","his episode 3.3M","https://www.youtube.com/watch?v=MQkOEQKoMKo"],["All Def","YouTube","Roast Me 2.7M · NEXT UP 1.5M","https://www.youtube.com/@Alldef"],["ALL THE SMOKE","YouTube","his episode 668K","https://www.youtube.com/watch?v=piTpiBgtaGA"],["Bootleg Kev","YouTube","his episode 698K","https://www.youtube.com/watch?v=GUWpjGxr1FI"],["The Breakfast Club","YouTube","his episode 628K","https://www.youtube.com/watch?v=omEtXYa1UkI"],["Knuckleheads","YouTube","his episode 515K","https://www.youtube.com/watch?v=ue6BcjTdesI"]]},
   {name:"Licensed editors", to:["footage","mixes"],
    inc:"Already licensed through NBA Playmakers, so they can cut his game footage today. Credit and a source link back to HOTG on every cut.",
    accts:[["Hicko","YouTube","249K · 5.6× hit","https://www.youtube.com/@Hicko",1],["CoshReport","YouTube","608K · 2.1× hit","https://www.youtube.com/@CoshReport"],["NBArtv","YouTube","231K · 1.9× hit","https://www.youtube.com/@NBArtv"],["MaxaMillion711","YouTube","493K","https://www.youtube.com/@MaxaMillion711"]]},
@@ -163,10 +180,13 @@ const SEGMENTS = [
   {name:"His teams' fans", to:["footage","provenance","interviews","memorabilia"],
    inc:"Warriors, Clippers, Hornets, Pelicans, Cavs and Knicks communities. Ticket stubs, stands photos and “I was there” come from here, paid in Minutes and named credit.",
    accts:[["r/warriors","Reddit","1.5M","https://www.reddit.com/r/warriors/"],["LetsGoWarriors","YouTube","172K","https://www.youtube.com/@LetsGoWarriors"],["Warriors World","Instagram","74K","https://www.instagram.com/officialwarriorsworld/"],["Locked On Warriors","YouTube","20.2K","https://www.youtube.com/@LockedOnWarriors"],["r/LAClippers","Reddit","391K","https://www.reddit.com/r/LAClippers/"],["Locked On Clippers","YouTube","8.5K · 2.2× hit","https://www.youtube.com/@LockedOnClippers",1],["Locked On Hornets","YouTube","11.9K","https://www.youtube.com/@LockedOnHornets"],["Locked On Pelicans","YouTube","12.9K","https://www.youtube.com/@LockedOnPelicans"],["It's Cavalier","YouTube","33.6K","https://www.youtube.com/@itscavalierpodcast1410"],["r/NYKnicks","Reddit","474K","https://www.reddit.com/r/NYKnicks/"],["KnicksFanTV","YouTube","111K","https://www.youtube.com/@KnicksFanTV"]]},
-  {name:"His old uploads, gone quiet", to:["footage","mixes"],
-   inc:"Where his biggest clips sit today. No mix of his passes 350K and no account is dedicated to him. Bring these into the archive and point them back.",
-   accts:[["orangino","YouTube","Kirilenko poster · 1.83M · dormant","https://www.youtube.com/watch?v=8w_1ZEk4mds"],["HoopmixtapeBlog","YouTube","Drew League · 933K","https://www.youtube.com/@HoopmixtapeBlog"],["wetagua","YouTube","Ultimate Mix · 347K","https://www.youtube.com/@wetagua"],["House Of Hoops","YouTube","360K · slowing","https://www.youtube.com/@HouseOfHoops1"]]},
-  {name:"History of the Game", to:["footage","interviews","personal","provenance","big","ventures","mixes","memorabilia"],
+  {name:"Where his biggest clips sit", to:["footage","mixes"],
+   inc:"His top clips are 9 to 20 years old and none of them link to him. Bring them into the archive and point them back.",
+   accts:[["NBA","YouTube","Kirilenko 2.16M · top 10 890K · Hornets mix 445K","https://www.youtube.com/@NBA"],["orangino","YouTube","Kirilenko 1.83M · dormant","https://www.youtube.com/watch?v=8w_1ZEk4mds"],["Secret Base","YouTube","89 feet · 1.15M","https://www.youtube.com/watch?v=ndmBCqds_gc"],["EverythingBall","YouTube","long shot · 1.06M","https://www.youtube.com/watch?v=zWUEnbPsVfo"],["HoopmixtapeBlog","YouTube","Drew League · 933K","https://www.youtube.com/@HoopmixtapeBlog"],["D1PHAM","YouTube","dunk on Shaq · 751K","https://www.youtube.com/watch?v=rMnh9u6QzfY"],["DaPerfectionist","YouTube","over Gasol · 583K","https://www.youtube.com/watch?v=6l85W651WVI"],["wetagua","YouTube","Ultimate Mix · 347K","https://www.youtube.com/@wetagua"]]},
+  {name:"Game creators", to:["games"],
+   inc:"Creators who already make videos about his 2K and NBA Live cards. Every new card is a release they cover.",
+   accts:[["Chris Smoove","YouTube","2K18 classic team · 235K","https://www.youtube.com/@chrissmoove"],["QJB","YouTube","NBA Live Mobile · 147K","https://www.youtube.com/@QJB"],["CarlosStory","YouTube","2K21 Galaxy Opal · 57K","https://www.youtube.com/@CarlosStory"],["HTB","YouTube","2K19 Pink Diamond · 34K","https://www.youtube.com/@HTB"],["NBA 2K","YouTube","2KTV interview · 31K","https://www.youtube.com/@nba2k"]]},
+  {name:"History of the Game", to:["footage","interviews","personal","provenance","big","ventures","mixes","games","memorabilia"],
    inc:"The hub. Every face and every segment links back here.",
    accts:[["HOTG","X","@HistoryOTG","https://x.com/HistoryOTG"]]},
 ];
@@ -174,7 +194,7 @@ const SEGMENTS = [
 const $ = id => document.getElementById(id);
 const stage = $("stage"), spill = $("spill"), chan = $("chan"), labels = $("labels"), lines = $("lines");
 const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-let hover = null, pinned = null, lastScroll = null;
+let hover = null, pinned = null, lastScroll = null, faceFromList = false;
 const active = () => pinned || hover;
 
 // channels
@@ -184,14 +204,14 @@ chan.innerHTML = `<h3><span>who carries it</span><span>${SEGMENTS.reduce((n, g) 
 
 // face chips (narrow screens)
 $("chips").innerHTML = FACES.map(f => `<button type="button" data-f="${f.id}" aria-pressed="false"><i class="sw" style="background:${f.color}"></i>${f.label}</button>`).join("");
-$("chips").addEventListener("click", e => { const b = e.target.closest("[data-f]"); if (b){ pinned = pinned === b.dataset.f ? null : b.dataset.f; update(); } });
+$("chips").addEventListener("click", e => { const b = e.target.closest("[data-f]"); if (b){ pinned = pinned === b.dataset.f ? null : b.dataset.f; faceFromList = true; update(); } });
 
 // labels
 labels.innerHTML = FACES.map(f => `<button type="button" class="lab" data-f="${f.id}"><i class="sw" style="background:${f.color}"></i>${f.label}<small>[${f.items.length}]</small></button>`).join("");
 labels.querySelectorAll(".lab").forEach(b => {
-  b.addEventListener("pointerenter", () => { hover = b.dataset.f; update(); });
+  b.addEventListener("pointerenter", () => { hover = b.dataset.f; faceFromList = true; update(); });
   b.addEventListener("pointerleave", () => { hover = null; update(); });
-  b.addEventListener("click", () => { pinned = pinned === b.dataset.f ? null : b.dataset.f; update(); });
+  b.addEventListener("click", () => { pinned = pinned === b.dataset.f ? null : b.dataset.f; faceFromList = true; update(); });
 });
 
 const shapes = ["58% 42% 52% 48% / 46% 56% 44% 54%","44% 56% 40% 60% / 58% 42% 58% 42%","52% 48% 62% 38% / 40% 60% 40% 60%","62% 38% 46% 54% / 52% 44% 56% 48%","40% 60% 54% 46% / 60% 40% 52% 48%"];
@@ -242,7 +262,7 @@ if (renderer){
   const gem = new THREE.Group(); scene.add(gem);
 
   // an octagonal crystal with a waist, slightly irregular so it reads as stone
-  const N = 8, rnd = (s => () => (s = (s * 16807) % 2147483647) / 2147483647)(11);
+  const N = FACES.length, rnd = (s => () => (s = (s * 16807) % 2147483647) / 2147483647)(11);
   const ring = (y, r) => Array.from({length:N}, (_, i) => { const a = i / N * Math.PI * 2 + .2; const rr = r * (.9 + rnd() * .2); return new THREE.Vector3(Math.cos(a) * rr, y + (rnd() - .5) * .12, Math.sin(a) * rr); });
   const top = new THREE.Vector3(.08, 2.55, -.05), bot = new THREE.Vector3(-.05, -2.05, .04);
   const r1 = ring(1.25, .95), r2 = ring(0, 1.12), r3 = ring(-1.05, .92);
@@ -316,7 +336,7 @@ if (renderer){
     ray.setFromCamera(ndc, camera);
     const hit = ray.intersectObjects(meshes.map(m => m.mesh))[0];
     const f = hit ? FACES[meshes.find(m => m.mesh === hit.object).face].id : null;
-    if (f !== hover){ hover = f; update(); }
+    if (f !== hover){ hover = f; faceFromList = false; update(); }
   });
   canvas.addEventListener("pointerup", e => {
     const wasDrag = drag && drag.moved; drag = null;
@@ -363,6 +383,14 @@ if (renderer){
 
   (function loop(){
     if (!drag && !active()) rotY += vel;
+    else if (!drag && faceFromList){
+      const fi = FACES.findIndex(f => f.id === active());
+      if (fi >= 0){
+        const a = (fi + .5) / N * Math.PI * 2 + .2, target = a - Math.PI / 2;
+        let d = target - rotY; d = Math.atan2(Math.sin(d), Math.cos(d));
+        rotY += reduce ? d : d * .12;
+      }
+    }
     gem.rotation.set(rotX, rotY, 0);
     gem.updateMatrixWorld();
     renderer.render(scene, camera);
