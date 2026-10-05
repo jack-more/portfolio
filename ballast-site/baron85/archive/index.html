@@ -55,7 +55,6 @@ button:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
 .ch{text-decoration:none;color:inherit;display:grid;grid-template-columns:1fr;gap:2px 10px;padding:8px 0;border-top:1px solid color-mix(in oklab,var(--hair) 55%,transparent);transition:opacity .2s}
 .ch b{font-weight:600;font-size:13.5px;min-width:0}
 .ch b small{font-family:var(--mono);font-weight:400;font-size:10.5px;color:var(--soft);margin-left:4px}
-.ch:hover b{text-decoration:underline}
 .ch .w.hot{color:#0B5CF6;font-weight:500}
 a.blob{text-decoration:none}
 a.blob:hover{outline:2px solid #0B5CF6;outline-offset:2px}
@@ -63,8 +62,14 @@ a.blob:hover{outline:2px solid #0B5CF6;outline-offset:2px}
 .ch p{grid-column:1/-1;margin:0;font-size:12.5px;color:var(--soft);max-height:0;overflow:hidden;transition:max-height .25s}
 .stage.active .ch{opacity:.35}
 .stage.active .ch.hit{opacity:1}
-.stage.active .ch.hit p{max-height:80px}
-.ch:not(.x) p{max-height:80px}
+.ch p{max-height:none}
+.ch ul{list-style:none;margin:4px 0 0;padding:0;display:grid;gap:1px}
+.ch li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:0 8px;font-size:12.5px;align-items:baseline}
+.ch li a{color:var(--ink);text-decoration:none;border-bottom:1px solid transparent;justify-self:start}
+.ch li a:hover{border-color:var(--ink)}
+.ch li span{font-family:var(--mono);font-size:10px;color:var(--soft);text-align:right}
+.ch li em{grid-column:1/-1;font-style:normal;font-family:var(--mono);font-size:10px;color:var(--soft);margin-top:-2px}
+.ch li em.hot{color:#0B5CF6}
 
 .chips{display:none}
 .foot{padding:18px 20px 26px;font-family:var(--mono);font-size:11px;color:var(--soft);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
@@ -91,7 +96,7 @@ a.blob:hover{outline:2px solid #0B5CF6;outline-offset:2px}
 </style>
 </head><body>
 
-<div class="bar"><span><a href="https://x.com/HistoryOTG" target="_blank" rel="noopener"><b>HOTG</b></a> · archive gem 01 · <b>Baron Davis</b></span><span class="links"><a href="/baron85/">R+D deck</a><a href="https://claude.ai/artifact/ScprZE99rWjQXvNZCCq4qu" target="_blank" rel="noopener">The Fan Map</a><a href="https://ballast.la/">Ballast</a></span><span>hover a face · click to pin · drag to turn</span></div>
+<div class="bar"><span><a href="https://x.com/HistoryOTG" target="_blank" rel="noopener"><b>HOTG</b></a> · archive gem 01 · <b>Baron Davis</b></span><span class="links"><a href="/baron85/">R+D deck</a><a href="https://ballast.la/">Ballast</a></span><span>hover a face · click to pin · drag to turn</span></div>
 
 <div class="stage" id="stage">
   <svg id="lines" aria-hidden="true"></svg>
@@ -102,7 +107,7 @@ a.blob:hover{outline:2px solid #0B5CF6;outline-offset:2px}
   <div class="labels" id="labels"></div>
 </div>
 
-<div class="foot"><span>Channels and counts: The Fan Map, read 2 Oct 2026; X followers read 5 Oct 2026. Hit = best video in the last 90 days ÷ followers.</span><span>Pieces marked “to catalog” are not in the archive yet. <a href="https://ballast.la/" style="color:inherit">Ballast</a></span></div>
+<div class="foot"><span>Accounts and counts read 2 Oct 2026; X followers read 5 Oct 2026. Hit = best video in the last 90 days ÷ followers.</span><span>Pieces marked “to catalog” are not in the archive yet. <a href="https://ballast.la/" style="color:inherit">Ballast</a></span></div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
@@ -133,18 +138,33 @@ const FACES = [
    items:[["Signed items",""],["Locked vault moments",""]]},
 ];
 
-// channels from the Fan Map (2 Oct 2026). hit = best video in 90 days ÷ followers
-const CHANNELS = [
-  {name:"Baron Davis", handle:"@iambarondavis · Instagram", url:"https://www.instagram.com/iambarondavis/", stat:"349K · posted 4 days ago", to:["personal","interviews","ventures","footage","mixes"], inc:"Player-owned. Every clip HOTG releases credits him and links back here."},
-  {name:"Baron Davis", handle:"@BaronDavis · X", url:"https://x.com/BaronDavis", stat:"841K followers", to:["personal","footage","big"], inc:"Player-owned. His largest audience."},
-  {name:"Tiger A. Smith", handle:"@TigerASmith · YouTube", url:"https://www.youtube.com/@TigerASmith", stat:"24.3K subs · best 407K · 16.7× hit", hot:true, to:["interviews"], inc:"Baron is the subject of 2 of his last 10. Registered clips earn Minutes per verified view."},
-  {name:"Hicko", handle:"@Hicko · YouTube", url:"https://www.youtube.com/@Hicko", stat:"249K subs · 7.0M views in 90 days · 5.6× hit", hot:true, to:["footage","mixes"], inc:"Licensed through NBA Playmakers. Credit and source link back to HOTG on every Baron cut."},
-  {name:"MaxaMillion711", handle:"@MaxaMillion711 · YouTube", url:"https://www.youtube.com/@MaxaMillion711", stat:"493K subs · 1.6M views in 90 days", to:["footage","mixes"], inc:"Licensed through NBA Playmakers; named in the 2024 footage deal."},
-  {name:"Gil's Arena", handle:"@gilsarena0 · Instagram", url:"https://www.instagram.com/gilsarena0/", stat:"228K · co-posts with Baron", to:["interviews"], inc:"Commissions: fans pool Minutes to book the next appearance; paid on delivery."},
-  {name:"Enjoy Basketball", handle:"@enjoybball · TikTok", url:"https://www.tiktok.com/@enjoybball", stat:"463.5K followers", to:["interviews","footage"], inc:"Throwback clips of Baron recur. Source link back to HOTG."},
-  {name:"bagwork", handle:"@bagwork504 · TikTok", url:"https://www.tiktok.com/@bagwork504", stat:"5.5K followers · posts daily", to:["mixes","footage"], inc:"Legends draw as many plays as current stars here. Minutes per verified view."},
-  {name:"BIG", handle:"teambig.io · @bigsummits_", url:"https://www.teambig.io", stat:"his platform", to:["big","ventures"], inc:"Relationships he already holds. Incentive still to define."},
-  {name:"History of the Game", handle:"@HistoryOTG · X", url:"https://x.com/HistoryOTG", stat:"49 followers", to:["footage","interviews","personal","provenance","big","ventures","mixes","memorabilia"], inc:"The hub. Every face and every channel links back here."},
+// segments: who should carry each face, grouped by what they already do. Counts read 2 Oct 2026; X read 5 Oct.
+// hit = best video in the last 90 days ÷ followers
+const SEGMENTS = [
+  {name:"His own accounts", to:["personal","interviews","ventures","big","footage","memorabilia"],
+   inc:"Every HOTG release credits him and links back to his accounts.",
+   accts:[["Baron Davis","Instagram","349K","https://www.instagram.com/iambarondavis/"],["Baron Davis","X","841K","https://x.com/BaronDavis"],["BIG","teambig.io","his platform","https://www.teambig.io"],["BIG Summits","X","","https://x.com/bigsummits_"]]},
+  {name:"The panel circuit", to:["interviews","big","ventures"],
+   inc:"Shows he is on now, and legends' shows he could be. Commissions: fans pool Minutes to book an appearance; paid on delivery.",
+   accts:[["Gil's Arena","YouTube","1.29M","https://www.youtube.com/@GilsArenaShow"],["Gil's Arena","Instagram","228K · co-posts with him","https://www.instagram.com/gilsarena0/"],["Tiger A. Smith","YouTube","24.3K · 16.7× hit","https://www.youtube.com/@TigerASmith",1],["Mind the Game","YouTube","915K · 2.1× hit","https://www.youtube.com/@MindTheGamePodcast"],["Cousins with Vince & T-Mac","YouTube","124K","https://www.youtube.com/@VinceAndTmac"],["Hoopin' N Hollerin'","YouTube","299K","https://www.youtube.com/@hoopinhollerin"],["The LOWLights","YouTube","111K · 7.0× hit","https://www.youtube.com/@TheLOWLights-q1g",1],["Enjoy Basketball","TikTok","463.5K","https://www.tiktok.com/@enjoybball"]]},
+  {name:"Licensed editors", to:["footage","mixes"],
+   inc:"Already licensed through NBA Playmakers, so they can cut his game footage today. Credit and a source link back to HOTG on every cut.",
+   accts:[["Hicko","YouTube","249K · 5.6× hit","https://www.youtube.com/@Hicko",1],["CoshReport","YouTube","608K · 2.1× hit","https://www.youtube.com/@CoshReport"],["NBArtv","YouTube","231K · 1.9× hit","https://www.youtube.com/@NBArtv"],["MaxaMillion711","YouTube","493K","https://www.youtube.com/@MaxaMillion711"]]},
+  {name:"Old-school archive channels", to:["footage","provenance","mixes"],
+   inc:"Small channels whose legend uploads far outrun their following. Minutes for tags and provenance; registered clips earn per verified view.",
+   accts:[["Hoops Area","YouTube","2.5K · 18.5× hit","https://www.youtube.com/@hoopsarea",1],["Issa Sport","YouTube","66.3K · 18.1× hit","https://www.youtube.com/@issa-sport",1],["LosAngeles852","YouTube","10.6K · 11.7× hit · full 1999–2008 games","https://www.youtube.com/@LosAngeles852",1],["DATA BASKET","YouTube","84.6K · 8.3× hit · Spanish","https://www.youtube.com/@DATABASKET",1],["ENEM","YouTube","53.4K · 6.7× hit","https://www.youtube.com/@_enem",1],["Piotrekz Productions","YouTube","227K","https://www.youtube.com/@piotrekzprod"],["Oldskoolbball","YouTube","437K","https://www.youtube.com/@Oldskoolbball"]]},
+  {name:"TikTok cutters", to:["mixes","footage"],
+   inc:"Short edits, posted daily. Minutes per verified view on registered clips, capped per clip.",
+   accts:[["jacky.cuts","TikTok","15.9K · 23.4× hit","https://www.tiktok.com/@jacky.cuts",1],["bagwork","TikTok","5.5K · cut him 4 Sep","https://www.tiktok.com/@bagwork504"],["Bryplex","TikTok","152.3K","https://www.tiktok.com/@bryplex"],["slam.dun","TikTok","16.6K","https://www.tiktok.com/@slam.dun"],["Billseditz²","TikTok","56.4K","https://www.tiktok.com/@billseditz2.0"]]},
+  {name:"His teams' fans", to:["footage","provenance","interviews","memorabilia"],
+   inc:"Warriors, Clippers, Hornets, Pelicans, Cavs and Knicks communities. Ticket stubs, stands photos and “I was there” come from here, paid in Minutes and named credit.",
+   accts:[["r/warriors","Reddit","1.5M","https://www.reddit.com/r/warriors/"],["LetsGoWarriors","YouTube","172K","https://www.youtube.com/@LetsGoWarriors"],["Warriors World","Instagram","74K","https://www.instagram.com/officialwarriorsworld/"],["Locked On Warriors","YouTube","20.2K","https://www.youtube.com/@LockedOnWarriors"],["r/LAClippers","Reddit","391K","https://www.reddit.com/r/LAClippers/"],["Locked On Clippers","YouTube","8.5K · 2.2× hit","https://www.youtube.com/@LockedOnClippers",1],["Locked On Hornets","YouTube","11.9K","https://www.youtube.com/@LockedOnHornets"],["Locked On Pelicans","YouTube","12.9K","https://www.youtube.com/@LockedOnPelicans"],["It's Cavalier","YouTube","33.6K","https://www.youtube.com/@itscavalierpodcast1410"],["r/NYKnicks","Reddit","474K","https://www.reddit.com/r/NYKnicks/"],["KnicksFanTV","YouTube","111K","https://www.youtube.com/@KnicksFanTV"]]},
+  {name:"His old uploads, gone quiet", to:["footage","mixes"],
+   inc:"Where his biggest clips sit today. No mix of his passes 350K and no account is dedicated to him. Bring these into the archive and point them back.",
+   accts:[["orangino","YouTube","Kirilenko poster · 1.83M · dormant","https://www.youtube.com/watch?v=8w_1ZEk4mds"],["HoopmixtapeBlog","YouTube","Drew League · 933K","https://www.youtube.com/@HoopmixtapeBlog"],["wetagua","YouTube","Ultimate Mix · 347K","https://www.youtube.com/@wetagua"],["House Of Hoops","YouTube","360K · slowing","https://www.youtube.com/@HouseOfHoops1"]]},
+  {name:"History of the Game", to:["footage","interviews","personal","provenance","big","ventures","mixes","memorabilia"],
+   inc:"The hub. Every face and every segment links back here.",
+   accts:[["HOTG","X","@HistoryOTG","https://x.com/HistoryOTG"]]},
 ];
 
 const $ = id => document.getElementById(id);
@@ -154,8 +174,9 @@ let hover = null, pinned = null;
 const active = () => pinned || hover;
 
 // channels
-chan.innerHTML = `<h3><span>channels</span><span>Fan Map · 2 Oct 2026</span></h3>` + CHANNELS.map((c, i) =>
-  `<a class="ch" data-i="${i}" href="${c.url}" target="_blank" rel="noopener"><b>${c.name} <small>${c.handle}</small></b><span class="w${c.hot ? " hot" : ""}">${c.stat}</span><p>${c.inc}</p></a>`).join("");
+chan.innerHTML = `<h3><span>who carries it</span><span>${SEGMENTS.reduce((n, g) => n + g.accts.length, 0)} accounts</span></h3>` + SEGMENTS.map((g, i) =>
+  `<div class="ch" data-i="${i}"><b>${g.name} <small>${g.accts.length}</small></b><p>${g.inc}</p><ul>${g.accts.map(([n, pl, st, u, hot]) =>
+    `<li><a href="${u}" target="_blank" rel="noopener">${n}</a><span>${pl}</span><em${hot ? ' class="hot"' : ""}>${st}</em></li>`).join("")}</ul></div>`).join("");
 
 // face chips (narrow screens)
 $("chips").innerHTML = FACES.map(f => `<button type="button" data-f="${f.id}" aria-pressed="false">${f.label}</button>`).join("");
@@ -176,7 +197,7 @@ function renderSpill(){
   if (id === lastSpill) return; lastSpill = id;
   const f = FACES.find(x => x.id === id);
   if (!f){
-    spill.innerHTML = `<p class="idle"><b>His archive, sorted into faces.</b> Each face is one kind of content; the dots inside are the pieces. Hover a face to open its pieces and see which channels should carry them. Every piece and channel links out.</p>`;
+    spill.innerHTML = `<p class="idle"><b>His archive, sorted into faces.</b> Each face is one kind of content; the dots inside are the pieces. Hover a face to open its pieces and see who should carry them. Every piece and account links out.</p>`;
     return;
   }
   spill.innerHTML = `<h2>${f.label}<small>[${f.items.length}]</small></h2><div class="tier">${f.tier}</div><div class="blobs">` +
@@ -189,7 +210,7 @@ function update(){
   const id = active();
   stage.classList.toggle("active", !!id);
   chan.querySelectorAll(".ch").forEach(el => {
-    const c = CHANNELS[+el.dataset.i];
+    const c = SEGMENTS[+el.dataset.i];
     el.classList.toggle("hit", !!id && c.to.includes(id));
     el.classList.toggle("x", !!id);
   });
