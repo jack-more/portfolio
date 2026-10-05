@@ -1,0 +1,354 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow">
+<title>Baron Davis Archive Gem</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* Layout: one crystal in the middle of a plain field. Its faces are the archive; what a face holds spills out to the left, the channels it should reach sit on the right. */
+:root{
+  --field:#D6DBE6; --ink:#1A1D2E; --soft:#6B7288; --hair:#9AA1B8; --blob:#0D0F1C; --blob-ink:#E8EAF6;
+  --sans:"Geist","Helvetica Neue",Arial,sans-serif;
+  --mono:"Geist Mono",ui-monospace,Menlo,monospace;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{background:var(--field);color:var(--ink)}
+body{margin:0;font-family:var(--sans);font-size:14px;line-height:1.5}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;padding:0}
+button:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+
+.bar{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:14px 20px;font-family:var(--mono);font-size:11px;color:var(--soft)}
+.bar b{color:var(--ink);font-weight:500}
+.bar a{color:inherit}
+.bar .links{display:flex;flex-wrap:wrap;gap:6px 14px}
+
+.stage{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(360px,1.05fr) minmax(300px,360px);gap:12px;padding:0 20px;height:calc(100svh - 100px);min-height:560px}
+#lines{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+#lines line,#lines path{stroke:var(--hair);stroke-width:.8;fill:none}
+#lines .on{stroke:var(--ink);stroke-width:1}
+.labels{position:absolute;inset:0;pointer-events:none}
+.lab{position:absolute;transform:translate(-50%,-50%);white-space:nowrap;font-size:12.5px;pointer-events:auto;padding:2px 4px;transition:opacity .2s,color .2s}
+.lab.back{color:var(--soft);opacity:.7}
+.lab.on{font-weight:600;color:var(--ink);opacity:1}
+.lab small{font-family:var(--mono);font-size:10.5px;color:var(--soft);margin-left:3px}
+
+.gemcell{position:relative;min-height:0}
+#gl{position:absolute;inset:0;width:100%;height:100%;display:block;cursor:grab;touch-action:pan-y}
+#gl:active{cursor:grabbing}
+
+/* the spill */
+.spill{position:relative;z-index:2;display:grid;align-content:center;gap:14px;padding-block:24px;min-width:0}
+.spill h2{margin:0;font-size:15px;font-weight:600}
+.spill h2 small{font-family:var(--mono);font-weight:400;color:var(--soft);font-size:11px;margin-left:4px}
+.spill .tier{font-family:var(--mono);font-size:11px;color:var(--soft)}
+.blobs{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.blob{background:var(--blob);color:var(--blob-ink);padding:18px 18px;min-width:110px;max-width:220px;font-size:12.5px;line-height:1.35;display:grid;gap:6px;animation:pop .35s cubic-bezier(.2,.9,.3,1.25) both}
+.blob i{font-style:normal;font-family:var(--mono);font-size:10px;letter-spacing:.04em;opacity:.65}
+.blob.open{background:#2C3566}
+@keyframes pop{from{transform:scale(.6);opacity:0}to{transform:none;opacity:1}}
+.idle{color:var(--soft);font-size:13px;max-width:34ch}
+.idle b{color:var(--ink);font-weight:600}
+
+/* the channels */
+.chan{position:relative;z-index:2;display:grid;align-content:start;gap:2px;padding-block:8px 24px;min-width:0;overflow-y:auto;overscroll-behavior:contain}
+.chan h3{margin:0 0 6px;font-family:var(--mono);font-weight:400;font-size:11px;color:var(--soft);display:flex;justify-content:space-between}
+.ch{text-decoration:none;color:inherit;display:grid;grid-template-columns:1fr;gap:2px 10px;padding:8px 0;border-top:1px solid color-mix(in oklab,var(--hair) 55%,transparent);transition:opacity .2s}
+.ch b{font-weight:600;font-size:13.5px;min-width:0}
+.ch b small{font-family:var(--mono);font-weight:400;font-size:10.5px;color:var(--soft);margin-left:4px}
+.ch:hover b{text-decoration:underline}
+.ch .w.hot{color:#0B5CF6;font-weight:500}
+a.blob{text-decoration:none}
+a.blob:hover{outline:2px solid #0B5CF6;outline-offset:2px}
+.ch .w{font-family:var(--mono);font-size:10.5px;color:var(--ink)}
+.ch p{grid-column:1/-1;margin:0;font-size:12.5px;color:var(--soft);max-height:0;overflow:hidden;transition:max-height .25s}
+.stage.active .ch{opacity:.35}
+.stage.active .ch.hit{opacity:1}
+.stage.active .ch.hit p{max-height:80px}
+.ch:not(.x) p{max-height:80px}
+
+.chips{display:none}
+.foot{padding:18px 20px 26px;font-family:var(--mono);font-size:11px;color:var(--soft);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+@media (max-width:980px){
+  .stage,.stage.nogl{grid-template-columns:minmax(0,1fr);min-height:0;height:auto}
+  .chan{overflow:visible}
+  .gemcell{min-height:420px;order:1}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;order:2}
+  .chips button{border:1px solid var(--hair);border-radius:999px;padding:3px 10px;font-size:12.5px}
+  .chips button[aria-pressed="true"]{background:var(--ink);color:var(--field);border-color:var(--ink)}
+  .spill{order:3;padding-block:8px}
+  .chan{order:4}
+  .labels,#lines{display:none}
+}
+.stage.nogl{grid-template-columns:minmax(0,1fr);min-height:0;height:auto}
+.stage.nogl .chan{overflow:visible}
+.stage.nogl .gemcell{min-height:0}
+.stage.nogl .chips{display:flex;flex-wrap:wrap;gap:6px}
+.stage.nogl .chips button{border:1px solid var(--hair);border-radius:999px;padding:3px 10px;font-size:12.5px}
+.stage.nogl .chips button[aria-pressed="true"]{background:var(--ink);color:var(--field);border-color:var(--ink)}
+.stage.nogl .labels,.stage.nogl #lines{display:none}
+@media (prefers-reduced-motion:reduce){.blob{animation:none}}
+</style>
+</head><body>
+
+<div class="bar"><span><a href="https://x.com/HistoryOTG" target="_blank" rel="noopener"><b>HOTG</b></a> · archive gem 01 · <b>Baron Davis</b></span><span class="links"><a href="/baron85/">R+D deck</a><a href="https://claude.ai/artifact/ScprZE99rWjQXvNZCCq4qu" target="_blank" rel="noopener">The Fan Map</a><a href="https://ballast.la/">Ballast</a></span><span>hover a face · click to pin · drag to turn</span></div>
+
+<div class="stage" id="stage">
+  <svg id="lines" aria-hidden="true"></svg>
+  <section class="spill" id="spill" aria-live="polite"></section>
+  <div class="gemcell" id="gemcell"><canvas id="gl" aria-label="Baron Davis archive crystal. Each face is a type of content in his archive."></canvas></div>
+  <div class="chips" id="chips" role="group" aria-label="Archive faces"></div>
+  <section class="chan" id="chan" aria-label="Distribution channels"></section>
+  <div class="labels" id="labels"></div>
+</div>
+
+<div class="foot"><span>Channels and counts: The Fan Map, read 2 Oct 2026; X followers read 5 Oct 2026. Hit = best video in the last 90 days ÷ followers.</span><span>Pieces marked “to catalog” are not in the archive yet. <a href="https://ballast.la/" style="color:inherit">Ballast</a></span></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+// the archive: one face per type of content. Every piece links to where it lives now.
+const FACES = [
+  {id:"footage", label:"game footage", color:"#3B6CF0", tier:"Tier 2 · licensed archival. Playmakers channels already hold an NBA licence.",
+   items:[["Over the top of Kirilenko, May 11 2007. Top fan upload: 1.83M views, 19 years old","https://www.youtube.com/watch?v=8w_1ZEk4mds"],
+          ["We Believe: first 8 seed to beat a 1 seed in a seven-game series, 2007",""],
+          ["89 feet at Milwaukee, Feb 17 2001",""],
+          ["Drew League handles: 933K on HoopmixtapeBlog","https://www.youtube.com/@HoopmixtapeBlog"]]},
+  {id:"interviews", label:"shows & interviews", color:"#F4D2E6", tier:"Tier 1 · his own words. He is on the panel circuit right now.",
+   items:[["Gil's Arena appearance, late Sept 2026, co-posted to his account","https://www.instagram.com/gilsarena0/"],
+          ["Tiger A. Smith cuts of the panel: 99.3K and 62.7K, 25–26 Sep","https://www.youtube.com/@TigerASmith"],
+          ["Enjoy Basketball throwback from the San Francisco live show","https://www.tiktok.com/@enjoybball"]]},
+  {id:"personal", label:"his own accounts", color:"#E6F552", tier:"Tier 1 · player-owned. Where every other face should point back.",
+   items:[["Instagram @iambarondavis · 349K","https://www.instagram.com/iambarondavis/"],
+          ["X @BaronDavis · 841K","https://x.com/BaronDavis"]]},
+  {id:"provenance", label:"fan provenance", color:"#A8B2F4", tier:"Tier 1 · fan-submitted, paid in Minutes plus named credit",
+   items:[["Ticket stubs",""],["Photos from the stands",""],["Local broadcast recordings",""],["“I was there” testimony",""]]},
+  {id:"big", label:"BIG", color:"#EEF0FA", tier:"Tier 1 · his platform: ten years of athletes taking the stage",
+   items:[["teambig.io","https://www.teambig.io"],["BIG Summits on X","https://x.com/bigsummits_"]]},
+  {id:"ventures", label:"ventures", color:"#8FB4F8", tier:"Tier 1 · player-owned",
+   items:[["Logitech G reel, 25 Sep 2026","https://www.instagram.com/iambarondavis/"]]},
+  {id:"mixes", label:"fan mixes", color:"#D9DDFB", tier:"Tier 3 · fan edits. No mix of his passes 350K.",
+   items:[["Baron Davis Ultimate Mix · wetagua · 347K","https://www.youtube.com/@wetagua"],
+          ["“1 minute of Baron Davis bag work” · 3.9K, 4 Sep","https://www.tiktok.com/@bagwork504"]]},
+  {id:"memorabilia", label:"memorabilia & vault", color:"#F3E7D6", tier:"Vault · auctions and unlocks; Minutes cover 10–20% of a bid",
+   items:[["Signed items",""],["Locked vault moments",""]]},
+];
+
+// channels from the Fan Map (2 Oct 2026). hit = best video in 90 days ÷ followers
+const CHANNELS = [
+  {name:"Baron Davis", handle:"@iambarondavis · Instagram", url:"https://www.instagram.com/iambarondavis/", stat:"349K · posted 4 days ago", to:["personal","interviews","ventures","footage","mixes"], inc:"Player-owned. Every clip HOTG releases credits him and links back here."},
+  {name:"Baron Davis", handle:"@BaronDavis · X", url:"https://x.com/BaronDavis", stat:"841K followers", to:["personal","footage","big"], inc:"Player-owned. His largest audience."},
+  {name:"Tiger A. Smith", handle:"@TigerASmith · YouTube", url:"https://www.youtube.com/@TigerASmith", stat:"24.3K subs · best 407K · 16.7× hit", hot:true, to:["interviews"], inc:"Baron is the subject of 2 of his last 10. Registered clips earn Minutes per verified view."},
+  {name:"Hicko", handle:"@Hicko · YouTube", url:"https://www.youtube.com/@Hicko", stat:"249K subs · 7.0M views in 90 days · 5.6× hit", hot:true, to:["footage","mixes"], inc:"Licensed through NBA Playmakers. Credit and source link back to HOTG on every Baron cut."},
+  {name:"MaxaMillion711", handle:"@MaxaMillion711 · YouTube", url:"https://www.youtube.com/@MaxaMillion711", stat:"493K subs · 1.6M views in 90 days", to:["footage","mixes"], inc:"Licensed through NBA Playmakers; named in the 2024 footage deal."},
+  {name:"Gil's Arena", handle:"@gilsarena0 · Instagram", url:"https://www.instagram.com/gilsarena0/", stat:"228K · co-posts with Baron", to:["interviews"], inc:"Commissions: fans pool Minutes to book the next appearance; paid on delivery."},
+  {name:"Enjoy Basketball", handle:"@enjoybball · TikTok", url:"https://www.tiktok.com/@enjoybball", stat:"463.5K followers", to:["interviews","footage"], inc:"Throwback clips of Baron recur. Source link back to HOTG."},
+  {name:"bagwork", handle:"@bagwork504 · TikTok", url:"https://www.tiktok.com/@bagwork504", stat:"5.5K followers · posts daily", to:["mixes","footage"], inc:"Legends draw as many plays as current stars here. Minutes per verified view."},
+  {name:"BIG", handle:"teambig.io · @bigsummits_", url:"https://www.teambig.io", stat:"his platform", to:["big","ventures"], inc:"Relationships he already holds. Incentive still to define."},
+  {name:"History of the Game", handle:"@HistoryOTG · X", url:"https://x.com/HistoryOTG", stat:"49 followers", to:["footage","interviews","personal","provenance","big","ventures","mixes","memorabilia"], inc:"The hub. Every face and every channel links back here."},
+];
+
+const $ = id => document.getElementById(id);
+const stage = $("stage"), spill = $("spill"), chan = $("chan"), labels = $("labels"), lines = $("lines");
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+let hover = null, pinned = null;
+const active = () => pinned || hover;
+
+// channels
+chan.innerHTML = `<h3><span>channels</span><span>Fan Map · 2 Oct 2026</span></h3>` + CHANNELS.map((c, i) =>
+  `<a class="ch" data-i="${i}" href="${c.url}" target="_blank" rel="noopener"><b>${c.name} <small>${c.handle}</small></b><span class="w${c.hot ? " hot" : ""}">${c.stat}</span><p>${c.inc}</p></a>`).join("");
+
+// face chips (narrow screens)
+$("chips").innerHTML = FACES.map(f => `<button type="button" data-f="${f.id}" aria-pressed="false">${f.label}</button>`).join("");
+$("chips").addEventListener("click", e => { const b = e.target.closest("[data-f]"); if (b){ pinned = pinned === b.dataset.f ? null : b.dataset.f; update(); } });
+
+// labels
+labels.innerHTML = FACES.map(f => `<button type="button" class="lab" data-f="${f.id}">${f.label}<small>[${f.items.length}]</small></button>`).join("");
+labels.querySelectorAll(".lab").forEach(b => {
+  b.addEventListener("pointerenter", () => { hover = b.dataset.f; update(); });
+  b.addEventListener("pointerleave", () => { hover = null; update(); });
+  b.addEventListener("click", () => { pinned = pinned === b.dataset.f ? null : b.dataset.f; update(); });
+});
+
+const shapes = ["58% 42% 52% 48% / 46% 56% 44% 54%","44% 56% 40% 60% / 58% 42% 58% 42%","52% 48% 62% 38% / 40% 60% 40% 60%","62% 38% 46% 54% / 52% 44% 56% 48%","40% 60% 54% 46% / 60% 40% 52% 48%"];
+let lastSpill = undefined;
+function renderSpill(){
+  const id = active();
+  if (id === lastSpill) return; lastSpill = id;
+  const f = FACES.find(x => x.id === id);
+  if (!f){
+    spill.innerHTML = `<p class="idle"><b>His archive, sorted into faces.</b> Each face is one kind of content; the dots inside are the pieces. Hover a face to open its pieces and see which channels should carry them. Every piece and channel links out.</p>`;
+    return;
+  }
+  spill.innerHTML = `<h2>${f.label}<small>[${f.items.length}]</small></h2><div class="tier">${f.tier}</div><div class="blobs">` +
+    f.items.map(([t, href], i) => href
+      ? `<a class="blob" href="${href}" target="_blank" rel="noopener" style="border-radius:${shapes[i % shapes.length]};animation-delay:${i * 45}ms">${t}<i>open ↗</i></a>`
+      : `<div class="blob open" style="border-radius:${shapes[i % shapes.length]};animation-delay:${i * 45}ms">${t}<i>to catalog</i></div>`).join("") + `</div>`;
+}
+
+function update(){
+  const id = active();
+  stage.classList.toggle("active", !!id);
+  chan.querySelectorAll(".ch").forEach(el => {
+    const c = CHANNELS[+el.dataset.i];
+    el.classList.toggle("hit", !!id && c.to.includes(id));
+    el.classList.toggle("x", !!id);
+  });
+  $("chips").querySelectorAll("[data-f]").forEach(b => b.setAttribute("aria-pressed", b.dataset.f === id));
+  renderSpill();
+  recolor();
+}
+
+// ---------- the crystal ----------
+const canvas = $("gl"), cell = $("gemcell");
+let recolor = () => {};
+let renderer = null;
+try { if (window.THREE) renderer = new THREE.WebGLRenderer({canvas, antialias:true, alpha:true}); } catch(e){}
+if (renderer){
+  renderer.setPixelRatio(Math.min(devicePixelRatio || 1, 2));
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(30, 1, .1, 100);
+  camera.position.set(0, .2, 11);
+  const gem = new THREE.Group(); scene.add(gem);
+
+  // an octagonal crystal with a waist, slightly irregular so it reads as stone
+  const N = 8, rnd = (s => () => (s = (s * 16807) % 2147483647) / 2147483647)(11);
+  const ring = (y, r) => Array.from({length:N}, (_, i) => { const a = i / N * Math.PI * 2 + .2; const rr = r * (.9 + rnd() * .2); return new THREE.Vector3(Math.cos(a) * rr, y + (rnd() - .5) * .12, Math.sin(a) * rr); });
+  const top = new THREE.Vector3(.08, 2.55, -.05), bot = new THREE.Vector3(-.05, -2.05, .04);
+  const r1 = ring(1.25, .95), r2 = ring(0, 1.12), r3 = ring(-1.05, .92);
+  const meshes = [];  // {mesh, face, base}
+  const edges = [];
+  function addFace(pts, faceIdx, tone){
+    const pos = [];
+    for (let k = 1; k < pts.length - 1; k++) pos.push(...pts[0].toArray(), ...pts[k].toArray(), ...pts[k + 1].toArray());
+    const g = new THREE.BufferGeometry(); g.setAttribute("position", new THREE.Float32BufferAttribute(pos, 3));
+    const base = new THREE.Color(FACES[faceIdx].color).lerp(new THREE.Color(tone[0]), tone[1]);
+    const m = new THREE.Mesh(g, new THREE.MeshBasicMaterial({color:base.clone(), side:THREE.DoubleSide, transparent:true, opacity:.9, depthWrite:false}));
+    gem.add(m); meshes.push({mesh:m, face:faceIdx, base});
+    for (let k = 0; k < pts.length; k++) edges.push(...pts[k].toArray(), ...pts[(k + 1) % pts.length].toArray());
+  }
+  const anchors = [];
+  for (let i = 0; i < N; i++){
+    const j = (i + 1) % N, f = i % FACES.length;
+    addFace([top, r1[i], r1[j]], (i + 3) % N, ["#ffffff", .25]);
+    addFace([r1[i], r2[i], r2[j], r1[j]], f, ["#ffffff", 0]);
+    addFace([r2[i], r3[i], r3[j], r2[j]], (i + 5) % N, ["#ffffff", .15]);
+    addFace([r3[i], bot, r3[j]], (i + 2) % N, ["#1A1D2E", .12]);
+    anchors.push({face:f, p:r1[i].clone().add(r2[i]).add(r2[j]).add(r1[j]).multiplyScalar(.25)});
+  }
+  const eg = new THREE.BufferGeometry(); eg.setAttribute("position", new THREE.Float32BufferAttribute(edges, 3));
+  gem.add(new THREE.LineSegments(eg, new THREE.LineBasicMaterial({color:0x8b93b5, transparent:true, opacity:.75})));
+
+  // the pieces: one dot per item, floating inside
+  const dotTex = (() => { const c = document.createElement("canvas"); c.width = c.height = 32; const x = c.getContext("2d"); x.fillStyle = "#fff"; x.beginPath(); x.arc(16, 16, 14, 0, 7); x.fill(); return new THREE.CanvasTexture(c); })();
+  const dots = FACES.map((f, fi) => {
+    const pos = [];
+    f.items.forEach(() => { const a = fi / FACES.length * Math.PI * 2 + (rnd() - .5) * .9, r = .2 + rnd() * .5; pos.push(Math.cos(a) * r, -1 + rnd() * 2.4, Math.sin(a) * r); });
+    const g = new THREE.BufferGeometry(); g.setAttribute("position", new THREE.Float32BufferAttribute(pos, 3));
+    const p = new THREE.Points(g, new THREE.PointsMaterial({color:0x2a2f6e, size:.11, map:dotTex, transparent:true, alphaTest:.3, depthTest:false}));
+    p.renderOrder = 2; gem.add(p); return p;
+  });
+
+  recolor = () => {
+    const id = active(), ai = FACES.findIndex(f => f.id === id);
+    meshes.forEach(({mesh, face, base}) => {
+      const on = ai === face;
+      mesh.material.color.copy(base);
+      if (ai >= 0 && !on) mesh.material.color.lerp(new THREE.Color("#E3E6EF"), .55);
+      mesh.material.opacity = ai < 0 || on ? .92 : .55;
+    });
+    dots.forEach((d, i) => { d.material.color.set(ai === i ? "#1A1D2E" : ai >= 0 ? "#9aa1c2" : "#2a2f6e"); d.material.size = ai === i ? .2 : .11; });
+  };
+
+  // size
+  let W = 0, H = 0;
+  function resize(){
+    W = cell.clientWidth; H = cell.clientHeight;
+    renderer.setSize(W, H, false); camera.aspect = W / Math.max(H, 1); camera.updateProjectionMatrix();
+  }
+  new ResizeObserver(resize).observe(cell); resize();
+
+  // turning, dragging, hovering
+  let rotY = .4, rotX = .12, vel = reduce ? 0 : .0025, drag = null;
+  const ray = new THREE.Raycaster(), ndc = new THREE.Vector2();
+  canvas.addEventListener("pointerdown", e => { drag = {x:e.clientX, y:e.clientY, rx:rotX, ry:rotY, moved:false}; canvas.setPointerCapture(e.pointerId); });
+  canvas.addEventListener("pointermove", e => {
+    if (drag){
+      const dx = e.clientX - drag.x, dy = e.clientY - drag.y;
+      if (Math.abs(dx) + Math.abs(dy) > 3) drag.moved = true;
+      rotY = drag.ry + dx * .01; rotX = Math.max(-.6, Math.min(.6, drag.rx + dy * .006));
+      return;
+    }
+    const r = canvas.getBoundingClientRect();
+    ndc.set((e.clientX - r.left) / r.width * 2 - 1, -((e.clientY - r.top) / r.height) * 2 + 1);
+    ray.setFromCamera(ndc, camera);
+    const hit = ray.intersectObjects(meshes.map(m => m.mesh))[0];
+    const f = hit ? FACES[meshes.find(m => m.mesh === hit.object).face].id : null;
+    if (f !== hover){ hover = f; update(); }
+  });
+  canvas.addEventListener("pointerup", e => {
+    const wasDrag = drag && drag.moved; drag = null;
+    if (!wasDrag){ pinned = hover && pinned !== hover ? hover : null; update(); }
+  });
+  canvas.addEventListener("pointerleave", () => { if (!drag && hover){ hover = null; update(); } });
+
+  // leader lines and labels follow the faces
+  const labEls = Object.fromEntries([...labels.querySelectorAll(".lab")].map(b => [b.dataset.f, b]));
+  const v = new THREE.Vector3(), n = new THREE.Vector3(), camDir = new THREE.Vector3();
+  function overlay(){
+    if (getComputedStyle(labels).display === "none") return;
+    const sr = stage.getBoundingClientRect(), cr = canvas.getBoundingClientRect();
+    const ox = cr.left - sr.left, oy = cr.top - sr.top;
+    const cx = ox + cr.width / 2, cy = oy + cr.height / 2;
+    const half = cr.height * .17, id = active();
+    const ents = [], seen = new Set();
+    anchors.forEach(({face, p}) => {
+      const f = FACES[face]; if (seen.has(f.id)) return; seen.add(f.id);
+      v.copy(p).applyMatrix4(gem.matrixWorld);
+      n.set(p.x, 0, p.z).normalize().transformDirection(gem.matrixWorld);
+      camDir.copy(camera.position).sub(v).normalize();
+      const front = n.dot(camDir) > 0;
+      v.project(camera);
+      ents.push({f, front, px: ox + (v.x + 1) / 2 * cr.width, py: oy + (1 - v.y) / 2 * cr.height});
+    });
+    // split left and right of the crystal, then space each side evenly top to bottom
+    let svg = "";
+    for (const side of [-1, 1]){
+      const list = ents.filter(e => (e.px < cx ? -1 : 1) === side).sort((a, b) => a.py - b.py);
+      const top = cy - cr.height * .3, span = cr.height * .6;
+      list.forEach((e, k) => {
+        const ly = list.length === 1 ? cy : top + span * k / (list.length - 1);
+        const lx = cx + side * (half + 70);
+        const el = labEls[e.f.id];
+        el.style.left = lx + "px"; el.style.top = ly + "px";
+        el.style.transform = side < 0 ? "translate(-100%,-50%)" : "translate(0,-50%)";
+        el.classList.toggle("back", !e.front); el.classList.toggle("on", id === e.f.id);
+        svg += `<line class="${id === e.f.id ? "on" : ""}" x1="${e.px.toFixed(1)}" y1="${e.py.toFixed(1)}" x2="${(lx - side * 4).toFixed(1)}" y2="${ly.toFixed(1)}"/>`;
+        if (id === e.f.id){
+          // threads out to the channels this face should reach
+          chan.querySelectorAll(".ch.hit").forEach(row => {
+            const rr = row.getBoundingClientRect();
+            const tx = rr.left - sr.left - 6, ty = rr.top - sr.top + 16;
+            svg += `<path class="on" d="M${e.px.toFixed(1)} ${e.py.toFixed(1)} C ${((e.px + tx) / 2).toFixed(1)} ${e.py.toFixed(1)}, ${((e.px + tx) / 2).toFixed(1)} ${ty.toFixed(1)}, ${tx.toFixed(1)} ${ty.toFixed(1)}"/>`;
+          });
+        }
+      });
+    }
+    lines.innerHTML = svg;
+  }
+
+  (function loop(){
+    if (!drag && !active()) rotY += vel;
+    gem.rotation.set(rotX, rotY, 0);
+    gem.updateMatrixWorld();
+    renderer.render(scene, camera);
+    overlay();
+    requestAnimationFrame(loop);
+  })();
+} else {
+  stage.classList.add("nogl");
+  $("gemcell").innerHTML = `<p class="idle">The crystal needs WebGL to draw. Pick a face below.</p>`;
+}
+
+update();
+</script>
+</body></html>
