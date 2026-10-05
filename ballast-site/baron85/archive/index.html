@@ -30,6 +30,7 @@ button:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
 .lab{position:absolute;transform:translate(-50%,-50%);white-space:nowrap;font-size:12.5px;pointer-events:auto;padding:2px 4px;transition:opacity .2s,color .2s}
 .lab.back{color:var(--soft);opacity:.7}
 .lab.on{font-weight:600;color:var(--ink);opacity:1}
+.sw{display:inline-block;width:9px;height:9px;margin-right:6px;vertical-align:0;border:1px solid rgba(26,29,46,.25)}
 .lab small{font-family:var(--mono);font-size:10.5px;color:var(--soft);margin-left:3px}
 
 .gemcell{position:relative;min-height:0}
@@ -113,28 +114,28 @@ a.blob:hover{outline:2px solid #0B5CF6;outline-offset:2px}
 <script>
 // the archive: one face per type of content. Every piece links to where it lives now.
 const FACES = [
-  {id:"footage", label:"game footage", color:"#3B6CF0", tier:"Tier 2 · licensed archival. Playmakers channels already hold an NBA licence.",
+  {id:"footage", label:"game footage", color:"#2F5BEA", tier:"Tier 2 · licensed archival. Playmakers channels already hold an NBA licence.",
    items:[["Over the top of Kirilenko, May 11 2007. Top fan upload: 1.83M views, 19 years old","https://www.youtube.com/watch?v=8w_1ZEk4mds"],
           ["We Believe: first 8 seed to beat a 1 seed in a seven-game series, 2007",""],
           ["89 feet at Milwaukee, Feb 17 2001",""],
           ["Drew League handles: 933K on HoopmixtapeBlog","https://www.youtube.com/@HoopmixtapeBlog"]]},
-  {id:"interviews", label:"shows & interviews", color:"#F4D2E6", tier:"Tier 1 · his own words. He is on the panel circuit right now.",
+  {id:"interviews", label:"shows & interviews", color:"#F4C2DC", tier:"Tier 1 · his own words. He is on the panel circuit right now.",
    items:[["Gil's Arena appearance, late Sept 2026, co-posted to his account","https://www.instagram.com/gilsarena0/"],
           ["Tiger A. Smith cuts of the panel: 99.3K and 62.7K, 25–26 Sep","https://www.youtube.com/@TigerASmith"],
           ["Enjoy Basketball throwback from the San Francisco live show","https://www.tiktok.com/@enjoybball"]]},
-  {id:"personal", label:"his own accounts", color:"#E6F552", tier:"Tier 1 · player-owned. Where every other face should point back.",
+  {id:"personal", label:"his own accounts", color:"#E3F23F", tier:"Tier 1 · player-owned. Where every other face should point back.",
    items:[["Instagram @iambarondavis · 349K","https://www.instagram.com/iambarondavis/"],
           ["X @BaronDavis · 841K","https://x.com/BaronDavis"]]},
-  {id:"provenance", label:"fan provenance", color:"#A8B2F4", tier:"Tier 1 · fan-submitted, paid in Minutes plus named credit",
+  {id:"provenance", label:"fan provenance", color:"#9AA6F2", tier:"Tier 1 · fan-submitted, paid in Minutes plus named credit",
    items:[["Ticket stubs",""],["Photos from the stands",""],["Local broadcast recordings",""],["“I was there” testimony",""]]},
-  {id:"big", label:"BIG", color:"#EEF0FA", tier:"Tier 1 · his platform: ten years of athletes taking the stage",
+  {id:"big", label:"BIG", color:"#F6B26B", tier:"Tier 1 · his platform: ten years of athletes taking the stage",
    items:[["teambig.io","https://www.teambig.io"],["BIG Summits on X","https://x.com/bigsummits_"]]},
-  {id:"ventures", label:"ventures", color:"#8FB4F8", tier:"Tier 1 · player-owned",
+  {id:"ventures", label:"ventures", color:"#7FCDF0", tier:"Tier 1 · player-owned",
    items:[["Logitech G reel, 25 Sep 2026","https://www.instagram.com/iambarondavis/"]]},
-  {id:"mixes", label:"fan mixes", color:"#D9DDFB", tier:"Tier 3 · fan edits. No mix of his passes 350K.",
+  {id:"mixes", label:"fan mixes", color:"#C9A8F0", tier:"Tier 3 · fan edits. No mix of his passes 350K.",
    items:[["Baron Davis Ultimate Mix · wetagua · 347K","https://www.youtube.com/@wetagua"],
           ["“1 minute of Baron Davis bag work” · 3.9K, 4 Sep","https://www.tiktok.com/@bagwork504"]]},
-  {id:"memorabilia", label:"memorabilia & vault", color:"#F3E7D6", tier:"Vault · auctions and unlocks; Minutes cover 10–20% of a bid",
+  {id:"memorabilia", label:"memorabilia & vault", color:"#9FE0BE", tier:"Vault · auctions and unlocks; Minutes cover 10–20% of a bid",
    items:[["Signed items",""],["Locked vault moments",""]]},
 ];
 
@@ -179,11 +180,11 @@ chan.innerHTML = `<h3><span>who carries it</span><span>${SEGMENTS.reduce((n, g) 
     `<li><a href="${u}" target="_blank" rel="noopener">${n}</a><span>${pl}</span><em${hot ? ' class="hot"' : ""}>${st}</em></li>`).join("")}</ul></div>`).join("");
 
 // face chips (narrow screens)
-$("chips").innerHTML = FACES.map(f => `<button type="button" data-f="${f.id}" aria-pressed="false">${f.label}</button>`).join("");
+$("chips").innerHTML = FACES.map(f => `<button type="button" data-f="${f.id}" aria-pressed="false"><i class="sw" style="background:${f.color}"></i>${f.label}</button>`).join("");
 $("chips").addEventListener("click", e => { const b = e.target.closest("[data-f]"); if (b){ pinned = pinned === b.dataset.f ? null : b.dataset.f; update(); } });
 
 // labels
-labels.innerHTML = FACES.map(f => `<button type="button" class="lab" data-f="${f.id}">${f.label}<small>[${f.items.length}]</small></button>`).join("");
+labels.innerHTML = FACES.map(f => `<button type="button" class="lab" data-f="${f.id}"><i class="sw" style="background:${f.color}"></i>${f.label}<small>[${f.items.length}]</small></button>`).join("");
 labels.querySelectorAll(".lab").forEach(b => {
   b.addEventListener("pointerenter", () => { hover = b.dataset.f; update(); });
   b.addEventListener("pointerleave", () => { hover = null; update(); });
@@ -200,7 +201,7 @@ function renderSpill(){
     spill.innerHTML = `<p class="idle"><b>His archive, sorted into faces.</b> Each face is one kind of content; the dots inside are the pieces. Hover a face to open its pieces and see who should carry them. Every piece and account links out.</p>`;
     return;
   }
-  spill.innerHTML = `<h2>${f.label}<small>[${f.items.length}]</small></h2><div class="tier">${f.tier}</div><div class="blobs">` +
+  spill.innerHTML = `<h2><i class="sw" style="background:${f.color}"></i>${f.label}<small>[${f.items.length}]</small></h2><div class="tier">${f.tier}</div><div class="blobs">` +
     f.items.map(([t, href], i) => href
       ? `<a class="blob" href="${href}" target="_blank" rel="noopener" style="border-radius:${shapes[i % shapes.length]};animation-delay:${i * 45}ms">${t}<i>open ↗</i></a>`
       : `<div class="blob open" style="border-radius:${shapes[i % shapes.length]};animation-delay:${i * 45}ms">${t}<i>to catalog</i></div>`).join("") + `</div>`;
@@ -243,17 +244,17 @@ if (renderer){
     for (let k = 1; k < pts.length - 1; k++) pos.push(...pts[0].toArray(), ...pts[k].toArray(), ...pts[k + 1].toArray());
     const g = new THREE.BufferGeometry(); g.setAttribute("position", new THREE.Float32BufferAttribute(pos, 3));
     const base = new THREE.Color(FACES[faceIdx].color).lerp(new THREE.Color(tone[0]), tone[1]);
-    const m = new THREE.Mesh(g, new THREE.MeshBasicMaterial({color:base.clone(), side:THREE.DoubleSide, transparent:true, opacity:.9, depthWrite:false}));
+    const m = new THREE.Mesh(g, new THREE.MeshBasicMaterial({color:base.clone(), side:THREE.DoubleSide, polygonOffset:true, polygonOffsetFactor:1, polygonOffsetUnits:1}));
     gem.add(m); meshes.push({mesh:m, face:faceIdx, base});
     for (let k = 0; k < pts.length; k++) edges.push(...pts[k].toArray(), ...pts[(k + 1) % pts.length].toArray());
   }
   const anchors = [];
   for (let i = 0; i < N; i++){
     const j = (i + 1) % N, f = i % FACES.length;
-    addFace([top, r1[i], r1[j]], (i + 3) % N, ["#ffffff", .25]);
+    addFace([top, r1[i], r1[j]], f, ["#ffffff", 0]);
     addFace([r1[i], r2[i], r2[j], r1[j]], f, ["#ffffff", 0]);
-    addFace([r2[i], r3[i], r3[j], r2[j]], (i + 5) % N, ["#ffffff", .15]);
-    addFace([r3[i], bot, r3[j]], (i + 2) % N, ["#1A1D2E", .12]);
+    addFace([r2[i], r3[i], r3[j], r2[j]], f, ["#ffffff", 0]);
+    addFace([r3[i], bot, r3[j]], f, ["#ffffff", 0]);
     anchors.push({face:f, p:r1[i].clone().add(r2[i]).add(r2[j]).add(r1[j]).multiplyScalar(.25)});
   }
   const eg = new THREE.BufferGeometry(); eg.setAttribute("position", new THREE.Float32BufferAttribute(edges, 3));
@@ -275,7 +276,6 @@ if (renderer){
       const on = ai === face;
       mesh.material.color.copy(base);
       if (ai >= 0 && !on) mesh.material.color.lerp(new THREE.Color("#E3E6EF"), .55);
-      mesh.material.opacity = ai < 0 || on ? .92 : .55;
     });
     dots.forEach((d, i) => { d.material.color.set(ai === i ? "#1A1D2E" : ai >= 0 ? "#9aa1c2" : "#2a2f6e"); d.material.size = ai === i ? .2 : .11; });
   };
