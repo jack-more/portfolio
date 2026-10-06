@@ -70,7 +70,11 @@ a.blob:hover{outline:2px solid #0B5CF6;outline-offset:2px}
 .ch .w{font-family:var(--mono);font-size:10.5px;color:var(--ink)}
 .ch p{grid-column:1/-1;margin:0;font-size:12.5px;color:var(--soft);max-height:0;overflow:hidden;transition:max-height .25s}
 .stage.active .ch{opacity:.35}
-.stage.active .ch.hit{opacity:1;box-shadow:inset 3px 0 0 var(--fc);padding-left:12px}
+.ch{box-shadow:inset 3px 0 0 var(--pc);padding-left:12px!important}
+.carries{display:flex;gap:4px;margin:2px 0 2px}
+.carries .sw{width:11px;height:11px;margin:0;padding:0;cursor:pointer}
+.carries .sw:hover{outline:1.5px solid var(--ink);outline-offset:1px}
+.stage.active .ch.hit{opacity:1}
 .ch p{max-height:none}
 .ch ul{list-style:none;margin:4px 0 0;padding:0;display:grid;gap:1px}
 .ch li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:0 8px;font-size:12.5px;align-items:baseline}
@@ -238,8 +242,10 @@ const active = () => pinned;
 let selPiece = null;   // a single piece opened by click
 
 // channels
+const PRIMARY = {"His own accounts":"personal","The panel circuit":"interviews","Licensed editors":"footage","Old-school archive channels":"footage","TikTok cutters":"mixes","His teams' fans":"provenance","Where his biggest clips sit":"footage","Game creators":"games"};
+const faceColor = id => (FACES.find(f => f.id === id) || {}).color || "#1A1D2E";
 chan.innerHTML = `<h3><span>who carries it</span><span>${SEGMENTS.reduce((n, g) => n + g.accts.length, 0)} accounts</span></h3>` + SEGMENTS.map((g, i) =>
-  `<div class="ch" data-i="${i}"><b>${g.name} <small>${g.accts.length}</small></b><p>${g.inc}</p><ul>${g.accts.map(([n, pl, st, u, hot]) =>
+  `<div class="ch" data-i="${i}" style="--pc:${faceColor(PRIMARY[g.name])}"><b>${g.name} <small>${g.accts.length}</small></b><div class="carries">${g.to.map(id => `<button type="button" class="sw" data-f="${id}" title="${(FACES.find(f => f.id === id) || {}).label}" style="background:${faceColor(id)}"></button>`).join("")}</div><p>${g.inc}</p><ul>${g.accts.map(([n, pl, st, u, hot]) =>
     `<li><a href="${u}" target="_blank" rel="noopener">${n}</a><span>${pl}</span><em${hot ? ' class="hot"' : ""}>${st}</em></li>`).join("")}</ul></div>`).join("");
 
 // face chips (narrow screens)
@@ -277,7 +283,7 @@ function renderSpill(){
   }
   spill.innerHTML = `<h2><i class="sw" style="background:${f.color}"></i>${f.label}<small>[${f.items.length}]</small></h2><div class="tier">${f.tier}</div><div class="blobs">` +
     PIECES.filter(p => p.fi === FACES.indexOf(f)).map((p, i) =>
-      `<button type="button" class="blob${p.cat ? " open" : ""}" data-k="${PIECES.indexOf(p)}" style="border-radius:${shapes[i % shapes.length]};animation-delay:${i * 45}ms">${esc(p.t)}<i>${p.cat ? "to catalog" : p.on ? "connects back" : "no link back yet"}</i></button>`).join("") + `</div>`;
+      `<button type="button" class="blob${p.cat ? " open" : ""}" data-k="${PIECES.indexOf(p)}" style="box-shadow:0 0 0 3px ${f.color};border-radius:${shapes[i % shapes.length]};animation-delay:${i * 45}ms">${esc(p.t)}<i>${p.cat ? "to catalog" : p.on ? "connects back" : "no link back yet"}</i></button>`).join("") + `</div>`;
 }
 spill.addEventListener("click", e => {
   const k = e.target.closest("[data-k]"); if (k){ selectPiece(PIECES[+k.dataset.k]); return; }
@@ -285,6 +291,7 @@ spill.addEventListener("click", e => {
   const g = e.target.closest("[data-seg]");
   if (g){ const el = chan.querySelector(`.ch[data-i="${g.dataset.seg}"]`); if (el) chan.scrollTo({top:el.offsetTop - chan.offsetTop - 8, behavior:"smooth"}); }
 });
+chan.addEventListener("click", e => { const b = e.target.closest(".carries [data-f]"); if (b){ pinned = b.dataset.f; selPiece = null; faceFromList = true; update(); } });
 document.addEventListener("keydown", e => { if (e.key === "Escape"){ pinned = null; selPiece = null; update(); } });
 
 function update(){
