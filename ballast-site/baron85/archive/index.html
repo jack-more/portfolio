@@ -112,7 +112,7 @@ a.blob:hover{outline:2px solid #0B5CF6;outline-offset:2px}
 </style>
 </head><body>
 
-<div class="bar"><span><a href="https://x.com/HistoryOTG" target="_blank" rel="noopener"><b>HOTG</b></a> · archive gem 01 · <b>Baron Davis</b></span><span class="links"><a href="/baron85/">R+D deck</a><a href="https://ballast.la/">Ballast</a></span><span>hover a face · click to pin · drag to turn</span></div>
+<div class="bar"><span><a href="https://x.com/HistoryOTG" target="_blank" rel="noopener"><b>HOTG</b></a> · archive gem 01 · <b>Baron Davis</b></span><span class="links"><a href="/baron85/">R+D deck</a><a href="https://ballast.la/">Ballast</a></span><span>hover a face or a dot · click to open · drag to turn</span></div>
 
 <div class="stage" id="stage">
   <svg id="lines" aria-hidden="true"></svg>
@@ -383,7 +383,7 @@ if (renderer){
   new ResizeObserver(resize).observe(cell); resize();
 
   // turning, dragging, hovering
-  let rotY = .4, rotX = .12, vel = reduce ? 0 : .0025, drag = null;
+  let rotY = .4, rotX = .12, vel = 0, drag = null;   // still by default; drag to turn
   const ray = new THREE.Raycaster(), ndc = new THREE.Vector2();
   canvas.addEventListener("pointerdown", e => { drag = {x:e.clientX, y:e.clientY, rx:rotX, ry:rotY, moved:false}; canvas.setPointerCapture(e.pointerId); });
   canvas.addEventListener("pointermove", e => {
