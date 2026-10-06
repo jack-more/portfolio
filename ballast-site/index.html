@@ -321,11 +321,23 @@
   .case__grid figcaption{font-size:11.5px;color:var(--mute);max-width:30ch}
   .ads__hd{display:flex;justify-content:space-between;gap:16px;margin:8px 0 12px}
   .ads__hd .mono{color:var(--mute);font-size:11.5px}
-  .ads{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin-bottom:34px}
+  .ads{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:12px;margin-bottom:34px}
+  @media (max-width:1100px){.ads{grid-template-columns:repeat(4,minmax(0,1fr))}}
+  @media (max-width:600px){.ads{grid-template-columns:repeat(2,minmax(0,1fr))}}
   .ad{margin:0;display:flex;flex-direction:column;gap:8px;min-width:0}
   .ad video{display:block;width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:6px;background:#0a0d18;cursor:pointer}
   .ad.sound video{outline:2px solid var(--orange);outline-offset:-2px}
   .ad figcaption{font-size:11px;color:var(--mute)}
+  .reel{overflow:hidden;margin:6px calc(-1*var(--gut,24px)) 10px;mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent)}
+  .reel__track{display:flex;gap:8px;width:max-content;animation:reel 70s linear infinite}
+  .reel:hover .reel__track{animation-play-state:paused}
+  .reel .ad,.reel .still{flex:none;height:clamp(240px,22vw,340px);border-radius:6px;overflow:hidden;background:#0a0d18}
+  .reel .ad video,.reel .still img{display:block;height:100%;width:auto;aspect-ratio:auto;border-radius:0;outline:0}
+  .reel .ad video{aspect-ratio:9/16;object-fit:cover;cursor:pointer}
+  .reel .ad.sound{outline:2px solid var(--orange);outline-offset:-2px}
+  .reel__cap{font-size:11.5px;color:var(--mute);margin:8px 0 0}
+  @keyframes reel{to{transform:translateX(-50%)}}
+  @media (prefers-reduced-motion:reduce){.reel__track{animation:none}.reel{overflow-x:auto}}
   .case__how{margin-top:clamp(36px,6vh,64px)}
   @media (max-width:760px){
     .case__stats{grid-template-columns:1fr;gap:14px}
@@ -341,9 +353,9 @@
   <div class="pad nav__in">
     <a class="nav__brand" href="#top">Ballast</a>
     <nav class="nav__links">
+      <a href="#health">Work</a>
+      <a href="#clients">Clients</a>
       <a href="#rd">Services</a>
-      <a href="#record">Clients</a>
-      <a href="#problem">Approach</a>
       <a href="#sprint">Sprint</a>
       <a href="#proof">Results</a>
       <a href="#team">Team</a>
@@ -372,7 +384,7 @@
         <div class="plate__proof num"><div><b>$2M+</b><span>monthly spend at peak</span></div><div><b>4&times;</b><span>blended ROAS</span></div></div>
         <div class="plate__cta">
           <a class="btn btn--lg scene__go" href="#book">Book a call</a>
-          <a class="btn btn--lg scene__ghost" href="#rd">Work</a>
+          <a class="btn btn--lg scene__ghost" href="#health">Work</a>
         </div>
         </div>
       </div>
@@ -380,78 +392,39 @@
     </div>
   </section>
 
-  <!-- stats band -->
-  <section class="band pad" id="record">
-    <div class="stats num">
-      <div><b>4&times;</b><span>Blended ROAS at peak spend</span></div>
-      <div><b>$2M+</b><span>Peak monthly spend, Starbucks and Toyota</span></div>
-      <div><b>11</b><span>Categories</span></div>
-      <div><b>15</b><span>Accounts</span></div>
-    </div>
-  </section>
-
-  <!-- research and development -->
-  <section class="rd pad" id="rd">
+  <!-- health -->
+  <section class="rd pad" id="health">
     <div class="rd__hd">
-      <span class="mono">Services</span>
-      <h2 class="serif">What we do</h2>
-      <p class="rd__lead">Research tells us where the money should go. Media puts it there, and keeps the audience it brings in.</p>
-    </div>
-    <div class="rd__rows">
-      <div class="rdrow"><b>Market research</b><p>Who buys, where demand already exists, and where it has to be built.</p><p>We prove demand on owned channels before a dollar of paid spend.</p></div>
-      <div class="rdrow"><b>Channel strategy</b><p>What to buy, what to build, and in what order.</p><p>Paid reach rents attention. Owned channels compound it, and they&rsquo;re yours.</p></div>
-      <div class="rdrow"><b>Measurement</b><p>One number per goal, reconciled to revenue, not platform dashboards.</p><p>See which channels create demand and which just take credit for it.</p></div>
-      <div class="rdrow"><b>Creative and offer</b><p>Creative, offers and placements matched to where each buyer is.</p><p>Compliant from day one in regulated categories.</p></div>
-      <div class="rdrow"><b>Loyalty programs</b><p>Points, tiers and games, costed before launch and live for a DTC brand.</p><p>Rewards that pay for themselves.</p></div>
-      <div class="rdrow"><b>Ticketing and fan engagement</b><p>Ticketing, live-event rewards and fan vouchers for SailGP.</p><p>One race day becomes repeat visits, and a list of who came back.</p></div>
-      <div class="rdrow"><b>Research briefings</b><p>One question, the evidence, and a clear call.</p><p>Latest: how fans have followed sport since 1921, and what it means for a media platform.</p></div>
-    </div>
-  </section>
-
-  <!-- manifesto -->
-  <section class="man pad">
-    <div class="man__labels mono">
-      <span>Regulated</span>
-      <span>At scale</span>
-    </div>
-    <div class="man__cols">
-      <p>Health, compounds, crypto. The categories most agencies avoid. <b>We build compliance into the account from day one</b>, because the platform decides whether you run at all.</p>
-      <p>Toyota, Starbucks, Sony. Budgets most agencies never touch. <b>$2M+ a month at 4&times; blended ROAS.</b></p>
-    </div>
-    <div class="strip mono">
-      <span>Los Angeles</span>
-      <span>11 categories</span>
-      <span>15 accounts</span>
-    </div>
-  </section>
-
-  <!-- the problem, then the method -->
-  <section class="block block--cobalt pad" id="problem">
-    <div class="block__hd">
-      <span class="mono">The problem</span>
-      <h2>Most budgets pay for demand they didn&rsquo;t create.</h2>
-    </div>
-    <div class="argue">
-      <p class="lead">Where the money usually leaks, and how we stop it.</p>
+      <span class="mono">Health, RUO and weight loss</span>
       <div>
-        <div class="prose">
-          <p><b>Last-click attribution rewards whoever touched the customer last.</b> Branded search looks cheap because the buyer already knew you. Something else did the work.</p>
-          <p>Optimize to last click and budget drains from the channels creating demand. A quarter later, sales follow it down.</p>
-          <p>In regulated categories, the platform also decides whether you run at all. Accounts vanish without warning, learning resets every time you scale, and ads get edited until they stop working. We build compliance into the account and the creative from the start.</p>
-        </div>
-        <div class="layers">
-          <div class="layers__hd mono">Four audiences, each judged on its own number</div>
-          <div class="layer"><b>Ready to buy</b><span>Branded search, shopping, retargeting</span><span>Incremental sales, not last click</span></div>
-          <div class="layer"><b>Comparing options</b><span>Non-brand search, comparison placements, competitor terms</span><span>New-customer CAC</span></div>
-          <div class="layer"><b>Not looking yet</b><span>Paid social, creators, video</span><span>Lift in branded search and direct traffic</span></div>
-          <div class="layer"><b>Past customers</b><span>Email, win-back, suppression</span><span>Repeat rate and LTV</span></div>
-        </div>
+        <h2 class="serif">Scaled, and kept live.</h2>
+        <p class="rd__lead">What we built for SKO Compounds, then ran again for ePeps and Meridian.</p>
       </div>
+    </div>
+
+    <div class="case">
+      <div class="case__hd"><h3 class="serif">SKO Compounds</h3><span class="mono">Ads, creative, storefront and retention</span></div>
+      <div class="case__stats">
+        <div><b class="serif">$1.2M+</b><span>Monthly sales</span></div>
+        <div><b class="serif">4.5&times;</b><span>Return at peak: $100K a month in ads, $450K back</span></div>
+        <div><b class="serif">38</b><span>Products, one image system</span></div>
+      </div>
+      <div class="reel" aria-label="Ads we ran for SKO Compounds, ePeps and Meridian">
+        <div class="reel__track"><div class="ad"><video data-src="/work/health/ads/sko-founder-1.mp4" poster="/work/health/ads/sko-founder-1.webp" muted loop playsinline preload="none"></video></div><div class="still"><img src="/work/health/sko-alpine.webp" alt="" loading="lazy"></div><div class="ad"><video data-src="/work/health/ads/sko-ai-spot.mp4" poster="/work/health/ads/sko-ai-spot.webp" muted loop playsinline preload="none"></video></div><div class="ad"><video data-src="/work/health/ads/sko-dna.mp4" poster="/work/health/ads/sko-dna.webp" muted loop playsinline preload="none"></video></div><div class="still"><img src="/work/health/epeps-corona.webp" alt="" loading="lazy"></div><div class="ad"><video data-src="/work/health/ads/sko-tennis.mp4" poster="/work/health/ads/sko-tennis.webp" muted loop playsinline preload="none"></video></div><div class="still"><img src="/work/health/sko-drip.webp" alt="" loading="lazy"></div><div class="ad"><video data-src="/work/health/ads/sko-laborday-1.mp4" poster="/work/health/ads/sko-laborday-1.webp" muted loop playsinline preload="none"></video></div><div class="still"><img src="/work/health/meridian-banner.webp" alt="" loading="lazy"></div><div class="ad"><video data-src="/work/health/ads/sko-orders.mp4" poster="/work/health/ads/sko-orders.webp" muted loop playsinline preload="none"></video></div><div class="still"><img src="/work/health/sko-vending.webp" alt="" loading="lazy"></div><div class="ad"><video data-src="/work/health/ads/sko-truck.mp4" poster="/work/health/ads/sko-truck.webp" muted loop playsinline preload="none"></video></div><div class="still"><img src="/work/health/sko-molecule.webp" alt="" loading="lazy"></div><div class="ad"><video data-src="/work/health/ads/sko-freevial.mp4" poster="/work/health/ads/sko-freevial.webp" muted loop playsinline preload="none"></video></div><div class="ad" aria-hidden="true"><video data-src="/work/health/ads/sko-founder-1.mp4" poster="/work/health/ads/sko-founder-1.webp" muted loop playsinline preload="none"></video></div><div class="still" aria-hidden="true"><img src="/work/health/sko-alpine.webp" alt="" loading="lazy"></div><div class="ad" aria-hidden="true"><video data-src="/work/health/ads/sko-ai-spot.mp4" poster="/work/health/ads/sko-ai-spot.webp" muted loop playsinline preload="none"></video></div><div class="ad" aria-hidden="true"><video data-src="/work/health/ads/sko-dna.mp4" poster="/work/health/ads/sko-dna.webp" muted loop playsinline preload="none"></video></div><div class="still" aria-hidden="true"><img src="/work/health/epeps-corona.webp" alt="" loading="lazy"></div><div class="ad" aria-hidden="true"><video data-src="/work/health/ads/sko-tennis.mp4" poster="/work/health/ads/sko-tennis.webp" muted loop playsinline preload="none"></video></div><div class="still" aria-hidden="true"><img src="/work/health/sko-drip.webp" alt="" loading="lazy"></div><div class="ad" aria-hidden="true"><video data-src="/work/health/ads/sko-laborday-1.mp4" poster="/work/health/ads/sko-laborday-1.webp" muted loop playsinline preload="none"></video></div><div class="still" aria-hidden="true"><img src="/work/health/meridian-banner.webp" alt="" loading="lazy"></div><div class="ad" aria-hidden="true"><video data-src="/work/health/ads/sko-orders.mp4" poster="/work/health/ads/sko-orders.webp" muted loop playsinline preload="none"></video></div><div class="still" aria-hidden="true"><img src="/work/health/sko-vending.webp" alt="" loading="lazy"></div><div class="ad" aria-hidden="true"><video data-src="/work/health/ads/sko-truck.mp4" poster="/work/health/ads/sko-truck.webp" muted loop playsinline preload="none"></video></div><div class="still" aria-hidden="true"><img src="/work/health/sko-molecule.webp" alt="" loading="lazy"></div><div class="ad" aria-hidden="true"><video data-src="/work/health/ads/sko-freevial.mp4" poster="/work/health/ads/sko-freevial.webp" muted loop playsinline preload="none"></video></div></div>
+      </div>
+      <p class="reel__cap mono">Ads and product work for SKO Compounds, ePeps ($250K a month in sales) and Meridian (built from zero)</p>
+    </div>
+
+    <div class="rd__rows case__how">
+      <div class="rdrow"><b>Compliant from the first ad</b><p>Every claim, product and landing page checked against Meta, TikTok and Google policy before it runs.</p><p>Ad-safe product lists decide what can run, and what never appears in an ad.</p></div>
+      <div class="rdrow"><b>Measured against real orders</b><p>Platforms over-claim in this category. We reconcile spend to store orders, new and repeat.</p><p>You see what a new customer actually costs.</p></div>
+      <div class="rdrow"><b>Creative built for review</b><p>Creator videos, UGC and product imagery made to pass review, not just to get clicks.</p><p>One image system across every product.</p></div>
+      <div class="rdrow"><b>Storefront and retention</b><p>Product pages, bundles, loyalty and reorder flows.</p><p>In this category, the second order is where the profit is.</p></div>
     </div>
   </section>
 
   <!-- the record -->
-  <section class="block block--ink pad">
+  <section class="block block--ink pad" id="clients">
     <div class="block__hd">
       <span class="mono">Clients</span>
       <h2>Eleven categories. Regulated and at scale.</h2>
@@ -474,79 +447,21 @@
     </div>
   </section>
 
-  <!-- health -->
-  <section class="rd pad" id="health">
+  <!-- research and development -->
+  <section class="rd pad" id="rd">
     <div class="rd__hd">
-      <span class="mono">Health, RUO and weight loss</span>
-      <div>
-        <h2 class="serif">Scaled, and kept live.</h2>
-        <p class="rd__lead">What we built for SKO Compounds, then ran again for two more brands.</p>
-      </div>
+      <span class="mono">Services</span>
+      <h2 class="serif">What we do</h2>
+      <p class="rd__lead">Research tells us where the money should go. Media puts it there, and keeps the audience it brings in.</p>
     </div>
-
-    <div class="case">
-      <div class="case__hd"><h3 class="serif">SKO Compounds</h3><span class="mono">Ads, creative, storefront and retention</span></div>
-      <div class="case__stats">
-        <div><b class="serif">$1.2M+</b><span>Monthly sales</span></div>
-        <div><b class="serif">4.5&times;</b><span>Return at peak: $100K a month in ads, $450K back</span></div>
-        <div><b class="serif">38</b><span>Products, one image system</span></div>
-      </div>
-      <div class="ads__hd"><span class="mono">The ads &middot; 20 that ran</span><span class="mono">Tap an ad for sound</span></div>
-      <div class="ads">
-        <figure class="ad"><video data-src="/work/health/ads/sko-founder-1.mp4" poster="/work/health/ads/sko-founder-1.webp" muted loop playsinline preload="none"></video><figcaption class="mono">TikTok winner · founder-led</figcaption></figure>
-        <figure class="ad"><video data-src="/work/health/ads/sko-founder-2.mp4" poster="/work/health/ads/sko-founder-2.webp" muted loop playsinline preload="none"></video><figcaption class="mono">TikTok winner · warehouse</figcaption></figure>
-        <figure class="ad"><video data-src="/work/health/ads/sko-ai-spot.mp4" poster="/work/health/ads/sko-ai-spot.webp" muted loop playsinline preload="none"></video><figcaption class="mono">TikTok winner · AI spot</figcaption></figure>
-        <figure class="ad"><video data-src="/work/health/ads/sko-bounce.mp4" poster="/work/health/ads/sko-bounce.webp" muted loop playsinline preload="none"></video><figcaption class="mono">Product motion</figcaption></figure>
-        <figure class="ad"><video data-src="/work/health/ads/sko-dna.mp4" poster="/work/health/ads/sko-dna.webp" muted loop playsinline preload="none"></video><figcaption class="mono">Product motion</figcaption></figure>
-        <figure class="ad"><video data-src="/work/health/ads/sko-shipwreck.mp4" poster="/work/health/ads/sko-shipwreck.webp" muted loop playsinline preload="none"></video><figcaption class="mono">Product motion</figcaption></figure>
-        <figure class="ad"><video data-src="/work/health/ads/sko-hightech.mp4" poster="/work/health/ads/sko-hightech.webp" muted loop playsinline preload="none"></video><figcaption class="mono">Brand spot</figcaption></figure>
-        <figure class="ad"><video data-src="/work/health/ads/sko-tennis.mp4" poster="/work/health/ads/sko-tennis.webp" muted loop playsinline preload="none"></video><figcaption class="mono">Brand spot</figcaption></figure>
-        <figure class="ad"><video data-src="/work/health/ads/sko-laborday-1.mp4" poster="/work/health/ads/sko-laborday-1.webp" muted loop playsinline preload="none"></video><figcaption class="mono">Labor Day campaign</figcaption></figure>
-        <figure class="ad"><video data-src="/work/health/ads/sko-laborday-2.mp4" poster="/work/health/ads/sko-laborday-2.webp" muted loop playsinline preload="none"></video><figcaption class="mono">Labor Day campaign</figcaption></figure>
-        <figure class="ad"><video data-src="/work/health/ads/sko-court.mp4" poster="/work/health/ads/sko-court.webp" muted loop playsinline preload="none"></video><figcaption class="mono">Campaign film</figcaption></figure>
-        <figure class="ad"><video data-src="/work/health/ads/sko-restock.mp4" poster="/work/health/ads/sko-restock.webp" muted loop playsinline preload="none"></video><figcaption class="mono">Restock launch</figcaption></figure>
-        <figure class="ad"><video data-src="/work/health/ads/sko-resort.mp4" poster="/work/health/ads/sko-resort.webp" muted loop playsinline preload="none"></video><figcaption class="mono">AI creator</figcaption></figure>
-        <figure class="ad"><video data-src="/work/health/ads/sko-sky.mp4" poster="/work/health/ads/sko-sky.webp" muted loop playsinline preload="none"></video><figcaption class="mono">AI creator</figcaption></figure>
-        <figure class="ad"><video data-src="/work/health/ads/sko-orders.mp4" poster="/work/health/ads/sko-orders.webp" muted loop playsinline preload="none"></video><figcaption class="mono">AI creator · social proof</figcaption></figure>
-        <figure class="ad"><video data-src="/work/health/ads/sko-pov.mp4" poster="/work/health/ads/sko-pov.webp" muted loop playsinline preload="none"></video><figcaption class="mono">POV text ad</figcaption></figure>
-        <figure class="ad"><video data-src="/work/health/ads/sko-cheap.mp4" poster="/work/health/ads/sko-cheap.webp" muted loop playsinline preload="none"></video><figcaption class="mono">AI creator · headline</figcaption></figure>
-        <figure class="ad"><video data-src="/work/health/ads/sko-truck.mp4" poster="/work/health/ads/sko-truck.webp" muted loop playsinline preload="none"></video><figcaption class="mono">Shipping spot</figcaption></figure>
-        <figure class="ad"><video data-src="/work/health/ads/sko-box.mp4" poster="/work/health/ads/sko-box.webp" muted loop playsinline preload="none"></video><figcaption class="mono">Unboxing spot</figcaption></figure>
-        <figure class="ad"><video data-src="/work/health/ads/sko-freevial.mp4" poster="/work/health/ads/sko-freevial.webp" muted loop playsinline preload="none"></video><figcaption class="mono">Loyalty launch</figcaption></figure>
-      </div>
-      <div class="ads__hd"><span class="mono">Product imagery</span></div>
-      <div class="case__grid case__grid--sko">
-        <figure><img src="/work/health/sko-alpine.webp" alt="" loading="lazy"><figcaption class="mono">Product photography</figcaption></figure>
-        <figure><img src="/work/health/sko-drip.webp" alt="" loading="lazy"><figcaption class="mono">Product photography</figcaption></figure>
-        <figure><img src="/work/health/sko-vending.webp" alt="" loading="lazy"><figcaption class="mono">Campaign image</figcaption></figure>
-        <figure><img src="/work/health/sko-molecule.webp" alt="" loading="lazy"><figcaption class="mono">Product book: each compound as its molecule</figcaption></figure>
-        <figure><img src="/work/health/sko-card.webp" alt="" loading="lazy"><figcaption class="mono">Display ad</figcaption></figure>
-      </div>
-    </div>
-
-    <div class="case">
-      <div class="case__hd"><h3 class="serif">ePeps</h3><span class="mono">Second RUO brand &middot; $250K a month in sales</span></div>
-      <div class="case__grid case__grid--3">
-        <figure><img src="/work/health/epeps-corona.webp" alt="" loading="lazy"><figcaption class="mono">Product imagery</figcaption></figure>
-        <figure><img src="/work/health/epeps-ring.webp" alt="" loading="lazy"><figcaption class="mono">Product imagery</figcaption></figure>
-        <figure><img src="/work/health/epeps-wide.webp" alt="" loading="lazy"><figcaption class="mono">Campaign image</figcaption></figure>
-      </div>
-    </div>
-
-    <div class="case">
-      <div class="case__hd"><h3 class="serif">Meridian</h3><span class="mono">Third brand, built from zero</span></div>
-      <div class="case__grid case__grid--3 case__grid--wide">
-        <figure><img src="/work/health/meridian-twig.webp" alt="" loading="lazy"><figcaption class="mono">Product book</figcaption></figure>
-        <figure><img src="/work/health/meridian-leaf.webp" alt="" loading="lazy"><figcaption class="mono">Product book</figcaption></figure>
-        <figure><img src="/work/health/meridian-stone.webp" alt="" loading="lazy"><figcaption class="mono">Identity</figcaption></figure>
-      </div>
-    </div>
-
-    <div class="rd__rows case__how">
-      <div class="rdrow"><b>Compliant from the first ad</b><p>Every claim, product and landing page checked against Meta, TikTok and Google policy before it runs.</p><p>Ad-safe product lists decide what can run, and what never appears in an ad.</p></div>
-      <div class="rdrow"><b>Measured against real orders</b><p>Platforms over-claim in this category. We reconcile spend to store orders, new and repeat.</p><p>You see what a new customer actually costs.</p></div>
-      <div class="rdrow"><b>Creative built for review</b><p>Creator videos, UGC and product imagery made to pass review, not just to get clicks.</p><p>One image system across every product.</p></div>
-      <div class="rdrow"><b>Storefront and retention</b><p>Product pages, bundles, loyalty and reorder flows.</p><p>In this category, the second order is where the profit is.</p></div>
+    <div class="rd__rows">
+      <div class="rdrow"><b>Market research</b><p>Who buys, where demand already exists, and where it has to be built.</p><p>We prove demand on owned channels before a dollar of paid spend.</p></div>
+      <div class="rdrow"><b>Channel strategy</b><p>What to buy, what to build, and in what order.</p><p>Paid reach rents attention. Owned channels compound it, and they&rsquo;re yours.</p></div>
+      <div class="rdrow"><b>Measurement</b><p>One number per goal, reconciled to revenue, not platform dashboards.</p><p>See which channels create demand and which just take credit for it.</p></div>
+      <div class="rdrow"><b>Creative and offer</b><p>Creative, offers and placements matched to where each buyer is.</p><p>Compliant from day one in regulated categories.</p></div>
+      <div class="rdrow"><b>Loyalty programs</b><p>Points, tiers and games, costed before launch and live for a DTC brand.</p><p>Rewards that pay for themselves.</p></div>
+      <div class="rdrow"><b>Ticketing and fan engagement</b><p>Ticketing, live-event rewards and fan vouchers for SailGP.</p><p>One race day becomes repeat visits, and a list of who came back.</p></div>
+      <div class="rdrow"><b>Research briefings</b><p>One question, the evidence, and a clear call.</p><p>Latest: how fans have followed sport since 1921, and what it means for a media platform.</p></div>
     </div>
   </section>
 
@@ -678,7 +593,7 @@
   <div class="foot__top">
     <div><span class="mono">Email</span><a href="mailto:jack@ballast.la">jack@ballast.la</a></div>
     <div><span class="mono">Where</span><a href="#book">Los Angeles</a></div>
-    <div><span class="mono">Site</span><a href="#rd">Services</a><a href="#record">Clients</a><a href="#problem">Approach</a><a href="#sprint">Sprint</a><a href="#proof">Results</a></div>
+    <div><span class="mono">Site</span><a href="#health">Work</a><a href="#clients">Clients</a><a href="#rd">Services</a><a href="#sprint">Sprint</a><a href="#proof">Results</a></div>
   </div>
   <div class="foot__word">Ballast</div>
   <div class="foot__bot mono"><span>Ballast Research LLC &mdash; Los Angeles</span><span>Research, development and media distribution</span></div>
