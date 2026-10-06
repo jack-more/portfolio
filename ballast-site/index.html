@@ -307,6 +307,29 @@
   @media (max-width:1100px){.plate{grid-template-columns:minmax(0,1fr) auto}.plate__cta{grid-column:1/-1;justify-content:flex-start}}
   @media (max-width:760px){.nav__links{display:none}.scene__bg{object-position:58% 80%}.scene__in{grid-template-rows:auto 1fr auto;padding-top:88px}.plate{grid-template-columns:1fr;gap:20px}.plate__proof div{padding-right:18px}.plate__proof div + div{padding-left:18px}.scene__in::after{height:70vh}}
   @media (prefers-reduced-motion:reduce){.scene__bg{animation:none}}
+  /* health proof of work */
+  .case{border-top:1px solid var(--ink);padding-top:22px;margin-top:clamp(36px,6vh,72px)}
+  .case__hd{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:22px}
+  .case__hd h3{font-size:clamp(34px,3.4vw,52px);margin:0}
+  .case__hd .mono{color:var(--mute)}
+  .case__stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-bottom:26px}
+  .case__stats b{display:block;font-size:clamp(48px,5.6vw,92px);color:var(--ink)}
+  .case__stats span{display:block;margin-top:6px;color:var(--mute);font-size:15px;max-width:28ch}
+  .case__grid{display:flex;gap:12px;overflow-x:auto;scrollbar-width:thin;padding-bottom:6px}
+  .case__grid figure{margin:0;display:flex;flex-direction:column;gap:8px;flex:none}
+  .case__grid img,.case__grid video{display:block;height:clamp(240px,24vw,360px);width:auto;border-radius:6px;background:#e9e4dc}
+  .case__grid figcaption{font-size:11.5px;color:var(--mute);max-width:30ch}
+  .ads__hd{display:flex;justify-content:space-between;gap:16px;margin:8px 0 12px}
+  .ads__hd .mono{color:var(--mute);font-size:11.5px}
+  .ads{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin-bottom:34px}
+  .ad{margin:0;display:flex;flex-direction:column;gap:8px;min-width:0}
+  .ad video{display:block;width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:6px;background:#0a0d18;cursor:pointer}
+  .ad.sound video{outline:2px solid var(--orange);outline-offset:-2px}
+  .ad figcaption{font-size:11px;color:var(--mute)}
+  .case__how{margin-top:clamp(36px,6vh,64px)}
+  @media (max-width:760px){
+    .case__stats{grid-template-columns:1fr;gap:14px}
+  }
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"ProfessionalService","name":"Ballast","legalName":"Ballast Research LLC","url":"https://ballast.la/","email":"jack@ballast.la","address":{"@type":"PostalAddress","addressLocality":"Los Angeles","addressRegion":"CA","addressCountry":"US"},"description":"Research, development and media distribution for brands in categories most agencies won't touch, at a scale most never see.","areaServed":"Worldwide"}
@@ -448,6 +471,82 @@
       <div class="row"><b>Live Sport</b><small>SailGP</small></div>
       <div class="row"><b>Architecture &amp; Education</b><small>SCI-Arc</small></div>
       <div class="row"><b>Urbanism &amp; Property</b><small>Build Cities</small></div>
+    </div>
+  </section>
+
+  <!-- health -->
+  <section class="rd pad" id="health">
+    <div class="rd__hd">
+      <span class="mono">Health, RUO and weight loss</span>
+      <div>
+        <h2 class="serif">Scaled, and kept live.</h2>
+        <p class="rd__lead">What we built for SKO Compounds, then ran again for two more brands.</p>
+      </div>
+    </div>
+
+    <div class="case">
+      <div class="case__hd"><h3 class="serif">SKO Compounds</h3><span class="mono">Ads, creative, storefront and retention</span></div>
+      <div class="case__stats">
+        <div><b class="serif">$1.2M+</b><span>Monthly sales</span></div>
+        <div><b class="serif">4.5&times;</b><span>Return at peak: $100K a month in ads, $450K back</span></div>
+        <div><b class="serif">38</b><span>Products, one image system</span></div>
+      </div>
+      <div class="ads__hd"><span class="mono">The ads &middot; 20 that ran</span><span class="mono">Tap an ad for sound</span></div>
+      <div class="ads">
+        <figure class="ad"><video data-src="/work/health/ads/sko-founder-1.mp4" poster="/work/health/ads/sko-founder-1.webp" muted loop playsinline preload="none"></video><figcaption class="mono">TikTok winner · founder-led</figcaption></figure>
+        <figure class="ad"><video data-src="/work/health/ads/sko-founder-2.mp4" poster="/work/health/ads/sko-founder-2.webp" muted loop playsinline preload="none"></video><figcaption class="mono">TikTok winner · warehouse</figcaption></figure>
+        <figure class="ad"><video data-src="/work/health/ads/sko-ai-spot.mp4" poster="/work/health/ads/sko-ai-spot.webp" muted loop playsinline preload="none"></video><figcaption class="mono">TikTok winner · AI spot</figcaption></figure>
+        <figure class="ad"><video data-src="/work/health/ads/sko-bounce.mp4" poster="/work/health/ads/sko-bounce.webp" muted loop playsinline preload="none"></video><figcaption class="mono">Product motion</figcaption></figure>
+        <figure class="ad"><video data-src="/work/health/ads/sko-dna.mp4" poster="/work/health/ads/sko-dna.webp" muted loop playsinline preload="none"></video><figcaption class="mono">Product motion</figcaption></figure>
+        <figure class="ad"><video data-src="/work/health/ads/sko-shipwreck.mp4" poster="/work/health/ads/sko-shipwreck.webp" muted loop playsinline preload="none"></video><figcaption class="mono">Product motion</figcaption></figure>
+        <figure class="ad"><video data-src="/work/health/ads/sko-hightech.mp4" poster="/work/health/ads/sko-hightech.webp" muted loop playsinline preload="none"></video><figcaption class="mono">Brand spot</figcaption></figure>
+        <figure class="ad"><video data-src="/work/health/ads/sko-tennis.mp4" poster="/work/health/ads/sko-tennis.webp" muted loop playsinline preload="none"></video><figcaption class="mono">Brand spot</figcaption></figure>
+        <figure class="ad"><video data-src="/work/health/ads/sko-laborday-1.mp4" poster="/work/health/ads/sko-laborday-1.webp" muted loop playsinline preload="none"></video><figcaption class="mono">Labor Day campaign</figcaption></figure>
+        <figure class="ad"><video data-src="/work/health/ads/sko-laborday-2.mp4" poster="/work/health/ads/sko-laborday-2.webp" muted loop playsinline preload="none"></video><figcaption class="mono">Labor Day campaign</figcaption></figure>
+        <figure class="ad"><video data-src="/work/health/ads/sko-court.mp4" poster="/work/health/ads/sko-court.webp" muted loop playsinline preload="none"></video><figcaption class="mono">Campaign film</figcaption></figure>
+        <figure class="ad"><video data-src="/work/health/ads/sko-restock.mp4" poster="/work/health/ads/sko-restock.webp" muted loop playsinline preload="none"></video><figcaption class="mono">Restock launch</figcaption></figure>
+        <figure class="ad"><video data-src="/work/health/ads/sko-resort.mp4" poster="/work/health/ads/sko-resort.webp" muted loop playsinline preload="none"></video><figcaption class="mono">AI creator</figcaption></figure>
+        <figure class="ad"><video data-src="/work/health/ads/sko-sky.mp4" poster="/work/health/ads/sko-sky.webp" muted loop playsinline preload="none"></video><figcaption class="mono">AI creator</figcaption></figure>
+        <figure class="ad"><video data-src="/work/health/ads/sko-orders.mp4" poster="/work/health/ads/sko-orders.webp" muted loop playsinline preload="none"></video><figcaption class="mono">AI creator · social proof</figcaption></figure>
+        <figure class="ad"><video data-src="/work/health/ads/sko-pov.mp4" poster="/work/health/ads/sko-pov.webp" muted loop playsinline preload="none"></video><figcaption class="mono">POV text ad</figcaption></figure>
+        <figure class="ad"><video data-src="/work/health/ads/sko-cheap.mp4" poster="/work/health/ads/sko-cheap.webp" muted loop playsinline preload="none"></video><figcaption class="mono">AI creator · headline</figcaption></figure>
+        <figure class="ad"><video data-src="/work/health/ads/sko-truck.mp4" poster="/work/health/ads/sko-truck.webp" muted loop playsinline preload="none"></video><figcaption class="mono">Shipping spot</figcaption></figure>
+        <figure class="ad"><video data-src="/work/health/ads/sko-box.mp4" poster="/work/health/ads/sko-box.webp" muted loop playsinline preload="none"></video><figcaption class="mono">Unboxing spot</figcaption></figure>
+        <figure class="ad"><video data-src="/work/health/ads/sko-freevial.mp4" poster="/work/health/ads/sko-freevial.webp" muted loop playsinline preload="none"></video><figcaption class="mono">Loyalty launch</figcaption></figure>
+      </div>
+      <div class="ads__hd"><span class="mono">Product imagery</span></div>
+      <div class="case__grid case__grid--sko">
+        <figure><img src="/work/health/sko-alpine.webp" alt="" loading="lazy"><figcaption class="mono">Product photography</figcaption></figure>
+        <figure><img src="/work/health/sko-drip.webp" alt="" loading="lazy"><figcaption class="mono">Product photography</figcaption></figure>
+        <figure><img src="/work/health/sko-vending.webp" alt="" loading="lazy"><figcaption class="mono">Campaign image</figcaption></figure>
+        <figure><img src="/work/health/sko-molecule.webp" alt="" loading="lazy"><figcaption class="mono">Product book: each compound as its molecule</figcaption></figure>
+        <figure><img src="/work/health/sko-card.webp" alt="" loading="lazy"><figcaption class="mono">Display ad</figcaption></figure>
+      </div>
+    </div>
+
+    <div class="case">
+      <div class="case__hd"><h3 class="serif">ePeps</h3><span class="mono">Second RUO brand &middot; $250K a month in sales</span></div>
+      <div class="case__grid case__grid--3">
+        <figure><img src="/work/health/epeps-corona.webp" alt="" loading="lazy"><figcaption class="mono">Product imagery</figcaption></figure>
+        <figure><img src="/work/health/epeps-ring.webp" alt="" loading="lazy"><figcaption class="mono">Product imagery</figcaption></figure>
+        <figure><img src="/work/health/epeps-wide.webp" alt="" loading="lazy"><figcaption class="mono">Campaign image</figcaption></figure>
+      </div>
+    </div>
+
+    <div class="case">
+      <div class="case__hd"><h3 class="serif">Meridian</h3><span class="mono">Third brand, built from zero</span></div>
+      <div class="case__grid case__grid--3 case__grid--wide">
+        <figure><img src="/work/health/meridian-twig.webp" alt="" loading="lazy"><figcaption class="mono">Product book</figcaption></figure>
+        <figure><img src="/work/health/meridian-leaf.webp" alt="" loading="lazy"><figcaption class="mono">Product book</figcaption></figure>
+        <figure><img src="/work/health/meridian-stone.webp" alt="" loading="lazy"><figcaption class="mono">Identity</figcaption></figure>
+      </div>
+    </div>
+
+    <div class="rd__rows case__how">
+      <div class="rdrow"><b>Compliant from the first ad</b><p>Every claim, product and landing page checked against Meta, TikTok and Google policy before it runs.</p><p>Ad-safe product lists decide what can run, and what never appears in an ad.</p></div>
+      <div class="rdrow"><b>Measured against real orders</b><p>Platforms over-claim in this category. We reconcile spend to store orders, new and repeat.</p><p>You see what a new customer actually costs.</p></div>
+      <div class="rdrow"><b>Creative built for review</b><p>Creator videos, UGC and product imagery made to pass review, not just to get clicks.</p><p>One image system across every product.</p></div>
+      <div class="rdrow"><b>Storefront and retention</b><p>Product pages, bundles, loyalty and reorder flows.</p><p>In this category, the second order is where the profit is.</p></div>
     </div>
   </section>
 
@@ -677,6 +776,13 @@
   addEventListener('resize',size);
   new IntersectionObserver(function(e){var v=e[0].isIntersecting;if(v&&!on){on=true;tick()}else on=v}).observe(c);
   tick();
+})();
+</script>
+<script>
+(()=>{const vids=[...document.querySelectorAll('.ad video')];if(!vids.length)return;
+  const io=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;v._in=e.isIntersecting;if(e.isIntersecting){if(!v.src){v.src=v.dataset.src;v.load()}v.muted=v.muted;const p=v.play();p&&p.catch(()=>{})}else v.pause()}),{rootMargin:'200px 0px'});
+  vids.forEach(v=>v.addEventListener('canplay',()=>{if(v._in&&v.paused){const p=v.play();p&&p.catch(()=>{})}}));
+  vids.forEach(v=>{io.observe(v);v.addEventListener('click',()=>{const on=v.muted;vids.forEach(o=>{o.muted=true;o.parentElement.classList.remove('sound')});if(on){v.muted=false;v.parentElement.classList.add('sound');v.play().catch(()=>{})}})});
 })();
 </script>
 </body>
