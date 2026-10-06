@@ -71,8 +71,18 @@ h1{font-size:34px;font-weight:600;letter-spacing:-.6px;margin:0 0 8px}
 .seghead h2 i{width:12px;height:12px;border-radius:3px;display:inline-block}
 .seghead p{margin:0;color:var(--soft);max-width:80ch}
 .empty{color:var(--soft);padding:40px 0}
+.ustats{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;padding:6px 0 4px}
+.ustats div{border-top:2px solid var(--ink);padding-top:10px}
+.ustats b{display:block;font-family:var(--serif);font-weight:400;font-size:52px;line-height:1;letter-spacing:-1px}
+.ustats div:first-child b{color:var(--cobalt)}
+.ustats small{font-size:14px;color:var(--soft)}
+.unote{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:20px;font-size:14.5px;line-height:1.5}
+.unote p{margin:0;color:var(--soft)}
+.unote .ig{border:1px dashed var(--cobalt);border-radius:12px;padding:14px 16px;color:var(--ink)}
+.unote .ig b{color:var(--cobalt);font-weight:600}
 footer{border-top:1px solid var(--rule);padding:22px 0 40px;font-size:13.5px;color:var(--soft);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 @media (max-width:760px){
+  .ustats{grid-template-columns:repeat(2,minmax(0,1fr))}.ustats b{font-size:40px}.unote{grid-template-columns:1fr}
   .wrap{padding:0 16px}
   header.intro{grid-template-columns:1fr;padding-top:32px}
   .gap{text-align:left}
@@ -97,6 +107,7 @@ footer{border-top:1px solid var(--rule);padding:22px 0 40px;font-size:13.5px;col
   <div class="tabs" role="tablist">
     <button role="tab" aria-selected="true" data-tab="pieces" id="tab-pieces">His pieces</button>
     <button role="tab" aria-selected="false" data-tab="carriers" id="tab-carriers">Who carries them</button>
+    <button role="tab" aria-selected="false" data-tab="untapped" id="tab-untapped">Untapped distribution</button>
   </div>
 
   <div class="bar">
@@ -213,8 +224,12 @@ const viewsOf = t => { const m = String(t).match(/([\d.]+)\s*([MK])\b/); return 
 const ytId = u => (String(u).match(/youtube\.com\/watch\?v=([\w-]{11})/) || [])[1];
 const BOX = {"https://en.wikipedia.org/wiki/NBA_Street_V3":"t/nba-street-v3-cover.png"};
 const esc = t => String(t).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-const fmt = n => n >= 1e6 ? (n / 1e6).toFixed(n >= 1e7 ? 0 : 2).replace(/\.?0+$/, "") + "M" : n >= 1e3 ? Math.round(n / 1e3) + "K" : "";
+const fmt = n => n >= 1e6 ? (n / 1e6).toFixed(n >= 1e7 ? 0 : 2).replace(/\.0+$|(\.\d*?)0+$/, "$1") + "M" : n >= 1e3 ? Math.round(n / 1e3) + "K" : n > 0 ? String(Math.round(n)) : "";
 
+// Untapped: unverified TikTok accounts under 100K followers with 1M+ lifetime likes and 50+ likes per follower,
+// not yet in SEGMENTS. Read 5 Oct 2026 (ballast-work hotg/research/baron-archive/tiktok-sweep-2026-10-05.json).
+// [handle, followers, lifetime likes, videos, group]
+const UNTAPPED = [["basketball_edits_u_fw",67800,14200000,15,"editors"],["priime4k",21300,1800000,7,"editors"],["jaymixedits",61500,11100000,51,"editors"],["benlecito",46800,3400000,21,"pages"],[".jesuslover445",33700,6100000,46,"pages"],["1star.vfx",19000,1700000,13,"editors"],["nbaedits.ae",32600,4300000,33,"editors"],["benjizz31",29900,4900000,39,"pages"],["justnbaedits",65600,9600000,79,"editors"],["luker1919",25400,4800000,56,"pages"],["aim_sports_edits",33600,5400000,69,"editors"],["effxcts",43200,5600000,75,"editors"],["g0atprod",42200,5500000,85,"editors"],["meansfx",50000,8400000,140,"editors"],["not.halftimeprod",31800,6400000,108,"editors"],["pick.n.pop",99000,18400000,315,"pages"],["vexake_",16700,1500000,26,"editors"],["jackyeditsbb",40900,6300000,111,"editors"],["_break_67",11900,1000000,18,"pages"],["choc_ryd",64500,12800000,289,"pages"],["ekmadethat",30900,1800000,41,"editors"],["realtalkwithshepherd8",37600,6800000,155,"shows"],["ace.produced.it",42400,11100000,264,"editors"],["editsbygoose",60800,10200000,247,"editors"],["bucks.hoopz",11100,2500000,62,"pages"],["lsig7.edits",19300,3900000,104,"editors"],["bliscvfx",37900,5700000,160,"editors"],["p3dits_tt",44900,2600000,81,"editors"],["dt.sportsclips",23600,5400000,169,"editors"],["realchxmp",71900,11300000,391,"pages"],["zellertheyeller",85600,13400000,478,"shows"],["maybedareo",15800,1600000,58,"pages"],["mikegotchalk",84100,15000000,556,"shows"],["ballgame.tv",99000,8400000,350,"shows"],["silencersports",98700,19100000,853,"pages"],["hndrxx.aep",27500,3500000,166,"editors"],["adjustors",58500,4300000,210,"pages"],["drose.cc",27400,2500000,123,"pages"],["fanofthegame",15800,2800000,154,"pages"],["gunslinger.ae",32200,2900000,161,"editors"],["afunkydiabetic",25900,2200000,125,"pages"],["dunkman827",19800,1500000,94,"pages"],["nbaxl3",24500,3300000,208,"pages"],["bballeditz.aep",79000,9400000,603,"editors"],["shadnothere.yt",11000,3900000,252,"pages"],["snx060",56100,7100000,485,"pages"],["goodvibezhoops",80000,8600000,624,"pages"],["goatgallery",21100,2300000,178,"pages"],["dunkdynastybr",48400,2700000,211,"pages"],["dg.mix_",25800,3700000,301,"editors"],["sniperhoops._",31700,4500000,370,"pages"],["all_highlights",92500,7900000,660,"pages"],["allballbaby",65500,7100000,623,"pages"],["wembythealien",22400,6000000,530,"pages"],["7saac1",15500,2800000,263,"pages"],["sxers76",89500,22100000,2559,"pages"],["_bballchronicles",37200,4900000,581,"pages"],["ajsrhythms",10100,1800000,214,"editors"],["void_jazon",27700,2300000,339,"pages"],["ilovespencerjennings",18100,2000000,300,"pages"],["swish_productions19",23100,4200000,637,"editors"],["jay.the.oota",20000,3800000,587,"pages"],["ballerhighlightsyt",12500,2100000,329,"pages"],["vaultof520",32500,4700000,806,"pages"],["ballerslounge8",16200,1000000,184,"pages"],["brodsquadsports",11100,1400000,260,"pages"],["pitlessballtwit",16000,2400000,456,"pages"],["swishunionshorts",38600,6200000,1182,"pages"],["_calqc",88900,4800000,1004,"pages"],["jh4rris",38600,2800000,620,"shows"],["chezclips",55500,4200000,966,"editors"],["dryefit",29100,1900000,478,"pages"],["dubsonlysports",38400,6600000,1692,"pages"],["sharkbasket",90700,7400000,1969,"pages"],["hooper.haven",25000,1600000,432,"pages"],["basketballlife251",74800,8100000,2200,"pages"],["roadtrippinshow",40800,2900000,827,"shows"],["theplayerstv",23100,5400000,1547,"shows"],["therealbasketballguru",27000,2100000,607,"shows"],["nbawithcade",18400,1800000,523,"shows"],["davidgcasas",21800,1900000,558,"shows"],["worldofnw",36200,3000000,932,"shows"],["runyourracepodcast",23300,2800000,887,"shows"],["richknowsball",12100,2200000,710,"shows"],["aaronbenrose",43000,7600000,2886,"shows"],["flagrantworld",12800,1700000,675,"shows"],["todaysdateinsports",11400,1300000,534,"shows"],["nodunksinc",46400,3600000,1681,"shows"],["justinpaden57",78700,5000000,2411,"shows"],["pistonstalk",30500,1700000,860,"shows"],["bootlegkev",34500,1800000,911,"shows"],["everythingsports4u",49900,3800000,2030,"pages"],["tothebaha",20600,1400000,814,"shows"],["wynetwork",22200,1200000,785,"shows"],["basketballreelsnba",24700,2700000,1804,"pages"],["runitbackfdtv",23800,2800000,3335,"shows"],["jaomile_tv",23800,1500000,2016,"shows"]];
 const PIECES = [];
 FACES.forEach(f => f.items.forEach(([t, u]) => {
   const parts = t.split(" · ");
@@ -225,7 +240,7 @@ document.getElementById("gapnum").innerHTML = `<span>${nOn}</span> of ${linked.l
 document.getElementById("gapline").textContent = "of his pieces point back to him";
 
 const $ = id => document.getElementById(id);
-let tab = "pieces", filter = "all", sort = "views";
+let tab = "pieces", filter = "all", sort = "views", usort = "per";
 
 function pieceCard(p){
   const id = ytId(p.u), img = id ? `https://i.ytimg.com/vi/${id}/hqdefault.jpg` : BOX[p.u];
@@ -253,6 +268,23 @@ function render(){
     let list = PIECES.filter(p => filter === "all" || p.f.id === filter);
     list = list.slice().sort(sort === "views" ? (a, b) => b.v - a.v || a.cat - b.cat : (a, b) => (a.on - b.on) || (a.cat - b.cat) || b.v - a.v);
     grid.innerHTML = list.map(pieceCard).join("") || `<p class="empty">Nothing here yet.</p>`;
+  } else if (tab === "untapped"){
+    const UG = [["editors","Edit accounts","Cut legends' footage to music. Archive footage they cannot get today, cleared and credited, with every post linking back to his accounts."],
+                ["pages","Clip and highlight pages","Repost moments by the thousand. A steady feed of verified clips from his archive, credited back to him."],
+                ["shows","Shows and commentators","Talk the game on camera. Clips and stories from his archive to react to, and a line to book him."]];
+    const col = {editors:colorOf("mixes"), pages:colorOf("footage"), shows:colorOf("interviews")};
+    chips.innerHTML = `<span>Filter</span><button class="chip" data-g="all" aria-pressed="${filter === "all"}">All <small>${UNTAPPED.length}</small></button>` +
+      UG.map(([id, name]) => `<button class="chip" data-g="${id}" aria-pressed="${filter === id}"><i style="background:${col[id]}"></i>${name} <small>${UNTAPPED.filter(r => r[4] === id).length}</small></button>`).join("");
+    sortEl.innerHTML = `Sort <button data-s="per" aria-pressed="${usort === "per"}">Likes per post</button> · <button data-s="ratio" aria-pressed="${usort === "ratio"}">Likes per follower</button> · <button data-s="fol" aria-pressed="${usort === "fol"}">Followers</button>`;
+    const key = {per: r => r[2] / r[3], ratio: r => r[2] / r[1], fol: r => r[1]}[usort];
+    const fol = UNTAPPED.reduce((n, r) => n + r[1], 0), likes = UNTAPPED.reduce((n, r) => n + r[2], 0);
+    const per = UNTAPPED.map(r => r[2] / r[3]).sort((a, b) => a - b), med = per[per.length >> 1];
+    const head = `<div class="ustats"><div><b>${UNTAPPED.length}</b><small>TikTok accounts that punch above their weight, not on our list yet</small></div><div><b>${fmt(fol)}</b><small>followers between them</small></div><div><b>${fmt(likes)}</b><small>lifetime likes between them</small></div><div><b>${fmt(med)}</b><small>likes on a typical account's average post</small></div></div>
+      <div class="unote"><p>Each one is unverified, under 100K followers, past 1M lifetime likes, and earns at least 50 likes per follower. None is on the "Who carries them" list yet. Likes are lifetime totals across everything each account posts, so they show reach, not how a Baron clip would land. Found through web search and YouTube link pages, which miss most TikTok-only editors: the real pool is larger. Groups are read from each handle and still need a check by eye.</p>
+      <div class="ig"><b>Instagram Reels: not measured yet.</b> 502 Instagram handles came off the link pages of the channels we swept. Instagram blocks reading their numbers without a login, so this pool is still dark. A logged-in sweep of TikTok and Reels is the next pass.</div></div>`;
+    const ug = UG.find(u => u[0] === filter);
+    const list = UNTAPPED.filter(r => filter === "all" || r[4] === filter).slice().sort((a, b) => key(b) - key(a));
+    grid.innerHTML = head + (ug ? `<div class="seghead"><h2><i style="background:${col[ug[0]]}"></i>${ug[1]}</h2><p>${ug[2]}</p></div>` : "") + list.map(([h, f, l, v, g]) => `<a class="card acct" href="https://www.tiktok.com/@${h}" target="_blank" rel="noopener"><div class="media" style="--c:${col[g]}"><b>@${esc(h)}</b><span class="pl">TikTok · ${fmt(f)} followers · ${v} posts</span><div class="st hot">${fmt(l / v)} likes per post · ${Math.round(l / f)}× per follower</div></div></a>`).join("");
   } else {
     const segs = SEGMENTS.filter(g => g.name !== "History of the Game");
     chips.innerHTML = `<span>Filter</span><button class="chip" data-g="all" aria-pressed="${filter === "all"}">All <small>${segs.reduce((n, g) => n + g.accts.length, 0)}</small></button>` +
@@ -265,7 +297,7 @@ function render(){
 document.addEventListener("click", e => {
   const t = e.target.closest("[data-tab]"); if (t){ tab = t.dataset.tab; filter = "all"; document.querySelectorAll("[data-tab]").forEach(b => b.setAttribute("aria-selected", b === t)); render(); return; }
   const c = e.target.closest("[data-f],[data-g]"); if (c){ filter = c.dataset.f || c.dataset.g; render(); return; }
-  const s = e.target.closest("[data-s]"); if (s){ sort = s.dataset.s; render(); }
+  const s = e.target.closest("[data-s]"); if (s){ if (tab === "untapped") usort = s.dataset.s; else sort = s.dataset.s; render(); }
 });
 render();
 </script>
