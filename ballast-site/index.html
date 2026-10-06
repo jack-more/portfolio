@@ -340,6 +340,20 @@
   @media (max-width:760px){
     .case__stats{grid-template-columns:1fr;gap:14px}
   }
+  /* scroll motion: scroll-driven where supported; content is always visible without it */
+  @media (prefers-reduced-motion:no-preference){
+    @supports (animation-timeline:view()){
+      .scene__in{animation:heroOut linear both;animation-timeline:scroll(root);animation-range:0 90vh}
+      .rd__hd h2,.case__hd h3,.block__hd h2,.sprint__hd h2,.proof__hd h2,.book__hd h2{animation:rise linear both;animation-timeline:view();animation-range:entry 0% cover 25%}
+      .rd__lead,.case__hd .mono,.rd__hd>.mono,.block__hd .mono,.sprint__hd .mono,.proof__hd .mono,.book__hd .mono{animation:riseSm linear both;animation-timeline:view();animation-range:entry 0% cover 22%}
+      .rdrow,.rec .row,.rec__group,.case__stats>div,.case__how .rdrow{animation:riseSm linear both;animation-timeline:view();animation-range:entry 0% cover 20%}
+      .reel{animation:reelIn linear both;animation-timeline:view();animation-range:entry 0% cover 30%}
+    }
+  }
+  @keyframes heroOut{to{transform:translate3d(0,-14vh,0);opacity:.15}}
+  @keyframes rise{from{opacity:0;transform:translate3d(0,56px,0);filter:blur(8px)}to{opacity:1;transform:none;filter:none}}
+  @keyframes riseSm{from{opacity:0;transform:translate3d(0,26px,0)}to{opacity:1;transform:none}}
+  @keyframes reelIn{from{opacity:.35;transform:scale(.92)}to{opacity:1;transform:none}}
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"ProfessionalService","name":"Ballast","legalName":"Ballast Research LLC","url":"https://ballast.la/","email":"jack@ballast.la","address":{"@type":"PostalAddress","addressLocality":"Los Angeles","addressRegion":"CA","addressCountry":"US"},"description":"Research, development and media distribution for brands in categories most agencies won't touch, at a scale most never see.","areaServed":"Worldwide"}
@@ -685,6 +699,16 @@
   const io=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;v._in=e.isIntersecting;if(e.isIntersecting){if(!v.src){v.src=v.dataset.src;v.load()}v.muted=v.muted;const p=v.play();p&&p.catch(()=>{})}else v.pause()}),{rootMargin:'200px 0px'});
   vids.forEach(v=>v.addEventListener('canplay',()=>{if(v._in&&v.paused){const p=v.play();p&&p.catch(()=>{})}}));
   vids.forEach(v=>io.observe(v));
+})();
+</script>
+<script>
+(()=>{if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+  const els=[...document.querySelectorAll('.case__stats b')];
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;io.unobserve(e.target);const el=e.target,t=el.textContent,m=t.match(/^(\D*)([\d.]+)(.*)$/);if(!m)return;
+    const pre=m[1],end=parseFloat(m[2]),post=m[3],dec=(m[2].split('.')[1]||'').length,dur=1400,t0=performance.now();
+    const step=n=>{const k=Math.min(1,(n-t0)/dur),v=end*(1-Math.pow(1-k,3));el.textContent=pre+v.toFixed(dec)+post;if(k<1)requestAnimationFrame(step);else el.textContent=t};
+    requestAnimationFrame(step)}),{threshold:.6});
+  els.forEach(el=>io.observe(el));
 })();
 </script>
 </body>
