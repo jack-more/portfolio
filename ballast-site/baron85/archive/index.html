@@ -33,7 +33,8 @@ button:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
 .sw{display:inline-block;width:9px;height:9px;margin-right:6px;vertical-align:0;border:1px solid rgba(26,29,46,.25)}
 .lab small{font-family:var(--mono);font-size:10.5px;color:var(--soft);margin-left:3px}
 
-.gemcell{position:relative;min-height:0}
+.gemcell{position:relative;min-height:0;padding-bottom:58px}
+#gl{height:calc(100% - 58px)!important}
 #gl{position:absolute;inset:0;width:100%;height:100%;display:block;cursor:grab;touch-action:pan-y}
 #gl:active{cursor:grabbing}
 
@@ -73,6 +74,17 @@ a.blob:hover{outline:2px solid #0B5CF6;outline-offset:2px}
 .ch li em.hot{color:#0B5CF6}
 
 .chips{display:none}
+.core-lab{position:absolute;transform:translate(-50%,-150%);font-family:var(--mono);font-size:10.5px;color:var(--ink);background:var(--field);padding:1px 5px;pointer-events:none;white-space:nowrap}
+.tip{position:absolute;z-index:4;max-width:240px;background:var(--blob);color:var(--blob-ink);font-size:12px;line-height:1.35;padding:8px 10px;pointer-events:none;transform:translate(12px,12px)}
+.tip i{display:block;font-style:normal;font-family:var(--mono);font-size:10px;opacity:.7;margin-top:4px}
+.legend{position:absolute;left:0;right:0;bottom:0;display:grid;gap:6px;justify-items:center;font-family:var(--mono);font-size:10.5px;color:var(--soft);pointer-events:none}
+.legend .key{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;align-items:center}
+.legend .key b{color:var(--ink);font-weight:500}
+.legend .ln{display:inline-block;width:22px;height:0;border-top:1.5px solid var(--ink);vertical-align:middle;margin-right:6px}
+.legend .ln.d{border-top:1.5px dashed var(--hair)}
+.legend .av{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;pointer-events:auto}
+.legend .av button{border:1px solid color-mix(in oklab,var(--hair) 60%,transparent);border-radius:999px;padding:2px 9px;font:inherit;color:var(--ink)}
+.legend .av button[aria-pressed="true"]{background:var(--ink);color:var(--field)}
 .foot{padding:18px 20px 26px;font-family:var(--mono);font-size:11px;color:var(--soft);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 
 @media (min-width:981px) and (max-width:1500px){
@@ -87,7 +99,7 @@ a.blob:hover{outline:2px solid #0B5CF6;outline-offset:2px}
   .chips button[aria-pressed="true"]{background:var(--ink);color:var(--field);border-color:var(--ink)}
   .spill{order:3;padding-block:8px}
   .chan{order:4}
-  .labels,#lines{display:none}
+  .labels,#lines,.core-lab{display:none}
 }
 .stage.nogl{grid-template-columns:minmax(0,1fr);min-height:0;height:auto}
 .stage.nogl .chan{overflow:visible}
@@ -105,7 +117,10 @@ a.blob:hover{outline:2px solid #0B5CF6;outline-offset:2px}
 <div class="stage" id="stage">
   <svg id="lines" aria-hidden="true"></svg>
   <section class="spill" id="spill" aria-live="polite"></section>
-  <div class="gemcell" id="gemcell"><canvas id="gl" aria-label="Baron Davis archive crystal. Each face is a type of content in his archive."></canvas></div>
+  <div class="gemcell" id="gemcell"><canvas id="gl" aria-label="Baron Davis archive crystal. Each face is a type of content in his archive."></canvas>
+    <div class="core-lab" id="corelab">Baron · HOTG</div>
+    <div class="tip" id="tip" hidden></div>
+    <div class="legend" id="legend"></div></div>
   <div class="chips" id="chips" role="group" aria-label="Archive faces"></div>
   <section class="chan" id="chan" aria-label="Distribution channels"></section>
   <div class="labels" id="labels"></div>
@@ -191,10 +206,27 @@ const SEGMENTS = [
    accts:[["HOTG","X","@HistoryOTG","https://x.com/HistoryOTG"]]},
 ];
 
+// avenues: how each area turns into value for him
+const AVENUES = [
+  {id:"owned", label:"owned", faces:["personal"]},
+  {id:"licensing", label:"licensing", faces:["footage","games"]},
+  {id:"appearances", label:"appearances", faces:["interviews"]},
+  {id:"partnerships", label:"partnerships", faces:["big","ventures"]},
+  {id:"creators", label:"creator distribution", faces:["mixes"]},
+  {id:"fans", label:"fan work", faces:["provenance"]},
+  {id:"products", label:"products", faces:["memorabilia"]},
+];
+// a piece connects back when it sits on his own accounts, or is co-posted to them (Gil's Arena, per the research)
+const CONNECTED = /instagram\.com\/iambarondavis|x\.com\/BaronDavis|teambig\.io|bigsummits_|gilsarena0/i;
+const viewsOf = t => { const m = String(t).match(/([\d.]+)\s*([MK])\b/); return m ? parseFloat(m[1]) * (m[2] === "M" ? 1e6 : 1e3) : 0; };
+const PIECES = [];
+FACES.forEach((f, fi) => f.items.forEach(([t, u]) => PIECES.push({fi, t, u, v:viewsOf(t), on:!!u && CONNECTED.test(u), cat:!u})));
+let avenue = null;
+
 const $ = id => document.getElementById(id);
 const stage = $("stage"), spill = $("spill"), chan = $("chan"), labels = $("labels"), lines = $("lines");
 const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-let hover = null, pinned = null, lastScroll = null, faceFromList = false;
+let hover = null, pinned = null, lastScroll = null, faceFromList = false, hoverDot = null;
 const active = () => pinned || hover;
 
 // channels
@@ -289,30 +321,60 @@ if (renderer){
   const eg = new THREE.BufferGeometry(); eg.setAttribute("position", new THREE.Float32BufferAttribute(edges, 3));
   gem.add(new THREE.LineSegments(eg, new THREE.LineBasicMaterial({color:0x8b93b5, transparent:true, opacity:.75})));
 
-  // the pieces: one dot per item, floating inside
-  const dotTex = (() => { const c = document.createElement("canvas"); c.width = c.height = 32; const x = c.getContext("2d"); x.fillStyle = "#fff"; x.beginPath(); x.arc(16, 16, 14, 0, 7); x.fill(); return new THREE.CanvasTexture(c); })();
-  const dots = FACES.map((f, fi) => {
-    const pos = [];
-    f.items.forEach(() => { const a = fi / FACES.length * Math.PI * 2 + (rnd() - .5) * .9, r = .2 + rnd() * .5; pos.push(Math.cos(a) * r, -1 + rnd() * 2.4, Math.sin(a) * r); });
-    const g = new THREE.BufferGeometry(); g.setAttribute("position", new THREE.Float32BufferAttribute(pos, 3));
-    const p = new THREE.Points(g, new THREE.PointsMaterial({color:0x2a2f6e, size:.11, map:dotTex, transparent:true, alphaTest:.3, depthTest:false}));
-    p.renderOrder = 2; gem.add(p); return p;
+  // the pieces: one dot per real item, sized by views, each with a line back to the core (him + HOTG)
+  const CORE = new THREE.Vector3(0, .25, 0);
+  const tex = hollow => { const c = document.createElement("canvas"); c.width = c.height = 64; const x = c.getContext("2d"); x.beginPath(); x.arc(32, 32, 26, 0, 7);
+    if (hollow){ x.lineWidth = 7; x.strokeStyle = "#fff"; x.stroke(); } else { x.fillStyle = "#fff"; x.fill(); } return new THREE.CanvasTexture(c); };
+  const solidTex = tex(false), ringTex = tex(true);
+  const core = new THREE.Sprite(new THREE.SpriteMaterial({map:solidTex, color:0x1A1D2E, depthTest:false})); core.scale.setScalar(.16); core.position.copy(CORE); core.renderOrder = 4; gem.add(core);
+  const ink = new THREE.Color("#1A1D2E");
+  const sprites = [];
+  PIECES.forEach(p => {
+    const a = (p.fi + .5) / N * Math.PI * 2 + .2 + (rnd() - .5) * .5, r = .35 + rnd() * .45;
+    p.pos = new THREE.Vector3(Math.cos(a) * r, -1.05 + rnd() * 2.6, Math.sin(a) * r);
+    p.col = new THREE.Color(FACES[p.fi].color).lerp(ink, .35);
+    const sp = new THREE.Sprite(new THREE.SpriteMaterial({map:p.cat ? ringTex : solidTex, color:p.col.clone(), depthTest:false, transparent:true}));
+    const sz = p.cat ? .07 : .06 + .05 * Math.log10(1 + p.v) / 6.5;
+    sp.scale.setScalar(sz); sp.position.copy(p.pos); sp.renderOrder = 3; sp.userData.p = p; gem.add(sp); sprites.push(sp); p.sp = sp; p.sz = sz;
+    if (!p.cat){
+      const g = new THREE.BufferGeometry().setFromPoints([p.pos, CORE]);
+      const m = p.on ? new THREE.LineBasicMaterial({color:0x1A1D2E, transparent:true, opacity:.85, depthTest:false})
+                     : new THREE.LineDashedMaterial({color:0x3A4060, dashSize:.05, gapSize:.04, transparent:true, opacity:.55, depthTest:false});
+      const l = new THREE.Line(g, m); if (!p.on) l.computeLineDistances(); l.renderOrder = 2; gem.add(l); p.line = l;
+    }
+  });
+
+  // legend: what the dots and lines mean, and the avenues
+  const nOn = PIECES.filter(p => p.on).length, nLinked = PIECES.filter(p => !p.cat).length;
+  $("legend").innerHTML = `<div class="key"><span><b>●</b> a piece · size = views</span><span><span class="ln"></span>connects back to him</span><span><span class="ln d"></span>no link back yet</span><span><b>${nOn} of ${nLinked}</b> connect back</span></div>
+    <div class="av">${AVENUES.map(v => `<button type="button" data-av="${v.id}" aria-pressed="false">${v.label}</button>`).join("")}</div>`;
+  $("legend").querySelectorAll("[data-av]").forEach(b => {
+    b.addEventListener("pointerenter", () => { avenue = b.dataset.av; recolor(); });
+    b.addEventListener("pointerleave", () => { avenue = null; recolor(); });
+    b.addEventListener("click", () => { avenue = avenue === b.dataset.av ? null : b.dataset.av; recolor(); });
   });
 
   recolor = () => {
-    const id = active(), ai = FACES.findIndex(f => f.id === id);
+    const id = active();
+    const set = avenue ? AVENUES.find(v => v.id === avenue).faces : id ? [id] : null;
+    const onFace = fi => !set || set.includes(FACES[fi].id);
     meshes.forEach(({mesh, face, base}) => {
-      const on = ai === face;
       mesh.material.color.copy(base);
-      if (ai >= 0 && !on) mesh.material.color.lerp(new THREE.Color("#E3E6EF"), .55);
+      if (set && !onFace(face)) mesh.material.color.lerp(new THREE.Color("#E3E6EF"), .55);
     });
-    dots.forEach((d, i) => { d.material.color.set(ai === i ? "#1A1D2E" : ai >= 0 ? "#9aa1c2" : "#2a2f6e"); d.material.size = ai === i ? .2 : .11; });
+    PIECES.forEach(p => {
+      const lit = onFace(p.fi);
+      p.sp.material.opacity = lit ? 1 : .15;
+      p.sp.scale.setScalar(set && lit ? p.sz * 1.35 : p.sz);
+      if (p.line) p.line.material.opacity = lit ? (p.on ? .95 : (set ? .9 : .55)) : .06;
+    });
+    $("legend").querySelectorAll("[data-av]").forEach(b => b.setAttribute("aria-pressed", b.dataset.av === avenue));
   };
 
   // size
   let W = 0, H = 0;
   function resize(){
-    W = cell.clientWidth; H = cell.clientHeight;
+    W = canvas.clientWidth; H = canvas.clientHeight;
     renderer.setSize(W, H, false); camera.aspect = W / Math.max(H, 1);
     const want = H * .17, room = W / 2 - 34 - 150;   // half-width of crystal that leaves room for a label each side
     camera.position.z = 11 * want / Math.max(60, Math.min(want, room));
@@ -334,15 +396,24 @@ if (renderer){
     const r = canvas.getBoundingClientRect();
     ndc.set((e.clientX - r.left) / r.width * 2 - 1, -((e.clientY - r.top) / r.height) * 2 + 1);
     ray.setFromCamera(ndc, camera);
+    const dot = ray.intersectObjects(sprites)[0];
+    const tip = $("tip");
+    if (dot){
+      const p = dot.object.userData.p, cr = cell.getBoundingClientRect();
+      tip.hidden = false; tip.style.left = (e.clientX - cr.left) + "px"; tip.style.top = (e.clientY - cr.top) + "px";
+      tip.innerHTML = p.t.replace(/[<>&]/g, "") + `<i>${p.cat ? "not in the archive yet" : p.on ? "connects back to him" : "no link back yet"}${p.u ? " · click to open" : ""}</i>`;
+      canvas.style.cursor = p.u ? "pointer" : "default"; hoverDot = p;
+    } else { tip.hidden = true; canvas.style.cursor = ""; hoverDot = null; }
     const hit = ray.intersectObjects(meshes.map(m => m.mesh))[0];
     const f = hit ? FACES[meshes.find(m => m.mesh === hit.object).face].id : null;
     if (f !== hover){ hover = f; faceFromList = false; update(); }
   });
   canvas.addEventListener("pointerup", e => {
     const wasDrag = drag && drag.moved; drag = null;
+    if (!wasDrag && hoverDot && hoverDot.u){ window.open(hoverDot.u, "_blank", "noopener"); return; }
     if (!wasDrag){ pinned = hover && pinned !== hover ? hover : null; update(); }
   });
-  canvas.addEventListener("pointerleave", () => { if (!drag && hover){ hover = null; update(); } });
+  canvas.addEventListener("pointerleave", () => { $("tip").hidden = true; hoverDot = null; if (!drag && hover){ hover = null; update(); } });
 
   // leader lines and labels follow the faces
   const labEls = Object.fromEntries([...labels.querySelectorAll(".lab")].map(b => [b.dataset.f, b]));
@@ -379,6 +450,9 @@ if (renderer){
       });
     }
     lines.innerHTML = svg;
+    v.copy(CORE).applyMatrix4(gem.matrixWorld).project(camera);
+    const cl = $("corelab"); const cb = cell.getBoundingClientRect();
+    cl.style.left = ((v.x + 1) / 2 * cb.width) + "px"; cl.style.top = ((1 - v.y) / 2 * cb.height) + "px";
   }
 
   (function loop(){
