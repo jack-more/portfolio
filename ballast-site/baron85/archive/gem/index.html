@@ -1,0 +1,587 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow">
+<title>Baron Davis Archive Gem</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* Layout: one crystal in the middle of a plain field. Its faces are the archive; what a face holds spills out to the left, the channels it should reach sit on the right. */
+:root{
+  --field:#D6DBE6; --ink:#1A1D2E; --soft:#6B7288; --hair:#9AA1B8; --blob:#0D0F1C; --blob-ink:#E8EAF6;
+  --sans:"Geist","Helvetica Neue",Arial,sans-serif;
+  --mono:"Geist Mono",ui-monospace,Menlo,monospace;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{background:var(--field);color:var(--ink)}
+body{margin:0;font-family:var(--sans);font-size:14px;line-height:1.5}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;padding:0}
+button:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+
+.bar{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:14px 20px;font-family:var(--mono);font-size:11px;color:var(--soft)}
+.bar b{color:var(--ink);font-weight:500}
+.bar a{color:inherit}
+.bar .links{display:flex;flex-wrap:wrap;gap:6px 14px}
+
+.stage{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(360px,1.05fr) minmax(300px,360px);gap:12px;padding:0 20px;height:calc(100svh - 100px);min-height:560px}
+#lines{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+#lines line,#lines path{stroke:var(--hair);stroke-width:.8;fill:none}
+#lines .on{stroke:var(--ink);stroke-width:1}
+.labels{position:absolute;inset:0;pointer-events:none}
+.lab{position:absolute;transform:translate(-50%,-50%);white-space:nowrap;font-size:12.5px;pointer-events:auto;padding:2px 4px;transition:opacity .2s,color .2s}
+.lab.back{color:var(--soft);opacity:.7}
+.lab.on{font-weight:600;color:var(--ink);opacity:1}
+.sw{display:inline-block;width:9px;height:9px;margin-right:6px;vertical-align:0;border:1px solid rgba(26,29,46,.25)}
+.lab small{font-family:var(--mono);font-size:10.5px;color:var(--soft);margin-left:3px}
+
+.gemcell{position:relative;min-height:0;padding-bottom:58px}
+#gl{height:calc(100% - 58px)!important}
+#gl{position:absolute;inset:0;width:100%;height:100%;display:block;cursor:grab;touch-action:pan-y}
+#gl:active{cursor:grabbing}
+
+/* the spill */
+.spill{position:relative;z-index:2;display:grid;align-content:start;gap:14px;padding-block:24px;min-width:0}
+.spill{overflow-y:auto;overscroll-behavior:contain;padding-right:6px}
+.spill h2{margin:0;font-size:15px;font-weight:600}
+.spill h2 small{font-family:var(--mono);font-weight:400;color:var(--soft);font-size:11px;margin-left:4px}
+.spill .tier{font-family:var(--mono);font-size:11px;color:var(--soft)}
+.blobs{--d:clamp(118px,7.9vw,148px);display:grid;grid-template-columns:repeat(auto-fill,var(--d));gap:12px;justify-content:start;padding:4px}
+.blob{width:var(--d);height:var(--d);border-radius:50%!important;background:var(--blob);color:var(--blob-ink);padding:calc(var(--d) * .15);font-size:clamp(10.5px,.8vw,12px);line-height:1.3;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-align:center!important;overflow:hidden;animation:pop .35s cubic-bezier(.2,.9,.3,1.25) both}
+.blob b{font-family:var(--mono);font-weight:500;font-size:11px}
+.blob span{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.blob i{font-style:normal;font-family:var(--mono);font-size:10px;letter-spacing:.04em;opacity:.65}
+.blob.open{background:#2C3566}
+@keyframes pop{from{transform:scale(.6);opacity:0}to{transform:none;opacity:1}}
+.back{font-family:var(--mono);font-size:11px;color:var(--soft);justify-self:start}
+.back:hover{color:var(--ink)}
+.facts{display:flex;flex-wrap:wrap;gap:6px 14px;font-family:var(--mono);font-size:11.5px;color:var(--ink)}
+.seglink{font:inherit;color:var(--ink);text-decoration:underline;text-underline-offset:2px}
+.openlink{justify-self:start;background:var(--blob);color:var(--blob-ink);text-decoration:none;font-size:13px;padding:8px 16px;border-radius:999px}
+button.blob{font:inherit;text-align:left;cursor:pointer;border:0}
+button.blob:hover{outline:2px solid #0B5CF6;outline-offset:2px}
+.idle{color:var(--soft);font-size:13px;max-width:34ch}
+.idle b{color:var(--ink);font-weight:600}
+
+/* the channels */
+.chan{position:relative;z-index:2;display:grid;align-content:start;gap:2px;padding-block:8px 24px;min-width:0;overflow-y:auto;overscroll-behavior:contain;padding-right:12px}
+.chan h3{margin:0 0 6px;font-family:var(--mono);font-weight:400;font-size:11px;color:var(--soft);display:flex;justify-content:space-between}
+.ch{text-decoration:none;color:inherit;display:grid;grid-template-columns:1fr;gap:2px 10px;padding:8px 0;border-top:1px solid color-mix(in oklab,var(--hair) 55%,transparent);transition:opacity .2s}
+.ch b{font-weight:600;font-size:13.5px;min-width:0}
+.ch b small{font-family:var(--mono);font-weight:400;font-size:10.5px;color:var(--soft);margin-left:4px}
+.ch .w.hot{color:#0B5CF6;font-weight:500}
+a.blob{text-decoration:none}
+a.blob:hover{outline:2px solid #0B5CF6;outline-offset:2px}
+.ch .w{font-family:var(--mono);font-size:10.5px;color:var(--ink)}
+.ch p{grid-column:1/-1;margin:0;font-size:12.5px;color:var(--soft);max-height:0;overflow:hidden;transition:max-height .25s}
+.stage.active .ch{opacity:.35}
+.ch{box-shadow:inset 3px 0 0 var(--pc);padding-left:12px!important}
+.carries{display:flex;gap:4px;margin:2px 0 2px}
+.carries .sw{width:11px;height:11px;margin:0;padding:0;cursor:pointer}
+.carries .sw:hover{outline:1.5px solid var(--ink);outline-offset:1px}
+.stage.active .ch.hit{opacity:1}
+.ch p{max-height:none}
+.ch ul{list-style:none;margin:4px 0 0;padding:0;display:grid;gap:1px}
+.ch li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:0 8px;font-size:12.5px;align-items:baseline}
+.ch li a{color:var(--ink);text-decoration:none;border-bottom:1px solid transparent;justify-self:start}
+.ch li a:hover{border-color:var(--ink)}
+.ch li span{font-family:var(--mono);font-size:10px;color:var(--soft);text-align:right}
+.ch li em{grid-column:1/-1;font-style:normal;font-family:var(--mono);font-size:10px;color:var(--soft);margin-top:-2px}
+.ch li em.hot{color:#0B5CF6}
+
+.chips{display:none}
+.core-lab{position:absolute;transform:translate(-50%,-150%);font-family:var(--mono);font-size:10.5px;color:var(--ink);background:var(--field);padding:1px 5px;pointer-events:none;white-space:nowrap}
+.tip{position:absolute;z-index:4;max-width:240px;background:var(--blob);color:var(--blob-ink);font-size:12px;line-height:1.35;padding:8px 10px;pointer-events:none;transform:translate(12px,12px)}
+.tip i{display:block;font-style:normal;font-family:var(--mono);font-size:10px;opacity:.7;margin-top:4px}
+.legend{position:absolute;left:0;right:0;bottom:0;display:grid;gap:6px;justify-items:center;font-family:var(--mono);font-size:10.5px;color:var(--soft);pointer-events:none}
+.legend .key{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;align-items:center}
+.legend .key b{color:var(--ink);font-weight:500}
+.legend .ln{display:inline-block;width:22px;height:0;border-top:1.5px solid var(--ink);vertical-align:middle;margin-right:6px}
+.legend .ln.d{border-top:1.5px dashed var(--hair)}
+.legend .av{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;pointer-events:auto}
+.legend .av button{border:1px solid color-mix(in oklab,var(--hair) 60%,transparent);border-radius:999px;padding:2px 9px;font:inherit;color:var(--ink)}
+.legend .av button[aria-pressed="true"]{background:var(--ink);color:var(--field)}
+.foot{padding:18px 20px 26px;font-family:var(--mono);font-size:11px;color:var(--soft);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+@media (min-width:981px) and (max-width:1500px){
+  .blob i{display:none}
+  .stage{grid-template-columns:minmax(240px,.7fr) minmax(0,1fr) minmax(280px,320px)}
+}
+@media (max-width:980px){
+  .stage,.stage.nogl{grid-template-columns:minmax(0,1fr);min-height:0;height:auto}
+  .chan{overflow:visible}
+  .gemcell{min-height:420px;order:1}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;order:2}
+  .chips button{border:1px solid var(--hair);border-radius:999px;padding:3px 10px;font-size:12.5px}
+  .chips button[aria-pressed="true"]{background:var(--ink);color:var(--field);border-color:var(--ink)}
+  .spill{order:3;padding-block:8px}
+  .chan{order:4}
+  .labels,#lines,.core-lab{display:none}
+}
+.stage.nogl{grid-template-columns:minmax(0,1fr);min-height:0;height:auto}
+.stage.nogl .chan{overflow:visible}
+.stage.nogl .gemcell{min-height:0}
+.stage.nogl .chips{display:flex;flex-wrap:wrap;gap:6px}
+.stage.nogl .chips button{border:1px solid var(--hair);border-radius:999px;padding:3px 10px;font-size:12.5px}
+.stage.nogl .chips button[aria-pressed="true"]{background:var(--ink);color:var(--field);border-color:var(--ink)}
+.stage.nogl .labels,.stage.nogl #lines{display:none}
+@media (prefers-reduced-motion:reduce){.blob{animation:none}}
+/* readability pass: larger type, stronger contrast, collapsible segments */
+:root{--soft:#4C5370;--hair:#8C93AC}
+body{font-size:15px}
+.bar{font-size:12.5px;padding:16px 24px}
+.stage{grid-template-columns:minmax(0,1fr) minmax(380px,1fr) minmax(360px,430px);gap:20px;padding:0 24px}
+.lab{font-size:14px}
+.lab small{font-size:12px}
+.lab.back{opacity:.85}
+.sw{width:11px;height:11px}
+.spill h2{font-size:19px}
+.spill h2 small{font-size:13px}
+.spill .tier{font-size:13px;line-height:1.5;color:var(--soft);max-width:62ch}
+.idle{font-size:15px;line-height:1.55;max-width:36ch}
+.facts{font-size:13px}
+.back{font-size:13px}
+.blob{font-size:clamp(12px,.85vw,13.5px)!important}
+.blob b{font-size:12.5px}
+.blob i{font-size:11px;opacity:.75}
+.chan h3{font-size:12.5px;margin-bottom:8px}
+.ch{padding:12px 0 12px 14px!important;gap:4px}
+.ch > b{font-size:16px;cursor:pointer;display:flex;align-items:baseline;gap:8px}
+.ch > b small{font-size:12.5px}
+.ch > b::after{content:"+";margin-left:auto;font-family:var(--mono);font-weight:400;color:var(--soft)}
+.ch.open > b::after{content:"–"}
+.ch p{font-size:14px;line-height:1.5;color:var(--soft)}
+.ch ul{gap:6px;margin-top:8px}
+.ch.closed ul{display:none}
+.ch li{font-size:14.5px;row-gap:1px}
+.ch li span{font-size:12px}
+.ch li em{font-size:12.5px;margin-top:0}
+.stage.active .ch{opacity:.55}
+.carries .sw{width:13px;height:13px}
+.legend{font-size:12.5px;gap:8px}
+.legend .av button{padding:4px 11px}
+.core-lab{font-size:12px}
+.tip{font-size:13.5px;max-width:280px}
+.tip i{font-size:11.5px}
+.foot{font-size:12.5px}
+@media (min-width:981px) and (max-width:1500px){
+  .stage{grid-template-columns:minmax(240px,.7fr) minmax(0,1fr) minmax(300px,360px);gap:14px}
+  .lab{font-size:13px}
+}
+</style>
+</head><body>
+
+<div class="bar"><span><a href="https://x.com/HistoryOTG" target="_blank" rel="noopener"><b>HOTG</b></a> · archive gem 01 · <b>Baron Davis</b></span><span class="links"><a href="/baron85/">R+D deck</a><a href="https://ballast.la/">Ballast</a></span><span>click a face or a dot · esc clears · drag to turn</span></div>
+
+<div class="stage" id="stage">
+  <svg id="lines" aria-hidden="true"></svg>
+  <section class="spill" id="spill" aria-live="polite"></section>
+  <div class="gemcell" id="gemcell"><canvas id="gl" aria-label="Baron Davis archive crystal. Each face is a type of content in his archive."></canvas>
+    <div class="core-lab" id="corelab">Baron · HOTG</div>
+    <div class="tip" id="tip" hidden></div>
+    <div class="legend" id="legend"></div></div>
+  <div class="chips" id="chips" role="group" aria-label="Archive faces"></div>
+  <section class="chan" id="chan" aria-label="Distribution channels"></section>
+  <div class="labels" id="labels"></div>
+</div>
+
+<div class="foot"><span>Accounts read 2 Oct 2026; YouTube views and X followers read 5 Oct 2026. Hit = best video in the last 90 days ÷ followers.</span><span>Pieces marked “to catalog” are not in the archive yet. <a href="https://ballast.la/" style="color:inherit">Ballast</a></span></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+// the archive: one face per type of content. Every piece links to where it lives now.
+const FACES = [
+  {id:"footage", label:"game footage", color:"#2F5BEA", tier:"Tier 2 · licensed archival. His top clips are 9–20 years old and sit on other people's channels.",
+   items:[["Over the top of Kirilenko · NBA · 2.16M","https://www.youtube.com/watch?v=tYpwjB0IzoU"],
+          ["Over the top of Kirilenko · orangino · 1.83M","https://www.youtube.com/watch?v=8w_1ZEk4mds"],
+          ["89 feet · Secret Base · 1.15M","https://www.youtube.com/watch?v=ndmBCqds_gc"],
+          ["The long shot · EverythingBall · 1.06M","https://www.youtube.com/watch?v=zWUEnbPsVfo"],
+          ["Drew League handles · HoopmixtapeBlog · 933K","https://www.youtube.com/@HoopmixtapeBlog"],
+          ["Top 10 career plays · NBA · 890K","https://www.youtube.com/watch?v=k9NUCr38ykE"],
+          ["Dunk on Shaq · D1PHAM · 751K","https://www.youtube.com/watch?v=rMnh9u6QzfY"],
+          ["And-one over Pau Gasol · DaPerfectionist · 583K","https://www.youtube.com/watch?v=6l85W651WVI"],
+          ["Ultimate Hornets mixtape · NBA · 445K","https://www.youtube.com/watch?v=mcvWx93Q9VE"]]},
+  {id:"interviews", label:"shows", color:"#F4C2DC", tier:"Tier 1 · his own words. His biggest videos of the last five years are long-form shows.",
+   items:[["How he turned an NBA career into a portfolio · REVOLT · 3.3M","https://www.youtube.com/watch?v=MQkOEQKoMKo"],
+          ["Roast Me · All Def · 2.7M","https://www.youtube.com/watch?v=pqCN0wyfE78"],
+          ["NEXT UP · All Def · 1.5M","https://www.youtube.com/watch?v=2b9uttEGDaI"],
+          ["Gil's Arena · 750K","https://www.youtube.com/watch?v=Abfr37khMQE"],
+          ["Bootleg Kev · 698K","https://www.youtube.com/watch?v=GUWpjGxr1FI"],
+          ["ALL THE SMOKE ep. 88 · 668K","https://www.youtube.com/watch?v=piTpiBgtaGA"],
+          ["The Breakfast Club, with Paul Pierce · 628K","https://www.youtube.com/watch?v=omEtXYa1UkI"],
+          ["Knuckleheads · The Players' Tribune · 515K","https://www.youtube.com/watch?v=ue6BcjTdesI"],
+          ["Gil's Arena cuts · Tiger A. Smith · 99K and 63K, Sept 2026","https://www.youtube.com/@TigerASmith"],
+          ["Dancing with the Stars, season 34 (2025)","https://en.wikipedia.org/wiki/Dancing_with_the_Stars_(American_TV_series)_season_34"],
+          ["WTF, Baron Davis · his Fuse sitcom (2019)","https://en.wikipedia.org/wiki/Baron_Davis"],
+          ["Players Only · NBA on TNT panelist (from 2017)","https://en.wikipedia.org/wiki/Baron_Davis"],
+          ["Raiders: Talk of the Nation · host (2025)","https://en.wikipedia.org/wiki/Baron_Davis"]]},
+  {id:"personal", label:"his accounts", color:"#E3F23F", tier:"Tier 1 · player-owned. Where every other face should point back.",
+   items:[["Instagram @iambarondavis · 349K","https://www.instagram.com/iambarondavis/"],
+          ["X @BaronDavis · 841K","https://x.com/BaronDavis"]]},
+  {id:"provenance", label:"fan provenance", color:"#9AA6F2", tier:"Tier 1 · fan-submitted, paid in Minutes plus named credit",
+   items:[["Ticket stubs",""],["Photos from the stands",""],["Local broadcast recordings",""],["“I was there” testimony",""]]},
+  {id:"big", label:"BIG", color:"#F6B26B", tier:"Tier 1 · his platform: ten years of athletes taking the stage",
+   items:[["teambig.io","https://www.teambig.io"],["BIG Summits on X","https://x.com/bigsummits_"]]},
+  {id:"ventures", label:"ventures", color:"#7FCDF0", tier:"Tier 1 · his own companies and productions",
+   items:[["Crips and Bloods: Made in America (2008) · executive producer · Emmy nominee","https://en.wikipedia.org/wiki/Crips_and_Bloods:_Made_in_America"],
+          ["Verso Entertainment · production company with Cash Warren (2005)","https://en.wikipedia.org/wiki/Baron_Davis"],
+          ["5 Balloons Interactive · mobile game studio (2012)","https://en.wikipedia.org/wiki/Baron_Davis"],
+          ["Black Santa Company (2016)","https://en.wikipedia.org/wiki/Baron_Davis"],
+          ["Logitech G reel · 25 Sep 2026","https://www.instagram.com/iambarondavis/"]]},
+  {id:"mixes", label:"fan mixes", color:"#C9A8F0", tier:"Tier 3 · fan edits. No mix of his passes 350K.",
+   items:[["Baron Davis Ultimate Mix · wetagua · 347K","https://www.youtube.com/@wetagua"],
+          ["“1 minute of Baron Davis bag work” · 3.9K, 4 Sep","https://www.tiktok.com/@bagwork504"]]},
+  {id:"games", label:"video games", color:"#F28C7C", tier:"In NBA games from his rookie year to now. NBA Street and NBA Live belong to EA; NBA 2K to Take-Two (Sega published it through 2K5); NBA Ballers was Midway's, and Warner Bros. bought most of Midway's assets in 2009. Old game code and art stay with them; his likeness is licensed separately.",
+   items:[["On the cover of NBA Street V3 (2005) · per Wikipedia","https://en.wikipedia.org/wiki/NBA_Street_V3"],
+          ["NBA Street V3 gameplay · IGN · 5.4K","https://www.youtube.com/watch?v=Hv4PIAYvnzQ"],
+          ["NBA Ballers (2004), vs Marbury · Video Game Wars","https://www.youtube.com/watch?v=rV8SU6XrwTg"],
+          ["Ballers: Rebound (PSP, 2005), vs LeBron · Insert Coin · 2.1K","https://www.youtube.com/watch?v=Oay2SOOWSSg"],
+          ["NBA Live 2004 TV ad with Francis and Marbury · 3.3K","https://www.youtube.com/watch?v=-9bNRf9PLIY"],
+          ["Every game, NBA Live 2000 to NBA 2K13 · 11.8K","https://www.youtube.com/watch?v=l2_AL-srCb8"],
+          ["The Kirilenko dunk in NBA 2K7 · 7.3K","https://www.youtube.com/watch?v=-RKoqRWYC8M"],
+          ["NBA 2K8 · 11.5K","https://www.youtube.com/watch?v=ipMdxEbTXkk"],
+          ["2K18 Warriors classic team · Chris Smoove · 235K","https://www.youtube.com/watch?v=qau0HG3Zs-w"],
+          ["99 OVR card, NBA Live Mobile 19 · QJB · 147K","https://www.youtube.com/watch?v=UCeVEXU54dI"],
+          ["Galaxy Opal card, 2K21 · CarlosStory · 57K","https://www.youtube.com/watch?v=iutrvedwdTs"],
+          ["Galaxy Opal card, NBA 2K27 · JC2K · 1.9K, Sept 2026","https://www.youtube.com/watch?v=qwyrIzdi1_I"],
+          ["On the We Believe Warriors · NBA 2KTV · 31K","https://www.youtube.com/watch?v=HKpG6ZhvaO8"],
+          ["Getting Buckets (2012), his own game · 5 Balloons Interactive",""]]},
+  {id:"memorabilia", label:"vault", color:"#9FE0BE", tier:"Vault · auctions and unlocks; Minutes cover 10–20% of a bid",
+   items:[["Signed items",""],["Locked vault moments",""]]},
+];
+
+// segments: who should carry each face, grouped by what they already do. Counts read 2 Oct 2026; X read 5 Oct.
+// hit = best video in the last 90 days ÷ followers
+const SEGMENTS = [
+  {name:"His own accounts", to:["personal","interviews","ventures","big","footage","memorabilia"],
+   inc:"Every HOTG release credits him and links back to his accounts.",
+   accts:[["Baron Davis","Instagram","349K","https://www.instagram.com/iambarondavis/"],["Baron Davis","X","841K","https://x.com/BaronDavis"],["BIG","teambig.io","his platform","https://www.teambig.io"],["BIG Summits","X","","https://x.com/bigsummits_"]]},
+  {name:"The panel circuit", to:["interviews","big","ventures"],
+   inc:"Shows he is on now, shows he has done, and legends' shows he could be. Commissions: fans pool Minutes to book an appearance; paid on delivery.",
+   accts:[["Gil's Arena","YouTube","1.29M","https://www.youtube.com/@GilsArenaShow"],["Gil's Arena","Instagram","228K · co-posts with him","https://www.instagram.com/gilsarena0/"],["Tiger A. Smith","YouTube","24.3K · 16.7× hit","https://www.youtube.com/@TigerASmith",1],["Mind the Game","YouTube","915K · 2.1× hit","https://www.youtube.com/@MindTheGamePodcast"],["Cousins with Vince & T-Mac","YouTube","124K","https://www.youtube.com/@VinceAndTmac"],["Hoopin' N Hollerin'","YouTube","299K","https://www.youtube.com/@hoopinhollerin"],["The LOWLights","YouTube","111K · 7.0× hit","https://www.youtube.com/@TheLOWLights-q1g",1],["Enjoy Basketball","TikTok","463.5K","https://www.tiktok.com/@enjoybball"],["REVOLT","YouTube","his episode 3.3M","https://www.youtube.com/watch?v=MQkOEQKoMKo"],["All Def","YouTube","Roast Me 2.7M · NEXT UP 1.5M","https://www.youtube.com/@Alldef"],["ALL THE SMOKE","YouTube","his episode 668K","https://www.youtube.com/watch?v=piTpiBgtaGA"],["Bootleg Kev","YouTube","his episode 698K","https://www.youtube.com/watch?v=GUWpjGxr1FI"],["The Breakfast Club","YouTube","his episode 628K","https://www.youtube.com/watch?v=omEtXYa1UkI"],["Knuckleheads","YouTube","his episode 515K","https://www.youtube.com/watch?v=ue6BcjTdesI"]]},
+  {name:"Licensed editors", to:["footage","mixes"],
+   inc:"Already licensed through NBA Playmakers, so they can cut his game footage today. Credit and a source link back to HOTG on every cut.",
+   accts:[["Hicko","YouTube","249K · 5.6× hit","https://www.youtube.com/@Hicko",1],["CoshReport","YouTube","608K · 2.1× hit","https://www.youtube.com/@CoshReport"],["NBArtv","YouTube","231K · 1.9× hit","https://www.youtube.com/@NBArtv"],["MaxaMillion711","YouTube","493K","https://www.youtube.com/@MaxaMillion711"]]},
+  {name:"Old-school archive channels", to:["footage","provenance","mixes"],
+   inc:"Small channels whose legend uploads far outrun their following. Minutes for tags and provenance; registered clips earn per verified view.",
+   accts:[["Hoops Area","YouTube","2.5K · 18.5× hit","https://www.youtube.com/@hoopsarea",1],["Issa Sport","YouTube","66.3K · 18.1× hit","https://www.youtube.com/@issa-sport",1],["LosAngeles852","YouTube","10.6K · 11.7× hit · full 1999–2008 games","https://www.youtube.com/@LosAngeles852",1],["DATA BASKET","YouTube","84.6K · 8.3× hit · Spanish","https://www.youtube.com/@DATABASKET",1],["ENEM","YouTube","53.4K · 6.7× hit","https://www.youtube.com/@_enem",1],["Piotrekz Productions","YouTube","227K","https://www.youtube.com/@piotrekzprod"],["Oldskoolbball","YouTube","437K","https://www.youtube.com/@Oldskoolbball"]]},
+  {name:"Small TikTok editors, big reach", to:["mixes","footage"],
+   inc:"Under 10K followers with 500K+ likes. Found through legend and edit searches; measured 5 Oct 2026. Registered clips earn Minutes per verified view.",
+   accts:[["@zp.prodz", "TikTok", "6.7K · 3.0M likes · 448×", "https://www.tiktok.com/@zp.prodz", 1],["@slidshow4u", "TikTok", "2.3K · 821K likes · 350×", "https://www.tiktok.com/@slidshow4u", 1],["@th3darkknightr3aper", "TikTok", "6.1K · 1.5M likes · 244×", "https://www.tiktok.com/@th3darkknightr3aper", 1],["@mmaceooo", "TikTok", "4.9K · 1.2M likes · 243×", "https://www.tiktok.com/@mmaceooo", 1],["@braylenray25.ray", "TikTok", "5.9K · 1.4M likes · 237×", "https://www.tiktok.com/@braylenray25.ray", 1],["@dgutierreztv", "TikTok", "9.4K · 2.2M likes · 233×", "https://www.tiktok.com/@dgutierreztv", 1],["@hardwoodsaints", "TikTok", "5.3K · 1.1M likes · 207×", "https://www.tiktok.com/@hardwoodsaints", 1],["@indy.prodzz", "TikTok", "5.5K · 1.1M likes · 198×", "https://www.tiktok.com/@indy.prodzz", 1],["@chitech", "TikTok", "5.4K · 1.0M likes · 186×", "https://www.tiktok.com/@chitech", 1],["@hoopsthings", "TikTok", "5.3K · 983K likes · 185×", "https://www.tiktok.com/@hoopsthings", 1],["@raizoedits.cc", "TikTok", "5.8K · 912K likes · 157×", "https://www.tiktok.com/@raizoedits.cc", 1],["@bagwork504", "TikTok", "6.0K · 939K likes · 157×, cut him 4 Sep", "https://www.tiktok.com/@bagwork504", 1],["@fastbreak.facts", "TikTok", "4.7K · 659K likes · 141×", "https://www.tiktok.com/@fastbreak.facts", 1],["@1hoop111", "TikTok", "7.6K · 971K likes · 128×", "https://www.tiktok.com/@1hoop111", 1],["@wadelegacy_", "TikTok", "6.5K · 630K likes · 97×", "https://www.tiktok.com/@wadelegacy_", 1]]},
+  {name:"TikTok cutters", to:["mixes","footage"],
+   inc:"10K to 150K followers, 200 to 450 likes per follower. Minutes per verified view on registered clips, capped per clip.",
+   accts:[["@zmoney.edits", "TikTok", "41.8K · 17.8M likes · 426×", "https://www.tiktok.com/@zmoney.edits", 1],["@.shotbyb", "TikTok", "10.6K · 4.2M likes · 396×", "https://www.tiktok.com/@.shotbyb", 1],["@slam.dun", "TikTok", "16.8K · 5.9M likes · 351×", "https://www.tiktok.com/@slam.dun", 1],["@editsbylb", "TikTok", "23.1K · 7.9M likes · 342×", "https://www.tiktok.com/@editsbylb", 1],["@mprodz.2", "TikTok", "80.3K · 25.5M likes · 318×", "https://www.tiktok.com/@mprodz.2", 1],["@dk.xyz", "TikTok", "49.3K · 15.5M likes · 314×", "https://www.tiktok.com/@dk.xyz", 1],["@.chayose", "TikTok", "60.6K · 17.9M likes · 295×", "https://www.tiktok.com/@.chayose", 1],["@jacky.cuts", "TikTok", "16.1K · 4.6M likes · 286×", "https://www.tiktok.com/@jacky.cuts", 1],["@_marshoops", "TikTok", "38.7K · 10.7M likes · 276×", "https://www.tiktok.com/@_marshoops", 1],["@jpmixtapes", "TikTok", "25.1K · 6.8M likes · 271×", "https://www.tiktok.com/@jpmixtapes", 1],["@nbamarshin", "TikTok", "23.5K · 6.0M likes · 255×", "https://www.tiktok.com/@nbamarshin", 1],["@rimreap3r_", "TikTok", "75.9K · 19.0M likes · 250×", "https://www.tiktok.com/@rimreap3r_", 1],["@luconic", "TikTok", "66.2K · 16.1M likes · 243×", "https://www.tiktok.com/@luconic", 1],["@wongprods", "TikTok", "18.5K · 4.4M likes · 238×", "https://www.tiktok.com/@wongprods", 1],["@2000slegend", "TikTok", "136.4K · 29.7M likes · 218×, 2000s throwbacks", "https://www.tiktok.com/@2000slegend", 1],["@bryplex", "TikTok", "152.3K", "https://www.tiktok.com/@bryplex"],["@billseditz2.0", "TikTok", "56.4K", "https://www.tiktok.com/@billseditz2.0"]]},
+  {name:"YouTube legend editors", to:["footage","mixes","interviews"],
+   inc:"Active channels that cut 2000s legends. Hit = best video in the last 90 days ÷ subscribers. Credit and a source link back on every Baron cut.",
+   accts:[["NBA Showcase", "YouTube", "8K subs · best 1.8M · 225× hit", "https://www.youtube.com/@NBAShowcaseRD", 1],["FanOfTheGame", "YouTube", "12.9K · best 1.2M · 93×", "https://www.youtube.com/@xFanOfTheGamex", 1],["WTW HOOPS", "YouTube", "3.7K · best 190K · 51×", "https://www.youtube.com/@WordAroundTheNBA", 1],["SoKraZyTv", "YouTube", "8K · best 138K · 17×", "https://www.youtube.com/@sokrazytv", 1],["Skewed Numbers", "YouTube", "819 · tags him · 16×", "https://www.youtube.com/@SkewedNumbers", 1],["NBA Low Key", "YouTube", "14.7K · best 199K · 14×", "https://www.youtube.com/@NBA_low_key", 1],["icesco415", "YouTube", "2.7K · every T-Mac game · 12×", "https://www.youtube.com/@icesco415", 1],["THE-TRUTH HIGHLIGHTS", "YouTube", "699 · 2000s throwbacks · 9×", "https://www.youtube.com/@TheTruthHighlights"],["H E SP", "YouTube", "535 · posted his Hornets poster dunk", "https://www.youtube.com/@thehEsp"],["Phadeaway NBA", "YouTube", "8.4K · 'NBA stars who disappeared'", "https://www.youtube.com/@PhadeawayNBA"],["Byron Scott's Fast Break", "YouTube", "133K · best 409K", "https://www.youtube.com/@ByronScottFastBreak"],["BeaumontsBrainsOut", "YouTube", "8.1K · legend mixtapes", "https://www.youtube.com/@BeaumontsBrainsOut"]]},
+  {name:"His teams' fans", to:["footage","provenance","interviews","memorabilia"],
+   inc:"Warriors, Clippers, Hornets, Pelicans, Cavs and Knicks communities. Ticket stubs, stands photos and “I was there” come from here, paid in Minutes and named credit.",
+   accts:[["r/warriors","Reddit","1.5M","https://www.reddit.com/r/warriors/"],["LetsGoWarriors","YouTube","172K","https://www.youtube.com/@LetsGoWarriors"],["Warriors World","Instagram","74K","https://www.instagram.com/officialwarriorsworld/"],["Locked On Warriors","YouTube","20.2K","https://www.youtube.com/@LockedOnWarriors"],["r/LAClippers","Reddit","391K","https://www.reddit.com/r/LAClippers/"],["Locked On Clippers","YouTube","8.5K · 2.2× hit","https://www.youtube.com/@LockedOnClippers",1],["Locked On Hornets","YouTube","11.9K","https://www.youtube.com/@LockedOnHornets"],["Locked On Pelicans","YouTube","12.9K","https://www.youtube.com/@LockedOnPelicans"],["It's Cavalier","YouTube","33.6K","https://www.youtube.com/@itscavalierpodcast1410"],["r/NYKnicks","Reddit","474K","https://www.reddit.com/r/NYKnicks/"],["KnicksFanTV","YouTube","111K","https://www.youtube.com/@KnicksFanTV"]]},
+  {name:"Where his biggest clips sit", to:["footage","mixes"],
+   inc:"His top clips are 9 to 20 years old and none of them link to him. Bring them into the archive and point them back.",
+   accts:[["NBA","YouTube","Kirilenko 2.16M · top 10 890K · Hornets mix 445K","https://www.youtube.com/@NBA"],["orangino","YouTube","Kirilenko 1.83M · dormant","https://www.youtube.com/watch?v=8w_1ZEk4mds"],["Secret Base","YouTube","89 feet · 1.15M","https://www.youtube.com/watch?v=ndmBCqds_gc"],["EverythingBall","YouTube","long shot · 1.06M","https://www.youtube.com/watch?v=zWUEnbPsVfo"],["HoopmixtapeBlog","YouTube","Drew League · 933K","https://www.youtube.com/@HoopmixtapeBlog"],["D1PHAM","YouTube","dunk on Shaq · 751K","https://www.youtube.com/watch?v=rMnh9u6QzfY"],["DaPerfectionist","YouTube","over Gasol · 583K","https://www.youtube.com/watch?v=6l85W651WVI"],["wetagua","YouTube","Ultimate Mix · 347K","https://www.youtube.com/@wetagua"]]},
+  {name:"Game creators", to:["games"],
+   inc:"Creators covering his current 2K cards, and retro channels whose NBA Street, Ballers and 2K5 videos pull hundreds of thousands. None of them link to him.",
+   accts:[["Chris Smoove","YouTube","2K18 classic team · 235K","https://www.youtube.com/@chrissmoove"],["QJB","YouTube","NBA Live Mobile · 147K","https://www.youtube.com/@QJB"],["CarlosStory","YouTube","2K21 Galaxy Opal · 57K","https://www.youtube.com/@CarlosStory"],["HTB","YouTube","2K19 Pink Diamond · 34K","https://www.youtube.com/@HTB"],["NBA 2K","YouTube","2KTV interview · 31K","https://www.youtube.com/@nba2k"],["JC2K","YouTube","2K27 Galaxy Opal · Sept 2026","https://www.youtube.com/@xjc2k"],["Not The Expert","YouTube","NBA Street Homecourt · 806K","https://www.youtube.com/@NTE_"],["NotYourAverageFlight","YouTube","NBA Ballers Phenom · 585K","https://www.youtube.com/@NotYourAverageFlight"],["xTimelessGaming","YouTube","NBA Street Vol. 2 · 559K","https://www.youtube.com/@xTimelessGaming"],["SOFTDRINKTV","YouTube","ESPN NBA 2K5 · 486K","https://www.youtube.com/@SOFTDRINKTV"],["Tray","YouTube","NBA Ballers: Chosen One · 457K","https://www.youtube.com/@Tray"],["Video Game Wars","YouTube","Ballers: Baron vs Marbury","https://www.youtube.com/@videogamewars7777"],["Ryan Van Dusen","YouTube","NBA Live 2004 ad · 105K subs","https://www.youtube.com/@Swove2204"]]},
+  {name:"History of the Game", to:["footage","interviews","personal","provenance","big","ventures","mixes","games","memorabilia"],
+   inc:"The hub. Every face and every segment links back here.",
+   accts:[["HOTG","X","@HistoryOTG","https://x.com/HistoryOTG"]]},
+];
+
+// avenues: how each area turns into value for him
+const AVENUES = [
+  {id:"owned", label:"owned", faces:["personal"]},
+  {id:"licensing", label:"licensing", faces:["footage","games"]},
+  {id:"appearances", label:"appearances", faces:["interviews"]},
+  {id:"partnerships", label:"partnerships", faces:["big","ventures"]},
+  {id:"creators", label:"creator distribution", faces:["mixes"]},
+  {id:"fans", label:"fan work", faces:["provenance"]},
+  {id:"products", label:"products", faces:["memorabilia"]},
+];
+// a piece connects back when it sits on his own accounts, or is co-posted to them (Gil's Arena, per the research)
+const CONNECTED = /instagram\.com\/iambarondavis|x\.com\/BaronDavis|teambig\.io|bigsummits_|gilsarena0/i;
+const viewsOf = t => { const m = String(t).match(/([\d.]+)\s*([MK])\b/); return m ? parseFloat(m[1]) * (m[2] === "M" ? 1e6 : 1e3) : 0; };
+const PIECES = [];
+FACES.forEach((f, fi) => f.items.forEach(([t, u]) => PIECES.push({fi, t, u, v:viewsOf(t), on:!!u && CONNECTED.test(u), cat:!u})));
+let avenue = null;
+
+const $ = id => document.getElementById(id);
+const stage = $("stage"), spill = $("spill"), chan = $("chan"), labels = $("labels"), lines = $("lines");
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+let hover = null, pinned = null, lastScroll = null, faceFromList = false, hoverDot = null;
+const active = () => pinned;
+let selPiece = null;   // a single piece opened by click
+
+// channels
+const PRIMARY = {"His own accounts":"personal","The panel circuit":"interviews","Licensed editors":"footage","Old-school archive channels":"footage","TikTok cutters":"mixes","Small TikTok editors, big reach":"mixes","YouTube legend editors":"footage","His teams' fans":"provenance","Where his biggest clips sit":"footage","Game creators":"games"};
+const faceColor = id => (FACES.find(f => f.id === id) || {}).color || "#1A1D2E";
+chan.innerHTML = `<h3><span>who carries it</span><span>${SEGMENTS.reduce((n, g) => n + g.accts.length, 0)} accounts</span></h3>` + SEGMENTS.map((g, i) =>
+  `<div class="ch closed" data-i="${i}" style="--pc:${faceColor(PRIMARY[g.name])}"><b>${g.name} <small>${g.accts.length}</small></b><div class="carries">${g.to.map(id => `<button type="button" class="sw" data-f="${id}" title="${(FACES.find(f => f.id === id) || {}).label}" style="background:${faceColor(id)}"></button>`).join("")}</div><p>${g.inc}</p><ul>${g.accts.map(([n, pl, st, u, hot]) =>
+    `<li><a href="${u}" target="_blank" rel="noopener">${n}</a><span>${pl}</span><em${hot ? ' class="hot"' : ""}>${st}</em></li>`).join("")}</ul></div>`).join("");
+
+// face chips (narrow screens)
+$("chips").innerHTML = FACES.map(f => `<button type="button" data-f="${f.id}" aria-pressed="false"><i class="sw" style="background:${f.color}"></i>${f.label}</button>`).join("");
+$("chips").addEventListener("click", e => { const b = e.target.closest("[data-f]"); if (b){ pinned = pinned === b.dataset.f && !selPiece ? null : b.dataset.f; selPiece = null; faceFromList = true; update(); } });
+
+// labels
+labels.innerHTML = FACES.map(f => `<button type="button" class="lab" data-f="${f.id}"><i class="sw" style="background:${f.color}"></i>${f.label}<small>[${f.items.length}]</small></button>`).join("");
+labels.querySelectorAll(".lab").forEach(b => {
+  b.addEventListener("click", () => { pinned = pinned === b.dataset.f && !selPiece ? null : b.dataset.f; selPiece = null; faceFromList = true; update(); });
+});
+
+const shapes = ["58% 42% 52% 48% / 46% 56% 44% 54%","44% 56% 40% 60% / 58% 42% 58% 42%","52% 48% 62% 38% / 40% 60% 40% 60%","62% 38% 46% 54% / 52% 44% 56% 48%","40% 60% 54% 46% / 60% 40% 52% 48%"];
+let lastSpill = undefined;
+const esc = t => String(t).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function selectPiece(p){ selPiece = p; pinned = FACES[p.fi].id; faceFromList = true; update(); }
+function renderSpill(){
+  const id = active(), key = id + "|" + (selPiece ? PIECES.indexOf(selPiece) : "");
+  if (key === lastSpill) return; lastSpill = key;
+  const f = FACES.find(x => x.id === id);
+  if (!f){
+    spill.innerHTML = `<p class="idle"><b>His archive, sorted into faces.</b> Each dot is a piece; its line shows whether it connects back to him. Click a face or a dot to explore. Click empty space to clear.</p>`;
+    return;
+  }
+  if (selPiece){
+    const p = selPiece, av = AVENUES.find(v => v.faces.includes(f.id));
+    const carriers = SEGMENTS.filter(g => g.to.includes(f.id) && g.name !== "History of the Game");
+    spill.innerHTML = `<button type="button" class="back" data-back>← ${esc(f.label)}</button>
+      <h2><i class="sw" style="background:${f.color}"></i>${esc(p.t)}</h2>
+      <div class="facts"><span>${p.cat ? "Not in the archive yet" : p.on ? "Connects back to him" : "No link back to him yet"}</span>${p.v ? `<span>${p.v >= 1e6 ? (p.v / 1e6).toFixed(2) + "M" : Math.round(p.v / 1e3) + "K"} views</span>` : ""}<span>${esc(f.label)}${av ? " · " + esc(av.label) : ""}</span></div>
+      <div class="tier">${esc(f.tier)}</div>
+      ${carriers.length ? `<div class="tier">Who could carry it: ${carriers.map(g => `<button type="button" class="seglink" data-seg="${SEGMENTS.indexOf(g)}">${esc(g.name)}</button>`).join(", ")}</div>` : ""}
+      ${p.u ? `<a class="openlink" href="${p.u}" target="_blank" rel="noopener">Open ↗</a>` : ""}`;
+    return;
+  }
+  spill.innerHTML = `<h2><i class="sw" style="background:${f.color}"></i>${f.label}<small>[${f.items.length}]</small></h2><div class="tier">${f.tier}</div><div class="blobs">` +
+    PIECES.filter(p => p.fi === FACES.indexOf(f)).map((p, i) =>
+      `<button type="button" class="blob${p.cat ? " open" : ""}" data-k="${PIECES.indexOf(p)}" style="box-shadow:0 0 0 3px ${f.color};animation-delay:${i * 45}ms" title="${esc(p.t)}"><span>${esc(p.t.split(" · ")[0])}</span>${/^[\d.]+[MK]\b/.test(p.t.split(" · ").slice(-1)[0]) ? `<b>${esc(p.t.split(" · ").slice(-1)[0])}</b>` : ""}<i>${p.cat ? "to catalog" : p.on ? "links back" : "no link back"}</i></button>`).join("") + `</div>`;
+}
+spill.addEventListener("click", e => {
+  const k = e.target.closest("[data-k]"); if (k){ selectPiece(PIECES[+k.dataset.k]); return; }
+  if (e.target.closest("[data-back]")){ selPiece = null; update(); return; }
+  const g = e.target.closest("[data-seg]");
+  if (g){ const el = chan.querySelector(`.ch[data-i="${g.dataset.seg}"]`); if (el) chan.scrollTo({top:el.offsetTop - chan.offsetTop - 8, behavior:"smooth"}); }
+});
+chan.addEventListener("click", e => { const h = e.target.closest(".ch > b"); if (h){ const el = h.parentElement; el.classList.toggle("closed"); el.classList.toggle("open"); return; } });
+chan.addEventListener("click", e => { const b = e.target.closest(".carries [data-f]"); if (b){ pinned = b.dataset.f; selPiece = null; faceFromList = true; update(); } });
+document.addEventListener("keydown", e => { if (e.key === "Escape"){ pinned = null; selPiece = null; update(); } });
+
+function update(){
+  const id = active();
+  stage.classList.toggle("active", !!id);
+  const fc = (FACES.find(f => f.id === id) || {}).color || "transparent";
+  let first = null;
+  chan.querySelectorAll(".ch").forEach(el => {
+    const c = SEGMENTS[+el.dataset.i];
+    el.style.setProperty("--fc", fc);
+    if (id && c.to.includes(id) && !first) first = el;
+    el.classList.toggle("hit", !!id && c.to.includes(id));
+    if (id !== lastScroll){ const o = !!id && c.to.includes(id) && c.name !== "History of the Game"; el.classList.toggle("open", o); el.classList.toggle("closed", !o); }
+    el.classList.toggle("x", !!id);
+  });
+  if (first && id !== lastScroll){ chan.scrollTo({top:first.offsetTop - chan.offsetTop - 8, behavior:reduce ? "auto" : "smooth"}); }
+  lastScroll = id;
+  $("chips").querySelectorAll("[data-f]").forEach(b => b.setAttribute("aria-pressed", b.dataset.f === id));
+  renderSpill();
+  recolor();
+}
+
+// ---------- the crystal ----------
+const canvas = $("gl"), cell = $("gemcell");
+let recolor = () => {};
+let renderer = null;
+try { if (window.THREE) renderer = new THREE.WebGLRenderer({canvas, antialias:true, alpha:true}); } catch(e){}
+if (renderer){
+  renderer.setPixelRatio(Math.min(devicePixelRatio || 1, 2));
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(30, 1, .1, 100);
+  camera.position.set(0, .2, 11);
+  const gem = new THREE.Group(); scene.add(gem);
+
+  // an octagonal crystal with a waist, slightly irregular so it reads as stone
+  const N = FACES.length, rnd = (s => () => (s = (s * 16807) % 2147483647) / 2147483647)(11);
+  const ring = (y, r) => Array.from({length:N}, (_, i) => { const a = i / N * Math.PI * 2 + .2; const rr = r * (.9 + rnd() * .2); return new THREE.Vector3(Math.cos(a) * rr, y + (rnd() - .5) * .12, Math.sin(a) * rr); });
+  const top = new THREE.Vector3(.08, 2.55, -.05), bot = new THREE.Vector3(-.05, -2.05, .04);
+  const r1 = ring(1.25, .95), r2 = ring(0, 1.12), r3 = ring(-1.05, .92);
+  const meshes = [];  // {mesh, face, base}
+  const edges = [];
+  function addFace(pts, faceIdx, tone){
+    const pos = [];
+    for (let k = 1; k < pts.length - 1; k++) pos.push(...pts[0].toArray(), ...pts[k].toArray(), ...pts[k + 1].toArray());
+    const g = new THREE.BufferGeometry(); g.setAttribute("position", new THREE.Float32BufferAttribute(pos, 3));
+    const base = new THREE.Color(FACES[faceIdx].color).lerp(new THREE.Color(tone[0]), tone[1]);
+    const m = new THREE.Mesh(g, new THREE.MeshBasicMaterial({color:base.clone(), side:THREE.BackSide, transparent:true, opacity:.82, depthWrite:false}));
+    gem.add(m); meshes.push({mesh:m, face:faceIdx, base});
+    for (let k = 0; k < pts.length; k++) edges.push(...pts[k].toArray(), ...pts[(k + 1) % pts.length].toArray());
+  }
+  const anchors = [];
+  for (let i = 0; i < N; i++){
+    const j = (i + 1) % N, f = i % FACES.length;
+    addFace([top, r1[i], r1[j]], f, ["#ffffff", 0]);
+    addFace([r1[i], r2[i], r2[j], r1[j]], f, ["#ffffff", 0]);
+    addFace([r2[i], r3[i], r3[j], r2[j]], f, ["#ffffff", 0]);
+    addFace([r3[i], bot, r3[j]], f, ["#ffffff", 0]);
+    anchors.push({face:f, p:r1[i].clone().add(r2[i]).add(r2[j]).add(r1[j]).multiplyScalar(.25)});
+  }
+  const eg = new THREE.BufferGeometry(); eg.setAttribute("position", new THREE.Float32BufferAttribute(edges, 3));
+  gem.add(new THREE.LineSegments(eg, new THREE.LineBasicMaterial({color:0x8b93b5, transparent:true, opacity:.75})));
+
+  // the pieces: one dot per real item, sized by views, each with a line back to the core (him + HOTG)
+  const CORE = new THREE.Vector3(0, .25, 0);
+  const tex = hollow => { const c = document.createElement("canvas"); c.width = c.height = 64; const x = c.getContext("2d"); x.beginPath(); x.arc(32, 32, 26, 0, 7);
+    if (hollow){ x.lineWidth = 7; x.strokeStyle = "#fff"; x.stroke(); } else { x.fillStyle = "#fff"; x.fill(); } return new THREE.CanvasTexture(c); };
+  const solidTex = tex(false), ringTex = tex(true);
+  const core = new THREE.Sprite(new THREE.SpriteMaterial({map:solidTex, color:0x1A1D2E, depthTest:false})); core.scale.setScalar(.16); core.position.copy(CORE); core.renderOrder = 4; gem.add(core);
+  const ink = new THREE.Color("#1A1D2E");
+  const sprites = [];
+  PIECES.forEach(p => {
+    const a = (p.fi + .5) / N * Math.PI * 2 + .2 + (rnd() - .5) * .5, r = .35 + rnd() * .45;
+    p.pos = new THREE.Vector3(Math.cos(a) * r, -1.05 + rnd() * 2.6, Math.sin(a) * r);
+    p.col = new THREE.Color(FACES[p.fi].color).lerp(ink, .35);
+    const sp = new THREE.Sprite(new THREE.SpriteMaterial({map:p.cat ? ringTex : solidTex, color:p.col.clone(), depthTest:false, transparent:true}));
+    const sz = p.cat ? .07 : .06 + .05 * Math.log10(1 + p.v) / 6.5;
+    sp.scale.setScalar(sz); sp.position.copy(p.pos); sp.renderOrder = 3; sp.userData.p = p; gem.add(sp); sprites.push(sp); p.sp = sp; p.sz = sz;
+    if (!p.cat){
+      const g = new THREE.BufferGeometry().setFromPoints([p.pos, CORE]);
+      const m = p.on ? new THREE.LineBasicMaterial({color:0x1A1D2E, transparent:true, opacity:.85, depthTest:false})
+                     : new THREE.LineDashedMaterial({color:0x3A4060, dashSize:.05, gapSize:.04, transparent:true, opacity:.55, depthTest:false});
+      const l = new THREE.Line(g, m); if (!p.on) l.computeLineDistances(); l.renderOrder = 2; gem.add(l); p.line = l;
+    }
+  });
+
+  // legend: what the dots and lines mean, and the avenues
+  const nOn = PIECES.filter(p => p.on).length, nLinked = PIECES.filter(p => !p.cat).length;
+  $("legend").innerHTML = `<div class="key"><span><b>●</b> a piece · size = views</span><span><span class="ln"></span>connects back to him</span><span><span class="ln d"></span>no link back yet</span><span><b>${nOn} of ${nLinked}</b> connect back</span></div>
+    <div class="av">${AVENUES.map(v => `<button type="button" data-av="${v.id}" aria-pressed="false">${v.label}</button>`).join("")}</div>`;
+  $("legend").querySelectorAll("[data-av]").forEach(b => {
+    b.addEventListener("click", () => { avenue = avenue === b.dataset.av ? null : b.dataset.av; recolor(); });
+  });
+
+  recolor = () => {
+    const id = active();
+    const set = avenue ? AVENUES.find(v => v.id === avenue).faces : id ? [id] : null;
+    const onFace = fi => !set || set.includes(FACES[fi].id);
+    meshes.forEach(({mesh, face, base}) => {
+      mesh.material.color.copy(base);
+      if (set && !onFace(face)) mesh.material.color.lerp(new THREE.Color("#E3E6EF"), .55);
+    });
+    PIECES.forEach(p => {
+      const lit = selPiece ? p === selPiece : onFace(p.fi);
+      p.sp.material.opacity = lit ? 1 : .15;
+      p.sp.scale.setScalar(set && lit ? p.sz * 1.35 : p.sz);
+      if (p.line) p.line.material.opacity = lit ? (p.on ? .95 : (set ? .9 : .55)) : .06;
+    });
+    $("legend").querySelectorAll("[data-av]").forEach(b => b.setAttribute("aria-pressed", b.dataset.av === avenue));
+  };
+
+  // size
+  let W = 0, H = 0;
+  function resize(){
+    W = canvas.clientWidth; H = canvas.clientHeight;
+    renderer.setSize(W, H, false); camera.aspect = W / Math.max(H, 1);
+    const want = H * .17, room = W / 2 - 34 - 150;   // half-width of crystal that leaves room for a label each side
+    camera.position.z = 11 * want / Math.max(60, Math.min(want, room));
+    camera.updateProjectionMatrix();
+  }
+  new ResizeObserver(resize).observe(cell); resize();
+
+  // turning, dragging, hovering
+  let rotY = .4, rotX = .12, vel = 0, drag = null;   // still by default; drag to turn
+  const ray = new THREE.Raycaster(), ndc = new THREE.Vector2();
+  canvas.addEventListener("pointerdown", e => { drag = {x:e.clientX, y:e.clientY, rx:rotX, ry:rotY, moved:false}; canvas.setPointerCapture(e.pointerId); });
+  canvas.addEventListener("pointermove", e => {
+    if (drag){
+      const dx = e.clientX - drag.x, dy = e.clientY - drag.y;
+      if (Math.abs(dx) + Math.abs(dy) > 3) drag.moved = true;
+      rotY = drag.ry + dx * .01; rotX = Math.max(-.6, Math.min(.6, drag.rx + dy * .006));
+      return;
+    }
+    pick(e);
+  });
+  function pick(e){
+    const r = canvas.getBoundingClientRect();
+    ndc.set((e.clientX - r.left) / r.width * 2 - 1, -((e.clientY - r.top) / r.height) * 2 + 1);
+    ray.setFromCamera(ndc, camera);
+    const dot = ray.intersectObjects(sprites)[0];
+    const tip = $("tip");
+    if (dot){
+      const p = dot.object.userData.p, cr = cell.getBoundingClientRect();
+      tip.hidden = false; tip.style.left = (e.clientX - cr.left) + "px"; tip.style.top = (e.clientY - cr.top) + "px";
+      tip.innerHTML = p.t.replace(/[<>&]/g, "") + `<i>${p.cat ? "not in the archive yet" : p.on ? "connects back to him" : "no link back yet"}</i>`;
+      hoverDot = p;
+    } else { tip.hidden = true; hoverDot = null; }
+    const hit = ray.intersectObjects(meshes.map(m => m.mesh))[0];
+    const f = hit ? FACES[meshes.find(m => m.mesh === hit.object).face].id : null;
+    hover = f; canvas.style.cursor = hoverDot || f ? "pointer" : "";
+  }
+  canvas.addEventListener("pointerup", e => {
+    const wasDrag = drag && drag.moved; drag = null;
+    if (wasDrag) return;
+    pick(e); $("tip").hidden = true;
+    if (hoverDot){ selectPiece(hoverDot); faceFromList = false; return; }
+    selPiece = null; pinned = hover && pinned !== hover ? hover : null; faceFromList = false; update();
+  });
+  canvas.addEventListener("pointerleave", () => { $("tip").hidden = true; hoverDot = null; hover = null; });
+
+  // leader lines and labels follow the faces
+  const labEls = Object.fromEntries([...labels.querySelectorAll(".lab")].map(b => [b.dataset.f, b]));
+  const v = new THREE.Vector3(), n = new THREE.Vector3(), camDir = new THREE.Vector3();
+  function overlay(){
+    if (getComputedStyle(labels).display === "none") return;
+    const sr = stage.getBoundingClientRect(), cr = canvas.getBoundingClientRect();
+    const ox = cr.left - sr.left, oy = cr.top - sr.top;
+    const cx = ox + cr.width / 2, cy = oy + cr.height / 2;
+    const half = cr.height * .17 * 11 / camera.position.z, id = active();
+    const ents = [], seen = new Set();
+    anchors.forEach(({face, p}) => {
+      const f = FACES[face]; if (seen.has(f.id)) return; seen.add(f.id);
+      v.copy(p).applyMatrix4(gem.matrixWorld);
+      n.set(p.x, 0, p.z).normalize().transformDirection(gem.matrixWorld);
+      camDir.copy(camera.position).sub(v).normalize();
+      const front = n.dot(camDir) > 0;
+      v.project(camera);
+      ents.push({f, front, px: ox + (v.x + 1) / 2 * cr.width, py: oy + (1 - v.y) / 2 * cr.height});
+    });
+    // split left and right of the crystal, then space each side evenly top to bottom
+    let svg = "";
+    for (const side of [-1, 1]){
+      const list = ents.filter(e => (e.px < cx ? -1 : 1) === side).sort((a, b) => a.py - b.py);
+      const top = cy - cr.height * .3, span = cr.height * .6;
+      list.forEach((e, k) => {
+        const ly = list.length === 1 ? cy : top + span * k / (list.length - 1);
+        const lx = cx + side * (half + 34);
+        const el = labEls[e.f.id];
+        el.style.left = lx + "px"; el.style.top = ly + "px";
+        el.style.transform = side < 0 ? "translate(-100%,-50%)" : "translate(0,-50%)";
+        el.classList.toggle("back", !e.front); el.classList.toggle("on", id === e.f.id);
+        svg += `<line class="${id === e.f.id ? "on" : ""}" x1="${e.px.toFixed(1)}" y1="${e.py.toFixed(1)}" x2="${(lx - side * 4).toFixed(1)}" y2="${ly.toFixed(1)}"/>`;
+      });
+    }
+    lines.innerHTML = svg;
+    v.copy(CORE).applyMatrix4(gem.matrixWorld).project(camera);
+    const cl = $("corelab"); const cb = cell.getBoundingClientRect();
+    cl.style.left = ((v.x + 1) / 2 * cb.width) + "px"; cl.style.top = ((1 - v.y) / 2 * cb.height) + "px";
+  }
+
+  (function loop(){
+    if (!drag && !active()) rotY += vel;
+    else if (!drag && faceFromList){
+      const fi = FACES.findIndex(f => f.id === active());
+      if (fi >= 0){
+        const a = (fi + .5) / N * Math.PI * 2 + .2, target = a - Math.PI / 2;
+        let d = target - rotY; d = Math.atan2(Math.sin(d), Math.cos(d));
+        rotY += reduce ? d : d * .12;
+      }
+    }
+    gem.rotation.set(rotX, rotY, 0);
+    gem.updateMatrixWorld();
+    renderer.render(scene, camera);
+    overlay();
+    requestAnimationFrame(loop);
+  })();
+} else {
+  stage.classList.add("nogl");
+  $("gemcell").innerHTML = `<p class="idle">The crystal needs WebGL to draw. Pick a face below.</p>`;
+}
+
+update();
+</script>
+</body></html>

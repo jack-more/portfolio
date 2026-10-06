@@ -1,193 +1,113 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow">
-<title>Baron Davis Archive Gem</title>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Baron Davis Archive</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-/* Layout: one crystal in the middle of a plain field. Its faces are the archive; what a face holds spills out to the left, the channels it should reach sit on the right. */
+/* Layout after prompt-motion.com: white page, plain title and one line, filter chips, a masonry grid of real media tiles, a handle and one chip under each. */
 :root{
-  --field:#D6DBE6; --ink:#1A1D2E; --soft:#6B7288; --hair:#9AA1B8; --blob:#0D0F1C; --blob-ink:#E8EAF6;
-  --sans:"Geist","Helvetica Neue",Arial,sans-serif;
-  --mono:"Geist Mono",ui-monospace,Menlo,monospace;
-  color-scheme:light;
+  --paper:#FFFFFF; --ink:#0A0D18; --soft:#5A6075; --rule:#E6E8EF; --tile:#F3F4F8; --cobalt:#0B5CF6;
+  --serif:"Instrument Serif",Georgia,serif; --sans:"Geist","Helvetica Neue",Arial,sans-serif; --mono:"Geist Mono",ui-monospace,Menlo,monospace;
 }
 *{box-sizing:border-box}
-html,body{background:var(--field);color:var(--ink)}
-body{margin:0;font-family:var(--sans);font-size:14px;line-height:1.5}
+html,body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.5}
+a{color:inherit}
 button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;padding:0}
-button:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
-
-.bar{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:14px 20px;font-family:var(--mono);font-size:11px;color:var(--soft)}
-.bar b{color:var(--ink);font-weight:500}
-.bar a{color:inherit}
-.bar .links{display:flex;flex-wrap:wrap;gap:6px 14px}
-
-.stage{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(360px,1.05fr) minmax(300px,360px);gap:12px;padding:0 20px;height:calc(100svh - 100px);min-height:560px}
-#lines{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
-#lines line,#lines path{stroke:var(--hair);stroke-width:.8;fill:none}
-#lines .on{stroke:var(--ink);stroke-width:1}
-.labels{position:absolute;inset:0;pointer-events:none}
-.lab{position:absolute;transform:translate(-50%,-50%);white-space:nowrap;font-size:12.5px;pointer-events:auto;padding:2px 4px;transition:opacity .2s,color .2s}
-.lab.back{color:var(--soft);opacity:.7}
-.lab.on{font-weight:600;color:var(--ink);opacity:1}
-.sw{display:inline-block;width:9px;height:9px;margin-right:6px;vertical-align:0;border:1px solid rgba(26,29,46,.25)}
-.lab small{font-family:var(--mono);font-size:10.5px;color:var(--soft);margin-left:3px}
-
-.gemcell{position:relative;min-height:0;padding-bottom:58px}
-#gl{height:calc(100% - 58px)!important}
-#gl{position:absolute;inset:0;width:100%;height:100%;display:block;cursor:grab;touch-action:pan-y}
-#gl:active{cursor:grabbing}
-
-/* the spill */
-.spill{position:relative;z-index:2;display:grid;align-content:start;gap:14px;padding-block:24px;min-width:0}
-.spill{overflow-y:auto;overscroll-behavior:contain;padding-right:6px}
-.spill h2{margin:0;font-size:15px;font-weight:600}
-.spill h2 small{font-family:var(--mono);font-weight:400;color:var(--soft);font-size:11px;margin-left:4px}
-.spill .tier{font-family:var(--mono);font-size:11px;color:var(--soft)}
-.blobs{--d:clamp(118px,7.9vw,148px);display:grid;grid-template-columns:repeat(auto-fill,var(--d));gap:12px;justify-content:start;padding:4px}
-.blob{width:var(--d);height:var(--d);border-radius:50%!important;background:var(--blob);color:var(--blob-ink);padding:calc(var(--d) * .15);font-size:clamp(10.5px,.8vw,12px);line-height:1.3;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-align:center!important;overflow:hidden;animation:pop .35s cubic-bezier(.2,.9,.3,1.25) both}
-.blob b{font-family:var(--mono);font-weight:500;font-size:11px}
-.blob span{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-.blob i{font-style:normal;font-family:var(--mono);font-size:10px;letter-spacing:.04em;opacity:.65}
-.blob.open{background:#2C3566}
-@keyframes pop{from{transform:scale(.6);opacity:0}to{transform:none;opacity:1}}
-.back{font-family:var(--mono);font-size:11px;color:var(--soft);justify-self:start}
-.back:hover{color:var(--ink)}
-.facts{display:flex;flex-wrap:wrap;gap:6px 14px;font-family:var(--mono);font-size:11.5px;color:var(--ink)}
-.seglink{font:inherit;color:var(--ink);text-decoration:underline;text-underline-offset:2px}
-.openlink{justify-self:start;background:var(--blob);color:var(--blob-ink);text-decoration:none;font-size:13px;padding:8px 16px;border-radius:999px}
-button.blob{font:inherit;text-align:left;cursor:pointer;border:0}
-button.blob:hover{outline:2px solid #0B5CF6;outline-offset:2px}
-.idle{color:var(--soft);font-size:13px;max-width:34ch}
-.idle b{color:var(--ink);font-weight:600}
-
-/* the channels */
-.chan{position:relative;z-index:2;display:grid;align-content:start;gap:2px;padding-block:8px 24px;min-width:0;overflow-y:auto;overscroll-behavior:contain;padding-right:12px}
-.chan h3{margin:0 0 6px;font-family:var(--mono);font-weight:400;font-size:11px;color:var(--soft);display:flex;justify-content:space-between}
-.ch{text-decoration:none;color:inherit;display:grid;grid-template-columns:1fr;gap:2px 10px;padding:8px 0;border-top:1px solid color-mix(in oklab,var(--hair) 55%,transparent);transition:opacity .2s}
-.ch b{font-weight:600;font-size:13.5px;min-width:0}
-.ch b small{font-family:var(--mono);font-weight:400;font-size:10.5px;color:var(--soft);margin-left:4px}
-.ch .w.hot{color:#0B5CF6;font-weight:500}
-a.blob{text-decoration:none}
-a.blob:hover{outline:2px solid #0B5CF6;outline-offset:2px}
-.ch .w{font-family:var(--mono);font-size:10.5px;color:var(--ink)}
-.ch p{grid-column:1/-1;margin:0;font-size:12.5px;color:var(--soft);max-height:0;overflow:hidden;transition:max-height .25s}
-.stage.active .ch{opacity:.35}
-.ch{box-shadow:inset 3px 0 0 var(--pc);padding-left:12px!important}
-.carries{display:flex;gap:4px;margin:2px 0 2px}
-.carries .sw{width:11px;height:11px;margin:0;padding:0;cursor:pointer}
-.carries .sw:hover{outline:1.5px solid var(--ink);outline-offset:1px}
-.stage.active .ch.hit{opacity:1}
-.ch p{max-height:none}
-.ch ul{list-style:none;margin:4px 0 0;padding:0;display:grid;gap:1px}
-.ch li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:0 8px;font-size:12.5px;align-items:baseline}
-.ch li a{color:var(--ink);text-decoration:none;border-bottom:1px solid transparent;justify-self:start}
-.ch li a:hover{border-color:var(--ink)}
-.ch li span{font-family:var(--mono);font-size:10px;color:var(--soft);text-align:right}
-.ch li em{grid-column:1/-1;font-style:normal;font-family:var(--mono);font-size:10px;color:var(--soft);margin-top:-2px}
-.ch li em.hot{color:#0B5CF6}
-
-.chips{display:none}
-.core-lab{position:absolute;transform:translate(-50%,-150%);font-family:var(--mono);font-size:10.5px;color:var(--ink);background:var(--field);padding:1px 5px;pointer-events:none;white-space:nowrap}
-.tip{position:absolute;z-index:4;max-width:240px;background:var(--blob);color:var(--blob-ink);font-size:12px;line-height:1.35;padding:8px 10px;pointer-events:none;transform:translate(12px,12px)}
-.tip i{display:block;font-style:normal;font-family:var(--mono);font-size:10px;opacity:.7;margin-top:4px}
-.legend{position:absolute;left:0;right:0;bottom:0;display:grid;gap:6px;justify-items:center;font-family:var(--mono);font-size:10.5px;color:var(--soft);pointer-events:none}
-.legend .key{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;align-items:center}
-.legend .key b{color:var(--ink);font-weight:500}
-.legend .ln{display:inline-block;width:22px;height:0;border-top:1.5px solid var(--ink);vertical-align:middle;margin-right:6px}
-.legend .ln.d{border-top:1.5px dashed var(--hair)}
-.legend .av{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;pointer-events:auto}
-.legend .av button{border:1px solid color-mix(in oklab,var(--hair) 60%,transparent);border-radius:999px;padding:2px 9px;font:inherit;color:var(--ink)}
-.legend .av button[aria-pressed="true"]{background:var(--ink);color:var(--field)}
-.foot{padding:18px 20px 26px;font-family:var(--mono);font-size:11px;color:var(--soft);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
-
-@media (min-width:981px) and (max-width:1500px){
-  .blob i{display:none}
-  .stage{grid-template-columns:minmax(240px,.7fr) minmax(0,1fr) minmax(280px,320px)}
-}
-@media (max-width:980px){
-  .stage,.stage.nogl{grid-template-columns:minmax(0,1fr);min-height:0;height:auto}
-  .chan{overflow:visible}
-  .gemcell{min-height:420px;order:1}
-  .chips{display:flex;flex-wrap:wrap;gap:6px;order:2}
-  .chips button{border:1px solid var(--hair);border-radius:999px;padding:3px 10px;font-size:12.5px}
-  .chips button[aria-pressed="true"]{background:var(--ink);color:var(--field);border-color:var(--ink)}
-  .spill{order:3;padding-block:8px}
-  .chan{order:4}
-  .labels,#lines,.core-lab{display:none}
-}
-.stage.nogl{grid-template-columns:minmax(0,1fr);min-height:0;height:auto}
-.stage.nogl .chan{overflow:visible}
-.stage.nogl .gemcell{min-height:0}
-.stage.nogl .chips{display:flex;flex-wrap:wrap;gap:6px}
-.stage.nogl .chips button{border:1px solid var(--hair);border-radius:999px;padding:3px 10px;font-size:12.5px}
-.stage.nogl .chips button[aria-pressed="true"]{background:var(--ink);color:var(--field);border-color:var(--ink)}
-.stage.nogl .labels,.stage.nogl #lines{display:none}
-@media (prefers-reduced-motion:reduce){.blob{animation:none}}
-/* readability pass: larger type, stronger contrast, collapsible segments */
-:root{--soft:#4C5370;--hair:#8C93AC}
-body{font-size:15px}
-.bar{font-size:12.5px;padding:16px 24px}
-.stage{grid-template-columns:minmax(0,1fr) minmax(380px,1fr) minmax(360px,430px);gap:20px;padding:0 24px}
-.lab{font-size:14px}
-.lab small{font-size:12px}
-.lab.back{opacity:.85}
-.sw{width:11px;height:11px}
-.spill h2{font-size:19px}
-.spill h2 small{font-size:13px}
-.spill .tier{font-size:13px;line-height:1.5;color:var(--soft);max-width:62ch}
-.idle{font-size:15px;line-height:1.55;max-width:36ch}
-.facts{font-size:13px}
-.back{font-size:13px}
-.blob{font-size:clamp(12px,.85vw,13.5px)!important}
-.blob b{font-size:12.5px}
-.blob i{font-size:11px;opacity:.75}
-.chan h3{font-size:12.5px;margin-bottom:8px}
-.ch{padding:12px 0 12px 14px!important;gap:4px}
-.ch > b{font-size:16px;cursor:pointer;display:flex;align-items:baseline;gap:8px}
-.ch > b small{font-size:12.5px}
-.ch > b::after{content:"+";margin-left:auto;font-family:var(--mono);font-weight:400;color:var(--soft)}
-.ch.open > b::after{content:"–"}
-.ch p{font-size:14px;line-height:1.5;color:var(--soft)}
-.ch ul{gap:6px;margin-top:8px}
-.ch.closed ul{display:none}
-.ch li{font-size:14.5px;row-gap:1px}
-.ch li span{font-size:12px}
-.ch li em{font-size:12.5px;margin-top:0}
-.stage.active .ch{opacity:.55}
-.carries .sw{width:13px;height:13px}
-.legend{font-size:12.5px;gap:8px}
-.legend .av button{padding:4px 11px}
-.core-lab{font-size:12px}
-.tip{font-size:13.5px;max-width:280px}
-.tip i{font-size:11.5px}
-.foot{font-size:12.5px}
-@media (min-width:981px) and (max-width:1500px){
-  .stage{grid-template-columns:minmax(240px,.7fr) minmax(0,1fr) minmax(300px,360px);gap:14px}
-  .lab{font-size:13px}
+button:focus-visible,a:focus-visible{outline:2px solid var(--cobalt);outline-offset:2px}
+.wrap{max-width:1400px;margin:0 auto;padding:0 32px}
+.top{display:flex;justify-content:space-between;align-items:center;padding:22px 0;font-size:14px}
+.top b{font-weight:600}
+.top nav{display:flex;gap:24px;color:var(--soft)}
+.top nav a{text-decoration:none}
+.top nav a:hover{color:var(--ink)}
+header.intro{padding:56px 0 28px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end}
+h1{font-size:34px;font-weight:600;letter-spacing:-.6px;margin:0 0 8px}
+.intro p{margin:0;font-size:17px;color:var(--soft);max-width:62ch}
+.gap{text-align:right}
+.gap b{display:block;font-family:var(--serif);font-weight:400;font-size:96px;line-height:.85;letter-spacing:-2px}
+.gap b span{color:var(--cobalt)}
+.gap small{font-size:14px;color:var(--soft)}
+.tabs{display:flex;gap:28px;border-bottom:1px solid var(--rule);margin-top:8px}
+.tabs button{padding:12px 0;font-size:15px;color:var(--soft);border-bottom:2px solid transparent;margin-bottom:-1px}
+.tabs button[aria-selected="true"]{color:var(--ink);border-color:var(--ink);font-weight:500}
+.bar{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding:18px 0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.chips > span{color:var(--soft);margin-right:4px}
+.chip{border:1px solid var(--rule);border-radius:999px;padding:6px 14px;font-size:14px;display:inline-flex;align-items:center;gap:8px}
+.chip i{width:9px;height:9px;border-radius:2px;display:inline-block}
+.chip[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.chip small{color:inherit;opacity:.6;font-size:12.5px}
+.sort{display:flex;gap:8px;align-items:center;color:var(--soft);font-size:14px}
+.sort button[aria-pressed="true"]{color:var(--ink);text-decoration:underline;text-underline-offset:4px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:30px 20px;padding-bottom:64px;align-items:start}
+.card{display:block;text-decoration:none;min-width:0}
+.media{border-radius:12px;overflow:hidden;background:var(--tile);border:1px solid var(--rule);position:relative;aspect-ratio:16/9}
+.media img{display:block;width:100%;height:100%;object-fit:cover}
+.media img.box{object-fit:contain;background:#0A0D18}
+.media .txt{padding:22px 20px 24px;height:100%;display:flex;flex-direction:column;justify-content:flex-end;gap:6px}
+.media .txt b{font-family:var(--serif);font-weight:400;font-size:28px;line-height:1.05;letter-spacing:-.3px}
+.media .views{position:absolute;left:10px;bottom:10px;background:rgba(10,13,24,.82);color:#fff;font-family:var(--mono);font-size:12.5px;padding:3px 8px;border-radius:6px}
+.card:hover .media{border-color:var(--ink)}
+.meta{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:10px 2px 0}
+.meta .t{font-size:15px;font-weight:500;line-height:1.3}
+.meta .w{font-size:13.5px;color:var(--soft);margin-top:2px}
+.tag{flex:none;font-size:12.5px;border:1px solid var(--rule);border-radius:999px;padding:2px 9px;white-space:nowrap;color:var(--soft)}
+.tag.on{border-color:var(--ink);color:var(--ink)}
+.tag.off{border-color:var(--cobalt);color:var(--cobalt)}
+.tag.cat{border-style:dashed}
+.acct .media{aspect-ratio:auto;padding:18px 18px 16px;border-left:4px solid var(--c)}
+.acct .media b{font-size:18px;font-weight:600;display:block}
+.acct .media .pl{font-size:13.5px;color:var(--soft)}
+.acct .media .st{font-family:var(--mono);font-size:13px;margin-top:10px}
+.acct .media .st.hot{color:var(--cobalt)}
+.seghead{grid-column:1/-1;padding:18px 0 0}
+.seghead h2{font-size:20px;font-weight:600;margin:0 0 4px;display:flex;gap:10px;align-items:center}
+.seghead h2 i{width:12px;height:12px;border-radius:3px;display:inline-block}
+.seghead p{margin:0;color:var(--soft);max-width:80ch}
+.empty{color:var(--soft);padding:40px 0}
+footer{border-top:1px solid var(--rule);padding:22px 0 40px;font-size:13.5px;color:var(--soft);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+@media (max-width:760px){
+  .wrap{padding:0 16px}
+  header.intro{grid-template-columns:1fr;padding-top:32px}
+  .gap{text-align:left}
+  .gap b{font-size:72px}
+  .grid{grid-template-columns:1fr}
 }
 </style>
-</head><body>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><span><b>HOTG</b> · Baron Davis</span><nav><a href="/baron85/">R+D deck</a><a href="gem/">The gem</a><a href="https://x.com/HistoryOTG" target="_blank" rel="noopener">HOTG on X</a><a href="https://ballast.la/">Ballast</a></nav></div>
 
-<div class="bar"><span><a href="https://x.com/HistoryOTG" target="_blank" rel="noopener"><b>HOTG</b></a> · archive gem 01 · <b>Baron Davis</b></span><span class="links"><a href="/baron85/">R+D deck</a><a href="https://ballast.la/">Ballast</a></span><span>click a face or a dot · esc clears · drag to turn</span></div>
+  <header class="intro">
+    <div>
+      <h1>Baron Davis, the archive</h1>
+      <p>Every piece of his media we have found, where it sits today, and whether it points back to him. Then the accounts that could carry it.</p>
+    </div>
+    <div class="gap"><b id="gapnum"></b><small id="gapline"></small></div>
+  </header>
 
-<div class="stage" id="stage">
-  <svg id="lines" aria-hidden="true"></svg>
-  <section class="spill" id="spill" aria-live="polite"></section>
-  <div class="gemcell" id="gemcell"><canvas id="gl" aria-label="Baron Davis archive crystal. Each face is a type of content in his archive."></canvas>
-    <div class="core-lab" id="corelab">Baron · HOTG</div>
-    <div class="tip" id="tip" hidden></div>
-    <div class="legend" id="legend"></div></div>
-  <div class="chips" id="chips" role="group" aria-label="Archive faces"></div>
-  <section class="chan" id="chan" aria-label="Distribution channels"></section>
-  <div class="labels" id="labels"></div>
+  <div class="tabs" role="tablist">
+    <button role="tab" aria-selected="true" data-tab="pieces" id="tab-pieces">His pieces</button>
+    <button role="tab" aria-selected="false" data-tab="carriers" id="tab-carriers">Who carries them</button>
+  </div>
+
+  <div class="bar">
+    <div class="chips" id="chips"></div>
+    <div class="sort" id="sort"></div>
+  </div>
+
+  <main class="grid" id="grid"></main>
+
+  <footer><span>Views and follower counts read 2 to 6 Oct 2026. Hit = best video in the last 90 days ÷ followers.</span><span>A piece "links back" when it sits on his own accounts or is co-posted to them.</span></footer>
 </div>
 
-<div class="foot"><span>Accounts read 2 Oct 2026; YouTube views and X followers read 5 Oct 2026. Hit = best video in the last 90 days ÷ followers.</span><span>Pieces marked “to catalog” are not in the archive yet. <a href="https://ballast.la/" style="color:inherit">Ballast</a></span></div>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
-// the archive: one face per type of content. Every piece links to where it lives now.
 const FACES = [
   {id:"footage", label:"game footage", color:"#2F5BEA", tier:"Tier 2 · licensed archival. His top clips are 9–20 years old and sit on other people's channels.",
    items:[["Over the top of Kirilenko · NBA · 2.16M","https://www.youtube.com/watch?v=tYpwjB0IzoU"],
@@ -286,302 +206,66 @@ const SEGMENTS = [
    accts:[["HOTG","X","@HistoryOTG","https://x.com/HistoryOTG"]]},
 ];
 
-// avenues: how each area turns into value for him
-const AVENUES = [
-  {id:"owned", label:"owned", faces:["personal"]},
-  {id:"licensing", label:"licensing", faces:["footage","games"]},
-  {id:"appearances", label:"appearances", faces:["interviews"]},
-  {id:"partnerships", label:"partnerships", faces:["big","ventures"]},
-  {id:"creators", label:"creator distribution", faces:["mixes"]},
-  {id:"fans", label:"fan work", faces:["provenance"]},
-  {id:"products", label:"products", faces:["memorabilia"]},
-];
-// a piece connects back when it sits on his own accounts, or is co-posted to them (Gil's Arena, per the research)
 const CONNECTED = /instagram\.com\/iambarondavis|x\.com\/BaronDavis|teambig\.io|bigsummits_|gilsarena0/i;
 const viewsOf = t => { const m = String(t).match(/([\d.]+)\s*([MK])\b/); return m ? parseFloat(m[1]) * (m[2] === "M" ? 1e6 : 1e3) : 0; };
+const ytId = u => (String(u).match(/youtube\.com\/watch\?v=([\w-]{11})/) || [])[1];
+const BOX = {"https://en.wikipedia.org/wiki/NBA_Street_V3":"t/nba-street-v3-cover.png"};
+const esc = t => String(t).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const fmt = n => n >= 1e6 ? (n / 1e6).toFixed(n >= 1e7 ? 0 : 2).replace(/\.?0+$/, "") + "M" : n >= 1e3 ? Math.round(n / 1e3) + "K" : "";
+
 const PIECES = [];
-FACES.forEach((f, fi) => f.items.forEach(([t, u]) => PIECES.push({fi, t, u, v:viewsOf(t), on:!!u && CONNECTED.test(u), cat:!u})));
-let avenue = null;
+FACES.forEach(f => f.items.forEach(([t, u]) => {
+  const parts = t.split(" · ");
+  PIECES.push({f, t, title:parts[0], where:parts.slice(1).filter(x => !/^[\d.]+[MK]\b/.test(x)).join(" · "), u, v:viewsOf(t), on:!!u && CONNECTED.test(u), cat:!u});
+}));
+const linked = PIECES.filter(p => !p.cat), nOn = linked.filter(p => p.on).length;
+document.getElementById("gapnum").innerHTML = `<span>${nOn}</span> of ${linked.length}`;
+document.getElementById("gapline").textContent = "of his pieces point back to him";
 
 const $ = id => document.getElementById(id);
-const stage = $("stage"), spill = $("spill"), chan = $("chan"), labels = $("labels"), lines = $("lines");
-const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-let hover = null, pinned = null, lastScroll = null, faceFromList = false, hoverDot = null;
-const active = () => pinned;
-let selPiece = null;   // a single piece opened by click
+let tab = "pieces", filter = "all", sort = "views";
 
-// channels
+function pieceCard(p){
+  const id = ytId(p.u), img = id ? `https://i.ytimg.com/vi/${id}/hqdefault.jpg` : BOX[p.u];
+  const media = img
+    ? `<img ${BOX[p.u] ? 'class="box"' : ""} src="${img}" alt="" loading="lazy">${p.v ? `<span class="views">${fmt(p.v)} views</span>` : ""}`
+    : `<div class="txt" style="background:linear-gradient(180deg,#fff, ${p.f.color}22)"><b>${esc(p.title)}</b>${p.v ? `<span class="w">${fmt(p.v)} ${p.f.id === "personal" ? "followers" : "views"}</span>` : ""}</div>`;
+  const tag = p.cat ? `<span class="tag cat">to catalog</span>` : p.on ? `<span class="tag on">links back</span>` : `<span class="tag off">no link back</span>`;
+  const inner = `<div class="media">${media}</div><div class="meta"><div><div class="t">${esc(img ? p.title : p.f.label)}</div>${img && p.where ? `<div class="w">${esc(p.where)}</div>` : !img && p.where ? `<div class="w">${esc(p.where)}</div>` : ""}</div>${tag}</div>`;
+  return p.u ? `<a class="card" href="${p.u}" target="_blank" rel="noopener">${inner}</a>` : `<div class="card">${inner}</div>`;
+}
+
 const PRIMARY = {"His own accounts":"personal","The panel circuit":"interviews","Licensed editors":"footage","Old-school archive channels":"footage","TikTok cutters":"mixes","Small TikTok editors, big reach":"mixes","YouTube legend editors":"footage","His teams' fans":"provenance","Where his biggest clips sit":"footage","Game creators":"games"};
-const faceColor = id => (FACES.find(f => f.id === id) || {}).color || "#1A1D2E";
-chan.innerHTML = `<h3><span>who carries it</span><span>${SEGMENTS.reduce((n, g) => n + g.accts.length, 0)} accounts</span></h3>` + SEGMENTS.map((g, i) =>
-  `<div class="ch closed" data-i="${i}" style="--pc:${faceColor(PRIMARY[g.name])}"><b>${g.name} <small>${g.accts.length}</small></b><div class="carries">${g.to.map(id => `<button type="button" class="sw" data-f="${id}" title="${(FACES.find(f => f.id === id) || {}).label}" style="background:${faceColor(id)}"></button>`).join("")}</div><p>${g.inc}</p><ul>${g.accts.map(([n, pl, st, u, hot]) =>
-    `<li><a href="${u}" target="_blank" rel="noopener">${n}</a><span>${pl}</span><em${hot ? ' class="hot"' : ""}>${st}</em></li>`).join("")}</ul></div>`).join("");
+const colorOf = id => (FACES.find(f => f.id === id) || {}).color || "#0A0D18";
+function acctCard([n, pl, st, u, hot], g){
+  return `<a class="card acct" href="${u}" target="_blank" rel="noopener"><div class="media" style="--c:${colorOf(PRIMARY[g.name])}"><b>${esc(n)}</b><span class="pl">${esc(pl)}</span>${st ? `<div class="st${hot ? " hot" : ""}">${esc(st)}</div>` : ""}</div></a>`;
+}
 
-// face chips (narrow screens)
-$("chips").innerHTML = FACES.map(f => `<button type="button" data-f="${f.id}" aria-pressed="false"><i class="sw" style="background:${f.color}"></i>${f.label}</button>`).join("");
-$("chips").addEventListener("click", e => { const b = e.target.closest("[data-f]"); if (b){ pinned = pinned === b.dataset.f && !selPiece ? null : b.dataset.f; selPiece = null; faceFromList = true; update(); } });
-
-// labels
-labels.innerHTML = FACES.map(f => `<button type="button" class="lab" data-f="${f.id}"><i class="sw" style="background:${f.color}"></i>${f.label}<small>[${f.items.length}]</small></button>`).join("");
-labels.querySelectorAll(".lab").forEach(b => {
-  b.addEventListener("click", () => { pinned = pinned === b.dataset.f && !selPiece ? null : b.dataset.f; selPiece = null; faceFromList = true; update(); });
+function render(){
+  const chips = $("chips"), grid = $("grid"), sortEl = $("sort");
+  if (tab === "pieces"){
+    const counts = {}; PIECES.forEach(p => counts[p.f.id] = (counts[p.f.id] || 0) + 1);
+    chips.innerHTML = `<span>Filter</span><button class="chip" data-f="all" aria-pressed="${filter === "all"}">All <small>${PIECES.length}</small></button>` +
+      FACES.map(f => `<button class="chip" data-f="${f.id}" aria-pressed="${filter === f.id}"><i style="background:${f.color}"></i>${f.label} <small>${counts[f.id] || 0}</small></button>`).join("");
+    sortEl.innerHTML = `Sort <button data-s="views" aria-pressed="${sort === "views"}">Most viewed</button> · <button data-s="gap" aria-pressed="${sort === "gap"}">No link back first</button>`;
+    let list = PIECES.filter(p => filter === "all" || p.f.id === filter);
+    list = list.slice().sort(sort === "views" ? (a, b) => b.v - a.v || a.cat - b.cat : (a, b) => (a.on - b.on) || (a.cat - b.cat) || b.v - a.v);
+    grid.innerHTML = list.map(pieceCard).join("") || `<p class="empty">Nothing here yet.</p>`;
+  } else {
+    const segs = SEGMENTS.filter(g => g.name !== "History of the Game");
+    chips.innerHTML = `<span>Filter</span><button class="chip" data-g="all" aria-pressed="${filter === "all"}">All <small>${segs.reduce((n, g) => n + g.accts.length, 0)}</small></button>` +
+      segs.map((g, i) => `<button class="chip" data-g="${i}" aria-pressed="${filter === String(i)}"><i style="background:${colorOf(PRIMARY[g.name])}"></i>${g.name} <small>${g.accts.length}</small></button>`).join("");
+    sortEl.innerHTML = "";
+    grid.innerHTML = segs.map((g, i) => filter !== "all" && filter !== String(i) ? "" :
+      `<div class="seghead"><h2><i style="background:${colorOf(PRIMARY[g.name])}"></i>${esc(g.name)}</h2><p>${esc(g.inc)}</p></div>` + g.accts.map(a => acctCard(a, g)).join("")).join("");
+  }
+}
+document.addEventListener("click", e => {
+  const t = e.target.closest("[data-tab]"); if (t){ tab = t.dataset.tab; filter = "all"; document.querySelectorAll("[data-tab]").forEach(b => b.setAttribute("aria-selected", b === t)); render(); return; }
+  const c = e.target.closest("[data-f],[data-g]"); if (c){ filter = c.dataset.f || c.dataset.g; render(); return; }
+  const s = e.target.closest("[data-s]"); if (s){ sort = s.dataset.s; render(); }
 });
-
-const shapes = ["58% 42% 52% 48% / 46% 56% 44% 54%","44% 56% 40% 60% / 58% 42% 58% 42%","52% 48% 62% 38% / 40% 60% 40% 60%","62% 38% 46% 54% / 52% 44% 56% 48%","40% 60% 54% 46% / 60% 40% 52% 48%"];
-let lastSpill = undefined;
-const esc = t => String(t).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-function selectPiece(p){ selPiece = p; pinned = FACES[p.fi].id; faceFromList = true; update(); }
-function renderSpill(){
-  const id = active(), key = id + "|" + (selPiece ? PIECES.indexOf(selPiece) : "");
-  if (key === lastSpill) return; lastSpill = key;
-  const f = FACES.find(x => x.id === id);
-  if (!f){
-    spill.innerHTML = `<p class="idle"><b>His archive, sorted into faces.</b> Each dot is a piece; its line shows whether it connects back to him. Click a face or a dot to explore. Click empty space to clear.</p>`;
-    return;
-  }
-  if (selPiece){
-    const p = selPiece, av = AVENUES.find(v => v.faces.includes(f.id));
-    const carriers = SEGMENTS.filter(g => g.to.includes(f.id) && g.name !== "History of the Game");
-    spill.innerHTML = `<button type="button" class="back" data-back>← ${esc(f.label)}</button>
-      <h2><i class="sw" style="background:${f.color}"></i>${esc(p.t)}</h2>
-      <div class="facts"><span>${p.cat ? "Not in the archive yet" : p.on ? "Connects back to him" : "No link back to him yet"}</span>${p.v ? `<span>${p.v >= 1e6 ? (p.v / 1e6).toFixed(2) + "M" : Math.round(p.v / 1e3) + "K"} views</span>` : ""}<span>${esc(f.label)}${av ? " · " + esc(av.label) : ""}</span></div>
-      <div class="tier">${esc(f.tier)}</div>
-      ${carriers.length ? `<div class="tier">Who could carry it: ${carriers.map(g => `<button type="button" class="seglink" data-seg="${SEGMENTS.indexOf(g)}">${esc(g.name)}</button>`).join(", ")}</div>` : ""}
-      ${p.u ? `<a class="openlink" href="${p.u}" target="_blank" rel="noopener">Open ↗</a>` : ""}`;
-    return;
-  }
-  spill.innerHTML = `<h2><i class="sw" style="background:${f.color}"></i>${f.label}<small>[${f.items.length}]</small></h2><div class="tier">${f.tier}</div><div class="blobs">` +
-    PIECES.filter(p => p.fi === FACES.indexOf(f)).map((p, i) =>
-      `<button type="button" class="blob${p.cat ? " open" : ""}" data-k="${PIECES.indexOf(p)}" style="box-shadow:0 0 0 3px ${f.color};animation-delay:${i * 45}ms" title="${esc(p.t)}"><span>${esc(p.t.split(" · ")[0])}</span>${/^[\d.]+[MK]\b/.test(p.t.split(" · ").slice(-1)[0]) ? `<b>${esc(p.t.split(" · ").slice(-1)[0])}</b>` : ""}<i>${p.cat ? "to catalog" : p.on ? "links back" : "no link back"}</i></button>`).join("") + `</div>`;
-}
-spill.addEventListener("click", e => {
-  const k = e.target.closest("[data-k]"); if (k){ selectPiece(PIECES[+k.dataset.k]); return; }
-  if (e.target.closest("[data-back]")){ selPiece = null; update(); return; }
-  const g = e.target.closest("[data-seg]");
-  if (g){ const el = chan.querySelector(`.ch[data-i="${g.dataset.seg}"]`); if (el) chan.scrollTo({top:el.offsetTop - chan.offsetTop - 8, behavior:"smooth"}); }
-});
-chan.addEventListener("click", e => { const h = e.target.closest(".ch > b"); if (h){ const el = h.parentElement; el.classList.toggle("closed"); el.classList.toggle("open"); return; } });
-chan.addEventListener("click", e => { const b = e.target.closest(".carries [data-f]"); if (b){ pinned = b.dataset.f; selPiece = null; faceFromList = true; update(); } });
-document.addEventListener("keydown", e => { if (e.key === "Escape"){ pinned = null; selPiece = null; update(); } });
-
-function update(){
-  const id = active();
-  stage.classList.toggle("active", !!id);
-  const fc = (FACES.find(f => f.id === id) || {}).color || "transparent";
-  let first = null;
-  chan.querySelectorAll(".ch").forEach(el => {
-    const c = SEGMENTS[+el.dataset.i];
-    el.style.setProperty("--fc", fc);
-    if (id && c.to.includes(id) && !first) first = el;
-    el.classList.toggle("hit", !!id && c.to.includes(id));
-    if (id !== lastScroll){ const o = !!id && c.to.includes(id) && c.name !== "History of the Game"; el.classList.toggle("open", o); el.classList.toggle("closed", !o); }
-    el.classList.toggle("x", !!id);
-  });
-  if (first && id !== lastScroll){ chan.scrollTo({top:first.offsetTop - chan.offsetTop - 8, behavior:reduce ? "auto" : "smooth"}); }
-  lastScroll = id;
-  $("chips").querySelectorAll("[data-f]").forEach(b => b.setAttribute("aria-pressed", b.dataset.f === id));
-  renderSpill();
-  recolor();
-}
-
-// ---------- the crystal ----------
-const canvas = $("gl"), cell = $("gemcell");
-let recolor = () => {};
-let renderer = null;
-try { if (window.THREE) renderer = new THREE.WebGLRenderer({canvas, antialias:true, alpha:true}); } catch(e){}
-if (renderer){
-  renderer.setPixelRatio(Math.min(devicePixelRatio || 1, 2));
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(30, 1, .1, 100);
-  camera.position.set(0, .2, 11);
-  const gem = new THREE.Group(); scene.add(gem);
-
-  // an octagonal crystal with a waist, slightly irregular so it reads as stone
-  const N = FACES.length, rnd = (s => () => (s = (s * 16807) % 2147483647) / 2147483647)(11);
-  const ring = (y, r) => Array.from({length:N}, (_, i) => { const a = i / N * Math.PI * 2 + .2; const rr = r * (.9 + rnd() * .2); return new THREE.Vector3(Math.cos(a) * rr, y + (rnd() - .5) * .12, Math.sin(a) * rr); });
-  const top = new THREE.Vector3(.08, 2.55, -.05), bot = new THREE.Vector3(-.05, -2.05, .04);
-  const r1 = ring(1.25, .95), r2 = ring(0, 1.12), r3 = ring(-1.05, .92);
-  const meshes = [];  // {mesh, face, base}
-  const edges = [];
-  function addFace(pts, faceIdx, tone){
-    const pos = [];
-    for (let k = 1; k < pts.length - 1; k++) pos.push(...pts[0].toArray(), ...pts[k].toArray(), ...pts[k + 1].toArray());
-    const g = new THREE.BufferGeometry(); g.setAttribute("position", new THREE.Float32BufferAttribute(pos, 3));
-    const base = new THREE.Color(FACES[faceIdx].color).lerp(new THREE.Color(tone[0]), tone[1]);
-    const m = new THREE.Mesh(g, new THREE.MeshBasicMaterial({color:base.clone(), side:THREE.BackSide, transparent:true, opacity:.82, depthWrite:false}));
-    gem.add(m); meshes.push({mesh:m, face:faceIdx, base});
-    for (let k = 0; k < pts.length; k++) edges.push(...pts[k].toArray(), ...pts[(k + 1) % pts.length].toArray());
-  }
-  const anchors = [];
-  for (let i = 0; i < N; i++){
-    const j = (i + 1) % N, f = i % FACES.length;
-    addFace([top, r1[i], r1[j]], f, ["#ffffff", 0]);
-    addFace([r1[i], r2[i], r2[j], r1[j]], f, ["#ffffff", 0]);
-    addFace([r2[i], r3[i], r3[j], r2[j]], f, ["#ffffff", 0]);
-    addFace([r3[i], bot, r3[j]], f, ["#ffffff", 0]);
-    anchors.push({face:f, p:r1[i].clone().add(r2[i]).add(r2[j]).add(r1[j]).multiplyScalar(.25)});
-  }
-  const eg = new THREE.BufferGeometry(); eg.setAttribute("position", new THREE.Float32BufferAttribute(edges, 3));
-  gem.add(new THREE.LineSegments(eg, new THREE.LineBasicMaterial({color:0x8b93b5, transparent:true, opacity:.75})));
-
-  // the pieces: one dot per real item, sized by views, each with a line back to the core (him + HOTG)
-  const CORE = new THREE.Vector3(0, .25, 0);
-  const tex = hollow => { const c = document.createElement("canvas"); c.width = c.height = 64; const x = c.getContext("2d"); x.beginPath(); x.arc(32, 32, 26, 0, 7);
-    if (hollow){ x.lineWidth = 7; x.strokeStyle = "#fff"; x.stroke(); } else { x.fillStyle = "#fff"; x.fill(); } return new THREE.CanvasTexture(c); };
-  const solidTex = tex(false), ringTex = tex(true);
-  const core = new THREE.Sprite(new THREE.SpriteMaterial({map:solidTex, color:0x1A1D2E, depthTest:false})); core.scale.setScalar(.16); core.position.copy(CORE); core.renderOrder = 4; gem.add(core);
-  const ink = new THREE.Color("#1A1D2E");
-  const sprites = [];
-  PIECES.forEach(p => {
-    const a = (p.fi + .5) / N * Math.PI * 2 + .2 + (rnd() - .5) * .5, r = .35 + rnd() * .45;
-    p.pos = new THREE.Vector3(Math.cos(a) * r, -1.05 + rnd() * 2.6, Math.sin(a) * r);
-    p.col = new THREE.Color(FACES[p.fi].color).lerp(ink, .35);
-    const sp = new THREE.Sprite(new THREE.SpriteMaterial({map:p.cat ? ringTex : solidTex, color:p.col.clone(), depthTest:false, transparent:true}));
-    const sz = p.cat ? .07 : .06 + .05 * Math.log10(1 + p.v) / 6.5;
-    sp.scale.setScalar(sz); sp.position.copy(p.pos); sp.renderOrder = 3; sp.userData.p = p; gem.add(sp); sprites.push(sp); p.sp = sp; p.sz = sz;
-    if (!p.cat){
-      const g = new THREE.BufferGeometry().setFromPoints([p.pos, CORE]);
-      const m = p.on ? new THREE.LineBasicMaterial({color:0x1A1D2E, transparent:true, opacity:.85, depthTest:false})
-                     : new THREE.LineDashedMaterial({color:0x3A4060, dashSize:.05, gapSize:.04, transparent:true, opacity:.55, depthTest:false});
-      const l = new THREE.Line(g, m); if (!p.on) l.computeLineDistances(); l.renderOrder = 2; gem.add(l); p.line = l;
-    }
-  });
-
-  // legend: what the dots and lines mean, and the avenues
-  const nOn = PIECES.filter(p => p.on).length, nLinked = PIECES.filter(p => !p.cat).length;
-  $("legend").innerHTML = `<div class="key"><span><b>●</b> a piece · size = views</span><span><span class="ln"></span>connects back to him</span><span><span class="ln d"></span>no link back yet</span><span><b>${nOn} of ${nLinked}</b> connect back</span></div>
-    <div class="av">${AVENUES.map(v => `<button type="button" data-av="${v.id}" aria-pressed="false">${v.label}</button>`).join("")}</div>`;
-  $("legend").querySelectorAll("[data-av]").forEach(b => {
-    b.addEventListener("click", () => { avenue = avenue === b.dataset.av ? null : b.dataset.av; recolor(); });
-  });
-
-  recolor = () => {
-    const id = active();
-    const set = avenue ? AVENUES.find(v => v.id === avenue).faces : id ? [id] : null;
-    const onFace = fi => !set || set.includes(FACES[fi].id);
-    meshes.forEach(({mesh, face, base}) => {
-      mesh.material.color.copy(base);
-      if (set && !onFace(face)) mesh.material.color.lerp(new THREE.Color("#E3E6EF"), .55);
-    });
-    PIECES.forEach(p => {
-      const lit = selPiece ? p === selPiece : onFace(p.fi);
-      p.sp.material.opacity = lit ? 1 : .15;
-      p.sp.scale.setScalar(set && lit ? p.sz * 1.35 : p.sz);
-      if (p.line) p.line.material.opacity = lit ? (p.on ? .95 : (set ? .9 : .55)) : .06;
-    });
-    $("legend").querySelectorAll("[data-av]").forEach(b => b.setAttribute("aria-pressed", b.dataset.av === avenue));
-  };
-
-  // size
-  let W = 0, H = 0;
-  function resize(){
-    W = canvas.clientWidth; H = canvas.clientHeight;
-    renderer.setSize(W, H, false); camera.aspect = W / Math.max(H, 1);
-    const want = H * .17, room = W / 2 - 34 - 150;   // half-width of crystal that leaves room for a label each side
-    camera.position.z = 11 * want / Math.max(60, Math.min(want, room));
-    camera.updateProjectionMatrix();
-  }
-  new ResizeObserver(resize).observe(cell); resize();
-
-  // turning, dragging, hovering
-  let rotY = .4, rotX = .12, vel = 0, drag = null;   // still by default; drag to turn
-  const ray = new THREE.Raycaster(), ndc = new THREE.Vector2();
-  canvas.addEventListener("pointerdown", e => { drag = {x:e.clientX, y:e.clientY, rx:rotX, ry:rotY, moved:false}; canvas.setPointerCapture(e.pointerId); });
-  canvas.addEventListener("pointermove", e => {
-    if (drag){
-      const dx = e.clientX - drag.x, dy = e.clientY - drag.y;
-      if (Math.abs(dx) + Math.abs(dy) > 3) drag.moved = true;
-      rotY = drag.ry + dx * .01; rotX = Math.max(-.6, Math.min(.6, drag.rx + dy * .006));
-      return;
-    }
-    pick(e);
-  });
-  function pick(e){
-    const r = canvas.getBoundingClientRect();
-    ndc.set((e.clientX - r.left) / r.width * 2 - 1, -((e.clientY - r.top) / r.height) * 2 + 1);
-    ray.setFromCamera(ndc, camera);
-    const dot = ray.intersectObjects(sprites)[0];
-    const tip = $("tip");
-    if (dot){
-      const p = dot.object.userData.p, cr = cell.getBoundingClientRect();
-      tip.hidden = false; tip.style.left = (e.clientX - cr.left) + "px"; tip.style.top = (e.clientY - cr.top) + "px";
-      tip.innerHTML = p.t.replace(/[<>&]/g, "") + `<i>${p.cat ? "not in the archive yet" : p.on ? "connects back to him" : "no link back yet"}</i>`;
-      hoverDot = p;
-    } else { tip.hidden = true; hoverDot = null; }
-    const hit = ray.intersectObjects(meshes.map(m => m.mesh))[0];
-    const f = hit ? FACES[meshes.find(m => m.mesh === hit.object).face].id : null;
-    hover = f; canvas.style.cursor = hoverDot || f ? "pointer" : "";
-  }
-  canvas.addEventListener("pointerup", e => {
-    const wasDrag = drag && drag.moved; drag = null;
-    if (wasDrag) return;
-    pick(e); $("tip").hidden = true;
-    if (hoverDot){ selectPiece(hoverDot); faceFromList = false; return; }
-    selPiece = null; pinned = hover && pinned !== hover ? hover : null; faceFromList = false; update();
-  });
-  canvas.addEventListener("pointerleave", () => { $("tip").hidden = true; hoverDot = null; hover = null; });
-
-  // leader lines and labels follow the faces
-  const labEls = Object.fromEntries([...labels.querySelectorAll(".lab")].map(b => [b.dataset.f, b]));
-  const v = new THREE.Vector3(), n = new THREE.Vector3(), camDir = new THREE.Vector3();
-  function overlay(){
-    if (getComputedStyle(labels).display === "none") return;
-    const sr = stage.getBoundingClientRect(), cr = canvas.getBoundingClientRect();
-    const ox = cr.left - sr.left, oy = cr.top - sr.top;
-    const cx = ox + cr.width / 2, cy = oy + cr.height / 2;
-    const half = cr.height * .17 * 11 / camera.position.z, id = active();
-    const ents = [], seen = new Set();
-    anchors.forEach(({face, p}) => {
-      const f = FACES[face]; if (seen.has(f.id)) return; seen.add(f.id);
-      v.copy(p).applyMatrix4(gem.matrixWorld);
-      n.set(p.x, 0, p.z).normalize().transformDirection(gem.matrixWorld);
-      camDir.copy(camera.position).sub(v).normalize();
-      const front = n.dot(camDir) > 0;
-      v.project(camera);
-      ents.push({f, front, px: ox + (v.x + 1) / 2 * cr.width, py: oy + (1 - v.y) / 2 * cr.height});
-    });
-    // split left and right of the crystal, then space each side evenly top to bottom
-    let svg = "";
-    for (const side of [-1, 1]){
-      const list = ents.filter(e => (e.px < cx ? -1 : 1) === side).sort((a, b) => a.py - b.py);
-      const top = cy - cr.height * .3, span = cr.height * .6;
-      list.forEach((e, k) => {
-        const ly = list.length === 1 ? cy : top + span * k / (list.length - 1);
-        const lx = cx + side * (half + 34);
-        const el = labEls[e.f.id];
-        el.style.left = lx + "px"; el.style.top = ly + "px";
-        el.style.transform = side < 0 ? "translate(-100%,-50%)" : "translate(0,-50%)";
-        el.classList.toggle("back", !e.front); el.classList.toggle("on", id === e.f.id);
-        svg += `<line class="${id === e.f.id ? "on" : ""}" x1="${e.px.toFixed(1)}" y1="${e.py.toFixed(1)}" x2="${(lx - side * 4).toFixed(1)}" y2="${ly.toFixed(1)}"/>`;
-      });
-    }
-    lines.innerHTML = svg;
-    v.copy(CORE).applyMatrix4(gem.matrixWorld).project(camera);
-    const cl = $("corelab"); const cb = cell.getBoundingClientRect();
-    cl.style.left = ((v.x + 1) / 2 * cb.width) + "px"; cl.style.top = ((1 - v.y) / 2 * cb.height) + "px";
-  }
-
-  (function loop(){
-    if (!drag && !active()) rotY += vel;
-    else if (!drag && faceFromList){
-      const fi = FACES.findIndex(f => f.id === active());
-      if (fi >= 0){
-        const a = (fi + .5) / N * Math.PI * 2 + .2, target = a - Math.PI / 2;
-        let d = target - rotY; d = Math.atan2(Math.sin(d), Math.cos(d));
-        rotY += reduce ? d : d * .12;
-      }
-    }
-    gem.rotation.set(rotX, rotY, 0);
-    gem.updateMatrixWorld();
-    renderer.render(scene, camera);
-    overlay();
-    requestAnimationFrame(loop);
-  })();
-} else {
-  stage.classList.add("nogl");
-  $("gemcell").innerHTML = `<p class="idle">The crystal needs WebGL to draw. Pick a face below.</p>`;
-}
-
-update();
+render();
 </script>
-</body></html>
+</body>
+</html>
