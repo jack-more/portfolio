@@ -343,7 +343,7 @@
   /* scroll motion: scroll-driven where supported; content is always visible without it */
   @media (prefers-reduced-motion:no-preference){
     @supports (animation-timeline:view()){
-      .scene__in{animation:heroOut linear both;animation-timeline:scroll(root);animation-range:0 90vh}
+      .scene__top,.plate{animation:heroOut linear both;animation-timeline:scroll(root);animation-range:0 90vh}
       .rd__hd h2,.case__hd h3,.block__hd h2,.sprint__hd h2,.proof__hd h2,.book__hd h2{animation:rise linear both;animation-timeline:view();animation-range:entry 0% cover 25%}
       .rd__lead,.case__hd .mono,.rd__hd>.mono,.block__hd .mono,.sprint__hd .mono,.proof__hd .mono,.book__hd .mono{animation:riseSm linear both;animation-timeline:view();animation-range:entry 0% cover 22%}
       .rdrow,.rec .row,.rec__group,.case__stats>div,.case__how .rdrow{animation:riseSm linear both;animation-timeline:view();animation-range:entry 0% cover 20%}
