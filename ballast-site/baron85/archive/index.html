@@ -124,6 +124,48 @@ a.blob:hover{outline:2px solid #0B5CF6;outline-offset:2px}
 .stage.nogl .chips button[aria-pressed="true"]{background:var(--ink);color:var(--field);border-color:var(--ink)}
 .stage.nogl .labels,.stage.nogl #lines{display:none}
 @media (prefers-reduced-motion:reduce){.blob{animation:none}}
+/* readability pass: larger type, stronger contrast, collapsible segments */
+:root{--soft:#4C5370;--hair:#8C93AC}
+body{font-size:15px}
+.bar{font-size:12.5px;padding:16px 24px}
+.stage{grid-template-columns:minmax(0,1fr) minmax(380px,1fr) minmax(360px,430px);gap:20px;padding:0 24px}
+.lab{font-size:14px}
+.lab small{font-size:12px}
+.lab.back{opacity:.85}
+.sw{width:11px;height:11px}
+.spill h2{font-size:19px}
+.spill h2 small{font-size:13px}
+.spill .tier{font-size:13px;line-height:1.5;color:var(--soft);max-width:62ch}
+.idle{font-size:15px;line-height:1.55;max-width:36ch}
+.facts{font-size:13px}
+.back{font-size:13px}
+.blob{font-size:clamp(12px,.85vw,13.5px)!important}
+.blob b{font-size:12.5px}
+.blob i{font-size:11px;opacity:.75}
+.chan h3{font-size:12.5px;margin-bottom:8px}
+.ch{padding:12px 0 12px 14px!important;gap:4px}
+.ch > b{font-size:16px;cursor:pointer;display:flex;align-items:baseline;gap:8px}
+.ch > b small{font-size:12.5px}
+.ch > b::after{content:"+";margin-left:auto;font-family:var(--mono);font-weight:400;color:var(--soft)}
+.ch.open > b::after{content:"–"}
+.ch p{font-size:14px;line-height:1.5;color:var(--soft)}
+.ch ul{gap:6px;margin-top:8px}
+.ch.closed ul{display:none}
+.ch li{font-size:14.5px;row-gap:1px}
+.ch li span{font-size:12px}
+.ch li em{font-size:12.5px;margin-top:0}
+.stage.active .ch{opacity:.55}
+.carries .sw{width:13px;height:13px}
+.legend{font-size:12.5px;gap:8px}
+.legend .av button{padding:4px 11px}
+.core-lab{font-size:12px}
+.tip{font-size:13.5px;max-width:280px}
+.tip i{font-size:11.5px}
+.foot{font-size:12.5px}
+@media (min-width:981px) and (max-width:1500px){
+  .stage{grid-template-columns:minmax(240px,.7fr) minmax(0,1fr) minmax(300px,360px);gap:14px}
+  .lab{font-size:13px}
+}
 </style>
 </head><body>
 
@@ -272,7 +314,7 @@ let selPiece = null;   // a single piece opened by click
 const PRIMARY = {"His own accounts":"personal","The panel circuit":"interviews","Licensed editors":"footage","Old-school archive channels":"footage","TikTok cutters":"mixes","Small TikTok editors, big reach":"mixes","YouTube legend editors":"footage","His teams' fans":"provenance","Where his biggest clips sit":"footage","Game creators":"games"};
 const faceColor = id => (FACES.find(f => f.id === id) || {}).color || "#1A1D2E";
 chan.innerHTML = `<h3><span>who carries it</span><span>${SEGMENTS.reduce((n, g) => n + g.accts.length, 0)} accounts</span></h3>` + SEGMENTS.map((g, i) =>
-  `<div class="ch" data-i="${i}" style="--pc:${faceColor(PRIMARY[g.name])}"><b>${g.name} <small>${g.accts.length}</small></b><div class="carries">${g.to.map(id => `<button type="button" class="sw" data-f="${id}" title="${(FACES.find(f => f.id === id) || {}).label}" style="background:${faceColor(id)}"></button>`).join("")}</div><p>${g.inc}</p><ul>${g.accts.map(([n, pl, st, u, hot]) =>
+  `<div class="ch closed" data-i="${i}" style="--pc:${faceColor(PRIMARY[g.name])}"><b>${g.name} <small>${g.accts.length}</small></b><div class="carries">${g.to.map(id => `<button type="button" class="sw" data-f="${id}" title="${(FACES.find(f => f.id === id) || {}).label}" style="background:${faceColor(id)}"></button>`).join("")}</div><p>${g.inc}</p><ul>${g.accts.map(([n, pl, st, u, hot]) =>
     `<li><a href="${u}" target="_blank" rel="noopener">${n}</a><span>${pl}</span><em${hot ? ' class="hot"' : ""}>${st}</em></li>`).join("")}</ul></div>`).join("");
 
 // face chips (narrow screens)
@@ -310,7 +352,7 @@ function renderSpill(){
   }
   spill.innerHTML = `<h2><i class="sw" style="background:${f.color}"></i>${f.label}<small>[${f.items.length}]</small></h2><div class="tier">${f.tier}</div><div class="blobs">` +
     PIECES.filter(p => p.fi === FACES.indexOf(f)).map((p, i) =>
-      `<button type="button" class="blob${p.cat ? " open" : ""}" data-k="${PIECES.indexOf(p)}" style="box-shadow:0 0 0 3px ${f.color};animation-delay:${i * 45}ms" title="${esc(p.t)}"><span>${esc(p.t.split(" · ")[0])}</span>${/^[\d.]+[MK]\b/.test(p.t.split(" · ").slice(-1)[0]) ? `<b>${esc(p.t.split(" · ").slice(-1)[0])}</b>` : ""}<i>${p.cat ? "to catalog" : p.on ? "connects back" : "no link back yet"}</i></button>`).join("") + `</div>`;
+      `<button type="button" class="blob${p.cat ? " open" : ""}" data-k="${PIECES.indexOf(p)}" style="box-shadow:0 0 0 3px ${f.color};animation-delay:${i * 45}ms" title="${esc(p.t)}"><span>${esc(p.t.split(" · ")[0])}</span>${/^[\d.]+[MK]\b/.test(p.t.split(" · ").slice(-1)[0]) ? `<b>${esc(p.t.split(" · ").slice(-1)[0])}</b>` : ""}<i>${p.cat ? "to catalog" : p.on ? "links back" : "no link back"}</i></button>`).join("") + `</div>`;
 }
 spill.addEventListener("click", e => {
   const k = e.target.closest("[data-k]"); if (k){ selectPiece(PIECES[+k.dataset.k]); return; }
@@ -318,6 +360,7 @@ spill.addEventListener("click", e => {
   const g = e.target.closest("[data-seg]");
   if (g){ const el = chan.querySelector(`.ch[data-i="${g.dataset.seg}"]`); if (el) chan.scrollTo({top:el.offsetTop - chan.offsetTop - 8, behavior:"smooth"}); }
 });
+chan.addEventListener("click", e => { const h = e.target.closest(".ch > b"); if (h){ const el = h.parentElement; el.classList.toggle("closed"); el.classList.toggle("open"); return; } });
 chan.addEventListener("click", e => { const b = e.target.closest(".carries [data-f]"); if (b){ pinned = b.dataset.f; selPiece = null; faceFromList = true; update(); } });
 document.addEventListener("keydown", e => { if (e.key === "Escape"){ pinned = null; selPiece = null; update(); } });
 
@@ -331,6 +374,7 @@ function update(){
     el.style.setProperty("--fc", fc);
     if (id && c.to.includes(id) && !first) first = el;
     el.classList.toggle("hit", !!id && c.to.includes(id));
+    if (id !== lastScroll){ const o = !!id && c.to.includes(id) && c.name !== "History of the Game"; el.classList.toggle("open", o); el.classList.toggle("closed", !o); }
     el.classList.toggle("x", !!id);
   });
   if (first && id !== lastScroll){ chan.scrollTo({top:first.offsetTop - chan.offsetTop - 8, behavior:reduce ? "auto" : "smooth"}); }
