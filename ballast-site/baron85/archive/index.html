@@ -48,6 +48,13 @@ button:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
 .blob i{font-style:normal;font-family:var(--mono);font-size:10px;letter-spacing:.04em;opacity:.65}
 .blob.open{background:#2C3566}
 @keyframes pop{from{transform:scale(.6);opacity:0}to{transform:none;opacity:1}}
+.back{font-family:var(--mono);font-size:11px;color:var(--soft);justify-self:start}
+.back:hover{color:var(--ink)}
+.facts{display:flex;flex-wrap:wrap;gap:6px 14px;font-family:var(--mono);font-size:11.5px;color:var(--ink)}
+.seglink{font:inherit;color:var(--ink);text-decoration:underline;text-underline-offset:2px}
+.openlink{justify-self:start;background:var(--blob);color:var(--blob-ink);text-decoration:none;font-size:13px;padding:8px 16px;border-radius:999px}
+button.blob{font:inherit;text-align:left;cursor:pointer;border:0}
+button.blob:hover{outline:2px solid #0B5CF6;outline-offset:2px}
 .idle{color:var(--soft);font-size:13px;max-width:34ch}
 .idle b{color:var(--ink);font-weight:600}
 
@@ -112,7 +119,7 @@ a.blob:hover{outline:2px solid #0B5CF6;outline-offset:2px}
 </style>
 </head><body>
 
-<div class="bar"><span><a href="https://x.com/HistoryOTG" target="_blank" rel="noopener"><b>HOTG</b></a> · archive gem 01 · <b>Baron Davis</b></span><span class="links"><a href="/baron85/">R+D deck</a><a href="https://ballast.la/">Ballast</a></span><span>hover a face or a dot · click to open · drag to turn</span></div>
+<div class="bar"><span><a href="https://x.com/HistoryOTG" target="_blank" rel="noopener"><b>HOTG</b></a> · archive gem 01 · <b>Baron Davis</b></span><span class="links"><a href="/baron85/">R+D deck</a><a href="https://ballast.la/">Ballast</a></span><span>click a face or a dot · esc clears · drag to turn</span></div>
 
 <div class="stage" id="stage">
   <svg id="lines" aria-hidden="true"></svg>
@@ -227,7 +234,8 @@ const $ = id => document.getElementById(id);
 const stage = $("stage"), spill = $("spill"), chan = $("chan"), labels = $("labels"), lines = $("lines");
 const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
 let hover = null, pinned = null, lastScroll = null, faceFromList = false, hoverDot = null;
-const active = () => pinned || hover;
+const active = () => pinned;
+let selPiece = null;   // a single piece opened by click
 
 // channels
 chan.innerHTML = `<h3><span>who carries it</span><span>${SEGMENTS.reduce((n, g) => n + g.accts.length, 0)} accounts</span></h3>` + SEGMENTS.map((g, i) =>
@@ -236,31 +244,48 @@ chan.innerHTML = `<h3><span>who carries it</span><span>${SEGMENTS.reduce((n, g) 
 
 // face chips (narrow screens)
 $("chips").innerHTML = FACES.map(f => `<button type="button" data-f="${f.id}" aria-pressed="false"><i class="sw" style="background:${f.color}"></i>${f.label}</button>`).join("");
-$("chips").addEventListener("click", e => { const b = e.target.closest("[data-f]"); if (b){ pinned = pinned === b.dataset.f ? null : b.dataset.f; faceFromList = true; update(); } });
+$("chips").addEventListener("click", e => { const b = e.target.closest("[data-f]"); if (b){ pinned = pinned === b.dataset.f && !selPiece ? null : b.dataset.f; selPiece = null; faceFromList = true; update(); } });
 
 // labels
 labels.innerHTML = FACES.map(f => `<button type="button" class="lab" data-f="${f.id}"><i class="sw" style="background:${f.color}"></i>${f.label}<small>[${f.items.length}]</small></button>`).join("");
 labels.querySelectorAll(".lab").forEach(b => {
-  b.addEventListener("pointerenter", () => { hover = b.dataset.f; faceFromList = true; update(); });
-  b.addEventListener("pointerleave", () => { hover = null; update(); });
-  b.addEventListener("click", () => { pinned = pinned === b.dataset.f ? null : b.dataset.f; faceFromList = true; update(); });
+  b.addEventListener("click", () => { pinned = pinned === b.dataset.f && !selPiece ? null : b.dataset.f; selPiece = null; faceFromList = true; update(); });
 });
 
 const shapes = ["58% 42% 52% 48% / 46% 56% 44% 54%","44% 56% 40% 60% / 58% 42% 58% 42%","52% 48% 62% 38% / 40% 60% 40% 60%","62% 38% 46% 54% / 52% 44% 56% 48%","40% 60% 54% 46% / 60% 40% 52% 48%"];
 let lastSpill = undefined;
+const esc = t => String(t).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function selectPiece(p){ selPiece = p; pinned = FACES[p.fi].id; faceFromList = true; update(); }
 function renderSpill(){
-  const id = active();
-  if (id === lastSpill) return; lastSpill = id;
+  const id = active(), key = id + "|" + (selPiece ? PIECES.indexOf(selPiece) : "");
+  if (key === lastSpill) return; lastSpill = key;
   const f = FACES.find(x => x.id === id);
   if (!f){
-    spill.innerHTML = `<p class="idle"><b>His archive, sorted into faces.</b> Each face is one kind of content; the dots inside are the pieces. Hover a face to open its pieces and see who should carry them. Every piece and account links out.</p>`;
+    spill.innerHTML = `<p class="idle"><b>His archive, sorted into faces.</b> Each dot is a piece; its line shows whether it connects back to him. Click a face or a dot to explore. Click empty space to clear.</p>`;
+    return;
+  }
+  if (selPiece){
+    const p = selPiece, av = AVENUES.find(v => v.faces.includes(f.id));
+    const carriers = SEGMENTS.filter(g => g.to.includes(f.id) && g.name !== "History of the Game");
+    spill.innerHTML = `<button type="button" class="back" data-back>← ${esc(f.label)}</button>
+      <h2><i class="sw" style="background:${f.color}"></i>${esc(p.t)}</h2>
+      <div class="facts"><span>${p.cat ? "Not in the archive yet" : p.on ? "Connects back to him" : "No link back to him yet"}</span>${p.v ? `<span>${p.v >= 1e6 ? (p.v / 1e6).toFixed(2) + "M" : Math.round(p.v / 1e3) + "K"} views</span>` : ""}<span>${esc(f.label)}${av ? " · " + esc(av.label) : ""}</span></div>
+      <div class="tier">${esc(f.tier)}</div>
+      ${carriers.length ? `<div class="tier">Who could carry it: ${carriers.map(g => `<button type="button" class="seglink" data-seg="${SEGMENTS.indexOf(g)}">${esc(g.name)}</button>`).join(", ")}</div>` : ""}
+      ${p.u ? `<a class="openlink" href="${p.u}" target="_blank" rel="noopener">Open ↗</a>` : ""}`;
     return;
   }
   spill.innerHTML = `<h2><i class="sw" style="background:${f.color}"></i>${f.label}<small>[${f.items.length}]</small></h2><div class="tier">${f.tier}</div><div class="blobs">` +
-    f.items.map(([t, href], i) => href
-      ? `<a class="blob" href="${href}" target="_blank" rel="noopener" style="border-radius:${shapes[i % shapes.length]};animation-delay:${i * 45}ms">${t}<i>open ↗</i></a>`
-      : `<div class="blob open" style="border-radius:${shapes[i % shapes.length]};animation-delay:${i * 45}ms">${t}<i>to catalog</i></div>`).join("") + `</div>`;
+    PIECES.filter(p => p.fi === FACES.indexOf(f)).map((p, i) =>
+      `<button type="button" class="blob${p.cat ? " open" : ""}" data-k="${PIECES.indexOf(p)}" style="border-radius:${shapes[i % shapes.length]};animation-delay:${i * 45}ms">${esc(p.t)}<i>${p.cat ? "to catalog" : p.on ? "connects back" : "no link back yet"}</i></button>`).join("") + `</div>`;
 }
+spill.addEventListener("click", e => {
+  const k = e.target.closest("[data-k]"); if (k){ selectPiece(PIECES[+k.dataset.k]); return; }
+  if (e.target.closest("[data-back]")){ selPiece = null; update(); return; }
+  const g = e.target.closest("[data-seg]");
+  if (g){ const el = chan.querySelector(`.ch[data-i="${g.dataset.seg}"]`); if (el) chan.scrollTo({top:el.offsetTop - chan.offsetTop - 8, behavior:"smooth"}); }
+});
+document.addEventListener("keydown", e => { if (e.key === "Escape"){ pinned = null; selPiece = null; update(); } });
 
 function update(){
   const id = active();
@@ -349,8 +374,6 @@ if (renderer){
   $("legend").innerHTML = `<div class="key"><span><b>●</b> a piece · size = views</span><span><span class="ln"></span>connects back to him</span><span><span class="ln d"></span>no link back yet</span><span><b>${nOn} of ${nLinked}</b> connect back</span></div>
     <div class="av">${AVENUES.map(v => `<button type="button" data-av="${v.id}" aria-pressed="false">${v.label}</button>`).join("")}</div>`;
   $("legend").querySelectorAll("[data-av]").forEach(b => {
-    b.addEventListener("pointerenter", () => { avenue = b.dataset.av; recolor(); });
-    b.addEventListener("pointerleave", () => { avenue = null; recolor(); });
     b.addEventListener("click", () => { avenue = avenue === b.dataset.av ? null : b.dataset.av; recolor(); });
   });
 
@@ -363,7 +386,7 @@ if (renderer){
       if (set && !onFace(face)) mesh.material.color.lerp(new THREE.Color("#E3E6EF"), .55);
     });
     PIECES.forEach(p => {
-      const lit = onFace(p.fi);
+      const lit = selPiece ? p === selPiece : onFace(p.fi);
       p.sp.material.opacity = lit ? 1 : .15;
       p.sp.scale.setScalar(set && lit ? p.sz * 1.35 : p.sz);
       if (p.line) p.line.material.opacity = lit ? (p.on ? .95 : (set ? .9 : .55)) : .06;
@@ -393,6 +416,9 @@ if (renderer){
       rotY = drag.ry + dx * .01; rotX = Math.max(-.6, Math.min(.6, drag.rx + dy * .006));
       return;
     }
+    pick(e);
+  });
+  function pick(e){
     const r = canvas.getBoundingClientRect();
     ndc.set((e.clientX - r.left) / r.width * 2 - 1, -((e.clientY - r.top) / r.height) * 2 + 1);
     ray.setFromCamera(ndc, camera);
@@ -401,19 +427,21 @@ if (renderer){
     if (dot){
       const p = dot.object.userData.p, cr = cell.getBoundingClientRect();
       tip.hidden = false; tip.style.left = (e.clientX - cr.left) + "px"; tip.style.top = (e.clientY - cr.top) + "px";
-      tip.innerHTML = p.t.replace(/[<>&]/g, "") + `<i>${p.cat ? "not in the archive yet" : p.on ? "connects back to him" : "no link back yet"}${p.u ? " · click to open" : ""}</i>`;
-      canvas.style.cursor = p.u ? "pointer" : "default"; hoverDot = p;
-    } else { tip.hidden = true; canvas.style.cursor = ""; hoverDot = null; }
+      tip.innerHTML = p.t.replace(/[<>&]/g, "") + `<i>${p.cat ? "not in the archive yet" : p.on ? "connects back to him" : "no link back yet"}</i>`;
+      hoverDot = p;
+    } else { tip.hidden = true; hoverDot = null; }
     const hit = ray.intersectObjects(meshes.map(m => m.mesh))[0];
     const f = hit ? FACES[meshes.find(m => m.mesh === hit.object).face].id : null;
-    if (f !== hover){ hover = f; faceFromList = false; update(); }
-  });
+    hover = f; canvas.style.cursor = hoverDot || f ? "pointer" : "";
+  }
   canvas.addEventListener("pointerup", e => {
     const wasDrag = drag && drag.moved; drag = null;
-    if (!wasDrag && hoverDot && hoverDot.u){ window.open(hoverDot.u, "_blank", "noopener"); return; }
-    if (!wasDrag){ pinned = hover && pinned !== hover ? hover : null; update(); }
+    if (wasDrag) return;
+    pick(e); $("tip").hidden = true;
+    if (hoverDot){ selectPiece(hoverDot); faceFromList = false; return; }
+    selPiece = null; pinned = hover && pinned !== hover ? hover : null; faceFromList = false; update();
   });
-  canvas.addEventListener("pointerleave", () => { $("tip").hidden = true; hoverDot = null; if (!drag && hover){ hover = null; update(); } });
+  canvas.addEventListener("pointerleave", () => { $("tip").hidden = true; hoverDot = null; hover = null; });
 
   // leader lines and labels follow the faces
   const labEls = Object.fromEntries([...labels.querySelectorAll(".lab")].map(b => [b.dataset.f, b]));
