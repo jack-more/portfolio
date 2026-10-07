@@ -351,6 +351,25 @@
   .price-simple>div{grid-column:2;display:flex;flex-wrap:wrap;align-items:center;gap:20px 36px}
   @media (max-width:760px){.price-simple{grid-template-columns:1fr}.price-simple>div{grid-column:1}}
   .price-simple p{max-width:56ch;font-size:clamp(17px,1.3vw,20px);opacity:.85;margin:0}
+  .wall{--c:10;--g:6px;container-type:inline-size;display:grid;grid-template-columns:repeat(var(--c),1fr);grid-auto-rows:calc(((100cqw - (var(--c) - 1)*var(--g))/var(--c)*16/9 - var(--g))/2);gap:var(--g);margin:28px 0 0}
+  .tile{grid-row:span 2;margin:0;position:relative;border-radius:6px;overflow:hidden;background:#0a0d18}
+  .pair{grid-row:span 2;grid-column:span 2;display:grid;grid-template-rows:1fr 1fr;gap:var(--g);min-height:0}
+  .pair>.tile{grid-row:auto;min-height:0}
+  .tile>img,.tile .ad,.tile video,.tile--yt button,.tile--yt img{display:block;width:100%;height:100%;object-fit:cover}
+  .tile figcaption{position:absolute;left:6px;bottom:6px;font:500 10.5px/1 var(--mono,ui-monospace,monospace);letter-spacing:.02em;color:#fff;background:rgba(10,13,24,.62);backdrop-filter:blur(4px);padding:5px 7px;border-radius:4px;pointer-events:none}
+  .tile--yt button{all:unset;display:block;position:relative;cursor:pointer;width:100%}
+  .tile--yt img{object-fit:cover;transition:transform .5s ease}
+  .tile--yt button:hover img{transform:scale(1.04)}
+  .tile .yt__play{width:46px;height:46px;margin:-23px 0 0 -23px}
+  .tile .yt__play:after{left:18px;top:14px;border-left-width:14px;border-top-width:9px;border-bottom-width:9px}
+  .wall__cap{font-size:11.5px;color:var(--mute);margin:10px 0 0}
+  .lb{border:0;padding:0;background:transparent;max-width:none;max-height:none;overflow:visible}
+  .lb::backdrop{background:rgba(6,8,14,.86)}
+  .lb__f{position:relative;background:#000;border-radius:8px;overflow:hidden}
+  .lb__f iframe{display:block;width:100%;height:100%;border:0}
+  .lb__x{all:unset;position:absolute;right:-6px;top:-44px;color:#fff;font-size:34px;line-height:1;cursor:pointer;padding:4px 8px}
+  @media (max-width:1100px){.wall{--c:5}}
+  @media (max-width:760px){.wall{--c:3;--g:4px}.tile figcaption{font-size:9px;padding:4px 5px;left:4px;bottom:4px}}
   .case__how{margin-top:clamp(36px,6vh,64px)}
   @media (max-width:760px){
     .case__stats{grid-template-columns:1fr;gap:14px}
@@ -361,7 +380,7 @@
       .scene__top,.plate{animation:heroOut linear both;animation-timeline:scroll(root);animation-range:0 90vh}
       .rd__hd h2,.case__hd h3,.block__hd h2,.sprint__hd h2,.proof__hd h2,.book__hd h2{animation:rise linear both;animation-timeline:view();animation-range:entry 0% cover 25%}
       .rd__lead,.case__hd .mono,.rd__hd>.mono,.block__hd .mono,.sprint__hd .mono,.proof__hd .mono,.book__hd .mono{animation:riseSm linear both;animation-timeline:view();animation-range:entry 0% cover 22%}
-      .rdrow,.rec .row,.rec__group,.case__stats>div,.case__how .rdrow,.yt{animation:riseSm linear both;animation-timeline:view();animation-range:entry 0% cover 20%}
+      .rdrow,.rec .row,.rec__group,.case__stats>div,.case__how .rdrow,.yt,.tile{animation:riseSm linear both;animation-timeline:view();animation-range:entry 0% cover 20%}
       .reel{animation:reelIn linear both;animation-timeline:view();animation-range:entry 0% cover 30%}
     }
   }
@@ -380,7 +399,7 @@
   <div class="pad nav__in">
     <a class="nav__brand" href="#top">Ballast</a>
     <nav class="nav__links">
-      <a href="#health">Work</a>
+      <a href="#work">Work</a>
       <a href="#clients">Clients</a>
       <a href="#rd">Services</a>
       <a href="#pricing">Pricing</a>
@@ -410,7 +429,7 @@
         <div class="plate__proof num"><div><b>$2M+</b><span>monthly spend at peak</span></div><div><b>4&times;</b><span>blended ROAS</span></div></div>
         <div class="plate__cta">
           <a class="btn btn--lg scene__go" href="#book">Book a call</a>
-          <a class="btn btn--lg scene__ghost" href="#health">Work</a>
+          <a class="btn btn--lg scene__ghost" href="#work">Work</a>
         </div>
         </div>
       </div>
@@ -418,48 +437,24 @@
     </div>
   </section>
 
-  <!-- health -->
-  <section class="rd pad" id="health">
+  <!-- work -->
+  <section class="rd pad" id="work">
     <div class="rd__hd">
-      <span class="mono">Health, RUO and weight loss</span>
+      <span class="mono">Work</span>
       <div>
-        <h2 class="serif">Scaled, and kept live.</h2>
-        <p class="rd__lead">What we built for SKO Compounds, then ran again for ePeps and Meridian.</p>
+        <h2 class="serif">Ads we've run.</h2>
+        <p class="rd__lead">Paid media and creative for SKO Compounds, ePeps, Meridian, STARZPLAY, Starbucks, Toyota and NEAR.</p>
       </div>
     </div>
-
-    <div class="case">
-      <div class="case__hd"><h3 class="serif">SKO Compounds</h3><span class="mono">Ads, creative, storefront and retention</span></div>
-      <div class="case__stats">
-        <div><b class="serif">$1.2M+</b><span>Monthly sales</span></div>
-        <div><b class="serif">4.5&times;</b><span>Return at peak: $100K a month in ads, $450K back</span></div>
-        <div><b class="serif">30+</b><span>UGC creators onboarded, paid on sales</span></div>
-      </div>
-      <div class="reel" aria-label="Ads we ran for SKO Compounds, ePeps and Meridian">
-        <div class="reel__track"><div class="ad"><video data-src="/work/health/ads/sko-founder-1.mp4" poster="/work/health/ads/sko-founder-1.webp" muted loop playsinline preload="none"></video></div><div class="still"><img src="/work/health/sko-alpine.webp" alt="" loading="lazy"></div><div class="ad"><video data-src="/work/health/ads/sko-ai-spot.mp4" poster="/work/health/ads/sko-ai-spot.webp" muted loop playsinline preload="none"></video></div><div class="ad"><video data-src="/work/health/ads/sko-founder-2.mp4" poster="/work/health/ads/sko-founder-2.webp" muted loop playsinline preload="none"></video></div><div class="ad"><video data-src="/work/health/ads/ugc-hanna-1.mp4" poster="/work/health/ads/ugc-hanna-1.webp" muted loop playsinline preload="none"></video></div><div class="ad"><video data-src="/work/health/ads/ugc-dennis-1.mp4" poster="/work/health/ads/ugc-dennis-1.webp" muted loop playsinline preload="none"></video></div><div class="ad"><video data-src="/work/health/ads/ugc-ethan-1.mp4" poster="/work/health/ads/ugc-ethan-1.webp" muted loop playsinline preload="none"></video></div><div class="ad"><video data-src="/work/health/ads/sko-dna.mp4" poster="/work/health/ads/sko-dna.webp" muted loop playsinline preload="none"></video></div><div class="ad"><video data-src="/work/health/ads/sko-frutiger-1.mp4" poster="/work/health/ads/sko-frutiger-1.webp" muted loop playsinline preload="none"></video></div><div class="still"><img src="/work/health/epeps-corona.webp" alt="" loading="lazy"></div><div class="ad"><video data-src="/work/health/ads/sko-tennis.mp4" poster="/work/health/ads/sko-tennis.webp" muted loop playsinline preload="none"></video></div><div class="ad"><video data-src="/work/health/ads/sko-frutiger-2.mp4" poster="/work/health/ads/sko-frutiger-2.webp" muted loop playsinline preload="none"></video></div><div class="ad"><video data-src="/work/health/ads/sko-bubbles.mp4" poster="/work/health/ads/sko-bubbles.webp" muted loop playsinline preload="none"></video></div><div class="still"><img src="/work/health/sko-drip.webp" alt="" loading="lazy"></div><div class="ad"><video data-src="/work/health/ads/sko-laborday-1.mp4" poster="/work/health/ads/sko-laborday-1.webp" muted loop playsinline preload="none"></video></div><div class="still"><img src="/work/health/meridian-banner.webp" alt="" loading="lazy"></div><div class="ad"><video data-src="/work/health/ads/sko-orders.mp4" poster="/work/health/ads/sko-orders.webp" muted loop playsinline preload="none"></video></div><div class="ad"><video data-src="/work/health/ads/ugc-hanna-2.mp4" poster="/work/health/ads/ugc-hanna-2.webp" muted loop playsinline preload="none"></video></div><div class="ad"><video data-src="/work/health/ads/ugc-dennis-2.mp4" poster="/work/health/ads/ugc-dennis-2.webp" muted loop playsinline preload="none"></video></div><div class="still"><img src="/work/health/sko-vending.webp" alt="" loading="lazy"></div><div class="ad"><video data-src="/work/health/ads/sko-truck.mp4" poster="/work/health/ads/sko-truck.webp" muted loop playsinline preload="none"></video></div><div class="ad"><video data-src="/work/health/ads/sko-box2.mp4" poster="/work/health/ads/sko-box2.webp" muted loop playsinline preload="none"></video></div><div class="ad"><video data-src="/work/health/ads/sko-frutiger-3.mp4" poster="/work/health/ads/sko-frutiger-3.webp" muted loop playsinline preload="none"></video></div><div class="still"><img src="/work/health/sko-molecule.webp" alt="" loading="lazy"></div><div class="ad"><video data-src="/work/health/ads/sko-freevial.mp4" poster="/work/health/ads/sko-freevial.webp" muted loop playsinline preload="none"></video></div><div class="ad" aria-hidden="true"><video data-src="/work/health/ads/sko-founder-1.mp4" poster="/work/health/ads/sko-founder-1.webp" muted loop playsinline preload="none"></video></div><div class="still" aria-hidden="true"><img src="/work/health/sko-alpine.webp" alt="" loading="lazy"></div><div class="ad" aria-hidden="true"><video data-src="/work/health/ads/sko-ai-spot.mp4" poster="/work/health/ads/sko-ai-spot.webp" muted loop playsinline preload="none"></video></div><div class="ad" aria-hidden="true"><video data-src="/work/health/ads/sko-founder-2.mp4" poster="/work/health/ads/sko-founder-2.webp" muted loop playsinline preload="none"></video></div><div class="ad" aria-hidden="true"><video data-src="/work/health/ads/ugc-hanna-1.mp4" poster="/work/health/ads/ugc-hanna-1.webp" muted loop playsinline preload="none"></video></div><div class="ad" aria-hidden="true"><video data-src="/work/health/ads/ugc-dennis-1.mp4" poster="/work/health/ads/ugc-dennis-1.webp" muted loop playsinline preload="none"></video></div><div class="ad" aria-hidden="true"><video data-src="/work/health/ads/ugc-ethan-1.mp4" poster="/work/health/ads/ugc-ethan-1.webp" muted loop playsinline preload="none"></video></div><div class="ad" aria-hidden="true"><video data-src="/work/health/ads/sko-dna.mp4" poster="/work/health/ads/sko-dna.webp" muted loop playsinline preload="none"></video></div><div class="ad" aria-hidden="true"><video data-src="/work/health/ads/sko-frutiger-1.mp4" poster="/work/health/ads/sko-frutiger-1.webp" muted loop playsinline preload="none"></video></div><div class="still" aria-hidden="true"><img src="/work/health/epeps-corona.webp" alt="" loading="lazy"></div><div class="ad" aria-hidden="true"><video data-src="/work/health/ads/sko-tennis.mp4" poster="/work/health/ads/sko-tennis.webp" muted loop playsinline preload="none"></video></div><div class="ad" aria-hidden="true"><video data-src="/work/health/ads/sko-frutiger-2.mp4" poster="/work/health/ads/sko-frutiger-2.webp" muted loop playsinline preload="none"></video></div><div class="ad" aria-hidden="true"><video data-src="/work/health/ads/sko-bubbles.mp4" poster="/work/health/ads/sko-bubbles.webp" muted loop playsinline preload="none"></video></div><div class="still" aria-hidden="true"><img src="/work/health/sko-drip.webp" alt="" loading="lazy"></div><div class="ad" aria-hidden="true"><video data-src="/work/health/ads/sko-laborday-1.mp4" poster="/work/health/ads/sko-laborday-1.webp" muted loop playsinline preload="none"></video></div><div class="still" aria-hidden="true"><img src="/work/health/meridian-banner.webp" alt="" loading="lazy"></div><div class="ad" aria-hidden="true"><video data-src="/work/health/ads/sko-orders.mp4" poster="/work/health/ads/sko-orders.webp" muted loop playsinline preload="none"></video></div><div class="ad" aria-hidden="true"><video data-src="/work/health/ads/ugc-hanna-2.mp4" poster="/work/health/ads/ugc-hanna-2.webp" muted loop playsinline preload="none"></video></div><div class="ad" aria-hidden="true"><video data-src="/work/health/ads/ugc-dennis-2.mp4" poster="/work/health/ads/ugc-dennis-2.webp" muted loop playsinline preload="none"></video></div><div class="still" aria-hidden="true"><img src="/work/health/sko-vending.webp" alt="" loading="lazy"></div><div class="ad" aria-hidden="true"><video data-src="/work/health/ads/sko-truck.mp4" poster="/work/health/ads/sko-truck.webp" muted loop playsinline preload="none"></video></div><div class="ad" aria-hidden="true"><video data-src="/work/health/ads/sko-box2.mp4" poster="/work/health/ads/sko-box2.webp" muted loop playsinline preload="none"></video></div><div class="ad" aria-hidden="true"><video data-src="/work/health/ads/sko-frutiger-3.mp4" poster="/work/health/ads/sko-frutiger-3.webp" muted loop playsinline preload="none"></video></div><div class="still" aria-hidden="true"><img src="/work/health/sko-molecule.webp" alt="" loading="lazy"></div><div class="ad" aria-hidden="true"><video data-src="/work/health/ads/sko-freevial.mp4" poster="/work/health/ads/sko-freevial.webp" muted loop playsinline preload="none"></video></div></div>
-      </div>
-      <p class="reel__cap mono">Ads, UGC creator campaigns and product work for SKO Compounds, ePeps ($250K a month in sales) and Meridian (built from zero)</p>
+    <div class="case__stats">
+      <div><b class="serif">4&times;</b><span>Blended ROAS at peak spend for Starbucks and Toyota</span></div>
+      <div><b class="serif">$1.2M+</b><span>Monthly sales for a health DTC brand</span></div>
+      <div><b class="serif">30+</b><span>UGC creators onboarded, paid on sales</span></div>
     </div>
-
-    <div class="rd__rows case__how">
-      <div class="rdrow"><b>Compliant from the first ad</b><p>Every claim, product and landing page checked against Meta, TikTok and Google policy before it runs.</p><p>Ad-safe product lists decide what can run, and what never appears in an ad.</p></div>
-      <div class="rdrow"><b>Measured against real orders</b><p>Platforms over-claim in this category. We reconcile spend to store orders, new and repeat.</p><p>You see what a new customer actually costs.</p></div>
-      <div class="rdrow"><b>Creative built for review</b><p>Creator videos, UGC and product imagery made to pass review, not just to get clicks.</p><p>One image system across every product.</p></div>
-      <div class="rdrow"><b>Storefront and retention</b><p>Product pages, bundles, loyalty and reorder flows.</p><p>In this category, the second order is where the profit is.</p></div>
-    </div>
+    <div class="wall"><figure class="tile tile--yt"><button type="button" data-id="JSpUNWjQk6c" data-ar="9/16" aria-label="Play the Raising Kanan promo"><img src="https://i.ytimg.com/vi/JSpUNWjQk6c/oar2.jpg" alt="" loading="lazy"><span class="yt__play"></span></button><figcaption>STARZPLAY</figcaption></figure><figure class="tile"><div class="ad"><video data-src="/work/health/ads/sko-founder-1.mp4" poster="/work/health/ads/sko-founder-1.webp" muted loop playsinline preload="none"></video></div><figcaption>SKO Compounds</figcaption></figure><figure class="tile"><div class="ad"><video data-src="/work/health/ads/ugc-hanna-1.mp4" poster="/work/health/ads/ugc-hanna-1.webp" muted loop playsinline preload="none"></video></div><figcaption>SKO &middot; creator</figcaption></figure><div class="pair"><figure class="tile tile--yt tile--w"><button type="button" data-id="jtJ_DbPYnrU" data-ar="16/9" aria-label="Play the Starbucks holiday 2021 spot"><img src="https://i.ytimg.com/vi/jtJ_DbPYnrU/mqdefault.jpg" alt="" loading="lazy"><span class="yt__play"></span></button><figcaption>Starbucks</figcaption></figure><figure class="tile tile--yt tile--w"><button type="button" data-id="y3ZCJLz1m-s" data-ar="16/9" aria-label="Play the Starbucks Together Again spot"><img src="https://i.ytimg.com/vi/y3ZCJLz1m-s/mqdefault.jpg" alt="" loading="lazy"><span class="yt__play"></span></button><figcaption>Starbucks</figcaption></figure></div><figure class="tile"><img src="/work/health/epeps-corona.webp" alt="" loading="lazy"><figcaption>ePeps</figcaption></figure><figure class="tile"><div class="ad"><video data-src="/work/health/ads/sko-ai-spot.mp4" poster="/work/health/ads/sko-ai-spot.webp" muted loop playsinline preload="none"></video></div><figcaption>SKO Compounds</figcaption></figure><figure class="tile tile--yt"><button type="button" data-id="HsZkjGvj8e8" data-ar="9/16" aria-label="Play the BMF promo"><img src="https://i.ytimg.com/vi/HsZkjGvj8e8/oar2.jpg" alt="" loading="lazy"><span class="yt__play"></span></button><figcaption>STARZPLAY</figcaption></figure><figure class="tile"><div class="ad"><video data-src="/work/health/ads/ugc-dennis-1.mp4" poster="/work/health/ads/ugc-dennis-1.webp" muted loop playsinline preload="none"></video></div><figcaption>SKO &middot; creator</figcaption></figure><figure class="tile"><img src="/work/health/sko-alpine.webp" alt="" loading="lazy"><figcaption>SKO Compounds</figcaption></figure><figure class="tile"><div class="ad"><video data-src="/work/health/ads/sko-frutiger-1.mp4" poster="/work/health/ads/sko-frutiger-1.webp" muted loop playsinline preload="none"></video></div><figcaption>SKO Compounds</figcaption></figure><figure class="tile"><div class="ad"><video data-src="/work/health/ads/sko-founder-2.mp4" poster="/work/health/ads/sko-founder-2.webp" muted loop playsinline preload="none"></video></div><figcaption>SKO Compounds</figcaption></figure><figure class="tile"><div class="ad"><video data-src="/work/health/ads/ugc-ethan-1.mp4" poster="/work/health/ads/ugc-ethan-1.webp" muted loop playsinline preload="none"></video></div><figcaption>SKO &middot; creator</figcaption></figure><figure class="tile"><div class="ad"><video data-src="/work/health/ads/sko-dna.mp4" poster="/work/health/ads/sko-dna.webp" muted loop playsinline preload="none"></video></div><figcaption>SKO Compounds</figcaption></figure><figure class="tile"><div class="ad"><video data-src="/work/health/ads/ugc-hanna-2.mp4" poster="/work/health/ads/ugc-hanna-2.webp" muted loop playsinline preload="none"></video></div><figcaption>SKO &middot; creator</figcaption></figure><div class="pair"><figure class="tile tile--yt tile--w"><button type="button" data-id="-yjEoZtTExw" data-ar="16/9" aria-label="Play the Heels trailer"><img src="https://i.ytimg.com/vi/-yjEoZtTExw/maxresdefault.jpg" alt="" loading="lazy"><span class="yt__play"></span></button><figcaption>STARZPLAY</figcaption></figure><figure class="tile tile--w"><img src="/work/health/meridian-banner.webp" alt="" loading="lazy"><figcaption>Meridian</figcaption></figure></div><figure class="tile"><img src="/work/health/sko-drip.webp" alt="" loading="lazy"><figcaption>SKO Compounds</figcaption></figure><figure class="tile"><div class="ad"><video data-src="/work/health/ads/sko-tennis.mp4" poster="/work/health/ads/sko-tennis.webp" muted loop playsinline preload="none"></video></div><figcaption>SKO Compounds</figcaption></figure><figure class="tile"><div class="ad"><video data-src="/work/health/ads/sko-frutiger-2.mp4" poster="/work/health/ads/sko-frutiger-2.webp" muted loop playsinline preload="none"></video></div><figcaption>SKO Compounds</figcaption></figure><figure class="tile"><div class="ad"><video data-src="/work/health/ads/ugc-dennis-2.mp4" poster="/work/health/ads/ugc-dennis-2.webp" muted loop playsinline preload="none"></video></div><figcaption>SKO &middot; creator</figcaption></figure><figure class="tile"><div class="ad"><video data-src="/work/health/ads/sko-bubbles.mp4" poster="/work/health/ads/sko-bubbles.webp" muted loop playsinline preload="none"></video></div><figcaption>SKO Compounds</figcaption></figure><figure class="tile"><img src="/work/health/sko-vending.webp" alt="" loading="lazy"><figcaption>SKO Compounds</figcaption></figure><figure class="tile"><div class="ad"><video data-src="/work/health/ads/sko-laborday-1.mp4" poster="/work/health/ads/sko-laborday-1.webp" muted loop playsinline preload="none"></video></div><figcaption>SKO Compounds</figcaption></figure><figure class="tile"><div class="ad"><video data-src="/work/health/ads/sko-orders.mp4" poster="/work/health/ads/sko-orders.webp" muted loop playsinline preload="none"></video></div><figcaption>SKO Compounds</figcaption></figure><figure class="tile"><div class="ad"><video data-src="/work/health/ads/sko-truck.mp4" poster="/work/health/ads/sko-truck.webp" muted loop playsinline preload="none"></video></div><figcaption>SKO Compounds</figcaption></figure><figure class="tile"><img src="/work/health/sko-molecule.webp" alt="" loading="lazy"><figcaption>SKO Compounds</figcaption></figure><figure class="tile"><div class="ad"><video data-src="/work/health/ads/sko-box2.mp4" poster="/work/health/ads/sko-box2.webp" muted loop playsinline preload="none"></video></div><figcaption>SKO Compounds</figcaption></figure><figure class="tile"><div class="ad"><video data-src="/work/health/ads/sko-frutiger-3.mp4" poster="/work/health/ads/sko-frutiger-3.webp" muted loop playsinline preload="none"></video></div><figcaption>SKO Compounds</figcaption></figure><figure class="tile"><div class="ad"><video data-src="/work/health/ads/sko-freevial.mp4" poster="/work/health/ads/sko-freevial.webp" muted loop playsinline preload="none"></video></div><figcaption>SKO Compounds</figcaption></figure></div>
+    <p class="wall__cap mono">STARZPLAY and Starbucks spots are the brands' own creative; we ran the media. Tap to play.</p>
   </section>
-
-  <!-- streaming -->
-  <section class="rd pad" id="streaming">
-    <div class="rd__hd">
-      <span class="mono">Streaming launches</span>
-      <div>
-        <h2 class="serif">STARZPLAY, 2021.</h2>
-        <p class="rd__lead">We ran international paid media for STARZPLAY series launches, including these three. The promos are STARZ&rsquo;s official creative.</p>
-      </div>
-    </div>
-    <div class="yts"><figure class="yt"><button type="button" data-id="JSpUNWjQk6c" aria-label="Play the official Power Book III: Raising Kanan promo"><img src="https://i.ytimg.com/vi/JSpUNWjQk6c/oar2.jpg" alt="" loading="lazy"><span class="yt__play" aria-hidden="true"></span></button><figcaption><b>Power Book III: Raising Kanan</b><span class="mono">Premiered July 2021</span></figcaption></figure><figure class="yt"><button type="button" data-id="-yjEoZtTExw" aria-label="Play the official Heels promo"><img src="https://i.ytimg.com/vi/-yjEoZtTExw/maxresdefault.jpg" alt="" loading="lazy"><span class="yt__play" aria-hidden="true"></span></button><figcaption><b>Heels</b><span class="mono">Premiered August 2021</span></figcaption></figure><figure class="yt"><button type="button" data-id="HsZkjGvj8e8" aria-label="Play the official BMF promo"><img src="https://i.ytimg.com/vi/HsZkjGvj8e8/oar2.jpg" alt="" loading="lazy"><span class="yt__play" aria-hidden="true"></span></button><figcaption><b>BMF</b><span class="mono">Premiered September 2021</span></figcaption></figure></div>
-  </section>
+  <dialog class="lb" id="lb"><button type="button" class="lb__x" aria-label="Close">&times;</button><div class="lb__f"></div></dialog>
 
   <!-- the record -->
   <section class="block block--ink pad" id="clients">
@@ -589,7 +584,7 @@
   <div class="foot__top">
     <div><span class="mono">Email</span><a href="mailto:jack@ballast.la">jack@ballast.la</a></div>
     <div><span class="mono">Where</span><a href="#book">Los Angeles</a></div>
-    <div><span class="mono">Site</span><a href="#health">Work</a><a href="#clients">Clients</a><a href="#rd">Services</a><a href="#pricing">Pricing</a><a href="#proof">Results</a></div>
+    <div><span class="mono">Site</span><a href="#work">Work</a><a href="#clients">Clients</a><a href="#rd">Services</a><a href="#pricing">Pricing</a><a href="#proof">Results</a></div>
   </div>
   <div class="foot__word">Ballast</div>
   <div class="foot__bot mono"><span>Ballast Research LLC &mdash; Los Angeles</span><span>Research, development and media distribution</span></div>
@@ -707,7 +702,17 @@
 })();
 </script>
 <script>
-document.querySelectorAll('.yt button').forEach(b=>b.addEventListener('click',()=>{const f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+b.dataset.id+'?autoplay=1&playsinline=1&rel=0';f.allow='autoplay; encrypted-media; picture-in-picture';f.allowFullscreen=true;f.title=b.getAttribute('aria-label');b.replaceChildren(f);b.style.cursor='default'},{once:true}));
+(()=>{const lb=document.getElementById('lb');if(!lb)return;const box=lb.querySelector('.lb__f');
+  const close=()=>{box.replaceChildren();lb.close()};
+  lb.querySelector('.lb__x').addEventListener('click',close);
+  lb.addEventListener('click',e=>{if(e.target===lb)close()});lb.addEventListener('cancel',()=>box.replaceChildren());
+  document.querySelectorAll('.tile--yt button').forEach(b=>b.addEventListener('click',()=>{
+    const [w,h]=b.dataset.ar.split('/').map(Number),vw=innerWidth*.92,vh=innerHeight*.84,k=Math.min(vw/w,vh/h);
+    box.style.width=Math.round(w*k)+'px';box.style.height=Math.round(h*k)+'px';
+    const f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+b.dataset.id+'?autoplay=1&playsinline=1&rel=0';
+    f.allow='autoplay; encrypted-media; picture-in-picture';f.allowFullscreen=true;f.title=b.getAttribute('aria-label');
+    box.replaceChildren(f);lb.showModal()}));
+})();
 </script>
 </body>
 </html>

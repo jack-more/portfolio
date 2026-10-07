@@ -182,6 +182,13 @@ export default function HomePage() {
           </DraggableCard>
 
           <DraggableCard title="Work">
+            <a href="/work" className="row-link">
+              <div className="row">
+                <span className="row-left">The ads</span>
+                <span className="row-dash" />
+                <span className="row-right">View</span>
+              </div>
+            </a>
             {work.map((w) => (
               <WorkRow
                 key={w.company}
