@@ -195,8 +195,19 @@
   .cell b small{display:block;font-family:var(--m);font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--mute);margin-top:10px}
   .cell h4{font-weight:500;font-size:20px;letter-spacing:-.012em;margin-top:auto;padding-top:28px}
   .cell p{color:var(--mute);margin-top:4px}
-  .marks{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:28px;align-items:center;padding:40px 0 16px}
-  .marks img{filter:grayscale(1) brightness(.2);opacity:.75;max-height:32px;width:auto;margin:0 auto}
+  .logos{display:grid;gap:34px;margin-top:44px}
+  .logos__row{overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+  .logos__track{display:flex;align-items:center;gap:56px;width:max-content;padding-right:56px;animation:logos 40s linear infinite}
+  .logos__row--rev .logos__track{animation-direction:reverse;animation-duration:34s}
+  .logos:hover .logos__track{animation-play-state:paused}
+  .logos img{height:30px;width:auto;flex:none;filter:brightness(0) invert(1);opacity:.88}
+  .logos img.sq{height:42px}
+  .logos img.keep{filter:grayscale(1) brightness(1.5)}
+  .logos img.sm{height:20px}
+  .logos img.inv{filter:grayscale(1) invert(1)}
+  @keyframes logos{to{transform:translateX(-25%)}}
+  @media (prefers-reduced-motion:reduce){.logos__track{animation:none}.logos__row{overflow-x:auto}}
+  @media (max-width:760px){.logos{gap:24px;margin-top:30px}.logos__track{gap:36px;padding-right:36px}.logos img{height:22px}.logos img.sq{height:30px}}
   .proof__note{color:var(--mute);font-size:14px}
 
   /* ── book ────────────────────────────────────────── */
@@ -255,7 +266,6 @@
     .row{grid-template-columns:minmax(0,1fr);gap:6px}
     .stk{grid-template-columns:minmax(0,1fr);min-height:0;position:relative;top:auto}
     .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-    .marks{grid-template-columns:repeat(4,minmax(0,1fr))}
     .cal{grid-template-columns:minmax(0,1fr)}
     .cal__month{border-right:0;border-bottom:1px solid var(--ink)}
     .strip{flex-wrap:wrap;gap:10px 24px}
@@ -266,7 +276,6 @@
     .deliv,.weeks{grid-template-columns:minmax(0,1fr)}
     .hero__meta span:nth-child(2){display:none}
     .team__grid{grid-template-columns:minmax(0,1fr)}
-    .marks{grid-template-columns:repeat(2,minmax(0,1fr))}
   }
 
   /* ── scene hero ──────────────────────────────────── */
@@ -401,7 +410,6 @@
       <a href="#clients">Clients</a>
       <a href="#rd">Services</a>
       <a href="#pricing">Pricing</a>
-      <a href="#proof">Results</a>
     </nav>
     <a class="btn" href="#book">Book a call</a>
   </div>
@@ -459,23 +467,11 @@
   <section class="block block--ink pad" id="clients">
     <div class="block__hd">
       <span class="mono">Clients</span>
-      <h2>Eleven categories. Regulated and at scale.</h2>
+      <h2>From startups to the S&amp;P&nbsp;500.</h2>
     </div>
-    <div class="rec">
-      <div class="rec__group mono">Regulated</div>
-      <div class="row"><b>Health &amp; DTC</b><small>SKO Compounds</small><p>Full service: ad accounts, creative, attribution and weekly reporting, compliant throughout.</p></div>
-      <div class="row"><b>Open Finance</b><small>NEAR Foundation &middot; SushiSwap &middot; Dtravel</small><p>Paid media through token launches: $150k a month at peak, 5.8&times; peak ROAS, and not one account lost.</p></div>
-
-      <div class="rec__group mono">At scale</div>
-      <div class="row"><b>Automotive</b><small>Toyota</small></div>
-      <div class="row"><b>Coffee &amp; Retail</b><small>Starbucks</small></div>
-      <div class="row"><b>Streaming &amp; Film</b><small>Sony &middot; Peacock &middot; Disney &middot; Starzplay</small></div>
-      <div class="row"><b>Consumer Electronics</b><small>LG</small></div>
-      <div class="row"><b>Sportswear</b><small>Adidas</small></div>
-      <div class="row"><b>Luxury Fashion</b><small>Rick Owens</small></div>
-      <div class="row"><b>Live Sport</b><small>SailGP</small></div>
-      <div class="row"><b>Architecture &amp; Education</b><small>SCI-Arc</small></div>
-      <div class="row"><b>Urbanism &amp; Property</b><small>Build Cities</small></div>
+    <div class="logos" aria-label="Clients">
+      <div class="logos__row"><div class="logos__track"><img src="/marks/netflix.svg" alt="Netflix" class="" loading="lazy"><img src="/marks/disney.png" alt="Disney" class="" loading="lazy"><img src="/marks/toyota.png" alt="Toyota" class="" loading="lazy"><img src="/marks/universal.svg" alt="Universal Pictures" class="sq" loading="lazy"><img src="/marks/starbucks.png" alt="Starbucks" class="" loading="lazy"><img src="/marks/nbc.svg" alt="NBC" class="sq" loading="lazy"><img src="/marks/peacock.png" alt="Peacock" class="" loading="lazy"><img src="/marks/bmw.svg" alt="BMW" class="sq keep" loading="lazy"><img src="/marks/marvel.svg" alt="Marvel Studios" class="inv" loading="lazy"><img src="/marks/sony.svg" alt="Sony" class="sm" loading="lazy"><img src="/marks/netflix.svg" alt="" class="" loading="lazy" aria-hidden="true"><img src="/marks/disney.png" alt="" class="" loading="lazy" aria-hidden="true"><img src="/marks/toyota.png" alt="" class="" loading="lazy" aria-hidden="true"><img src="/marks/universal.svg" alt="" class="sq" loading="lazy" aria-hidden="true"><img src="/marks/starbucks.png" alt="" class="" loading="lazy" aria-hidden="true"><img src="/marks/nbc.svg" alt="" class="sq" loading="lazy" aria-hidden="true"><img src="/marks/peacock.png" alt="" class="" loading="lazy" aria-hidden="true"><img src="/marks/bmw.svg" alt="" class="sq keep" loading="lazy" aria-hidden="true"><img src="/marks/marvel.svg" alt="" class="inv" loading="lazy" aria-hidden="true"><img src="/marks/sony.svg" alt="" class="sm" loading="lazy" aria-hidden="true"><img src="/marks/netflix.svg" alt="" class="" loading="lazy" aria-hidden="true"><img src="/marks/disney.png" alt="" class="" loading="lazy" aria-hidden="true"><img src="/marks/toyota.png" alt="" class="" loading="lazy" aria-hidden="true"><img src="/marks/universal.svg" alt="" class="sq" loading="lazy" aria-hidden="true"><img src="/marks/starbucks.png" alt="" class="" loading="lazy" aria-hidden="true"><img src="/marks/nbc.svg" alt="" class="sq" loading="lazy" aria-hidden="true"><img src="/marks/peacock.png" alt="" class="" loading="lazy" aria-hidden="true"><img src="/marks/bmw.svg" alt="" class="sq keep" loading="lazy" aria-hidden="true"><img src="/marks/marvel.svg" alt="" class="inv" loading="lazy" aria-hidden="true"><img src="/marks/sony.svg" alt="" class="sm" loading="lazy" aria-hidden="true"><img src="/marks/netflix.svg" alt="" class="" loading="lazy" aria-hidden="true"><img src="/marks/disney.png" alt="" class="" loading="lazy" aria-hidden="true"><img src="/marks/toyota.png" alt="" class="" loading="lazy" aria-hidden="true"><img src="/marks/universal.svg" alt="" class="sq" loading="lazy" aria-hidden="true"><img src="/marks/starbucks.png" alt="" class="" loading="lazy" aria-hidden="true"><img src="/marks/nbc.svg" alt="" class="sq" loading="lazy" aria-hidden="true"><img src="/marks/peacock.png" alt="" class="" loading="lazy" aria-hidden="true"><img src="/marks/bmw.svg" alt="" class="sq keep" loading="lazy" aria-hidden="true"><img src="/marks/marvel.svg" alt="" class="inv" loading="lazy" aria-hidden="true"><img src="/marks/sony.svg" alt="" class="sm" loading="lazy" aria-hidden="true"></div></div>
+      <div class="logos__row logos__row--rev"><div class="logos__track"><img src="/marks/starzplay.png" alt="STARZPLAY" class="" loading="lazy"><img src="/marks/lg.png" alt="LG" class="" loading="lazy"><img src="/marks/adidas.svg" alt="Adidas" class="sq" loading="lazy"><img src="/marks/iheart.svg" alt="iHeartMedia" class="" loading="lazy"><img src="/marks/twitter.svg" alt="Twitter" class="sq" loading="lazy"><img src="/marks/hint.svg" alt="Hint" class="" loading="lazy"><img src="/marks/near.png" alt="NEAR" class="sq" loading="lazy"><img src="/marks/sciarc.svg" alt="SCI-Arc" class="" loading="lazy"><img src="/marks/sko.png" alt="SKO Compounds" class="" loading="lazy"><img src="/marks/starzplay.png" alt="" class="" loading="lazy" aria-hidden="true"><img src="/marks/lg.png" alt="" class="" loading="lazy" aria-hidden="true"><img src="/marks/adidas.svg" alt="" class="sq" loading="lazy" aria-hidden="true"><img src="/marks/iheart.svg" alt="" class="" loading="lazy" aria-hidden="true"><img src="/marks/twitter.svg" alt="" class="sq" loading="lazy" aria-hidden="true"><img src="/marks/hint.svg" alt="" class="" loading="lazy" aria-hidden="true"><img src="/marks/near.png" alt="" class="sq" loading="lazy" aria-hidden="true"><img src="/marks/sciarc.svg" alt="" class="" loading="lazy" aria-hidden="true"><img src="/marks/sko.png" alt="" class="" loading="lazy" aria-hidden="true"><img src="/marks/starzplay.png" alt="" class="" loading="lazy" aria-hidden="true"><img src="/marks/lg.png" alt="" class="" loading="lazy" aria-hidden="true"><img src="/marks/adidas.svg" alt="" class="sq" loading="lazy" aria-hidden="true"><img src="/marks/iheart.svg" alt="" class="" loading="lazy" aria-hidden="true"><img src="/marks/twitter.svg" alt="" class="sq" loading="lazy" aria-hidden="true"><img src="/marks/hint.svg" alt="" class="" loading="lazy" aria-hidden="true"><img src="/marks/near.png" alt="" class="sq" loading="lazy" aria-hidden="true"><img src="/marks/sciarc.svg" alt="" class="" loading="lazy" aria-hidden="true"><img src="/marks/sko.png" alt="" class="" loading="lazy" aria-hidden="true"><img src="/marks/starzplay.png" alt="" class="" loading="lazy" aria-hidden="true"><img src="/marks/lg.png" alt="" class="" loading="lazy" aria-hidden="true"><img src="/marks/adidas.svg" alt="" class="sq" loading="lazy" aria-hidden="true"><img src="/marks/iheart.svg" alt="" class="" loading="lazy" aria-hidden="true"><img src="/marks/twitter.svg" alt="" class="sq" loading="lazy" aria-hidden="true"><img src="/marks/hint.svg" alt="" class="" loading="lazy" aria-hidden="true"><img src="/marks/near.png" alt="" class="sq" loading="lazy" aria-hidden="true"><img src="/marks/sciarc.svg" alt="" class="" loading="lazy" aria-hidden="true"><img src="/marks/sko.png" alt="" class="" loading="lazy" aria-hidden="true"></div></div>
     </div>
   </section>
 
@@ -489,8 +485,8 @@
     <div class="rd__rows">
       <div class="rdrow"><b>Media strategy and planning</b><p>Annual, quarterly and in-flight plans tied to sales and brand goals: what each channel is for, what it gets, and when.</p><p>Budgets moved by evidence, not by habit.</p></div>
       <div class="rdrow"><b>Paid media execution</b><p>Buying, launching and optimizing across Meta, TikTok, Google, YouTube, programmatic and CTV.</p><p>Paced weekly, tested weekly, reported against revenue.</p></div>
-      <div class="rdrow"><b>Live shopping</b><p>TikTok LIVE selling, set up and run: the shop, the hosts, the offers and the schedule.</p><p>$10K a day in sales for one health brand.</p></div>
-      <div class="rdrow"><b>UGC and creator campaigns</b><p>Recruit, brief and run creators who make ads that sell, paid on sales, not posts.</p><p>30+ creators onboarded for one health brand.</p></div>
+      <div class="rdrow"><b>Live shopping</b><p>Set up and run TikTok LIVE selling that brings in $10K a day.</p><p>The shop, the hosts, the offers and the schedule.</p></div>
+      <div class="rdrow"><b>UGC and creator campaigns</b><p>Coordinate and run full-scale UGC campaigns with 30+ creators.</p><p>Recruited, briefed and paid on sales, not posts.</p></div>
       <div class="rdrow"><b>Measurement</b><p>One number per goal, reconciled to real orders, with tests that show what spend actually creates.</p><p>See which channels create demand and which just take credit for it.</p></div>
       <div class="rdrow"><b>Creative</b><p>Ads, product imagery and AI production, made for each platform and built to pass review.</p><p>New hooks every week, never one hero ad.</p></div>
       <div class="rdrow"><b>Regulated categories</b><p>Health, RUO, weight loss, supplements and open finance.</p><p>Compliance built into the account and the creative from day one.</p></div>
@@ -514,34 +510,6 @@
     </div></div>
   </section>
 
-  <!-- proof -->
-  <section class="proof pad" id="proof">
-    <div class="proof__hd">
-      <span class="mono">Results</span>
-      <div>
-        <h2>The accounts behind the numbers.</h2>
-        <p>4&times; is blended across the accounts below.</p>
-      </div>
-    </div>
-    <div class="grid num">
-      <div class="cell"><b>4&times;</b><h4>Toyota</h4><p>African American and Asian American segments.</p></div>
-      <div class="cell"><b>4&times;</b><h4>Starbucks</h4><p>Pacific Northwest.</p></div>
-      <div class="cell"><b>4&times;</b><h4>Starzplay</h4><p>International.</p></div>
-      <div class="cell"><b>5.8&times;<small>at peak</small></b><h4>NEAR Foundation &middot; Dtravel</h4><p>$150k a month at peak through token launches. Accounts stayed live.</p></div>
-      <div class="cell"><b>$10K<small>a day</small></b><h4>SKO Compounds</h4><p>Sales from TikTok LIVE selling we set up, on top of ad accounts, creative and attribution.</p></div>
-      <div class="cell"><b>Full<small>service</small></b><h4>Build Cities</h4><p>Urbanism &amp; property. Ad accounts, creative, attribution and weekly reporting.</p></div>
-    </div>
-    <div class="marks" aria-label="Client marks">
-      <img src="/marks/toyota.png" alt="Toyota" loading="lazy" width="520" height="85">
-      <img src="/marks/starbucks.png" alt="Starbucks" loading="lazy" width="520" height="52">
-      <img src="/marks/disney.png" alt="Disney" loading="lazy" width="387" height="160">
-      <img src="/marks/peacock.png" alt="Peacock" loading="lazy" width="517" height="160">
-      <img src="/marks/starzplay.png" alt="Starz Play" loading="lazy" width="520" height="73">
-      <img src="/marks/lg.png" alt="LG" loading="lazy" width="336" height="160">
-      <img src="/marks/near.png" alt="NEAR" loading="lazy" width="160" height="160">
-      <img src="/marks/sko.png" alt="SKO Compounds" loading="lazy" width="445" height="160">
-    </div>
-  </section>
 
   <!-- book -->
   <section class="book pad" id="book">
@@ -584,7 +552,7 @@
   <div class="foot__top">
     <div><span class="mono">Email</span><a href="mailto:jack@ballast.la">jack@ballast.la</a></div>
     <div><span class="mono">Where</span><a href="#book">Los Angeles</a></div>
-    <div><span class="mono">Site</span><a href="#work">Work</a><a href="#clients">Clients</a><a href="#rd">Services</a><a href="#pricing">Pricing</a><a href="#proof">Results</a></div>
+    <div><span class="mono">Site</span><a href="#work">Work</a><a href="#clients">Clients</a><a href="#rd">Services</a><a href="#pricing">Pricing</a></div>
   </div>
   <div class="foot__word">Ballast</div>
   <div class="foot__bot mono"><span>Ballast Research LLC &mdash; Los Angeles</span><span>Research, development and media distribution</span></div>
