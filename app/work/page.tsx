@@ -8,12 +8,14 @@ const B = "https://ballast.la/work/health";
 type Tile =
   | { kind: "ad"; file: string; label: string }
   | { kind: "still"; file: string; label: string }
-  | { kind: "yt"; id: string; label: string; title: string; wide?: boolean; poster: string };
+  | { kind: "yt"; id: string; label: string; title: string; wide?: boolean; poster: string }
+  | { kind: "ig"; id: string; label: string; title: string };
 
 const SKO = "SKO Compounds";
 const ad = (file: string, label = SKO): Tile => ({ kind: "ad", file, label });
 const still = (file: string, label = SKO): Tile => ({ kind: "still", file, label });
 const yt = (id: string, label: string, title: string, poster: string, wide = false): Tile => ({ kind: "yt", id, label, title, poster, wide });
+const ig = (id: string, label: string, title: string): Tile => ({ kind: "ig", id, label, title });
 
 // Every tile is 9:16; wide spots crop to the tile and play at full size when tapped.
 // Generated with ballast.la's wall: same order, labels and posters.
@@ -123,16 +125,16 @@ const wall: Tile[] = [
   yt("4uuhtmwUCNc", "LG \u00b7 V40 ThinQ", "the LG V40 ThinQ spot (2018)", "/work/yt/4uuhtmwUCNc.webp", true),
   yt("ybG8iWK4e2I", "LG \u00b7 G7 ThinQ", "the LG G7 ThinQ spot (2018)", "/work/yt/ybG8iWK4e2I.webp", true),
   yt("H3rjTGBowUc", "LG \u00b7 V40 ThinQ", "the LG V40 ThinQ spot (2018)", "/work/yt/H3rjTGBowUc.webp", true),
-  yt("FiAj1zIpz8Q", "BMW \u00b7 M2 Competition", "the BMW M2 Competition spot (2018)", "/work/yt/FiAj1zIpz8Q.webp", true),
-  yt("d9Xe0_FAW3Y", "BMW \u00b7 X2", "the BMW X2 spot (2018)", "/work/yt/d9Xe0_FAW3Y.webp", true),
-  yt("t-aT8Vrx4ZQ", "BMW \u00b7 X2", "the BMW X2 spot (2018)", "/work/yt/t-aT8Vrx4ZQ.webp", true),
-  yt("A3c40VLbhR4", "BMW \u00b7 BMW i", "the BMW BMW i spot (2018)", "/work/yt/A3c40VLbhR4.webp", true),
-  yt("RzChHvJ7GEM", "BMW \u00b7 M8 Concept", "the BMW M8 Concept spot (2018)", "/work/yt/RzChHvJ7GEM.webp", true),
-  yt("9X_uPjJW9mY", "BMW \u00b7 X7", "the BMW X7 spot (2018)", "/work/yt/9X_uPjJW9mY.webp", true),
-  yt("GzWvu4VjRb8", "BMW \u00b7 3 Series", "the BMW 3 Series spot (2018)", "/work/yt/GzWvu4VjRb8.webp", true),
-  yt("YIMauY5laHE", "BMW \u00b7 8 Series", "the BMW 8 Series spot (2018)", "/work/yt/YIMauY5laHE.webp", true),
-  yt("O8F04wGqBpY", "BMW \u00b7 Z4", "the BMW Z4 spot (2018)", "/work/yt/O8F04wGqBpY.webp", true),
-  yt("LibxaWiXOc4", "BMW \u00b7 Mom's M5", "the BMW Mom's M5 spot (2018)", "/work/yt/LibxaWiXOc4.webp", true),
+ig("BroFr-NHRC8", "BMW IG · M850i", "BMW's 2018 Instagram post: M850i"),
+  ig("BfLDarkAkRI", "BMW IG · X4", "BMW's 2018 Instagram post: X4"),
+  ig("BfJI29EFydz", "BMW IG · 8 Series Concept", "BMW's 2018 Instagram post: 8 Series Concept"),
+  ig("BruVmhTD9sM", "BMW IG · 3 Series", "BMW's 2018 Instagram post: 3 Series"),
+  ig("BdqaSkSAhPG", "BMW IG · X3", "BMW's 2018 Instagram post: X3"),
+  ig("Brvn_7lDkA6", "BMW IG · 8 Series Convertible", "BMW's 2018 Instagram post: 8 Series Convertible"),
+  ig("Bdp3jf4g9HB", "BMW IG · M5", "BMW's 2018 Instagram post: M5"),
+  ig("Brp8phnjA4K", "BMW IG · X7", "BMW's 2018 Instagram post: X7"),
+  ig("BdnTVY3A8xz", "BMW IG · X2", "BMW's 2018 Instagram post: X2"),
+  ig("BrvTWu4g08P", "BMW IG · i8 Roadster", "BMW's 2018 Instagram post: i8 Roadster"),
   yt("qMtiG3fU6eQ", "Hint \u00b7 #whyhint", "the Hint #whyhint spot (2018)", "/work/yt/qMtiG3fU6eQ.webp", true),
   yt("46DduULSzd0", "Hint \u00b7 #whyhint", "the Hint #whyhint spot (2018)", "/work/yt/46DduULSzd0.webp", true),
   yt("fQN-bQMcurs", "Hint \u00b7 #whyhint", "the Hint #whyhint spot (2018)", "/work/yt/fQN-bQMcurs.webp", true),
@@ -157,9 +159,9 @@ function AdVideo({ file }: { file: string }) {
   return <video ref={ref} poster={`${B}/ads/${file}.webp`} muted loop playsInline preload="none" />;
 }
 
-function TileView({ t, onPlay }: { t: Tile; onPlay: (id: string, wide: boolean, title: string) => void }) {
+function TileView({ t, onPlay }: { t: Tile; onPlay: (id: string, wide: boolean, title: string, ig?: boolean) => void }) {
   return (
-    <figure className={`wall-tile${t.kind === "yt" ? " wall-tile--yt" : ""}`}>
+    <figure className={`wall-tile${t.kind === "yt" || t.kind === "ig" ? " wall-tile--yt" : ""}`}>
       {t.kind === "ad" && <AdVideo file={t.file} />}
       {t.kind === "still" && <img src={`${B}/${t.file}.webp`} alt="" loading="lazy" />}
       {t.kind === "yt" && (
@@ -168,19 +170,24 @@ function TileView({ t, onPlay }: { t: Tile; onPlay: (id: string, wide: boolean, 
           <span className="wall-play" />
         </button>
       )}
+      {t.kind === "ig" && (
+        <button type="button" aria-label={`Open ${t.title}`} onClick={() => onPlay(t.id, false, t.title, true)}>
+          <img src={`https://ballast.la/work/ig/${t.id}.webp`} alt="" loading="lazy" />
+        </button>
+      )}
       <figcaption>{t.label}</figcaption>
     </figure>
   );
 }
 
 export default function WorkPage() {
-  const [playing, setPlaying] = useState<{ id: string; wide: boolean; title: string } | null>(null);
+  const [playing, setPlaying] = useState<{ id: string; wide: boolean; title: string; ig?: boolean } | null>(null);
   const dlg = useRef<HTMLDialogElement>(null);
   useEffect(() => {
     if (playing) dlg.current?.showModal();
     else dlg.current?.close();
   }, [playing]);
-  const play = (id: string, wide: boolean, title: string) => setPlaying({ id, wide, title });
+  const play = (id: string, wide: boolean, title: string, ig = false) => setPlaying({ id, wide, title, ig });
 
   return (
     <div className="artwork-page wall-page">
@@ -205,9 +212,9 @@ export default function WorkPage() {
         onClick={(e) => { if (e.target === dlg.current) setPlaying(null); }}
       >
         {playing && (
-          <div className={`wall-lb-f${playing.wide ? " wall-lb-f--wide" : ""}`}>
+          <div className={`wall-lb-f${playing.wide ? " wall-lb-f--wide" : ""}${playing.ig ? " wall-lb-f--ig" : ""}`}>
             <iframe
-              src={`https://www.youtube-nocookie.com/embed/${playing.id}?autoplay=1&playsinline=1&rel=0`}
+              src={playing.ig ? `https://www.instagram.com/p/${playing.id}/embed/` : `https://www.youtube-nocookie.com/embed/${playing.id}?autoplay=1&playsinline=1&rel=0`}
               title={playing.title}
               allow="autoplay; encrypted-media; picture-in-picture"
               allowFullScreen
