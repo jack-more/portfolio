@@ -55,6 +55,15 @@ const wall: Tile[] = [
   yt("YwdFISPk86E", "Toyota \u00b7 Camry \u00b7 Corolla", "the Toyota Imagine spot", "/work/brands/toyota-imagine.webp", true),
   yt("GHA2DH2kEb0", "Toyota \u00b7 Tacoma", "the Toyota Tacoma Magic Hour spot", "/work/brands/toyota-tacoma.webp", true),
   yt("WotAnYua7-k", "Toyota \u00b7 Tundra \u00b7 Tacoma", "the Toyota Helping Hands spot", "/work/brands/toyota-helping.webp", true),
+  yt("jr3UYpx8gVI", "NEAR × SailGP · NEAR Miss", "the SailGP NEAR Miss short", "/work/yt/jr3UYpx8gVI.webp", false),
+  yt("kWJjBRooSdM", "NEAR × SailGP · NEAR Miss", "the SailGP NEAR Miss short", "/work/yt/kWJjBRooSdM.webp", false),
+  yt("6K0o-VQpIXU", "NEAR × SailGP · Spain SailGP", "the Spain SailGP presented by NEAR highlights", "/work/yt/6K0o-VQpIXU.webp", true),
+  yt("TGZRTHpjqiY", "NEAR × SailGP · NEAR Miss", "the SailGP NEAR Miss short", "/work/yt/TGZRTHpjqiY.webp", false),
+  yt("N50b3Pn2fmY", "NEAR × SailGP · DAO team", "the NEAR case study on the DAO-owned SailGP team", "/work/yt/N50b3Pn2fmY.webp", true),
+  yt("T256YekFpCU", "NEAR × SailGP · NEAR Miss", "the SailGP NEAR Miss short", "/work/yt/T256YekFpCU.webp", false),
+  yt("h4Rb4tDK1GQ", "Dtravel · SAGA", "the Dtravel SAGA promo", "/work/yt/h4Rb4tDK1GQ.webp", true),
+  yt("fSd9_ECe068", "Dtravel · Bali, paid in crypto", "the Dtravel IRL experiences promo", "/work/yt/fSd9_ECe068.webp", true),
+  yt("w8_kSY_ABzg", "Dtravel · Direct Stays", "the Dtravel Direct Stays explainer", "/work/yt/w8_kSY_ABzg.webp", true),
   yt("ndl1W4ltcmg", "Netflix \u00b7 The Witcher", "the The Witcher trailer", "/work/yt/ndl1W4ltcmg.webp", true),
   yt("L6P3nI6VnlY", "Netflix \u00b7 Extraction", "the Extraction trailer", "/work/yt/L6P3nI6VnlY.webp", true),
   yt("RbIxYm3mKzI", "Netflix \u00b7 Don't Look Up", "the Don't Look Up trailer", "/work/yt/RbIxYm3mKzI.webp", true),
@@ -95,11 +104,6 @@ const wall: Tile[] = [
   yt("vaWlZGd3srE", "NBC \u00b7 SNL Season 46", "the SNL Season 46 promo", "/work/yt/vaWlZGd3srE.webp", true),
   yt("WlUYv_EtEAg", "Peacock \u00b7 Girls5eva", "the Girls5eva promo", "/work/yt/WlUYv_EtEAg.webp", true),
   yt("zX3ph5T-yek", "Peacock \u00b7 Rutherford Falls", "the Rutherford Falls promo", "/work/yt/zX3ph5T-yek.webp", true),
-  yt("rf_gM6Umpfg", "NBC \u00b7 Manifest Season 3", "the Manifest Season 3 promo", "/work/yt/rf_gM6Umpfg.webp", true),
-  yt("Z2w4376USn8", "NBC \u00b7 Mr. Mayor", "the Mr. Mayor promo", "/work/yt/Z2w4376USn8.webp", true),
-  yt("Dw_of1LYwdc", "NBC \u00b7 Tokyo 2020 Olympics", "the Tokyo 2020 Olympics promo", "/work/yt/Dw_of1LYwdc.webp", true),
-  yt("8vrkRs7wYFE", "Peacock \u00b7 Peacock launch", "the Peacock launch promo", "/work/yt/8vrkRs7wYFE.webp", true),
-  yt("RPJ6XatnFM4", "NBC \u00b7 Law & Order: Organized Crime", "the Law & Order: Organized Crime promo", "/work/yt/RPJ6XatnFM4.webp", true),
   yt("aSiDu3Ywi8E", "Universal \u00b7 F9", "the F9 promo", "/work/yt/aSiDu3Ywi8E.webp", true),
   yt("GkXeVIfbJOw", "Universal \u00b7 The Croods: A New Age", "the The Croods: A New Age promo", "/work/yt/GkXeVIfbJOw.webp", true),
   yt("EPZu5MA2uqI", "Universal \u00b7 Sing 2", "the Sing 2 promo", "/work/yt/EPZu5MA2uqI.webp", true),
@@ -123,8 +127,6 @@ const wall: Tile[] = [
   yt("Uz2ZbQB_lzY", "LG \u00b7 G7 ThinQ", "the LG G7 ThinQ spot (2018)", "/work/yt/Uz2ZbQB_lzY.webp", true),
   yt("MqcZQSByw3A", "LG \u00b7 G7 ThinQ teaser", "the LG G7 ThinQ teaser spot (2018)", "/work/yt/MqcZQSByw3A.webp", true),
   yt("4uuhtmwUCNc", "LG \u00b7 V40 ThinQ", "the LG V40 ThinQ spot (2018)", "/work/yt/4uuhtmwUCNc.webp", true),
-  yt("ybG8iWK4e2I", "LG \u00b7 G7 ThinQ", "the LG G7 ThinQ spot (2018)", "/work/yt/ybG8iWK4e2I.webp", true),
-  yt("H3rjTGBowUc", "LG \u00b7 V40 ThinQ", "the LG V40 ThinQ spot (2018)", "/work/yt/H3rjTGBowUc.webp", true),
 ig("BroFr-NHRC8", "BMW IG · M850i", "BMW's 2018 Instagram post: M850i"),
   ig("BfLDarkAkRI", "BMW IG · X4", "BMW's 2018 Instagram post: X4"),
   ig("BfJI29EFydz", "BMW IG · 8 Series Concept", "BMW's 2018 Instagram post: 8 Series Concept"),
@@ -138,8 +140,6 @@ ig("BroFr-NHRC8", "BMW IG · M850i", "BMW's 2018 Instagram post: M850i"),
   yt("qMtiG3fU6eQ", "Hint \u00b7 #whyhint", "the Hint #whyhint spot (2018)", "/work/yt/qMtiG3fU6eQ.webp", true),
   yt("46DduULSzd0", "Hint \u00b7 #whyhint", "the Hint #whyhint spot (2018)", "/work/yt/46DduULSzd0.webp", true),
   yt("fQN-bQMcurs", "Hint \u00b7 #whyhint", "the Hint #whyhint spot (2018)", "/work/yt/fQN-bQMcurs.webp", true),
-  yt("JDM_hfgCIdA", "Hint \u00b7 Our Story", "the Hint Our Story spot (2018)", "/work/yt/JDM_hfgCIdA.webp", true),
-  yt("LszWVlFUC_Q", "Hint \u00b7 Drink Water, Not Sugar", "the Hint Drink Water, Not Sugar spot (2018)", "/work/yt/LszWVlFUC_Q.webp", true),
 ];
 
 function AdVideo({ file }: { file: string }) {
@@ -196,7 +196,7 @@ export default function WorkPage() {
         <span className="artwork-title">Work</span>
       </nav>
       <p className="wall-intro">
-        Ads, trailers and promos I&apos;ve worked on: SKO Compounds, Netflix, Disney, Peacock, Universal, STARZPLAY, Starbucks, Toyota, LG and BMW.
+        Ads, trailers and promos I&apos;ve worked on: SKO Compounds, NEAR, SailGP, Dtravel, Netflix, Disney, Peacock, Universal, STARZPLAY, Starbucks, Toyota, LG and BMW.
         More at <a href="https://ballast.la" target="_blank" rel="noopener noreferrer">ballast.la</a>.
       </p>
 

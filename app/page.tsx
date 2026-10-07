@@ -181,8 +181,8 @@ export default function HomePage() {
               Twitter, plus three venture-backed startups built from zero.
             </p>
             <p style={{ marginTop: "0.75rem" }}>
-              If you&apos;re not growing, you&apos;re choosing not to.{" "}
-              <a href="https://ballast.la/#book" target="_blank" rel="noopener noreferrer">Book a call</a>.
+              Ballast is taking on new clients now. If you want this kind of growth,{" "}
+              <a href="https://ballast.la/#book" target="_blank" rel="noopener noreferrer">book a call</a>.
             </p>
             <p style={{ marginTop: "0.75rem" }}>Based in Los Angeles.</p>
           </DraggableCard>
