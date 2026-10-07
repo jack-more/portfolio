@@ -347,6 +347,10 @@
   .yt figcaption b{display:block;font-weight:500;font-size:17px}
   .yt figcaption .mono{color:var(--mute);font-size:11.5px}
   @media (max-width:760px){.yts{grid-template-columns:1fr 1fr;margin-left:0}}
+  .price-simple{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:24px;margin-top:clamp(20px,4vh,40px)}
+  .price-simple>div{grid-column:2;display:flex;flex-wrap:wrap;align-items:center;gap:20px 36px}
+  @media (max-width:760px){.price-simple{grid-template-columns:1fr}.price-simple>div{grid-column:1}}
+  .price-simple p{max-width:56ch;font-size:clamp(17px,1.3vw,20px);opacity:.85;margin:0}
   .case__how{margin-top:clamp(36px,6vh,64px)}
   @media (max-width:760px){
     .case__stats{grid-template-columns:1fr;gap:14px}
@@ -379,7 +383,7 @@
       <a href="#health">Work</a>
       <a href="#clients">Clients</a>
       <a href="#rd">Services</a>
-      <a href="#sprint">Sprint</a>
+      <a href="#pricing">Pricing</a>
       <a href="#proof">Results</a>
     </nav>
     <a class="btn" href="#book">Book a call</a>
@@ -501,50 +505,18 @@
     </div>
   </section>
 
-  <!-- the sprint -->
-  <section class="sprint pad" id="sprint">
+  <!-- pricing -->
+  <section class="sprint pad" id="pricing">
     <div class="sprint__hd">
       <div>
-        <span class="mono">The sprint</span>
-        <div><span class="status"><i></i>Fully booked &middot; the waitlist gets the next opening</span></div>
+        <span class="mono">Pricing</span>
       </div>
-      <h2>One price. Two weeks. One account at a time.</h2>
+      <h2>From $3.5K to $100K, depending on scope.</h2>
     </div>
-    <div class="stack">
-      <div class="stk">
-        <div><span class="mono">01 &mdash; What you get</span><h3>Eight deliverables.</h3></div>
-        <ul class="deliv stk__body">
-          <li>Intent map</li><li>Account structure</li><li>CAC band</li><li>Creative direction</li>
-          <li>Incentive design</li><li>Server-side events</li><li>Attribution ladder</li><li>Weekly reporting</li>
-        </ul>
-      </div>
-      <div class="stk">
-        <div><span class="mono">02 &mdash; Two weeks</span><h3>Four steps.</h3></div>
-        <div class="weeks stk__body">
-          <div class="week"><span>Week 1</span><b>Map demand</b><p>Separate the demand you have from the demand you need to create, stage by stage.</p></div>
-          <div class="week"><span>Week 1</span><b>Build for each stage</b><p>Creative, offers and placements for every stage, each with a reason to act now.</p></div>
-          <div class="week"><span>Week 2</span><b>Set up measurement</b><p>Each stage gets its own metric: incremental sales for buyers, brand lift for new audiences, repeat rate for past customers.</p></div>
-          <div class="week"><span>Week 2</span><b>Deliver the numbers</b><p>One number per goal, reconciled to your revenue.</p></div>
-        </div>
-      </div>
-      <div class="stk">
-        <div><span class="mono">03 &mdash; Price</span><h3>Flat fee. No retainer.</h3></div>
-        <div class="stk__body">
-          <p class="price num">$16,000<small>Two weeks &middot; one account</small></p>
-        </div>
-      </div>
-      <div class="stk">
-        <div><span class="mono">04 &mdash; Compared with a retainer</span><h3>Three differences.</h3></div>
-        <div class="stk__body">
-          <div class="vs">
-            <div><b>Flat $16,000</b><p>Retainers run $15k&ndash;40k a month and take six to twelve weeks to start.</p></div>
-            <div><b>The person you meet does the work</b><p>No pooling with nine other accounts. No hand-off to a junior in month three.</p></div>
-            <div><b>You keep everything</b><p>The account structure, audience map and reporting stay with you.</p></div>
-          </div>
-          <p style="margin-top:28px"><a class="btn btn--ghost" style="color:var(--paper);border-color:var(--paper)" href="mailto:jack@ballast.la?subject=Ballast%20sprint%20waitlist">Join the waitlist</a></p>
-        </div>
-      </div>
-    </div>
+    <div class="price-simple"><div>
+      <p>An audit or a two-week sprint sits at the low end. Fractional leadership and ongoing media run higher. You keep everything we build.</p>
+      <a class="btn btn--lg scene__go" href="#book">Book a call</a>
+    </div></div>
   </section>
 
   <!-- proof -->
@@ -617,7 +589,7 @@
   <div class="foot__top">
     <div><span class="mono">Email</span><a href="mailto:jack@ballast.la">jack@ballast.la</a></div>
     <div><span class="mono">Where</span><a href="#book">Los Angeles</a></div>
-    <div><span class="mono">Site</span><a href="#health">Work</a><a href="#clients">Clients</a><a href="#rd">Services</a><a href="#sprint">Sprint</a><a href="#proof">Results</a></div>
+    <div><span class="mono">Site</span><a href="#health">Work</a><a href="#clients">Clients</a><a href="#rd">Services</a><a href="#pricing">Pricing</a><a href="#proof">Results</a></div>
   </div>
   <div class="foot__word">Ballast</div>
   <div class="foot__bot mono"><span>Ballast Research LLC &mdash; Los Angeles</span><span>Research, development and media distribution</span></div>
