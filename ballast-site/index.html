@@ -216,7 +216,9 @@
   .book__hd .mono{color:var(--cobalt)}
   .book__hd h2{font-weight:300;font-size:clamp(48px,7.4vw,112px);letter-spacing:-.05em;line-height:.94;max-width:11ch}
   .book__hd p{max-width:46ch;margin-top:12px;color:var(--mute)}
-  .cal{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);border:1px solid var(--ink);background:#fff}
+  .cal{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);border:1px solid var(--ink);background:#fff;max-width:1180px;margin-left:auto}
+  .cal .day{aspect-ratio:auto;width:48px;height:48px;margin:0 auto}
+  .cal__days{row-gap:8px}
   .cal__month{padding:28px;border-right:1px solid var(--ink)}
   .cal__nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
   .cal__nav b{font-weight:500;font-size:22px;letter-spacing:-.015em}
@@ -235,11 +237,18 @@
   .cal__side .mono{color:var(--cobalt);margin-bottom:12px}
   .slots{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-bottom:22px}
   .slot{padding:12px 10px;border:1px solid var(--line);background:transparent;font:inherit;font-size:15px;color:var(--ink);cursor:pointer;font-variant-numeric:tabular-nums;border-radius:2px}
-  .slot:hover{border-color:var(--ink)}
+  .slot:hover{border-color:var(--ink)}.slot:disabled{opacity:.3;cursor:default}
   .slot.is-on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
   .cal__pick{font-weight:500;font-size:20px;letter-spacing:-.012em;min-height:52px;margin-bottom:6px}
   .cal__local{color:var(--mute);font-size:14px;margin-bottom:22px}
   .cal__acts{display:grid;gap:8px;margin-top:auto}
+  .cal__form{display:grid;gap:8px;margin-top:auto}
+  .cal__form .cal__acts{margin-top:6px}
+  .cal__in{font:inherit;font-size:15px;padding:12px 12px;border:1px solid var(--line);border-radius:2px;background:#fff;color:var(--ink);width:100%}
+  .cal__in:focus{outline:0;border-color:var(--ink)}
+  #calBook:disabled{opacity:.4;cursor:default}
+  .cal__done{font-weight:500;font-size:18px;line-height:1.35;margin:0 0 12px}
+  .cal__adds{display:grid;gap:8px}
   .cal__acts .btn{justify-content:center}
   .cal__acts .btn[aria-disabled="true"]{opacity:.4;pointer-events:none}
   .cal__note{color:var(--mute);font-size:14px;margin-top:16px}
@@ -516,8 +525,8 @@
     <div class="book__hd">
       <span class="mono">Book a call</span>
       <div>
-        <h2>30 minutes on your account.</h2>
-        <p>Pick a time. We&rsquo;ll look at what&rsquo;s worth running and where your budget should go.</p>
+        <h2>Stay stagnant, or grow.</h2>
+        <p>There&rsquo;s no excuse not to scale with the tools Ballast has. Not sure where you stand? Book 30 minutes and we&rsquo;ll show you.</p>
       </div>
     </div>
     <div class="cal" id="cal">
@@ -537,11 +546,19 @@
         <div class="slots" id="calSlots"></div>
         <div class="cal__pick" id="calPick">Pick a day.</div>
         <div class="cal__local" id="calLocal">&nbsp;</div>
-        <div class="cal__acts">
-          <a class="btn btn--lg" id="calGoogle" href="#" target="_blank" rel="noopener" aria-disabled="true">Add to Google Calendar</a>
-          <a class="btn btn--lg btn--ghost" id="calMail" href="mailto:jack@ballast.la?subject=Ballast%20%E2%80%94%20call">Email instead</a>
-        </div>
-        <p class="cal__note">The invite goes straight to Jack&rsquo;s calendar. Not on Google? Email <a href="mailto:jack@ballast.la">jack@ballast.la</a>.</p>
+        <form class="cal__form" id="calForm" name="booking" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="booking">
+          <input type="hidden" name="time" id="calTime">
+          <p hidden><label>Leave this empty <input name="bot-field"></label></p>
+          <input class="cal__in" name="name" id="calName" placeholder="Your name" autocomplete="name" required>
+          <input class="cal__in" name="email" id="calEmail" type="email" placeholder="Work email" autocomplete="email" required>
+          <input class="cal__in" name="company" id="calCo" placeholder="Company or website" autocomplete="organization">
+          <div class="cal__acts">
+            <button class="btn btn--lg" id="calBook" type="submit" disabled>Book the call</button>
+            <a class="btn btn--lg btn--ghost" id="calMail" href="mailto:jack@ballast.la?subject=Ballast%20%E2%80%94%20call">Email instead</a>
+          </div>
+        </form>
+        <p class="cal__note" id="calNote">Works with any email. Jack confirms with a calendar invite.</p>
       </div>
     </div>
   </section>
@@ -569,7 +586,7 @@
   var maxMonth=new Date(today.getFullYear(),today.getMonth()+3,1);
   var day=null, slot=null;
   var $=function(id){return document.getElementById(id)};
-  var days=$('calDays'),title=$('calTitle'),prev=$('calPrev'),next=$('calNext'),slots=$('calSlots'),pick=$('calPick'),local=$('calLocal'),g=$('calGoogle'),m=$('calMail');
+  var days=$('calDays'),title=$('calTitle'),prev=$('calPrev'),next=$('calNext'),slots=$('calSlots'),pick=$('calPick'),local=$('calLocal'),m=$('calMail');
   function pad(n){return (n<10?'0':'')+n}
   function key(d){return d.getFullYear()+pad(d.getMonth()+1)+pad(d.getDate())}
   function bookable(d){var w=d.getDay();return d>=today&&w!==0&&w!==6}
@@ -595,6 +612,7 @@
     slots.innerHTML='';
     SLOTS.forEach(function(s){
       var b=document.createElement('button');b.type='button';b.className='slot'+(s===slot?' is-on':'');
+      if(day&&key(day)===key(today)){var nowPT=new Intl.DateTimeFormat('en-US',{timeZone:TZ,hour:'2-digit',minute:'2-digit',hour12:false}).format(new Date()).split(':');if((+s.slice(0,2))*60+ +s.slice(3)<(+nowPT[0]%24)*60+ +nowPT[1]+120){b.disabled=true;if(s===slot)slot=null}}
       var h=+s.slice(0,2),mi=s.slice(3);b.textContent=((h+11)%12+1)+':'+mi+(h<12?' am':' pm');
       b.addEventListener('click',function(){slot=s;renderSlots();update()});
       slots.appendChild(b);
@@ -613,25 +631,51 @@
       return 'That is '+new Intl.DateTimeFormat('en-US',{hour:'numeric',minute:'2-digit',timeZoneName:'short'}).format(real)+' where you are.';
     }catch(e){return ''}
   }
+  var nameI=$('calName'),mailI=$('calEmail'),coI=$('calCo'),book=$('calBook'),form=$('calForm'),note=$('calNote'),timeI=$('calTime');
+  var pretty='',st='',en='';
+  function ready(){book.disabled=!(day&&slot&&nameI.value.trim()&&mailI.checkValidity()&&mailI.value.trim())}
   function update(){
-    if(!day){pick.textContent='Pick a day.';local.innerHTML='&nbsp;';g.setAttribute('aria-disabled','true');g.href='#';return}
+    if(!day){pick.textContent='Pick a day.';local.innerHTML='&nbsp;';ready();return}
     var label=DOWS[day.getDay()]+' '+day.getDate()+' '+MONTHS[day.getMonth()].slice(0,3);
-    if(!slot){pick.textContent=label+'. Pick a time.';local.innerHTML='&nbsp;';g.setAttribute('aria-disabled','true');g.href='#';return}
+    if(!slot){pick.textContent=label+'. Pick a time.';local.innerHTML='&nbsp;';ready();return}
     var h=+slot.slice(0,2),mi=slot.slice(3);
-    var pretty=label+', '+((h+11)%12+1)+':'+mi+(h<12?' am':' pm')+' PT';
+    pretty=label+', '+((h+11)%12+1)+':'+mi+(h<12?' am':' pm')+' PT';
     pick.textContent=pretty;
-    var dk=key(day),st=dk+'T'+slot.replace(':','')+'00';
-    var endMin=h*60+ +mi+DUR,en=dk+'T'+pad(Math.floor(endMin/60))+pad(endMin%60)+'00';
-    var text='Ballast call',details='Thirty minutes on your account. Booked from ballast.la.';
-    g.href='https://calendar.google.com/calendar/render?action=TEMPLATE'
-      +'&text='+encodeURIComponent(text)
-      +'&dates='+st+'/'+en+'&ctz='+encodeURIComponent(TZ)
-      +'&details='+encodeURIComponent(details)
-      +'&add='+encodeURIComponent(INVITE);
-    g.setAttribute('aria-disabled','false');
+    var dk=key(day);st=dk+'T'+slot.replace(':','')+'00';
+    var endMin=h*60+ +mi+DUR;en=dk+'T'+pad(Math.floor(endMin/60))+pad(endMin%60)+'00';
+    timeI.value=pretty;
     m.href='mailto:'+GUEST+'?subject='+encodeURIComponent('Ballast call — '+pretty)+'&body='+encodeURIComponent('Hi Jack,\n\nI would like to book a call: '+pretty+'.\n\n');
-    local.textContent=fmtLocal(dk,slot)||' ';
+    local.textContent=fmtLocal(dk,slot)||' ';
+    ready();
   }
+  [nameI,mailI].forEach(function(i){i.addEventListener('input',ready)});
+  function ics(who,co,mail){
+    var uid=st+'-'+Math.random().toString(36).slice(2)+'@ballast.la';
+    var lines=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Ballast//Booking//EN','METHOD:PUBLISH','BEGIN:VEVENT','UID:'+uid,
+      'DTSTART;TZID='+TZ+':'+st,'DTEND;TZID='+TZ+':'+en,'SUMMARY:Jack @ Ballast + '+who,
+      'DESCRIPTION:30 minutes with Jack at Ballast. Booked from ballast.la.','ORGANIZER;CN=Jack @ Ballast:mailto:'+INVITE,
+      'ATTENDEE;CN='+who+':mailto:'+mail,'END:VEVENT','END:VCALENDAR'];
+    return 'data:text/calendar;charset=utf-8,'+encodeURIComponent(lines.join('\r\n'));
+  }
+  form.addEventListener('submit',function(e){
+    e.preventDefault();if(book.disabled)return;
+    var who=nameI.value.trim(),co=coI.value.trim(),mail=mailI.value.trim();
+    book.disabled=true;book.textContent='Booking…';
+    var data={name:who,email:mail,company:co,time:pretty,_subject:'Jack @ Ballast + '+who+' — '+pretty,_replyto:mail,_template:'table',_captcha:'false'};
+    var sent=fetch('https://formsubmit.co/ajax/'+INVITE,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)}).then(function(r){return r.json()}).then(function(j){return j&&(j.success===true||j.success==='true')}).catch(function(){return false});
+    fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(form)).toString()}).catch(function(){});
+    var gUrl='https://calendar.google.com/calendar/render?action=TEMPLATE'
+      +'&text='+encodeURIComponent('Jack @ Ballast + '+who)
+      +'&dates='+st+'/'+en+'&ctz='+encodeURIComponent(TZ)
+      +'&details='+encodeURIComponent('30 minutes with Jack at Ballast. Booked from ballast.la.\n\n'+who+(co?' · '+co:'')+' · '+mail)
+      +'&add='+encodeURIComponent(INVITE);
+    sent.then(function(ok){
+      if(!ok){book.disabled=false;book.textContent='Book the call';note.innerHTML='That didn&rsquo;t go through. Email <a href="mailto:jack@ballast.la?subject='+encodeURIComponent('Ballast call — '+pretty)+'">jack@ballast.la</a> and we&rsquo;ll lock it in.';return}
+      form.innerHTML='<p class="cal__done">You&rsquo;re booked: '+pretty+'.<br>Jack will send the invite to '+mail.replace(/</g,'&lt;')+'.</p>'
+        +'<div class="cal__adds"><a class="btn btn--ghost" target="_blank" rel="noopener" href="'+gUrl+'">Add to Google Calendar</a><a class="btn btn--ghost" download="ballast-call.ics" href="'+ics(who,co,mail)+'">Add to Apple or Outlook</a></div>';
+      note.innerHTML='Questions before then? <a href="mailto:jack@ballast.la">jack@ballast.la</a>';
+    });
+  });
   prev.addEventListener('click',function(){view=new Date(view.getFullYear(),view.getMonth()-1,1);renderMonth()});
   next.addEventListener('click',function(){view=new Date(view.getFullYear(),view.getMonth()+1,1);renderMonth()});
   renderMonth();renderSlots();update();

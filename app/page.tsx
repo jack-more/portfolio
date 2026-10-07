@@ -9,18 +9,18 @@ import MusicCard from "./components/MusicCard";
 const work = [
   {
     company: "Ballast Research",
-    desc: "Founder. Research, development and media distribution",
+    desc: "Founder. Growth, paid media and research for brands ready to scale",
     href: "https://ballast.la/",
     details: [
       "Founded Ballast Research LLC in Los Angeles, 2026",
       "Research first, so the budget goes on evidence, then distribution that is bought and built: paid media that reaches people now, owned channels that keep them",
-      "Two-week sprint: intent map, account structure, incentive design, server-side events, attribution and weekly reporting",
+      "Engagements from $3.5K to $100K: audits, sprints, fractional leadership and full media runs",
       "Built a loyalty economy for a DTC brand, and ticketing, live-event rewards and fan participation vouchers for SailGP",
     ],
   },
   {
     company: "SKO Compounds",
-    desc: "Paid media and growth for a DTC research-peptide brand",
+    desc: "Head of Paid Media and Digital Growth: $1.2M+ a month in sales",
     href: "https://skocompounds.com/",
     details: [
       "Ran TikTok paid, lifecycle, and attribution for a Beverly Hills DTC brand past 40,000 orders shipped",
@@ -97,6 +97,7 @@ const work = [
 ];
 
 const online = [
+  { label: "Book a call", action: "Pick a time", href: "https://ballast.la/#book" },
   { label: "Ballast", action: "Visit", href: "https://ballast.la" },
   { label: "LinkedIn", action: "Connect", href: "https://www.linkedin.com/in/jackmorello" },
   { label: "Email", action: "Send", href: "mailto:jack@ballast.la" },
@@ -172,12 +173,16 @@ export default function HomePage() {
             <p>
               I&apos;m Jack. I run{" "}
               <a href="https://ballast.la" target="_blank" rel="noopener noreferrer">Ballast Research</a>,
-              a research, development and media distribution studio: we find
-              out what is worth running, then build the distribution to run
-              it. Before that, eight years in growth and paid media: agency-side
-              at iHeartMedia and Laundry Service, in-house building marketing
-              from zero at three venture-backed startups, and most recently
-              growth at SKO Compounds, a DTC brand in Beverly Hills.
+              and I&apos;ve been going hard. Since June: $1.2M+ a month in sales
+              for a health DTC brand, $100K a month in ads turned into $450K,
+              30+ UGC creators running at once, and TikTok LIVE selling at $10K
+              a day. Before that, eight years of paid media, promo and social
+              for Toyota, Starbucks, STARZPLAY, Netflix, Disney, Peacock, LG and
+              Twitter, plus three venture-backed startups built from zero.
+            </p>
+            <p style={{ marginTop: "0.75rem" }}>
+              If you&apos;re not growing, you&apos;re choosing not to.{" "}
+              <a href="https://ballast.la/#book" target="_blank" rel="noopener noreferrer">Book a call</a>.
             </p>
             <p style={{ marginTop: "0.75rem" }}>Based in Los Angeles.</p>
           </DraggableCard>
