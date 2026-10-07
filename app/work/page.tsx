@@ -16,19 +16,18 @@ const ad = (file: string, label = SKO): Tile => ({ kind: "ad", file, label });
 const still = (file: string, label = SKO): Tile => ({ kind: "still", file, label });
 const yt = (id: string, label: string, title: string, thumb: string, wide = false): Tile => ({ kind: "yt", id, label, title, thumb, wide });
 
-// Pairs are two wide tiles stacked in one 2×2 cell so the grid ends square.
-const wall: (Tile | Tile[])[] = [
+// Every tile is 9:16; wide spots crop to the tile and play at full size when tapped.
+const wall: Tile[] = [
   yt("JSpUNWjQk6c", "STARZPLAY", "the Raising Kanan promo", "oar2"),
   ad("sko-founder-1"), ad("ugc-hanna-1", UGC),
-  [yt("jtJ_DbPYnrU", "Starbucks", "the Starbucks holiday 2021 spot", "mqdefault", true),
-   yt("y3ZCJLz1m-s", "Starbucks", "the Starbucks Together Again spot", "mqdefault", true)],
+  yt("jtJ_DbPYnrU", "Starbucks", "the Starbucks holiday 2021 spot", "mqdefault", true),
+  yt("y3ZCJLz1m-s", "Starbucks", "the Starbucks Together Again spot", "mqdefault", true),
   still("epeps-corona", "ePeps"), ad("sko-ai-spot"),
   yt("HsZkjGvj8e8", "STARZPLAY", "the BMF promo", "oar2"),
   ad("ugc-dennis-1", UGC), still("sko-alpine"), ad("sko-frutiger-1"),
   ad("sko-founder-2"), ad("ugc-ethan-1", UGC), ad("sko-dna"),
-  [yt("-yjEoZtTExw", "STARZPLAY", "the Heels trailer", "maxresdefault", true),
-   still("meridian-banner", "Meridian")],
-  ad("ugc-hanna-2", UGC), still("sko-drip"), ad("sko-tennis"),
+  yt("-yjEoZtTExw", "STARZPLAY", "the Heels trailer", "maxresdefault", true),
+  ad("ugc-hanna-2", UGC), still("sko-drip"), yt("LzvrQ0vAF0w", "STARZPLAY", "the Raising Kanan promo", "oar2"), ad("sko-tennis"),
   ad("sko-frutiger-2"), ad("ugc-dennis-2", UGC), ad("sko-bubbles"), still("sko-vending"),
   ad("sko-laborday-1"), ad("sko-orders"), ad("sko-truck"), still("sko-molecule"),
   ad("sko-box2"), ad("sko-frutiger-3"), ad("sko-freevial"),
@@ -83,16 +82,12 @@ export default function WorkPage() {
         <span className="artwork-title">Work</span>
       </nav>
       <p className="wall-intro">
-        Ads and creative I&apos;ve run for SKO Compounds, ePeps, Meridian, STARZPLAY and Starbucks.
+        Ads and creative I&apos;ve run for SKO Compounds, ePeps, STARZPLAY and Starbucks.
         More at <a href="https://ballast.la" target="_blank" rel="noopener noreferrer">ballast.la</a>.
       </p>
 
       <div className="wall">
-        {wall.map((t, i) =>
-          Array.isArray(t)
-            ? <div key={i} className="wall-pair">{t.map((u, j) => <TileView key={j} t={u} onPlay={play} />)}</div>
-            : <TileView key={i} t={t} onPlay={play} />
-        )}
+        {wall.map((t, i) => <TileView key={i} t={t} onPlay={play} />)}
       </div>
       <p className="wall-cap">STARZPLAY and Starbucks spots are the brands&apos; own creative; I ran the media. Tap to play.</p>
 

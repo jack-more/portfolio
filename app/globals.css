@@ -772,8 +772,6 @@ a:hover {
   gap: var(--g);
 }
 .wall-tile { grid-row: span 2; margin: 0; position: relative; border-radius: 6px; overflow: hidden; background: #0a0d18; min-height: 0; }
-.wall-pair { grid-row: span 2; grid-column: span 2; display: grid; grid-template-rows: 1fr 1fr; gap: var(--g); min-height: 0; }
-.wall-pair > .wall-tile { grid-row: auto; }
 .wall-tile > img, .wall-tile video, .wall-tile button, .wall-tile button img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .wall-tile button { all: unset; display: block; position: relative; width: 100%; height: 100%; cursor: pointer; }
 .wall-tile button img { transition: transform .5s ease; }
