@@ -20,7 +20,7 @@ const work = [
   },
   {
     company: "SKO Compounds",
-    desc: "Head of Paid Media and Digital Growth: $1.2M+ a month in sales",
+    desc: "Head of Performance Marketing: $1.2M+ a month in sales",
     href: "https://skocompounds.com/",
     details: [
       "Ran TikTok paid, lifecycle, and attribution for a Beverly Hills DTC brand past 40,000 orders shipped",
