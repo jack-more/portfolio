@@ -173,7 +173,7 @@ export default function HomePage() {
             <p>
               I&apos;m Jack. I run{" "}
               <a href="https://ballast.la" target="_blank" rel="noopener noreferrer">Ballast Research</a>,
-              and I&apos;ve been going hard. Since June: $1.2M+ a month in sales
+              a growth and paid media firm in Los Angeles. Since June: $1.2M+ a month in sales
               for a health DTC brand, $100K a month in ads turned into $450K,
               30+ UGC creators running at once, and TikTok LIVE selling at $10K
               a day. Before that, eight years of paid media, promo and social
