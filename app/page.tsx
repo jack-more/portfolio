@@ -24,6 +24,7 @@ const work = [
     href: "https://skocompounds.com/",
     details: [
       "Ran TikTok paid, lifecycle, and attribution for a Beverly Hills DTC brand past 40,000 orders shipped",
+      "Set up TikTok LIVE selling, now bringing in $10K in sales a day",
       "Scaled daily spend 5x in one week while holding ~3.5x blended ROAS and sub-$60 CPA",
       "Built the measurement stack: pixel + server-side events with verified dedupe, RedTrack spend sync, first-party click attribution, and an admin reporting layer",
       "Ran the creative pipeline end to end: UGC direction, AI-generated brand personas and cinematic spots, motion-graphics overlays, caption and title systems",
