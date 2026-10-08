@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Baron Davis · the vault</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0A0D18;--ink2:#121726;--line:#232a3d;--paper:#F9FAFE;--soft:#8C93AB;--cobalt:#0B5CF6;--hit:#F4C2DC;
+  --serif:"Instrument Serif",Georgia,serif;--sans:"Geist","Helvetica Neue",Arial,sans-serif;--mono:"Geist Mono",ui-monospace,Menlo,monospace}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--ink);color:var(--paper);font-family:var(--sans)}
+a{color:inherit}
+.wrap{max-width:1400px;margin:0 auto;padding:0 32px}
+.top{display:flex;justify-content:space-between;align-items:center;padding:22px 0;font-size:14px}
+.top b{font-weight:600}
+.top nav{display:flex;gap:24px;color:var(--soft)}
+.top nav a{text-decoration:none}.top nav a:hover{color:var(--paper)}
+header.intro{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end;padding:40px 0 18px}
+h1{font-size:34px;font-weight:600;letter-spacing:-.6px;margin:0 0 8px}
+.intro p{margin:0;color:var(--soft);font-size:16.5px;max-width:64ch;line-height:1.5}
+.count{text-align:right;font-family:var(--serif);font-size:64px;line-height:.9}
+.count small{display:block;font-family:var(--sans);font-size:13.5px;color:var(--soft);margin-top:6px}
+.search{display:flex;gap:10px;align-items:center;margin:18px 0 10px}
+.search input{flex:1;background:var(--ink2);border:1px solid var(--line);border-radius:999px;color:var(--paper);font:inherit;font-size:16px;padding:12px 20px;outline:none}
+.search input:focus{border-color:var(--cobalt)}
+.search button{background:var(--cobalt);color:#fff;border:0;border-radius:999px;font:inherit;font-weight:500;padding:12px 22px;cursor:pointer}
+.status{font-family:var(--mono);font-size:12.5px;color:var(--soft);min-height:18px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 6px}
+.chip{background:none;border:1px solid var(--line);color:var(--paper);border-radius:999px;font:inherit;font-size:13.5px;padding:6px 13px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--hit);color:var(--ink);border-color:var(--hit)}
+.stage{position:relative;perspective:1500px;perspective-origin:50% 0;overflow:hidden;margin:6px -32px 0;height:var(--h,560px)}
+.wall{position:absolute;left:50%;top:12px;display:flex;gap:7px;align-items:flex-start;transform-origin:50% 0;width:max-content}
+.col{display:flex;flex-direction:column;gap:2px}
+.cell{width:24px;height:13.5px;background-repeat:no-repeat;border-radius:1.5px;opacity:.5;filter:grayscale(.6);transition:opacity .25s,filter .25s,box-shadow .25s}
+.wall:hover .cell{opacity:.42}
+.cell:hover{opacity:1!important;filter:none;outline:1px solid var(--paper)}
+.searching .cell{opacity:.12;filter:grayscale(1)}
+.searching .cell.hit{opacity:calc(.45 + .55 * var(--a,1));filter:none;box-shadow:0 0 0 1.5px var(--hit),0 0 12px rgba(244,194,220,calc(.7 * var(--a,1)))}
+.peek{position:fixed;pointer-events:none;z-index:5;width:288px;background:var(--ink2);border:1px solid var(--line);border-radius:10px;overflow:hidden;opacity:0;transform:translateY(4px);transition:opacity .12s,transform .12s}
+.peek.on{opacity:1;transform:none}
+.peek .fr{width:288px;height:162px;background-repeat:no-repeat}
+.peek .m{padding:9px 12px 11px;font-size:13.5px;line-height:1.35}
+.peek .m span{display:block;font-family:var(--mono);font-size:12px;color:var(--hit);margin-top:3px}
+h2{font-size:20px;font-weight:600;margin:26px 0 4px}
+.sub{color:var(--soft);margin:0 0 14px;font-size:14.5px}
+.results{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px 16px;padding-bottom:40px}
+.res{text-decoration:none;display:block}
+.res .fr{width:100%;aspect-ratio:16/9;border-radius:9px;background-repeat:no-repeat;border:1px solid var(--line)}
+.res:hover .fr{border-color:var(--hit)}
+.res .t{font-size:14px;font-weight:500;margin-top:8px;line-height:1.3}
+.res .w{font-family:var(--mono);font-size:12px;color:var(--soft);margin-top:3px}
+.lib{columns:3 300px;column-gap:28px;padding-bottom:30px;font-size:14px;line-height:1.45}
+.lib a{display:block;break-inside:avoid;text-decoration:none;padding:6px 0;border-top:1px solid var(--line)}
+.lib a span{color:var(--soft);font-family:var(--mono);font-size:12px}
+footer{border-top:1px solid var(--line);padding:20px 0 40px;font-size:13px;color:var(--soft);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+@media (max-width:760px){.wrap{padding:0 16px}header.intro{grid-template-columns:1fr}.count{text-align:left;font-size:48px}.stage{margin:6px -16px 0}.top nav{gap:14px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><span><b>HOTG</b> · Baron Davis</span><nav><a href="../">The archive</a><a href="../../">R+D deck</a><a href="https://ballast.la/">Ballast</a></nav></div>
+  <header class="intro">
+    <div>
+      <h1>The vault</h1>
+      <p>Every Baron clip we could pull from open hosts, cut into frames. Each column is one clip, top to bottom through time. Search for a moment in plain words and the frames that match light up. Click one to open the clip at that second.</p>
+    </div>
+    <div class="count"><span id="nclips">–</span> clips<small id="nframes">loading</small></div>
+  </header>
+  <form class="search" id="f"><input id="q" placeholder="Search a moment: dunk on a big man, roller skates, crowd going crazy…" autocomplete="off"><button>Search</button></form>
+  <div class="status" id="status"></div>
+  <div class="chips" id="chips"></div>
+</div>
+<div class="stage" id="stage"><div class="wall" id="wall"></div></div>
+<div class="wrap">
+  <h2 id="rh">Pick a moment above</h2>
+  <p class="sub" id="rs">The closest frames show here, best first, one per moment.</p>
+  <div class="results" id="results"></div>
+  <h2>What's in it</h2>
+  <p class="sub">Where each clip came from. None of these sit on his own accounts.</p>
+  <div class="lib" id="lib"></div>
+  <footer><span>Frames embedded with CLIP (ViT-B/32). Searches run in your browser.</span><span>Clips stay on their hosts; the vault only indexes them.</span></footer>
+</div>
+<div class="peek" id="peek"><div class="fr"></div><div class="m"></div></div>
+<script>
+const $ = id => document.getElementById(id);
+const fmtT = s => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, "0")}`;
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+let IX, EMB, OWNER = [], CELLS = [], model = null, active = null;
+const CW = 24, CH = 13.5, MAXC = 40;
+
+function spriteStyle(c, i, w, h, tag){
+  const cols = IX.cols, rows = Math.ceil(c.n / cols), x = i % cols, y = Math.floor(i / cols);
+  return `background-image:url(strips/${c.key}_${tag}.jpg);background-size:${Math.min(c.n, cols) * w}px ${rows * h}px;background-position:${-x * w}px ${-y * h}px`;
+}
+function linkAt(c, t){ return c.url.includes("dailymotion") ? `${c.url}?start=${Math.floor(t)}` : c.url; }
+
+async function boot(){
+  IX = await (await fetch("index.json")).json();
+  EMB = new Int8Array(await (await fetch("emb.i8")).arrayBuffer());
+  const total = IX.clips.reduce((n, c) => n + c.n, 0);
+  $("nclips").textContent = IX.clips.length; $("nframes").textContent = `${total.toLocaleString()} frames indexed`;
+  IX.clips.forEach((c, ci) => { for (let i = 0; i < c.n; i++) OWNER.push([ci, i]); });
+  const wall = $("wall");
+  IX.clips.forEach((c, ci) => {
+    const col = document.createElement("div"); col.className = "col"; const k = Math.min(c.n, MAXC);
+    for (let j = 0; j < k; j++){
+      const a = Math.floor(j * c.n / k), b = Math.max(a + 1, Math.floor((j + 1) * c.n / k));
+      const el = document.createElement("div"); el.className = "cell";
+      el.style.cssText = spriteStyle(c, a, CW, CH, "s"); el.dataset.c = ci; el.dataset.a = a; el.dataset.b = b;
+      col.appendChild(el); CELLS.push(el);
+      for (let i = a; i < b; i++) c.cell = c.cell || [], c.cell[i] = el;
+    }
+    wall.appendChild(col);
+  });
+  fit(); addEventListener("resize", fit);
+  $("chips").innerHTML = Object.keys(IX.presets).map(q => `<button class="chip" type="button" data-q="${esc(q)}">${esc(q)}</button>`).join("");
+  $("lib").innerHTML = IX.clips.slice().sort((a, b) => a.title.localeCompare(b.title)).map(c => `<a href="${c.url}" target="_blank" rel="noopener">${esc(c.title)} <span>${c.source} · ${fmtT(c.dur)}</span></a>`).join("");
+}
+function fit(){
+  const wall = $("wall"); wall.style.transform = "translateX(-50%)";
+  const W = wall.scrollWidth, H = wall.scrollHeight, avail = innerWidth - 24;
+  const tilt = innerWidth < 760 ? 0 : 34, s = Math.min(1.1, avail * (tilt ? .74 : 1) / W);
+  wall.style.transform = `translateX(-50%) scale(${s}) rotateX(${tilt}deg)`;
+  const r = wall.getBoundingClientRect(), st = $("stage").getBoundingClientRect();
+  $("stage").style.setProperty("--h", `${Math.ceil(r.bottom - st.top) + 24}px`);
+}
+function show(label, hits){
+  // hits: [[frameIdx, score]] sorted best first
+  $("wall").classList.add("searching"); CELLS.forEach(el => { el.classList.remove("hit"); el.style.removeProperty("--a"); });
+  const top = hits[0][1], low = hits[Math.min(hits.length - 1, 59)][1];
+  hits.slice(0, 60).forEach(([f, s]) => { const [ci, i] = OWNER[f]; const el = IX.clips[ci].cell[i]; const a = Math.max(.15, (s - low) / Math.max(1e-6, top - low));
+    if (!el.classList.contains("hit") || +el.style.getPropertyValue("--a") < a){ el.classList.add("hit"); el.style.setProperty("--a", a.toFixed(2)); } });
+  const out = [], seen = [];
+  for (const [f, s] of hits){
+    const [ci, i] = OWNER[f], c = IX.clips[ci], t = c.t[i];
+    if (seen.some(([cj, tj]) => cj === ci && Math.abs(tj - t) < 6)) continue;
+    seen.push([ci, t]); out.push([c, i, t]); if (out.length >= 24) break;
+  }
+  $("rh").textContent = `“${label}”`; $("rs").textContent = `${out.length} closest moments across ${new Set(out.map(o => o[0].key)).size} clips.`;
+  $("results").innerHTML = out.map(([c, i, t]) => `<a class="res" href="${linkAt(c, t)}" target="_blank" rel="noopener"><div class="fr" style="${spriteStyle(c, i, 220, 123.75, "m")}"></div><div class="t">${esc(c.title)}</div><div class="w">at ${fmtT(t)} · ${c.source}</div></a>`).join("");
+  requestAnimationFrame(() => document.querySelectorAll(".res .fr").forEach(el => { const w = el.clientWidth; const [c, i] = out[[...el.parentNode.parentNode.children].indexOf(el.parentNode)]; el.style.cssText = spriteStyle(c, i, w, w * 9 / 16, "m"); }));
+}
+function scoreText(v){
+  const d = IX.dim, n = EMB.length / d, sc = new Float32Array(n);
+  for (let f = 0; f < n; f++){ let s = 0; const o = f * d; for (let j = 0; j < d; j++) s += EMB[o + j] * v[j]; sc[f] = s * IX.scale; }
+  return Array.from(sc, (s, f) => [f, s]).sort((a, b) => b[1] - a[1]).slice(0, 400);
+}
+async function run(q){
+  q = q.trim(); if (!q) return; active = q;
+  document.querySelectorAll(".chip").forEach(b => b.setAttribute("aria-pressed", b.dataset.q === q));
+  if (IX.presets[q]){ show(q, IX.presets[q]); $("status").textContent = ""; return; }
+  try {
+    if (!model){
+      $("status").textContent = "Loading the search model (about 65 MB, once)…";
+      const T = await import("https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.7.2/dist/transformers.min.js");
+      const tok = await T.AutoTokenizer.from_pretrained(IX.model);
+      const m = await T.CLIPTextModelWithProjection.from_pretrained(IX.model, {dtype: "q8"});
+      model = async s => { const out = await m(tok([s], {padding: true, truncation: true})); const v = out.text_embeds.data; let n = 0; for (const x of v) n += x * x; n = Math.sqrt(n); return Array.from(v, x => x / n); };
+    }
+    $("status").textContent = "Searching…";
+    const v = await model(q); if (active !== q) return;
+    show(q, scoreText(v)); $("status").textContent = "";
+  } catch (e){ $("status").textContent = "The search model didn't load here. Try one of the preset moments."; console.error(e); }
+}
+$("f").addEventListener("submit", e => { e.preventDefault(); run($("q").value); });
+$("chips").addEventListener("click", e => { const b = e.target.closest(".chip"); if (b){ $("q").value = b.dataset.q; run(b.dataset.q); } });
+const peek = $("peek");
+$("wall").addEventListener("mousemove", e => {
+  const el = e.target.closest(".cell"); if (!el){ peek.classList.remove("on"); return; }
+  const c = IX.clips[+el.dataset.c], i = +el.dataset.a;
+  peek.querySelector(".fr").style.cssText = spriteStyle(c, i, 288, 162, "m");
+  peek.querySelector(".m").innerHTML = `${esc(c.title)}<span>${fmtT(c.t[i])} · ${c.source}</span>`;
+  const x = Math.min(innerWidth - 300, e.clientX + 16), y = Math.min(innerHeight - 230, e.clientY + 16);
+  peek.style.left = x + "px"; peek.style.top = y + "px"; peek.classList.add("on");
+});
+$("wall").addEventListener("mouseleave", () => peek.classList.remove("on"));
+$("wall").addEventListener("click", e => { const el = e.target.closest(".cell"); if (!el) return; const c = IX.clips[+el.dataset.c]; open(linkAt(c, c.t[+el.dataset.a]), "_blank", "noopener"); });
+boot();
+</script>
+</body>
+</html>

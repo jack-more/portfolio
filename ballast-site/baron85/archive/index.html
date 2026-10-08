@@ -93,13 +93,13 @@ footer{border-top:1px solid var(--rule);padding:22px 0 40px;font-size:13.5px;col
 </head>
 <body>
 <div class="wrap">
-  <div class="top"><span><b>HOTG</b> · Baron Davis</span><nav><a href="/baron85/">R+D deck</a><a href="gem/">The gem</a><a href="https://x.com/HistoryOTG" target="_blank" rel="noopener">HOTG on X</a><a href="https://ballast.la/">Ballast</a></nav></div>
+  <div class="top"><span><b>HOTG</b> · Baron Davis</span><nav><a href="vault/">The vault</a><a href="/baron85/">R+D deck</a><a href="gem/">The gem</a><a href="https://x.com/HistoryOTG" target="_blank" rel="noopener">HOTG on X</a><a href="https://ballast.la/">Ballast</a></nav></div>
 
   <header class="intro">
     <div>
       <h1>Baron Davis, the archive</h1>
       <p>What a general web scrape turned up: each piece of his media, where it sits today, and whether it points back to him. Then the accounts that could carry it.</p>
-      <p class="next">This is the surface. A real dig goes into what never made it online or has since disappeared: local TV broadcasts from Charlotte and Los Angeles, Crossroads and UCLA tape, deleted uploads caught by web archives, old commercials, and the assets inside the games.</p>
+      <p class="next"><a href="vault/" style="color:var(--cobalt)">Search the vault →</a> 44 clips pulled from Dailymotion and the Internet Archive, cut into 5,463 frames you can search in plain words. This is the surface. A real dig goes into what never made it online or has since disappeared: local TV broadcasts from Charlotte and Los Angeles, Crossroads and UCLA tape, deleted uploads caught by web archives, old commercials, and the assets inside the games.</p>
     </div>
     <div class="gap"><b id="gapnum"></b><small id="gapline"></small></div>
   </header>
@@ -129,7 +129,7 @@ const FACES = [
           ["The long shot · EverythingBall · 1.06M","https://www.youtube.com/watch?v=zWUEnbPsVfo"],
           ["Drew League handles · HoopmixtapeBlog · 933K","https://www.youtube.com/@HoopmixtapeBlog"],
           ["Top 10 career plays · NBA · 890K","https://www.youtube.com/watch?v=k9NUCr38ykE"],
-          ["Dunk on Shaq · D1PHAM · 751K","https://www.youtube.com/watch?v=rMnh9u6QzfY"],
+          ["Dunk on Jermaine O'Neal, 2/27/04 · D1PHAM · 751K","https://www.youtube.com/watch?v=rMnh9u6QzfY"],
           ["And-one over Pau Gasol · DaPerfectionist · 583K","https://www.youtube.com/watch?v=6l85W651WVI"],
           ["Ultimate Hornets mixtape · NBA · 445K","https://www.youtube.com/watch?v=mcvWx93Q9VE"]]},
   {id:"interviews", label:"shows", color:"#F4C2DC", tier:"Tier 1 · his own words. His biggest videos of the last five years are long-form shows.",
@@ -177,7 +177,9 @@ const FACES = [
           ["Galaxy Opal card, NBA 2K27 · JC2K · 1.9K, Sept 2026","https://www.youtube.com/watch?v=qwyrIzdi1_I"],
           ["On the We Believe Warriors · NBA 2KTV · 31K","https://www.youtube.com/watch?v=HKpG6ZhvaO8"],
           ["Getting Buckets (2012), his own game · 5 Balloons Interactive",""]]},
-  {id:"memorabilia", label:"vault", color:"#9FE0BE", tier:"Vault · auctions and unlocks; Minutes cover 10–20% of a bid",
+  {id:"found", label:"found on open hosts", color:"#E2C79E", tier:"Re-uploads on Dailymotion and the Internet Archive. Every one is searchable frame by frame in the vault.",
+   items:[["One Shot, Reebok short film, Baron as Sam · Dailymotion", "https://www.dailymotion.com/video/x4lkfa"], ["Step Brothers, with Steve Nash · Dailymotion", "https://www.dailymotion.com/video/x6cdds"], ["On set, Entourage · Dailymotion", "https://www.dailymotion.com/video/x7xejei"], ["Shake and bake over Grant Hill · Dailymotion", "https://www.dailymotion.com/video/x4dfeu"], ["Pickpocket: steal and go · Dailymotion", "https://www.dailymotion.com/video/x46z78"], ["Game-winner vs Boston · Dailymotion", "https://www.dailymotion.com/video/x4g7uj"], ["Dunk on Jermaine O'Neal, 2/27/04 · Dailymotion", "https://www.dailymotion.com/video/x34kwv"], ["Over Kirilenko, NBA TV cut · Dailymotion", "https://www.dailymotion.com/video/x3n0s7"], ["Over Kirilenko, long cut · Dailymotion", "https://www.dailymotion.com/video/x34kw6"], ["Kirilenko night, fan's TV recording · Dailymotion", "https://www.dailymotion.com/video/x1ygkx"], ["Drive and finish vs the Lakers · Dailymotion", "https://www.dailymotion.com/video/x4u2qa"], ["Alley-oop for J-Rich, Hawaii preseason · Dailymotion", "https://www.dailymotion.com/video/x4ghy1"], ["UCLA highlights · Dailymotion", "https://www.dailymotion.com/video/x3i5zk"], ["Hornets to Rucker Park mix · Dailymotion · 1.5K", "https://www.dailymotion.com/video/x55grz"], ["Baron Davis mix · Dailymotion", "https://www.dailymotion.com/video/x1yz1w"], ["Hardwood Classics Flashbacks · Dailymotion", "https://www.dailymotion.com/video/x4co48"], ["NBA Access · Dailymotion · 1.4K", "https://www.dailymotion.com/video/x4xcp4"], ["NBA Life · Dailymotion", "https://www.dailymotion.com/video/x5fgvb"], ["Inside the NBA: his comeback · Dailymotion", "https://www.dailymotion.com/video/x1drxah"], ["The Dark Side, with Stephen Jackson · Dailymotion", "https://www.dailymotion.com/video/x52iy0"], ["With Paul Pierce on Oracle's home court · Dailymotion", "https://www.dailymotion.com/video/x6jjnog"], ["Teaches basketball slang · Dailymotion", "https://www.dailymotion.com/video/x6ku2ob"], ["From UCLA to the NBA, long interview · Dailymotion", "https://www.dailymotion.com/video/x8ub1e6"], ["Goes at Nick Young, Drew League · Dailymotion", "https://www.dailymotion.com/video/x64cjwu"], ["Nick Young dances, Baron answers · Dailymotion", "https://www.dailymotion.com/video/x652v31"], ["vs Nick Young and Julius Randle, The Drew · Dailymotion", "https://www.dailymotion.com/video/x616hjz"], ["vs Marvin Bagley, The Drew · Dailymotion", "https://www.dailymotion.com/video/x60v0g1"], ["Takes a charge from Bagley · Dailymotion", "https://www.dailymotion.com/video/x60v05e"], ["Dishes through traffic, The Drew · Dailymotion", "https://www.dailymotion.com/video/x2xasoj"], ["With Keith Closs at The Drew · Dailymotion", "https://www.dailymotion.com/video/x5slj5i"], ["Shark Tank yes man · Dailymotion", "https://www.dailymotion.com/video/x73ah6u"], ["On WTF Baron Davis · Dailymotion", "https://www.dailymotion.com/video/x7eo3yl"], ["Baron the mediator · Dailymotion", "https://www.dailymotion.com/video/x7eo3st"], ["Why he hesitated on DWTS · Dailymotion", "https://www.dailymotion.com/video/x9pxm0g"], ["Daytime Emmys red carpet · Dailymotion", "https://www.dailymotion.com/video/x8bsyba"], ["On Zion · Dailymotion", "https://www.dailymotion.com/video/x7mlhle"], ["1-on-1 with Britt Johnson · Dailymotion", "https://www.dailymotion.com/video/x6aycgm"], ["First person who got me to text · Dailymotion", "https://www.dailymotion.com/video/x23me1r"], ["Uncle Drew appearance · Dailymotion", "https://www.dailymotion.com/video/x3djr7i"], ["Charity Game Mix · Ballislife via Internet Archive", "https://archive.org/details/bliptv-20131031-054229-Ballislife-BaronDavisCharityGameMixDeMarDeRozanJamesHardenDorellW185"], ["Test Drive, Lexus, All-Star edition · Blacktree TV via Internet Archive", "https://archive.org/details/bliptv-20131014-215513-Blacktreetv-TESTDRIVELexusCT200hHybridVehicleWBaronDavisNBAAllSt234"]]},
+  {id:"memorabilia", label:"memorabilia", color:"#9FE0BE", tier:"Vault · auctions and unlocks; Minutes cover 10–20% of a bid",
    items:[["Signed items",""],["Locked vault moments",""]]},
 ];
 
@@ -222,6 +224,8 @@ const SEGMENTS = [
 const CONNECTED = /instagram\.com\/iambarondavis|x\.com\/BaronDavis|teambig\.io|bigsummits_|gilsarena0/i;
 const viewsOf = t => { const m = String(t).match(/([\d.]+)\s*([MK])\b/); return m ? parseFloat(m[1]) * (m[2] === "M" ? 1e6 : 1e3) : 0; };
 const ytId = u => (String(u).match(/youtube\.com\/watch\?v=([\w-]{11})/) || [])[1];
+const dmId = u => (String(u).match(/dailymotion\.com\/video\/(\w+)/) || [])[1];
+const iaId = u => (String(u).match(/archive\.org\/details\/([^/?#]+)/) || [])[1];
 const BOX = {"https://en.wikipedia.org/wiki/NBA_Street_V3":"t/nba-street-v3-cover.png"};
 const esc = t => String(t).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const fmt = n => n >= 1e6 ? (n / 1e6).toFixed(n >= 1e7 ? 0 : 2).replace(/\.0+$|(\.\d*?)0+$/, "$1") + "M" : n >= 1e3 ? Math.round(n / 1e3) + "K" : n > 0 ? String(Math.round(n)) : "";
@@ -243,7 +247,7 @@ const $ = id => document.getElementById(id);
 let tab = "pieces", filter = "all", sort = "views", usort = "per";
 
 function pieceCard(p){
-  const id = ytId(p.u), img = id ? `https://i.ytimg.com/vi/${id}/hqdefault.jpg` : BOX[p.u];
+  const id = ytId(p.u), dm = dmId(p.u), ia = iaId(p.u), img = id ? `https://i.ytimg.com/vi/${id}/hqdefault.jpg` : dm ? `https://www.dailymotion.com/thumbnail/video/${dm}` : ia ? `https://archive.org/services/img/${ia}` : BOX[p.u];
   const media = img
     ? `<img ${BOX[p.u] ? 'class="box"' : ""} src="${img}" alt="" loading="lazy">${p.v ? `<span class="views">${fmt(p.v)} views</span>` : ""}`
     : `<div class="txt" style="background:linear-gradient(180deg,#fff, ${p.f.color}22)"><b>${esc(p.title)}</b>${p.v ? `<span class="w">${fmt(p.v)} ${p.f.id === "personal" ? "followers" : "views"}</span>` : ""}</div>`;
