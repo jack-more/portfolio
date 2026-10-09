@@ -4,102 +4,122 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>Baron Davis Archive</title>
+<title>Baron Davis · History of the Game</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Graduate&family=Courier+Prime:wght@400;700&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="t/hotg-favicon.png">
 <style>
-/* Layout after prompt-motion.com: white page, plain title and one line, filter chips, a masonry grid of real media tiles, a handle and one chip under each. */
+/* HOTG house style: paper and ink, Baron's edition ink (royal) for what points back, red for the gap.
+   Graduate = the stamp and big numbers. Courier Prime = the archivist's catalogue lines. Archivo = reading. */
 :root{
-  --paper:#FFFFFF; --ink:#0A0D18; --soft:#5A6075; --rule:#E6E8EF; --tile:#F3F4F8; --cobalt:#0B5CF6;
-  --serif:"Instrument Serif",Georgia,serif; --sans:"Geist","Helvetica Neue",Arial,sans-serif; --mono:"Geist Mono",ui-monospace,Menlo,monospace;
+  --paper:#F3ECDC; --card:#ECE3CD; --ink:#17140F; --soft:#6E6555; --rule:#D8CDB4;
+  --royal:#1F4FD1; --red:#C8202A;
+  --stamp:"Graduate",Georgia,serif; --type:"Courier Prime",ui-monospace,Menlo,monospace; --sans:"Archivo","Helvetica Neue",Arial,sans-serif;
 }
 *{box-sizing:border-box}
 html,body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.5}
 a{color:inherit}
 button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;padding:0}
-button:focus-visible,a:focus-visible{outline:2px solid var(--cobalt);outline-offset:2px}
+button:focus-visible,a:focus-visible{outline:2px solid var(--royal);outline-offset:2px}
 .wrap{max-width:1400px;margin:0 auto;padding:0 32px}
-.top{display:flex;justify-content:space-between;align-items:center;padding:22px 0;font-size:14px}
-.top b{font-weight:600}
-.top nav{display:flex;gap:24px;color:var(--soft)}
-.top nav a{text-decoration:none}
+.top{display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-bottom:1.5px solid var(--ink)}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand img{width:46px;height:46px;mix-blend-mode:multiply}
+.brand b{font-family:var(--stamp);font-weight:400;font-size:17px;letter-spacing:.02em}
+.brand span{font-family:var(--type);font-size:14px;color:var(--soft)}
+.top nav{display:flex;gap:22px;font-size:14px}
+.top nav a{text-decoration:none;color:var(--soft)}
 .top nav a:hover{color:var(--ink)}
-header.intro{padding:56px 0 28px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end}
-h1{font-size:34px;font-weight:600;letter-spacing:-.6px;margin:0 0 8px}
-.intro p{margin:0;font-size:17px;color:var(--soft);max-width:62ch}
-.intro p.next{margin-top:12px;font-size:15px;color:var(--ink);border-left:2px solid var(--cobalt);padding-left:12px}
-.gap{text-align:right}
-.gap b{display:block;font-family:var(--serif);font-weight:400;font-size:96px;line-height:.85;letter-spacing:-2px}
-.gap b span{color:var(--cobalt)}
-.gap small{font-size:14px;color:var(--soft)}
-.tabs{display:flex;gap:28px;border-bottom:1px solid var(--rule);margin-top:8px}
-.tabs button{padding:12px 0;font-size:15px;color:var(--soft);border-bottom:2px solid transparent;margin-bottom:-1px}
-.tabs button[aria-selected="true"]{color:var(--ink);border-color:var(--ink);font-weight:500}
+header.intro{padding:40px 0 30px;display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:36px;align-items:center}
+.ball{width:210px;height:210px;mix-blend-mode:multiply;margin:-10px -10px -10px -18px}
+.kicker{font-family:var(--type);font-size:15px;color:var(--soft);margin:0 0 6px}
+h1{font-family:var(--stamp);font-weight:400;font-size:64px;line-height:.95;letter-spacing:.01em;margin:0 0 14px}
+.intro p{margin:0;font-size:17px;color:var(--ink);max-width:60ch}
+.intro p.next{margin-top:14px;font-size:15px;border-left:3px solid var(--royal);padding-left:14px;color:var(--soft)}
+.intro p.next a{color:var(--royal);font-weight:600;text-decoration:none}
+.gap{text-align:right;align-self:end}
+.gap b{display:block;font-family:var(--stamp);font-weight:400;font-size:104px;line-height:.85;white-space:nowrap}
+.gap b span{color:var(--royal)}
+.gap small{display:block;font-family:var(--type);font-size:15px;color:var(--soft);margin-top:8px}
+.tabs{display:flex;gap:30px;border-bottom:1px solid var(--rule);margin-top:4px}
+.tabs button{padding:12px 0;font-size:15.5px;color:var(--soft);border-bottom:3px solid transparent;margin-bottom:-1px;font-weight:500}
+.tabs button[aria-selected="true"]{color:var(--ink);border-color:var(--ink)}
 .bar{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding:18px 0}
 .chips{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
-.chips > span{color:var(--soft);margin-right:4px}
-.chip{border:1px solid var(--rule);border-radius:999px;padding:6px 14px;font-size:14px;display:inline-flex;align-items:center;gap:8px}
-.chip i{width:9px;height:9px;border-radius:2px;display:inline-block}
-.chip[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
-.chip small{color:inherit;opacity:.6;font-size:12.5px}
-.sort{display:flex;gap:8px;align-items:center;color:var(--soft);font-size:14px}
+.chips > span{font-family:var(--type);color:var(--soft);margin-right:4px}
+.chip{border:1px solid var(--rule);background:var(--card);border-radius:3px;padding:6px 12px;font-size:14px;display:inline-flex;align-items:center;gap:8px}
+.chip i{width:10px;height:10px;display:inline-block}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.chip small{color:inherit;opacity:.6;font-family:var(--type);font-size:13px}
+.sort{display:flex;gap:8px;align-items:center;font-family:var(--type);color:var(--soft);font-size:14px}
 .sort button[aria-pressed="true"]{color:var(--ink);text-decoration:underline;text-underline-offset:4px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:30px 20px;padding-bottom:64px;align-items:start}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:34px 22px;padding-bottom:64px;align-items:start}
 .card{display:block;text-decoration:none;min-width:0}
-.media{border-radius:12px;overflow:hidden;background:var(--tile);border:1px solid var(--rule);position:relative;aspect-ratio:16/9}
+.media{border-radius:3px;overflow:hidden;background:var(--card);border:1px solid var(--rule);position:relative;aspect-ratio:16/9}
 .media img{display:block;width:100%;height:100%;object-fit:cover}
-.media img.box{object-fit:contain;background:#0A0D18}
-.media .txt{padding:22px 20px 24px;height:100%;display:flex;flex-direction:column;justify-content:flex-end;gap:6px}
-.media .txt b{font-family:var(--serif);font-weight:400;font-size:28px;line-height:1.05;letter-spacing:-.3px}
-.media .views{position:absolute;left:10px;bottom:10px;background:rgba(10,13,24,.82);color:#fff;font-family:var(--mono);font-size:12.5px;padding:3px 8px;border-radius:6px}
+.media img.box{object-fit:contain;background:var(--ink)}
+.media .txt{padding:20px 20px 22px;height:100%;display:flex;flex-direction:column;justify-content:flex-end;gap:6px;border-top:4px solid var(--c,var(--ink))}
+.media .txt b{font-family:var(--stamp);font-weight:400;font-size:26px;line-height:1.05}
+.media .txt .w{font-family:var(--type);color:var(--soft)}
+.media .views{position:absolute;left:10px;bottom:10px;background:var(--ink);color:var(--paper);font-family:var(--type);font-size:13px;padding:2px 8px;border-radius:2px}
 .card:hover .media{border-color:var(--ink)}
-.meta{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:10px 2px 0}
-.meta .t{font-size:15px;font-weight:500;line-height:1.3}
-.meta .w{font-size:13.5px;color:var(--soft);margin-top:2px}
-.tag{flex:none;font-size:12.5px;border:1px solid var(--rule);border-radius:999px;padding:2px 9px;white-space:nowrap;color:var(--soft)}
-.tag.on{border-color:var(--ink);color:var(--ink)}
-.tag.off{border-color:var(--cobalt);color:var(--cobalt)}
+.meta{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:10px 1px 0}
+.meta .no{font-family:var(--type);font-size:13.5px;color:var(--soft)}
+.meta .no b{color:var(--ink);font-weight:700}
+.meta .t{font-size:16px;font-weight:600;line-height:1.3;margin-top:1px}
+.meta .w{font-family:var(--type);font-size:13.5px;color:var(--soft);margin-top:2px}
+.tag{flex:none;font-family:var(--type);font-size:13px;font-weight:700;border:1.5px solid currentColor;border-radius:2px;padding:1px 7px;white-space:nowrap;color:var(--soft)}
+.tag.on{color:var(--royal)}
+.tag.off{color:var(--red)}
 .tag.cat{border-style:dashed}
-.acct .media{aspect-ratio:auto;padding:18px 18px 16px;border-left:4px solid var(--c)}
+.acct .media{aspect-ratio:auto;padding:16px 18px 15px;border-left:5px solid var(--c)}
 .acct .media b{font-size:18px;font-weight:600;display:block}
-.acct .media .pl{font-size:13.5px;color:var(--soft)}
-.acct .media .st{font-family:var(--mono);font-size:13px;margin-top:10px}
-.acct .media .st.hot{color:var(--cobalt)}
-.seghead{grid-column:1/-1;padding:18px 0 0}
-.seghead h2{font-size:20px;font-weight:600;margin:0 0 4px;display:flex;gap:10px;align-items:center}
-.seghead h2 i{width:12px;height:12px;border-radius:3px;display:inline-block}
+.acct .media .pl{font-family:var(--type);font-size:13.5px;color:var(--soft)}
+.acct .media .st{font-family:var(--type);font-size:14px;margin-top:8px}
+.acct .media .st.hot{color:var(--royal);font-weight:700}
+.seghead{grid-column:1/-1;padding:22px 0 0;border-top:1.5px solid var(--ink)}
+.seghead:first-child{border-top:0;padding-top:4px}
+.seghead h2{font-family:var(--stamp);font-weight:400;font-size:26px;margin:0 0 4px;display:flex;gap:12px;align-items:center}
+.seghead h2 i{width:13px;height:13px;display:inline-block}
 .seghead p{margin:0;color:var(--soft);max-width:80ch}
 .empty{color:var(--soft);padding:40px 0}
 .ustats{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;padding:6px 0 4px}
 .ustats div{border-top:2px solid var(--ink);padding-top:10px}
-.ustats b{display:block;font-family:var(--serif);font-weight:400;font-size:52px;line-height:1;letter-spacing:-1px}
-.ustats div:first-child b{color:var(--cobalt)}
-.ustats small{font-size:14px;color:var(--soft)}
+.ustats b{display:block;font-family:var(--stamp);font-weight:400;font-size:56px;line-height:1}
+.ustats div:first-child b{color:var(--royal)}
+.ustats small{font-size:14.5px;color:var(--soft)}
 .unote{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:20px;font-size:14.5px;line-height:1.5}
 .unote p{margin:0;color:var(--soft)}
-.unote .ig{border:1px dashed var(--cobalt);border-radius:12px;padding:14px 16px;color:var(--ink)}
-.unote .ig b{color:var(--cobalt);font-weight:600}
-footer{border-top:1px solid var(--rule);padding:22px 0 40px;font-size:13.5px;color:var(--soft);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.unote .ig{border:1.5px dashed var(--royal);border-radius:3px;padding:14px 16px;color:var(--ink);background:var(--card)}
+.unote .ig b{color:var(--royal);font-weight:600}
+footer{border-top:1.5px solid var(--ink);padding:20px 0 40px;font-family:var(--type);font-size:14px;color:var(--soft);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+@media (max-width:980px){header.intro{grid-template-columns:auto minmax(0,1fr)}.gap{grid-column:1/-1;text-align:left}}
 @media (max-width:760px){
-  .ustats{grid-template-columns:repeat(2,minmax(0,1fr))}.ustats b{font-size:40px}.unote{grid-template-columns:1fr}
+  .ustats{grid-template-columns:repeat(2,minmax(0,1fr))}.ustats b{font-size:42px}.unote{grid-template-columns:1fr}
   .wrap{padding:0 16px}
-  header.intro{grid-template-columns:1fr;padding-top:32px}
-  .gap{text-align:left}
-  .gap b{font-size:72px}
+  .top nav{display:none}
+  .brand span{display:none}
+  .tabs{gap:18px;overflow-x:auto}.tabs button{font-size:14.5px;white-space:nowrap}
+  header.intro{grid-template-columns:1fr;padding-top:20px;gap:14px}
+  .ball{width:140px;height:140px;margin:0 0 -6px -12px}
+  h1{font-size:46px}
+  .gap b{font-size:76px}
   .grid{grid-template-columns:1fr}
 }
 </style>
 </head>
 <body>
 <div class="wrap">
-  <div class="top"><span><b>HOTG</b> · Baron Davis</span><nav><a href="vault/">The vault</a><a href="/baron85/">R+D deck</a><a href="gem/">The gem</a><a href="https://x.com/HistoryOTG" target="_blank" rel="noopener">HOTG on X</a><a href="https://ballast.la/">Ballast</a></nav></div>
+  <div class="top"><a class="brand" href="./"><img src="t/hotg-ball-256.jpg" alt="The HOTG stamped ball"><b>History of the Game</b><span>Baron Davis</span></a><nav><a href="vault/">The vault</a><a href="/baron85/">R+D deck</a><a href="gem/">The gem</a><a href="https://x.com/HistoryOTG" target="_blank" rel="noopener">HOTG on X</a><a href="https://ballast.la/">Ballast</a></nav></div>
 
   <header class="intro">
+    <img class="ball" src="t/hotg-ball-720.jpg" alt="">
     <div>
-      <h1>Baron Davis, the archive</h1>
+      <p class="kicker">The archive, opened 9 October 2026</p>
+      <h1>Baron Davis</h1>
       <p>What a general web scrape turned up: each piece of his media, where it sits today, and whether it points back to him. Then the accounts that could carry it.</p>
-      <p class="next"><a href="vault/" style="color:var(--cobalt)">Search the vault →</a> 44 clips pulled from Dailymotion and the Internet Archive, cut into 5,463 frames you can search in plain words. This is the surface. A real dig goes into what never made it online or has since disappeared: local TV broadcasts from Charlotte and Los Angeles, Crossroads and UCLA tape, deleted uploads caught by web archives, old commercials, and the assets inside the games.</p>
+      <p class="next"><a href="vault/">Search the vault →</a> 44 clips pulled from Dailymotion and the Internet Archive, cut into 5,463 frames you can search in plain words. This is the surface. A real dig goes into what never made it online or has since disappeared: local TV broadcasts from Charlotte and Los Angeles, Crossroads and UCLA tape, deleted uploads caught by web archives, old commercials, and the assets inside the games.</p>
     </div>
     <div class="gap"><b id="gapnum"></b><small id="gapline"></small></div>
   </header>
@@ -122,64 +142,67 @@ footer{border-top:1px solid var(--rule);padding:22px 0 40px;font-size:13.5px;col
 
 <script>
 const FACES = [
-  {id:"footage", label:"game footage", color:"#2F5BEA", tier:"Tier 2 · licensed archival. His top clips are 9–20 years old and sit on other people's channels.",
-   items:[["Over the top of Kirilenko · NBA · 2.16M","https://www.youtube.com/watch?v=tYpwjB0IzoU"],
-          ["Over the top of Kirilenko · orangino · 1.83M","https://www.youtube.com/watch?v=8w_1ZEk4mds"],
-          ["89 feet · Secret Base · 1.15M","https://www.youtube.com/watch?v=ndmBCqds_gc"],
-          ["The long shot · EverythingBall · 1.06M","https://www.youtube.com/watch?v=zWUEnbPsVfo"],
-          ["Drew League handles · HoopmixtapeBlog · 933K","https://www.youtube.com/@HoopmixtapeBlog"],
-          ["Top 10 career plays · NBA · 890K","https://www.youtube.com/watch?v=k9NUCr38ykE"],
-          ["Dunk on Jermaine O'Neal, 2/27/04 · D1PHAM · 751K","https://www.youtube.com/watch?v=rMnh9u6QzfY"],
-          ["And-one over Pau Gasol · DaPerfectionist · 583K","https://www.youtube.com/watch?v=6l85W651WVI"],
-          ["Ultimate Hornets mixtape · NBA · 445K","https://www.youtube.com/watch?v=mcvWx93Q9VE"]]},
-  {id:"interviews", label:"shows", color:"#F4C2DC", tier:"Tier 1 · his own words. His biggest videos of the last five years are long-form shows.",
-   items:[["How he turned an NBA career into a portfolio · REVOLT · 3.3M","https://www.youtube.com/watch?v=MQkOEQKoMKo"],
-          ["Roast Me · All Def · 2.7M","https://www.youtube.com/watch?v=pqCN0wyfE78"],
-          ["NEXT UP · All Def · 1.5M","https://www.youtube.com/watch?v=2b9uttEGDaI"],
-          ["Gil's Arena · 750K","https://www.youtube.com/watch?v=Abfr37khMQE"],
-          ["Bootleg Kev · 698K","https://www.youtube.com/watch?v=GUWpjGxr1FI"],
-          ["ALL THE SMOKE ep. 88 · 668K","https://www.youtube.com/watch?v=piTpiBgtaGA"],
-          ["The Breakfast Club, with Paul Pierce · 628K","https://www.youtube.com/watch?v=omEtXYa1UkI"],
-          ["Knuckleheads · The Players' Tribune · 515K","https://www.youtube.com/watch?v=ue6BcjTdesI"],
-          ["Gil's Arena cuts · Tiger A. Smith · 99K and 63K, Sept 2026","https://www.youtube.com/@TigerASmith"],
-          ["Dancing with the Stars, season 34 (2025)","https://en.wikipedia.org/wiki/Dancing_with_the_Stars_(American_TV_series)_season_34"],
-          ["WTF, Baron Davis · his Fuse sitcom (2019)","https://en.wikipedia.org/wiki/Baron_Davis"],
-          ["Players Only · NBA on TNT panelist (from 2017)","https://en.wikipedia.org/wiki/Baron_Davis"],
-          ["Raiders: Talk of the Nation · host (2025)","https://en.wikipedia.org/wiki/Baron_Davis"]]},
-  {id:"personal", label:"his accounts", color:"#E3F23F", tier:"Tier 1 · player-owned. Where every other face should point back.",
-   items:[["Instagram @iambarondavis · 349K","https://www.instagram.com/iambarondavis/"],
-          ["X @BaronDavis · 841K","https://x.com/BaronDavis"]]},
-  {id:"provenance", label:"fan provenance", color:"#9AA6F2", tier:"Tier 1 · fan-submitted, paid in Minutes plus named credit",
+  {id:"footage", label:"game footage", color:"#1F4FD1", tier:"Tier 2 · licensed archival. His top clips are 9–20 years old and sit on other people's channels.",
+   items:[["Over the top of Kirilenko · NBA · 2.16M","https://www.youtube.com/watch?v=tYpwjB0IzoU",1],
+          ["Over the top of Kirilenko · orangino · 1.83M","https://www.youtube.com/watch?v=8w_1ZEk4mds",2],
+          ["89 feet · Secret Base · 1.15M","https://www.youtube.com/watch?v=ndmBCqds_gc",3],
+          ["The long shot · EverythingBall · 1.06M","https://www.youtube.com/watch?v=zWUEnbPsVfo",4],
+          ["Drew League handles · HoopmixtapeBlog · 933K","https://www.youtube.com/@HoopmixtapeBlog",5],
+          ["Top 10 career plays · NBA · 890K","https://www.youtube.com/watch?v=k9NUCr38ykE",6],
+          ["Dunk on Jermaine O'Neal, 2/27/04 · D1PHAM · 751K","https://www.youtube.com/watch?v=rMnh9u6QzfY",7],
+          ["And-one over Pau Gasol · DaPerfectionist · 583K","https://www.youtube.com/watch?v=6l85W651WVI",8],
+          ["Ultimate Hornets mixtape · NBA · 445K","https://www.youtube.com/watch?v=mcvWx93Q9VE",9]]},
+  {id:"interviews", label:"shows", color:"#C8202A", tier:"Tier 1 · his own words. His biggest videos of the last five years are long-form shows.",
+   items:[["How he turned an NBA career into a portfolio · REVOLT · 3.3M","https://www.youtube.com/watch?v=MQkOEQKoMKo",10],
+          ["Roast Me · All Def · 2.7M","https://www.youtube.com/watch?v=pqCN0wyfE78",11],
+          ["NEXT UP · All Def · 1.5M","https://www.youtube.com/watch?v=2b9uttEGDaI",12],
+          ["Gil's Arena · 750K","https://www.youtube.com/watch?v=Abfr37khMQE",13],
+          ["Bootleg Kev · 698K","https://www.youtube.com/watch?v=GUWpjGxr1FI",14],
+          ["ALL THE SMOKE ep. 88 · 668K","https://www.youtube.com/watch?v=piTpiBgtaGA",15],
+          ["The Breakfast Club, with Paul Pierce · 628K","https://www.youtube.com/watch?v=omEtXYa1UkI",16],
+          ["Knuckleheads · The Players' Tribune · 515K","https://www.youtube.com/watch?v=ue6BcjTdesI",17],
+          ["Gil's Arena cuts · Tiger A. Smith · 99K and 63K, Sept 2026","https://www.youtube.com/@TigerASmith",18],
+          ["Dancing with the Stars, season 34 (2025)","https://en.wikipedia.org/wiki/Dancing_with_the_Stars_(American_TV_series)_season_34",19],
+          ["WTF, Baron Davis · his Fuse sitcom (2019)","https://en.wikipedia.org/wiki/Baron_Davis",20],
+          ["Players Only · NBA on TNT panelist (from 2017)","https://en.wikipedia.org/wiki/Baron_Davis",21],
+          ["Raiders: Talk of the Nation · host (2025)","https://en.wikipedia.org/wiki/Baron_Davis",22]]},
+  {id:"personal", label:"his accounts", color:"#17140F", tier:"Tier 1 · player-owned. Where every other face should point back.",
+   items:[["Instagram @iambarondavis · 349K","https://www.instagram.com/iambarondavis/",23],
+          ["X @BaronDavis · 841K","https://x.com/BaronDavis",24]]},
+  {id:"provenance", label:"fan provenance", color:"#3E9FDC", tier:"Tier 1 · fan-submitted, paid in Minutes plus named credit",
    items:[["Ticket stubs",""],["Photos from the stands",""],["Local broadcast recordings",""],["“I was there” testimony",""]]},
-  {id:"big", label:"BIG", color:"#F6B26B", tier:"Tier 1 · his platform: ten years of athletes taking the stage",
-   items:[["teambig.io","https://www.teambig.io"],["BIG Summits on X","https://x.com/bigsummits_"]]},
-  {id:"ventures", label:"ventures", color:"#7FCDF0", tier:"Tier 1 · his own companies and productions",
-   items:[["Crips and Bloods: Made in America (2008) · executive producer · Emmy nominee","https://en.wikipedia.org/wiki/Crips_and_Bloods:_Made_in_America"],
-          ["Verso Entertainment · production company with Cash Warren (2005)","https://en.wikipedia.org/wiki/Baron_Davis"],
-          ["5 Balloons Interactive · mobile game studio (2012)","https://en.wikipedia.org/wiki/Baron_Davis"],
-          ["Black Santa Company (2016)","https://en.wikipedia.org/wiki/Baron_Davis"],
-          ["Logitech G reel · 25 Sep 2026","https://www.instagram.com/iambarondavis/"]]},
-  {id:"mixes", label:"fan mixes", color:"#C9A8F0", tier:"Tier 3 · fan edits. No mix of his passes 350K.",
-   items:[["Baron Davis Ultimate Mix · wetagua · 347K","https://www.youtube.com/@wetagua"],
-          ["“1 minute of Baron Davis bag work” · 3.9K, 4 Sep","https://www.tiktok.com/@bagwork504"]]},
-  {id:"games", label:"video games", color:"#F28C7C", tier:"In NBA games from his rookie year to now. NBA Street and NBA Live belong to EA; NBA 2K to Take-Two (Sega published it through 2K5); NBA Ballers was Midway's, and Warner Bros. bought most of Midway's assets in 2009. Old game code and art stay with them; his likeness is licensed separately.",
-   items:[["On the cover of NBA Street V3 (2005) · per Wikipedia","https://en.wikipedia.org/wiki/NBA_Street_V3"],
-          ["NBA Street V3 gameplay · IGN · 5.4K","https://www.youtube.com/watch?v=Hv4PIAYvnzQ"],
-          ["NBA Ballers (2004), vs Marbury · Video Game Wars","https://www.youtube.com/watch?v=rV8SU6XrwTg"],
-          ["Ballers: Rebound (PSP, 2005), vs LeBron · Insert Coin · 2.1K","https://www.youtube.com/watch?v=Oay2SOOWSSg"],
-          ["NBA Live 2004 TV ad with Francis and Marbury · 3.3K","https://www.youtube.com/watch?v=-9bNRf9PLIY"],
-          ["Every game, NBA Live 2000 to NBA 2K13 · 11.8K","https://www.youtube.com/watch?v=l2_AL-srCb8"],
-          ["The Kirilenko dunk in NBA 2K7 · 7.3K","https://www.youtube.com/watch?v=-RKoqRWYC8M"],
-          ["NBA 2K8 · 11.5K","https://www.youtube.com/watch?v=ipMdxEbTXkk"],
-          ["2K18 Warriors classic team · Chris Smoove · 235K","https://www.youtube.com/watch?v=qau0HG3Zs-w"],
-          ["99 OVR card, NBA Live Mobile 19 · QJB · 147K","https://www.youtube.com/watch?v=UCeVEXU54dI"],
-          ["Galaxy Opal card, 2K21 · CarlosStory · 57K","https://www.youtube.com/watch?v=iutrvedwdTs"],
-          ["Galaxy Opal card, NBA 2K27 · JC2K · 1.9K, Sept 2026","https://www.youtube.com/watch?v=qwyrIzdi1_I"],
-          ["On the We Believe Warriors · NBA 2KTV · 31K","https://www.youtube.com/watch?v=HKpG6ZhvaO8"],
+  {id:"big", label:"BIG", color:"#E0A815", tier:"Tier 1 · his platform: ten years of athletes taking the stage",
+   items:[["teambig.io","https://www.teambig.io",25],["BIG Summits on X","https://x.com/bigsummits_",26]]},
+  {id:"ventures", label:"ventures", color:"#2E7D4F", tier:"Tier 1 · his own companies and productions",
+   items:[["Crips and Bloods: Made in America (2008) · executive producer · Emmy nominee","https://en.wikipedia.org/wiki/Crips_and_Bloods:_Made_in_America",27],
+          ["Verso Entertainment · production company with Cash Warren (2005)","https://en.wikipedia.org/wiki/Baron_Davis",28],
+          ["5 Balloons Interactive · mobile game studio (2012)","https://en.wikipedia.org/wiki/Baron_Davis",29],
+          ["Black Santa Company (2016)","https://en.wikipedia.org/wiki/Baron_Davis",30],
+          ["Logitech G reel · 25 Sep 2026","https://www.instagram.com/iambarondavis/",31]]},
+  {id:"mixes", label:"fan mixes", color:"#8E949C", tier:"Tier 3 · fan edits. No mix of his passes 350K.",
+   items:[["Baron Davis Ultimate Mix · wetagua · 347K","https://www.youtube.com/@wetagua",32],
+          ["“1 minute of Baron Davis bag work” · 3.9K, 4 Sep","https://www.tiktok.com/@bagwork504",33]]},
+  {id:"games", label:"video games", color:"#1F4FD1", hollow:true, tier:"In NBA games from his rookie year to now. NBA Street and NBA Live belong to EA; NBA 2K to Take-Two (Sega published it through 2K5); NBA Ballers was Midway's, and Warner Bros. bought most of Midway's assets in 2009. Old game code and art stay with them; his likeness is licensed separately.",
+   items:[["On the cover of NBA Street V3 (2005) · per Wikipedia","https://en.wikipedia.org/wiki/NBA_Street_V3",34],
+          ["NBA Street V3 gameplay · IGN · 5.4K","https://www.youtube.com/watch?v=Hv4PIAYvnzQ",35],
+          ["NBA Ballers (2004), vs Marbury · Video Game Wars","https://www.youtube.com/watch?v=rV8SU6XrwTg",36],
+          ["Ballers: Rebound (PSP, 2005), vs LeBron · Insert Coin · 2.1K","https://www.youtube.com/watch?v=Oay2SOOWSSg",37],
+          ["NBA Live 2004 TV ad with Francis and Marbury · 3.3K","https://www.youtube.com/watch?v=-9bNRf9PLIY",38],
+          ["Every game, NBA Live 2000 to NBA 2K13 · 11.8K","https://www.youtube.com/watch?v=l2_AL-srCb8",39],
+          ["The Kirilenko dunk in NBA 2K7 · 7.3K","https://www.youtube.com/watch?v=-RKoqRWYC8M",40],
+          ["NBA 2K8 · 11.5K","https://www.youtube.com/watch?v=ipMdxEbTXkk",41],
+          ["2K18 Warriors classic team · Chris Smoove · 235K","https://www.youtube.com/watch?v=qau0HG3Zs-w",42],
+          ["99 OVR card, NBA Live Mobile 19 · QJB · 147K","https://www.youtube.com/watch?v=UCeVEXU54dI",43],
+          ["Galaxy Opal card, 2K21 · CarlosStory · 57K","https://www.youtube.com/watch?v=iutrvedwdTs",44],
+          ["Galaxy Opal card, NBA 2K27 · JC2K · 1.9K, Sept 2026","https://www.youtube.com/watch?v=qwyrIzdi1_I",45],
+          ["On the We Believe Warriors · NBA 2KTV · 31K","https://www.youtube.com/watch?v=HKpG6ZhvaO8",46],
           ["Getting Buckets (2012), his own game · 5 Balloons Interactive",""]]},
-  {id:"found", label:"found on open hosts", color:"#E2C79E", tier:"Re-uploads on Dailymotion and the Internet Archive. Every one is searchable frame by frame in the vault.",
-   items:[["One Shot, Reebok short film, Baron as Sam · Dailymotion", "https://www.dailymotion.com/video/x4lkfa"], ["Step Brothers, with Steve Nash · Dailymotion", "https://www.dailymotion.com/video/x6cdds"], ["On set, Entourage · Dailymotion", "https://www.dailymotion.com/video/x7xejei"], ["Shake and bake over Grant Hill · Dailymotion", "https://www.dailymotion.com/video/x4dfeu"], ["Pickpocket: steal and go · Dailymotion", "https://www.dailymotion.com/video/x46z78"], ["Game-winner vs Boston · Dailymotion", "https://www.dailymotion.com/video/x4g7uj"], ["Dunk on Jermaine O'Neal, 2/27/04 · Dailymotion", "https://www.dailymotion.com/video/x34kwv"], ["Over Kirilenko, NBA TV cut · Dailymotion", "https://www.dailymotion.com/video/x3n0s7"], ["Over Kirilenko, long cut · Dailymotion", "https://www.dailymotion.com/video/x34kw6"], ["Kirilenko night, fan's TV recording · Dailymotion", "https://www.dailymotion.com/video/x1ygkx"], ["Drive and finish vs the Lakers · Dailymotion", "https://www.dailymotion.com/video/x4u2qa"], ["Alley-oop for J-Rich, Hawaii preseason · Dailymotion", "https://www.dailymotion.com/video/x4ghy1"], ["UCLA highlights · Dailymotion", "https://www.dailymotion.com/video/x3i5zk"], ["Hornets to Rucker Park mix · Dailymotion · 1.5K", "https://www.dailymotion.com/video/x55grz"], ["Baron Davis mix · Dailymotion", "https://www.dailymotion.com/video/x1yz1w"], ["Hardwood Classics Flashbacks · Dailymotion", "https://www.dailymotion.com/video/x4co48"], ["NBA Access · Dailymotion · 1.4K", "https://www.dailymotion.com/video/x4xcp4"], ["NBA Life · Dailymotion", "https://www.dailymotion.com/video/x5fgvb"], ["Inside the NBA: his comeback · Dailymotion", "https://www.dailymotion.com/video/x1drxah"], ["The Dark Side, with Stephen Jackson · Dailymotion", "https://www.dailymotion.com/video/x52iy0"], ["With Paul Pierce on Oracle's home court · Dailymotion", "https://www.dailymotion.com/video/x6jjnog"], ["Teaches basketball slang · Dailymotion", "https://www.dailymotion.com/video/x6ku2ob"], ["From UCLA to the NBA, long interview · Dailymotion", "https://www.dailymotion.com/video/x8ub1e6"], ["Goes at Nick Young, Drew League · Dailymotion", "https://www.dailymotion.com/video/x64cjwu"], ["Nick Young dances, Baron answers · Dailymotion", "https://www.dailymotion.com/video/x652v31"], ["vs Nick Young and Julius Randle, The Drew · Dailymotion", "https://www.dailymotion.com/video/x616hjz"], ["vs Marvin Bagley, The Drew · Dailymotion", "https://www.dailymotion.com/video/x60v0g1"], ["Takes a charge from Bagley · Dailymotion", "https://www.dailymotion.com/video/x60v05e"], ["Dishes through traffic, The Drew · Dailymotion", "https://www.dailymotion.com/video/x2xasoj"], ["With Keith Closs at The Drew · Dailymotion", "https://www.dailymotion.com/video/x5slj5i"], ["Shark Tank yes man · Dailymotion", "https://www.dailymotion.com/video/x73ah6u"], ["On WTF Baron Davis · Dailymotion", "https://www.dailymotion.com/video/x7eo3yl"], ["Baron the mediator · Dailymotion", "https://www.dailymotion.com/video/x7eo3st"], ["Why he hesitated on DWTS · Dailymotion", "https://www.dailymotion.com/video/x9pxm0g"], ["Daytime Emmys red carpet · Dailymotion", "https://www.dailymotion.com/video/x8bsyba"], ["On Zion · Dailymotion", "https://www.dailymotion.com/video/x7mlhle"], ["1-on-1 with Britt Johnson · Dailymotion", "https://www.dailymotion.com/video/x6aycgm"], ["First person who got me to text · Dailymotion", "https://www.dailymotion.com/video/x23me1r"], ["Uncle Drew appearance · Dailymotion", "https://www.dailymotion.com/video/x3djr7i"], ["Charity Game Mix · Ballislife via Internet Archive", "https://archive.org/details/bliptv-20131031-054229-Ballislife-BaronDavisCharityGameMixDeMarDeRozanJamesHardenDorellW185"], ["Test Drive, Lexus, All-Star edition · Blacktree TV via Internet Archive", "https://archive.org/details/bliptv-20131014-215513-Blacktreetv-TESTDRIVELexusCT200hHybridVehicleWBaronDavisNBAAllSt234"]]},
-  {id:"memorabilia", label:"memorabilia", color:"#9FE0BE", tier:"Vault · auctions and unlocks; Minutes cover 10–20% of a bid",
+  {id:"found", label:"found on open hosts", color:"#17140F", hollow:true, tier:"Re-uploads on Dailymotion and the Internet Archive. Every one is searchable frame by frame in the vault.",
+   items:[["One Shot, Reebok short film, Baron as Sam · Dailymotion","https://www.dailymotion.com/video/x4lkfa",47], ["Step Brothers, with Steve Nash · Dailymotion","https://www.dailymotion.com/video/x6cdds",48], ["On set, Entourage · Dailymotion","https://www.dailymotion.com/video/x7xejei",49], ["Shake and bake over Grant Hill · Dailymotion","https://www.dailymotion.com/video/x4dfeu",50], ["Pickpocket: steal and go · Dailymotion","https://www.dailymotion.com/video/x46z78",51], ["Game-winner vs Boston · Dailymotion","https://www.dailymotion.com/video/x4g7uj",52], ["Dunk on Jermaine O'Neal, 2/27/04 · Dailymotion","https://www.dailymotion.com/video/x34kwv",53], ["Over Kirilenko, NBA TV cut · Dailymotion","https://www.dailymotion.com/video/x3n0s7",54], ["Over Kirilenko, long cut · Dailymotion","https://www.dailymotion.com/video/x34kw6",55], ["Kirilenko night, fan's TV recording · Dailymotion","https://www.dailymotion.com/video/x1ygkx",56], ["Drive and finish vs the Lakers · Dailymotion","https://www.dailymotion.com/video/x4u2qa",57], ["Alley-oop for J-Rich, Hawaii preseason · Dailymotion","https://www.dailymotion.com/video/x4ghy1",58], ["UCLA highlights · Dailymotion","https://www.dailymotion.com/video/x3i5zk",59], ["Hornets to Rucker Park mix · Dailymotion · 1.5K","https://www.dailymotion.com/video/x55grz",60], ["Baron Davis mix · Dailymotion","https://www.dailymotion.com/video/x1yz1w",61], ["Hardwood Classics Flashbacks · Dailymotion","https://www.dailymotion.com/video/x4co48",62], ["NBA Access · Dailymotion · 1.4K","https://www.dailymotion.com/video/x4xcp4",63], ["NBA Life · Dailymotion","https://www.dailymotion.com/video/x5fgvb",64], ["Inside the NBA: his comeback · Dailymotion","https://www.dailymotion.com/video/x1drxah",65], ["The Dark Side, with Stephen Jackson · Dailymotion","https://www.dailymotion.com/video/x52iy0",66], ["With Paul Pierce on Oracle's home court · Dailymotion","https://www.dailymotion.com/video/x6jjnog",67], ["Teaches basketball slang · Dailymotion","https://www.dailymotion.com/video/x6ku2ob",68], ["From UCLA to the NBA, long interview · Dailymotion","https://www.dailymotion.com/video/x8ub1e6",69], ["Goes at Nick Young, Drew League · Dailymotion","https://www.dailymotion.com/video/x64cjwu",70], ["Nick Young dances, Baron answers · Dailymotion","https://www.dailymotion.com/video/x652v31",71], ["vs Nick Young and Julius Randle, The Drew · Dailymotion","https://www.dailymotion.com/video/x616hjz",72], ["vs Marvin Bagley, The Drew · Dailymotion","https://www.dailymotion.com/video/x60v0g1",73], ["Takes a charge from Bagley · Dailymotion","https://www.dailymotion.com/video/x60v05e",74], ["Dishes through traffic, The Drew · Dailymotion","https://www.dailymotion.com/video/x2xasoj",75], ["With Keith Closs at The Drew · Dailymotion","https://www.dailymotion.com/video/x5slj5i",76], ["Shark Tank yes man · Dailymotion","https://www.dailymotion.com/video/x73ah6u",77], ["On WTF Baron Davis · Dailymotion","https://www.dailymotion.com/video/x7eo3yl",78], ["Baron the mediator · Dailymotion","https://www.dailymotion.com/video/x7eo3st",79], ["Why he hesitated on DWTS · Dailymotion","https://www.dailymotion.com/video/x9pxm0g",80], ["Daytime Emmys red carpet · Dailymotion","https://www.dailymotion.com/video/x8bsyba",81], ["On Zion · Dailymotion","https://www.dailymotion.com/video/x7mlhle",82], ["1-on-1 with Britt Johnson · Dailymotion","https://www.dailymotion.com/video/x6aycgm",83], ["First person who got me to text · Dailymotion","https://www.dailymotion.com/video/x23me1r",84], ["Uncle Drew appearance · Dailymotion","https://www.dailymotion.com/video/x3djr7i",85], ["Josh Smith blocks him · Dailymotion","https://www.dailymotion.com/video/x4lo0o",88],
+          ["His charity game, top 10 plays · Dailymotion","https://www.dailymotion.com/video/x5k2jpz",89],
+          ["NBA Street V3 dunk contest trailer · Dailymotion","https://www.dailymotion.com/video/x54tb6",90],
+          ["Charity Game Mix · Ballislife via Internet Archive","https://archive.org/details/bliptv-20131031-054229-Ballislife-BaronDavisCharityGameMixDeMarDeRozanJamesHardenDorellW185",86], ["Test Drive, Lexus, All-Star edition · Blacktree TV via Internet Archive","https://archive.org/details/bliptv-20131014-215513-Blacktreetv-TESTDRIVELexusCT200hHybridVehicleWBaronDavisNBAAllSt234",87]]},
+  {id:"memorabilia", label:"memorabilia", color:"#E0A815", hollow:true, tier:"Vault · auctions and unlocks; Minutes cover 10–20% of a bid",
    items:[["Signed items",""],["Locked vault moments",""]]},
 ];
 
@@ -235,9 +258,9 @@ const fmt = n => n >= 1e6 ? (n / 1e6).toFixed(n >= 1e7 ? 0 : 2).replace(/\.0+$|(
 // [handle, followers, lifetime likes, videos, group]
 const UNTAPPED = [["basketball_edits_u_fw",67800,14200000,15,"editors"],["priime4k",21300,1800000,7,"editors"],["jaymixedits",61500,11100000,51,"editors"],["benlecito",46800,3400000,21,"pages"],[".jesuslover445",33700,6100000,46,"pages"],["1star.vfx",19000,1700000,13,"editors"],["nbaedits.ae",32600,4300000,33,"editors"],["benjizz31",29900,4900000,39,"pages"],["justnbaedits",65600,9600000,79,"editors"],["luker1919",25400,4800000,56,"pages"],["aim_sports_edits",33600,5400000,69,"editors"],["effxcts",43200,5600000,75,"editors"],["g0atprod",42200,5500000,85,"editors"],["meansfx",50000,8400000,140,"editors"],["not.halftimeprod",31800,6400000,108,"editors"],["pick.n.pop",99000,18400000,315,"pages"],["vexake_",16700,1500000,26,"editors"],["jackyeditsbb",40900,6300000,111,"editors"],["_break_67",11900,1000000,18,"pages"],["choc_ryd",64500,12800000,289,"pages"],["ekmadethat",30900,1800000,41,"editors"],["realtalkwithshepherd8",37600,6800000,155,"shows"],["ace.produced.it",42400,11100000,264,"editors"],["editsbygoose",60800,10200000,247,"editors"],["bucks.hoopz",11100,2500000,62,"pages"],["lsig7.edits",19300,3900000,104,"editors"],["bliscvfx",37900,5700000,160,"editors"],["p3dits_tt",44900,2600000,81,"editors"],["dt.sportsclips",23600,5400000,169,"editors"],["realchxmp",71900,11300000,391,"pages"],["zellertheyeller",85600,13400000,478,"shows"],["maybedareo",15800,1600000,58,"pages"],["mikegotchalk",84100,15000000,556,"shows"],["ballgame.tv",99000,8400000,350,"shows"],["silencersports",98700,19100000,853,"pages"],["hndrxx.aep",27500,3500000,166,"editors"],["adjustors",58500,4300000,210,"pages"],["drose.cc",27400,2500000,123,"pages"],["fanofthegame",15800,2800000,154,"pages"],["gunslinger.ae",32200,2900000,161,"editors"],["afunkydiabetic",25900,2200000,125,"pages"],["dunkman827",19800,1500000,94,"pages"],["nbaxl3",24500,3300000,208,"pages"],["bballeditz.aep",79000,9400000,603,"editors"],["shadnothere.yt",11000,3900000,252,"pages"],["snx060",56100,7100000,485,"pages"],["goodvibezhoops",80000,8600000,624,"pages"],["goatgallery",21100,2300000,178,"pages"],["dunkdynastybr",48400,2700000,211,"pages"],["dg.mix_",25800,3700000,301,"editors"],["sniperhoops._",31700,4500000,370,"pages"],["all_highlights",92500,7900000,660,"pages"],["allballbaby",65500,7100000,623,"pages"],["wembythealien",22400,6000000,530,"pages"],["7saac1",15500,2800000,263,"pages"],["sxers76",89500,22100000,2559,"pages"],["_bballchronicles",37200,4900000,581,"pages"],["ajsrhythms",10100,1800000,214,"editors"],["void_jazon",27700,2300000,339,"pages"],["ilovespencerjennings",18100,2000000,300,"pages"],["swish_productions19",23100,4200000,637,"editors"],["jay.the.oota",20000,3800000,587,"pages"],["ballerhighlightsyt",12500,2100000,329,"pages"],["vaultof520",32500,4700000,806,"pages"],["ballerslounge8",16200,1000000,184,"pages"],["brodsquadsports",11100,1400000,260,"pages"],["pitlessballtwit",16000,2400000,456,"pages"],["swishunionshorts",38600,6200000,1182,"pages"],["_calqc",88900,4800000,1004,"pages"],["jh4rris",38600,2800000,620,"shows"],["chezclips",55500,4200000,966,"editors"],["dryefit",29100,1900000,478,"pages"],["dubsonlysports",38400,6600000,1692,"pages"],["sharkbasket",90700,7400000,1969,"pages"],["hooper.haven",25000,1600000,432,"pages"],["basketballlife251",74800,8100000,2200,"pages"],["roadtrippinshow",40800,2900000,827,"shows"],["theplayerstv",23100,5400000,1547,"shows"],["therealbasketballguru",27000,2100000,607,"shows"],["nbawithcade",18400,1800000,523,"shows"],["davidgcasas",21800,1900000,558,"shows"],["worldofnw",36200,3000000,932,"shows"],["runyourracepodcast",23300,2800000,887,"shows"],["richknowsball",12100,2200000,710,"shows"],["aaronbenrose",43000,7600000,2886,"shows"],["flagrantworld",12800,1700000,675,"shows"],["todaysdateinsports",11400,1300000,534,"shows"],["nodunksinc",46400,3600000,1681,"shows"],["justinpaden57",78700,5000000,2411,"shows"],["pistonstalk",30500,1700000,860,"shows"],["bootlegkev",34500,1800000,911,"shows"],["everythingsports4u",49900,3800000,2030,"pages"],["tothebaha",20600,1400000,814,"shows"],["wynetwork",22200,1200000,785,"shows"],["basketballreelsnba",24700,2700000,1804,"pages"],["runitbackfdtv",23800,2800000,3335,"shows"],["jaomile_tv",23800,1500000,2016,"shows"]];
 const PIECES = [];
-FACES.forEach(f => f.items.forEach(([t, u]) => {
+FACES.forEach(f => f.items.forEach(([t, u, no]) => {
   const parts = t.split(" · ");
-  PIECES.push({f, t, title:parts[0], where:parts.slice(1).filter(x => !/^[\d.]+[MK]\b/.test(x)).join(" · "), u, v:viewsOf(t), on:!!u && CONNECTED.test(u), cat:!u});
+  PIECES.push({f, t, no, title:parts[0], where:parts.slice(1).filter(x => !/^[\d.]+[MK]\b/.test(x)).join(" · "), u, v:viewsOf(t), on:!!u && CONNECTED.test(u), cat:!u});
 }));
 const linked = PIECES.filter(p => !p.cat), nOn = linked.filter(p => p.on).length;
 document.getElementById("gapnum").innerHTML = `<span>${nOn}</span> of ${linked.length}`;
@@ -250,14 +273,18 @@ function pieceCard(p){
   const id = ytId(p.u), dm = dmId(p.u), ia = iaId(p.u), img = id ? `https://i.ytimg.com/vi/${id}/hqdefault.jpg` : dm ? `https://www.dailymotion.com/thumbnail/video/${dm}` : ia ? `https://archive.org/services/img/${ia}` : BOX[p.u];
   const media = img
     ? `<img ${BOX[p.u] ? 'class="box"' : ""} src="${img}" alt="" loading="lazy">${p.v ? `<span class="views">${fmt(p.v)} views</span>` : ""}`
-    : `<div class="txt" style="background:linear-gradient(180deg,#fff, ${p.f.color}22)"><b>${esc(p.title)}</b>${p.v ? `<span class="w">${fmt(p.v)} ${p.f.id === "personal" ? "followers" : "views"}</span>` : ""}</div>`;
+    : `<div class="txt" style="--c:${p.f.color}"><b>${esc(p.title)}</b>${p.v ? `<span class="w">${fmt(p.v)} ${p.f.id === "personal" ? "followers" : "views"}</span>` : ""}</div>`;
   const tag = p.cat ? `<span class="tag cat">to catalog</span>` : p.on ? `<span class="tag on">links back</span>` : `<span class="tag off">no link back</span>`;
-  const inner = `<div class="media">${media}</div><div class="meta"><div><div class="t">${esc(img ? p.title : p.f.label)}</div>${img && p.where ? `<div class="w">${esc(p.where)}</div>` : !img && p.where ? `<div class="w">${esc(p.where)}</div>` : ""}</div>${tag}</div>`;
+  const line = [p.no ? `<b>${hotgNo(p.no)}</b>` : "", esc(p.where || p.f.label)].filter(Boolean).join(" · ");
+  const inner = `<div class="media">${media}</div><div class="meta"><div><div class="no">${line}</div>${img ? `<div class="t">${esc(p.title)}</div>` : ""}</div>${tag}</div>`;
   return p.u ? `<a class="card" href="${p.u}" target="_blank" rel="noopener">${inner}</a>` : `<div class="card">${inner}</div>`;
 }
 
 const PRIMARY = {"His own accounts":"personal","The panel circuit":"interviews","Licensed editors":"footage","Old-school archive channels":"footage","TikTok cutters":"mixes","Small TikTok editors, big reach":"mixes","YouTube legend editors":"footage","His teams' fans":"provenance","Where his biggest clips sit":"footage","Game creators":"games"};
-const colorOf = id => (FACES.find(f => f.id === id) || {}).color || "#0A0D18";
+const colorOf = id => (FACES.find(f => f.id === id) || {}).color || "#17140F";
+const sw = f => f.hollow ? `background:transparent;box-shadow:inset 0 0 0 2px ${f.color}` : `background:${f.color}`;
+const swId = id => sw(FACES.find(f => f.id === id) || {color:"#17140F"});
+const hotgNo = n => n ? "No. " + String(n).padStart(4, "0") : "";
 function acctCard([n, pl, st, u, hot], g){
   return `<a class="card acct" href="${u}" target="_blank" rel="noopener"><div class="media" style="--c:${colorOf(PRIMARY[g.name])}"><b>${esc(n)}</b><span class="pl">${esc(pl)}</span>${st ? `<div class="st${hot ? " hot" : ""}">${esc(st)}</div>` : ""}</div></a>`;
 }
@@ -267,7 +294,7 @@ function render(){
   if (tab === "pieces"){
     const counts = {}; PIECES.forEach(p => counts[p.f.id] = (counts[p.f.id] || 0) + 1);
     chips.innerHTML = `<span>Filter</span><button class="chip" data-f="all" aria-pressed="${filter === "all"}">All <small>${PIECES.length}</small></button>` +
-      FACES.map(f => `<button class="chip" data-f="${f.id}" aria-pressed="${filter === f.id}"><i style="background:${f.color}"></i>${f.label} <small>${counts[f.id] || 0}</small></button>`).join("");
+      FACES.map(f => `<button class="chip" data-f="${f.id}" aria-pressed="${filter === f.id}"><i style="${sw(f)}"></i>${f.label} <small>${counts[f.id] || 0}</small></button>`).join("");
     sortEl.innerHTML = `Sort <button data-s="views" aria-pressed="${sort === "views"}">Most viewed</button> · <button data-s="gap" aria-pressed="${sort === "gap"}">No link back first</button>`;
     let list = PIECES.filter(p => filter === "all" || p.f.id === filter);
     list = list.slice().sort(sort === "views" ? (a, b) => b.v - a.v || a.cat - b.cat : (a, b) => (a.on - b.on) || (a.cat - b.cat) || b.v - a.v);
@@ -292,10 +319,10 @@ function render(){
   } else {
     const segs = SEGMENTS.filter(g => g.name !== "History of the Game");
     chips.innerHTML = `<span>Filter</span><button class="chip" data-g="all" aria-pressed="${filter === "all"}">All <small>${segs.reduce((n, g) => n + g.accts.length, 0)}</small></button>` +
-      segs.map((g, i) => `<button class="chip" data-g="${i}" aria-pressed="${filter === String(i)}"><i style="background:${colorOf(PRIMARY[g.name])}"></i>${g.name} <small>${g.accts.length}</small></button>`).join("");
+      segs.map((g, i) => `<button class="chip" data-g="${i}" aria-pressed="${filter === String(i)}"><i style="${swId(PRIMARY[g.name])}"></i>${g.name} <small>${g.accts.length}</small></button>`).join("");
     sortEl.innerHTML = "";
     grid.innerHTML = segs.map((g, i) => filter !== "all" && filter !== String(i) ? "" :
-      `<div class="seghead"><h2><i style="background:${colorOf(PRIMARY[g.name])}"></i>${esc(g.name)}</h2><p>${esc(g.inc)}</p></div>` + g.accts.map(a => acctCard(a, g)).join("")).join("");
+      `<div class="seghead"><h2><i style="${swId(PRIMARY[g.name])}"></i>${esc(g.name)}</h2><p>${esc(g.inc)}</p></div>` + g.accts.map(a => acctCard(a, g)).join("")).join("");
   }
 }
 document.addEventListener("click", e => {
