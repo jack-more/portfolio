@@ -204,13 +204,20 @@ function update(){
   $("results").innerHTML = out.map(({c, i, t, angles}) => `<a class="res" href="${linkAt(c, t)}" target="_blank" rel="noopener"><div class="fr" data-k="${c.key}" data-i="${i}"></div><div class="t">${esc(c.title)}</div><div class="w"><b>${hotgNo(c.no)}</b> · at ${fmtT(t)}${angles > 1 ? ` · ${angles} angles` : ""}</div></a>`).join("");
   requestAnimationFrame(() => document.querySelectorAll(".res .fr").forEach(el => { const c = IX.clips.find(x => x.key === el.dataset.k), w = el.clientWidth; el.style.cssText = spriteStyle(c, +el.dataset.i, w, w * 9 / 16, "m"); }));
 }
-function scoreText(v){
+// Words that name a logged play. Frames inside a logged segment of that play rank first.
+const PLAYWORDS = [[/dunk|slam|jam|posteri|throw.?down/i, "Dunks"], [/handle|crossover|cross|dribbl|ankle|shake/i, "Handles"], [/steal|pick.?pocket/i, "Steals"],
+  [/dime|pass|assist|alley|oop/i, "Dimes"], [/game.?winner|buzzer|clutch|winning shot/i, "Game-winners"], [/celebrat|flex|scream|roar/i, "Celebrations"],
+  [/crowd|fans|arena|stands|believe/i, "The crowd"], [/laugh|smil|funny|joke/i, "Laughs"], [/bucket|layup|finish|score/i, "Buckets"]];
+function scoreText(v, q){
   const d = IX.dim, n = EMB.length / d, sc = new Float32Array(n);
   for (let f = 0; f < n; f++){ let s = 0; const o = f * d; for (let j = 0; j < d; j++) s += EMB[o + j] * v[j]; sc[f] = s * IX.scale; }
+  const plays = PLAYWORDS.filter(([re]) => re.test(q || "")).map(p => p[1]);
+  if (plays.length) for (let f = 0; f < n; f++){ const [ci, i] = OWNER[f], c = IX.clips[ci]; if (playOf(c, c.t[i]).some(p => plays.includes(p))) sc[f] += .06; }
   return Array.from(sc, (s, f) => [f, s]).sort((a, b) => b[1] - a[1]).slice(0, 600);
 }
 async function run(q){
   q = q.trim(); if (!q){ query = null; qhits = null; update(); return; } active = q;
+  sel.play = sel.era = sel.kind = null;
   if (IX.presets[q]){ query = q; qhits = IX.presets[q]; $("status").textContent = ""; update(); return; }
   try {
     if (!model){
@@ -222,14 +229,14 @@ async function run(q){
     }
     $("status").textContent = "Searching…";
     const v = await model(q); if (active !== q) return;
-    query = q; qhits = scoreText(v); $("status").textContent = ""; update();
+    query = q; qhits = scoreText(v, q); $("status").textContent = ""; update();
   } catch (e){ $("status").textContent = "Search didn't load here. The filters above still work."; console.error(e); }
 }
 $("f").addEventListener("submit", e => { e.preventDefault(); run($("q").value); });
 $("facets").addEventListener("click", e => {
   const b = e.target.closest(".chip"); if (!b || b.disabled) return;
   if (b.dataset.q){ if (query === b.dataset.q){ query = null; qhits = null; $("q").value = ""; update(); } else { $("q").value = b.dataset.q; run(b.dataset.q); } return; }
-  const f = b.dataset.facet, v = b.dataset.v; sel[f] = sel[f] === v ? null : v; update();
+  const f = b.dataset.facet, v = b.dataset.v; sel[f] = sel[f] === v ? null : v; query = null; qhits = null; $("q").value = ""; update();
 });
 
 // The wave: frames near the cursor rise off the floor and settle back, so the wall breathes under the hand.
