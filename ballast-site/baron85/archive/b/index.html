@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Baron Davis · History of the Game</title>
+<link rel="icon" href="../t/hotg-favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Graduate&family=Courier+Prime:wght@400;700&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* An illuminated B: sixteen chapters set into the letter, in order. Each tile opens its chapter. */
+:root{--paper:#F3ECDC;--card:#ECE3CD;--ink:#17140F;--soft:#6E6555;--rule:#D8CDB4;--royal:#1F4FD1;--red:#C8202A;
+  --stamp:"Graduate",Georgia,serif;--type:"Courier Prime",ui-monospace,Menlo,monospace;--sans:"Archivo","Helvetica Neue",Arial,sans-serif}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.55}
+a{color:inherit}
+.wrap{max-width:1500px;margin:0 auto;padding:0 32px}
+.top{display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-bottom:1.5px solid var(--ink)}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand img{width:46px;height:46px;mix-blend-mode:multiply}
+.brand b{font-family:var(--stamp);font-weight:400;font-size:17px}
+.brand span{font-family:var(--type);font-size:14px;color:var(--soft)}
+.top nav{display:flex;gap:22px;font-size:14px}.top nav a{text-decoration:none;color:var(--soft)}.top nav a:hover{color:var(--ink)}
+header.intro{padding:34px 0 8px}
+header.intro h1{font-family:var(--stamp);font-weight:400;font-size:58px;line-height:.95;margin:0;color:var(--royal)}
+header.intro p{font-family:var(--type);color:var(--soft);margin:8px 0 0;font-size:15px}
+.book{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.05fr) minmax(0,1fr);gap:40px;align-items:start;padding:24px 0 30px}
+/* chapter text */
+.text .kick{font-family:var(--type);font-size:15px;color:var(--royal);margin:6px 0 4px}
+.text .kick b{font-weight:700}
+.text h2{font-family:var(--stamp);font-weight:400;font-size:40px;line-height:1;margin:0 0 16px}
+.text p.body{margin:0;font-size:17.5px;line-height:1.6}
+.text p.body::first-letter{font-family:var(--stamp);float:left;font-size:78px;line-height:.82;margin:6px 10px 0 0;color:var(--royal)}
+.text .links{margin-top:18px;font-family:var(--type);font-size:14.5px;display:flex;gap:16px;flex-wrap:wrap}
+.text .links a{color:var(--royal);text-decoration:none;border-bottom:1.5px solid currentColor}
+.text .next{margin-top:26px;font-family:var(--type);font-size:14px;color:var(--soft)}
+.text .next button{font:inherit;color:var(--ink);background:none;border:0;padding:0;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+/* the letter */
+.letter svg{width:100%;height:auto;display:block;overflow:visible}
+.tile{cursor:pointer}
+.tile .frame{fill:none;stroke:var(--ink);stroke-width:3}
+.tile:hover .frame{stroke:var(--royal);stroke-width:4}
+.tile.on .frame{stroke:var(--royal);stroke-width:7}
+.tile .ty{font-family:var(--stamp);fill:var(--royal)}
+.tile .tys{font-family:var(--type);fill:var(--soft)}
+.badge circle{fill:var(--royal);stroke:var(--paper);stroke-width:3}
+.badge text{font-family:var(--stamp);fill:var(--paper);font-size:19px}
+.band{fill:var(--royal)}
+.bandt{font-family:var(--stamp);font-size:15px;fill:var(--paper);letter-spacing:.04em}
+.orn{font-family:var(--type);font-size:11.5px;fill:var(--soft);letter-spacing:.06em}
+.ornb{font-family:var(--stamp);fill:var(--ink)}
+.pager{display:flex;justify-content:center;align-items:center;gap:18px;font-family:var(--type);font-size:16px;margin-top:14px;color:var(--royal)}
+.pager button{font:inherit;font-size:22px;color:var(--royal);background:none;border:0;cursor:pointer;padding:0 6px}
+/* zoom */
+.zoom{position:sticky;top:20px}
+.zframe{position:relative;border:3px solid var(--ink);background:var(--card);overflow:hidden}
+.zframe .zb{position:absolute;left:0;right:0;top:0;height:40px;background:var(--royal);color:var(--paper);font-family:var(--stamp);font-size:17px;display:flex;align-items:center;padding:0 14px 0 58px;z-index:2}
+.zframe .zbadge{position:absolute;left:10px;top:4px;width:38px;height:38px;border-radius:50%;background:var(--paper);color:var(--royal);border:3px solid var(--royal);display:grid;place-items:center;font-family:var(--stamp);font-size:17px;z-index:3}
+.zart{aspect-ratio:4/3;margin-top:40px;position:relative}
+.zart img{width:100%;height:100%;object-fit:cover;display:block}
+.zart img.ball{object-fit:contain;mix-blend-mode:multiply;background:var(--paper);padding:6%}
+.zart .zty{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--paper)}
+.zart .zty b{font-family:var(--stamp);font-weight:400;font-size:clamp(70px,9vw,150px);line-height:.9;color:var(--royal)}
+.zart .zty span{font-family:var(--type);color:var(--soft);font-size:16px;margin-top:10px}
+.zart.press{animation:press .7s cubic-bezier(.3,.1,.2,1) both}
+@keyframes press{from{clip-path:inset(0 100% 0 0);filter:saturate(0) contrast(.8)}60%{filter:saturate(.4)}to{clip-path:inset(0 0 0 0);filter:none}}
+.zcap{font-family:var(--type);font-size:14.5px;color:var(--royal);text-align:center;margin-top:10px}
+.zcap b{color:var(--ink)}
+svg.wires{position:absolute;left:0;top:0;pointer-events:none;overflow:visible;z-index:5}
+svg.wires line{stroke:var(--royal);stroke-width:1.5}
+/* every chapter, in order */
+.all{border-top:1.5px solid var(--ink);padding:26px 0 10px;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:22px 30px}
+.all h3{grid-column:1/-1;font-family:var(--stamp);font-weight:400;font-size:28px;margin:0}
+.all a{text-decoration:none;display:block}
+.all .k{font-family:var(--type);font-size:13.5px;color:var(--royal)}
+.all b{font-family:var(--stamp);font-weight:400;font-size:20px;display:block;margin:2px 0 4px}
+.all p{margin:0;font-size:14.5px;color:var(--soft);line-height:1.5}
+footer{border-top:1.5px solid var(--ink);margin-top:26px;padding:20px 0 40px;font-family:var(--type);font-size:14px;color:var(--soft);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+@media (max-width:1100px){.book{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.text{grid-column:1/-1;order:3}svg.wires{display:none}}
+@media (max-width:760px){.wrap{padding:0 16px}.top nav{display:none}.brand span{display:none}header.intro h1{font-size:42px}.book{grid-template-columns:1fr;gap:22px}.zoom{position:static}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><a class="brand" href="../"><img src="../t/hotg-ball-256.jpg" alt="The HOTG stamped ball"><b>History of the Game</b><span>Baron Davis</span></a><nav><a href="../">The archive</a><a href="../vault/">The vault</a><a href="https://ballast.la/">Ballast</a></nav></div>
+  <header class="intro"><h1>Baron Davis</h1><p>Sixteen chapters, set into one letter. Start at the top of the stem.</p></header>
+  <div class="book">
+    <div class="text" id="text"></div>
+    <div class="letter"><svg id="B" viewBox="0 0 1000 1320" role="img" aria-label="The letter B, made of sixteen chapter tiles"></svg>
+      <div class="pager"><button id="prev" aria-label="Previous chapter">‹</button><span id="pg">1 / 16</span><button id="next" aria-label="Next chapter">›</button></div></div>
+    <div class="zoom"><div class="zframe" id="zframe"><div class="zbadge" id="zbadge">1</div><div class="zb" id="zb"></div><div class="zart" id="zart"></div></div><div class="zcap" id="zcap"></div></div>
+  </div>
+  <section class="all" id="all"><h3>The whole story</h3></section>
+  <footer><span>Every image is a real frame from his footage, printed in two inks.</span><span>Dates and numbers checked against the record.</span></footer>
+</div>
+<svg class="wires" id="wires"><line id="w1"/><line id="w2"/></svg>
+<script>
+const CH = [{"n": 1, "title": "South Central", "when": "1979", "big": "1979", "sub": "Los Angeles", "body": "Born in Los Angeles on April 13, 1979, and raised in South Central by his grandmother, Lela Nicholson. She is the one who pushed him toward the game.", "yr": "1979"}, {"n": 2, "title": "Crossroads", "when": "1997", "big": "'97", "sub": "Santa Monica", "body": "At Crossroads School in Santa Monica he became the best high school player in the country: 1997 Gatorade National Player of the Year, California Mr. Basketball, first-team Parade All-American and a McDonald's All-American. As a senior he won the Beach Ball Classic in Myrtle Beach and took the MVP.", "yr": "1997"}, {"n": 3, "title": "UCLA", "when": "1997–1999", "img": 3, "src": "https://www.dailymotion.com/video/x3i5zk?start=16", "no": 53, "body": "He chose UCLA over Kansas, Georgia Tech and Duke so his family could watch him play. Pac-10 Freshman of the Year in 1998, then a torn ACL coming down from a dunk in the NCAA Tournament. He came back the next season first-team All-Pac-10 and an AP All-American, and went to the draft.", "yr": "1997–99"}, {"n": 4, "title": "No. 3", "when": "1999", "img": 4, "src": "https://www.dailymotion.com/video/x55grz?start=4", "no": 54, "body": "The Charlotte Hornets took him third overall in the 1999 draft. He wore No. 1.", "yr": "1999"}, {"n": 5, "title": "89 feet", "when": "February 17, 2001", "big": "89 ft", "sub": "Milwaukee", "body": "At the Bradley Center in Milwaukee, with 0.7 seconds left in the third quarter, he let it go from 89 feet. It went in.", "yr": "2001"}, {"n": 6, "title": "All-Star", "when": "2002 and 2004", "img": 6, "src": "https://www.dailymotion.com/video/x55grz?start=59", "no": 54, "body": "An All-Star in 2002 and again in 2004, the year he made All-NBA Third Team, won the Skills Challenge and led the league in steals.", "yr": "2002 · 2004"}, {"n": 7, "title": "Golden State", "when": "2005", "img": 7, "src": "https://www.dailymotion.com/video/x4co48?start=66", "no": 55, "body": "Traded to the Warriors on February 24, 2005, where he took No. 5. Asked later on Hardwood Classics which haircut he regrets, this is the photo they showed.", "yr": "2005"}, {"n": 8, "title": "One Shot", "when": "The Warriors years", "img": 8, "src": "https://www.dailymotion.com/video/x4lkfa?start=27", "no": 45, "body": "Reebok's short film One Shot, directed by Emmanuelle Chriqui, with Baron as Sam: roller skates, a boombox and an empty playground, in black and white.", "yr": "Warriors"}, {"n": 9, "title": "8 over 1", "when": "2007", "img": 9, "src": "https://www.dailymotion.com/video/x34kw6?start=20", "body": "The Warriors beat the top-seeded Dallas Mavericks 4–2, the first No. 8 seed to beat a No. 1 since the first round went to seven games. He averaged 25 points in the series. Steve Kerr called it “outrageous… stunningly athletic and creative and explosive.” Oakland wore yellow: We Believe.", "yr": "2007"}, {"n": 10, "title": "Over Kirilenko", "when": "May 11, 2007", "img": 10, "src": "https://www.youtube.com/watch?v=tYpwjB0IzoU", "no": 1, "body": "Game 3 against Utah. He went up over Andrei Kirilenko, threw it down, and stood there flexing while the building shook. 32 points, and a 125–105 win.", "yr": "2007"}, {"n": 11, "title": "Home", "when": "2008", "big": "LA", "sub": "Los Angeles Clippers", "body": "He opted out in Golden State and came home, signing with the Los Angeles Clippers on July 10, 2008.", "yr": "2008"}, {"n": 12, "title": "Cleveland, New York", "when": "2011–2012", "big": "85", "sub": "Cleveland · New York", "body": "Traded to Cleveland in February 2011, then on to the Knicks that December, wearing 85. On May 6, 2012, in Game 4 against Miami, his knee gave out and he left the floor on a stretcher.", "yr": "2011–12"}, {"n": 13, "title": "The Drew", "when": "2015–2018", "img": 13, "src": "https://www.dailymotion.com/video/x64cjwu?start=0", "no": 63, "body": "Back on the court in South LA: 44 points in the Drew League in July 2015, and a documentary about it, The Drew: No Excuse, Just Produce. Then a D-League run with Delaware in 2016 and the BIG3 in 2018.", "yr": "2015–18"}, {"n": 14, "title": "The builder", "when": "2005–2016", "img": 14, "src": "https://www.dailymotion.com/video/x73ah6u?start=0", "no": 67, "body": "Verso Entertainment with his high school friend Cash Warren in 2005. 5 Balloons Interactive in 2012, whose first game was Getting Buckets. Black Santa Company in 2016, to tell African American stories. And a hand in producing Crips and Bloods: Made in America.", "yr": "2005–16"}, {"n": 15, "title": "On air", "when": "2017–2025", "img": 15, "src": "https://www.dailymotion.com/video/x9pxm0g?start=0", "no": 17, "body": "A Players Only panelist on TNT from 2017. His own sitcom, WTF, Baron Davis, on Fuse in 2019. Dancing with the Stars in 2025, and Raiders: Talk of the Nation.", "yr": "2017–25"}, {"n": 16, "title": "Now", "when": "History of the Game", "img": 16, "src": "../", "body": "Every one of these moments still plays somewhere online, scattered across other people's channels. History of the Game brings them back to one place and points every one of them back to him.", "yr": "Now"}];
+const NS = "http://www.w3.org/2000/svg", $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const hotgNo = n => "No. " + String(n).padStart(4, "0");
+// Geometry of the B: a stem of five panels, two bowls of five panels each, the stamped ball in the lower counter.
+const UP = {cx: 570, cy: 330, r: 120, R: 290}, LO = {cx: 600, cy: 960, r: 140, R: 320};
+const rad = d => d * Math.PI / 180, pt = (c, r, a) => [c.cx + r * Math.cos(rad(a)), c.cy + r * Math.sin(rad(a))];
+const rect = (x0, y0, x1, y1) => ({d: `M${x0},${y0}H${x1}V${y1}H${x0}Z`, box: [x0, y0, x1, y1], kind: "rect"});
+function sector(c, a0, a1){
+  const [x0, y0] = pt(c, c.R, a0), [x1, y1] = pt(c, c.R, a1), [x2, y2] = pt(c, c.r, a1), [x3, y3] = pt(c, c.r, a0);
+  const xs = [], ys = []; for (let a = a0; a <= a1; a += 2){ for (const r of [c.r, c.R]){ const [x, y] = pt(c, r, a); xs.push(x); ys.push(y); } }
+  return {d: `M${x0},${y0}A${c.R},${c.R} 0 0 1 ${x1},${y1}L${x2},${y2}A${c.r},${c.r} 0 0 0 ${x3},${y3}Z`, box: [Math.min(...xs), Math.min(...ys), Math.max(...xs), Math.max(...ys)], kind: "sector", c, a0, a1};
+}
+const circle = (c, r) => ({d: `M${c.cx - r},${c.cy}a${r},${r} 0 1 0 ${2 * r},0a${r},${r} 0 1 0 ${-2 * r},0`, box: [c.cx - r, c.cy - r, c.cx + r, c.cy + r], kind: "circle"});
+const SHAPES = [rect(40, 40, 330, 288), rect(40, 288, 330, 536), rect(40, 536, 330, 784), rect(40, 784, 330, 1032), rect(40, 1032, 330, 1280),
+  rect(330, 40, 570, 210), sector(UP, -90, -30), sector(UP, -30, 30), sector(UP, 30, 90), rect(330, 450, 570, 620),
+  rect(330, 640, 600, 820), sector(LO, -90, -30), sector(LO, -30, 30), sector(LO, 30, 90), rect(330, 1100, 600, 1280),
+  circle(LO, LO.r - 12)];
+const el = (tag, attrs, parent) => { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); if (parent) parent.appendChild(e); return e; };
+function build(){
+  const svg = $("B"), defs = el("defs", {}, svg);
+  // upper counter: his numbers, ringed by his cities
+  el("path", {id: "ring", d: `M${UP.cx - 80},${UP.cy}a80,80 0 1 1 160,0a80,80 0 1 1 -160,0`, fill: "none"}, defs);
+  el("circle", {cx: UP.cx, cy: UP.cy, r: UP.r - 12, fill: "none", stroke: "#17140F", "stroke-width": 2}, svg);
+  const rt = el("text", {class: "orn"}, svg), tp = el("textPath", {href: "#ring"}, rt); tp.textContent = "CHARLOTTE · NEW ORLEANS · OAKLAND · LOS ANGELES · CLEVELAND · NEW YORK ·";
+  const nb = el("text", {class: "ornb", x: UP.cx, y: UP.cy + 12, "text-anchor": "middle", "font-size": 34}, svg); nb.textContent = "1 · 5 · 85";
+  SHAPES.forEach((s, k) => {
+    const ch = CH[k], g = el("g", {class: "tile", tabindex: 0, role: "button", "aria-label": `Chapter ${ch.n}: ${ch.title}, ${ch.when}`}, svg); g.dataset.k = k;
+    el("clipPath", {id: "c" + k}, defs).appendChild(el("path", {d: s.d}));
+    el("path", {d: s.d, fill: "#F3ECDC"}, g);
+    const [x0, y0, x1, y1] = s.box, w = x1 - x0, h = y1 - y0;
+    if (ch.img){
+      el("image", {href: `t/ch${String(ch.img).padStart(2, "0")}.jpg`, x: x0, y: y0, width: w, height: h, preserveAspectRatio: ch.n === 16 ? "xMidYMid meet" : "xMidYMid slice", "clip-path": `url(#c${k})`, style: ch.n === 16 ? "mix-blend-mode:multiply" : ""}, g);
+    } else {
+      const big = el("text", {class: "ty", x: (x0 + x1) / 2, y: (y0 + y1) / 2 + 28, "text-anchor": "middle", "font-size": Math.min(92, w / (ch.big.length * .62))}, g); big.textContent = ch.big;
+      const sm = el("text", {class: "tys", x: (x0 + x1) / 2, y: (y0 + y1) / 2 + 62, "text-anchor": "middle", "font-size": 15}, g); sm.textContent = ch.sub;
+    }
+    // title band: along the top of a panel, along the outer edge of a bowl
+    if (s.kind === "rect"){ el("rect", {class: "band", x: x0, y: y0, width: w, height: 30}, g); const t = el("text", {class: "bandt", x: x0 + 50, y: y0 + 21}, g); t.textContent = `${ch.title.toUpperCase()} · ${ch.yr}`; }
+    if (s.kind === "sector"){
+      const c = s.c, rb = c.R - 17, [ax, ay] = pt(c, rb, s.a0 + 3), [bx, by] = pt(c, rb, s.a1 - 3);
+      el("path", {d: `M${pt(c, c.R, s.a0)}A${c.R},${c.R} 0 0 1 ${pt(c, c.R, s.a1)}L${pt(c, c.R - 34, s.a1)}A${c.R - 34},${c.R - 34} 0 0 0 ${pt(c, c.R - 34, s.a0)}Z`, class: "band"}, g);
+      const flip = (s.a0 + s.a1) / 2 > 15;   // lower arcs run the other way so the title reads upright
+      el("path", {id: "arc" + k, d: flip ? `M${bx},${by}A${rb},${rb} 0 0 0 ${ax},${ay}` : `M${ax},${ay}A${rb},${rb} 0 0 1 ${bx},${by}`, fill: "none"}, defs);
+      const t = el("text", {class: "bandt", dy: flip ? -6 : 5}, g), p = el("textPath", {href: "#arc" + k, startOffset: "50%", "text-anchor": "middle"}, t); p.textContent = ch.title.toUpperCase();
+    }
+    el("path", {d: s.d, class: "frame"}, g);
+    const [bx, by] = s.kind === "sector" ? pt(s.c, s.c.R - 17, s.a0 + 9) : s.kind === "circle" ? [x0 + 30, y0 + 30] : [x0 + 24, y0 + 15];
+    const b = el("g", {class: "badge"}, g); el("circle", {cx: bx, cy: by, r: 19}, b); const bt = el("text", {x: bx, y: by + 7, "text-anchor": "middle"}, b); bt.textContent = ch.n;
+    g.addEventListener("click", () => go(k)); g.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " "){ e.preventDefault(); go(k); } });
+  });
+  $("all").innerHTML += CH.map((c, k) => `<a href="#${c.n}" data-k="${k}"><span class="k">§${c.n} · ${esc(c.when)}</span><b>${esc(c.title)}</b><p>${esc(c.body)}</p></a>`).join("");
+  $("all").addEventListener("click", e => { const a = e.target.closest("a[data-k]"); if (a){ e.preventDefault(); go(+a.dataset.k); scrollTo({top: 0, behavior: "smooth"}); } });
+}
+let cur = 0;
+function go(k){
+  cur = (k + CH.length) % CH.length; const c = CH[cur];
+  document.querySelectorAll(".tile").forEach(t => t.classList.toggle("on", +t.dataset.k === cur));
+  const on = document.querySelector(".tile.on"); on.parentNode.appendChild(on);   // bring the active frame to the front
+  $("pg").textContent = `${c.n} / ${CH.length}`;
+  $("text").innerHTML = `<p class="kick"><b>§${c.n}</b> · ${esc(c.when)}</p><h2>${esc(c.title)}</h2><p class="body">${esc(c.body)}</p>
+    <div class="links">${c.src ? `<a href="${c.src}" ${c.src.startsWith("http") ? 'target="_blank" rel="noopener"' : ""}>${c.n === 16 ? "Open the archive" : "Watch it"}</a>` : ""}${c.no ? `<span>${hotgNo(c.no)} in the archive</span>` : ""}</div>
+    <p class="next">${cur < CH.length - 1 ? `Next: <button type="button" id="nx">§${CH[cur + 1].n} ${esc(CH[cur + 1].title)}</button>` : `<button type="button" id="nx">Back to §1</button>`}</p>`;
+  $("nx").onclick = () => go(cur + 1);
+  $("zbadge").textContent = c.n; $("zb").textContent = c.title;
+  const z = $("zart"); z.classList.remove("press"); void z.offsetWidth;
+  z.innerHTML = c.img ? `<img src="t/ch${String(c.img).padStart(2, "0")}.jpg" alt="${esc(c.title)}" ${c.n === 16 ? 'class="ball"' : ""}>` : `<div class="zty"><b>${esc(c.big)}</b><span>${esc(c.sub)}</span></div>`;
+  z.classList.add("press");
+  $("zcap").innerHTML = `§${c.n} · ${esc(c.when)}${c.no ? ` · <b>${hotgNo(c.no)}</b>` : ""}`;
+  history.replaceState(null, "", "#" + c.n); requestAnimationFrame(wires);
+}
+// Two hairlines tie the chosen tile to its enlargement, as in an illuminated page.
+function wires(){
+  const w = $("wires"); if (innerWidth <= 1100){ return; }
+  const on = document.querySelector(".tile.on .frame"); if (!on) return;
+  const a = on.getBoundingClientRect(), b = $("zframe").getBoundingClientRect(), sx = scrollX, sy = scrollY;
+  w.setAttribute("width", document.documentElement.scrollWidth); w.setAttribute("height", document.documentElement.scrollHeight);
+  const set = (id, x1, y1, x2, y2) => { const l = $(id); l.setAttribute("x1", x1 + sx); l.setAttribute("y1", y1 + sy); l.setAttribute("x2", x2 + sx); l.setAttribute("y2", y2 + sy); };
+  set("w1", a.right, a.top, b.left, b.top); set("w2", a.right, a.bottom, b.left, b.bottom);
+}
+build();
+$("prev").onclick = () => go(cur - 1); $("next").onclick = () => go(cur + 1);
+addEventListener("keydown", e => { if (e.target.closest && e.target.closest("input,textarea")) return; if (e.key === "ArrowRight") go(cur + 1); if (e.key === "ArrowLeft") go(cur - 1); });
+addEventListener("resize", wires); addEventListener("scroll", wires, {passive: true});
+document.fonts && document.fonts.ready.then(wires);
+go(Math.max(0, Math.min(CH.length - 1, (parseInt(location.hash.slice(1)) || 1) - 1)));
+</script>
+</body>
+</html>
