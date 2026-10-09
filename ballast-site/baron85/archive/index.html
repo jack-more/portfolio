@@ -63,6 +63,10 @@ h1{font-family:var(--stamp);font-weight:400;font-size:64px;line-height:.95;lette
 .media .txt b{font-family:var(--stamp);font-weight:400;font-size:26px;line-height:1.05}
 .media .txt .w{font-family:var(--type);color:var(--soft)}
 .media .views{position:absolute;left:10px;bottom:10px;background:var(--ink);color:var(--paper);font-family:var(--type);font-size:13px;padding:2px 8px;border-radius:2px}
+.card{position:relative}
+.card .hit{position:absolute;inset:0;z-index:1}
+.card .also{position:relative;z-index:2;font-family:var(--type);font-size:13px;color:var(--soft);margin-top:5px;line-height:1.4}
+.card .also a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--rule);text-underline-offset:3px}
 .card:hover .media{border-color:var(--ink)}
 .meta{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:10px 1px 0}
 .meta .no{font-family:var(--type);font-size:13.5px;color:var(--soft)}
@@ -118,8 +122,8 @@ footer{border-top:1.5px solid var(--ink);padding:20px 0 40px;font-family:var(--t
     <div>
       <p class="kicker">The archive, opened 9 October 2026</p>
       <h1>Baron Davis</h1>
-      <p>What a general web scrape turned up: each piece of his media, where it sits today, and whether it points back to him. Then the accounts that could carry it.</p>
-      <p class="next"><a href="vault/">Search the vault →</a> 44 clips pulled from Dailymotion and the Internet Archive, cut into 5,463 frames you can search in plain words. This is the surface. A real dig goes into what never made it online or has since disappeared: local TV broadcasts from Charlotte and Los Angeles, Crossroads and UCLA tape, deleted uploads caught by web archives, old commercials, and the assets inside the games.</p>
+      <p>Every piece of his media in one place: where it lives today, who it plays for, and whether it sends anyone back to him. Then the accounts built to carry it.</p>
+      <p class="next"><a href="vault/">Open the vault →</a> 36 moments on film, frame by frame, searchable by play, era or anything you can describe. More of the story still lives off the internet: local TV from Charlotte and Los Angeles, Crossroads and UCLA tape, old commercials, and the games themselves.</p>
     </div>
     <div class="gap"><b id="gapnum"></b><small id="gapline"></small></div>
   </header>
@@ -144,64 +148,64 @@ footer{border-top:1.5px solid var(--ink);padding:20px 0 40px;font-family:var(--t
 const FACES = [
   {id:"footage", label:"game footage", color:"#1F4FD1", tier:"Tier 2 · licensed archival. His top clips are 9–20 years old and sit on other people's channels.",
    items:[["Over the top of Kirilenko · NBA · 2.16M","https://www.youtube.com/watch?v=tYpwjB0IzoU",1],
-          ["Over the top of Kirilenko · orangino · 1.83M","https://www.youtube.com/watch?v=8w_1ZEk4mds",2],
-          ["89 feet · Secret Base · 1.15M","https://www.youtube.com/watch?v=ndmBCqds_gc",3],
-          ["The long shot · EverythingBall · 1.06M","https://www.youtube.com/watch?v=zWUEnbPsVfo",4],
-          ["Drew League handles · HoopmixtapeBlog · 933K","https://www.youtube.com/@HoopmixtapeBlog",5],
-          ["Top 10 career plays · NBA · 890K","https://www.youtube.com/watch?v=k9NUCr38ykE",6],
-          ["Dunk on Jermaine O'Neal, 2/27/04 · D1PHAM · 751K","https://www.youtube.com/watch?v=rMnh9u6QzfY",7],
-          ["And-one over Pau Gasol · DaPerfectionist · 583K","https://www.youtube.com/watch?v=6l85W651WVI",8],
-          ["Ultimate Hornets mixtape · NBA · 445K","https://www.youtube.com/watch?v=mcvWx93Q9VE",9]]},
+          ["Over the top of Kirilenko · orangino · 1.83M","https://www.youtube.com/watch?v=8w_1ZEk4mds",1],
+          ["89 feet · Secret Base · 1.15M","https://www.youtube.com/watch?v=ndmBCqds_gc",2],
+          ["The long shot · EverythingBall · 1.06M","https://www.youtube.com/watch?v=zWUEnbPsVfo",3],
+          ["Drew League handles · HoopmixtapeBlog · 933K","https://www.youtube.com/@HoopmixtapeBlog",4],
+          ["Top 10 career plays · NBA · 890K","https://www.youtube.com/watch?v=k9NUCr38ykE",5],
+          ["Dunk on Jermaine O'Neal, 2/27/04 · D1PHAM · 751K","https://www.youtube.com/watch?v=rMnh9u6QzfY",6],
+          ["And-one over Pau Gasol · DaPerfectionist · 583K","https://www.youtube.com/watch?v=6l85W651WVI",7],
+          ["Ultimate Hornets mixtape · NBA · 445K","https://www.youtube.com/watch?v=mcvWx93Q9VE",8]]},
   {id:"interviews", label:"shows", color:"#C8202A", tier:"Tier 1 · his own words. His biggest videos of the last five years are long-form shows.",
-   items:[["How he turned an NBA career into a portfolio · REVOLT · 3.3M","https://www.youtube.com/watch?v=MQkOEQKoMKo",10],
-          ["Roast Me · All Def · 2.7M","https://www.youtube.com/watch?v=pqCN0wyfE78",11],
-          ["NEXT UP · All Def · 1.5M","https://www.youtube.com/watch?v=2b9uttEGDaI",12],
-          ["Gil's Arena · 750K","https://www.youtube.com/watch?v=Abfr37khMQE",13],
-          ["Bootleg Kev · 698K","https://www.youtube.com/watch?v=GUWpjGxr1FI",14],
-          ["ALL THE SMOKE ep. 88 · 668K","https://www.youtube.com/watch?v=piTpiBgtaGA",15],
-          ["The Breakfast Club, with Paul Pierce · 628K","https://www.youtube.com/watch?v=omEtXYa1UkI",16],
-          ["Knuckleheads · The Players' Tribune · 515K","https://www.youtube.com/watch?v=ue6BcjTdesI",17],
-          ["Gil's Arena cuts · Tiger A. Smith · 99K and 63K, Sept 2026","https://www.youtube.com/@TigerASmith",18],
-          ["Dancing with the Stars, season 34 (2025)","https://en.wikipedia.org/wiki/Dancing_with_the_Stars_(American_TV_series)_season_34",19],
-          ["WTF, Baron Davis · his Fuse sitcom (2019)","https://en.wikipedia.org/wiki/Baron_Davis",20],
-          ["Players Only · NBA on TNT panelist (from 2017)","https://en.wikipedia.org/wiki/Baron_Davis",21],
-          ["Raiders: Talk of the Nation · host (2025)","https://en.wikipedia.org/wiki/Baron_Davis",22]]},
+   items:[["How he turned an NBA career into a portfolio · REVOLT · 3.3M","https://www.youtube.com/watch?v=MQkOEQKoMKo",9],
+          ["Roast Me · All Def · 2.7M","https://www.youtube.com/watch?v=pqCN0wyfE78",10],
+          ["NEXT UP · All Def · 1.5M","https://www.youtube.com/watch?v=2b9uttEGDaI",11],
+          ["Gil's Arena · 750K","https://www.youtube.com/watch?v=Abfr37khMQE",12],
+          ["Bootleg Kev · 698K","https://www.youtube.com/watch?v=GUWpjGxr1FI",13],
+          ["ALL THE SMOKE ep. 88 · 668K","https://www.youtube.com/watch?v=piTpiBgtaGA",14],
+          ["The Breakfast Club, with Paul Pierce · 628K","https://www.youtube.com/watch?v=omEtXYa1UkI",15],
+          ["Knuckleheads · The Players' Tribune · 515K","https://www.youtube.com/watch?v=ue6BcjTdesI",16],
+          ["Gil's Arena cuts · Tiger A. Smith · 99K and 63K, Sept 2026","https://www.youtube.com/@TigerASmith",12],
+          ["Dancing with the Stars, season 34 (2025)","https://en.wikipedia.org/wiki/Dancing_with_the_Stars_(American_TV_series)_season_34",17],
+          ["WTF, Baron Davis · his Fuse sitcom (2019)","https://en.wikipedia.org/wiki/Baron_Davis",18],
+          ["Players Only · NBA on TNT panelist (from 2017)","https://en.wikipedia.org/wiki/Baron_Davis",19],
+          ["Raiders: Talk of the Nation · host (2025)","https://en.wikipedia.org/wiki/Baron_Davis",20]]},
   {id:"personal", label:"his accounts", color:"#17140F", tier:"Tier 1 · player-owned. Where every other face should point back.",
-   items:[["Instagram @iambarondavis · 349K","https://www.instagram.com/iambarondavis/",23],
-          ["X @BaronDavis · 841K","https://x.com/BaronDavis",24]]},
+   items:[["Instagram @iambarondavis · 349K","https://www.instagram.com/iambarondavis/",21],
+          ["X @BaronDavis · 841K","https://x.com/BaronDavis",22]]},
   {id:"provenance", label:"fan provenance", color:"#3E9FDC", tier:"Tier 1 · fan-submitted, paid in Minutes plus named credit",
    items:[["Ticket stubs",""],["Photos from the stands",""],["Local broadcast recordings",""],["“I was there” testimony",""]]},
   {id:"big", label:"BIG", color:"#E0A815", tier:"Tier 1 · his platform: ten years of athletes taking the stage",
-   items:[["teambig.io","https://www.teambig.io",25],["BIG Summits on X","https://x.com/bigsummits_",26]]},
+   items:[["teambig.io","https://www.teambig.io",23],["BIG Summits on X","https://x.com/bigsummits_",24]]},
   {id:"ventures", label:"ventures", color:"#2E7D4F", tier:"Tier 1 · his own companies and productions",
-   items:[["Crips and Bloods: Made in America (2008) · executive producer · Emmy nominee","https://en.wikipedia.org/wiki/Crips_and_Bloods:_Made_in_America",27],
-          ["Verso Entertainment · production company with Cash Warren (2005)","https://en.wikipedia.org/wiki/Baron_Davis",28],
-          ["5 Balloons Interactive · mobile game studio (2012)","https://en.wikipedia.org/wiki/Baron_Davis",29],
-          ["Black Santa Company (2016)","https://en.wikipedia.org/wiki/Baron_Davis",30],
-          ["Logitech G reel · 25 Sep 2026","https://www.instagram.com/iambarondavis/",31]]},
+   items:[["Crips and Bloods: Made in America (2008) · executive producer · Emmy nominee","https://en.wikipedia.org/wiki/Crips_and_Bloods:_Made_in_America",25],
+          ["Verso Entertainment · production company with Cash Warren (2005)","https://en.wikipedia.org/wiki/Baron_Davis",26],
+          ["5 Balloons Interactive · mobile game studio (2012)","https://en.wikipedia.org/wiki/Baron_Davis",27],
+          ["Black Santa Company (2016)","https://en.wikipedia.org/wiki/Baron_Davis",28],
+          ["Logitech G reel · 25 Sep 2026","https://www.instagram.com/iambarondavis/",29]]},
   {id:"mixes", label:"fan mixes", color:"#8E949C", tier:"Tier 3 · fan edits. No mix of his passes 350K.",
-   items:[["Baron Davis Ultimate Mix · wetagua · 347K","https://www.youtube.com/@wetagua",32],
-          ["“1 minute of Baron Davis bag work” · 3.9K, 4 Sep","https://www.tiktok.com/@bagwork504",33]]},
+   items:[["Baron Davis Ultimate Mix · wetagua · 347K","https://www.youtube.com/@wetagua",30],
+          ["“1 minute of Baron Davis bag work” · 3.9K, 4 Sep","https://www.tiktok.com/@bagwork504",31]]},
   {id:"games", label:"video games", color:"#1F4FD1", hollow:true, tier:"In NBA games from his rookie year to now. NBA Street and NBA Live belong to EA; NBA 2K to Take-Two (Sega published it through 2K5); NBA Ballers was Midway's, and Warner Bros. bought most of Midway's assets in 2009. Old game code and art stay with them; his likeness is licensed separately.",
-   items:[["On the cover of NBA Street V3 (2005) · per Wikipedia","https://en.wikipedia.org/wiki/NBA_Street_V3",34],
-          ["NBA Street V3 gameplay · IGN · 5.4K","https://www.youtube.com/watch?v=Hv4PIAYvnzQ",35],
-          ["NBA Ballers (2004), vs Marbury · Video Game Wars","https://www.youtube.com/watch?v=rV8SU6XrwTg",36],
-          ["Ballers: Rebound (PSP, 2005), vs LeBron · Insert Coin · 2.1K","https://www.youtube.com/watch?v=Oay2SOOWSSg",37],
-          ["NBA Live 2004 TV ad with Francis and Marbury · 3.3K","https://www.youtube.com/watch?v=-9bNRf9PLIY",38],
-          ["Every game, NBA Live 2000 to NBA 2K13 · 11.8K","https://www.youtube.com/watch?v=l2_AL-srCb8",39],
-          ["The Kirilenko dunk in NBA 2K7 · 7.3K","https://www.youtube.com/watch?v=-RKoqRWYC8M",40],
-          ["NBA 2K8 · 11.5K","https://www.youtube.com/watch?v=ipMdxEbTXkk",41],
-          ["2K18 Warriors classic team · Chris Smoove · 235K","https://www.youtube.com/watch?v=qau0HG3Zs-w",42],
-          ["99 OVR card, NBA Live Mobile 19 · QJB · 147K","https://www.youtube.com/watch?v=UCeVEXU54dI",43],
-          ["Galaxy Opal card, 2K21 · CarlosStory · 57K","https://www.youtube.com/watch?v=iutrvedwdTs",44],
-          ["Galaxy Opal card, NBA 2K27 · JC2K · 1.9K, Sept 2026","https://www.youtube.com/watch?v=qwyrIzdi1_I",45],
-          ["On the We Believe Warriors · NBA 2KTV · 31K","https://www.youtube.com/watch?v=HKpG6ZhvaO8",46],
+   items:[["On the cover of NBA Street V3 (2005) · per Wikipedia","https://en.wikipedia.org/wiki/NBA_Street_V3",32],
+          ["NBA Street V3 gameplay · IGN · 5.4K","https://www.youtube.com/watch?v=Hv4PIAYvnzQ",33],
+          ["NBA Ballers (2004), vs Marbury · Video Game Wars","https://www.youtube.com/watch?v=rV8SU6XrwTg",34],
+          ["Ballers: Rebound (PSP, 2005), vs LeBron · Insert Coin · 2.1K","https://www.youtube.com/watch?v=Oay2SOOWSSg",35],
+          ["NBA Live 2004 TV ad with Francis and Marbury · 3.3K","https://www.youtube.com/watch?v=-9bNRf9PLIY",36],
+          ["Every game, NBA Live 2000 to NBA 2K13 · 11.8K","https://www.youtube.com/watch?v=l2_AL-srCb8",37],
+          ["The Kirilenko dunk in NBA 2K7 · 7.3K","https://www.youtube.com/watch?v=-RKoqRWYC8M",38],
+          ["NBA 2K8 · 11.5K","https://www.youtube.com/watch?v=ipMdxEbTXkk",39],
+          ["2K18 Warriors classic team · Chris Smoove · 235K","https://www.youtube.com/watch?v=qau0HG3Zs-w",40],
+          ["99 OVR card, NBA Live Mobile 19 · QJB · 147K","https://www.youtube.com/watch?v=UCeVEXU54dI",41],
+          ["Galaxy Opal card, 2K21 · CarlosStory · 57K","https://www.youtube.com/watch?v=iutrvedwdTs",42],
+          ["Galaxy Opal card, NBA 2K27 · JC2K · 1.9K, Sept 2026","https://www.youtube.com/watch?v=qwyrIzdi1_I",43],
+          ["On the We Believe Warriors · NBA 2KTV · 31K","https://www.youtube.com/watch?v=HKpG6ZhvaO8",44],
           ["Getting Buckets (2012), his own game · 5 Balloons Interactive",""]]},
-  {id:"found", label:"found on open hosts", color:"#17140F", hollow:true, tier:"Re-uploads on Dailymotion and the Internet Archive. Every one is searchable frame by frame in the vault.",
-   items:[["One Shot, Reebok short film, Baron as Sam · Dailymotion","https://www.dailymotion.com/video/x4lkfa",47], ["Step Brothers, with Steve Nash · Dailymotion","https://www.dailymotion.com/video/x6cdds",48], ["On set, Entourage · Dailymotion","https://www.dailymotion.com/video/x7xejei",49], ["Shake and bake over Grant Hill · Dailymotion","https://www.dailymotion.com/video/x4dfeu",50], ["Pickpocket: steal and go · Dailymotion","https://www.dailymotion.com/video/x46z78",51], ["Game-winner vs Boston · Dailymotion","https://www.dailymotion.com/video/x4g7uj",52], ["Dunk on Jermaine O'Neal, 2/27/04 · Dailymotion","https://www.dailymotion.com/video/x34kwv",53], ["Over Kirilenko, NBA TV cut · Dailymotion","https://www.dailymotion.com/video/x3n0s7",54], ["Over Kirilenko, long cut · Dailymotion","https://www.dailymotion.com/video/x34kw6",55], ["Kirilenko night, fan's TV recording · Dailymotion","https://www.dailymotion.com/video/x1ygkx",56], ["Drive and finish vs the Lakers · Dailymotion","https://www.dailymotion.com/video/x4u2qa",57], ["Alley-oop for J-Rich, Hawaii preseason · Dailymotion","https://www.dailymotion.com/video/x4ghy1",58], ["UCLA highlights · Dailymotion","https://www.dailymotion.com/video/x3i5zk",59], ["Hornets to Rucker Park mix · Dailymotion · 1.5K","https://www.dailymotion.com/video/x55grz",60], ["Baron Davis mix · Dailymotion","https://www.dailymotion.com/video/x1yz1w",61], ["Hardwood Classics Flashbacks · Dailymotion","https://www.dailymotion.com/video/x4co48",62], ["NBA Access · Dailymotion · 1.4K","https://www.dailymotion.com/video/x4xcp4",63], ["NBA Life · Dailymotion","https://www.dailymotion.com/video/x5fgvb",64], ["Inside the NBA: his comeback · Dailymotion","https://www.dailymotion.com/video/x1drxah",65], ["The Dark Side, with Stephen Jackson · Dailymotion","https://www.dailymotion.com/video/x52iy0",66], ["With Paul Pierce on Oracle's home court · Dailymotion","https://www.dailymotion.com/video/x6jjnog",67], ["Teaches basketball slang · Dailymotion","https://www.dailymotion.com/video/x6ku2ob",68], ["From UCLA to the NBA, long interview · Dailymotion","https://www.dailymotion.com/video/x8ub1e6",69], ["Goes at Nick Young, Drew League · Dailymotion","https://www.dailymotion.com/video/x64cjwu",70], ["Nick Young dances, Baron answers · Dailymotion","https://www.dailymotion.com/video/x652v31",71], ["vs Nick Young and Julius Randle, The Drew · Dailymotion","https://www.dailymotion.com/video/x616hjz",72], ["vs Marvin Bagley, The Drew · Dailymotion","https://www.dailymotion.com/video/x60v0g1",73], ["Takes a charge from Bagley · Dailymotion","https://www.dailymotion.com/video/x60v05e",74], ["Dishes through traffic, The Drew · Dailymotion","https://www.dailymotion.com/video/x2xasoj",75], ["With Keith Closs at The Drew · Dailymotion","https://www.dailymotion.com/video/x5slj5i",76], ["Shark Tank yes man · Dailymotion","https://www.dailymotion.com/video/x73ah6u",77], ["On WTF Baron Davis · Dailymotion","https://www.dailymotion.com/video/x7eo3yl",78], ["Baron the mediator · Dailymotion","https://www.dailymotion.com/video/x7eo3st",79], ["Why he hesitated on DWTS · Dailymotion","https://www.dailymotion.com/video/x9pxm0g",80], ["Daytime Emmys red carpet · Dailymotion","https://www.dailymotion.com/video/x8bsyba",81], ["On Zion · Dailymotion","https://www.dailymotion.com/video/x7mlhle",82], ["1-on-1 with Britt Johnson · Dailymotion","https://www.dailymotion.com/video/x6aycgm",83], ["First person who got me to text · Dailymotion","https://www.dailymotion.com/video/x23me1r",84], ["Uncle Drew appearance · Dailymotion","https://www.dailymotion.com/video/x3djr7i",85], ["Josh Smith blocks him · Dailymotion","https://www.dailymotion.com/video/x4lo0o",88],
-          ["His charity game, top 10 plays · Dailymotion","https://www.dailymotion.com/video/x5k2jpz",89],
-          ["NBA Street V3 dunk contest trailer · Dailymotion","https://www.dailymotion.com/video/x54tb6",90],
-          ["Charity Game Mix · Ballislife via Internet Archive","https://archive.org/details/bliptv-20131031-054229-Ballislife-BaronDavisCharityGameMixDeMarDeRozanJamesHardenDorellW185",86], ["Test Drive, Lexus, All-Star edition · Blacktree TV via Internet Archive","https://archive.org/details/bliptv-20131014-215513-Blacktreetv-TESTDRIVELexusCT200hHybridVehicleWBaronDavisNBAAllSt234",87]]},
+  {id:"found", label:"re-uploads", color:"#17140F", hollow:true, tier:"His moments re-uploaded by fans on Dailymotion and the Internet Archive. Every one is searchable frame by frame in the vault.",
+   items:[["One Shot, Reebok short film, Baron as Sam · Dailymotion","https://www.dailymotion.com/video/x4lkfa",45], ["Step Brothers, with Steve Nash · Dailymotion","https://www.dailymotion.com/video/x6cdds",46], ["On set, Entourage · Dailymotion","https://www.dailymotion.com/video/x7xejei",47], ["Shake and bake over Grant Hill · Dailymotion","https://www.dailymotion.com/video/x4dfeu",48], ["Pickpocket: steal and go · Dailymotion","https://www.dailymotion.com/video/x46z78",49], ["Game-winner vs Boston · Dailymotion","https://www.dailymotion.com/video/x4g7uj",50], ["Dunk on Jermaine O'Neal, 2/27/04 · Dailymotion","https://www.dailymotion.com/video/x34kwv",6], ["Over Kirilenko, NBA TV cut · Dailymotion","https://www.dailymotion.com/video/x3n0s7",1], ["Over Kirilenko, long cut · Dailymotion","https://www.dailymotion.com/video/x34kw6",1], ["Kirilenko night, fan's TV recording · Dailymotion","https://www.dailymotion.com/video/x1ygkx",1], ["Drive and finish vs the Lakers · Dailymotion","https://www.dailymotion.com/video/x4u2qa",51], ["Alley-oop for J-Rich, Hawaii preseason · Dailymotion","https://www.dailymotion.com/video/x4ghy1",52], ["UCLA highlights · Dailymotion","https://www.dailymotion.com/video/x3i5zk",53], ["Hornets to Rucker Park mix · Dailymotion · 1.5K","https://www.dailymotion.com/video/x55grz",54], ["Baron Davis mix · Dailymotion","https://www.dailymotion.com/video/x1yz1w",54], ["Hardwood Classics Flashbacks · Dailymotion","https://www.dailymotion.com/video/x4co48",55], ["NBA Access · Dailymotion · 1.4K","https://www.dailymotion.com/video/x4xcp4",56], ["NBA Life · Dailymotion","https://www.dailymotion.com/video/x5fgvb",57], ["Inside the NBA: his comeback · Dailymotion","https://www.dailymotion.com/video/x1drxah",58], ["The Dark Side, with Stephen Jackson · Dailymotion","https://www.dailymotion.com/video/x52iy0",59], ["With Paul Pierce on Oracle's home court · Dailymotion","https://www.dailymotion.com/video/x6jjnog",60], ["Teaches basketball slang · Dailymotion","https://www.dailymotion.com/video/x6ku2ob",61], ["From UCLA to the NBA, long interview · Dailymotion","https://www.dailymotion.com/video/x8ub1e6",62], ["Goes at Nick Young, Drew League · Dailymotion","https://www.dailymotion.com/video/x64cjwu",63], ["Nick Young dances, Baron answers · Dailymotion","https://www.dailymotion.com/video/x652v31",63], ["vs Nick Young and Julius Randle, The Drew · Dailymotion","https://www.dailymotion.com/video/x616hjz",63], ["vs Marvin Bagley, The Drew · Dailymotion","https://www.dailymotion.com/video/x60v0g1",64], ["Takes a charge from Bagley · Dailymotion","https://www.dailymotion.com/video/x60v05e",64], ["Dishes through traffic, The Drew · Dailymotion","https://www.dailymotion.com/video/x2xasoj",65], ["With Keith Closs at The Drew · Dailymotion","https://www.dailymotion.com/video/x5slj5i",66], ["Shark Tank yes man · Dailymotion","https://www.dailymotion.com/video/x73ah6u",67], ["On WTF Baron Davis · Dailymotion","https://www.dailymotion.com/video/x7eo3yl",18], ["Baron the mediator · Dailymotion","https://www.dailymotion.com/video/x7eo3st",18], ["Why he hesitated on DWTS · Dailymotion","https://www.dailymotion.com/video/x9pxm0g",17], ["Daytime Emmys red carpet · Dailymotion","https://www.dailymotion.com/video/x8bsyba",68], ["On Zion · Dailymotion","https://www.dailymotion.com/video/x7mlhle",69], ["1-on-1 with Britt Johnson · Dailymotion","https://www.dailymotion.com/video/x6aycgm",70], ["First person who got me to text · Dailymotion","https://www.dailymotion.com/video/x23me1r",71], ["Uncle Drew appearance · Dailymotion","https://www.dailymotion.com/video/x3djr7i",72], ["Josh Smith blocks him · Dailymotion","https://www.dailymotion.com/video/x4lo0o",73],
+          ["His charity game, top 10 plays · Dailymotion","https://www.dailymotion.com/video/x5k2jpz",74],
+          ["NBA Street V3 dunk contest trailer · Dailymotion","https://www.dailymotion.com/video/x54tb6",33],
+          ["Charity Game Mix · Ballislife via Internet Archive","https://archive.org/details/bliptv-20131031-054229-Ballislife-BaronDavisCharityGameMixDeMarDeRozanJamesHardenDorellW185",74], ["Test Drive, Lexus, All-Star edition · Blacktree TV via Internet Archive","https://archive.org/details/bliptv-20131014-215513-Blacktreetv-TESTDRIVELexusCT200hHybridVehicleWBaronDavisNBAAllSt234",75]]},
   {id:"memorabilia", label:"memorabilia", color:"#E0A815", hollow:true, tier:"Vault · auctions and unlocks; Minutes cover 10–20% of a bid",
    items:[["Signed items",""],["Locked vault moments",""]]},
 ];
@@ -222,7 +226,7 @@ const SEGMENTS = [
    inc:"Small channels whose legend uploads far outrun their following. Minutes for tags and provenance; registered clips earn per verified view.",
    accts:[["Hoops Area","YouTube","2.5K · 18.5× hit","https://www.youtube.com/@hoopsarea",1],["Issa Sport","YouTube","66.3K · 18.1× hit","https://www.youtube.com/@issa-sport",1],["LosAngeles852","YouTube","10.6K · 11.7× hit · full 1999–2008 games","https://www.youtube.com/@LosAngeles852",1],["DATA BASKET","YouTube","84.6K · 8.3× hit · Spanish","https://www.youtube.com/@DATABASKET",1],["ENEM","YouTube","53.4K · 6.7× hit","https://www.youtube.com/@_enem",1],["Piotrekz Productions","YouTube","227K","https://www.youtube.com/@piotrekzprod"],["Oldskoolbball","YouTube","437K","https://www.youtube.com/@Oldskoolbball"]]},
   {name:"Small TikTok editors, big reach", to:["mixes","footage"],
-   inc:"Under 10K followers with 500K+ likes. Found through legend and edit searches; measured 5 Oct 2026. Registered clips earn Minutes per verified view.",
+   inc:"Under 10K followers with 500K+ likes. Registered clips earn Minutes per verified view.",
    accts:[["@zp.prodz", "TikTok", "6.7K · 3.0M likes · 448×", "https://www.tiktok.com/@zp.prodz", 1],["@slidshow4u", "TikTok", "2.3K · 821K likes · 350×", "https://www.tiktok.com/@slidshow4u", 1],["@th3darkknightr3aper", "TikTok", "6.1K · 1.5M likes · 244×", "https://www.tiktok.com/@th3darkknightr3aper", 1],["@mmaceooo", "TikTok", "4.9K · 1.2M likes · 243×", "https://www.tiktok.com/@mmaceooo", 1],["@braylenray25.ray", "TikTok", "5.9K · 1.4M likes · 237×", "https://www.tiktok.com/@braylenray25.ray", 1],["@dgutierreztv", "TikTok", "9.4K · 2.2M likes · 233×", "https://www.tiktok.com/@dgutierreztv", 1],["@hardwoodsaints", "TikTok", "5.3K · 1.1M likes · 207×", "https://www.tiktok.com/@hardwoodsaints", 1],["@indy.prodzz", "TikTok", "5.5K · 1.1M likes · 198×", "https://www.tiktok.com/@indy.prodzz", 1],["@chitech", "TikTok", "5.4K · 1.0M likes · 186×", "https://www.tiktok.com/@chitech", 1],["@hoopsthings", "TikTok", "5.3K · 983K likes · 185×", "https://www.tiktok.com/@hoopsthings", 1],["@raizoedits.cc", "TikTok", "5.8K · 912K likes · 157×", "https://www.tiktok.com/@raizoedits.cc", 1],["@bagwork504", "TikTok", "6.0K · 939K likes · 157×, cut him 4 Sep", "https://www.tiktok.com/@bagwork504", 1],["@fastbreak.facts", "TikTok", "4.7K · 659K likes · 141×", "https://www.tiktok.com/@fastbreak.facts", 1],["@1hoop111", "TikTok", "7.6K · 971K likes · 128×", "https://www.tiktok.com/@1hoop111", 1],["@wadelegacy_", "TikTok", "6.5K · 630K likes · 97×", "https://www.tiktok.com/@wadelegacy_", 1]]},
   {name:"TikTok cutters", to:["mixes","footage"],
    inc:"10K to 150K followers, 200 to 450 likes per follower. Minutes per verified view on registered clips, capped per clip.",
@@ -262,7 +266,16 @@ FACES.forEach(f => f.items.forEach(([t, u, no]) => {
   const parts = t.split(" · ");
   PIECES.push({f, t, no, title:parts[0], where:parts.slice(1).filter(x => !/^[\d.]+[MK]\b/.test(x)).join(" · "), u, v:viewsOf(t), on:!!u && CONNECTED.test(u), cat:!u});
 }));
-const linked = PIECES.filter(p => !p.cat), nOn = linked.filter(p => p.on).length;
+// One card per moment: uploads of the same moment share an archive number. The lead upload is the most viewed.
+const MOMENTS = [];
+{ const byNo = new Map();
+  PIECES.forEach(p => { if (!p.no){ MOMENTS.push(Object.assign({}, p, {more: []})); return; }
+    const m = byNo.get(p.no); if (!m){ const n = Object.assign({}, p, {more: []}); byNo.set(p.no, n); MOMENTS.push(n); return; }
+    if (p.v > m.v){ m.more.push(Object.assign({}, m, {more: undefined})); const more = m.more; Object.assign(m, p, {more}); } else m.more.push(p);
+  });
+  MOMENTS.forEach(m => { m.total = m.v + m.more.reduce((n, x) => n + x.v, 0); m.on = m.on || m.more.some(x => x.on); });
+}
+const linked = MOMENTS.filter(p => !p.cat), nOn = linked.filter(p => p.on).length;
 document.getElementById("gapnum").innerHTML = `<span>${nOn}</span> of ${linked.length}`;
 document.getElementById("gapline").textContent = "of his pieces point back to him";
 
@@ -276,8 +289,10 @@ function pieceCard(p){
     : `<div class="txt" style="--c:${p.f.color}"><b>${esc(p.title)}</b>${p.v ? `<span class="w">${fmt(p.v)} ${p.f.id === "personal" ? "followers" : "views"}</span>` : ""}</div>`;
   const tag = p.cat ? `<span class="tag cat">to catalog</span>` : p.on ? `<span class="tag on">links back</span>` : `<span class="tag off">no link back</span>`;
   const line = [p.no ? `<b>${hotgNo(p.no)}</b>` : "", esc(p.where || p.f.label)].filter(Boolean).join(" · ");
-  const inner = `<div class="media">${media}</div><div class="meta"><div><div class="no">${line}</div>${img ? `<div class="t">${esc(p.title)}</div>` : ""}</div>${tag}</div>`;
-  return p.u ? `<a class="card" href="${p.u}" target="_blank" rel="noopener">${inner}</a>` : `<div class="card">${inner}</div>`;
+  const more = p.more && p.more.length ? `<div class="also">Also uploaded ${p.more.length === 1 ? "once more" : p.more.length + " more times"}: ${[...p.more.reduce((m, x) => { const k = x.where || x.title; (m.get(k) || m.set(k, []).get(k)).push(x); return m; }, new Map())].map(([k, xs]) => `<a href="${xs[0].u}" target="_blank" rel="noopener">${esc(k)}</a>${xs.length > 1 ? " ×" + xs.length : ""}`).join(", ")}${p.total > p.v ? ` · ${fmt(p.total)} views in all` : ""}</div>` : "";
+  const inner = `<div class="media">${media}</div><div class="meta"><div><div class="no">${line}</div>${img ? `<div class="t">${esc(p.title)}</div>` : ""}${more}</div>${tag}</div>`;
+  if (!p.u) return `<div class="card">${inner}</div>`;
+  return `<div class="card"><a class="hit" href="${p.u}" target="_blank" rel="noopener" aria-label="${esc(p.title)}"></a>${inner}</div>`;
 }
 
 const PRIMARY = {"His own accounts":"personal","The panel circuit":"interviews","Licensed editors":"footage","Old-school archive channels":"footage","TikTok cutters":"mixes","Small TikTok editors, big reach":"mixes","YouTube legend editors":"footage","His teams' fans":"provenance","Where his biggest clips sit":"footage","Game creators":"games"};
@@ -292,12 +307,12 @@ function acctCard([n, pl, st, u, hot], g){
 function render(){
   const chips = $("chips"), grid = $("grid"), sortEl = $("sort");
   if (tab === "pieces"){
-    const counts = {}; PIECES.forEach(p => counts[p.f.id] = (counts[p.f.id] || 0) + 1);
-    chips.innerHTML = `<span>Filter</span><button class="chip" data-f="all" aria-pressed="${filter === "all"}">All <small>${PIECES.length}</small></button>` +
+    const counts = {}; MOMENTS.forEach(p => counts[p.f.id] = (counts[p.f.id] || 0) + 1);
+    chips.innerHTML = `<span>Filter</span><button class="chip" data-f="all" aria-pressed="${filter === "all"}">All <small>${MOMENTS.length}</small></button>` +
       FACES.map(f => `<button class="chip" data-f="${f.id}" aria-pressed="${filter === f.id}"><i style="${sw(f)}"></i>${f.label} <small>${counts[f.id] || 0}</small></button>`).join("");
     sortEl.innerHTML = `Sort <button data-s="views" aria-pressed="${sort === "views"}">Most viewed</button> · <button data-s="gap" aria-pressed="${sort === "gap"}">No link back first</button>`;
-    let list = PIECES.filter(p => filter === "all" || p.f.id === filter);
-    list = list.slice().sort(sort === "views" ? (a, b) => b.v - a.v || a.cat - b.cat : (a, b) => (a.on - b.on) || (a.cat - b.cat) || b.v - a.v);
+    let list = MOMENTS.filter(p => filter === "all" || p.f.id === filter);
+    list = list.slice().sort(sort === "views" ? (a, b) => b.total - a.total || a.cat - b.cat : (a, b) => (a.on - b.on) || (a.cat - b.cat) || b.total - a.total);
     grid.innerHTML = list.map(pieceCard).join("") || `<p class="empty">Nothing here yet.</p>`;
   } else if (tab === "untapped"){
     const UG = [["editors","Edit accounts","Cut legends' footage to music. Archive footage they cannot get today, cleared and credited, with every post linking back to his accounts."],
@@ -310,9 +325,9 @@ function render(){
     const key = {per: r => r[2] / r[3], ratio: r => r[2] / r[1], fol: r => r[1]}[usort];
     const fol = UNTAPPED.reduce((n, r) => n + r[1], 0), likes = UNTAPPED.reduce((n, r) => n + r[2], 0);
     const per = UNTAPPED.map(r => r[2] / r[3]).sort((a, b) => a - b), med = per[per.length >> 1];
-    const head = `<div class="ustats"><div><b>${UNTAPPED.length}</b><small>TikTok accounts that punch above their weight, not on our list yet</small></div><div><b>${fmt(fol)}</b><small>followers between them</small></div><div><b>${fmt(likes)}</b><small>lifetime likes between them</small></div><div><b>${fmt(med)}</b><small>likes on a typical account's average post</small></div></div>
-      <div class="unote"><p>Each one is unverified, under 100K followers, past 1M lifetime likes, and earns at least 50 likes per follower. None is on the "Who carries them" list yet. Likes are lifetime totals across everything each account posts, so they show reach, not how a Baron clip would land. Found through web search and YouTube link pages, which miss most TikTok-only editors: the real pool is larger. Groups are read from each handle and still need a check by eye.</p>
-      <div class="ig"><b>Instagram Reels: not measured yet.</b> 502 Instagram handles came off the link pages of the channels we swept. Instagram blocks reading their numbers without a login, so this pool is still dark. A logged-in sweep of TikTok and Reels is the next pass.</div></div>`;
+    const head = `<div class="ustats"><div><b>${UNTAPPED.length}</b><small>TikTok editors who punch above their weight</small></div><div><b>${fmt(fol)}</b><small>followers between them</small></div><div><b>${fmt(likes)}</b><small>lifetime likes between them</small></div><div><b>${fmt(med)}</b><small>likes on a typical account's average post</small></div></div>
+      <div class="unote"><p>Each one is under 100K followers, past a million lifetime likes, and earns at least 50 likes per follower. Likes count everything an account has posted, so they show reach, not how a Baron clip would land.</p>
+      <div class="ig"><b>Instagram Reels:</b> 502 more editors on Instagram, numbers to come.</div></div></div>`;
     const ug = UG.find(u => u[0] === filter);
     const list = UNTAPPED.filter(r => filter === "all" || r[4] === filter).slice().sort((a, b) => key(b) - key(a));
     grid.innerHTML = head + (ug ? `<div class="seghead"><h2><i style="background:${col[ug[0]]}"></i>${ug[1]}</h2><p>${ug[2]}</p></div>` : "") + list.map(([h, f, l, v, g]) => `<a class="card acct" href="https://www.tiktok.com/@${h}" target="_blank" rel="noopener"><div class="media" style="--c:${col[g]}"><b>@${esc(h)}</b><span class="pl">TikTok · ${fmt(f)} followers · ${v} posts</span><div class="st hot">${fmt(l / v)} likes per post · ${Math.round(l / f)}× per follower</div></div></a>`).join("");

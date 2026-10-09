@@ -29,7 +29,7 @@ h1{font-family:var(--serif);font-weight:400;font-size:60px;line-height:.95;margi
 .intro p{margin:0;color:var(--soft);font-size:16.5px;max-width:64ch;line-height:1.5}
 .count{text-align:right;font-family:var(--serif);font-size:72px;line-height:.9}
 .count small{display:block;font-family:var(--mono);font-size:14px;color:var(--soft);margin-top:8px}
-.search{display:flex;gap:10px;align-items:center;margin:18px 0 10px}
+.search{display:flex;gap:10px;align-items:center;margin:10px 0 8px}
 .search input{flex:1;background:var(--ink2);border:1px solid var(--line);border-radius:3px;color:var(--paper);font:inherit;font-size:16px;padding:12px 20px;outline:none}
 .search input:focus{border-color:var(--cobalt)}
 .search button{background:var(--cobalt);color:#fff;border:0;border-radius:3px;font:inherit;font-weight:500;padding:12px 22px;cursor:pointer}
@@ -65,7 +65,19 @@ h2{font-family:var(--serif);font-weight:400;font-size:28px;margin:28px 0 4px}
 footer{border-top:1.5px solid var(--line);padding:20px 0 40px;font-family:var(--mono);font-size:13.5px;color:var(--soft);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .kicker{font-family:var(--mono);color:var(--soft);font-size:15px;margin:0 0 6px}
 .status{font-family:var(--mono)}
-@media (max-width:760px){h1{font-size:44px}.brand span{display:none}.top nav{display:none!important}.wrap{padding:0 16px}header.intro{grid-template-columns:1fr}.count{text-align:left;font-size:48px}.stage{margin:6px -16px 0}.top nav{gap:14px}}
+@media (max-width:760px){.frow > span{width:100%}h1{font-size:44px}.brand span{display:none}.top nav{display:none!important}.wrap{padding:0 16px}header.intro{grid-template-columns:1fr}.count{text-align:left;font-size:48px}.stage{margin:6px -16px 0}.top nav{gap:14px}}
+.facets{display:flex;flex-direction:column;gap:9px;margin:18px 0 6px}
+.frow{display:flex;flex-wrap:wrap;gap:7px;align-items:center}
+.frow > span{font-family:var(--mono);color:var(--soft);font-size:14px;width:74px;flex:none}
+.chip small{opacity:.55;font-family:var(--mono);font-size:12px;margin-left:2px}
+.chip:disabled{opacity:.3;cursor:default}
+.chip.try{border-style:dashed}
+.wall,.col{transform-style:preserve-3d}
+.cell{transition:opacity .25s,filter .25s,box-shadow .25s}
+.col.hot .cell{opacity:.75;filter:grayscale(.2)}
+.searching .col.hot .cell:not(.hit){opacity:.3}
+.stage{cursor:grab;user-select:none}
+.stage.grab{cursor:grabbing}
 </style>
 </head>
 <body>
@@ -73,25 +85,25 @@ footer{border-top:1.5px solid var(--line);padding:20px 0 40px;font-family:var(--
   <div class="top"><a class="brand" href="../"><img src="../t/hotg-ball-256.webp" alt="The HOTG stamped ball"><b>History of the Game</b><span>The vault</span></a><nav><a href="../">The archive</a><a href="../../">R+D deck</a><a href="https://ballast.la/">Ballast</a></nav></div>
   <header class="intro">
     <div>
-      <p class="kicker">Baron Davis · every clip we could pull</p>
+      <p class="kicker">Baron Davis on tape</p>
       <h1>The Vault</h1>
-      <p>Every Baron clip we could pull from open hosts, cut into frames. Each column is one clip, top to bottom through time. Search for a moment in plain words and the frames that match light up. Click one to open the clip at that second.</p>
+      <p>Every column is a film or broadcast, frame by frame, top to bottom through time. Pick a play, an era or a kind of footage, or describe a moment in your own words, and the frames light up. Click any frame to watch from that second.</p>
     </div>
-    <div class="count"><span id="nclips">–</span> clips<small id="nframes">loading</small></div>
+    <div class="count"><span id="nmom">–</span> moments<small id="nframes">loading</small></div>
   </header>
-  <form class="search" id="f"><input id="q" placeholder="Search a moment: dunk on a big man, roller skates, crowd going crazy…" autocomplete="off"><button>Search</button></form>
+  <div class="facets" id="facets"></div>
+  <form class="search" id="f"><input id="q" placeholder="Describe a moment: a dunk in traffic, the crowd on its feet, roller skates…" autocomplete="off"><button>Search</button></form>
   <div class="status" id="status"></div>
-  <div class="chips" id="chips"></div>
 </div>
 <div class="stage" id="stage"><div class="wall" id="wall"></div></div>
 <div class="wrap">
-  <h2 id="rh">Pick a moment above</h2>
-  <p class="sub" id="rs">The closest frames show here, best first, one per moment.</p>
+  <h2 id="rh">Pick a play above</h2>
+  <p class="sub" id="rs">One result per moment. Drag the wall to tilt it.</p>
   <div class="results" id="results"></div>
   <h2>What's in it</h2>
-  <p class="sub">Where each clip came from. None of these sit on his own accounts.</p>
+  <p class="sub">Every film and broadcast in the vault, by archive number. None of them sit on his own accounts.</p>
   <div class="lib" id="lib"></div>
-  <footer><span>Frames embedded with CLIP (ViT-B/32). Searches run in your browser.</span><span>Clips stay on their hosts; the vault only indexes them.</span></footer>
+  <footer><span>Search reads the frames themselves.</span><span>Every clip plays on its original host.</span></footer>
 </div>
 <div class="peek" id="peek"><div class="fr"></div><div class="m"></div></div>
 <script>
@@ -99,7 +111,11 @@ const $ = id => document.getElementById(id);
 const hotgNo = n => n ? "No. " + String(n).padStart(4, "0") : "";
 const fmtT = s => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, "0")}`;
 const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-let IX, EMB, OWNER = [], CELLS = [], model = null, active = null;
+const PLAYS = ["Dunks", "Handles", "Steals", "Dimes", "Buckets", "Game-winners", "Celebrations", "The crowd", "Laughs"];
+const ERAS = ["UCLA", "Hornets", "Warriors", "The Drew", "Today"];
+const KINDS = ["Broadcast", "Fan footage", "Streetball", "Film and TV", "Interviews", "News", "Video game"];
+let IX, EMB, OWNER = [], CELLS = [], GRID = [], model = null, active = null;
+const sel = {play: null, era: null, kind: null}; let query = null, qhits = null;
 const CW = 24, CH = 13.5, MAXC = 40;
 
 function spriteStyle(c, i, w, h, tag){
@@ -107,65 +123,98 @@ function spriteStyle(c, i, w, h, tag){
   return `background-image:url(strips/${c.key}_${tag}.jpg);background-size:${Math.min(c.n, cols) * w}px ${rows * h}px;background-position:${-x * w}px ${-y * h}px`;
 }
 function linkAt(c, t){ return c.url.includes("dailymotion") ? `${c.url}?start=${Math.floor(t)}` : c.url; }
+const playOf = (c, t) => c.segs.filter(([a, b]) => t >= a - .25 && t <= b + .25).map(s => s[2]);
+const clipOK = c => (!sel.era || c.era.includes(sel.era)) && (!sel.kind || c.kind === sel.kind);
+const frameOK = (c, i) => clipOK(c) && (!sel.play || playOf(c, c.t[i]).includes(sel.play));
 
 async function boot(){
   IX = await (await fetch("index.json")).json();
   EMB = new Int8Array(await (await fetch("emb.i8")).arrayBuffer());
   const total = IX.clips.reduce((n, c) => n + c.n, 0);
-  $("nclips").textContent = IX.clips.length; $("nframes").textContent = `${total.toLocaleString()} frames indexed`;
+  $("nmom").textContent = new Set(IX.clips.map(c => c.no)).size;
+  $("nframes").textContent = `${IX.clips.length} films and broadcasts · ${total.toLocaleString()} frames`;
   IX.clips.forEach((c, ci) => { for (let i = 0; i < c.n; i++) OWNER.push([ci, i]); });
   const wall = $("wall");
   IX.clips.forEach((c, ci) => {
-    const col = document.createElement("div"); col.className = "col"; const k = Math.min(c.n, MAXC);
+    const col = document.createElement("div"); col.className = "col"; const k = Math.min(c.n, MAXC); GRID[ci] = [];
     for (let j = 0; j < k; j++){
       const a = Math.floor(j * c.n / k), b = Math.max(a + 1, Math.floor((j + 1) * c.n / k));
       const el = document.createElement("div"); el.className = "cell";
-      el.style.cssText = spriteStyle(c, a, CW, CH, "s"); el.dataset.c = ci; el.dataset.a = a; el.dataset.b = b;
-      col.appendChild(el); CELLS.push(el);
+      el.style.cssText = spriteStyle(c, a, CW, CH, "s"); el.dataset.c = ci; el.dataset.a = a; el.dataset.b = b; el.dataset.j = j;
+      el._z = 0; el._tz = 0; col.appendChild(el); CELLS.push(el); GRID[ci][j] = el;
       for (let i = a; i < b; i++) c.cell = c.cell || [], c.cell[i] = el;
     }
     wall.appendChild(col);
   });
-  fit(); addEventListener("resize", fit);
-  $("chips").innerHTML = Object.keys(IX.presets).map(q => `<button class="chip" type="button" data-q="${esc(q)}">${esc(q)}</button>`).join("");
-  $("lib").innerHTML = IX.clips.slice().sort((a, b) => a.title.localeCompare(b.title)).map(c => `<a href="${c.url}" target="_blank" rel="noopener">${esc(c.title)} <span>${c.no ? hotgNo(c.no) + " · " : ""}${c.source} · ${fmtT(c.dur)}</span></a>`).join("");
+  facets(); fit(); addEventListener("resize", fit);
+  $("lib").innerHTML = IX.clips.slice().sort((a, b) => a.no - b.no || a.title.localeCompare(b.title)).map(c => `<a href="${c.url}" target="_blank" rel="noopener">${esc(c.title)} <span>${hotgNo(c.no)} · ${c.kind} · ${fmtT(c.dur)}</span></a>`).join("");
+  sel.play = "Dunks"; update();
 }
+function counts(facet, value){
+  const s = Object.assign({}, sel, {[facet]: value}); const moms = new Set();
+  IX.clips.forEach(c => { if ((!s.era || c.era.includes(s.era)) && (!s.kind || c.kind === s.kind) && (!s.play || c.segs.some(g => g[2] === s.play))) moms.add(c.no); });
+  return moms.size;
+}
+function facets(){
+  const row = (label, facet, vals) => `<div class="frow"><span>${label}</span>${vals.map(v => { const n = counts(facet, v); return `<button class="chip" type="button" data-facet="${facet}" data-v="${esc(v)}" aria-pressed="${sel[facet] === v}" ${n ? "" : "disabled"}>${esc(v)} <small>${n}</small></button>`; }).join("")}</div>`;
+  $("facets").innerHTML = row("Plays", "play", PLAYS) + row("Era", "era", ERAS) + row("Footage", "kind", KINDS) +
+    `<div class="frow"><span>Try</span>${Object.keys(IX.presets).map(q => `<button class="chip try" type="button" data-q="${esc(q)}" aria-pressed="${query === q}">${esc(q)}</button>`).join("")}</div>`;
+}
+let tilt = 34, rz = 0, ttilt = 34, trz = 0, scaleS = 1;
 function fit(){
   const wall = $("wall"); wall.style.transform = "translateX(-50%)";
-  const W = wall.scrollWidth, H = wall.scrollHeight, avail = innerWidth - 24;
-  const tilt = innerWidth < 760 ? 0 : 34, s = Math.min(1.1, avail * (tilt ? .74 : 1) / W);
-  wall.style.transform = `translateX(-50%) scale(${s}) rotateX(${tilt}deg)`;
+  const W = wall.scrollWidth, avail = innerWidth - 24;
+  if (innerWidth < 760){ ttilt = tilt = 0; trz = rz = 0; }
+  scaleS = Math.min(1.1, avail * (tilt ? .74 : 1) / W); place();
   const r = wall.getBoundingClientRect(), st = $("stage").getBoundingClientRect();
-  $("stage").style.setProperty("--h", `${Math.ceil(r.bottom - st.top) + 24}px`);
+  $("stage").style.setProperty("--h", `${Math.ceil(r.bottom - st.top) + 40}px`);
 }
-function show(label, hits){
-  // hits: [[frameIdx, score]] sorted best first
-  $("wall").classList.add("searching"); CELLS.forEach(el => { el.classList.remove("hit"); el.style.removeProperty("--a"); });
-  const top = hits[0][1], low = hits[Math.min(hits.length - 1, 59)][1];
-  hits.slice(0, 60).forEach(([f, s]) => { const [ci, i] = OWNER[f]; const el = IX.clips[ci].cell[i]; const a = Math.max(.15, (s - low) / Math.max(1e-6, top - low));
-    if (!el.classList.contains("hit") || +el.style.getPropertyValue("--a") < a){ el.classList.add("hit"); el.style.setProperty("--a", a.toFixed(2)); } });
-  const out = [], seen = [];
-  for (const [f, s] of hits){
-    const [ci, i] = OWNER[f], c = IX.clips[ci], t = c.t[i];
-    if (seen.some(([cj, tj]) => cj === ci && Math.abs(tj - t) < 6)) continue;
-    seen.push([ci, t]); out.push([c, i, t]); if (out.length >= 24) break;
-  }
-  $("rh").textContent = `“${label}”`; $("rs").textContent = `${out.length} closest moments across ${new Set(out.map(o => o[0].key)).size} clips.`;
-  $("results").innerHTML = out.map(([c, i, t]) => `<a class="res" href="${linkAt(c, t)}" target="_blank" rel="noopener"><div class="fr" style="${spriteStyle(c, i, 220, 123.75, "m")}"></div><div class="t">${esc(c.title)}</div><div class="w">${c.no ? `<b>${hotgNo(c.no)}</b> · ` : ""}at ${fmtT(t)} · ${c.source}</div></a>`).join("");
-  requestAnimationFrame(() => document.querySelectorAll(".res .fr").forEach(el => { const w = el.clientWidth; const [c, i] = out[[...el.parentNode.parentNode.children].indexOf(el.parentNode)]; el.style.cssText = spriteStyle(c, i, w, w * 9 / 16, "m"); }));
+const place = () => { $("wall").style.transform = `translateX(-50%) scale(${scaleS}) rotateX(${tilt}deg) rotateZ(${rz}deg)`; };
+function update(){
+  facets();
+  const any = sel.play || sel.era || sel.kind || query;
+  $("wall").classList.toggle("searching", !!any);
+  CELLS.forEach(el => { el.classList.remove("hit"); el.style.removeProperty("--a"); });
+  let out = [];
+  if (query && qhits){
+    const hits = qhits.filter(([f]) => { const [ci, i] = OWNER[f]; return frameOK(IX.clips[ci], i); });
+    if (hits.length){
+      const top = hits[0][1], low = hits[Math.min(hits.length - 1, 59)][1];
+      hits.slice(0, 60).forEach(([f, s]) => { const [ci, i] = OWNER[f]; const el = IX.clips[ci].cell[i]; const a = Math.max(.15, (s - low) / Math.max(1e-6, top - low));
+        if (!el.classList.contains("hit") || +el.style.getPropertyValue("--a") < a){ el.classList.add("hit"); el.style.setProperty("--a", a.toFixed(2)); } });
+    }
+    const seen = new Set();
+    for (const [f] of hits){ const [ci, i] = OWNER[f], c = IX.clips[ci]; if (seen.has(c.no)) continue; seen.add(c.no); out.push({c, i, t: c.t[i]}); if (out.length >= 24) break; }
+    $("rh").textContent = `“${query}”`;
+  } else if (any){
+    const byMoment = new Map();
+    IX.clips.forEach((c, ci) => {
+      if (!clipOK(c)) return;
+      for (let i = 0; i < c.n; i++) if (frameOK(c, i)) c.cell[i].classList.add("hit");
+      const segs = sel.play ? c.segs.filter(g => g[2] === sel.play) : [];
+      if (sel.play && !segs.length) return;
+      const m = byMoment.get(c.no) || {angles: 0}; m.angles += segs.length || 1;
+      if (!m.c){ const t = segs.length ? (segs[0][0] + segs[0][1]) / 2 : c.t[Math.floor(c.n / 2)]; let i = 0; while (i < c.n - 1 && c.t[i] < t) i++; Object.assign(m, {c, i, t: segs.length ? segs[0][0] : 0}); }
+      byMoment.set(c.no, m);
+    });
+    out = [...byMoment.values()];
+    $("rh").textContent = [sel.play, sel.era, sel.kind].filter(Boolean).join(" · ");
+  } else { $("rh").textContent = "Pick a play above"; }
+  $("rs").textContent = out.length ? `${out.length} ${out.length === 1 ? "moment" : "moments"}, one result each.` : any ? "Nothing logged here yet." : "One result per moment. Drag the wall to tilt it.";
+  $("results").innerHTML = out.map(({c, i, t, angles}) => `<a class="res" href="${linkAt(c, t)}" target="_blank" rel="noopener"><div class="fr" data-k="${c.key}" data-i="${i}"></div><div class="t">${esc(c.title)}</div><div class="w"><b>${hotgNo(c.no)}</b> · at ${fmtT(t)}${angles > 1 ? ` · ${angles} angles` : ""}</div></a>`).join("");
+  requestAnimationFrame(() => document.querySelectorAll(".res .fr").forEach(el => { const c = IX.clips.find(x => x.key === el.dataset.k), w = el.clientWidth; el.style.cssText = spriteStyle(c, +el.dataset.i, w, w * 9 / 16, "m"); }));
 }
 function scoreText(v){
   const d = IX.dim, n = EMB.length / d, sc = new Float32Array(n);
   for (let f = 0; f < n; f++){ let s = 0; const o = f * d; for (let j = 0; j < d; j++) s += EMB[o + j] * v[j]; sc[f] = s * IX.scale; }
-  return Array.from(sc, (s, f) => [f, s]).sort((a, b) => b[1] - a[1]).slice(0, 400);
+  return Array.from(sc, (s, f) => [f, s]).sort((a, b) => b[1] - a[1]).slice(0, 600);
 }
 async function run(q){
-  q = q.trim(); if (!q) return; active = q;
-  document.querySelectorAll(".chip").forEach(b => b.setAttribute("aria-pressed", b.dataset.q === q));
-  if (IX.presets[q]){ show(q, IX.presets[q]); $("status").textContent = ""; return; }
+  q = q.trim(); if (!q){ query = null; qhits = null; update(); return; } active = q;
+  if (IX.presets[q]){ query = q; qhits = IX.presets[q]; $("status").textContent = ""; update(); return; }
   try {
     if (!model){
-      $("status").textContent = "Loading the search model (about 65 MB, once)…";
+      $("status").textContent = "Loading search (about 65 MB, once)…";
       const T = await import("https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.7.2/dist/transformers.min.js");
       const tok = await T.AutoTokenizer.from_pretrained(IX.model);
       const m = await T.CLIPTextModelWithProjection.from_pretrained(IX.model, {dtype: "q8"});
@@ -173,22 +222,52 @@ async function run(q){
     }
     $("status").textContent = "Searching…";
     const v = await model(q); if (active !== q) return;
-    show(q, scoreText(v)); $("status").textContent = "";
-  } catch (e){ $("status").textContent = "The search model didn't load here. Try one of the preset moments."; console.error(e); }
+    query = q; qhits = scoreText(v); $("status").textContent = ""; update();
+  } catch (e){ $("status").textContent = "Search didn't load here. The filters above still work."; console.error(e); }
 }
 $("f").addEventListener("submit", e => { e.preventDefault(); run($("q").value); });
-$("chips").addEventListener("click", e => { const b = e.target.closest(".chip"); if (b){ $("q").value = b.dataset.q; run(b.dataset.q); } });
-const peek = $("peek");
+$("facets").addEventListener("click", e => {
+  const b = e.target.closest(".chip"); if (!b || b.disabled) return;
+  if (b.dataset.q){ if (query === b.dataset.q){ query = null; qhits = null; $("q").value = ""; update(); } else { $("q").value = b.dataset.q; run(b.dataset.q); } return; }
+  const f = b.dataset.facet, v = b.dataset.v; sel[f] = sel[f] === v ? null : v; update();
+});
+
+// The wave: frames near the cursor rise off the floor and settle back, so the wall breathes under the hand.
+const peek = $("peek"); let hover = null, dragging = false, moved = 0, sx = 0, sy = 0, stilt = 0, srz = 0, raf = 0;
+const LIFT = 150, SIG = 2.6, REACH = 8;
+function tick(){
+  let live = false;
+  if (hover){
+    const {ci, j} = hover;
+    for (let dc = -REACH; dc <= REACH; dc++){ const col = GRID[ci + dc]; if (!col) continue;
+      for (let dj = -REACH * 2; dj <= REACH * 2; dj++){ const el = col[j + dj]; if (!el) continue;
+        const d2 = dc * dc * 1.6 + dj * dj * .35; el._tz = LIFT * Math.exp(-d2 / (2 * SIG * SIG)); el._mark = 1; } }
+  }
+  CELLS.forEach(el => {
+    if (!el._mark) el._tz = 0; el._mark = 0;
+    if (Math.abs(el._z - el._tz) > .05 || el._z > .05){ el._z += (el._tz - el._z) * .16; el.style.transform = el._z > .05 ? `translateZ(${el._z.toFixed(2)}px)` : ""; live = true; }
+  });
+  if (Math.abs(tilt - ttilt) > .01 || Math.abs(rz - trz) > .01){ tilt += (ttilt - tilt) * .12; rz += (trz - rz) * .12; place(); live = true; }
+  raf = live || hover ? requestAnimationFrame(tick) : 0;
+}
+const wake = () => { if (!raf) raf = requestAnimationFrame(tick); };
 $("wall").addEventListener("mousemove", e => {
-  const el = e.target.closest(".cell"); if (!el){ peek.classList.remove("on"); return; }
+  const el = e.target.closest(".cell"); if (!el || dragging){ peek.classList.remove("on"); return; }
+  hover = {ci: +el.dataset.c, j: +el.dataset.j}; wake();
+  document.querySelectorAll(".col.hot").forEach(c => c.classList.remove("hot")); el.parentNode.classList.add("hot");
   const c = IX.clips[+el.dataset.c], i = +el.dataset.a;
   peek.querySelector(".fr").style.cssText = spriteStyle(c, i, 288, 162, "m");
-  peek.querySelector(".m").innerHTML = `${esc(c.title)}<span>${c.no ? hotgNo(c.no) + " · " : ""}${fmtT(c.t[i])} · ${c.source}</span>`;
+  peek.querySelector(".m").innerHTML = `${esc(c.title)}<span>${hotgNo(c.no)} · ${fmtT(c.t[i])}${playOf(c, c.t[i]).length ? " · " + playOf(c, c.t[i]).join(", ") : ""}</span>`;
   const x = Math.min(innerWidth - 300, e.clientX + 16), y = Math.min(innerHeight - 230, e.clientY + 16);
   peek.style.left = x + "px"; peek.style.top = y + "px"; peek.classList.add("on");
 });
-$("wall").addEventListener("mouseleave", () => peek.classList.remove("on"));
-$("wall").addEventListener("click", e => { const el = e.target.closest(".cell"); if (!el) return; const c = IX.clips[+el.dataset.c]; open(linkAt(c, c.t[+el.dataset.a]), "_blank", "noopener"); });
+$("wall").addEventListener("mouseleave", () => { hover = null; peek.classList.remove("on"); document.querySelectorAll(".col.hot").forEach(c => c.classList.remove("hot")); wake(); });
+// Drag to tilt: the wall follows the hand and eases to rest.
+$("stage").addEventListener("pointerdown", e => { if (innerWidth < 760) return; dragging = true; moved = 0; sx = e.clientX; sy = e.clientY; stilt = ttilt; srz = trz; });
+addEventListener("pointermove", e => { if (!dragging) return; const dx = e.clientX - sx, dy = e.clientY - sy; moved = Math.max(moved, Math.abs(dx) + Math.abs(dy));
+  ttilt = Math.max(8, Math.min(62, stilt + dy * .12)); trz = Math.max(-16, Math.min(16, srz - dx * .03)); $("stage").classList.toggle("grab", moved > 4); wake(); });
+addEventListener("pointerup", () => { dragging = false; $("stage").classList.remove("grab"); });
+$("wall").addEventListener("click", e => { if (moved > 4){ moved = 0; return; } const el = e.target.closest(".cell"); if (!el) return; const c = IX.clips[+el.dataset.c]; open(linkAt(c, c.t[+el.dataset.a]), "_blank", "noopener"); });
 boot();
 </script>
 </body>
