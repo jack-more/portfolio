@@ -28,7 +28,8 @@ header.intro{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;alig
 h1{font-family:var(--serif);font-weight:400;font-size:60px;line-height:.95;margin:0 0 12px}
 .intro p{margin:0;color:var(--soft);font-size:16.5px;max-width:64ch;line-height:1.5}
 .count{text-align:right;font-family:var(--serif);font-size:72px;line-height:.9}
-.count small{display:block;font-family:var(--mono);font-size:14px;color:var(--soft);margin-top:8px}
+.count{max-width:min(560px,46vw)}
+.count small{display:block;font-family:var(--mono);font-size:14px;color:var(--soft);margin-top:8px;line-height:1.45}
 .search{display:flex;gap:10px;align-items:center;margin:10px 0 8px}
 .search input{flex:1;background:var(--ink2);border:1px solid var(--line);border-radius:3px;color:var(--paper);font:inherit;font-size:16px;padding:12px 20px;outline:none}
 .search input:focus{border-color:var(--cobalt)}
@@ -65,7 +66,7 @@ h2{font-family:var(--serif);font-weight:400;font-size:28px;margin:28px 0 4px}
 footer{border-top:1.5px solid var(--line);padding:20px 0 40px;font-family:var(--mono);font-size:13.5px;color:var(--soft);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .kicker{font-family:var(--mono);color:var(--soft);font-size:15px;margin:0 0 6px}
 .status{font-family:var(--mono)}
-@media (max-width:760px){.frow > span{width:100%}h1{font-size:44px}.brand span{display:none}.top nav{display:none!important}.wrap{padding:0 16px}header.intro{grid-template-columns:1fr}.count{text-align:left;font-size:48px}.stage{margin:6px -16px 0}.top nav{gap:14px}}
+@media (max-width:760px){.frow > span{width:100%}h1{font-size:44px}.brand span{display:none}.top nav{display:none!important}.wrap{padding:0 16px}header.intro{grid-template-columns:1fr}.count{max-width:none}.count{text-align:left;font-size:48px}.stage{margin:6px -16px 0}.top nav{gap:14px}}
 .facets{display:flex;flex-direction:column;gap:9px;margin:18px 0 6px}
 .frow{display:flex;flex-wrap:wrap;gap:7px;align-items:center}
 .frow > span{font-family:var(--mono);color:var(--soft);font-size:14px;width:74px;flex:none}
@@ -149,12 +150,14 @@ async function boot(){
   const wall = $("wall"), rank = c => Math.min(9, ...c.era.map(e => ERAS.indexOf(e)).filter(x => x >= 0));
   const ORDER = IX.clips.map((c, ci) => ci).sort((a, b) => rank(IX.clips[a]) - rank(IX.clips[b]) || !!IX.clips[a].light - !!IX.clips[b].light || IX.clips[a].no - IX.clips[b].no || a - b);
   const deep = IX.clips.filter(c => !c.light).length, lightN = IX.clips.reduce((n, c) => n + (c.light ? c.n : 0), 0);
-  const shelves = Math.ceil((deep + lightN / 24) / 48); MAXC = shelves > 1 ? 24 : 40;
+  // The wall is tilted toward the eye, so a tall one looms. A big library gets shorter columns on wide shelves.
+  MAXC = deep + lightN / 24 > 48 ? 16 : 40;
   const cols = [];
   ORDER.forEach(ci => { const c = IX.clips[ci], k = Math.min(c.n, MAXC); let col = cols.at(-1);
     if (!col || !c.light || !col.light || col.cells.length + k > MAXC) cols.push(col = {light: !!c.light, cells: []});
     for (let j = 0; j < k; j++){ const a = Math.floor(j * c.n / k); col.cells.push([ci, a, Math.max(a + 1, Math.floor((j + 1) * c.n / k))]); }
   });
+  const shelves = Math.ceil(cols.length / 60);
   wall.style.width = `${Math.ceil(cols.length / shelves) * (CW + 7) - 7}px`;
   cols.forEach(({cells}, p) => {
     const col = document.createElement("div"); col.className = "col"; GRID[p] = [];
