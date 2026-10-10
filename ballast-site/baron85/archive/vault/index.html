@@ -123,10 +123,11 @@ function spriteStyle(c, i, w, h, tag){
   return `background-image:url(strips/${c.key}_${tag}.jpg);background-size:${Math.min(c.n, cols) * w}px ${rows * h}px;background-position:${-x * w}px ${-y * h}px`;
 }
 function linkAt(c, t){
-  const s = Math.floor(t), u = c.url, q = u.includes("?") ? "&" : "?";
+  const s = Math.floor(t + (c.t0 || 0)), u = c.url, q = u.includes("?") ? "&" : "?";
   if (/dailymotion\.com|odysee\.com/.test(u)) return `${u}${q}${u.includes("dailymotion") ? "start" : "t"}=${s}`;
   if (/bilibili\.com/.test(u)) return `${u}${q}t=${s}`;
   if (/vimeo\.com/.test(u)) return `${u}#t=${s}s`;
+  const tv = u.match(/^(.*\/start\/)(\d+)(\/end\/\d+)$/); if (tv) return `${tv[1]}${+tv[2] + s}${tv[3]}`;
   return u;
 }
 const playOf = (c, t) => c.segs.filter(([a, b]) => t >= a - .25 && t <= b + .25).map(s => s[2]);
