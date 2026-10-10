@@ -38,7 +38,7 @@ h1{font-family:var(--serif);font-weight:400;font-size:60px;line-height:.95;margi
 .chip{background:var(--ink2);border:1px solid var(--line);color:var(--paper);border-radius:3px;font:inherit;font-size:13.5px;padding:6px 13px;cursor:pointer}
 .chip[aria-pressed="true"]{background:var(--paper);color:var(--ink);border-color:var(--paper)}
 .stage{position:relative;perspective:1500px;perspective-origin:50% 0;overflow:hidden;margin:6px -32px 0;height:var(--h,560px)}
-.wall{position:absolute;left:50%;top:12px;display:flex;gap:7px;align-items:flex-start;transform-origin:50% 0;width:max-content}
+.wall{position:absolute;left:50%;top:12px;display:flex;flex-wrap:wrap;gap:22px 7px;align-items:flex-start;transform-origin:50% 0;width:max-content}
 .col{display:flex;flex-direction:column;gap:2px}
 .cell{width:24px;height:13.5px;background-repeat:no-repeat;border-radius:1px;opacity:.5;filter:grayscale(.6);transition:opacity .25s,filter .25s,box-shadow .25s}
 .wall:hover .cell{opacity:.42}
@@ -101,7 +101,7 @@ footer{border-top:1.5px solid var(--line);padding:20px 0 40px;font-family:var(--
   <p class="sub" id="rs">One result per moment. Drag the wall to tilt it.</p>
   <div class="results" id="results"></div>
   <h2>What's in it</h2>
-  <p class="sub">Every film and broadcast in the vault, by archive number. None of them sit on his own accounts.</p>
+  <p class="sub" id="libsub">Every film and broadcast in the vault, by archive number, and the site it lives on.</p>
   <div class="lib" id="lib"></div>
   <footer><span>Search reads the frames themselves.</span><span>Every clip plays on its original host.</span></footer>
 </div>
@@ -112,17 +112,23 @@ const hotgNo = n => n ? "No. " + String(n).padStart(4, "0") : "";
 const fmtT = s => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, "0")}`;
 const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const PLAYS = ["Dunks", "Handles", "Steals", "Dimes", "Buckets", "Game-winners", "Celebrations", "The crowd", "Laughs"];
-const ERAS = ["UCLA", "Hornets", "Warriors", "The Drew", "Today"];
-const KINDS = ["Broadcast", "Fan footage", "Streetball", "Film and TV", "Interviews", "News", "Video game"];
+const ERAS = ["UCLA", "Hornets", "Warriors", "Clippers to Knicks", "The Drew", "Today"];
+const KINDS = ["Full games", "Broadcast", "Fan footage", "Streetball", "Film and TV", "Ads", "Interviews", "News", "Video game"];
 let IX, EMB, OWNER = [], CELLS = [], GRID = [], model = null, active = null;
 const sel = {play: null, era: null, kind: null}; let query = null, qhits = null;
-const CW = 24, CH = 13.5, MAXC = 40;
+const CW = 24, CH = 13.5; let MAXC = 40;
 
 function spriteStyle(c, i, w, h, tag){
   const cols = IX.cols, rows = Math.ceil(c.n / cols), x = i % cols, y = Math.floor(i / cols);
   return `background-image:url(strips/${c.key}_${tag}.jpg);background-size:${Math.min(c.n, cols) * w}px ${rows * h}px;background-position:${-x * w}px ${-y * h}px`;
 }
-function linkAt(c, t){ return c.url.includes("dailymotion") ? `${c.url}?start=${Math.floor(t)}` : c.url; }
+function linkAt(c, t){
+  const s = Math.floor(t), u = c.url, q = u.includes("?") ? "&" : "?";
+  if (/dailymotion\.com|odysee\.com/.test(u)) return `${u}${q}${u.includes("dailymotion") ? "start" : "t"}=${s}`;
+  if (/bilibili\.com/.test(u)) return `${u}${q}t=${s}`;
+  if (/vimeo\.com/.test(u)) return `${u}#t=${s}s`;
+  return u;
+}
 const playOf = (c, t) => c.segs.filter(([a, b]) => t >= a - .25 && t <= b + .25).map(s => s[2]);
 const clipOK = c => (!sel.era || c.era.includes(sel.era)) && (!sel.kind || c.kind === sel.kind);
 const frameOK = (c, i) => clipOK(c) && (!sel.play || playOf(c, c.t[i]).includes(sel.play));
@@ -132,22 +138,29 @@ async function boot(){
   EMB = new Int8Array(await (await fetch("emb.i8")).arrayBuffer());
   const total = IX.clips.reduce((n, c) => n + c.n, 0);
   $("nmom").textContent = new Set(IX.clips.map(c => c.no)).size;
-  $("nframes").textContent = `${IX.clips.length} films and broadcasts · ${total.toLocaleString()} frames`;
+  const hosts = Object.entries(IX.clips.reduce((m, c) => (m[c.source] = (m[c.source] || 0) + 1, m), {})).sort((a, b) => b[1] - a[1]).map(h => h[0]);
+  $("nframes").textContent = `${IX.clips.length} films and broadcasts · ${total.toLocaleString()} frames · from ${hosts.length > 1 ? hosts.slice(0, -1).join(", ") + " and " + hosts.at(-1) : hosts[0]}`;
   IX.clips.forEach((c, ci) => { for (let i = 0; i < c.n; i++) OWNER.push([ci, i]); });
-  const wall = $("wall");
-  IX.clips.forEach((c, ci) => {
-    const col = document.createElement("div"); col.className = "col"; const k = Math.min(c.n, MAXC); GRID[ci] = [];
+  // Columns run in his order, college to now; a big library wraps onto shelves so frames keep their size.
+  const wall = $("wall"), rank = c => Math.min(9, ...c.era.map(e => ERAS.indexOf(e)).filter(x => x >= 0));
+  const ORDER = IX.clips.map((c, ci) => ci).sort((a, b) => rank(IX.clips[a]) - rank(IX.clips[b]) || IX.clips[a].no - IX.clips[b].no || a - b);
+  const shelves = Math.ceil(ORDER.length / 48); MAXC = shelves > 1 ? 24 : 40;
+  wall.style.width = `${Math.ceil(ORDER.length / shelves) * (CW + 7) - 7}px`;
+  ORDER.forEach((ci, p) => { const c = IX.clips[ci];
+    const col = document.createElement("div"); col.className = "col"; const k = Math.min(c.n, MAXC); GRID[p] = [];
     for (let j = 0; j < k; j++){
       const a = Math.floor(j * c.n / k), b = Math.max(a + 1, Math.floor((j + 1) * c.n / k));
       const el = document.createElement("div"); el.className = "cell";
-      el.style.cssText = spriteStyle(c, a, CW, CH, "s"); el.dataset.c = ci; el.dataset.a = a; el.dataset.b = b; el.dataset.j = j;
-      el._z = 0; el._tz = 0; col.appendChild(el); CELLS.push(el); GRID[ci][j] = el;
+      el.style.cssText = spriteStyle(c, a, CW, CH, "s"); el.dataset.c = ci; el.dataset.p = p; el.dataset.a = a; el.dataset.b = b; el.dataset.j = j;
+      el._z = 0; el._tz = 0; col.appendChild(el); CELLS.push(el); GRID[p][j] = el;
       for (let i = a; i < b; i++) c.cell = c.cell || [], c.cell[i] = el;
     }
     wall.appendChild(col);
   });
   facets(); fit(); addEventListener("resize", fit);
-  $("lib").innerHTML = IX.clips.slice().sort((a, b) => a.no - b.no || a.title.localeCompare(b.title)).map(c => `<a href="${c.url}" target="_blank" rel="noopener">${esc(c.title)} <span>${hotgNo(c.no)} · ${c.kind} · ${fmtT(c.dur)}</span></a>`).join("");
+  const own = IX.clips.filter(c => /^(BaronDavis|iambarondavis)$/.test(c.by || "")).length;
+  $("libsub").textContent += own ? ` ${own} of them sit on his own accounts.` : " None of them sit on his own accounts.";
+  $("lib").innerHTML = IX.clips.slice().sort((a, b) => a.no - b.no || a.title.localeCompare(b.title)).map(c => `<a href="${c.url}" target="_blank" rel="noopener">${esc(c.title)} <span>${hotgNo(c.no)} · ${c.kind} · ${fmtT(c.dur)} · ${esc(c.source)}${c.by ? " · " + esc(c.source === "X" ? "@" + c.by : c.by) : ""}</span></a>`).join("");
   sel.play = "Dunks"; update();
 }
 function counts(facet, value){
@@ -245,8 +258,8 @@ const LIFT = 150, SIG = 2.6, REACH = 8;
 function tick(){
   let live = false;
   if (hover){
-    const {ci, j} = hover;
-    for (let dc = -REACH; dc <= REACH; dc++){ const col = GRID[ci + dc]; if (!col) continue;
+    const {p, j} = hover;
+    for (let dc = -REACH; dc <= REACH; dc++){ const col = GRID[p + dc]; if (!col) continue;
       for (let dj = -REACH * 2; dj <= REACH * 2; dj++){ const el = col[j + dj]; if (!el) continue;
         const d2 = dc * dc * 1.6 + dj * dj * .35; el._tz = LIFT * Math.exp(-d2 / (2 * SIG * SIG)); el._mark = 1; } }
   }
@@ -260,7 +273,7 @@ function tick(){
 const wake = () => { if (!raf) raf = requestAnimationFrame(tick); };
 $("wall").addEventListener("mousemove", e => {
   const el = e.target.closest(".cell"); if (!el || dragging){ peek.classList.remove("on"); return; }
-  hover = {ci: +el.dataset.c, j: +el.dataset.j}; wake();
+  hover = {p: +el.dataset.p, j: +el.dataset.j}; wake();
   document.querySelectorAll(".col.hot").forEach(c => c.classList.remove("hot")); el.parentNode.classList.add("hot");
   const c = IX.clips[+el.dataset.c], i = +el.dataset.a;
   peek.querySelector(".fr").style.cssText = spriteStyle(c, i, 288, 162, "m");
