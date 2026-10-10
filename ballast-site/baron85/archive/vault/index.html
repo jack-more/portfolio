@@ -87,7 +87,7 @@ footer{border-top:1.5px solid var(--line);padding:20px 0 40px;font-family:var(--
     <div>
       <p class="kicker">Baron Davis on tape</p>
       <h1>The Vault</h1>
-      <p>Every column is a film or broadcast, frame by frame, top to bottom through time. Pick a play, an era or a kind of footage, or describe a moment in your own words, and the frames light up. Click any frame to watch from that second.</p>
+      <p>Every column is a film or broadcast, frame by frame, top to bottom through time. Pick a play, an era or a kind of footage, or describe a moment in your own words, and the frames light up. Click any frame to play it from that second, right here.</p>
     </div>
     <div class="count"><span id="nmom">–</span> moments<small id="nframes">loading</small></div>
   </header>
@@ -103,9 +103,10 @@ footer{border-top:1.5px solid var(--line);padding:20px 0 40px;font-family:var(--
   <h2>What's in it</h2>
   <p class="sub" id="libsub">Every film and broadcast in the vault, by archive number, and the site it lives on.</p>
   <div class="lib" id="lib"></div>
-  <footer><span>Search reads the frames themselves.</span><span>Every clip plays on its original host.</span></footer>
+  <footer><span>Search reads the frames themselves.</span><span>Every clip plays in place, on its own host's player.</span></footer>
 </div>
 <div class="peek" id="peek"><div class="fr"></div><div class="m"></div></div>
+<script src="../t/player.js"></script>
 <script>
 const $ = id => document.getElementById(id);
 const hotgNo = n => n ? "No. " + String(n).padStart(4, "0") : "";
@@ -140,28 +141,35 @@ async function boot(){
   const total = IX.clips.reduce((n, c) => n + c.n, 0);
   $("nmom").textContent = new Set(IX.clips.map(c => c.no)).size;
   const hosts = Object.entries(IX.clips.reduce((m, c) => (m[c.source] = (m[c.source] || 0) + 1, m), {})).sort((a, b) => b[1] - a[1]).map(h => h[0]);
-  $("nframes").textContent = `${IX.clips.length} films and broadcasts · ${total.toLocaleString()} frames · from ${hosts.length > 1 ? hosts.slice(0, -1).join(", ") + " and " + hosts.at(-1) : hosts[0]}`;
+  const lightC = IX.clips.filter(c => c.light).length;
+  $("nframes").textContent = `${IX.clips.length - lightC} films and broadcasts frame by frame${lightC ? ` · ${lightC} more by their preview frames` : ""} · ${total.toLocaleString()} frames · from ${hosts.length > 1 ? hosts.slice(0, -1).join(", ") + " and " + hosts.at(-1) : hosts[0]}`;
   IX.clips.forEach((c, ci) => { for (let i = 0; i < c.n; i++) OWNER.push([ci, i]); });
   // Columns run in his order, college to now; a big library wraps onto shelves so frames keep their size.
+  // A light piece (a video known only by its host's preview frames) is short, so several share one column.
   const wall = $("wall"), rank = c => Math.min(9, ...c.era.map(e => ERAS.indexOf(e)).filter(x => x >= 0));
-  const ORDER = IX.clips.map((c, ci) => ci).sort((a, b) => rank(IX.clips[a]) - rank(IX.clips[b]) || IX.clips[a].no - IX.clips[b].no || a - b);
-  const shelves = Math.ceil(ORDER.length / 48); MAXC = shelves > 1 ? 24 : 40;
-  wall.style.width = `${Math.ceil(ORDER.length / shelves) * (CW + 7) - 7}px`;
-  ORDER.forEach((ci, p) => { const c = IX.clips[ci];
-    const col = document.createElement("div"); col.className = "col"; const k = Math.min(c.n, MAXC); GRID[p] = [];
-    for (let j = 0; j < k; j++){
-      const a = Math.floor(j * c.n / k), b = Math.max(a + 1, Math.floor((j + 1) * c.n / k));
+  const ORDER = IX.clips.map((c, ci) => ci).sort((a, b) => rank(IX.clips[a]) - rank(IX.clips[b]) || !!IX.clips[a].light - !!IX.clips[b].light || IX.clips[a].no - IX.clips[b].no || a - b);
+  const deep = IX.clips.filter(c => !c.light).length, lightN = IX.clips.reduce((n, c) => n + (c.light ? c.n : 0), 0);
+  const shelves = Math.ceil((deep + lightN / 24) / 48); MAXC = shelves > 1 ? 24 : 40;
+  const cols = [];
+  ORDER.forEach(ci => { const c = IX.clips[ci], k = Math.min(c.n, MAXC); let col = cols.at(-1);
+    if (!col || !c.light || !col.light || col.cells.length + k > MAXC) cols.push(col = {light: !!c.light, cells: []});
+    for (let j = 0; j < k; j++){ const a = Math.floor(j * c.n / k); col.cells.push([ci, a, Math.max(a + 1, Math.floor((j + 1) * c.n / k))]); }
+  });
+  wall.style.width = `${Math.ceil(cols.length / shelves) * (CW + 7) - 7}px`;
+  cols.forEach(({cells}, p) => {
+    const col = document.createElement("div"); col.className = "col"; GRID[p] = [];
+    cells.forEach(([ci, a, b], j) => { const c = IX.clips[ci];
       const el = document.createElement("div"); el.className = "cell";
       el.style.cssText = spriteStyle(c, a, CW, CH, "s"); el.dataset.c = ci; el.dataset.p = p; el.dataset.a = a; el.dataset.b = b; el.dataset.j = j;
       el._z = 0; el._tz = 0; col.appendChild(el); CELLS.push(el); GRID[p][j] = el;
       for (let i = a; i < b; i++) c.cell = c.cell || [], c.cell[i] = el;
-    }
+    });
     wall.appendChild(col);
   });
   facets(); fit(); addEventListener("resize", fit);
   const own = IX.clips.filter(c => /^(BaronDavis|iambarondavis)$/.test(c.by || "")).length;
   $("libsub").textContent += own ? ` ${own} of them sit on his own accounts.` : " None of them sit on his own accounts.";
-  $("lib").innerHTML = IX.clips.slice().sort((a, b) => a.no - b.no || a.title.localeCompare(b.title)).map(c => `<a href="${c.url}" target="_blank" rel="noopener">${esc(c.title)} <span>${hotgNo(c.no)} · ${c.kind} · ${fmtT(c.dur)} · ${esc(c.source)}${c.by ? " · " + esc(c.source === "X" ? "@" + c.by : c.by) : ""}</span></a>`).join("");
+  $("lib").innerHTML = IX.clips.slice().sort((a, b) => a.no - b.no || a.title.localeCompare(b.title)).map(c => `<a href="${c.url}" target="_blank" rel="noopener" data-c="${IX.clips.indexOf(c)}">${esc(c.title)} <span>${hotgNo(c.no)} · ${c.kind}${c.dur ? " · " + fmtT(c.dur) : ""} · ${esc(c.source)}${c.by ? " · " + esc(c.source === "X" ? "@" + c.by : c.by) : ""}</span></a>`).join("");
   sel.play = "Dunks"; update();
 }
 function counts(facet, value){
@@ -215,7 +223,7 @@ function update(){
     $("rh").textContent = [sel.play, sel.era, sel.kind].filter(Boolean).join(" · ");
   } else { $("rh").textContent = "Pick a play above"; }
   $("rs").textContent = out.length ? `${out.length} ${out.length === 1 ? "moment" : "moments"}, one result each.` : any ? "Nothing logged here yet." : "One result per moment. Drag the wall to tilt it.";
-  $("results").innerHTML = out.map(({c, i, t, angles}) => `<a class="res" href="${linkAt(c, t)}" target="_blank" rel="noopener"><div class="fr" data-k="${c.key}" data-i="${i}"></div><div class="t">${esc(c.title)}</div><div class="w"><b>${hotgNo(c.no)}</b> · at ${fmtT(t)}${angles > 1 ? ` · ${angles} angles` : ""}</div></a>`).join("");
+  $("results").innerHTML = out.map(({c, i, t, angles}) => `<a class="res" href="${linkAt(c, t)}" target="_blank" rel="noopener" data-c="${IX.clips.indexOf(c)}" data-i="${i}" data-t="${t}"><div class="fr" data-k="${c.key}" data-i="${i}"></div><div class="t">${esc(c.title)}</div><div class="w"><b>${hotgNo(c.no)}</b> · ${c.light ? c.source + " preview" : "at " + fmtT(t)}${angles > 1 ? ` · ${angles} angles` : ""}</div></a>`).join("");
   requestAnimationFrame(() => document.querySelectorAll(".res .fr").forEach(el => { const c = IX.clips.find(x => x.key === el.dataset.k), w = el.clientWidth; el.style.cssText = spriteStyle(c, +el.dataset.i, w, w * 9 / 16, "m"); }));
 }
 // Words that name a logged play. Frames inside a logged segment of that play rank first.
@@ -278,7 +286,7 @@ $("wall").addEventListener("mousemove", e => {
   document.querySelectorAll(".col.hot").forEach(c => c.classList.remove("hot")); el.parentNode.classList.add("hot");
   const c = IX.clips[+el.dataset.c], i = +el.dataset.a;
   peek.querySelector(".fr").style.cssText = spriteStyle(c, i, 288, 162, "m");
-  peek.querySelector(".m").innerHTML = `${esc(c.title)}<span>${hotgNo(c.no)} · ${fmtT(c.t[i])}${playOf(c, c.t[i]).length ? " · " + playOf(c, c.t[i]).join(", ") : ""}</span>`;
+  peek.querySelector(".m").innerHTML = `${esc(c.title)}<span>${hotgNo(c.no)} · ${c.light ? c.source + " preview" : fmtT(c.t[i])}${playOf(c, c.t[i]).length ? " · " + playOf(c, c.t[i]).join(", ") : ""}</span>`;
   const x = Math.min(innerWidth - 300, e.clientX + 16), y = Math.min(innerHeight - 230, e.clientY + 16);
   peek.style.left = x + "px"; peek.style.top = y + "px"; peek.classList.add("on");
 });
@@ -288,7 +296,14 @@ $("stage").addEventListener("pointerdown", e => { if (innerWidth < 760) return; 
 addEventListener("pointermove", e => { if (!dragging) return; const dx = e.clientX - sx, dy = e.clientY - sy; moved = Math.max(moved, Math.abs(dx) + Math.abs(dy));
   ttilt = Math.max(8, Math.min(62, stilt + dy * .12)); trz = Math.max(-16, Math.min(16, srz - dx * .03)); $("stage").classList.toggle("grab", moved > 4); wake(); });
 addEventListener("pointerup", () => { dragging = false; $("stage").classList.remove("grab"); });
-$("wall").addEventListener("click", e => { if (moved > 4){ moved = 0; return; } const el = e.target.closest(".cell"); if (!el) return; const c = IX.clips[+el.dataset.c]; open(linkAt(c, c.t[+el.dataset.a]), "_blank", "noopener"); });
+// Play in place: the frame you clicked grows into the host's own player, starting at that second.
+function play(c, i, t, el){
+  HOTGPlayer.open({url: c.url, t: t + (c.t0 || 0), el, title: c.title, poster: (w, h) => spriteStyle(c, i, w, h, "m"),
+    meta: `${hotgNo(c.no)} · ${c.source}${c.by ? " · " + (c.source === "X" ? "@" + c.by : c.by) : ""}${c.light ? "" : " · from " + fmtT(t)}`});
+}
+$("wall").addEventListener("click", e => { if (moved > 4){ moved = 0; return; } const el = e.target.closest(".cell"); if (!el) return; const c = IX.clips[+el.dataset.c], i = +el.dataset.a; peek.classList.remove("on"); play(c, i, c.t[i], el); });
+$("lib").addEventListener("click", e => { const a = e.target.closest("a[data-c]"); if (!a || e.metaKey || e.ctrlKey || e.shiftKey || e.button) return; e.preventDefault(); const c = IX.clips[+a.dataset.c], i = Math.min(c.n - 1, Math.floor(c.n * .3)); play(c, i, 0, a); });
+$("results").addEventListener("click", e => { const a = e.target.closest(".res"); if (!a || e.metaKey || e.ctrlKey || e.shiftKey || e.button) return; e.preventDefault(); play(IX.clips[+a.dataset.c], +a.dataset.i, +a.dataset.t, a.querySelector(".fr")); });
 boot();
 </script>
 </body>

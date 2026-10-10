@@ -144,6 +144,7 @@ footer{border-top:1.5px solid var(--ink);padding:20px 0 40px;font-family:var(--t
   <footer><span>Views and follower counts read 2 to 6 Oct 2026. Hit = best video in the last 90 days ÷ followers.</span><span>A piece "links back" when it sits on his own accounts or is co-posted to them.</span></footer>
 </div>
 
+<script src="t/player.js"></script>
 <script>
 const FACES = [
   {id:"footage", label:"game footage", color:"#1F4FD1", tier:"Tier 2 · licensed archival. His top clips are 9–20 years old and sit on other people's channels.",
@@ -404,7 +405,7 @@ function pieceCard(p){
   const more = p.more && p.more.length ? `<div class="also">${p.more.length === 1 ? "One more cut" : p.more.length + " more cuts"}: ${[...p.more.reduce((m, x) => { const k = x.where || x.title; (m.get(k) || m.set(k, []).get(k)).push(x); return m; }, new Map())].map(([k, xs]) => `<a href="${xs[0].u}" target="_blank" rel="noopener">${esc(k)}</a>${xs.length > 1 ? " ×" + xs.length : ""}`).join(", ")}${p.total > p.v ? ` · ${fmt(p.total)} views in all` : ""}</div>` : "";
   const inner = `<div class="media">${media}</div><div class="meta"><div><div class="no">${line}</div>${img ? `<div class="t">${esc(p.title)}</div>` : ""}${more}</div>${tag}</div>`;
   if (!p.u) return `<div class="card">${inner}</div>`;
-  return `<div class="card"><a class="hit" href="${p.u}" target="_blank" rel="noopener" aria-label="${esc(p.title)}"></a>${inner}</div>`;
+  return `<div class="card"><a class="hit" href="${p.u}" target="_blank" rel="noopener" aria-label="${esc(p.title)}" data-t="${esc(p.title)}" data-m="${esc((p.no ? hotgNo(p.no) + " · " : "") + (p.where || p.f.label))}"></a>${inner}</div>`;
 }
 
 const PRIMARY = {"His own accounts":"personal","The panel circuit":"interviews","Licensed editors":"footage","Old-school archive channels":"footage","TikTok cutters":"mixes","Small TikTok editors, big reach":"mixes","YouTube legend editors":"footage","His teams' fans":"provenance","Where his biggest clips sit":"footage","Game creators":"games"};
@@ -456,6 +457,12 @@ document.addEventListener("click", e => {
   const t = e.target.closest("[data-tab]"); if (t){ tab = t.dataset.tab; filter = "all"; document.querySelectorAll("[data-tab]").forEach(b => b.setAttribute("aria-selected", b === t)); render(); return; }
   const c = e.target.closest("[data-f],[data-g]"); if (c){ filter = c.dataset.f || c.dataset.g; render(); return; }
   const s = e.target.closest("[data-s]"); if (s){ if (tab === "untapped") usort = s.dataset.s; else sort = s.dataset.s; render(); }
+});
+// Play in place: a card whose host has an embed player opens into it; the rest open on their own site.
+$("grid").addEventListener("click", e => {
+  const a = e.target.closest("a.hit"); if (!a || e.metaKey || e.ctrlKey || e.shiftKey || e.button || !HOTGPlayer.embed(a.href)) return;
+  e.preventDefault(); const media = a.parentNode.querySelector(".media"), img = media && media.querySelector("img");
+  HOTGPlayer.open({url: a.href, el: media, title: a.dataset.t, meta: a.dataset.m, poster: img ? () => `background-image:url("${img.currentSrc || img.src}");background-size:cover;background-position:center` : null});
 });
 render();
 </script>
