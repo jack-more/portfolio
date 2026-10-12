@@ -48,7 +48,7 @@ const work = [
     desc: "Paid media for Toyota, Starzplay, Starbucks",
     href: "https://www.iheartmedia.com/",
     details: [
-      "Peak spend over $2M a month on Starbucks and Toyota, held at 4x blended ROAS",
+      "$2M+ a month in paid media across reach, CTR and conversion campaigns for Starbucks, Toyota and Starzplay, at 3x blended ROAS",
       "Built creative testing framework that drove 25%+ ROAS lift QoQ",
       "Day-to-day client lead for Toyota and Starzplay",
       "Campaigns across Meta, Snapchat, Twitter, programmatic DSPs",
