@@ -35,7 +35,7 @@ const wall: Tile[] = [
   ad("ugc-dennis-1", "SKO \u00b7 creator"),
   still("sko-alpine", "SKO Compounds"),
   ad("sko-frutiger-1", "SKO Compounds"),
-  ad("sko-orders", "SKO Compounds"),
+  still("sko-vending"),
   ad("ugc-ethan-1", "SKO \u00b7 creator"),
   ad("sko-dna", "SKO Compounds"),
   ad("ugc-hanna-2", "SKO \u00b7 creator"),
