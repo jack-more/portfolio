@@ -35,3 +35,16 @@
   for = "/baron85/*"
   [headers.values]
     X-Robots-Tag = "noindex, nofollow, noarchive"
+
+# The archive link Baron has opens the video archive (the vault)
+[[redirects]]
+  from = "/baron85/archive"
+  to = "/baron85/archive/vault/"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/baron85/archive/index.html"
+  to = "/baron85/archive/vault/"
+  status = 302
+  force = true
