@@ -791,6 +791,6 @@ a:hover {
   .wall { --c: 5; }
 }
 @media (max-width: 760px) {
-  .wall { --c: 3; --g: 4px; }
+  .wall { --c: 4; --g: 3px; }
   .wall-tile figcaption { font-size: 9px; padding: 4px 5px; left: 4px; bottom: 4px; }
 }
