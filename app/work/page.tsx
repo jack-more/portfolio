@@ -11,7 +11,7 @@ type Tile =
   | { kind: "yt"; id: string; label: string; title: string; wide?: boolean; poster: string }
   | { kind: "ig"; id: string; label: string; title: string };
 
-const SKO = "SKO Compounds";
+const SKO = "SKO";
 const ad = (file: string, label = SKO): Tile => ({ kind: "ad", file, label });
 const still = (file: string, label = SKO): Tile => ({ kind: "still", file, label });
 const yt = (id: string, label: string, title: string, poster: string, wide = false): Tile => ({ kind: "yt", id, label, title, poster, wide });
@@ -21,7 +21,7 @@ const ig = (id: string, label: string, title: string): Tile => ({ kind: "ig", id
 // Generated with ballast.la's wall: same order, labels and posters.
 const wall: Tile[] = [
   yt("oqxAJKy0ii4", "Netflix \u00b7 Squid Game", "the Squid Game trailer", "/work/yt/oqxAJKy0ii4.webp", true),
-  ad("sko-founder-1", "SKO Compounds"),
+  ad("sko-founder-1", "SKO"),
   yt("TcMBFSGVi1c", "Disney \u00b7 Avengers: Endgame", "the Avengers: Endgame trailer", "/work/yt/TcMBFSGVi1c.webp", true),
   yt("JSpUNWjQk6c", "STARZPLAY \u00b7 Raising Kanan", "the Raising Kanan promo", "https://i.ytimg.com/vi/JSpUNWjQk6c/oar2.jpg", false),
   yt("Y_IuBEtfzGM", "Toyota \u00b7 4Runner", "the Toyota 4Runner Warm Up spot", "/work/brands/toyota-4runner.webp", true),
@@ -31,36 +31,36 @@ const wall: Tile[] = [
   yt("sItKwZdGkTM", "Peacock \u00b7 The Office", "the The Office promo", "/work/yt/sItKwZdGkTM.webp", true),
   yt("zEvYcxW_QP4", "LG \u00b7 G7 ThinQ launch", "the LG G7 ThinQ launch spot (2018)", "/work/yt/zEvYcxW_QP4.webp", true),
   still("epeps-corona", "ePeps"),
-  ad("sko-ai-spot", "SKO Compounds"),
+  ad("sko-ai-spot", "SKO"),
   ad("ugc-dennis-1", "SKO \u00b7 creator"),
-  still("sko-alpine", "SKO Compounds"),
-  ad("sko-frutiger-1", "SKO Compounds"),
+  still("sko-alpine", "SKO"),
+  ad("sko-frutiger-1", "SKO"),
   still("sko-vending"),
   ad("ugc-ethan-1", "SKO \u00b7 creator"),
-  ad("sko-dna", "SKO Compounds"),
+  ad("sko-dna", "SKO"),
   ad("ugc-hanna-2", "SKO \u00b7 creator"),
-  ad("sko-tennis", "SKO Compounds"),
-  ad("sko-frutiger-2", "SKO Compounds"),
+  ad("sko-tennis", "SKO"),
+  ad("sko-frutiger-2", "SKO"),
   ad("ugc-dennis-2", "SKO \u00b7 creator"),
-  ad("sko-bubbles", "SKO Compounds"),
-  ad("sko-laborday-1", "SKO Compounds"),
-  ad("sko-truck", "SKO Compounds"),
-  ad("sko-box2", "SKO Compounds"),
-  ad("sko-frutiger-3", "SKO Compounds"),
-  ad("sko-freevial", "SKO Compounds"),
-  ad("sko-hightech", "SKO Compounds"),
+  ad("sko-bubbles", "SKO"),
+  ad("sko-laborday-1", "SKO"),
+  ad("sko-truck", "SKO"),
+  ad("sko-box2", "SKO"),
+  ad("sko-frutiger-3", "SKO"),
+  ad("sko-freevial", "SKO"),
+  ad("sko-hightech", "SKO"),
   ad("ugc-ethan-restock-1", "SKO · creator"),
-  ad("sko-bounce", "SKO Compounds"),
+  ad("sko-bounce", "SKO"),
   ad("ugc-tyler-2", "SKO · creator"),
-  ad("sko-drippy", "SKO Compounds"),
+  ad("sko-drippy", "SKO"),
   ad("ugc-hunter-trust", "SKO · creator"),
-  ad("sko-pov", "SKO Compounds"),
+  ad("sko-pov", "SKO"),
   ad("ugc-ethan-2", "SKO · creator"),
-  ad("sko-sophie-35k", "SKO Compounds"),
+  ad("sko-sophie-35k", "SKO"),
   ad("ugc-ethan-restock-2", "SKO · creator"),
-  ad("sko-cheapruos", "SKO Compounds"),
+  ad("sko-cheapruos", "SKO"),
   ad("ugc-ethan-3", "SKO · creator"),
-  ad("sko-purest", "SKO Compounds"),
+  ad("sko-purest", "SKO"),
   ad("ugc-tyler-1", "SKO · creator"),
   ad("ugc-ethan-4", "SKO · creator"),
   ad("ugc-hunter-purity", "SKO · creator"),
@@ -216,7 +216,7 @@ export default function WorkPage() {
         <span className="artwork-title">Work</span>
       </nav>
       <p className="wall-intro">
-        Ads, trailers and promos I&apos;ve worked on: SKO Compounds, NEAR, SailGP, Dtravel, Netflix, Disney, Peacock, Universal, STARZPLAY, Starbucks, Toyota, LG and BMW.
+        Ads, trailers and promos I&apos;ve worked on: SKO, NEAR, SailGP, Dtravel, Netflix, Disney, Peacock, Universal, STARZPLAY, Starbucks, Toyota, LG and BMW.
         More at <a href="https://ballast.la" target="_blank" rel="noopener noreferrer">ballast.la</a>.
       </p>
 
