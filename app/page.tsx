@@ -24,7 +24,7 @@ const work = [
     href: "https://skocompounds.com/",
     details: [
       "Ran TikTok paid, lifecycle, and attribution for a Beverly Hills DTC brand past 40,000 orders shipped",
-      "Set up TikTok LIVE selling, now bringing in $10K in sales a day",
+      "Set up TikTok LIVE selling, now bringing in $5K in sales a day",
       "Scaled daily spend 5x in one week while holding ~3.5x blended ROAS and sub-$60 CPA",
       "Built the measurement stack: pixel + server-side events with verified dedupe, RedTrack spend sync, first-party click attribution, and an admin reporting layer",
       "Ran the creative pipeline end to end: UGC direction, AI-generated brand personas and cinematic spots, motion-graphics overlays, caption and title systems",
@@ -175,7 +175,7 @@ export default function HomePage() {
               <a href="https://ballast.la" target="_blank" rel="noopener noreferrer">Ballast Research</a>,
               a growth and paid media firm in Los Angeles. Since June: $1.2M+ a month in sales
               for a telehealth brand, $100K a month in ads turned into $450K,
-              30+ UGC creators running at once, and TikTok LIVE selling at $10K
+              30+ UGC creators running at once, and TikTok LIVE selling at $5K
               a day. Before that, eight years of paid media, promo and social
               for Toyota, Starbucks, STARZPLAY, Netflix, Disney, Peacock, LG and
               Twitter, plus three venture-backed startups built from zero.
