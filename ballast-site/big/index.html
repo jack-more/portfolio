@@ -419,7 +419,7 @@ html{scroll-padding-top:84px}
         <a class="signin-m" href="https://www.teambig.io/signin">Sign in</a>
       </nav>
       <div class="head-right">
-        <div class="mode" role="group" aria-label="Site view"><a aria-current="page" href="./">Classic</a><a class="mode__to" href="room.html">Room</a></div>
+        <div class="mode" role="group" aria-label="Site view"><a aria-current="page" href="./">Classic</a><a class="mode__to" href="room.html">Backyard</a></div>
         <a class="signin" href="https://www.teambig.io/signin">Sign in</a>
         <button class="btn btn-sm js-alerts" type="button">Get alerts</button>
         <button class="menu-btn" id="menuBtn" type="button" aria-label="Menu" aria-expanded="false"><i></i><i></i></button>
@@ -915,6 +915,6 @@ html{scroll-padding-top:84px}
 <script>(()=>{const to=document.querySelector('.mode__to');if(!to)return;
  to.addEventListener('click',e=>{let id='',best=0;
   document.querySelectorAll('section[id]').forEach(x=>{const r=x.getBoundingClientRect(),v=Math.min(r.bottom,innerHeight)-Math.max(r.top,0);if(v>best){best=v;id=x.id}});
-  const ok={watch:1,events:1,membership:1,partners:1,about:1};if(ok[id]){e.preventDefault();location.href='room.html#'+id}});})();</script>
+  const ok={watch:'watch',events:'events',membership:'join',partners:'portfolio',about:'about'};if(ok[id]){e.preventDefault();location.href='room.html#'+ok[id]}});})();</script>
 </body>
 </html>
