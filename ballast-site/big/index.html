@@ -395,9 +395,10 @@ cite a{text-decoration:none;border-bottom:1px solid var(--rule)}
 .site-top{position:sticky;top:0;z-index:60}
 html{scroll-padding-top:84px}
 .todo{display:none!important}
+.ev-next{font-size:17px;line-height:1.5;padding:14px 0;border-top:1px solid var(--rule)}
 </style>
 </head>
-<body class="notes-off">
+<body class="fallback notes-off">
 
 <div class="site-top">
   <div class="livebar" id="livebar" hidden>
@@ -445,8 +446,8 @@ html{scroll-padding-top:84px}
 
       <!-- State B: nothing scheduled, show the newest episode -->
       <p class="kicker mono state-b"><span class="tick"></span>Newest episode</p>
-      <h1 class="hero-title state-b">Ann Meyers Drysdale</h1>
-      <p class="when mono state-b"><span class="chip">S1 · EP 6</span><span>50M</span><span>Business Inside the Game podcast</span></p>
+      <h1 class="hero-title state-b">Draymond Green</h1>
+      <p class="when mono state-b"><span class="chip">S1 · EP 5</span><span>1H 16M</span><span>Business Inside the Game podcast</span></p>
 
       <p class="hero-lede">Baron Davis's business network for athletes, founders and investors.</p>
 
@@ -462,7 +463,7 @@ html{scroll-padding-top:84px}
       </div>
 
       <a class="latest state-a" href="#watch" data-play="ohIr8Wa8q6k"><span class="mono muted lbl">Newest episode</span><strong>Ann Meyers Drysdale</strong><span class="mono muted epno">S1 · EP 6</span><span class="go">Watch</span></a>
-      <a class="latest state-b" href="#watch" data-play="ohIr8Wa8q6k"><span class="go" style="margin-left:0">Watch the episode</span></a>
+      <a class="latest state-b" href="#watch" data-play="dx3S7N0kIWo"><span class="go" style="margin-left:0">Watch the episode</span></a>
 
       <p class="todo"><b>TODO Jack</b>Nothing is scheduled on teambig.io (last event 12 Oct). Ask Baron what's next. The line under the title is a draft for him to reword. "Nothing scheduled" in the prototype bar shows the fallback.</p>
     </div>
@@ -538,14 +539,7 @@ html{scroll-padding-top:84px}
         <div>
           <div class="ev-block">
             <div class="ev-label"><span class="sub-label">Upcoming</span><span class="mono muted">Request an invite</span></div>
-            <ol>
-              <li class="ev-row"><div class="ph">
-                <span class="ev-date"><span class="slot">[DAY 00 MON]</span></span>
-                <span class="ev-main"><span class="ev-title"><span class="slot">[Next event]</span></span><span class="ev-sub"><span class="slot">[One line: who's hosting, who's speaking]</span></span></span>
-                <span class="ev-where"><span class="slot">[City]</span><span class="ev-type"><span class="slot">[Type]</span></span></span>
-                <a class="rsvp rsvp-btn" href="#host" data-kind="invite">Request an invite</a>
-              </div></li>
-            </ol>
+            <p class="ev-next">New dates go to the list first. <a class="rsvp-btn" href="#alerts-hero">Get alerts</a> or <a class="rsvp-btn" href="#host" data-kind="invite">request an invite</a>.</p>
             <p class="todo"><b>TODO Jack</b>No upcoming events on teambig.io. Add the next dated events here with an RSVP link. The rows below are the 14 real 2026 events from the site. Addresses are left off on purpose.</p>
           </div>
 
@@ -634,8 +628,8 @@ html{scroll-padding-top:84px}
           <p class="sec-lede">For athletes, founders, creators and investors who want to be part of BIG.</p>
 
           <div class="price">
-            <span class="price-num"><span class="slot">[price]</span></span>
-            <span class="price-per">per <span class="slot">[year]</span></span>
+            <span class="price-num">$1,200</span>
+            <span class="price-per">per year</span>
           </div>
           <p class="todo"><b>TODO Jack</b>Pick one price with Baron. The live site shows three: a one-time $10 (/tv), $10 a month or $100 a year (/subscribe), and $1,200 a year (the membership checkout).</p>
          </div>
@@ -699,14 +693,7 @@ html{scroll-padding-top:84px}
             <cite class="mono">Baron Davis · <a href="https://www.businessinsider.com/baron-davis-business-in-the-game-big-nba-basketball-entrepreneurship-2023-10" target="_blank" rel="noopener">Business Insider, Oct 2023</a></cite>
           </blockquote>
           <p class="ab-bio">Baron Davis is the founder and CEO of Business Inside the Game (BIG). He's a two-time NBA All-Star turned investor and entrepreneur. BIG is his membership network for athletes, founders, creators and investors.</p>
-          <div class="mission">
-            <span class="sub-label">Mission</span>
-            <div>
-              <p><span class="slot">[BIG's mission in one line, in Baron's words]</span></p>
-              <p class="todo"><b>TODO Jack</b>Needs one line from Baron. The live "Our Mission" paragraph is Wise's mission statement and can't be reused.</p>
-            </div>
           </div>
-        </div>
       </div>
 
       <div class="ab-lists">
@@ -787,15 +774,7 @@ html{scroll-padding-top:84px}
   </div>
 </footer>
 
-<!-- Prototype controls (not part of the design) -->
-<div class="proto-wrap">
-<div class="proto" role="group" aria-label="Prototype controls">
-  <span class="lbl">Prototype</span>
-  <button type="button" id="tNotes" aria-pressed="true">Notes</button>
-  <button type="button" id="tLive" aria-pressed="false">Live bar</button>
-  <button type="button" id="tFall" aria-pressed="false">Nothing scheduled</button>
-</div>
-</div>
+
 
 <script>
 (function(){
@@ -898,17 +877,7 @@ html{scroll-padding-top:84px}
     Object.keys(links).forEach(function(id){ var s=document.getElementById(id); if(s) io.observe(s); });
   }
 
-  /* ---- prototype controls ---- */
-  function toggle(btn,fn){ btn.addEventListener('click',function(){ var on=btn.getAttribute('aria-pressed')!=='true'; btn.setAttribute('aria-pressed',on?'true':'false'); fn(on); }); }
-  toggle(document.getElementById('tNotes'),function(on){ body.classList.toggle('notes-off',!on); });
-  toggle(document.getElementById('tLive'),function(on){ document.getElementById('livebar').hidden=!on; });
-  toggle(document.getElementById('tFall'),function(on){ body.classList.toggle('fallback',on); });
 
-  /* deep links for review: #live, #fallback, #clean */
-  var h=location.hash;
-  if(h==='#live'){ document.getElementById('tLive').click(); }
-  if(h==='#fallback'){ document.getElementById('tFall').click(); }
-  if(h==='#clean'){ document.getElementById('tNotes').click(); }
 })();
 </script>
 <script>document.querySelectorAll('[data-kind]').forEach(a=>a.addEventListener('click',()=>{const r=document.querySelector('#hostform input[value="'+a.dataset.kind+'"]');if(r)r.checked=true;}));</script>
