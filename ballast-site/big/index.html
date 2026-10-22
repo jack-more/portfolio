@@ -1,889 +1,400 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta name="robots" content="noindex, nofollow">
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>BIG Homepage Prototype</title>
-<meta name="description" content="Homepage prototype for BIG (Business Inside the Game), Baron Davis's business network. Prepared by Ballast Research, 21 Oct 2026. Not live.">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>BIG · Business Inside the Game</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,500;0,600;0,700;0,800;1,700;1,800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-/* BIG homepage prototype. Colours from the BIG logo (see teambig-teardown.md, section 6). */
 :root{
-  --navy:#183058;      /* text, footer */
-  --blue:#3878B8;      /* buttons, links */
-  --blue-dk:#2C6299;
-  --sky:#60C8F0;       /* single accent: date chips, active nav */
-  --paper:#F5F4F0;     /* page background */
-  --card:#FFFFFF;
-  --muted:#56637C;
-  --rule:#DDDAD2;
-  --live:#D8262F;      /* LIVE only */
-  --todo-bg:#FFF2BF; --todo-line:#E3A400; --todo-ink:#4A3A00;
-  --sans:'Geist', system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --mono:'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace;
-  --max:1320px; --side:40px; --gut:24px;
-  --head:76px;
-}
-@media (max-width:760px){ :root{ --side:16px; --head:60px; } }
-
+ --bg:#05070B;--panel:#0B1018;--panel2:#0F1622;--line:rgba(255,255,255,.08);--line2:rgba(255,255,255,.14);
+ --tx:#EEF2F8;--mu:#8C96A8;--blue:#3070B0;--sky:#60C0F0;--navy:#103050;--live:#E5383B;
+ --cond:'Barlow Condensed',Impact,sans-serif;--sans:Inter,system-ui,sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace;
+ --max:1360px;--side:clamp(16px,3.4vw,48px)}
 *{box-sizing:border-box;margin:0;padding:0}
-[hidden]{display:none!important}
-html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:calc(var(--head) + 16px)}
-body{background:var(--paper);color:var(--navy);font:400 18px/1.5 var(--sans);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+html{background:var(--bg);color:var(--tx);font-family:var(--sans);-webkit-font-smoothing:antialiased;scroll-behavior:smooth;scroll-padding-top:72px}
+body{overflow-x:hidden}
+a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 img{display:block;max-width:100%}
-a{color:inherit}
-button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;text-align:inherit}
-ol,ul{list-style:none}
-.sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-.wrap{width:min(var(--max), calc(100% - 2*var(--side)));margin-inline:auto}
-.mono{font-family:var(--mono);font-size:14px;font-weight:400;letter-spacing:.02em;text-transform:uppercase}
-.muted{color:var(--muted)}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--side)}
+.cond{font-family:var(--cond);text-transform:uppercase;letter-spacing:.01em}
+.mono{font-family:var(--mono);text-transform:uppercase;letter-spacing:.06em}
 
-/* ---------- prototype annotations ---------- */
-.todo{display:block;margin-top:20px;max-width:560px;background:var(--todo-bg);border-left:3px solid var(--todo-line);color:var(--todo-ink);padding:10px 14px;font:500 14px/1.45 var(--sans)}
-.todo b{font:600 11px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;margin-right:8px;color:#7A5A00}
-.slot{white-space:normal}
-.when .slot,.ev-date .slot,.kicker .slot{white-space:nowrap}
-body:not(.notes-off) .slot{background:linear-gradient(transparent 62%, var(--todo-bg) 62%)}
-body.notes-off .todo{display:none}
+/* ---------- top bar ---------- */
+.bar{position:fixed;top:0;left:0;right:0;z-index:50;height:64px;display:flex;align-items:center;transition:background .25s,border-color .25s;border-bottom:1px solid transparent}
+.bar.solid{background:rgba(5,7,11,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line)}
+.bar .wrap{display:flex;align-items:center;gap:28px;width:100%}
+.bar .logo img{height:26px;width:auto}
+.bar nav{display:flex;gap:4px;margin-left:8px}
+.bar nav a{font:600 15px/1 var(--cond);letter-spacing:.06em;text-transform:uppercase;color:var(--mu);padding:9px 12px;border-radius:6px}
+.bar nav a:hover{color:var(--tx);background:rgba(255,255,255,.05)}
+.bar .end{margin-left:auto;display:flex;align-items:center;gap:10px}
+.k{display:inline-flex;align-items:center;gap:10px;height:36px;padding:0 12px;border:1px solid var(--line2);border-radius:8px;color:var(--mu);font:500 13px var(--sans)}
+.k kbd{font:500 11px var(--mono);border:1px solid var(--line2);border-radius:4px;padding:2px 5px;color:var(--tx)}
+.k:hover{border-color:rgba(255,255,255,.3);color:var(--tx)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:44px;padding:0 20px;border-radius:8px;font:700 17px/1 var(--cond);letter-spacing:.06em;text-transform:uppercase;transition:transform .12s,background .15s,box-shadow .15s}
+.btn.pri{background:var(--sky);color:#04121F;box-shadow:0 0 0 1px rgba(96,192,240,.4),0 10px 30px -10px rgba(96,192,240,.55)}
+.btn.pri:hover{background:#86D2F6;transform:translateY(-1px)}
+.btn.sec{border:1px solid var(--line2);color:var(--tx)}.btn.sec:hover{background:rgba(255,255,255,.06)}
+.btn.sm{height:36px;padding:0 14px;font-size:15px}
+.signin{font:600 15px var(--cond);letter-spacing:.06em;text-transform:uppercase;color:var(--mu)}.signin:hover{color:var(--tx)}
 
-/* ---------- live bar (shown only while a stream is on) ---------- */
-.livebar{background:var(--navy);color:#fff}
-.live-in{display:flex;align-items:center;gap:16px;min-height:48px;font-size:16px}
-.live-tag{display:inline-flex;align-items:center;gap:8px;background:var(--live);color:#fff;font:500 12px/1 var(--mono);letter-spacing:.08em;padding:7px 10px}
-.live-tag::before{content:"";width:7px;height:7px;border-radius:50%;background:#fff}
-.live-text{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.live-watch{margin-left:auto;font-weight:600;text-decoration:none;border-bottom:2px solid var(--live);padding-bottom:1px;flex:none}
+/* ---------- hero: the broadcast ---------- */
+.hero{position:relative;height:100svh;min-height:640px;max-height:1100px;overflow:hidden;background:#000}
+.hero video,.hero .poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero .poster{background:#000 center/cover}
+.hero::after{content:"";position:absolute;inset:0;background:
+ linear-gradient(90deg,rgba(5,7,11,.92) 0%,rgba(5,7,11,.7) 34%,rgba(5,7,11,.1) 66%,rgba(5,7,11,.25) 100%),
+ linear-gradient(0deg,rgba(5,7,11,1) 0%,rgba(5,7,11,0) 34%),linear-gradient(180deg,rgba(5,7,11,.7) 0%,rgba(5,7,11,0) 22%)}
+.scan{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.12;background:repeating-linear-gradient(0deg,rgba(255,255,255,.07) 0 1px,transparent 1px 3px)}
+.bug{position:absolute;z-index:3;top:88px;right:var(--side);display:flex;align-items:stretch;border-radius:8px;overflow:hidden;box-shadow:0 12px 40px -12px rgba(0,0,0,.6)}
+.bug .lg{background:#fff;display:grid;place-items:center;padding:0 12px}.bug .lg img{height:20px}
+.bug .ch{background:var(--navy);padding:8px 14px;display:flex;flex-direction:column;justify-content:center}
+.bug .ch b{font:700 17px/1 var(--cond);letter-spacing:.05em;text-transform:uppercase}
+.bug .ch span{font:500 11px/1.4 var(--mono);color:var(--sky);letter-spacing:.08em;text-transform:uppercase;margin-top:3px}
+.bug .st{background:var(--blue);display:flex;align-items:center;gap:8px;padding:0 14px;font:700 16px var(--cond);letter-spacing:.06em;text-transform:uppercase}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--sky);box-shadow:0 0 0 0 rgba(96,192,240,.7);animation:pulse 1.8s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 9px rgba(96,192,240,0)}100%{box-shadow:0 0 0 0 rgba(96,192,240,0)}}
+.hero .copy{position:absolute;z-index:3;left:0;right:0;bottom:92px}
+.kick{display:inline-flex;align-items:center;gap:10px;font:500 12px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--sky);margin-bottom:18px}
+.kick i{width:28px;height:2px;background:var(--sky)}
+.hero h1{font:800 clamp(64px,10.4vw,170px)/.84 var(--cond);text-transform:uppercase;letter-spacing:-.005em;max-width:9.5ch}
+.hero h1 em{font-style:italic;color:var(--sky)}
+.hero p.sub{font-size:clamp(17px,1.35vw,21px);line-height:1.45;color:#C9D2E0;max-width:46ch;margin:22px 0 28px}
+.hero .ctas{display:flex;gap:12px;flex-wrap:wrap}
+.lower{position:absolute;z-index:3;right:var(--side);bottom:96px;width:min(420px,40vw);background:rgba(11,16,24,.82);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--line2);border-radius:12px;overflow:hidden}
+.lower .top{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid var(--line)}
+.lower .top span{font:500 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mu)}
+.lower .top b{font:700 14px var(--cond);letter-spacing:.08em;text-transform:uppercase;color:var(--sky)}
+.lower .body{padding:16px;display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center}
+.lower .lep{font:700 30px/.95 var(--cond);text-transform:uppercase}
+.lower .meta{font:500 12px var(--mono);color:var(--mu);margin-top:8px;letter-spacing:.06em}
+.play{width:52px;height:52px;border-radius:50%;background:var(--tx);display:grid;place-items:center;transition:transform .15s}
+.play:hover{transform:scale(1.06)}.play svg{margin-left:3px}
+.prog{height:3px;background:rgba(255,255,255,.1)}.prog i{display:block;height:100%;width:0;background:var(--sky)}
 
-/* ---------- header ---------- */
-.site-top{position:sticky;top:0;z-index:50}
-.site-head{background:var(--paper);border-bottom:1px solid var(--rule)}
-.head-in{display:flex;align-items:stretch;height:var(--head);gap:56px}
-.logo{display:flex;align-items:center;flex:none;text-decoration:none}
-.logo span{display:block;width:100px;height:38px;overflow:hidden}
-.logo img{width:100%;height:100%;object-fit:cover}
-.nav{display:flex;gap:40px}
-.nav a{display:flex;align-items:center;font-size:16px;font-weight:500;text-decoration:none;border-top:3px solid transparent;border-bottom:3px solid transparent}
-.nav a:hover,.nav a.on{border-bottom-color:var(--sky)}
-.head-right{margin-left:auto;display:flex;align-items:center;gap:28px}
-.signin{font-size:16px;font-weight:500;text-decoration:none}
-.signin:hover{text-decoration:underline}
-.menu-btn{display:none}
-.nav a.signin-m{display:none}
+/* ---------- ticker ---------- */
+.ticker{position:absolute;z-index:4;left:0;right:0;bottom:0;height:48px;display:flex;align-items:stretch;background:rgba(11,16,24,.94);border-top:1px solid var(--line2)}
+.ticker .tag{flex:none;display:flex;align-items:center;gap:10px;padding:0 18px;background:var(--blue);font:800 17px var(--cond);letter-spacing:.06em;text-transform:uppercase}
+.ticker .tag img{height:14px;filter:brightness(0) invert(1)}
+.ticker .rail{flex:1;overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent)}
+.ticker .run{display:flex;width:max-content;height:100%;align-items:center;animation:crawl 80s linear infinite}
+.ticker:hover .run{animation-play-state:paused}
+.ticker .it{display:flex;align-items:center;gap:10px;padding:0 22px;white-space:nowrap;font:600 17px var(--cond);letter-spacing:.04em;text-transform:uppercase;border-right:1px solid var(--line)}
+.ticker .it .c{font:500 11px var(--mono);letter-spacing:.1em;color:var(--sky)}
+.ticker .it .d{color:var(--mu);font-weight:500}
+@keyframes crawl{to{transform:translateX(-50%)}}
 
-.btn{display:inline-flex;align-items:center;justify-content:center;height:56px;padding:0 28px;background:var(--blue);color:#fff;font-size:17px;font-weight:600;border-radius:3px;text-decoration:none;white-space:nowrap;transition:background .15s}
-.btn:hover{background:var(--blue-dk)}
-.btn-sm{height:44px;padding:0 20px;font-size:15px}
-.btn-line{background:transparent;color:var(--navy);box-shadow:inset 0 0 0 1.5px var(--navy)}
-.btn-line:hover{background:var(--navy);color:#fff}
-.btn-sky{background:var(--sky);color:var(--navy)}
-.btn-sky:hover{background:#86D6F4}
-.textlink{font-weight:500;text-decoration:none;border-bottom:2px solid var(--sky);padding-bottom:2px}
-.textlink:hover{border-bottom-color:var(--blue)}
-
-/* ---------- hero ---------- */
-.hero{display:grid;grid-template-columns:minmax(var(--side),1fr) minmax(0,770px) minmax(0,550px) minmax(var(--side),1fr);min-height:clamp(660px, calc(100svh - var(--head) - 1px), 940px)}
-.hero-copy{grid-column:2;grid-row:1;align-self:center;padding:48px 72px 48px 0}
-.hero-photo{grid-column:3 / 5;grid-row:1;position:relative;overflow:hidden;background:#2b2219;margin:0}
-.hero-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 32%}
-.photo-cap{position:absolute;left:0;bottom:0;background:var(--paper);color:var(--navy);font-size:14px;padding:10px 16px}
-.kicker{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.kicker .tick{width:10px;height:10px;background:var(--sky);flex:none}
-.hero-title{font-size:clamp(44px,4.4vw,84px);font-weight:600;letter-spacing:-.04em;line-height:.98;margin-top:20px}
-.when{display:flex;flex-wrap:wrap;align-items:center;gap:10px 20px;margin-top:24px;font-size:15px}
-.chip{background:var(--sky);color:var(--navy);padding:6px 10px;font-weight:500}
-.hero-lede{font-size:22px;line-height:1.4;margin-top:26px;max-width:640px}
-body:not(.fallback) .state-b{display:none!important}
-body.fallback .state-a{display:none!important}
-.latest{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;margin-top:24px;padding-top:16px;border-top:1px solid var(--rule);max-width:600px;font-size:16px;text-decoration:none}
-.latest strong{font-weight:600}
-.latest .go{margin-left:auto;font-weight:500;border-bottom:2px solid var(--sky)}
-.latest:hover .go{border-bottom-color:var(--blue)}
-
-/* alerts form */
-.alerts-box{margin-top:28px;max-width:600px}
-.alerts{display:flex;gap:0}
-.alerts input{flex:1;min-width:0;height:56px;border:1.5px solid var(--navy);border-right:0;border-radius:3px 0 0 3px;background:#fff;padding:0 18px;font:400 17px var(--sans);color:var(--navy);outline:none}
-.alerts input::placeholder{color:#8590A3}
-.alerts input:focus{box-shadow:inset 0 0 0 2px var(--sky)}
-.alerts .btn{border-radius:0 3px 3px 0}
-.alerts.bad input{border-color:var(--live)}
-.alerts-err{color:var(--live);font-size:15px;margin-top:8px}
-.alerts-note{font-size:15px;color:var(--muted);margin-top:12px}
-.alerts-done{display:flex;align-items:center;gap:14px;min-height:56px;padding:12px 16px;background:#fff;border:1.5px solid var(--navy);border-radius:3px;font-size:16px;line-height:1.4}
-.alerts-done[hidden]{display:none}
-.check{flex:none;width:28px;height:28px;background:var(--sky);position:relative}
-.check::after{content:"";position:absolute;left:10px;top:5px;width:7px;height:13px;border:solid var(--navy);border-width:0 2.5px 2.5px 0;transform:rotate(45deg)}
-.undo{margin-left:auto;font-size:14px;color:var(--muted);text-decoration:underline;flex:none}
+/* ---------- stat line ---------- */
+.stats{border-bottom:1px solid var(--line)}
+.stats .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+.stat{padding:30px 0;border-right:1px solid var(--line);padding-left:24px}.stat:first-child{padding-left:0}.stat:last-child{border-right:0}
+.stat b{display:block;font:800 56px/.9 var(--cond)}
+.stat span{display:block;margin-top:8px;font:500 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mu)}
 
 /* ---------- sections ---------- */
-.sec{padding:128px 0}
-.sec-white{background:#fff}
-.sec-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px 40px;margin-bottom:56px}
-.sec-head h2,.h2{font-size:clamp(38px,3.3vw,64px);font-weight:600;letter-spacing:-.035em;line-height:1}
-.sec-lede{font-size:20px;color:var(--muted);margin-top:16px;max-width:640px}
-.sub-label{font-size:15px;font-weight:600;letter-spacing:.01em}
+section.s{padding:clamp(72px,10vh,120px) 0;border-bottom:1px solid var(--line)}
+.sh{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:36px;flex-wrap:wrap}
+.sh .lab{font:500 12px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--sky);display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.sh .lab i{width:28px;height:2px;background:var(--sky)}
+.sh h2{font:800 clamp(48px,6vw,92px)/.86 var(--cond);text-transform:uppercase}
+.sh p{max-width:44ch;color:var(--mu);font-size:17px;line-height:1.5}
+.lnk{font:700 16px var(--cond);letter-spacing:.06em;text-transform:uppercase;color:var(--sky);display:inline-flex;gap:8px;align-items:center}.lnk:hover{color:#9BDAF8}
 
-/* ---------- watch ---------- */
-.watch-grid{display:grid;grid-template-columns:minmax(0,8fr) minmax(0,4fr);gap:24px 48px;align-items:start}
-.player{position:relative;aspect-ratio:16/9;background:#0e1b31;overflow:hidden}
-.player img{width:100%;height:100%;object-fit:cover}
-.player iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-.play{position:absolute;left:24px;bottom:24px;display:flex;align-items:center;gap:12px;height:54px;padding:0 24px 0 20px;background:var(--paper);color:var(--navy);font-weight:600;font-size:17px;border-radius:3px}
-.play::before{content:"";border-left:14px solid currentColor;border-top:9px solid transparent;border-bottom:9px solid transparent}
-.play:hover{background:#fff}
-.feature-meta{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px 24px;margin-top:22px}
-.feature-meta h3{font-size:clamp(28px,2.2vw,40px);font-weight:600;letter-spacing:-.03em;line-height:1.1}
-.feature-meta p{margin-top:6px;font-size:17px}
-.feature-meta .mono{color:var(--muted)}
-.ep-head{display:flex;justify-content:space-between;align-items:baseline;padding-bottom:14px;border-bottom:2px solid var(--navy)}
-.ep-list li button{display:grid;grid-template-columns:120px minmax(0,1fr);gap:18px;align-items:center;width:100%;padding:12px 0;border-bottom:1px solid var(--rule)}
-.ep-list .thumb{aspect-ratio:16/9;overflow:hidden;background:#0e1b31}
-.ep-list img{width:100%;height:100%;object-fit:cover;transition:opacity .15s}
-.ep-name{display:block;font-size:19px;font-weight:500;line-height:1.25}
-.ep-list .mono{display:block;margin-top:6px;font-size:13px;color:var(--muted)}
-.ep-list button:hover .ep-name{color:var(--blue)}
-.ep-list button[aria-current="true"] .ep-name{color:var(--blue)}
-.ep-list button[aria-current="true"] .thumb{outline:3px solid var(--sky);outline-offset:-3px}
+/* program guide */
+.guide{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.ep{position:relative;text-align:left;background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden;transition:border-color .2s,transform .2s}
+.ep:hover{border-color:rgba(96,192,240,.45);transform:translateY(-2px)}
+.ep .th{position:relative;aspect-ratio:16/9;background:#000 center/cover}
+.ep .th::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(5,7,11,.85),rgba(5,7,11,0) 55%)}
+.ep .no{position:absolute;z-index:1;left:14px;bottom:12px;font:800 15px var(--cond);letter-spacing:.08em;text-transform:uppercase;background:var(--blue);padding:4px 8px;border-radius:4px}
+.ep .len{position:absolute;z-index:1;right:14px;bottom:12px;font:500 12px var(--mono);background:rgba(0,0,0,.6);padding:4px 7px;border-radius:4px}
+.ep .tx{padding:16px 16px 18px}
+.ep .tx b{display:block;font:700 28px/1 var(--cond);text-transform:uppercase}
+.ep .tx span{display:block;margin-top:8px;font:500 12px var(--mono);letter-spacing:.06em;color:var(--mu);text-transform:uppercase}
+.ep.feat{grid-column:span 2;grid-row:span 2}.ep.feat .tx b{font-size:44px}
+.ep.feat .th{aspect-ratio:auto;height:calc(100% - 92px);min-height:300px}
 
-.clips-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px 24px;margin:88px 0 22px;padding-bottom:14px;border-bottom:2px solid var(--navy)}
-.clips-head h3{font-size:28px;font-weight:600;letter-spacing:-.02em}
-.clips{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:32px 24px}
-.clip a,.clip button{display:block;width:100%;text-decoration:none}
-.clip .thumb{display:block;position:relative;aspect-ratio:16/9;overflow:hidden;background:#0e1b31}
-.clip img{width:100%;height:100%;object-fit:cover}
-.clip .thumb.tall img{object-position:50% 30%}
-.clip iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-.dur{position:absolute;right:8px;bottom:8px;background:rgba(14,27,49,.88);color:#fff;font:500 12px/1 var(--mono);padding:5px 7px}
-.clip h4{font-size:17px;font-weight:600;line-height:1.25;margin-top:14px}
-.clip p{font-size:15px;line-height:1.4;color:var(--muted);margin-top:4px}
-.clip .where{display:block;margin-top:8px;font-size:12px;color:var(--muted)}
-.clip a:hover h4,.clip button:hover h4{color:var(--blue)}
+/* box score */
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.chip{height:34px;padding:0 14px;border:1px solid var(--line2);border-radius:999px;font:600 14px var(--cond);letter-spacing:.06em;text-transform:uppercase;color:var(--mu)}
+.chip[aria-pressed=true]{background:var(--tx);color:var(--bg);border-color:var(--tx)}
+.chip:hover{color:var(--tx)}
+.box{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--panel)}
+.box .hd,.box .rw{display:grid;grid-template-columns:2.2fr 1.4fr 1.1fr .7fr 2.6fr;gap:16px;align-items:center;padding:0 20px}
+.box .hd{height:44px;background:var(--navy);font:600 12px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:#B7C6DA}
+.box .rw{min-height:64px;border-top:1px solid var(--line);transition:background .15s}
+.box .rw:hover{background:var(--panel2)}
+.box .co{font:700 24px/1 var(--cond);text-transform:uppercase}
+.box .sec{font:500 13px var(--mono);color:var(--mu);text-transform:uppercase;letter-spacing:.06em}
+.box .rd{font:600 15px var(--cond);letter-spacing:.05em;text-transform:uppercase}
+.box .yr{font:700 15px var(--mono)}
+.box .nt{color:#B9C2D1;font-size:15px;line-height:1.4}
+.pill{display:inline-flex;align-items:center;gap:6px;font:600 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--sky);border:1px solid rgba(96,192,240,.35);border-radius:999px;padding:4px 9px}
+.foot-note{margin-top:14px;font:500 12px var(--mono);color:var(--mu);letter-spacing:.04em}
 
-/* ---------- events ---------- */
-.ev-grid{display:grid;grid-template-columns:minmax(0,8fr) minmax(0,4fr);gap:48px;align-items:start}
-.ev-photos{display:grid;gap:40px}
-.ev-photo{margin:0}
-.ev-photo img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:22% 50%}
-.ev-photo.sq img{aspect-ratio:1/1;object-position:50% 40%}
-figcaption{font-size:14px;color:var(--muted);margin-top:12px;line-height:1.4}
-.ev-block + .ev-block{margin-top:64px}
-.ev-label{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding-bottom:14px;border-bottom:2px solid var(--navy)}
-.ev-row a,.ev-row .ph{display:grid;grid-template-columns:120px minmax(0,1fr) 190px 44px;gap:24px;align-items:baseline;padding:22px 0;border-bottom:1px solid var(--rule);text-decoration:none}
-.ev-date{font-family:var(--mono);font-size:14px;letter-spacing:.02em;white-space:nowrap}
-.ev-title{font-size:21px;font-weight:500;line-height:1.3;letter-spacing:-.01em}
-.ev-sub{display:block;font-size:16px;font-weight:400;color:var(--muted);margin-top:4px;letter-spacing:0}
-.ev-where{font-size:16px;line-height:1.35}
-.ev-type{display:block;font-family:var(--mono);font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);margin-top:4px}
-.ev-arrow,.rsvp{justify-self:end}
-.ev-arrow{font-size:18px;color:var(--muted);transition:transform .15s}
-.ev-row a:hover .ev-title{color:var(--blue)}
-.ev-row a:hover .ev-arrow{transform:translateX(3px);color:var(--blue)}
-.ev-row.more{display:none}
-.ev-list.all .ev-row.more{display:block}
-.ev-row .ph{border-bottom-style:dashed}
-.rsvp{font-size:14px;font-weight:600;color:var(--blue)}
-.ev-toggle{margin-top:28px}
+/* schedule */
+.sched{display:grid;grid-template-columns:1.55fr 1fr;gap:28px;align-items:start}
+.tl{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--panel)}
+.tl .next{padding:22px 22px;background:linear-gradient(90deg,rgba(48,112,176,.28),rgba(48,112,176,.06));border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.tl .next b{font:800 26px/1 var(--cond);text-transform:uppercase}
+.tl .next span{display:block;font:500 12px var(--mono);color:var(--sky);letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px}
+.ev{display:grid;grid-template-columns:110px 1fr auto;gap:18px;align-items:center;padding:16px 22px;border-top:1px solid var(--line);transition:background .15s}
+.ev:hover{background:var(--panel2)}
+.ev .dt{font:700 22px/1 var(--cond);text-transform:uppercase}.ev .dt small{display:block;font:500 11px var(--mono);color:var(--mu);letter-spacing:.1em;margin-top:5px}
+.ev .t b{display:block;font:700 22px/1.05 var(--cond);text-transform:uppercase}
+.ev .t span{display:block;margin-top:5px;color:var(--mu);font-size:14px}
+.ev .ty{font:600 12px var(--mono);letter-spacing:.08em;color:var(--mu);text-transform:uppercase;text-align:right}
+.ev .ty i{display:block;font-style:normal;color:#B9C2D1;margin-top:4px}
+.more{width:100%;padding:16px;border-top:1px solid var(--line);font:700 16px var(--cond);letter-spacing:.08em;text-transform:uppercase;color:var(--sky)}
+.side{position:sticky;top:88px;display:grid;gap:16px}
+.photo{border-radius:12px;overflow:hidden;border:1px solid var(--line);position:relative}
+.photo img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.photo figcaption{position:absolute;left:12px;bottom:12px;font:500 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;background:rgba(5,7,11,.75);padding:6px 9px;border-radius:5px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:22px}
+.card h3{font:800 32px/.95 var(--cond);text-transform:uppercase;margin-bottom:10px}
+.card p{color:var(--mu);line-height:1.5;font-size:15px;margin-bottom:16px}
+.seg{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line2);border-radius:8px;overflow:hidden;margin-bottom:12px}
+.seg label{position:relative;text-align:center;padding:10px 4px;font:600 14px var(--cond);letter-spacing:.05em;text-transform:uppercase;color:var(--mu);cursor:pointer;border-right:1px solid var(--line2)}
+.seg label:last-child{border-right:0}.seg input{position:absolute;opacity:0;width:1px;height:1px}
+.seg label:has(input:checked){background:var(--tx);color:var(--bg)}
+.f{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.f input,.f select,.f textarea{width:100%;height:44px;background:var(--bg);border:1px solid var(--line2);border-radius:8px;padding:0 12px;color:var(--tx);font:400 15px var(--sans)}
+.f textarea{grid-column:1/-1;height:84px;padding:10px 12px;resize:vertical}
+.f input:focus,.f select:focus,.f textarea:focus{outline:none;border-color:var(--sky)}
+.f .btn{grid-column:1/-1;margin-top:4px}
+.sent{display:none;font-size:16px;line-height:1.5}.done .f{display:none}.done .sent{display:block}
 
-/* ---------- membership ---------- */
-.member{background:#fff;border:1px solid var(--rule)}
-.member-photo{position:relative;aspect-ratio:1320/690;margin:0;overflow:hidden;background:#d9dde3}
-.member-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%}
-.member-body{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:40px 80px;padding:72px 72px 64px}
-.member-body .sec-lede{color:var(--muted)}
-.price{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 14px;margin-top:44px}
-.price-num{font-size:clamp(52px,4.4vw,84px);font-weight:600;letter-spacing:-.045em;line-height:1}
-.price-per{font-size:19px;color:var(--muted)}
-.includes{border-top:2px solid var(--navy);margin:8px 0 40px}
-.includes li{position:relative;padding:16px 0 16px 30px;border-bottom:1px solid var(--rule);font-size:18px;line-height:1.4}
-.includes li::before{content:"";position:absolute;left:0;top:23px;width:10px;height:10px;background:var(--sky)}
-.member-cta{display:flex;flex-wrap:wrap;align-items:center;gap:16px 28px}
+/* season pass */
+.pass{display:grid;grid-template-columns:1fr 1.25fr;gap:16px}
+.tier{border:1px solid var(--line);border-radius:14px;padding:28px;background:var(--panel);display:flex;flex-direction:column}
+.tier.mem{background:linear-gradient(160deg,#0F2140 0%,#0B1018 60%);border-color:rgba(96,192,240,.35)}
+.tier .nm{font:600 13px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--sky)}
+.tier .pr{font:800 84px/.9 var(--cond);margin:14px 0 4px}.tier .pr small{font:500 15px var(--mono);color:var(--mu);margin-left:6px;letter-spacing:.04em}
+.tier ul{list-style:none;margin:18px 0 24px;display:grid;gap:0}
+.tier li{display:flex;gap:12px;padding:12px 0;border-top:1px solid var(--line);font-size:16px}
+.tier li::before{content:"";width:14px;height:14px;flex:none;margin-top:3px;border-radius:50%;background:radial-gradient(circle,var(--sky) 0 3px,transparent 4px),rgba(96,192,240,.18)}
+.tier .btn{margin-top:auto}
+.alert{display:flex;gap:10px}.alert input{flex:1;min-width:0;height:44px;background:var(--bg);border:1px solid var(--line2);border-radius:8px;padding:0 14px;color:var(--tx);font:400 15px var(--sans)}
+.alert input:focus{outline:none;border-color:var(--sky)}
+.ok{display:none;margin-top:10px;color:var(--sky);font:500 14px var(--mono)}
 
-/* ---------- partners ---------- */
-.p-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:48px;align-items:stretch}
-.logos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--rule);border-left:1px solid var(--rule);margin-top:40px}
-.logos li{display:flex;align-items:center;justify-content:center;aspect-ratio:16/10;background:#fff;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:24px 14%}
-.logos img{width:100%;height:auto;max-height:46px;object-fit:contain}
-.work{background:var(--navy);color:#fff;padding:56px 48px;display:flex;flex-direction:column}
-.work h3{font-size:clamp(30px,2.4vw,44px);font-weight:600;letter-spacing:-.03em;line-height:1.05}
-.work p{font-size:18px;line-height:1.5;margin-top:20px;color:#D7DEEA;max-width:460px}
-.work .cta-row{margin-top:auto;padding-top:36px;display:flex;flex-wrap:wrap;align-items:center;gap:16px 24px}
-.work a.mail{color:#fff;font-size:16px;text-decoration:none;border-bottom:2px solid var(--sky)}
+/* player card */
+.pc{display:grid;grid-template-columns:.95fr 1.4fr;gap:40px;align-items:start}
+.pc .shot{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--line)}
+.pc .shot img{width:100%;aspect-ratio:4/5;object-fit:cover;filter:grayscale(.15) contrast(1.05)}
+.pc .shot .nm{position:absolute;left:0;right:0;bottom:0;padding:18px;background:linear-gradient(0deg,rgba(5,7,11,.95),rgba(5,7,11,0))}
+.pc .shot .nm b{font:800 46px/.9 var(--cond);text-transform:uppercase;display:block}
+.pc .shot .nm span{font:500 12px var(--mono);letter-spacing:.1em;color:var(--sky);text-transform:uppercase}
+.q{font:700 clamp(30px,3vw,44px)/1.04 var(--cond);text-transform:uppercase;margin-bottom:16px}
+.q + cite{font:500 12px var(--mono);color:var(--mu);letter-spacing:.08em;text-transform:uppercase;font-style:normal}
+.bio{color:#B9C2D1;font-size:17px;line-height:1.6;margin:22px 0 30px;max-width:60ch}
+.cols{display:grid;grid-template-columns:1fr 1.4fr;gap:28px}
+.lst h4{font:600 12px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--sky);margin-bottom:8px}
+.lst a,.lst div{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-top:1px solid var(--line);font-size:15px}
+.lst a:hover b{color:var(--sky)}
+.lst span{color:var(--mu);font:500 12px var(--mono);letter-spacing:.04em;text-transform:uppercase;white-space:nowrap}
+.partners{display:flex;gap:28px;align-items:center;flex-wrap:wrap;margin-top:30px;padding-top:24px;border-top:1px solid var(--line)}
+.partners span{font:500 12px var(--mono);letter-spacing:.12em;color:var(--mu);text-transform:uppercase}
+.partners img{height:26px;width:auto;filter:brightness(0) invert(1);opacity:.85}
 
-/* ---------- about ---------- */
-.ab-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:24px 80px;align-items:start}
-.ab-photo{margin:0}
-.ab-photo img{width:100%;aspect-ratio:1/1;object-fit:cover}
-blockquote{font-size:clamp(30px,2.7vw,50px);font-weight:500;letter-spacing:-.03em;line-height:1.12;margin-top:40px;max-width:760px}
-blockquote p{text-indent:-.42em}
-cite{display:block;margin-top:22px;font-style:normal;color:var(--muted)}
-cite a{text-decoration:none;border-bottom:1px solid var(--rule)}
-.ab-bio{font-size:20px;line-height:1.5;margin-top:36px;max-width:640px}
-.mission{display:grid;grid-template-columns:140px minmax(0,1fr);gap:8px 24px;margin-top:40px;padding-top:24px;border-top:1px solid var(--rule);max-width:760px}
-.mission .sub-label{padding-top:4px}
-.mission p:not(.todo){font-size:22px;font-weight:500;line-height:1.35}
-.ab-lists{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:48px 80px;margin-top:96px}
-.list-head{padding-bottom:14px;border-bottom:2px solid var(--navy);display:flex;justify-content:space-between;align-items:baseline;gap:16px}
-.team li{display:flex;justify-content:space-between;gap:16px;padding:15px 0;border-bottom:1px solid var(--rule);font-size:18px}
-.team li span:last-child{color:var(--muted);text-align:right}
-.press li > *{display:grid;grid-template-columns:120px 190px minmax(0,1fr);gap:20px;align-items:baseline;padding:15px 0;border-bottom:1px solid var(--rule);text-decoration:none;font-size:17px;line-height:1.4}
-.press .mono{font-size:13px;color:var(--muted)}
-.press .outlet{font-weight:600}
-.press a:hover .hl{color:var(--blue)}
+/* final */
+.final{padding:clamp(80px,12vh,140px) 0;text-align:center;background:radial-gradient(ellipse at 50% 0%,rgba(48,112,176,.35),transparent 60%)}
+.final h2{font:800 clamp(56px,8vw,128px)/.85 var(--cond);text-transform:uppercase}
+.final p{color:var(--mu);font-size:18px;margin:18px auto 28px;max-width:40ch}
+.final .alert{max-width:520px;margin:0 auto}
+footer{border-top:1px solid var(--line);padding:28px 0;color:var(--mu);font:500 12px var(--mono);letter-spacing:.06em}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}footer a:hover{color:var(--tx)}
 
-/* ---------- footer ---------- */
-.foot{background:var(--navy);color:#fff;padding-bottom:72px}
-.cta{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,6fr);gap:32px 48px;align-items:end;padding:112px 0 88px;border-bottom:1px solid rgba(255,255,255,.16)}
-.cta .h2{color:#fff}
-.cta .cta-text{font-size:20px;color:#D7DEEA;margin-top:16px;max-width:520px}
-.foot .alerts-box{margin-top:0;max-width:none}
-.foot .alerts input{border-color:#fff}
-.foot .alerts-note{color:#AEB9CC}
-.foot .alerts-done{border-color:#fff;color:var(--navy)}
-.foot-cols{display:grid;grid-template-columns:minmax(0,4fr) repeat(3,minmax(0,2fr)) minmax(0,2fr);gap:32px 24px;padding:64px 0 56px}
-.foot-brand{font-size:22px;font-weight:600;letter-spacing:-.02em}
-.foot-brand + p{color:#AEB9CC;font-size:16px;margin-top:8px;max-width:300px}
-.foot-cols h4{font:500 12px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:#AEB9CC;margin-bottom:18px}
-.foot-cols li{margin-bottom:10px}
-.foot-cols a{font-size:16px;text-decoration:none;color:#fff}
-.foot-cols a:hover{text-decoration:underline}
-.legal{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 24px;padding-top:24px;border-top:1px solid rgba(255,255,255,.16);font-size:14px;color:#AEB9CC}
+/* command bar */
+.cmd{position:fixed;inset:0;z-index:80;display:none;align-items:flex-start;justify-content:center;padding-top:12vh;background:rgba(2,3,6,.6);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.cmd.on{display:flex}
+.cmd .p{width:min(640px,calc(100vw - 24px));background:#0C111A;border:1px solid var(--line2);border-radius:14px;overflow:hidden;box-shadow:0 30px 80px -20px rgba(0,0,0,.8)}
+.cmd input{width:100%;height:60px;background:transparent;border:0;border-bottom:1px solid var(--line);padding:0 20px;color:var(--tx);font:400 18px var(--sans)}
+.cmd input:focus{outline:none}
+.cmd ul{list-style:none;max-height:min(420px,56vh);overflow:auto;padding:6px}
+.cmd li{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:11px 14px;border-radius:8px;cursor:pointer}
+.cmd li b{font:600 15px var(--sans)}.cmd li span{font:500 11px var(--mono);letter-spacing:.1em;color:var(--mu);text-transform:uppercase}
+.cmd li.on{background:rgba(96,192,240,.12)}.cmd li.on span{color:var(--sky)}
+.cmd .hint{display:flex;gap:16px;padding:10px 16px;border-top:1px solid var(--line);font:500 11px var(--mono);color:var(--mu);letter-spacing:.06em}
+.yt{position:fixed;inset:0;z-index:90;background:rgba(2,3,6,.88);display:none;align-items:center;justify-content:center;padding:20px}
+.yt.on{display:flex}.yt iframe{width:min(1200px,94vw);aspect-ratio:16/9;border:0;border-radius:12px;background:#000}
 
-/* ---------- prototype controls ---------- */
-.proto{position:fixed;right:16px;bottom:16px;z-index:100;display:flex;align-items:center;gap:2px;background:#fff;border:1px solid var(--rule);box-shadow:0 4px 18px rgba(24,48,88,.14);padding:5px;border-radius:4px;font-size:13px}
-.proto .lbl{font:500 11px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding:0 8px}
-.proto button{padding:7px 10px;border-radius:3px;font-weight:500;white-space:nowrap}
-.proto button[aria-pressed="true"]{background:var(--navy);color:#fff}
-
-/* ---------- tablet ---------- */
-@media (max-width:1180px){
-  .nav{gap:28px}
-  .head-in{gap:36px}
-  .clips{grid-template-columns:repeat(3,minmax(0,1fr))}
-  .member-body{padding:56px 48px}
-  .foot-cols{grid-template-columns:repeat(3,minmax(0,1fr))}
-  .foot-cols > div:first-child{grid-column:1 / -1}
-}
-@media (max-width:980px){
-  .watch-grid,.ev-grid,.p-grid,.ab-grid,.ab-lists,.cta{grid-template-columns:minmax(0,1fr)}
-  .ev-photos{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
-  .member-body{grid-template-columns:minmax(0,1fr);gap:8px}
-  .member-photo{aspect-ratio:3/2}
-  .ab-photo{max-width:560px}
-}
-
-/* ---------- phone ---------- */
-@media (max-width:760px){
-  body{font-size:17px}
-  .head-in{gap:12px}
-  .logo span{width:80px;height:31px}
-  .nav{display:none}
-  .signin{display:none}
-  .head-right{gap:8px}
-  .menu-btn{display:flex;flex-direction:column;justify-content:center;gap:6px;width:44px;height:44px;align-items:center}
-  .menu-btn i{display:block;width:22px;height:2px;background:var(--navy)}
-  .site-head.open .nav{display:flex;position:absolute;left:0;right:0;top:100%;flex-direction:column;gap:0;background:var(--paper);border-bottom:1px solid var(--rule);padding:8px var(--side) 16px}
-  .site-head.open .nav a{padding:14px 0;border:0;border-bottom:1px solid var(--rule);font-size:20px}
-  .site-head.open .nav a.signin-m{display:flex}
-  .live-in{font-size:14px;gap:10px}
-
-  .hero{display:block;min-height:0}
-  .hero-photo{display:block;height:auto;aspect-ratio:16/10}
-  .hero-photo img{object-position:62% 30%}
-  .photo-cap{font-size:12px;padding:6px 10px}
-  .hero-copy{padding:26px var(--side) 48px}
-  .kicker{font-size:13px}
-  .hero-title{font-size:44px;line-height:1;margin-top:14px;letter-spacing:-.035em}
-  .when{margin-top:16px;font-size:13px;gap:8px 14px}
-  .chip{padding:5px 8px}
-  .hero-lede{font-size:18px;margin-top:18px}
-  .alerts-box{margin-top:20px}
-  .alerts{flex-direction:column;gap:10px}
-  .alerts input{flex:none;width:100%;border-right:1.5px solid var(--navy);border-radius:3px;height:52px}
-  .alerts .btn{border-radius:3px;height:52px;width:100%}
-  .alerts-note{font-size:14px;margin-top:10px}
-  .latest{font-size:15px;margin-top:22px}
-  .latest .lbl{flex-basis:100%}
-  .latest .epno{display:none}
-  .todo{font-size:13px}
-
-  .sec{padding:80px 0}
-  .sec-head{margin-bottom:32px}
-  .sec-head h2,.h2{font-size:38px}
-  .sec-lede{font-size:17px}
-  .play{left:12px;bottom:12px;height:44px;font-size:15px;padding:0 16px 0 14px}
-  .feature-meta h3{font-size:26px}
-  .ep-list li button{grid-template-columns:120px minmax(0,1fr);gap:14px;padding:12px 0}
-  .ep-name{font-size:17px}
-  .clips-head{margin-top:64px}
-  .clips{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 14px}
-  .clip h4{font-size:16px}
-  .clip p{font-size:14px}
-
-  .ev-row a,.ev-row .ph{grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;padding:18px 0}
-  .ev-date{grid-column:1;font-size:13px}
-  .ev-main{grid-column:1}
-  .ev-where{grid-column:1;font-size:15px}
-  .ev-arrow,.rsvp{grid-column:2;grid-row:1 / span 3;align-self:center}
-  .ev-photos{grid-template-columns:minmax(0,1fr);margin-top:8px}
-  .ev-photo.sq{display:none}
-  .ev-photo img{aspect-ratio:3/2}
-  .ev-title{font-size:19px}
-  .ev-sub{font-size:15px}
-  .ev-where .ev-type{display:inline;margin-left:10px}
-
-  .member-body{padding:36px 20px 40px}
-  .price{margin-top:28px}
-  .includes li{font-size:17px}
-  .member-cta .btn{width:100%}
-
-  .logos{margin-top:28px}
-  .logos li{padding:16px 12%}
-  .work{padding:36px 24px}
-
-  blockquote{font-size:28px;margin-top:28px}
-  blockquote p{text-indent:0}
-  .ab-bio{font-size:18px}
-  .mission{grid-template-columns:minmax(0,1fr)}
-  .mission p:not(.todo){font-size:19px}
-  .ab-lists{margin-top:64px;gap:56px}
-  .team li{font-size:16px}
-  .press li > *{grid-template-columns:minmax(0,1fr);gap:2px;font-size:16px}
-
-  .cta{padding:72px 0 56px}
-  .foot-cols{grid-template-columns:repeat(2,minmax(0,1fr));padding:48px 0 40px}
-  .proto{position:static;margin:0 var(--side);justify-content:space-between;box-shadow:none}
-  .proto .lbl{display:none}
-  .foot{padding-bottom:24px}
-  .proto-wrap{background:var(--navy);padding:0 0 32px}
-}
-
-/* host / invite */
-.host{margin-top:72px;display:grid;grid-template-columns:5fr 7fr;gap:56px;border-top:2px solid var(--navy);padding-top:44px}
-.host h3{font-size:40px;line-height:1.04;font-weight:600;letter-spacing:-.02em;margin:10px 0 16px}
-.host .lede{font-size:18px;line-height:1.5;color:var(--muted);max-width:440px}
-.host ul.kinds{list-style:none;margin-top:26px;border-top:1px solid var(--rule)}
-.host ul.kinds li{display:flex;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:1px solid var(--rule);font-size:17px}
-.host ul.kinds li span{font:500 13px/1.6 var(--mono);text-transform:uppercase;letter-spacing:.06em;color:var(--muted);white-space:nowrap}
-.hostform{background:var(--paper);padding:30px;border-radius:4px}
-.seg{display:flex;gap:0;margin-bottom:22px;border:1.5px solid var(--navy);border-radius:3px;overflow:hidden}
-.seg label{flex:1;text-align:center;padding:13px 8px;font-size:15px;font-weight:600;cursor:pointer;color:var(--navy);border-right:1.5px solid var(--navy)}
-.seg label:last-child{border-right:0}
-.seg label{position:relative}
-.hostform .seg input{position:absolute;inset:0;width:1px;height:1px;padding:0;border:0;opacity:0;pointer-events:none}
-.seg input:checked+span{color:#fff}
-.seg label:has(input:checked){background:var(--navy);color:#fff}
-.hostform .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.hostform .full{grid-column:1 / -1}
-.hostform label.f{display:flex;flex-direction:column;gap:7px;font:500 12px/1 var(--mono);text-transform:uppercase;letter-spacing:.07em;color:var(--muted)}
-.hostform input,.hostform select,.hostform textarea{font:400 17px/1.4 var(--sans);color:var(--navy);background:#fff;border:1.5px solid var(--rule);border-radius:3px;padding:13px 14px;width:100%;text-transform:none;letter-spacing:0}
-.hostform textarea{min-height:92px;resize:vertical}
-.hostform input:focus,.hostform select:focus,.hostform textarea:focus{outline:none;border-color:var(--blue)}
-.hostform .btn{margin-top:18px;width:100%}
-.hostform .sent{display:none;font-size:19px;line-height:1.5;padding:12px 0}
-.hostform.done form{display:none}.hostform.done .sent{display:block}
-.rsvp-btn{font-size:14px;font-weight:600;color:var(--blue);background:none;border:0;cursor:pointer;padding:0;text-decoration:underline;text-underline-offset:4px}
-@media (max-width:900px){.host{grid-template-columns:1fr;gap:28px;margin-top:52px}.host h3{font-size:32px}.hostform{padding:20px}.hostform .grid{grid-template-columns:1fr}.seg label{font-size:13px;padding:12px 4px}.host ul.kinds li{flex-direction:column;gap:4px}}
-.mode{display:inline-flex;gap:2px;padding:3px;border:1.5px solid var(--navy);border-radius:999px;background:#fff;margin-right:6px}
-.mode a{font:500 12px/1 var(--mono);letter-spacing:.07em;text-transform:uppercase;text-decoration:none;color:var(--navy);padding:8px 12px;border-radius:999px}
-.mode a[aria-current]{background:var(--navy);color:#fff}
-.mode a:not([aria-current]):hover{background:var(--sky)}
-@media (max-width:900px){.mode a{padding:7px 9px;font-size:11px}}
-.site-top{position:sticky;top:0;z-index:60}
-html{scroll-padding-top:84px}
-.todo{display:none!important}
-.ev-next{font-size:17px;line-height:1.5;padding:14px 0;border-top:1px solid var(--rule)}
+@media (max-width:1100px){.bar nav{display:none}.guide{grid-template-columns:1fr 1fr}.ep.feat{grid-column:span 2;grid-row:auto}.ep.feat .th{height:auto;aspect-ratio:16/9;min-height:0}
+ .sched,.pc,.pass,.cols{grid-template-columns:1fr}.side{position:static}.lower{display:none}
+ .box .hd{display:none}.box .rw{grid-template-columns:1fr auto;gap:6px 16px;padding:14px 18px}.box .sec{grid-column:1}.box .rd{display:none}.box .yr{grid-row:1;grid-column:2}.box .nt{grid-column:1/-1}}
+@media (max-width:640px){.bar .k span,.signin{display:none}.guide{grid-template-columns:1fr}.ep.feat{grid-column:auto}.stats .wrap{grid-template-columns:1fr 1fr}.stat{border-right:0;border-bottom:1px solid var(--line);padding-left:0}
+ .hero .copy{bottom:76px}.bug{top:76px}.bug .lg{display:none}.ev{grid-template-columns:72px 1fr}.ev .ty{display:none}.f{grid-template-columns:1fr}.alert{flex-direction:column}.ticker .tag span{display:none}}
+@media (prefers-reduced-motion:reduce){.ticker .run{animation:none}.dot{animation:none}}
 </style>
 </head>
-<body class="fallback notes-off">
-
-<div class="site-top">
-  <div class="livebar" id="livebar" hidden>
-    <div class="wrap live-in">
-      <span class="live-tag">LIVE</span>
-      <span class="live-text"><strong>Baron is live now</strong> · <span class="slot">[Stream title]</span></span>
-      <a class="live-watch" href="#watch">Watch</a>
-    </div>
+<body>
+<header class="bar" id="bar"><div class="wrap">
+  <a class="logo" href="#top" aria-label="BIG home"><img src="big-logo-dark.png" alt="BIG"></a>
+  <nav><a href="#watch">BIG TV</a><a href="#portfolio">Portfolio</a><a href="#schedule">Schedule</a><a href="#membership">Membership</a><a href="#baron">Baron</a></nav>
+  <div class="end">
+    <button class="k" id="kbtn" aria-label="Search"><span>Search BIG</span><kbd>⌘K</kbd></button>
+    <a class="signin" href="https://www.teambig.io/signin">Sign in</a>
+    <a class="btn pri sm" href="#membership">Join BIG</a>
   </div>
-  <header class="site-head" id="head">
-    <div class="wrap head-in">
-      <a class="logo" href="#top" aria-label="BIG home"><span><img src="https://www.teambig.io/Images/BIG%20Logo%20image.png" alt="BIG"></span></a>
-      <nav class="nav" id="nav" aria-label="Main">
-        <a href="#watch">Watch</a>
-        <a href="#events">Events</a>
-        <a href="#membership">Membership</a>
-        <a href="#partners">Partners</a>
-        <a href="#about">About</a>
-        <a class="signin-m" href="https://www.teambig.io/signin">Sign in</a>
-      </nav>
-      <div class="head-right">
-        <div class="mode" role="group" aria-label="Site view"><a aria-current="page" href="./">Classic</a><a class="mode__to" href="room.html">Backyard</a></div>
-        <a class="signin" href="https://www.teambig.io/signin">Sign in</a>
-        <button class="btn btn-sm js-alerts" type="button">Get alerts</button>
-        <button class="menu-btn" id="menuBtn" type="button" aria-label="Menu" aria-expanded="false"><i></i><i></i></button>
-      </div>
-    </div>
-  </header>
-</div>
+</div></header>
 
 <main id="top">
+<section class="hero" aria-label="BIG TV">
+  <div class="poster" style="background-image:url(https://www.teambig.io/Newsroom_images/baron_davis_businessinsider.webp);background-position:72% 30%"></div>
+  <video id="hv" muted playsinline hidden></video>
+  <div class="scan"></div>
+  <div class="bug" aria-hidden="true"><div class="lg"><img src="big-logo.png" alt=""></div><div class="ch"><b>BIG TV</b><span>Season 1 · Ep 5</span></div><div class="st"><span class="dot"></span>Latest</div></div>
+  <div class="copy"><div class="wrap">
+    <div class="kick"><i></i>Baron Davis presents</div>
+    <h1>Business <em>inside</em> the game</h1>
+    <p class="sub">The network for athletes, founders, creators and investors. The shows, the dinners and the deals, run by two-time NBA All-Star Baron Davis.</p>
+    <div class="ctas"><a class="btn pri" href="#membership">Join BIG</a><button class="btn sec" data-yt="dx3S7N0kIWo">▶ Watch Draymond Green</button></div>
+  </div></div>
+  <aside class="lower">
+    <div class="top"><span>Now showing</span><b>BIG TV</b></div>
+    <div class="body"><div><div class="lep">Draymond Green</div><div class="meta">S1 · EP 5 · 1H 16M · Business Inside the Game</div></div>
+      <button class="play" data-yt="dx3S7N0kIWo" aria-label="Play the episode"><svg width="18" height="20" viewBox="0 0 18 20"><path d="M0 0l18 10L0 20z" fill="#05070B"/></svg></button></div>
+    <div class="prog"><i id="hp"></i></div>
+  </aside>
+  <div class="ticker" aria-label="BIG ticker">
+    <div class="tag"><img src="big-logo-dark.png" alt=""><span>Bottom line</span></div>
+    <div class="rail"><div class="run" id="run"></div></div>
+  </div>
+</section>
 
-  <!-- ===== HERO: Baron + what he's doing next. One action: Get alerts. ===== -->
-  <section class="hero" aria-label="Next up">
-    <figure class="hero-photo">
-      <img src="https://www.teambig.io/Newsroom_images/baron_davis_businessinsider.webp" alt="Baron Davis">
-      <figcaption class="photo-cap">Baron Davis, founder of BIG</figcaption>
-    </figure>
+<div class="stats"><div class="wrap">
+  <div class="stat"><b id="sEp">6</b><span>Episodes, Season 1</span></div>
+  <div class="stat"><b id="sEv">14</b><span>Events in 2026</span></div>
+  <div class="stat"><b id="sCo">12</b><span>Companies backed</span></div>
+  <div class="stat"><b>2×</b><span>NBA All-Star</span></div>
+</div></div>
 
-    <div class="hero-copy">
-      <!-- State A: something is scheduled -->
-      <p class="kicker mono state-a"><span class="tick"></span>Next up · <span class="slot">[Live show / Dinner / Event]</span></p>
-      <h1 class="hero-title state-a"><span class="slot">[Next live show or event]</span></h1>
-      <p class="when mono state-a"><span class="chip"><span class="slot">[Day 00 Mon]</span></span><span class="slot">[0:00 PM PT]</span><span class="slot">[City]</span></p>
+<section class="s" id="watch"><div class="wrap">
+  <div class="sh"><div><div class="lab"><i></i>BIG TV</div><h2>On the network</h2></div>
+    <a class="lnk" href="https://www.youtube.com/@BusinessInsidetheGame" target="_blank" rel="noopener">All episodes on YouTube →</a></div>
+  <div class="guide" id="guide"></div>
+</div></section>
 
-      <!-- State B: nothing scheduled, show the newest episode -->
-      <p class="kicker mono state-b"><span class="tick"></span>Newest episode</p>
-      <h1 class="hero-title state-b">Draymond Green</h1>
-      <p class="when mono state-b"><span class="chip">S1 · EP 5</span><span>1H 16M</span><span>Business Inside the Game podcast</span></p>
+<section class="s" id="portfolio"><div class="wrap">
+  <div class="sh"><div><div class="lab"><i></i>The box score</div><h2>Portfolio</h2></div>
+    <p>Companies Baron has backed, from day-one bets to the deals BIG members see first.</p></div>
+  <div class="chips" id="chips"></div>
+  <div class="box"><div class="hd"><span>Company</span><span>Sector</span><span>Round</span><span>Year</span><span>Note</span></div><div id="rows"></div></div>
+  <p class="foot-note">Public, press-reported investments only. Amounts are not disclosed.</p>
+</div></section>
 
-      <p class="hero-lede">Baron Davis's business network for athletes, founders and investors.</p>
-
-      <div class="alerts-box" id="alerts-hero">
-        <form class="alerts" novalidate>
-          <label class="sr" for="email-hero">Email address</label>
-          <input id="email-hero" type="email" inputmode="email" autocomplete="email" placeholder="Email address">
-          <button class="btn" type="submit">Get alerts</button>
-        </form>
-        <p class="alerts-err" hidden>Enter a valid email address.</p>
-        <div class="alerts-done" hidden role="status"><span class="check"></span><span><strong>You're on the list.</strong> We'll email you when Baron goes live or adds an event.</span><button class="undo" type="button">Undo</button></div>
-        <p class="alerts-note">Free. Email only. We'll email you when Baron goes live or adds an event.</p>
-      </div>
-
-      <a class="latest state-a" href="#watch" data-play="ohIr8Wa8q6k"><span class="mono muted lbl">Newest episode</span><strong>Ann Meyers Drysdale</strong><span class="mono muted epno">S1 · EP 6</span><span class="go">Watch</span></a>
-      <a class="latest state-b" href="#watch" data-play="dx3S7N0kIWo"><span class="go" style="margin-left:0">Watch the episode</span></a>
-
-      <p class="todo"><b>TODO Jack</b>Nothing is scheduled on teambig.io (last event 12 Oct). Ask Baron what's next. The line under the title is a draft for him to reword. "Nothing scheduled" in the prototype bar shows the fallback.</p>
+<section class="s" id="schedule"><div class="wrap">
+  <div class="sh"><div><div class="lab"><i></i>The schedule</div><h2>Where BIG shows up</h2></div>
+    <p>Dinners, Tech Week mixers, screenings and BET Weekend, hosted by Baron and BIG.</p></div>
+  <div class="sched">
+    <div class="tl">
+      <div class="next"><div><span>Next up</span><b>New dates go to the list first</b></div><a class="btn pri sm" href="#alerts">Get alerts</a></div>
+      <div id="evs"></div>
+      <button class="more" id="more">Show all 2026 events</button>
     </div>
-  </section>
-
-  <!-- ===== 1. WATCH ===== -->
-  <section class="sec" id="watch" style="border-top:1px solid var(--rule)">
-    <div class="wrap">
-      <div class="sec-head">
-        <div>
-          <h2>Watch</h2>
-          <p class="sec-lede">Business Inside the Game, the podcast hosted by Baron Davis. Season 1, six episodes.</p>
-        </div>
-        <a class="textlink" href="https://www.youtube.com/@BusinessInsidetheGame" target="_blank" rel="noopener">All episodes on YouTube</a>
-      </div>
-
-      <div class="watch-grid">
-        <div class="feature">
-          <div class="player" id="player" data-yt="dx3S7N0kIWo">
-            <img id="playerImg" src="https://i.ytimg.com/vi/dx3S7N0kIWo/maxresdefault.jpg" alt="Business Inside the Game, Season 1 Episode 5 with Draymond Green">
-            <button class="play" id="playBtn" type="button">Play episode</button>
-          </div>
-          <div class="feature-meta">
-            <div>
-              <h3 id="featName">Draymond Green</h3>
-              <p class="mono" id="featMeta">S1 · EP 5 · 1H 16M</p>
-            </div>
-            <a class="textlink" id="featLink" href="https://www.youtube.com/watch?v=dx3S7N0kIWo" target="_blank" rel="noopener">Watch on YouTube</a>
-          </div>
-          <p class="todo"><b>TODO</b>Ann Meyers Drysdale is Episode 6 on YouTube but Episode 7 on teambig.io and on its thumbnail. Shown as 6 here. Confirm.</p>
-        </div>
-
-        <div>
-          <div class="ep-head"><span class="sub-label">Episodes</span><span class="mono muted">Season 1</span></div>
-          <ol class="ep-list" id="epList">
-            <li><button type="button" data-yt="dx3S7N0kIWo" data-name="Draymond Green" data-meta="S1 · EP 5 · 1H 16M" aria-current="true"><span class="thumb"><img src="https://i.ytimg.com/vi/dx3S7N0kIWo/mqdefault.jpg" alt="" loading="lazy"></span><span><span class="ep-name">Draymond Green</span><span class="mono">S1 · EP 5 · 1H 16M</span></span></button></li>
-            <li><button type="button" data-yt="ohIr8Wa8q6k" data-name="Ann Meyers Drysdale" data-meta="S1 · EP 6 · 50M"><span class="thumb"><img src="https://i.ytimg.com/vi/ohIr8Wa8q6k/mqdefault.jpg" alt="" loading="lazy"></span><span><span class="ep-name">Ann Meyers Drysdale</span><span class="mono">S1 · EP 6 · 50M</span></span></button></li>
-            <li><button type="button" data-yt="g4xciJfYwps" data-name="Britt Stewart" data-meta="S1 · EP 4 · 35M"><span class="thumb"><img src="https://i.ytimg.com/vi/g4xciJfYwps/mqdefault.jpg" alt="" loading="lazy"></span><span><span class="ep-name">Britt Stewart</span><span class="mono">S1 · EP 4 · 35M</span></span></button></li>
-            <li><button type="button" data-yt="0W8vl4dMzIY" data-name="Desirée Gruber" data-meta="S1 · EP 3 · 54M"><span class="thumb"><img src="https://i.ytimg.com/vi/0W8vl4dMzIY/mqdefault.jpg" alt="" loading="lazy"></span><span><span class="ep-name">Desirée Gruber</span><span class="mono">S1 · EP 3 · 54M</span></span></button></li>
-            <li><button type="button" data-yt="c4gdN1d0EVQ" data-name="Nina Westbrook" data-meta="S1 · EP 2 · 36M"><span class="thumb"><img src="https://i.ytimg.com/vi/c4gdN1d0EVQ/mqdefault.jpg" alt="" loading="lazy"></span><span><span class="ep-name">Nina Westbrook</span><span class="mono">S1 · EP 2 · 36M</span></span></button></li>
-            <li><button type="button" data-yt="-mFnwoQx8Tw" data-name="Julian Edelman" data-meta="S1 · EP 1 · 51M"><span class="thumb"><img src="https://i.ytimg.com/vi/-mFnwoQx8Tw/mqdefault.jpg" alt="" loading="lazy"></span><span><span class="ep-name">Julian Edelman</span><span class="mono">S1 · EP 1 · 51M</span></span></button></li>
-          </ol>
-        </div>
-      </div>
-
-      <div class="clips-head">
-        <h3>Clips</h3>
-        <span class="mono muted">From Season 1</span>
-      </div>
-      <ul class="clips">
-        <li class="clip"><a href="https://www.teambig.io/tv" target="_blank" rel="noopener"><span class="thumb"><img src="https://storage.googleapis.com/teambig-b6d15.firebasestorage.app/tv-thumbnails/1780962110541-draymond-green-reflects-on-his-relationship-with-t.jpg" alt="" loading="lazy"><span class="dur">4:28</span></span><h4>Draymond Green</h4><p>On his relationship with Tom Izzo</p><span class="where mono">BIG TV</span></a></li>
-        <li class="clip"><a href="https://www.teambig.io/tv" target="_blank" rel="noopener"><span class="thumb"><img src="https://storage.googleapis.com/teambig-b6d15.firebasestorage.app/tv-thumbnails/1780940377592-the-truth-about-growth-nobody-talks-about---nina-w.jpg" alt="" loading="lazy"><span class="dur">3:23</span></span><h4>Nina Westbrook</h4><p>The truth about growth nobody talks about</p><span class="where mono">BIG TV</span></a></li>
-        <li class="clip"><button type="button" data-clip="SvEp5nMk4MY"><span class="thumb"><img src="https://i.ytimg.com/vi/SvEp5nMk4MY/maxresdefault.jpg" alt="" loading="lazy"><span class="dur">1:04</span></span><h4>Julian Edelman</h4><p>Success comes from discomfort</p><span class="where mono">YouTube</span></button></li>
-        <li class="clip"><a href="https://www.teambig.io/tv" target="_blank" rel="noopener"><span class="thumb tall"><img src="https://storage.googleapis.com/teambig-b6d15.firebasestorage.app/tv-thumbnails/1780955813008-how-ignoring-the-doubters-led-ann-meyers-to-ucla.jpg" alt="" loading="lazy"><span class="dur">1:04</span></span><h4>Ann Meyers Drysdale</h4><p>How ignoring the doubters led her to UCLA</p><span class="where mono">BIG TV</span></a></li>
-        <li class="clip"><a href="https://www.teambig.io/tv" target="_blank" rel="noopener"><span class="thumb tall"><img src="https://storage.googleapis.com/teambig-b6d15.firebasestorage.app/tv-thumbnails/1781109741130-the-career-realization-that-changed-everything.jpg" alt="" loading="lazy"><span class="dur">0:43</span></span><h4>Desirée Gruber</h4><p>The career realization that changed everything</p><span class="where mono">BIG TV</span></a></li>
-        <li class="clip"><button type="button" data-clip="hRwhSqjWtV8"><span class="thumb"><img src="https://i.ytimg.com/vi/hRwhSqjWtV8/maxresdefault.jpg" alt="" loading="lazy"><span class="dur">35:25</span></span><h4>She's Got Next</h4><p>Panel with Academy Group</p><span class="where mono">YouTube</span></button></li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- ===== 2. EVENTS ===== -->
-  <section class="sec sec-white" id="events">
-    <div class="wrap">
-      <div class="sec-head">
-        <div>
-          <h2>Events</h2>
-          <p class="sec-lede">Dinners, mixers, screenings and Tech Week events, hosted by Baron and BIG.</p>
-        </div>
-        <span style="display:flex;gap:28px;flex-wrap:wrap"><a class="textlink" href="#host">Bring BIG to your event</a><a class="textlink" href="https://www.teambig.io/events" target="_blank" rel="noopener">Full calendar</a></span>
-      </div>
-
-      <div class="ev-grid">
-        <div>
-          <div class="ev-block">
-            <div class="ev-label"><span class="sub-label">Upcoming</span><span class="mono muted">Request an invite</span></div>
-            <p class="ev-next">New dates go to the list first. <a class="rsvp-btn" href="#alerts-hero">Get alerts</a> or <a class="rsvp-btn" href="#host" data-kind="invite">request an invite</a>.</p>
-            <p class="todo"><b>TODO Jack</b>No upcoming events on teambig.io. Add the next dated events here with an RSVP link. The rows below are the 14 real 2026 events from the site. Addresses are left off on purpose.</p>
-          </div>
-
-          <div class="ev-block">
-            <div class="ev-label"><span class="sub-label">Past events, 2026</span><span class="mono muted">14 events</span></div>
-            <ol class="ev-list" id="evList">
-              <li class="ev-row"><a href="https://www.teambig.io/events/big-mixer-la-tech-week" target="_blank" rel="noopener"><span class="ev-date">MON 12 OCT</span><span class="ev-main"><span class="ev-title">BIG Mixer, LA Tech Week</span><span class="ev-sub">A networking event during LA Tech Week.</span></span><span class="ev-where">Inglewood, CA<span class="ev-type">Mixer</span></span><span class="ev-arrow">→</span></a></li>
-              <li class="ev-row"><a href="https://www.teambig.io/events/oakland-tech-week" target="_blank" rel="noopener"><span class="ev-date">FRI 02 OCT</span><span class="ev-main"><span class="ev-title">Oakland Tech Week</span><span class="ev-sub">Fireside chat with Baron Davis and Erik Moore.</span></span><span class="ev-where">Oakland, CA<span class="ev-type">Fireside chat</span></span><span class="ev-arrow">→</span></a></li>
-              <li class="ev-row"><a href="https://www.teambig.io/events/sports-intelligence-dinner" target="_blank" rel="noopener"><span class="ev-date">MON 24 AUG</span><span class="ev-main"><span class="ev-title">Sports Intelligence Dinner</span><span class="ev-sub">Investing in the future of sports. A private dinner hosted by Baron.</span></span><span class="ev-where">Beverly Hills, CA<span class="ev-type">Dinner</span></span><span class="ev-arrow">→</span></a></li>
-              <li class="ev-row"><a href="https://www.teambig.io/events/social-club" target="_blank" rel="noopener"><span class="ev-date">TUE 18 AUG</span><span class="ev-main"><span class="ev-title">BIG Social Club</span><span class="ev-sub">Black Founders Forum.</span></span><span class="ev-where">Oak Bluffs, MA<span class="ev-type">Social</span></span><span class="ev-arrow">→</span></a></li>
-              <li class="ev-row"><a href="https://www.teambig.io/events/big-showcase" target="_blank" rel="noopener"><span class="ev-date">FRI 07 AUG</span><span class="ev-main"><span class="ev-title">BIG Showcase</span><span class="ev-sub">A founders event.</span></span><span class="ev-where">Pasadena, MD<span class="ev-type">Showcase</span></span><span class="ev-arrow">→</span></a></li>
-              <li class="ev-row"><a href="https://www.teambig.io/events/big-growing-the-diaspora-dinner-1" target="_blank" rel="noopener"><span class="ev-date">WED 15 JUL</span><span class="ev-main"><span class="ev-title">Growing the Diaspora Dinner</span><span class="ev-sub">Hosted by Baron Davis.</span></span><span class="ev-where">Las Vegas, NV<span class="ev-type">Dinner</span></span><span class="ev-arrow">→</span></a></li>
-              <li class="ev-row"><a href="https://www.teambig.io/events/cap-table-reunion" target="_blank" rel="noopener"><span class="ev-date">TUE 30 JUN</span><span class="ev-main"><span class="ev-title">Cap Table Reunion</span><span class="ev-sub">Cap Table is a BIG Collective.</span></span><span class="ev-where">Los Angeles, CA<span class="ev-type">Collective</span></span><span class="ev-arrow">→</span></a></li>
-              <li class="ev-row"><a href="https://www.teambig.io/events/oatmeal-radio-cafe-presents-bet-weekend-culture-house-2026" target="_blank" rel="noopener"><span class="ev-date">THU 25 JUN</span><span class="ev-main"><span class="ev-title">BET Weekend Culture House</span><span class="ev-sub">Curated by Baron Davis and Oatmeal Radio Cafe.</span></span><span class="ev-where">Los Angeles, CA<span class="ev-type">Multi-day</span></span><span class="ev-arrow">→</span></a></li>
-              <li class="ev-row more"><a href="https://www.teambig.io/events/nyc-tech-week-with-lazard" target="_blank" rel="noopener"><span class="ev-date">THU 04 JUN</span><span class="ev-main"><span class="ev-title">NYC Tech Week with Lazard</span><span class="ev-sub">Mixer and fireside.</span></span><span class="ev-where">New York, NY<span class="ev-type">Mixer</span></span><span class="ev-arrow">→</span></a></li>
-              <li class="ev-row more"><a href="https://www.teambig.io/events/big-members-day" target="_blank" rel="noopener"><span class="ev-date">SUN 24 MAY</span><span class="ev-main"><span class="ev-title">BIG Members Day</span><span class="ev-sub">A celebration of the BIG community.</span></span><span class="ev-where">Los Angeles, CA<span class="ev-type">Members</span></span><span class="ev-arrow">→</span></a></li>
-              <li class="ev-row more"><a href="https://www.teambig.io/events/the-last-shot-private-screening" target="_blank" rel="noopener"><span class="ev-date">FRI 22 MAY</span><span class="ev-main"><span class="ev-title">The Last Shot, private screening</span><span class="ev-sub">Hosted by Baron, who plays the Coach in the film.</span></span><span class="ev-where">Los Angeles, CA<span class="ev-type">Screening</span></span><span class="ev-arrow">→</span></a></li>
-              <li class="ev-row more"><a href="https://www.teambig.io/events/launfd-run-club" target="_blank" rel="noopener"><span class="ev-date">SUN 29 MAR</span><span class="ev-main"><span class="ev-title">LAUNFD Run Club</span></span><span class="ev-where">Los Angeles, CA<span class="ev-type">Run club</span></span><span class="ev-arrow">→</span></a></li>
-              <li class="ev-row more"><a href="https://www.teambig.io/events/black-hollywood-live-afterparty" target="_blank" rel="noopener"><span class="ev-date">SAT 28 FEB</span><span class="ev-main"><span class="ev-title">Black Hollywood Live Afterparty</span></span><span class="ev-where">Los Angeles, CA<span class="ev-type">Party</span></span><span class="ev-arrow">→</span></a></li>
-              <li class="ev-row more"><a href="https://www.teambig.io/events/big-convos" target="_blank" rel="noopener"><span class="ev-date">FRI 27 FEB</span><span class="ev-main"><span class="ev-title">BIG Convos</span><span class="ev-sub">Member spotlight.</span></span><span class="ev-where">Los Angeles, CA<span class="ev-type">Talk</span></span><span class="ev-arrow">→</span></a></li>
-            </ol>
-            <button class="btn btn-sm btn-line ev-toggle" id="evToggle" type="button" aria-expanded="false">Show all 14 events</button>
-          </div>
-        </div>
-
-        <div class="ev-photos">
-          <figure class="ev-photo">
-            <img src="https://www.teambig.io/_next/image?url=%2Fmembership_hero_images%2F66201ab44be26e97e38158a0_big_summit-Ice_Cube-fireside_chat.webp&amp;w=1200&amp;q=75" alt="A fireside chat on stage at a BIG Summit" loading="lazy">
-            <figcaption>Fireside chat at a BIG Summit.</figcaption>
-          </figure>
-          <figure class="ev-photo sq">
-            <img src="https://www.teambig.io/_next/image?url=%2Fmembership_hero_images%2F66200867a19201180b328f89_big_summit-wnba_all_star-close_up-speaker.webp&amp;w=1200&amp;q=75" alt="A speaker on stage at a BIG Summit" loading="lazy">
-            <figcaption>On stage at a BIG Summit.</figcaption>
-          </figure>
-        </div>
-      </div>
-      <div class="host" id="host">
-        <div>
-          <span class="mono muted">Work with BIG on an event</span>
-          <h3>Bring Baron and BIG to your event.</h3>
-          <p class="lede">Invite Baron to speak, co-host a BIG dinner or mixer, or ask for a seat at the next one. Tell us the city and the date and the BIG team will come back to you.</p>
-          <ul class="kinds">
-            <li>Private dinners<span>Beverly Hills · Las Vegas</span></li>
-            <li>Tech Week mixers and firesides<span>LA · Oakland · NYC</span></li>
-            <li>Screenings and culture houses<span>BET Weekend</span></li>
-            <li>Founder showcases and run clubs<span>BIG Showcase · LAUNFD</span></li>
-          </ul>
-        </div>
-        <div class="hostform" id="hostform">
-          <form onsubmit="event.preventDefault();this.parentElement.classList.add('done')">
-            <div class="seg" role="radiogroup" aria-label="What do you want to do?">
-              <label><input type="radio" name="kind" value="speak" checked>Invite Baron to speak</label>
-              <label><input type="radio" name="kind" value="cohost">Co-host an event</label>
-              <label><input type="radio" name="kind" value="invite">Request an invite</label>
-            </div>
-            <div class="grid">
-              <label class="f">Name<input required autocomplete="name"></label>
-              <label class="f">Email<input type="email" required autocomplete="email"></label>
-              <label class="f">Company or event<input></label>
-              <label class="f">City<input></label>
-              <label class="f">Date or month<input placeholder="e.g. March 2027"></label>
-              <label class="f">Format<select><option>Dinner</option><option>Panel or fireside</option><option>Mixer</option><option>Screening</option><option>Conference talk</option><option>Something else</option></select></label>
-              <label class="f full">Tell us about it<textarea placeholder="Who's coming, how many people, what you'd like Baron to do."></textarea></label>
-            </div>
-            <button class="btn" type="submit">Send to the BIG team</button>
-          </form>
-          <p class="sent">Sent. The BIG team will come back to you by email.</p>
-          <p class="todo"><b>TODO Jack</b>Where do event requests go? Needs a real events inbox (the current support address bounces) and who answers them. Speaking fees aren't shown on purpose; quote them on a call.</p>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ===== 3. MEMBERSHIP: one offer, one price ===== -->
-  <section class="sec" id="membership">
-    <div class="wrap">
-      <div class="member">
-        <figure class="member-photo">
-          <img src="https://www.teambig.io/membership_hero_images/661ffb91e6aca7fa9bc65d66_bd-adam_silver-summit-group_shot.webp" alt="Baron Davis and Adam Silver at a BIG Summit" loading="lazy">
-          <figcaption class="photo-cap">Baron Davis and Adam Silver at a BIG Summit</figcaption>
-        </figure>
-        <div class="member-body">
-         <div>
-          <h2 class="h2">Membership</h2>
-          <p class="sec-lede">For athletes, founders, creators and investors who want to be part of BIG.</p>
-
-          <div class="price">
-            <span class="price-num">$1,200</span>
-            <span class="price-per">per year</span>
-          </div>
-          <p class="todo"><b>TODO Jack</b>Pick one price with Baron. The live site shows three: a one-time $10 (/tv), $10 a month or $100 a year (/subscribe), and $1,200 a year (the membership checkout).</p>
-         </div>
-         <div>
-
-          <ul class="includes">
-            <li>Member dinners, mixers and summits</li>
-            <li>Collectives: small groups hosted by people in the industry</li>
-            <li>Every BIG TV episode and member programming</li>
-            <li>Introductions across the BIG network</li>
-          </ul>
-
-          <div class="member-cta">
-            <a class="btn" href="https://www.teambig.io/membership" target="_blank" rel="noopener">Become a member</a>
-            <a class="textlink js-alerts" href="#alerts-hero">Or get free alerts</a>
-          </div>
-          <p class="todo"><b>TODO</b>Confirm these four lines with Baron. The live site marks Collectives, Dealflow, the App and BIG U as Coming Soon.</p>
-         </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== 4. PARTNERS ===== -->
-  <section class="sec" id="partners" style="padding-top:0">
-    <div class="wrap">
-      <div class="p-grid">
-        <div>
-          <h2 class="h2">Partners</h2>
-          <p class="sec-lede">Brands that have worked with BIG.</p>
-          <ul class="logos">
-            <li><img src="https://www.teambig.io/about_page_content/Welcome%20to%20Business%20Inside%20The%20Game%20_%20BIG_files/665e318745514b22c97a9df5_goat-logo.webp" alt="GOAT" loading="lazy"></li>
-            <li><img src="https://www.teambig.io/about_page_content/Welcome%20to%20Business%20Inside%20The%20Game%20_%20BIG_files/665e3187a26f45c69ecd1af4_fanvest-logo.webp" alt="Fanvest" loading="lazy"></li>
-            <li><img src="https://www.teambig.io/about_page_content/Welcome%20to%20Business%20Inside%20The%20Game%20_%20BIG_files/665e3187d559b071a6a0b450_sailgp-logo.webp" alt="SailGP" loading="lazy"></li>
-          </ul>
-          <p class="todo"><b>TODO</b>These are the three logos on teambig.io/about. Confirm they're current and cleared to show. The "Fortune 500s" heading is dropped because none of the three is one.</p>
-        </div>
-        <div class="work">
-          <h3>Work with Baron</h3>
-          <p>Brand partnerships across BIG TV, social, talent and live events. Each one is scoped to the campaign. Four levels, from $1,000 a month.</p>
-          <div class="cta-row">
-            <a class="btn btn-sky" href="https://www.teambig.io/brand-partnerships" target="_blank" rel="noopener">Partner with BIG</a>
-            <a class="mail" href="mailto:sol@teambig.io">sol@teambig.io</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== 5. ABOUT ===== -->
-  <section class="sec sec-white" id="about">
-    <div class="wrap">
-      <div class="ab-grid">
-        <figure class="ab-photo">
-          <img src="https://www.teambig.io/Leadership_Images/baron_davis.webp" alt="Baron Davis" loading="lazy">
-        </figure>
-        <div>
-          <h2 class="h2">About</h2>
-          <blockquote>
-            <p>“I'm a two-time NBA All-Star who's made the switch to entrepreneurship. Here's how I got my MBA from the NBA.”</p>
-            <cite class="mono">Baron Davis · <a href="https://www.businessinsider.com/baron-davis-business-in-the-game-big-nba-basketball-entrepreneurship-2023-10" target="_blank" rel="noopener">Business Insider, Oct 2023</a></cite>
-          </blockquote>
-          <p class="ab-bio">Baron Davis is the founder and CEO of Business Inside the Game (BIG). He's a two-time NBA All-Star turned investor and entrepreneur. BIG is his membership network for athletes, founders, creators and investors.</p>
-          </div>
-      </div>
-
-      <div class="ab-lists">
-        <div>
-          <div class="list-head"><span class="sub-label">Team</span></div>
-          <ul class="team">
-            <li><span>Baron Davis</span><span>Founder &amp; CEO</span></li>
-            <li><span>Robert Cohen</span><span>Co-Founder</span></li>
-            <li><span>Sol Martinez</span><span>Co-Founder</span></li>
-            <li><span>Eric Cox</span><span>Operations</span></li>
-            <li><span>Chizz Cunningham</span><span>Tech Consultant</span></li>
-          </ul>
-        </div>
-        <div>
-          <div class="list-head"><span class="sub-label">In the press</span><span class="mono muted">Newest first</span></div>
-          <ul class="press">
-            <li><div><span class="mono">31 May 2024</span><span class="outlet">Forbes</span><span class="hl">Baron Davis comes up with unique spin on youth basketball tournaments</span></div></li>
-            <li><div><span class="mono">25 May 2024</span><span class="outlet">Sports Illustrated</span><span class="hl">Baron Davis helping younger generation with their finances</span></div></li>
-            <li><div><span class="mono">16 May 2024</span><span class="outlet">BNN Bloomberg</span><span class="hl">Baron Davis on turning to investing, philanthropy</span></div></li>
-            <li><div><span class="mono">10 May 2024</span><span class="outlet">FOX Business</span><span class="hl">NBA All-Star Baron Davis takes over ‘Going Public’</span></div></li>
-            <li><a href="https://www.sportsbusinessjournal.com/Articles/2024/02/16/baron-davis-business-inside-the-game" target="_blank" rel="noopener"><span class="mono">16 Feb 2024</span><span class="outlet">Sports Business Journal</span><span class="hl">Baron Davis expanding Business Inside the Game's ecosystem to include members-only platform</span></a></li>
-            <li><a href="https://www.businessinsider.com/baron-davis-business-in-the-game-big-nba-basketball-entrepreneurship-2023-10" target="_blank" rel="noopener"><span class="mono">21 Oct 2023</span><span class="outlet">Business Insider</span><span class="hl">I'm a two-time NBA All-Star who's made the switch to entrepreneurship</span></a></li>
-          </ul>
-          <p class="todo"><b>TODO</b>The press list on teambig.io stops at May 2024. Add anything newer.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-</main>
-
-<!-- ===== Footer with a second alerts signup ===== -->
-<footer class="foot">
-  <div class="wrap">
-    <div class="cta">
-      <div>
-        <h2 class="h2">Get alerts</h2>
-        <p class="cta-text">Get an email when Baron goes live or adds an event.</p>
-      </div>
-      <div class="alerts-box">
-        <form class="alerts" novalidate>
-          <label class="sr" for="email-foot">Email address</label>
-          <input id="email-foot" type="email" inputmode="email" autocomplete="email" placeholder="Email address">
-          <button class="btn btn-sky" type="submit">Get alerts</button>
-        </form>
-        <p class="alerts-err" hidden>Enter a valid email address.</p>
-        <div class="alerts-done" hidden role="status"><span class="check"></span><span><strong>You're on the list.</strong> We'll email you when Baron goes live or adds an event.</span><button class="undo" type="button">Undo</button></div>
-        <p class="alerts-note">Free. Email only.</p>
-      </div>
-    </div>
-
-    <div class="foot-cols">
-      <div>
-        <div class="foot-brand">BIG</div>
-        <p>Business Inside the Game. Baron Davis's business network for athletes, founders and investors.</p>
-      </div>
-      <div>
-        <h4>BIG</h4>
-        <ul><li><a href="#watch">Watch</a></li><li><a href="#events">Events</a></li><li><a href="#membership">Membership</a></li></ul>
-      </div>
-      <div>
-        <h4>Company</h4>
-        <ul><li><a href="#partners">Partners</a></li><li><a href="#about">About</a></li><li><a href="https://www.teambig.io/investors" target="_blank" rel="noopener">Investors</a></li></ul>
-      </div>
-      <div>
-        <h4>More</h4>
-        <ul><li><a href="#about">Press</a></li><li><a href="https://www.teambig.io/big-deals" target="_blank" rel="noopener">BIG Deals</a></li><li><a href="https://www.youtube.com/@BusinessInsidetheGame" target="_blank" rel="noopener">YouTube</a></li></ul>
-      </div>
-      <div>
-        <h4>Help</h4>
-        <ul><li><a href="mailto:sol@teambig.io">Contact</a></li><li><a href="https://www.teambig.io/legal/terms-of-service" target="_blank" rel="noopener">Terms</a></li><li><a href="https://www.teambig.io/legal/privacy" target="_blank" rel="noopener">Privacy</a></li></ul>
-      </div>
-    </div>
-
-    <div class="legal">
-      <span>© 2026 Business Inside the Game, LLC</span>
-      <span>Prototype by Ballast Research, 21 Oct 2026. Not live.</span>
+    <div class="side">
+      <figure class="photo"><img src="https://www.teambig.io/_next/image?url=%2Fmembership_hero_images%2F66201ab44be26e97e38158a0_big_summit-Ice_Cube-fireside_chat.webp&w=1200&q=75" alt="A fireside chat on stage at a BIG Summit"><figcaption>Fireside chat · BIG Summit</figcaption></figure>
+      <div class="card" id="host"><h3>Bring Baron to your event</h3><p>Invite Baron to speak, co-host a BIG dinner or mixer, or request a seat at the next one.</p>
+        <form onsubmit="event.preventDefault();this.closest('.card').classList.add('done')">
+          <div class="seg"><label><input type="radio" name="k" checked>Speak</label><label><input type="radio" name="k">Co-host</label><label><input type="radio" name="k">Invite</label></div>
+          <div class="f"><input required placeholder="Name" autocomplete="name"><input required type="email" placeholder="Email" autocomplete="email"><input placeholder="Company or event"><input placeholder="City and date"><textarea placeholder="Who's coming, and what you'd like Baron to do"></textarea><button class="btn pri">Send to the BIG team</button></div>
+        </form><p class="sent">Sent. The BIG team will reply by email.</p></div>
     </div>
   </div>
-</footer>
+</div></section>
 
+<section class="s" id="membership"><div class="wrap">
+  <div class="sh"><div><div class="lab"><i></i>Season pass</div><h2>Get in the game</h2></div>
+    <p>Start free with the alerts. Become a member for the room: the dinners, the collectives and the deal flow.</p></div>
+  <div class="pass">
+    <div class="tier" id="alerts"><div class="nm">Free</div><div class="pr">$0</div>
+      <ul><li>Every BIG TV episode</li><li>An email before Baron goes live</li><li>First word on new dinners and events</li></ul>
+      <form class="alert" onsubmit="event.preventDefault();this.style.display='none';this.nextElementSibling.style.display='block'"><input type="email" required placeholder="Your email" autocomplete="email"><button class="btn sec">Get alerts</button></form><p class="ok">You're on the list.</p></div>
+    <div class="tier mem"><div class="nm">Member</div><div class="pr">$1,200<small>/ year</small></div>
+      <ul><li>Member dinners, mixers and BIG Summit</li><li>The collectives: small groups run by people in the industry</li><li>Deal flow and SPV access</li><li>Introductions across the BIG network</li></ul>
+      <a class="btn pri" href="https://www.teambig.io/membership" target="_blank" rel="noopener">Become a member</a></div>
+  </div>
+</div></section>
 
+<section class="s" id="baron"><div class="wrap">
+  <div class="pc">
+    <div class="shot"><img src="https://www.teambig.io/Leadership_Images/baron_davis.webp" alt="Baron Davis"><div class="nm"><span>Founder &amp; CEO</span><b>Baron Davis</b></div></div>
+    <div>
+      <div class="lab mono" style="color:var(--sky);font-size:12px;letter-spacing:.14em;margin-bottom:14px">— The player</div>
+      <p class="q">“I'm a two-time NBA All-Star who's made the switch to entrepreneurship. Here's how I got my MBA from the NBA.”</p>
+      <cite>Baron Davis · Business Insider, Oct 2023</cite>
+      <p class="bio">Baron Davis played 13 seasons in the NBA after UCLA, and became an early investor in companies like Vitaminwater and Thrive Market. Business Inside the Game is his network for athletes, founders, creators and investors.</p>
+      <div class="cols">
+        <div class="lst"><h4>The team</h4><div><b>Baron Davis</b><span>Founder &amp; CEO</span></div><div><b>Robert Cohen</b><span>Co-Founder</span></div><div><b>Sol Martinez</b><span>Co-Founder</span></div><div><b>Eric Cox</b><span>Operations</span></div><div><b>Chizz Cunningham</b><span>Tech</span></div></div>
+        <div class="lst"><h4>In the press</h4>
+          <a href="https://www.businessinsider.com/baron-davis-business-in-the-game-big-nba-basketball-entrepreneurship-2023-10" target="_blank" rel="noopener"><b>Business Insider</b><span>Oct 2023</span></a>
+          <a href="https://www.sportsbusinessjournal.com/Articles/2024/02/16/baron-davis-business-inside-the-game" target="_blank" rel="noopener"><b>Sports Business Journal</b><span>Feb 2024</span></a>
+          <div><b>FOX Business · Going Public</b><span>May 2024</span></div><div><b>BNN Bloomberg</b><span>May 2024</span></div><div><b>Sports Illustrated</b><span>May 2024</span></div><div><b>Forbes</b><span>May 2024</span></div></div>
+      </div>
+      <div class="partners"><span>Partners</span>
+        <img src="https://www.teambig.io/about_page_content/Welcome%20to%20Business%20Inside%20The%20Game%20_%20BIG_files/665e318745514b22c97a9df5_goat-logo.webp" alt="GOAT">
+        <img src="https://www.teambig.io/about_page_content/Welcome%20to%20Business%20Inside%20The%20Game%20_%20BIG_files/665e3187a26f45c69ecd1af4_fanvest-logo.webp" alt="Fanvest">
+        <img src="https://www.teambig.io/about_page_content/Welcome%20to%20Business%20Inside%20The%20Game%20_%20BIG_files/665e3187d559b071a6a0b450_sailgp-logo.webp" alt="SailGP"></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="final"><div class="wrap">
+  <h2>Pull up a chair</h2>
+  <p>One email before Baron goes live, and one when a new dinner or episode drops.</p>
+  <form class="alert" onsubmit="event.preventDefault();this.style.display='none';this.nextElementSibling.style.display='block'"><input type="email" required placeholder="Your email" autocomplete="email"><button class="btn pri">Get alerts</button></form><p class="ok">You're on the list.</p>
+</div></section>
+</main>
+<footer><div class="wrap"><span>© BIG · Business Inside the Game</span><span><a href="https://www.teambig.io/investors">Investors</a> · <a href="https://www.youtube.com/@BusinessInsidetheGame">YouTube</a> · <a href="https://www.teambig.io/legal/privacy">Privacy</a></span></div></footer>
+
+<div class="cmd" id="cmd" role="dialog" aria-label="Search BIG"><div class="p"><input id="ci" placeholder="Search episodes, events, companies…" autocomplete="off"><ul id="cl"></ul><div class="hint"><span>↑↓ to move</span><span>↵ to open</span><span>esc to close</span></div></div></div>
+<div class="yt" id="yt"><iframe id="ytf" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
 
 <script>
-(function(){
-  var body=document.body;
-
-  /* ---- alerts forms (local only, nothing is sent) ---- */
-  var EMAIL=/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-  document.querySelectorAll('.alerts-box').forEach(function(box){
-    var form=box.querySelector('form'), input=box.querySelector('input'),
-        err=box.querySelector('.alerts-err'), done=box.querySelector('.alerts-done'),
-        note=box.querySelector('.alerts-note');
-    form.addEventListener('submit',function(e){
-      e.preventDefault();
-      if(!EMAIL.test(input.value.trim())){ form.classList.add('bad'); err.hidden=false; input.focus(); return; }
-      form.classList.remove('bad'); err.hidden=true;
-      form.hidden=true; if(note) note.hidden=true; done.hidden=false;
-    });
-    input.addEventListener('input',function(){ if(form.classList.contains('bad')&&EMAIL.test(input.value.trim())){form.classList.remove('bad');err.hidden=true;} });
-    box.querySelector('.undo').addEventListener('click',function(){
-      done.hidden=true; form.hidden=false; if(note) note.hidden=false; input.value=''; input.focus();
-    });
-  });
-
-  /* ---- "Get alerts" buttons jump to the hero form ---- */
-  document.querySelectorAll('.js-alerts').forEach(function(b){
-    b.addEventListener('click',function(e){
-      e.preventDefault();
-      closeMenu();
-      var box=document.getElementById('alerts-hero');
-      box.scrollIntoView({behavior:'smooth',block:'center'});
-      var i=box.querySelector('input'); if(!box.querySelector('form').hidden) setTimeout(function(){i.focus({preventScroll:true});},350);
-    });
-  });
-
-  /* ---- mobile menu ---- */
-  var head=document.getElementById('head'), menuBtn=document.getElementById('menuBtn');
-  function closeMenu(){ head.classList.remove('open'); menuBtn.setAttribute('aria-expanded','false'); }
-  menuBtn.addEventListener('click',function(){
-    var open=head.classList.toggle('open'); menuBtn.setAttribute('aria-expanded',open?'true':'false');
-  });
-  document.querySelectorAll('#nav a').forEach(function(a){ a.addEventListener('click',closeMenu); });
-
-  /* ---- episode player (youtube-nocookie, loads only on click) ---- */
-  var player=document.getElementById('player'), playerImg=document.getElementById('playerImg'),
-      featName=document.getElementById('featName'), featMeta=document.getElementById('featMeta'),
-      featLink=document.getElementById('featLink');
-  function embed(id){
-    return '<iframe src="https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0" title="Episode player" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
-  }
-  function playFeatured(){
-    var old=player.querySelector('iframe'); if(old) old.remove();
-    player.insertAdjacentHTML('beforeend',embed(player.dataset.yt));
-  }
-  function setFeatured(btn,autoplay){
-    var id=btn.dataset.yt;
-    var old=player.querySelector('iframe'); if(old) old.remove();
-    player.dataset.yt=id;
-    playerImg.src='https://i.ytimg.com/vi/'+id+'/maxresdefault.jpg';
-    playerImg.alt='Business Inside the Game with '+btn.dataset.name;
-    featName.textContent=btn.dataset.name; featMeta.textContent=btn.dataset.meta;
-    featLink.href='https://www.youtube.com/watch?v='+id;
-    document.querySelectorAll('#epList button').forEach(function(b){ b.setAttribute('aria-current', b===btn?'true':'false'); });
-    if(autoplay) playFeatured();
-  }
-  document.getElementById('playBtn').addEventListener('click',playFeatured);
-  document.querySelectorAll('#epList button').forEach(function(b){
-    b.addEventListener('click',function(){ setFeatured(b,true); player.scrollIntoView({behavior:'smooth',block:'center'}); });
-  });
-  document.querySelectorAll('[data-play]').forEach(function(a){
-    a.addEventListener('click',function(){
-      var b=document.querySelector('#epList button[data-yt="'+a.dataset.play+'"]'); if(b) setFeatured(b,false);
-    });
-  });
-
-  /* ---- clips hosted on YouTube play in place ---- */
-  document.querySelectorAll('[data-clip]').forEach(function(b){
-    b.addEventListener('click',function(){
-      var t=b.querySelector('.thumb'); if(t.querySelector('iframe')) return;
-      t.insertAdjacentHTML('beforeend',embed(b.dataset.clip));
-    });
-  });
-
-  /* ---- events: show all ---- */
-  var evList=document.getElementById('evList'), evToggle=document.getElementById('evToggle');
-  evToggle.addEventListener('click',function(){
-    var all=evList.classList.toggle('all');
-    evToggle.textContent=all?'Show fewer':'Show all 14 events';
-    evToggle.setAttribute('aria-expanded',all?'true':'false');
-  });
-
-  /* ---- active nav underline ---- */
-  var links={}; document.querySelectorAll('#nav a[href^="#"]').forEach(function(a){ links[a.getAttribute('href').slice(1)]=a; });
-  if('IntersectionObserver' in window){
-    var io=new IntersectionObserver(function(entries){
-      entries.forEach(function(en){
-        var a=links[en.target.id]; if(!a) return;
-        if(en.isIntersecting){ Object.keys(links).forEach(function(k){links[k].classList.remove('on');}); a.classList.add('on'); }
-      });
-    },{rootMargin:'-45% 0px -50% 0px'});
-    Object.keys(links).forEach(function(id){ var s=document.getElementById(id); if(s) io.observe(s); });
-  }
-
-
-})();
+const EP=[{g:"Draymond Green",n:5,len:"1H 16M",id:"dx3S7N0kIWo",d:"Nov 2025"},{g:"Ann Meyers Drysdale",n:6,len:"50M",id:"ohIr8Wa8q6k",d:"Oct 2025"},{g:"Britt Stewart",n:4,len:"35M",id:"g4xciJfYwps",d:"Sep 2025"},{g:"Desiree Gruber",n:3,len:"54M",id:"0W8vl4dMzIY",d:"Sep 2025"},{g:"Nina Westbrook",n:2,len:"36M",id:"c4gdN1d0EVQ",d:"Aug 2025"},{g:"Julian Edelman",n:1,len:"51M",id:"-mFnwoQx8Tw",d:"Aug 2025"}];
+const EV=[["https://www.teambig.io/events/big-mixer-la-tech-week", "MON 12 OCT", "BIG Mixer, LA Tech Week", "A networking event during LA Tech Week.", "Inglewood, CA", "Mixer"], ["https://www.teambig.io/events/oakland-tech-week", "FRI 02 OCT", "Oakland Tech Week", "Fireside chat with Baron Davis and Erik Moore.", "Oakland, CA", "Fireside chat"], ["https://www.teambig.io/events/sports-intelligence-dinner", "MON 24 AUG", "Sports Intelligence Dinner", "Investing in the future of sports. A private dinner hosted by Baron.", "Beverly Hills, CA", "Dinner"], ["https://www.teambig.io/events/social-club", "TUE 18 AUG", "BIG Social Club", "Black Founders Forum.", "Oak Bluffs, MA", "Social"], ["https://www.teambig.io/events/big-showcase", "FRI 07 AUG", "BIG Showcase", "A founders event.", "Pasadena, MD", "Showcase"], ["https://www.teambig.io/events/big-growing-the-diaspora-dinner-1", "WED 15 JUL", "Growing the Diaspora Dinner", "Hosted by Baron Davis.", "Las Vegas, NV", "Dinner"], ["https://www.teambig.io/events/cap-table-reunion", "TUE 30 JUN", "Cap Table Reunion", "Cap Table is a BIG Collective.", "Los Angeles, CA", "Collective"], ["https://www.teambig.io/events/oatmeal-radio-cafe-presents-bet-weekend-culture-house-2026", "THU 25 JUN", "BET Weekend Culture House", "Curated by Baron Davis and Oatmeal Radio Cafe.", "Los Angeles, CA", "Multi-day"], ["https://www.teambig.io/events/nyc-tech-week-with-lazard", "THU 04 JUN", "NYC Tech Week with Lazard", "Mixer and fireside.", "New York, NY", "Mixer"], ["https://www.teambig.io/events/big-members-day", "SUN 24 MAY", "BIG Members Day", "A celebration of the BIG community.", "Los Angeles, CA", "Members"], ["https://www.teambig.io/events/the-last-shot-private-screening", "FRI 22 MAY", "The Last Shot, private screening", "Hosted by Baron, who plays the Coach in the film.", "Los Angeles, CA", "Screening"], ["https://www.teambig.io/events/launfd-run-club", "SUN 29 MAR", "LAUNFD Run Club", "", "Los Angeles, CA", "Run club"], ["https://www.teambig.io/events/black-hollywood-live-afterparty", "SAT 28 FEB", "Black Hollywood Live Afterparty", "", "Los Angeles, CA", "Party"], ["https://www.teambig.io/events/big-convos", "FRI 27 FEB", "BIG Convos", "Member spotlight.", "Los Angeles, CA", "Talk"]];
+const CO=[["Vitaminwater","Consumer","Early","2007","Early investor. Acquired by Coca-Cola.","Consumer",true],["Thrive Market","Consumer","Early","—","Early investor in the membership grocery platform.","Consumer"],["Sleeper","Sports & media","Series B","2020","The social sports and fantasy app.","Sports & media"],["Overtime","Sports & media","Series B","2019","Sports media network for the next generation.","Sports & media"],["Super Coffee","Consumer","Growth","2020","Functional coffee brand.","Consumer"],["The Gathering Spot","Community","Growth","2025","Members' club network.","Community"],["Kiddie Kredit","Fintech","Seed","2023","Teaches kids credit. Alongside Dwyane Wade.","Fintech"],["Forethought","AI","Series C","2021","AI for customer support.","AI"],["FastAF","Commerce","Series A","2021","Fast delivery commerce.","Commerce"],["Triller","Sports & media","Venture","2019","Music and video app.","Sports & media"],["Quip","Consumer","Venture","2018","Oral-care brand.","Consumer"],["Fan-owned sailing team","Sports & media","Founding","2023","First pro athlete to back a planned fan-owned SailGP team.","Sports & media"]];
+const $=s=>document.querySelector(s);
+// bar
+const bar=$('#bar');addEventListener('scroll',()=>bar.classList.toggle('solid',scrollY>40),{passive:true});
+// hero progress
+const hv=$('#hv'),hp=$('#hp');hv.addEventListener('timeupdate',()=>{hp.style.width=(hv.currentTime/(hv.duration||1)*100)+'%'});
+// ticker
+const tick=[...CO.filter(c=>c[3]!=='—').map(c=>`<span class="it"><span class="c">Portfolio</span>${c[0]}<span class="d">${c[2]} · ${c[3]}</span></span>`),
+ ...EV.slice(0,8).map(e=>`<span class="it"><span class="c">Event</span>${e[2]}<span class="d">${e[1]} · ${e[4]}</span></span>`),
+ ...EP.slice(0,4).map(e=>`<span class="it"><span class="c">BIG TV</span>${e.g}<span class="d">S1 E${e.n}</span></span>`)].join('');
+$('#run').innerHTML=tick+tick;
+// guide
+const yt=id=>`https://img.youtube.com/vi/${id}/maxresdefault.jpg`;
+$('#guide').innerHTML=EP.map((e,i)=>`<button class="ep${i===0?' feat':''}" data-yt="${e.id}"><div class="th" style="background-image:url(${yt(e.id)})"><span class="no">S1 · E${e.n}</span><span class="len">${e.len}</span></div><div class="tx"><b>${e.g}</b><span>Business Inside the Game · ${e.d}</span></div></button>`).join('');
+// box score
+const secs=['All',...new Set(CO.map(c=>c[5]))];let cur='All';
+function rows(){$('#rows').innerHTML=CO.filter(c=>cur==='All'||c[5]===cur).map(c=>`<div class="rw"><span class="co">${c[0]}</span><span class="sec">${c[1]}</span><span class="rd">${c[2]}</span><span class="yr">${c[3]}</span><span class="nt">${c[6]?'<span class="pill">Acquired</span> ':''}${c[4]}</span></div>`).join('');}
+$('#chips').innerHTML=secs.map(s=>`<button class="chip" aria-pressed="${s==='All'}" data-s="${s}">${s}</button>`).join('');
+$('#chips').onclick=e=>{const b=e.target.closest('.chip');if(!b)return;cur=b.dataset.s;document.querySelectorAll('.chip').forEach(x=>x.setAttribute('aria-pressed',x===b));rows()};rows();
+// schedule
+let all=false;function evs(){$('#evs').innerHTML=EV.slice(0,all?99:7).map(e=>`<a class="ev" href="${e[0]}" target="_blank" rel="noopener"><span class="dt">${e[1].split(' ').slice(1).join(' ')}<small>${e[1].split(' ')[0]} · 2026</small></span><span class="t"><b>${e[2]}</b><span>${e[3]||e[4]}</span></span><span class="ty">${e[5]}<i>${e[4]}</i></span></a>`).join('');$('#more').textContent=all?'Show fewer':'Show all 2026 events';}
+$('#more').onclick=()=>{all=!all;evs()};evs();
+// video modal
+const ytm=$('#yt'),ytf=$('#ytf');document.addEventListener('click',e=>{const b=e.target.closest('[data-yt]');if(!b)return;ytf.src=`https://www.youtube-nocookie.com/embed/${b.dataset.yt}?autoplay=1&rel=0`;ytm.classList.add('on')});
+ytm.onclick=()=>{ytm.classList.remove('on');ytf.src=''};
+// command bar
+const cmd=$('#cmd'),ci=$('#ci'),cl=$('#cl');let sel=0,res=[];
+const IDX=[...['BIG TV','Portfolio','Schedule','Membership','Baron Davis','Bring Baron to your event','Get alerts'].map((t,i)=>({t,k:'Section',go:['#watch','#portfolio','#schedule','#membership','#baron','#host','#alerts'][i]})),
+ ...EP.map(e=>({t:e.g,k:`Episode ${e.n}`,yt:e.id})),...EV.map(e=>({t:e[2],k:`${e[1]} · ${e[4]}`,href:e[0]})),...CO.map(c=>({t:c[0],k:`Portfolio · ${c[1]}`,go:'#portfolio'}))];
+function render(){const q=ci.value.trim().toLowerCase();res=IDX.filter(x=>!q||(x.t+' '+x.k).toLowerCase().includes(q)).slice(0,9);sel=Math.min(sel,Math.max(0,res.length-1));
+ cl.innerHTML=res.map((x,i)=>`<li class="${i===sel?'on':''}" data-i="${i}"><b>${x.t}</b><span>${x.k}</span></li>`).join('')||'<li><b>No results</b></li>';}
+function open(){cmd.classList.add('on');ci.value='';sel=0;render();setTimeout(()=>ci.focus(),10)}
+function close(){cmd.classList.remove('on')}
+function go(x){if(!x)return;close();if(x.yt){ytf.src=`https://www.youtube-nocookie.com/embed/${x.yt}?autoplay=1&rel=0`;ytm.classList.add('on')}else if(x.href)window.open(x.href,'_blank');else document.querySelector(x.go).scrollIntoView({behavior:'smooth'})}
+$('#kbtn').onclick=open;ci.oninput=()=>{sel=0;render()};cl.onclick=e=>{const li=e.target.closest('li[data-i]');if(li)go(res[+li.dataset.i])};
+cmd.onclick=e=>{if(e.target===cmd)close()};
+addEventListener('keydown',e=>{if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='k'){e.preventDefault();cmd.classList.contains('on')?close():open()}
+ if(!cmd.classList.contains('on'))return;if(e.key==='Escape')close();if(e.key==='ArrowDown'){sel=Math.min(res.length-1,sel+1);render();e.preventDefault()}if(e.key==='ArrowUp'){sel=Math.max(0,sel-1);render();e.preventDefault()}if(e.key==='Enter')go(res[sel])});
+addEventListener('keydown',e=>{if(e.key==='Escape'&&ytm.classList.contains('on')){ytm.classList.remove('on');ytf.src=''}});
 </script>
-<script>document.querySelectorAll('[data-kind]').forEach(a=>a.addEventListener('click',()=>{const r=document.querySelector('#hostform input[value="'+a.dataset.kind+'"]');if(r)r.checked=true;}));</script>
-<script>(()=>{const to=document.querySelector('.mode__to');if(!to)return;
- to.addEventListener('click',e=>{let id='',best=0;
-  document.querySelectorAll('section[id]').forEach(x=>{const r=x.getBoundingClientRect(),v=Math.min(r.bottom,innerHeight)-Math.max(r.top,0);if(v>best){best=v;id=x.id}});
-  const ok={watch:'watch',events:'events',membership:'join',partners:'portfolio',about:'about'};if(ok[id]){e.preventDefault();location.href='room.html#'+ok[id]}});})();</script>
 </body>
 </html>
