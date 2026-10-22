@@ -59,6 +59,13 @@
   .nav__links{display:flex;gap:28px}
   .nav__links a{text-decoration:none;font-family:var(--m);font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--mute);transition:color .15s}
   .nav__links a:hover{color:var(--ink)}
+  .nav__end{display:flex;align-items:center;gap:12px}
+  .mode{display:inline-flex;gap:2px;padding:3px;border:1px solid var(--line);border-radius:999px;background:#fff}
+  .mode a{font-family:var(--m);font-size:12px;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;color:var(--mute);padding:7px 12px;border-radius:999px;line-height:1;transition:background .15s,color .15s}
+  .mode a:hover{color:var(--ink)}
+  .mode a[aria-current]{background:var(--ink);color:var(--paper)}
+  @media (max-width:760px){.nav__end{gap:6px}.mode a{padding:7px 8px;font-size:11px;letter-spacing:.04em}.nav .btn{padding:9px 11px;white-space:nowrap;font-size:12px}}
+  @media (max-width:380px){.mode a{padding:7px 6px}}
   .btn{display:inline-flex;align-items:center;gap:10px;text-decoration:none;background:var(--cobalt);color:#fff;padding:10px 16px;border-radius:999px;font-family:var(--m);font-size:13px;letter-spacing:.04em;text-transform:uppercase;font-weight:500;border:1px solid var(--cobalt);transition:background .15s,color .15s,border-color .15s;cursor:pointer}
   .btn:hover{background:var(--ink);border-color:var(--ink)}
   .btn--ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
@@ -420,7 +427,10 @@
       <a href="#rd">Services</a>
       <a href="#pricing">Pricing</a>
     </nav>
-    <a class="btn" href="#book">Book a call</a>
+    <div class="nav__end">
+      <div class="mode" role="group" aria-label="Site view"><a href="/" aria-current="page">Classic</a><a href="/desktop/" class="mode__to">Desktop</a></div>
+      <a class="btn" href="#book">Book a call</a>
+    </div>
   </div>
 </header>
 
@@ -728,6 +738,14 @@
     f.src='https://www.youtube-nocookie.com/embed/'+b.dataset.id+'?autoplay=1&playsinline=1&rel=0';
     f.allow='autoplay; encrypted-media; picture-in-picture';f.allowFullscreen=true;f.title=b.getAttribute('aria-label');
     box.replaceChildren(f);lb.showModal()}));
+})();
+</script>
+<script>
+(()=>{const to=document.querySelector('.mode__to');if(!to)return;
+  const map={work:'work',clients:'clients',rd:'services',pricing:'pricing',book:'book'};
+  to.addEventListener('click',e=>{let id='';const mid=innerHeight*.4;
+    document.querySelectorAll('main > section[id]').forEach(s=>{const r=s.getBoundingClientRect();if(r.top<=mid&&r.bottom>mid)id=map[s.id]||''});
+    if(id){e.preventDefault();location.href='/desktop/#'+id}});
 })();
 </script>
 </body>
