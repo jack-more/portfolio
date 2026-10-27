@@ -48,3 +48,9 @@
   to = "/baron85/archive/vault/"
   status = 302
   force = true
+
+# the Classic/Desktop toggle was removed on 26 Oct 2026; old links land on the homepage
+[[redirects]]
+  from = "/desktop/*"
+  to = "/"
+  status = 301
