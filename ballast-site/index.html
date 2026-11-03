@@ -97,6 +97,14 @@
   .rd__hd .mono{color:var(--cobalt)}
   .rd__lead{grid-column:2;max-width:60ch;color:var(--mute);font-size:clamp(17px,1.3vw,21px);line-height:1.45;margin-top:14px}
   .rd__hd h2{font-size:clamp(48px,6.4vw,104px)}
+  .rdgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line)}
+  .rdcard{padding:22px 24px 24px 0;border-bottom:1px solid var(--line)}
+  .rdcard + .rdcard{}
+  .rdgrid .rdcard:not(:nth-child(3n+1)){padding-left:24px;border-left:1px solid var(--line)}
+  .rdcard b{display:block;font-weight:500;font-size:clamp(20px,1.7vw,24px);letter-spacing:-.015em;margin-bottom:6px}
+  .rdcard p{color:var(--mute);margin:0;line-height:1.45}
+  @media (max-width:900px){.rdgrid{grid-template-columns:repeat(2,minmax(0,1fr))}.rdgrid .rdcard:not(:nth-child(3n+1)){padding-left:0;border-left:0}.rdgrid .rdcard:nth-child(2n){padding-left:20px;border-left:1px solid var(--line)}}
+  @media (max-width:560px){.rdgrid{grid-template-columns:1fr}.rdgrid .rdcard:nth-child(2n){padding-left:0;border-left:0}}
   .rdrow{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,4fr) minmax(0,4fr);gap:24px;padding:22px 0;border-top:1px solid var(--line);align-items:baseline}
   .rdrow b{font-weight:500;font-size:clamp(22px,2vw,28px);letter-spacing:-.015em}
   .rdrow p{color:var(--mute)}
@@ -418,7 +426,7 @@
       .scene__top,.plate{animation:heroOut linear both;animation-timeline:scroll(root);animation-range:0 90vh}
       .rd__hd h2,.case__hd h3,.block__hd h2,.sprint__hd h2,.proof__hd h2,.book__hd h2{animation:rise linear both;animation-timeline:view();animation-range:entry 0% cover 25%}
       .rd__lead,.case__hd .mono,.rd__hd>.mono,.block__hd .mono,.sprint__hd .mono,.proof__hd .mono,.book__hd .mono{animation:riseSm linear both;animation-timeline:view();animation-range:entry 0% cover 22%}
-      .rdrow,.rec .row,.rec__group,.case__stats>div,.case__how .rdrow,.yt,.tile{animation:riseSm linear both;animation-timeline:view();animation-range:entry 0% cover 20%}
+      .rdrow,.rdcard,.rec .row,.rec__group,.case__stats>div,.case__how .rdrow,.yt,.tile{animation:riseSm linear both;animation-timeline:view();animation-range:entry 0% cover 20%}
       .reel{animation:reelIn linear both;animation-timeline:view();animation-range:entry 0% cover 30%}
     }
   }
@@ -428,7 +436,7 @@
   @keyframes reelIn{from{opacity:.35;transform:scale(.92)}to{opacity:1;transform:none}}
 </style>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"ProfessionalService","name":"Ballast","legalName":"Ballast Research LLC","url":"https://ballast.la/","logo":"https://ballast.la/lockup.png","image":"https://ballast.la/og.png","email":"jack@ballast.la","address":{"@type":"PostalAddress","addressLocality":"Los Angeles","addressRegion":"CA","addressCountry":"US"},"description":"Research, development and media distribution for brands in categories most agencies won't touch, at a scale most never see.","areaServed":"Worldwide","priceRange":"$3,500–$100,000","founder":{"@type":"Person","name":"Jack Morello","url":"https://jackmorello.com/"},"knowsAbout":["Paid media","Performance marketing","Telehealth advertising","Health and wellness marketing","Supplement marketing","Regulated category advertising","Sports marketing","Fan research","Creator and UGC marketing","TikTok LIVE shopping","Marketing measurement","Open finance marketing"],"makesOffer":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Media strategy and planning"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Paid media execution"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Live shopping"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"UGC and creator campaigns"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Measurement"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Creative"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Regulated categories"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Agency and team oversight"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Fractional leadership"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Audience research"}}]}
+{"@context":"https://schema.org","@type":"ProfessionalService","name":"Ballast","legalName":"Ballast Research LLC","url":"https://ballast.la/","logo":"https://ballast.la/lockup.png","image":"https://ballast.la/og.png","email":"jack@ballast.la","address":{"@type":"PostalAddress","addressLocality":"Los Angeles","addressRegion":"CA","addressCountry":"US"},"description":"Research, development and media distribution for brands in categories most agencies won't touch, at a scale most never see.","areaServed":"Worldwide","priceRange":"$3,500–$100,000","founder":{"@type":"Person","name":"Jack Morello","url":"https://jackmorello.com/"},"knowsAbout":["Paid media","Performance marketing","Telehealth advertising","Health and wellness marketing","Supplement marketing","Regulated category advertising","Sports marketing","Fan research","Creator and UGC marketing","TikTok LIVE shopping","Marketing measurement","Open finance marketing"],"makesOffer":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Media strategy and planning"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Paid media execution"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Live shopping"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"UGC and creator campaigns"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Measurement"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Creative"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Regulated categories"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Agency and team oversight"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Audience research"}}]}
 </script>
 <script type="importmap">{"imports":{"three":"/hero/vendor/three.module.min.js"}}</script>
 </head>
@@ -544,17 +552,16 @@
       <h2 class="serif">Media, aligned to the business.</h2>
       <p class="rd__lead">Every channel gets a job, a budget and the number it&rsquo;s judged on. Then we run it.</p>
     </div>
-    <div class="rd__rows">
-      <div class="rdrow"><b>Media strategy and planning</b><p>Annual, quarterly and in-flight plans tied to sales and brand goals: what each channel is for, what it gets, and when.</p><p>Budgets moved by evidence, not by habit.</p></div>
-      <div class="rdrow"><b>Paid media execution</b><p>Buying, launching and optimizing across Meta, TikTok, Google, YouTube, programmatic and CTV.</p><p>Paced weekly, tested weekly, reported against revenue.</p></div>
-      <div class="rdrow"><b>Live shopping</b><p>Set up and run TikTok LIVE selling that brings in $5K a day.</p><p>The shop, the hosts, the offers and the schedule.</p></div>
-      <div class="rdrow"><b>UGC and creator campaigns</b><p>Coordinate and run full-scale UGC campaigns with 30+ creators.</p><p>Recruited, briefed and paid on sales, not posts.</p></div>
-      <div class="rdrow"><b>Measurement</b><p>One number per goal, reconciled to real orders, with tests that show what spend actually creates.</p><p>See which channels create demand and which just take credit for it.</p></div>
-      <div class="rdrow"><b>Creative</b><p>Ads, product imagery and AI production, made for each platform and built to pass review.</p><p>New hooks every week, never one hero ad.</p></div>
-      <div class="rdrow"><b>Regulated categories</b><p>Health, telehealth, weight loss, supplements and open finance.</p><p>Compliance built into the account and the creative from day one.</p></div>
-      <div class="rdrow"><b>Agency and team oversight</b><p>We hold agencies, creators and vendors to scope, cost and results.</p><p>Clear plans, clean invoices, one owner for the numbers.</p></div>
-      <div class="rdrow"><b>Fractional leadership</b><p>Ballast as your head of growth or media, one to two days a week.</p><p>Senior judgment without a full-time hire.</p></div>
-      <div class="rdrow"><b>Audience research</b><p>Who buys, where demand already exists, and what moves them, including fans and creators in sport.</p><p>Research first, so the money goes on evidence.</p></div>
+    <div class="rdgrid">
+      <div class="rdcard"><b>Media strategy</b><p>Plans tied to sales: what each channel is for, what it gets, and when.</p></div>
+      <div class="rdcard"><b>Paid media</b><p>Meta, TikTok, Google, YouTube, programmatic and CTV. Tested weekly, reported against revenue.</p></div>
+      <div class="rdcard"><b>Live shopping</b><p>TikTok LIVE selling that brings in $5K a day: the shop, the hosts, the offers.</p></div>
+      <div class="rdcard"><b>Creators and UGC</b><p>30+ creators, recruited, briefed and paid on sales.</p></div>
+      <div class="rdcard"><b>Measurement</b><p>One number per goal, reconciled to real orders. See what spend actually creates.</p></div>
+      <div class="rdcard"><b>Creative</b><p>New hooks every week, made for each platform and built to pass review.</p></div>
+      <div class="rdcard"><b>Regulated categories</b><p>Health, telehealth, supplements and open finance, compliant from day one.</p></div>
+      <div class="rdcard"><b>Oversight</b><p>Agencies, creators and vendors held to scope, cost and results.</p></div>
+      <div class="rdcard"><b>Audience research</b><p>Who buys, where demand already exists and what moves them, fans and creators included.</p></div>
     </div>
   </section>
 
@@ -567,7 +574,7 @@
       <h2>From $3.5K to $100K, depending on scope.</h2>
     </div>
     <div class="price-simple"><div>
-      <p>An audit or a two-week sprint sits at the low end. Fractional leadership and ongoing media run higher. You keep everything we build.</p>
+      <p>An audit or a two-week sprint sits at the low end. Ongoing media and creative run higher. You keep everything we build.</p>
       <a class="btn btn--lg scene__go" href="#book">Book a call</a>
     </div></div>
   </section>
