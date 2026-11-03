@@ -22,7 +22,7 @@
 <link rel="apple-touch-icon" href="/favicon.png">
 <meta name="theme-color" content="#F6F1EA">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;800&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;800&family=Geist+Mono:wght@400;500&display=swap">
 <style>
   :root{
     --paper:#F6F1EA;
@@ -80,7 +80,7 @@
 
 
   /* ── collage, R+D, team ──────────────────────────── */
-  .serif{font-family:"Instrument Serif",Georgia,serif;font-weight:400;letter-spacing:-.02em;line-height:.98}
+  .serif{font-family:var(--g);font-weight:800;letter-spacing:-.05em;line-height:.92}
   .hero__grid{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,6fr);gap:clamp(24px,4vw,64px);align-items:center;padding-bottom:clamp(36px,6vh,72px)}
   .hero__txt .lockup{width:min(100%,300px);margin-bottom:clamp(28px,5vh,56px)}
   .hero__txt h1{font-size:clamp(52px,7.2vw,112px);max-width:10ch;margin-bottom:clamp(20px,3vh,32px)}
@@ -93,9 +93,9 @@
   .cutp{filter:drop-shadow(3px 5px 5px rgba(10,13,24,.28))}
   .collage__line{position:absolute;inset:0;width:100%;height:100%}
   .rd{padding-top:clamp(72px,12vh,140px);padding-bottom:clamp(56px,9vh,110px)}
-  .rd__hd{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:24px;margin-bottom:clamp(28px,5vh,56px)}
+  .rd__hd{display:grid;grid-template-columns:minmax(0,1fr);gap:10px;margin-bottom:clamp(28px,5vh,56px)}
   .rd__hd .mono{color:var(--cobalt)}
-  .rd__lead{grid-column:2;max-width:60ch;color:var(--mute);font-size:clamp(17px,1.3vw,21px);line-height:1.45;margin-top:14px}
+  .rd__lead{max-width:60ch;color:var(--mute);font-size:clamp(17px,1.3vw,21px);line-height:1.45;margin-top:14px}
   .rd__hd h2{font-size:clamp(48px,6.4vw,104px)}
   .rdgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line)}
   .rdcard{padding:22px 24px 24px 0;border-bottom:1px solid var(--line)}
@@ -220,6 +220,97 @@
   @media (max-width:760px){.logos{gap:24px;margin-top:30px}.logos__track{gap:36px;padding-right:36px}.logos img{height:22px}.logos img.sq{height:30px}}
   .proof__note{color:var(--mute);font-size:14px}
 
+
+  /* ── services: record sleeve ─────────────────────── */
+  .lp{background:var(--cobalt);color:#fff}
+  .lp__band{background:var(--ink);display:flex;align-items:flex-end;justify-content:space-between;gap:24px;padding-top:clamp(28px,5vh,56px);padding-bottom:clamp(18px,3vh,30px)}
+  .lp__band h2{font-family:var(--g);font-weight:800;text-transform:uppercase;font-size:clamp(56px,12.4vw,232px);line-height:.8;letter-spacing:-.06em;margin:0;color:#fff;white-space:nowrap}
+  .lp__side{color:rgba(255,255,255,.62);text-align:right;line-height:1.6;flex:none;padding-bottom:6px}
+  .lp__field{padding-top:clamp(18px,3vh,28px);padding-bottom:clamp(48px,9vh,110px)}
+  .lp__strip{display:flex;align-items:flex-start;gap:clamp(16px,2.4vw,40px);margin-bottom:clamp(30px,6vh,64px)}
+  .lp__tiles{display:grid;grid-template-columns:repeat(9,clamp(42px,5.2vw,86px));gap:4px;flex:none}
+  .lp__tile{position:relative;padding:0;border:0;background:#000;cursor:pointer;aspect-ratio:1;overflow:hidden}
+  .lp__tile img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s,opacity .2s}
+  .lp__tile span{position:absolute;left:4px;bottom:3px;font-family:var(--m);font-size:10px;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.8)}
+  .lp__tile:hover img,.lp__tile:focus-visible img{transform:scale(1.08)}
+  .lp__tile:focus-visible{outline:2px solid var(--orange);outline-offset:2px}
+  .lp__credits{color:rgba(255,255,255,.72);font-size:11px;line-height:1.75;margin:0;max-width:62ch}
+  .trks{list-style:none;margin:0;padding:0;border-top:2px solid #fff}
+  .trk{border-bottom:1px solid rgba(255,255,255,.32)}
+  .trk__row{all:unset;box-sizing:border-box;width:100%;cursor:pointer;display:grid;grid-template-columns:52px minmax(0,5fr) minmax(0,6fr) auto;gap:20px;align-items:center;padding:clamp(14px,2.2vh,22px) 0}
+  .trk__row:focus-visible{outline:2px solid var(--orange);outline-offset:4px}
+  .trk__n{color:rgba(255,255,255,.6)}
+  .trk__t{font-weight:800;font-size:clamp(24px,2.7vw,44px);letter-spacing:-.04em;line-height:1}
+  .trk__a{font-size:clamp(15px,1.15vw,18px);color:rgba(255,255,255,.86);line-height:1.35}
+  .trk__more{display:inline-flex;align-items:center;gap:10px;font-family:var(--m);font-size:12px;letter-spacing:.06em;text-transform:uppercase;background:#fff;color:var(--ink);border-radius:999px;padding:9px 10px 9px 16px;transition:background .15s,color .15s}
+  .trk__more i{position:relative;width:22px;height:22px;border-radius:50%;background:var(--orange);flex:none}
+  .trk__more i::before,.trk__more i::after{content:"";position:absolute;left:50%;top:50%;width:10px;height:2px;background:var(--ink);transform:translate(-50%,-50%);transition:transform .25s}
+  .trk__more i::after{transform:translate(-50%,-50%) rotate(90deg)}
+  .trk__row:hover .trk__more{background:var(--orange)}
+  .trk__row:hover .trk__more i{background:#fff}
+  .trk.is-open .trk__more{background:var(--ink);color:#fff}
+  .trk.is-open .trk__more i::after{transform:translate(-50%,-50%) rotate(0)}
+  .trk__x{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s ease}
+  .trk__x>p{overflow:hidden;margin:0;padding:0 0 0 72px;font-size:clamp(18px,1.5vw,24px);font-weight:500;letter-spacing:-.015em;line-height:1.35;max-width:58ch}
+  .trk.is-open .trk__x{grid-template-rows:1fr}
+  .trk.is-open .trk__x>p{padding-bottom:clamp(18px,3vh,30px)}
+  .trk.flash{animation:trkflash 1.2s ease}
+  @keyframes trkflash{0%,40%{background:rgba(255,255,255,.14)}100%{background:transparent}}
+  @media (max-width:900px){
+    .lp__strip{flex-direction:column}
+    .lp__tiles{grid-template-columns:repeat(9,minmax(0,1fr));width:100%}
+    .trk__row{grid-template-columns:34px minmax(0,1fr) auto;row-gap:6px}
+    .trk__a{grid-column:2/3;grid-row:2}
+    .trk__more{grid-column:3;grid-row:1}
+    .trk__x>p{padding-left:54px}
+    .lp__side{display:none}
+  }
+  @media (max-width:560px){.trk__lbl{display:none}.trk__more{padding:7px}.lp__band h2{font-size:23vw;white-space:normal;line-height:.82}}
+
+  /* ── pricing: the 2x book ─────────────────────────── */
+  .cb{padding-top:clamp(64px,10vh,120px);padding-bottom:clamp(40px,6vh,72px)}
+  .cb__hd{display:grid;grid-template-columns:minmax(0,1fr);gap:14px;margin-bottom:clamp(28px,5vh,52px);max-width:1100px}
+  .cb__hd .mono{color:var(--cobalt)}
+  .cb__hd h2{font-weight:800;font-size:clamp(44px,6.6vw,112px);letter-spacing:-.055em;line-height:.9;margin:0;max-width:14ch}
+  .cb__hd p{color:var(--mute);font-size:clamp(17px,1.3vw,21px);max-width:52ch;margin:4px 0 0}
+  .cpns{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(12px,1.4vw,20px)}
+  .cpn{--bg:var(--orange);--fg:var(--ink);position:relative;display:grid;grid-template-columns:54px minmax(0,1fr);background:var(--bg);color:var(--fg);border-radius:10px;
+    -webkit-mask:radial-gradient(circle 13px at 54px 0,#0000 98%,#000) top/100% 51% no-repeat,radial-gradient(circle 13px at 54px 100%,#0000 98%,#000) bottom/100% 51% no-repeat;
+    mask:radial-gradient(circle 13px at 54px 0,#0000 98%,#000) top/100% 51% no-repeat,radial-gradient(circle 13px at 54px 100%,#0000 98%,#000) bottom/100% 51% no-repeat;transition:transform .25s}
+  .cpn:hover{transform:translateY(-4px) rotate(-.4deg)}
+  .cpn--cobalt{--bg:var(--cobalt);--fg:#fff}
+  .cpn--ink{--bg:var(--ink);--fg:var(--paper)}
+  .cpn__stub{display:flex;flex-direction:column;justify-content:space-between;align-items:center;padding:22px 0;border-right:2px dashed color-mix(in srgb,var(--fg) 45%,transparent)}
+  .cpn__stub span{writing-mode:vertical-rl;transform:rotate(180deg);opacity:.75;font-size:11px}
+  .cpn__body{padding:clamp(22px,2.4vw,34px);display:flex;flex-direction:column;min-height:420px}
+  .cpn__body>.mono{opacity:.7}
+  .cpn__v{display:block;font-weight:800;font-size:clamp(72px,8.4vw,150px);letter-spacing:-.065em;line-height:.85;margin:12px 0 18px}
+  .cpn h3{font-weight:800;font-size:clamp(22px,1.9vw,30px);letter-spacing:-.035em;line-height:1.02;margin:0 0 10px}
+  .cpn p{margin:0;opacity:.86;line-height:1.45;max-width:36ch}
+  .cpn__go{margin-top:auto;align-self:flex-start;display:inline-flex;gap:10px;align-items:center;text-decoration:none;font-family:var(--m);font-size:13px;letter-spacing:.06em;text-transform:uppercase;font-weight:500;padding:12px 18px;border-radius:999px;background:var(--fg);color:var(--bg);margin-top:28px}
+  .cpn__body p+.cpn__go{margin-top:auto}
+  .cpn__body p{margin-bottom:28px}
+  .cpn__go:hover{filter:brightness(1.12)}
+  .cpn--orange .cpn__go{background:var(--ink);color:#fff}
+  .cb__fine{color:var(--mute);margin:18px 0 0;font-size:12px}
+  @media (max-width:980px){.cpns{grid-template-columns:minmax(0,1fr)}.cpn__body{min-height:0}}
+
+  /* ── book: just the scheduler ─────────────────────── */
+  .book__bar{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;justify-content:space-between;max-width:1180px;margin:0 auto 14px}
+  .book__bar .mono{color:var(--cobalt)}
+  .book__offer{background:var(--orange);color:var(--ink)!important;padding:6px 12px;border-radius:999px}
+  #book .cal{margin:0 auto}
+  @media (min-width:1100px){
+    #book .cal{grid-template-columns:minmax(0,5fr) minmax(0,7fr)}
+    #book .cal__side{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:auto auto auto 1fr auto;column-gap:28px;align-content:start}
+    #book .cal__side>.mono{grid-column:1;grid-row:1}
+    #book .slots{grid-column:1;grid-row:2/6}
+    #book .cal__pick{grid-column:2;grid-row:1/3;min-height:0}
+    #book .cal__local{grid-column:2;grid-row:3;margin-bottom:12px}
+    #book .cal__form{grid-column:2;grid-row:4;margin-top:0}
+    #book .cal__note{grid-column:2;grid-row:5}
+  }
+  #book{padding-top:clamp(48px,8vh,96px);padding-bottom:clamp(48px,8vh,96px)}
   /* ── book ────────────────────────────────────────── */
   .book{padding-top:clamp(72px,12vh,140px);padding-bottom:clamp(72px,12vh,140px);border-top:1px solid var(--line)}
   .book__hd{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:24px;margin-bottom:clamp(28px,5vh,56px)}
@@ -316,14 +407,14 @@
   .scene h1{font-family:var(--g);font-weight:800;font-size:clamp(44px,min(7vw,14vh),148px);line-height:.92;letter-spacing:-.045em;text-transform:uppercase;text-shadow:0 2px 30px rgba(6,28,96,.62),0 0 2px rgba(6,28,96,.35);margin:0}
   .scene h1 span{display:block}
   .plate{grid-row:3;position:relative;display:grid;grid-template-columns:minmax(0,1.25fr) auto auto;gap:clamp(24px,3vw,56px);align-items:end;color:#fff;padding-top:clamp(18px,2.6vh,28px);border-top:1px solid rgba(255,255,255,.35)}
-  .plate__lede{font-family:"Instrument Serif",Georgia,serif;font-size:clamp(36px,3.5vw,66px);line-height:1.02;letter-spacing:-.01em;margin:0 0 10px;text-wrap:balance;text-shadow:0 2px 24px rgba(4,14,52,.55)}
+  .plate__lede{font-family:var(--g);font-weight:500;letter-spacing:-.03em!important;font-size:clamp(36px,3.5vw,66px);line-height:1.02;letter-spacing:-.01em;margin:0 0 10px;text-wrap:balance;text-shadow:0 2px 24px rgba(4,14,52,.55)}
   .plate__body{font-size:clamp(16px,1.1vw,19px);line-height:1.45;color:rgba(255,255,255,.88);max-width:46ch;margin:0;text-shadow:0 1px 14px rgba(4,14,52,.6)}
   .plate__side{display:contents}
   .plate__proof{display:flex;gap:0;margin:0}
   .plate__proof div{padding:0 clamp(20px,2.2vw,36px)}
   .plate__proof div:first-child{padding-left:0}
   .plate__proof div + div{border-left:1px solid rgba(255,255,255,.35)}
-  .plate__proof b{display:block;font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-size:clamp(44px,3.8vw,68px);line-height:.9;color:#fff;text-shadow:0 2px 24px rgba(4,14,52,.5)}
+  .plate__proof b{display:block;font-family:var(--g);font-weight:800;letter-spacing:-.05em;font-size:clamp(44px,3.8vw,68px);line-height:.9;color:#fff;text-shadow:0 2px 24px rgba(4,14,52,.5)}
   .plate__proof span{display:block;margin-top:8px;font-family:var(--m);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.78)}
   .plate__cta{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
   .scene__in::after{content:"";position:absolute;left:0;right:0;bottom:0;height:min(52vh,520px);z-index:-1;pointer-events:none;background:linear-gradient(0deg,rgba(5,18,66,.8) 0%,rgba(5,18,66,.52) 36%,rgba(5,18,66,0) 100%)}
@@ -546,49 +637,148 @@
   <!-- the record -->
 
   <!-- research and development -->
-  <section class="rd pad" id="rd">
-    <div class="rd__hd">
-      <span class="mono">Services</span>
-      <h2 class="serif">Media, aligned to the business.</h2>
-      <p class="rd__lead">Every channel gets a job, a budget and the number it&rsquo;s judged on. Then we run it.</p>
+  <section class="lp" id="rd" aria-labelledby="lpT">
+    <div class="lp__band pad">
+      <h2 id="lpT">What we run</h2>
+      <span class="lp__side mono">Ballast Research<br>Services &middot; 09</span>
     </div>
-    <div class="rdgrid">
-      <div class="rdcard"><b>Media strategy</b><p>Plans tied to sales: what each channel is for, what it gets, and when.</p></div>
-      <div class="rdcard"><b>Paid media</b><p>Meta, TikTok, Google, YouTube, programmatic and CTV. Tested weekly, reported against revenue.</p></div>
-      <div class="rdcard"><b>Live shopping</b><p>TikTok LIVE selling that brings in $5K a day: the shop, the hosts, the offers.</p></div>
-      <div class="rdcard"><b>Creators and UGC</b><p>30+ creators, recruited, briefed and paid on sales.</p></div>
-      <div class="rdcard"><b>Measurement</b><p>One number per goal, reconciled to real orders. See what spend actually creates.</p></div>
-      <div class="rdcard"><b>Creative</b><p>New hooks every week, made for each platform and built to pass review.</p></div>
-      <div class="rdcard"><b>Regulated categories</b><p>Health, telehealth, supplements and open finance, compliant from day one.</p></div>
-      <div class="rdcard"><b>Oversight</b><p>Agencies, creators and vendors held to scope, cost and results.</p></div>
-      <div class="rdcard"><b>Audience research</b><p>Who buys, where demand already exists and what moves them, fans and creators included.</p></div>
+    <div class="lp__field pad">
+      <div class="lp__strip">
+        <div class="lp__tiles"><button type="button" class="lp__tile" data-go="t01" aria-label="Open Media strategy"><img src="/work/strip/01.webp" alt="" loading="lazy" width="120" height="120"><span>01</span></button><button type="button" class="lp__tile" data-go="t02" aria-label="Open Paid media"><img src="/work/strip/02.webp" alt="" loading="lazy" width="120" height="120"><span>02</span></button><button type="button" class="lp__tile" data-go="t03" aria-label="Open Live shopping"><img src="/work/strip/03.webp" alt="" loading="lazy" width="120" height="120"><span>03</span></button><button type="button" class="lp__tile" data-go="t04" aria-label="Open Creators and UGC"><img src="/work/strip/04.webp" alt="" loading="lazy" width="120" height="120"><span>04</span></button><button type="button" class="lp__tile" data-go="t05" aria-label="Open Measurement"><img src="/work/strip/05.webp" alt="" loading="lazy" width="120" height="120"><span>05</span></button><button type="button" class="lp__tile" data-go="t06" aria-label="Open Creative"><img src="/work/strip/06.webp" alt="" loading="lazy" width="120" height="120"><span>06</span></button><button type="button" class="lp__tile" data-go="t07" aria-label="Open Regulated categories"><img src="/work/strip/07.webp" alt="" loading="lazy" width="120" height="120"><span>07</span></button><button type="button" class="lp__tile" data-go="t08" aria-label="Open Oversight"><img src="/work/strip/08.webp" alt="" loading="lazy" width="120" height="120"><span>08</span></button><button type="button" class="lp__tile" data-go="t09" aria-label="Open Audience research"><img src="/work/strip/09.webp" alt="" loading="lazy" width="120" height="120"><span>09</span></button></div>
+        <p class="lp__credits mono">Strategy &middot; Paid media &middot; Live shopping &middot; Creators &middot; Measurement &middot; Creative &middot; Regulated categories &middot; Oversight &middot; Research<br>Produced in Los Angeles by Ballast Research LLC</p>
+      </div>
+      <ol class="trks">
+      <li class="trk" id="t01">
+        <button type="button" class="trk__row" aria-expanded="false" aria-controls="t01x">
+          <span class="trk__n mono">01</span>
+          <span class="trk__t">Media strategy</span>
+          <span class="trk__a">A plan tied to sales.</span>
+          <span class="trk__more"><span class="trk__lbl">More</span><i aria-hidden="true"></i></span>
+        </button>
+        <div class="trk__x" id="t01x"><p>What each channel is for, what it gets and when it gets cut. Built from your margins and break-even ROAS, so every dollar goes where it pays back.</p></div>
+      </li>
+      <li class="trk" id="t02">
+        <button type="button" class="trk__row" aria-expanded="false" aria-controls="t02x">
+          <span class="trk__n mono">02</span>
+          <span class="trk__t">Paid media</span>
+          <span class="trk__a">Meta, TikTok, Google, YouTube, programmatic and CTV.</span>
+          <span class="trk__more"><span class="trk__lbl">More</span><i aria-hidden="true"></i></span>
+        </button>
+        <div class="trk__x" id="t02x"><p>Tested every week and reported against revenue. Up to $2M+ a month at 4&times; blended ROAS for Toyota, Starbucks and STARZPLAY.</p></div>
+      </li>
+      <li class="trk" id="t03">
+        <button type="button" class="trk__row" aria-expanded="false" aria-controls="t03x">
+          <span class="trk__n mono">03</span>
+          <span class="trk__t">Live shopping</span>
+          <span class="trk__a">TikTok LIVE that sells $5K a day.</span>
+          <span class="trk__more"><span class="trk__lbl">More</span><i aria-hidden="true"></i></span>
+        </button>
+        <div class="trk__x" id="t03x"><p>We set up the shop, cast and train the hosts, write the run of show and build offers that close in the chat.</p></div>
+      </li>
+      <li class="trk" id="t04">
+        <button type="button" class="trk__row" aria-expanded="false" aria-controls="t04x">
+          <span class="trk__n mono">04</span>
+          <span class="trk__t">Creators and UGC</span>
+          <span class="trk__a">30+ creators, paid on sales.</span>
+          <span class="trk__more"><span class="trk__lbl">More</span><i aria-hidden="true"></i></span>
+        </button>
+        <div class="trk__x" id="t04x"><p>Recruited, briefed and paid on what they sell, so the best ones scale and the rest cost nothing. Their posts become your ads.</p></div>
+      </li>
+      <li class="trk" id="t05">
+        <button type="button" class="trk__row" aria-expanded="false" aria-controls="t05x">
+          <span class="trk__n mono">05</span>
+          <span class="trk__t">Measurement</span>
+          <span class="trk__a">One number per goal, matched to real orders.</span>
+          <span class="trk__more"><span class="trk__lbl">More</span><i aria-hidden="true"></i></span>
+        </button>
+        <div class="trk__x" id="t05x"><p>Tracking checked end to end and reconciled with your store or billing system. You see what spend actually creates.</p></div>
+      </li>
+      <li class="trk" id="t06">
+        <button type="button" class="trk__row" aria-expanded="false" aria-controls="t06x">
+          <span class="trk__n mono">06</span>
+          <span class="trk__t">Creative</span>
+          <span class="trk__a">New hooks every week.</span>
+          <span class="trk__more"><span class="trk__lbl">More</span><i aria-hidden="true"></i></span>
+        </button>
+        <div class="trk__x" id="t06x"><p>Cut from what&rsquo;s already winning, made for each platform and written to pass ad review the first time.</p></div>
+      </li>
+      <li class="trk" id="t07">
+        <button type="button" class="trk__row" aria-expanded="false" aria-controls="t07x">
+          <span class="trk__n mono">07</span>
+          <span class="trk__t">Regulated categories</span>
+          <span class="trk__a">Telehealth, supplements, peptides and open finance.</span>
+          <span class="trk__more"><span class="trk__lbl">More</span><i aria-hidden="true"></i></span>
+        </button>
+        <div class="trk__x" id="t07x"><p>We know what Meta, Google and the FDA flag, and we write claims that hold up. $1.2M+ a month in sales for a telehealth brand.</p></div>
+      </li>
+      <li class="trk" id="t08">
+        <button type="button" class="trk__row" aria-expanded="false" aria-controls="t08x">
+          <span class="trk__n mono">08</span>
+          <span class="trk__t">Oversight</span>
+          <span class="trk__a">Agencies and vendors, held to the numbers.</span>
+          <span class="trk__more"><span class="trk__lbl">More</span><i aria-hidden="true"></i></span>
+        </button>
+        <div class="trk__x" id="t08x"><p>Scope, cost and results reviewed every month. If something isn&rsquo;t earning its fee, you hear it from us first.</p></div>
+      </li>
+      <li class="trk" id="t09">
+        <button type="button" class="trk__row" aria-expanded="false" aria-controls="t09x">
+          <span class="trk__n mono">09</span>
+          <span class="trk__t">Audience research</span>
+          <span class="trk__a">Who buys, and why.</span>
+          <span class="trk__more"><span class="trk__lbl">More</span><i aria-hidden="true"></i></span>
+        </button>
+        <div class="trk__x" id="t09x"><p>Where demand already exists, what moves it, and which creators and fan communities drive it.</p></div>
+      </li>
+      </ol>
     </div>
   </section>
 
   <!-- pricing -->
-  <section class="sprint pad" id="pricing">
-    <div class="sprint__hd">
-      <div>
-        <span class="mono">Pricing</span>
-      </div>
-      <h2>From $3.5K to $100K, depending on scope.</h2>
+  <section class="cb pad" id="pricing" aria-labelledby="cbT">
+    <div class="cb__hd">
+      <span class="mono">The 2&times; book &middot; Pricing</span>
+      <h2 id="cbT">Coupons for doubling your business.</h2>
+      <p>Three ways in, from a free review to a full growth team. $3.5K to $100K by scope, and you keep everything we build.</p>
     </div>
-    <div class="price-simple"><div>
-      <p>An audit or a two-week sprint sits at the low end. Ongoing media and creative run higher. You keep everything we build.</p>
-      <a class="btn btn--lg scene__go" href="#book">Book a call</a>
-    </div></div>
+    <div class="cpns">
+      <article class="cpn cpn--orange">
+        <div class="cpn__stub"><span class="mono">No. 01</span><span class="cpn__code mono">BLST-001</span></div>
+        <div class="cpn__body">
+          <span class="mono">Good for</span>
+          <b class="cpn__v">Free</b>
+          <h3>A numbers review</h3>
+          <p>30 minutes on your account. Your break-even ROAS, where the money leaks and the first fix. Yours to keep, hire us or not.</p>
+          <a class="cpn__go" href="#book" data-offer="Free numbers review">Redeem <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </article>
+      <article class="cpn cpn--cobalt">
+        <div class="cpn__stub"><span class="mono">No. 02</span><span class="cpn__code mono">BLST-002</span></div>
+        <div class="cpn__body">
+          <span class="mono">Good for</span>
+          <b class="cpn__v">$3.5K</b>
+          <h3>An audit or two-week sprint</h3>
+          <p>Written findings, a rebuilt landing page or ad set, and tracking matched to real orders. Done in two weeks.</p>
+          <a class="cpn__go" href="#book" data-offer="$3.5K audit or sprint">Redeem <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </article>
+      <article class="cpn cpn--ink">
+        <div class="cpn__stub"><span class="mono">No. 03</span><span class="cpn__code mono">BLST-003</span></div>
+        <div class="cpn__body">
+          <span class="mono">Good for</span>
+          <b class="cpn__v">2&times;</b>
+          <h3>Growth, run for you</h3>
+          <p>Media, creative and creators run against one goal: double it. New creative every week. Scoped to the job, up to $100K.</p>
+          <a class="cpn__go" href="#book" data-offer="Ongoing media and creative">Redeem <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </article>
+    </div>
+    <p class="cb__fine mono">One per brand. We take a few at a time, so redeem early.</p>
   </section>
 
 
   <!-- book -->
   <section class="book pad" id="book">
-    <div class="book__hd">
-      <span class="mono">Book a call</span>
-      <div>
-        <h2>Stay stagnant, or grow.</h2>
-        <p>There&rsquo;s no excuse not to scale with the tools Ballast has. Not sure where you stand? Book 30 minutes and we&rsquo;ll show you.</p>
-      </div>
-    </div>
+    <div class="book__bar"><span class="mono">Book 30 minutes with Jack &middot; Pacific time</span><span class="book__offer mono" id="calOffer" hidden></span></div>
     <div class="cal" id="cal">
       <div class="cal__month">
         <div class="cal__nav">
@@ -609,6 +799,7 @@
         <form class="cal__form" id="calForm" name="booking" method="POST" data-netlify="true" netlify-honeypot="bot-field">
           <input type="hidden" name="form-name" value="booking">
           <input type="hidden" name="time" id="calTime">
+          <input type="hidden" name="offer" id="calOfferIn">
           <p hidden><label>Leave this empty <input name="bot-field"></label></p>
           <input class="cal__in" name="name" id="calName" placeholder="Your name" autocomplete="name" required>
           <input class="cal__in" name="email" id="calEmail" type="email" placeholder="Work email" autocomplete="email" required>
@@ -618,7 +809,7 @@
             <a class="btn btn--lg btn--ghost" id="calMail" href="mailto:jack@ballast.la?subject=Ballast%20%E2%80%94%20call">Email instead</a>
           </div>
         </form>
-        <p class="cal__note" id="calNote">Works with any email. Jack confirms with a calendar invite.</p>
+        <p class="cal__note" id="calNote">The invite comes from jack@ballast.la.</p>
       </div>
     </div>
   </section>
@@ -721,7 +912,7 @@
     e.preventDefault();if(book.disabled)return;
     var who=nameI.value.trim(),co=coI.value.trim(),mail=mailI.value.trim();
     book.disabled=true;book.textContent='Booking…';
-    var data={name:who,email:mail,company:co,time:pretty,_subject:'Jack @ Ballast + '+who+' — '+pretty,_replyto:mail,_template:'table',_captcha:'false'};
+    var data={name:who,email:mail,company:co,time:pretty,offer:$('calOfferIn').value||'',_subject:'Jack @ Ballast + '+who+' — '+pretty,_replyto:mail,_template:'table',_captcha:'false'};
     var sent=fetch('https://formsubmit.co/ajax/24f0c58813f0d78cbaba156155b91734',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)}).then(function(r){return r.json()}).then(function(j){return j&&(j.success===true||j.success==='true')}).catch(function(){return false});
     fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(form)).toString()}).catch(function(){});
     var gUrl='https://calendar.google.com/calendar/render?action=TEMPLATE'
@@ -763,6 +954,15 @@
     f.src='https://www.youtube-nocookie.com/embed/'+b.dataset.id+'?autoplay=1&playsinline=1&rel=0';
     f.allow='autoplay; encrypted-media; picture-in-picture';f.allowFullscreen=true;f.title=b.getAttribute('aria-label');
     box.replaceChildren(f);lb.showModal()}));
+})();
+</script>
+<script>
+(()=>{const open=(li,on)=>{li.classList.toggle('is-open',on);const b=li.querySelector('.trk__row');b.setAttribute('aria-expanded',on);b.querySelector('.trk__lbl').textContent=on?'Less':'More'};
+  document.querySelectorAll('.trk__row').forEach(b=>b.addEventListener('click',()=>{const li=b.closest('.trk');open(li,!li.classList.contains('is-open'))}));
+  document.querySelectorAll('.lp__tile').forEach(t=>t.addEventListener('click',()=>{const li=document.getElementById(t.dataset.go);if(!li)return;open(li,true);
+    li.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'center'});li.classList.remove('flash');void li.offsetWidth;li.classList.add('flash')}));
+  const tag=document.getElementById('calOffer'),inp=document.getElementById('calOfferIn');
+  document.querySelectorAll('.cpn__go').forEach(a=>a.addEventListener('click',()=>{if(!tag||!inp)return;inp.value=a.dataset.offer;tag.textContent='Redeeming: '+a.dataset.offer;tag.hidden=false}));
 })();
 </script>
 <script type="module" src="/hero/koi3d.js"></script>
