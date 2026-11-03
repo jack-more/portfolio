@@ -46,7 +46,11 @@ const ITEMS = [
 
 const scene0 = document.getElementById('scene');
 const still = scene0 && scene0.querySelector('.scene__bg');
-if (scene0 && still) boot();
+const idle = (fn, t = 1500) => ('requestIdleCallback' in window ? requestIdleCallback(fn, { timeout: t }) : setTimeout(fn, 200));
+if (scene0 && still) {   // the still photo is already on screen; build the pool only once the page has loaded and gone quiet
+  const go = () => idle(boot, 2500);
+  if (document.readyState === 'complete') go(); else addEventListener('load', go, { once: true });
+}
 
 function boot() {
   still.src = BASE + 'still.webp';
@@ -57,14 +61,15 @@ function boot() {
   canvas.setAttribute('aria-hidden', 'true');
   still.after(canvas);
   let renderer;
-  try { renderer = new THREE.WebGLRenderer({ canvas, antialias: true, powerPreference: 'high-performance' }); } catch (e) { canvas.remove(); return; }
+  try { renderer = new THREE.WebGLRenderer({ canvas, antialias: false, powerPreference: 'high-performance' }); } catch (e) { canvas.remove(); return; }
+  canvas.addEventListener('webglcontextlost', e => { e.preventDefault(); try { run = false; } catch (_) {} scene0.classList.remove('koi-live'); canvas.remove(); });
   if (!renderer.capabilities.isWebGL2) { renderer.dispose(); canvas.remove(); return; }
 
   const small = () => innerWidth < 900;
   const rnd = (a, b) => a + Math.random() * (b - a);
   renderer.outputColorSpace = THREE.SRGBColorSpace;
   renderer.shadowMap.enabled = true;
-  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  renderer.shadowMap.type = THREE.PCFShadowMap;
   renderer.shadowMap.autoUpdate = false;
 
   let W = 1, H = 1, D = 1, L = 1;                         // view size, water depth, koi length (px)
@@ -201,7 +206,7 @@ function boot() {
     // bake every mesh into one group with the koi lying along x, head at +x, length 1, back facing up (+y)
     const g = new THREE.Group(); gltf.scene.updateMatrixWorld(true);
     const R = new THREE.Matrix4().makeRotationFromEuler(new THREE.Euler(fix.rx || 0, fix.ry || 0, fix.rz || 0));
-    gltf.scene.traverse(o => { if (!o.isMesh) return; const geo = o.geometry.clone(); geo.applyMatrix4(o.matrixWorld); geo.applyMatrix4(R); g.add(new THREE.Mesh(geo, o.material)); });
+    gltf.scene.traverse(o => { if (!o.isMesh) return; if (small()) shrink(o.material, 512); const geo = o.geometry.clone(); geo.applyMatrix4(o.matrixWorld); geo.applyMatrix4(R); g.add(new THREE.Mesh(geo, o.material)); });
     const box = new THREE.Box3().setFromObject(g), size = box.getSize(new THREE.Vector3()), c = box.getCenter(new THREE.Vector3());
     const k = 1 / size.x;
     g.children.forEach(m => { m.geometry.translate(-c.x, -c.y, -c.z); m.geometry.scale(k, k, k * 1.22); m.geometry.computeVertexNormals && m.geometry.computeBoundingSphere(); });   // a little plumper, like the photo's koi
@@ -340,13 +345,24 @@ function boot() {
     const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.BufferAttribute(pos, 3)); g.setAttribute('uv', new THREE.BufferAttribute(uv, 2));
     g.setIndex(idx); g.computeVertexNormals(); g.computeBoundingSphere(); return g;
   }
-  function loadItem(s) {   // fills s.parts ([geometry, material] at longest side 1, centred) and s.half (half its height)
+  const TEX = ['map', 'normalMap', 'roughnessMap', 'metalnessMap', 'aoMap', 'emissiveMap'];
+  function shrink(mat, max) {   // pool items are small on screen: cap their textures (GPU memory is what crashes phones)
+    TEX.forEach(k => {
+      const t = mat[k], im = t && t.image; if (!im || !im.width || im.width <= max || t.userData.shrunk) return;
+      const k2 = max / Math.max(im.width, im.height), cv = document.createElement('canvas');
+      cv.width = Math.round(im.width * k2); cv.height = Math.round(im.height * k2); cv.getContext('2d').drawImage(im, 0, 0, cv.width, cv.height);
+      im.close && im.close(); t.image = cv; t.userData.shrunk = true; t.needsUpdate = true;
+    });
+  }
+  const upload = s => { (s.parts || []).forEach(([, m]) => TEX.forEach(k => m[k] && renderer.initTexture(m[k]))); };
+  function loadItem(s) { return loadItemRaw(s).then(() => upload(s)); }
+  function loadItemRaw(s) {   // fills s.parts ([geometry, material] at longest side 1, centred) and s.half (half its height)
     if (s.glb) return loader.loadAsync(BASE + s.glb).then(gl => {
       const grp = new THREE.Group(); gl.scene.updateMatrixWorld(true);
       const R = new THREE.Matrix4().makeRotationZ(s.lie ? Math.PI / 2 : 0).multiply(new THREE.Matrix4().makeRotationX(s.flat ? -Math.PI / 2 : 0));
       gl.scene.traverse(o => { if (o.isMesh) { const geo = toFloat(o.geometry.clone()); geo.applyMatrix4(o.matrixWorld); geo.applyMatrix4(R); grp.add(new THREE.Mesh(geo, o.material)); } });
       const box = new THREE.Box3().setFromObject(grp), sz = box.getSize(new THREE.Vector3()), c = box.getCenter(new THREE.Vector3()), k = 1 / Math.max(sz.x, sz.z);
-      s.parts = grp.children.map(m => { m.geometry.translate(-c.x, -c.y, -c.z); m.geometry.scale(k, k, k); m.geometry.computeBoundingSphere(); return [m.geometry, m.material]; });
+      s.parts = grp.children.map(m => { shrink(m.material, small() ? 256 : 512); m.geometry.translate(-c.x, -c.y, -c.z); m.geometry.scale(k, k, k); m.geometry.computeBoundingSphere(); return [m.geometry, m.material]; });
       s.half = sz.y * k / 2;
     });
     if (s.sphere) return loadTex(s.img + '.webp').then(tex => {   // a real ball: a sphere wearing the top-down photo, so there's no seam
@@ -464,17 +480,17 @@ function boot() {
   function layout() {
     const r = scene0.getBoundingClientRect(); W = Math.max(1, r.width); H = Math.max(1, r.height);
     D = H * .2; L = Math.max(120, Math.min(W, H * 2.2) * (small() ? .28 : .155));
-    renderer.setPixelRatio(lowRes ? 1 : Math.min(devicePixelRatio || 1, small() ? 2 : 1.5)); renderer.setSize(W, H, false);
+    renderer.setPixelRatio(lowRes ? 1 : Math.min(devicePixelRatio || 1, small() ? 1.5 : 1.25)); renderer.setSize(W, H, false);
     const dist = (H / 2) / Math.tan(THREE.MathUtils.degToRad(cam.fov / 2));
     cam.aspect = W / H; cam.position.set(W / 2, dist, H / 2); cam.lookAt(W / 2, 0, H / 2); cam.updateProjectionMatrix();
     if (floor) { floor.geometry.dispose(); floor.geometry = floorGeo(); }
     sun.position.copy(SUN).multiplyScalar(Math.max(W, H) * 2).add(new THREE.Vector3(W / 2, 0, H / 2)); sun.target.position.set(W / 2, 0, H / 2);
     const s = Math.max(W, H) * .62, sc = sun.shadow.camera;
     sc.left = -s; sc.right = s; sc.top = s; sc.bottom = -s; sc.near = 1; sc.far = Math.max(W, H) * 5; sc.updateProjectionMatrix();
-    sun.shadow.mapSize.set(small() ? 1024 : 2048, small() ? 1024 : 2048); sun.shadow.map && (sun.shadow.map.dispose(), sun.shadow.map = null);
+    sun.shadow.mapSize.set(small() ? 512 : 1024, small() ? 512 : 1024); sun.shadow.map && (sun.shadow.map.dispose(), sun.shadow.map = null);
     const pr = renderer.getPixelRatio();
     rtUnder && rtUnder.dispose();
-    rtUnder = new THREE.WebGLRenderTarget(Math.round(W * pr), Math.round(H * pr), { samples: 4, type: THREE.HalfFloatType });
+    rtUnder = new THREE.WebGLRenderTarget(Math.round(W * pr), Math.round(H * pr), { samples: lowRes ? 0 : 2, type: THREE.HalfFloatType });
     makeSim();
     shared.aspect.value = W / H;
     fish.forEach(f => { f.x = Math.min(f.x, W - 20); f.z = Math.min(f.z, H - 20); f.grp.scale.setScalar(L * f.scale); });
@@ -521,8 +537,8 @@ function boot() {
       if (!q0) q0 = now; qn++;
       if (now - q0 > 4000) {
         qDone = true; const fps = qn * 1000 / (now - q0);
-        if (fps < 25) { run = false; scene0.classList.remove('koi-live'); setTimeout(() => { renderer.dispose(); canvas.remove(); }, 1000); return; }
-        if (fps < 45 && !lowRes) { lowRes = true; layout(); }
+        if (fps < 32) { run = false; scene0.classList.remove('koi-live'); setTimeout(() => { renderer.dispose(); canvas.remove(); }, 1000); return; }
+        if (fps < 50 && !lowRes) { lowRes = true; layout(); }
       }
     }
     shared.time.value = now / 1000;
@@ -558,10 +574,18 @@ function boot() {
     addEventListener('resize', layout);
     new IntersectionObserver(es => { const v = es[0].isIntersecting; if (v && !run) { run = true; last = 0; requestAnimationFrame(frame); } else if (!v) run = false; }).observe(scene0);
     document.addEventListener('visibilitychange', () => { if (document.hidden) run = false; else if (!run) { run = true; last = 0; requestAnimationFrame(frame); } });
-    requestAnimationFrame(t => { frame(t); live = true; scene0.classList.add('koi-live'); });
+    const warm = () => Promise.all([renderer.compileAsync(world, cam), renderer.compileAsync(surfScene, ortho)]).catch(() => {});
+    warm().then(() => requestAnimationFrame(t => { frame(t); live = true; scene0.classList.add('koi-live'); }));
     if (/[?&]debug\b/.test(location.search)) window.__koi = { fish, objs, items: ITEMS, get L() { return L; }, get D() { return D; }, drop, pick: i => { bag.unshift(typeof i === 'number' ? i : ITEMS.findIndex(x => (x.glb || x.img).includes(i))); } };
     const first = loadItem(ITEMS[0]);
-    ITEMS.slice(1).forEach(s => loadItem(s).catch(e => console.warn('koi pool item:', s.glb || s.img, e)));
+    const queue = ITEMS.slice(1);
+    const pump = () => {
+      const s = queue.shift(); if (!s) return;
+      const twin = ITEMS.find(x => x !== s && x.parts && x.glb && x.glb === s.glb && x.lie === s.lie);
+      const p = twin ? Promise.resolve().then(() => { s.parts = twin.parts; s.half = twin.half; }) : loadItem(s);
+      p.catch(e => console.warn('koi pool item:', s.glb || s.img, e)).then(() => idle(pump, 4000));
+    };
+    first.catch(() => {}).then(() => idle(pump, 4000));
     first.then(() => setTimeout(() => { if (!touched && live) drop(W * .3, H * .55); }, 1800)).catch(() => {});
   }).catch(err => { console.warn('koi pool:', err); renderer.dispose(); canvas.remove(); });
 }
