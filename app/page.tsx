@@ -19,6 +19,16 @@ const work = [
     ],
   },
   {
+    company: "History of the Game",
+    desc: "Basketball's greatest stories, told by the players who lived them",
+    href: "https://ballast.la/",
+    details: [
+      "A media house built with retired players and the sharpest clip editors on the internet",
+      "Players commission the edits, react to the cuts and own the channels",
+      "Built by Ballast Research",
+    ],
+  },
+  {
     company: "SKO",
     desc: "Head of Performance Marketing: $1.2M+ a month in sales",
     href: "https://skocompounds.com/",
@@ -103,7 +113,6 @@ const online = [
   { label: "Email", action: "Send", href: "mailto:jack@ballast.la" },
   { label: "Instagram", action: "Follow", href: "https://instagram.com/jackmorello" },
   { label: "GitHub", action: "View", href: "https://github.com/jack-more" },
-  { label: "Adsim", action: "Sim a campaign", href: "/adsim" },
 ];
 
 function Row({ left, right, href }: { left: string; right: string; href?: string }) {
