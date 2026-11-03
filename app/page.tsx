@@ -104,7 +104,6 @@ const online = [
   { label: "Instagram", action: "Follow", href: "https://instagram.com/jackmorello" },
   { label: "GitHub", action: "View", href: "https://github.com/jack-more" },
   { label: "Adsim", action: "Sim a campaign", href: "/adsim" },
-  { label: "Morello Sims", action: "Visit", href: "https://morellosims.com" },
 ];
 
 function Row({ left, right, href }: { left: string; right: string; href?: string }) {
