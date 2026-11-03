@@ -207,6 +207,7 @@ function boot() {
     return g;
   }
   const fish = [];
+  let lure = null;                                  // where the mouse is on the water; the koi drift toward it
   function spawn(models) {
     const n = small() ? 5 : 7;
     for (let i = 0; i < n; i++) {
@@ -220,7 +221,7 @@ function boot() {
         mesh.castShadow = true; grp.add(mesh);
       });
       const f = { grp, u, x: rnd(.58, .9) * W, z: rnd(.18, .82) * H, y: rnd(.35, .85) * D, ty: rnd(.35, .85) * D, a: rnd(-2.9, -2.3), v: rnd(30, 46),
-        turn: 0, wander: rnd(-1, 1), scale: rnd(.84, 1.08), seek: null, react: 0, nib: 0, bank: 0 };
+        turn: 0, wander: rnd(-1, 1), side: rnd(0, 6.28), scale: rnd(.84, 1.08), seek: null, react: 0, nib: 0, bank: 0 };
       grp.scale.setScalar(L * f.scale); world.add(grp); fish.push(f);
     }
   }
@@ -242,6 +243,12 @@ function boot() {
       if (f.seek && f.seek.obj && !f.seek.obj.alive) f.seek = null;
       f.wander += rnd(-1, 1) * dt * .9; f.wander = Math.max(-.8, Math.min(.8, f.wander));
       const a = f.a + f.wander * .7; dx = Math.cos(a); dz = Math.sin(a); goal = 38;
+      if (lure && now - lure.t < 2600) {             // follow the cursor: each koi trails it from its own side, never on top of it
+        const lx = lure.x + Math.cos(f.side) * len * .7, lz = lure.z + Math.sin(f.side) * len * .7;
+        const ex = lx - hx, ez = lz - hz, d = Math.hypot(ex, ez), pull = Math.min(1, d / (len * 2));
+        dx = dx * (1 - pull) + ex / (d || 1) * pull * 1.6; dz = dz * (1 - pull) + ez / (d || 1) * pull * 1.6;
+        goal = Math.min(95, Math.max(30, d * .6)); maxW = 1.1;
+      }
       if (Math.random() < dt * .15) f.ty = rnd(.3, .88) * D;
     }
     const n0 = Math.hypot(dx, dz) || 1; dx /= n0; dz /= n0;
@@ -320,10 +327,14 @@ function boot() {
       pos.set([x, c + y, z], k * 3); pos.set([x, c - y, z], (n + k) * 3);
       uv.set([i / (gw - 1), 1 - j / (gh - 1)], k * 2); uv.set([i / (gw - 1), 1 - j / (gh - 1)], (n + k) * 2);
     }
+    const inside = (i, j) => i >= 0 && j >= 0 && i < gw - 1 && j < gh - 1 && (px[(j * gw + i) * 4] || px[(j * gw + i + 1) * 4] || px[((j + 1) * gw + i) * 4] || px[((j + 1) * gw + i + 1) * 4]);
+    const wall = (p, q) => idx.push(p, q, n + p, q, n + q, n + p);          // join top and bottom along an outside edge, so the rim is solid
     for (let j = 0; j < gh - 1; j++) for (let i = 0; i < gw - 1; i++) {
+      if (!inside(i, j)) continue;     // outside the item
       const a = j * gw + i, b = a + 1, c = a + gw, d = c + 1;
-      if (!px[a * 4] && !px[b * 4] && !px[c * 4] && !px[d * 4]) continue;     // outside the item
       idx.push(a, c, b, b, c, d, n + a, n + b, n + c, n + b, n + d, n + c);
+      if (!inside(i, j - 1)) wall(b, a); if (!inside(i, j + 1)) wall(c, d);
+      if (!inside(i - 1, j)) wall(a, c); if (!inside(i + 1, j)) wall(d, b);
     }
     const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.BufferAttribute(pos, 3)); g.setAttribute('uv', new THREE.BufferAttribute(uv, 2));
     g.setIndex(idx); g.computeVertexNormals(); g.computeBoundingSphere(); return g;
@@ -340,7 +351,7 @@ function boot() {
     return Promise.all([loadTex(s.img + '.webp'), new THREE.ImageLoader().loadAsync(BASE + s.img + '-h.png')]).then(([tex, hm]) => {
       const ar = tex.image.width / tex.image.height;
       s.parts = [[inflate(hm, s.depth, Math.min(1, ar), Math.min(1, 1 / ar), s.curl || 0),
-        new THREE.MeshStandardMaterial({ map: tex, alphaTest: .5, roughness: s.rough || .6, metalness: 0, envMapIntensity: .45 })]];
+        new THREE.MeshStandardMaterial({ map: tex, alphaTest: .5, side: THREE.DoubleSide, roughness: s.rough || .6, metalness: 0, envMapIntensity: .45 })]];
       s.half = Math.max(s.depth, .01);
     });
   }
@@ -352,7 +363,7 @@ function boot() {
   function spawnObj(s, x, z, lead, h) {
     const mesh = new THREE.Group(), mats = [];
     for (const [geo, m0] of s.parts) {
-      const m = m0.clone(); m.transparent = true; if (s.env != null) m.envMapIntensity = s.env; mats.push(m);
+      const m = m0.clone(); m.userData.glass = m0.transparent; if (s.env != null) m.envMapIntensity = s.env; mats.push(m);
       const part = new THREE.Mesh(geo, m); part.castShadow = true; part.layers.set(LAYER_FLOAT); mesh.add(part);
     }
     world.add(mesh);
@@ -436,7 +447,7 @@ function boot() {
         if (k < 1) o.q.slerpQuaternions(o.q0, r, 1 - Math.pow(1 - k, 3)); else o.q.copy(r);
       }
       const age = (now - o.born) / 1000, life = s.sail || s.drift ? 60 : 32;
-      const op = Math.min(1, Math.max(0, (life - age) / 3)); o.mats.forEach(m => { m.opacity = op; });
+      const op = Math.min(1, Math.max(0, (life - age) / 3)); o.mats.forEach(m => { m.opacity = op; m.transparent = op < 1 || m.userData.glass; });
       if (age > life) { kill(o); continue; }
       o.mesh.position.set(o.x, o.y, o.z); o.mesh.quaternion.copy(o.q); o.mesh.scale.setScalar(o.size * o.scale);
     }
@@ -481,6 +492,14 @@ function boot() {
     ray.setFromCamera(ndc, cam); water.constant = -D;
     if (ray.ray.intersectPlane(water, hit)) drop(hit.x, hit.z);
   }
+  scene0.addEventListener('pointermove', e => {
+    if (!live || e.pointerType !== 'mouse') return;
+    const r = canvas.getBoundingClientRect();
+    ndc.set((e.clientX - r.left) / r.width * 2 - 1, -((e.clientY - r.top) / r.height) * 2 + 1);
+    ray.setFromCamera(ndc, cam); water.constant = -D;
+    if (ray.ray.intersectPlane(water, hit)) lure = { x: hit.x, z: hit.z, t: performance.now() };
+  });
+  scene0.addEventListener('pointerleave', () => { lure = null; });
   scene0.addEventListener('pointerdown', e => { if (e.pointerType === 'mouse') press(e); });
   scene0.addEventListener('click', e => { if (e.pointerType && e.pointerType !== 'mouse') press(e); });
 
