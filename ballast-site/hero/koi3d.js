@@ -23,9 +23,9 @@ const FISH = [{ src: 'koi1.glb', fix: { ry: Math.PI } }, { src: 'koi2.glb', fix:
 // under water); sail: heads off across the pool at that speed (px/s), heeled over, throwing spray; drift: floats slowly
 // across, turning.
 const ITEMS = [
-  { glb: 'item-f50.glb', size: 1.1, float: true, ride: 1, bow: Math.PI / 2, env: .4, sail: { speed: 230, heel: .42, spray: true } },   // NEAR × SailGP
+  { glb: 'item-f50.glb', size: .62, float: true, ride: 1, bow: Math.PI / 2, env: .4, sail: { speed: 230, heel: .42, spray: true } },   // NEAR × SailGP
   { glb: 'item-4runner.glb', size: 1.05 },                                                                            // Toyota
-  { img: 'obj-basketball', size: .36, float: true, depth: .487, rough: .75 },
+  { img: 'obj-basketball', size: .36, float: true, sphere: true, rough: .75 },
   { glb: 'item-jordan.glb', size: .5, float: true },                                                                  // Jordan
   { img: 'obj-bill', size: .40, float: true, shower: 5, flutter: true, depth: .004, curl: .1, rough: .9 },
   { glb: 'item-cup.glb', size: .36, float: true, lie: true },                                                         // Starbucks, holidays
@@ -34,13 +34,14 @@ const ITEMS = [
   { glb: 'item-coffee.glb', size: .42, float: true, lie: true },                                                      // Starbucks
   { glb: 'item-belt.glb', size: .8, flat: true },                                                                                 // STARZPLAY, Heels
   { img: 'obj-donut', size: .34, float: true, food: true, depth: .146, rough: .5 },
-  { glb: 'item-flamingo.glb', size: 1.1, float: true, ride: .3, drift: true },                                        // Dtravel
   { glb: 'item-m3.glb', size: 1 },                                                                                    // BMW
   { glb: 'item-hint.glb', size: .42, float: true },                                                                   // Hint
   { glb: 'item-bird.glb', size: .4, float: true },                                                                    // the old Twitter bird
   { glb: 'item-samba.glb', size: .5, float: true },                                                                   // Adidas
+  { glb: 'item-vial.glb', size: .22, float: true, lie: true },                                                       // peptides
   { glb: 'item-vial.glb', size: .22, float: true, lie: true },
-  { img: 'obj-baseball', size: .23, float: true, depth: .492, rough: .65 },
+  { glb: 'item-vial.glb', size: .22, float: true, lie: true },
+  { img: 'obj-baseball', size: .23, float: true, sphere: true, rough: .65 },
 ];
 
 const scene0 = document.getElementById('scene');
@@ -347,6 +348,12 @@ function boot() {
       const box = new THREE.Box3().setFromObject(grp), sz = box.getSize(new THREE.Vector3()), c = box.getCenter(new THREE.Vector3()), k = 1 / Math.max(sz.x, sz.z);
       s.parts = grp.children.map(m => { m.geometry.translate(-c.x, -c.y, -c.z); m.geometry.scale(k, k, k); m.geometry.computeBoundingSphere(); return [m.geometry, m.material]; });
       s.half = sz.y * k / 2;
+    });
+    if (s.sphere) return loadTex(s.img + '.webp').then(tex => {   // a real ball: a sphere wearing the top-down photo, so there's no seam
+      const geo = new THREE.SphereGeometry(.5, 64, 48), P = geo.attributes.position, uv = geo.attributes.uv;
+      for (let i = 0; i < P.count; i++) uv.setXY(i, P.getX(i) + .5, .5 - P.getZ(i));
+      s.parts = [[geo, new THREE.MeshStandardMaterial({ map: tex, roughness: s.rough || .6, metalness: 0, envMapIntensity: .45 })]];
+      s.half = .5;
     });
     return Promise.all([loadTex(s.img + '.webp'), new THREE.ImageLoader().loadAsync(BASE + s.img + '-h.png')]).then(([tex, hm]) => {
       const ar = tex.image.width / tex.image.height;
