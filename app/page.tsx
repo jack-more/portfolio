@@ -211,12 +211,13 @@ export default function HomePage() {
 
           <DraggableCard title="Jack Morello">
             <p>
-              I&apos;m Jack. I run{" "}
+              I&apos;m Jack, a growth and performance marketer with 8+ years in
+              paid media. I run{" "}
               <a href="https://ballast.la" target="_blank" rel="noopener noreferrer">Ballast Research</a>,
               a growth and paid media firm in Los Angeles. Since June: $1.2M+ a month in sales
               for a health and wellness brand at a peak 6x ROAS, 500 to 1,000 ads
               a month, 30+ UGC creators running at once, and TikTok LIVE selling
-              at $5K a day. Before that, eight years of paid media, promo and social
+              at $5K a day. Before that, paid media, promo and social
               for Toyota, Starbucks, STARZPLAY, Netflix, Disney, Peacock, LG and
               Twitter, plus three venture-backed startups built from zero.
             </p>
