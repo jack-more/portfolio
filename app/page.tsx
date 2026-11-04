@@ -224,6 +224,39 @@ function Subscribe() {
   );
 }
 
+const services = [
+  {
+    t: "Go-to-market",
+    d: "Positioning, offer and launch plan, set before the budget goes out.",
+    p: "150+ demos at a $22 cost per lead for an enterprise AI platform",
+  },
+  {
+    t: "Ads that convert",
+    d: "Paid on Meta, TikTok and Google, with creative made at volume by UGC creators and AIGC.",
+    p: "$1.2M+ a month in sales at a peak 6x ROAS",
+  },
+  {
+    t: "A funnel that converts",
+    d: "A landing page for each audience, offers that get tested, and email that brings buyers back.",
+    p: "Landing-page conversion up 140% at NEAR Tasks",
+  },
+  {
+    t: "Measurement you can trust",
+    d: "Every sale tied to the ad that drove it and checked against real orders, so budget moves on what sold.",
+    p: "Ad spend reconciled weekly against orders and invoices",
+  },
+  {
+    t: "Agents that run on their own",
+    d: "AI tools that handle the repeat work on a schedule: reporting, creative variations, budget checks.",
+    p: "Built in-house tools that cut raw footage into 9:16 ads and block banned claims",
+  },
+  {
+    t: "Fractional or full-time",
+    d: "Head of Growth for a team that wants one person owning all of it.",
+    p: "resume",
+  },
+];
+
 function Pitch() {
   const stats = [
     { n: "$1.2M+", l: "a month in sales for one DTC client" },
@@ -233,12 +266,30 @@ function Pitch() {
   ];
   return (
     <div className="pitch">
-      <p className="pitch-kicker">Growth &amp; performance marketing &middot; 8+ years &middot; Los Angeles</p>
-      <h1 className="pitch-h">I scale what actually sells.</h1>
-      <p className="pitch-dek">
-        Ad platforms overcount their own results. I run paid on Meta, TikTok and Google, ship creative at volume,
-        and move budget on real sales, not dashboards.
-      </p>
+      <div className="pitch-hero">
+        <div className="pitch-hero-text">
+          <p className="pitch-kicker">Growth &amp; performance marketing &middot; 8+ years &middot; Los Angeles</p>
+          <h1 className="pitch-h">You&apos;re almost at the finish line.</h1>
+          <p className="pitch-dek">
+            If you&apos;re here, you already know what&apos;s missing: a go-to-market plan, ads that convert better,
+            a funnel that converts better, and numbers you can actually trust. Then maybe agents that run
+            the work on their own. I build all of it, through{" "}
+            <a href="https://ballast.la" target="_blank" rel="noopener noreferrer">Ballast Research</a>.
+          </p>
+          <div className="pitch-ctas">
+            <a className="pitch-btn pitch-btn-solid" href="https://ballast.la/#book" target="_blank" rel="noopener noreferrer">Book a call</a>
+            <a className="pitch-btn" href="mailto:jack@ballast.la?subject=Audit%20request">Get an audit</a>
+          </div>
+        </div>
+        <Image
+          src="/images/illustration-jack.png"
+          alt="Jack Morello"
+          width={200}
+          height={200}
+          className="pitch-portrait"
+          priority
+        />
+      </div>
       <div className="pitch-stats">
         {stats.map((s) => (
           <div key={s.n}>
@@ -247,11 +298,24 @@ function Pitch() {
           </div>
         ))}
       </div>
-      <div className="pitch-ctas">
-        <a className="pitch-btn pitch-btn-solid" href="https://ballast.la/#book" target="_blank" rel="noopener noreferrer">Book a call</a>
-        <a className="pitch-btn" href="mailto:jack@ballast.la?subject=Hiring%20Jack">Hire me</a>
-        <a className="pitch-btn" href="/JackMorello_CV.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
-      </div>
+      <p className="pitch-sec">What I help with</p>
+      <ol className="svc">
+        {services.map((s, i) => (
+          <li key={s.t}>
+            <span className="svc-n">{String(i + 1).padStart(2, "0")}</span>
+            <h2 className="svc-t">{s.t}</h2>
+            <p className="svc-d">{s.d}</p>
+            {s.p === "resume" ? (
+              <a className="svc-p svc-link" href="/JackMorello_CV.pdf" target="_blank" rel="noopener noreferrer">See my resume &rarr;</a>
+            ) : (
+              <p className="svc-p">{s.p}</p>
+            )}
+          </li>
+        ))}
+      </ol>
+      <p className="pitch-clients">
+        <span>Past work for</span> Toyota &middot; Starbucks &middot; STARZPLAY &middot; Netflix &middot; Disney &middot; Peacock &middot; LG &middot; Twitter
+      </p>
       <Subscribe />
     </div>
   );
@@ -265,21 +329,8 @@ export default function HomePage() {
       <div className="layout">
         {/* Left column */}
         <div className="col-left">
-          <DraggableCard title="Work with me">
+          <DraggableCard title="Services">
             <Pitch />
-          </DraggableCard>
-
-          <DraggableCard width={200}>
-            <div className="illustration-card">
-              <Image
-                src="/images/illustration-jack.png"
-                alt="Jack Morello"
-                width={180}
-                height={180}
-                className="illustration"
-                priority
-              />
-            </div>
           </DraggableCard>
 
           <DraggableCard title="Jack Morello">
