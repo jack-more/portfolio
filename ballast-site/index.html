@@ -923,15 +923,18 @@
     book.disabled=true;book.textContent='Booking…';
     var data={name:who,email:mail,company:co,time:pretty,offer:$('calOfferIn').value||'',_subject:'Jack @ Ballast + '+who+' — '+pretty,_replyto:mail,_template:'table',_captcha:'false'};
     function fs(to){return fetch('https://formsubmit.co/ajax/'+to,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)}).then(function(r){return r.json()}).then(function(j){return j&&(j.success===true||j.success==='true')}).catch(function(){return false})}
-    var sent=Promise.all([fs('jack@ballast.la'),fs('24f0c58813f0d78cbaba156155b91734')]).then(function(r){return r[0]||r[1]});
-    fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(form)).toString()}).catch(function(){});
+    var nf=fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(form)).toString()}).then(function(r){return r.ok}).catch(function(){return false});
+    var sent=Promise.all([fs('jack@ballast.la'),fs('24f0c58813f0d78cbaba156155b91734'),nf]).then(function(r){return r[0]||r[1]||r[2]});   // booked if any of the three takes it
     var gUrl='https://calendar.google.com/calendar/render?action=TEMPLATE'
       +'&text='+encodeURIComponent('Jack @ Ballast + '+who)
       +'&dates='+st+'/'+en+'&ctz='+encodeURIComponent(TZ)
       +'&details='+encodeURIComponent('30 minutes with Jack at Ballast. Booked from ballast.la.\n\n'+who+(co?' · '+co:'')+' · '+mail)
       +'&add='+encodeURIComponent(INVITE);
     sent.then(function(ok){
-      if(!ok){book.disabled=false;book.textContent='Book the call';note.innerHTML='That didn&rsquo;t go through. Email <a href="mailto:jack@ballast.la?subject='+encodeURIComponent('Ballast call — '+pretty)+'">jack@ballast.la</a> and we&rsquo;ll lock it in.';return}
+      if(!ok){   // nothing took it: hand the visitor a ready-to-send email so the booking still reaches Jack
+        var mt='mailto:jack@ballast.la?subject='+encodeURIComponent('Ballast call — '+who+' — '+pretty)+'&body='+encodeURIComponent('Hi Jack,\n\nBooking a call: '+pretty+'.\n\n'+who+(co?' · '+co:'')+' · '+mail+($('calOfferIn').value?'\nRedeeming: '+$('calOfferIn').value:'')+'\n');
+        form.innerHTML='<p class="cal__done">One last tap: send this email and your '+pretty+' slot is locked in.</p><div class="cal__adds"><a class="btn btn--lg" href="'+mt+'">Send the booking email</a><a class="btn btn--ghost" target="_blank" rel="noopener" href="'+gUrl+'">Add to Google Calendar</a></div>';
+        note.innerHTML='Our booking service didn&rsquo;t answer, so this goes straight to jack@ballast.la.';return}
       form.innerHTML='<p class="cal__done">You&rsquo;re booked: '+pretty+'.<br>Jack will send the invite to '+mail.replace(/</g,'&lt;')+'.</p>'
         +'<div class="cal__adds"><a class="btn btn--ghost" target="_blank" rel="noopener" href="'+gUrl+'">Add to Google Calendar</a><a class="btn btn--ghost" download="ballast-call.ics" href="'+ics(who,co,mail)+'">Add to Apple or Outlook</a></div>';
       note.innerHTML='Questions before then? <a href="mailto:jack@ballast.la">jack@ballast.la</a>';
