@@ -169,6 +169,45 @@ function boot() {
   const toUV = (px, py) => [(vx0 + px / W * vw) / IMG.w, (vy0 + py / H * vh) / IMG.h];
   const horizonV = HORIZON;
 
+  // ---------------- flowers in front of each item: a small upright card at the item's feet, painted with the photo exactly
+  // as the camera saw it there, cut along the tops of the real poppies in that spot, so the item sinks in among them
+  let photoTex = null;
+  const refCam = new THREE.PerspectiveCamera(FOV, A, .1, 400); refCam.quaternion.copy(TILT); refCam.updateMatrixWorld(true);
+  const REF = new THREE.Matrix4().multiplyMatrices(refCam.projectionMatrix, refCam.matrixWorldInverse);
+  const patchMat = () => new THREE.ShaderMaterial({
+    uniforms: { tPhoto: { value: photoTex }, uRef: { value: REF }, uGround: { value: -EYE }, uSeed: { value: Math.random() * 100 }, uOp: { value: 1 } },
+    vertexShader: `varying vec3 vW; varying vec2 vUv;
+      void main() { vUv = uv; vec4 w = modelMatrix * vec4(position, 1.); vW = w.xyz; gl_Position = projectionMatrix * viewMatrix * w; }`,
+    fragmentShader: `uniform sampler2D tPhoto; uniform mat4 uRef; uniform float uGround, uSeed, uOp; varying vec3 vW; varying vec2 vUv;
+      float h1(float x) { return fract(sin(x * 91.7 + uSeed) * 43758.5); }
+      float n1(float x) { float i = floor(x), f = fract(x); f = f * f * (3. - 2. * f); return mix(h1(i), h1(i + 1.), f); }
+      void main() {
+        vec4 c = uRef * vec4(vW, 1.); vec2 uv = c.xy / c.w * .5 + .5;
+        vec3 col = texture2D(tPhoto, uv).rgb;
+        // how much this pixel is a poppy head: orange (red well above blue); green stems and gaps count for less
+        vec3 soft = texture2D(tPhoto, uv, 2.5).rgb;                                     // blurred: whole flower heads, not single petals
+        float pop = clamp((soft.r - soft.b) * 2.2 - .25, 0., 1.);
+        float top = .025 + .075 * pop + .03 * n1(vW.x * 30.) + .02 * n1(vW.x * 7.);   // flower-top height here, in metres
+        float above = vW.y - uGround;
+        float a = 1. - smoothstep(top - .012, top + .012, above);
+        float side = min(vUv.x, 1. - vUv.x);                                         // fade the card's sides into the field
+        a *= smoothstep(0., .18, side);
+        if (a < .02) discard;
+        gl_FragColor = vec4(col, a * uOp);
+        #include <colorspace_fragment>
+      }`,
+    transparent: true, depthWrite: false,
+  });
+  function flowerCard(o) {
+    const w = o.size * 1.5 + .3, hDown = .2, hUp = .45;
+    const g = new THREE.PlaneGeometry(w, hDown + hUp); g.translate(0, (hUp - hDown) / 2, 0);
+    const m = new THREE.Mesh(g, patchMat());
+    const toCam = new THREE.Vector3(-o.G.x, 0, -o.G.z).normalize();               // stand it up facing the camera, at the item's front
+    m.position.set(o.G.x, -EYE, o.G.z).addScaledVector(toCam, o.size * .55);
+    m.lookAt(0, -EYE, 0); m.renderOrder = 2; m.visible = false;
+    return m;
+  }
+
   // ---------------- drops
   const objs = [];
   function drop(px, py) {
@@ -192,11 +231,12 @@ function boot() {
     const topY = at(u, vy0 / IMG.h, -G.z / Math.cos(PITCH)).y;           // the top of the view at that distance
     const o = { s, mesh, mats, G, size, rest, spin, w: new THREE.Vector3(rnd(-4, 4), rnd(-4, 4), rnd(-4, 4)),
       y: Math.max(topY, G.y) + size * 1.2, vy: 0, g: 3.2 * Math.max(2, -G.z), born: performance.now() + delay * 1000, landed: 0, bounces: 0,
-      sink: 0, sinkTo: s.card ? .15 : s.ball ? .3 : .22, alive: true };
+      sink: 0, sinkTo: .03, alive: true };
     mesh.visible = false; mesh.scale.setScalar(size); world.add(mesh); objs.push(o);
+    o.card = flowerCard(o); world.add(o.card);
     while (objs.length > (small() ? 12 : 20)) kill(objs.find(x => x.landed) || objs[0]);
   }
-  function kill(o) { o.alive = false; world.remove(o.mesh); o.mats.forEach(m => m.dispose()); objs.splice(objs.indexOf(o), 1); }
+  function kill(o) { o.alive = false; world.remove(o.mesh, o.card); o.mats.forEach(m => m.dispose()); o.card.geometry.dispose(); o.card.material.dispose(); objs.splice(objs.indexOf(o), 1); }
 
   // petals: a little puff of orange where something lands
   const NP = 400, pPos = new Float32Array(NP * 3), pVel = new Float32Array(NP * 3), pLife = new Float32Array(NP);
@@ -226,7 +266,7 @@ function boot() {
   function step(dt, now) {
     for (const o of objs.slice()) {
       if (now < o.born) continue;
-      o.mesh.visible = true;
+      o.mesh.visible = o.card.visible = true;
       const half = o.s.half * o.size, ground = o.G.y + half;
       if (!o.landed) {
         o.vy -= o.g * dt; o.y += o.vy * dt;
@@ -238,10 +278,10 @@ function boot() {
           if (o.bounces < 1 && o.vy < -o.g * .25) { o.vy = -o.vy * .2; o.bounces++; puff(o.G, Math.max(.15, o.size * .5)); }
           else { o.landed = now; o.vy = 0; o.mesh.quaternion.copy(o.rest); if (!o.bounces) puff(o.G, Math.max(.15, o.size * .5)); }
         }
-      } else if (o.sink < o.sinkTo) o.sink = Math.min(o.sinkTo, o.sink + dt * .8);
-      o.mesh.position.set(o.G.x, o.y - o.sink * half * 2, o.G.z);
+      } else if (o.sink < o.sinkTo) o.sink = Math.min(o.sinkTo, o.sink + dt * .25);
+      o.mesh.position.set(o.G.x, o.y - o.sink, o.G.z);
       const age = o.landed ? (now - o.landed) / 1000 : 0;
-      if (age > 45) { const f = Math.min(1, (age - 45) / 2); o.mats.forEach(m => { m.transparent = true; m.opacity = 1 - f; }); if (f >= 1) kill(o); }
+      if (age > 45) { const f = Math.min(1, (age - 45) / 2); o.mats.forEach(m => { m.transparent = true; m.opacity = 1 - f; }); o.card.material.uniforms.uOp.value = 1 - f; if (f >= 1) kill(o); }
     }
   }
 
@@ -279,13 +319,13 @@ function boot() {
   // ---------------- start: build the field, then bring in the items one at a time
   const tl = new THREE.TextureLoader(), il = new THREE.ImageLoader();
   const tex = src => tl.loadAsync(FIELD + src).then(t => { t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 4; return t; });
-  Promise.all([tex('back.webp'), tex('front.webp'), il.loadAsync(FIELD + 'back-depth.png'), il.loadAsync(FIELD + 'front-depth.png')])
-    .then(([bT, fT, bD, fD]) => {
+  Promise.all([tex('back.webp'), tex('front.webp'), tl.loadAsync('/hero/poppies.webp').then(t => { t.colorSpace = THREE.SRGBColorSpace; return t; }), il.loadAsync(FIELD + 'back-depth.png'), il.loadAsync(FIELD + 'front-depth.png')])
+    .then(([bT, fT, pT, bD, fD]) => {
       backD = readGray(bD); const frontD = readGray(fD);
-      const CARPET = .06, backT = (u, v) => Math.min(FAR, groundDist(v) * (EYE - CARPET) / EYE), frontT = (u, v) => Math.min(flowerDist(sample(frontD, u, v)), backT(u, v) * .9);   // always just in front of the ground behind it
+      const backT = (u, v) => groundDist(v), frontT = (u, v) => Math.min(flowerDist(sample(frontD, u, v)), backT(u, v) * .9);   // always just in front of the ground behind it
       const back = new THREE.Mesh(surface(backT, 0, 200, 140), new THREE.MeshBasicMaterial({ map: bT, toneMapped: false }));
       const front = new THREE.Mesh(surface(frontT, .5, 220, 64), new THREE.MeshBasicMaterial({ map: fT, alphaTest: .45, toneMapped: false }));
-      world.add(back, front);
+      world.add(back, front); photoTex = pT;   // the original photo, sharp flowers and all
       layout(); addEventListener('resize', layout); document.fonts && document.fonts.ready.then(layout);
       return renderer.compileAsync(world, cam).catch(() => {});
     })
