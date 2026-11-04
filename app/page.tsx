@@ -41,13 +41,12 @@ const work: WorkItem[] = [
         desc: "Head of Performance Marketing: $1.2M+ a month in sales",
         href: "https://skocompounds.com/",
         details: [
-          "Ran TikTok paid, lifecycle, and attribution for a Beverly Hills DTC brand past 40,000 orders shipped",
-          "Set up TikTok LIVE selling, now bringing in $5K in sales a day",
-          "Scaled daily spend 5x in one week while holding ~3.5x blended ROAS and sub-$60 CPA",
-          "Built the measurement stack: pixel + server-side events with verified dedupe, RedTrack spend sync, first-party click attribution, and an admin reporting layer",
-          "Ran the creative pipeline end to end: UGC direction, AI-generated brand personas and cinematic spots, motion-graphics overlays, caption and title systems",
-          "Designed the loyalty program: points, levels and The Drop, a daily Plinko game",
-          "Hit 7x ROAS on the best campaign by pairing urgency offers with creator footage",
+          "Ran all paid media across Meta, TikTok and Google: under $10K to $1.2M+ in monthly sales on up to $100K a month, at a peak 6x ROAS",
+          "Split spend into influencer-audience and list-excluded prospecting campaigns to hold new-customer CAC to $50 on a $220 AOV",
+          "Tested 500 to 1,000 ads a month across UGC creators, AIGC and branded content, judging every ad at day 7 on hold rate, watch time and sales",
+          "Built order dashboards tracking every checkout to ad and ad set, reconciled weekly against orders and invoices",
+          "Built Klaviyo lifecycle, loyalty and post-purchase flows; about two-thirds of revenue came from repeat buyers",
+          "Set up TikTok LIVE selling at $5K in sales a day",
         ],
       },
     ],
@@ -87,21 +86,21 @@ const work: WorkItem[] = [
     desc: "Paid media for Toyota, Starzplay, Starbucks",
     href: "https://www.iheartmedia.com/",
     details: [
-      "$2M+ a month in paid media across reach, CTR and conversion campaigns for Starbucks, Toyota and Starzplay, at 3x blended ROAS",
-      "Built creative testing framework that drove 25%+ ROAS lift QoQ",
-      "Day-to-day client lead for Toyota and Starzplay",
-      "Campaigns across Meta, Snapchat, Twitter, programmatic DSPs",
+      "Managed $1M+ in paid media for Starbucks, Toyota and STARZPLAY, holding a 2.5% average CTR",
+      "Ran multicultural (Toyota), regional (Starbucks Pacific Northwest) and international (STARZPLAY) campaigns for 5+ concurrent clients",
+      "Built creative testing and bid optimization that improved ROAS 25%+ quarter over quarter",
+      "Campaigns across Meta, Snapchat, X and programmatic DSPs",
     ],
   },
   {
     company: "NEAR",
-    desc: "Growth marketing: 0 to 50k+ MAU in 18 months",
+    desc: "Marketing for NEAR Tasks, an AI training-data marketplace (50K+ MAU)",
     href: "https://near.org/",
     details: [
-      "One of the first marketing hires, built function from zero",
-      "Contributed to $1.8M+ in platform GMV",
-      "Cut CAC by 60%, improved conversion by 140% via A/B testing",
-      "Led GTM for 4 major product launches",
+      "Grew NEAR Tasks, an AI training-data marketplace, to 50K+ MAU across paid, SEO, content and community",
+      "Cut CAC 60% and lifted landing-page conversion 140% with paid-channel and landing-page A/B testing",
+      "Led 4 product launches, each reaching 15% adoption among active users in its first quarter",
+      "Built an onboarding experience with engineering and design that SailGP adopted at its live race events",
     ],
   },
   {
@@ -109,9 +108,9 @@ const work: WorkItem[] = [
     desc: "Digital growth through $8M Series A",
     href: "https://www.dtravel.com/",
     details: [
-      "Grew social from 7K to 55K+ organically",
-      "Built host onboarding funnel: 2,000+ property listings",
-      "Digital collectible program generated $750K revenue",
+      "Grew a two-sided marketplace from 0 to 12,000 users and 2,000+ property listings through content, community and light paid (1.5%+ CTR)",
+      "Supported the $8M Series A",
+      "Created a digital collectible program that generated $750K in incremental revenue",
     ],
   },
   {
@@ -119,9 +118,8 @@ const work: WorkItem[] = [
     desc: "Digital campaigns for Disney, Netflix, Sony, NBC",
     href: "https://www.epk.tv/",
     details: [
-      "Coordinated digital asset distribution across 20+ studios",
-      "Disney, Amazon, Sony, NBC, Netflix campaigns",
-      "Streamlined content delivery workflows",
+      "Organized and delivered all campaign content for 20+ studios across platforms, territories and languages",
+      "Disney, Amazon, Sony, NBC and Netflix campaigns",
     ],
   },
   {
@@ -216,9 +214,9 @@ export default function HomePage() {
               I&apos;m Jack. I run{" "}
               <a href="https://ballast.la" target="_blank" rel="noopener noreferrer">Ballast Research</a>,
               a growth and paid media firm in Los Angeles. Since June: $1.2M+ a month in sales
-              for a telehealth brand, $100K a month in ads turned into $450K,
-              30+ UGC creators running at once, and TikTok LIVE selling at $5K
-              a day. Before that, eight years of paid media, promo and social
+              for a health and wellness brand at a peak 6x ROAS, 500 to 1,000 ads
+              a month, 30+ UGC creators running at once, and TikTok LIVE selling
+              at $5K a day. Before that, eight years of paid media, promo and social
               for Toyota, Starbucks, STARZPLAY, Netflix, Disney, Peacock, LG and
               Twitter, plus three venture-backed startups built from zero.
             </p>

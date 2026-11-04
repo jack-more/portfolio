@@ -27,7 +27,7 @@ const fullStackData = {
     title: "NEAR Tasks",
     abbrev: "NT",
     logo: "/images/near-protocol.png",
-    desc: "Managed full marketing strategy for AI-powered task marketplace. Grew registered user base from launch to 12,000 users in 18 months. Contributed to $1.8M+ in platform transaction volume through strategic user engagement.",
+    desc: "Led marketing for NEAR Tasks, an AI training-data marketplace, growing it to 50K+ MAU. Cut CAC 60% and lifted landing-page conversion 140% through A/B testing.",
     campaigns: [
       { title: "NEARCON 2023 Beta", text: "Official product beta launched at NEARCON 2023. Built waitlist to 48,000+ applicants through strategic pre-launch marketing.", tag: "Event", image: "/images/campaigns/full-stack/nearcon-2023.jpg" },
       { title: "Consensus 2023 Debut", text: "Platform debuted at Consensus 2023 in Austin. Achieved 40%+ conversion rate from event demo attendees to waitlist signups.", tag: "Event", image: "/images/campaigns/full-stack/consensus-2023.jpg" },

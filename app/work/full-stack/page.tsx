@@ -37,7 +37,7 @@ const brands = [
     logo: '/images/near-protocol.png',
     role: 'Head of Marketing',
     period: 'Apr 2022 – Jun 2024',
-    description: 'Managed full marketing strategy for AI-powered task marketplace. Grew registered user base from launch to 12,000 users in 18 months. Contributed to $1.8M+ in platform transaction volume through strategic user engagement.',
+    description: 'Led marketing for NEAR Tasks, an AI training-data marketplace, growing it to 50K+ MAU. Cut CAC 60% and lifted landing-page conversion 140% through A/B testing.',
     campaigns: [
       {
         name: 'NEARCON 2023 Beta Launch',
