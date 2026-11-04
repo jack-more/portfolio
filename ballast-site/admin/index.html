@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow">
+<title>Ballast GTM Desk</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;700;800&family=Geist+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a sticky ink bar with three views (This week, Leads, Playbook); a lead opens in a side sheet. Ballast's ink, paper, cobalt and orange. */
+:root{
+  --bg:#F6F1EA; --panel:#FFFFFF; --fg:#0A0D18; --mute:#6A6560; --line:rgba(10,13,24,.13);
+  --ink:#0A0D18; --onink:#F6F1EA; --cobalt:#0B5CF6; --orange:#FD720D;
+  --good:#1E8E4E; --warn:#C27C00; --bad:#C2372B; --chip:rgba(10,13,24,.06);
+  --g:"Geist","Helvetica Neue",Arial,sans-serif; --m:"Geist Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0B0E19; --panel:#131828; --fg:#EEE9E1; --mute:#9A948C; --line:rgba(238,233,225,.14);
+  --ink:#05070E; --onink:#EEE9E1; --cobalt:#5B93FF; --orange:#FF8A33;
+  --good:#4CC27E; --warn:#E3A43A; --bad:#F06A5D; --chip:rgba(238,233,225,.08); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0B0E19; --panel:#131828; --fg:#EEE9E1; --mute:#9A948C; --line:rgba(238,233,225,.14);
+  --ink:#05070E; --onink:#EEE9E1; --cobalt:#5B93FF; --orange:#FF8A33;
+  --good:#4CC27E; --warn:#E3A43A; --bad:#F06A5D; --chip:rgba(238,233,225,.08); color-scheme:dark}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+.gate{min-height:100vh;display:grid;place-items:center;padding:24px max(16px,env(safe-area-inset-left,0px))}
+.gate form{display:grid;gap:10px;width:min(340px,100%)}
+.gate input{padding:12px;border:1px solid var(--line);border-radius:9px;background:var(--panel)}
+body{margin:0}
+body{background:var(--bg);color:var(--fg);font-family:var(--g);font-size:15px;line-height:1.45}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--ink)}
+.wrap{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));max-width:1280px;margin:0 auto}
+.mono{font-family:var(--m);font-size:11.5px;letter-spacing:.07em;text-transform:uppercase}
+h1,h2,h3{text-wrap:balance;margin:0}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--orange);outline-offset:2px}
+
+/* bar */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--ink);color:var(--onink)}
+.bar .wrap{display:flex;align-items:center;gap:20px;min-height:58px;flex-wrap:wrap;padding-block:8px}
+.brand{font-weight:800;letter-spacing:-.03em;font-size:19px;display:flex;align-items:baseline;gap:10px}
+.brand span{color:var(--orange)}
+.tabs{display:flex;gap:4px;margin-left:auto;flex-wrap:wrap}
+.tabs a{color:var(--onink);text-decoration:none;padding:8px 14px;border-radius:999px;font-family:var(--m);font-size:12px;letter-spacing:.06em;text-transform:uppercase;opacity:.7}
+.tabs a[aria-current="page"]{background:var(--onink);color:var(--ink);opacity:1}
+.tabs a:hover{opacity:1}
+
+main .wrap{padding-block:28px 64px}
+.view[hidden]{display:none}
+.hd{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:20px}
+.hd h2{font-weight:800;font-size:clamp(28px,3.4vw,44px);letter-spacing:-.045em;line-height:1}
+.hd p{margin:6px 0 0;color:var(--mute);max-width:62ch}
+.note{border:1px dashed var(--line);border-radius:10px;padding:14px 16px;color:var(--mute)}
+
+/* week */
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.kpi{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 18px;display:grid;gap:8px}
+.kpi b{font-weight:800;font-size:40px;letter-spacing:-.05em;line-height:1;font-variant-numeric:tabular-nums}
+.kpi b small{font-size:16px;color:var(--mute);font-weight:500;letter-spacing:0}
+.meter{height:6px;border-radius:9px;background:var(--chip);overflow:hidden}
+.meter i{display:block;height:100%;background:var(--cobalt);border-radius:9px}
+.kpi.hit .meter i{background:var(--good)}
+.grid2{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:16px;margin-top:16px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px}
+.card h3{font-size:16px;font-weight:700;letter-spacing:-.01em;margin-bottom:12px;display:flex;justify-content:space-between;gap:8px}
+.funnel{display:grid;gap:8px}
+.frow{display:grid;grid-template-columns:110px minmax(0,1fr) 44px;gap:10px;align-items:center;font-size:14px}
+.frow .fb{height:22px;border-radius:5px;background:var(--chip);overflow:hidden}
+.frow .fb i{display:block;height:100%;background:var(--cobalt)}
+.frow:nth-child(n+5) .fb i{background:var(--orange)}
+.frow .n{text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
+.due{list-style:none;margin:0;padding:0;display:grid}
+.due li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 10px;padding:10px 0;border-top:1px solid var(--line);cursor:pointer}
+.due li:first-child{border-top:0}
+.due li:hover .co{color:var(--cobalt)}
+.due .co{font-weight:600}
+.due .what{grid-column:1/-1;color:var(--mute);font-size:13.5px}
+.empty{color:var(--mute);font-size:14px;padding:6px 0}
+
+/* chips and pills */
+.pill{display:inline-flex;align-items:center;gap:6px;padding:3px 9px;border-radius:999px;font-family:var(--m);font-size:11px;letter-spacing:.05em;text-transform:uppercase;white-space:nowrap;background:var(--chip)}
+.pill i{width:7px;height:7px;border-radius:50%;background:currentColor}
+.st-research{color:var(--mute)}.st-ready{color:var(--cobalt)}.st-contacted{color:var(--cobalt)}
+.st-replied{color:var(--warn)}.st-call{color:var(--orange)}.st-proposal{color:var(--orange)}.st-won{color:var(--good)}.st-lost{color:var(--bad)}
+.late{color:var(--bad);font-weight:600}
+.seg{font-size:12px;color:var(--mute)}
+
+/* leads */
+.tools{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+.tools input[type=search]{flex:1 1 220px;min-width:0;padding:10px 12px;border:1px solid var(--line);border-radius:9px;background:var(--panel)}
+.tools select{padding:9px 10px;border:1px solid var(--line);border-radius:9px;background:var(--panel)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:999px;border:1px solid var(--fg);background:var(--fg);color:var(--bg);cursor:pointer;font-family:var(--m);font-size:12px;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--fg);border-color:var(--line)}
+.btn:hover{filter:brightness(1.15)}
+.btn:disabled{opacity:.4;cursor:default}
+.tablebox{overflow-x:auto;background:var(--panel);border:1px solid var(--line);border-radius:12px}
+table{width:100%;border-collapse:collapse;min-width:760px}
+th{text-align:left;font-family:var(--m);font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--mute);font-weight:400;padding:10px 14px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--panel)}
+td{padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+tbody tr{cursor:pointer}
+tbody tr:hover td{background:var(--chip)}
+td .co{font-weight:600}
+td .sub{color:var(--mute);font-size:13px}
+.tier{font-family:var(--m);font-size:12px}
+.prog{display:flex;gap:2px;margin-top:6px}
+.prog i{width:9px;height:4px;border-radius:2px;background:var(--line)}
+.prog i.on{background:var(--cobalt)}
+.count{color:var(--mute);font-size:13px;margin:10px 2px 0}
+
+/* sheet */
+.scrim{position:fixed;inset:0;background:rgba(5,7,14,.45);z-index:40}
+.sheet{position:fixed;top:0;right:0;bottom:0;width:min(560px,100%);background:var(--bg);z-index:41;overflow-y:auto;box-shadow:-20px 0 60px rgba(0,0,0,.25);
+  padding:calc(env(safe-area-inset-top,0px) + 18px) max(18px,env(safe-area-inset-right,0px)) calc(env(safe-area-inset-bottom,0px) + 40px) 22px;display:grid;gap:18px;align-content:start}
+.sheet header{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.sheet h2{font-weight:800;font-size:28px;letter-spacing:-.04em;line-height:1.05}
+.x{border:1px solid var(--line);background:transparent;border-radius:50%;width:36px;height:36px;cursor:pointer;flex:none;font-size:18px}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.fields label{display:grid;gap:4px;font-size:12px;color:var(--mute)}
+.fields label.full{grid-column:1/-1}
+.fields input,.fields select,.fields textarea{padding:9px 10px;border:1px solid var(--line);border-radius:8px;background:var(--panel);font-size:14px;width:100%;min-width:0}
+.fields textarea{min-height:84px;resize:vertical}
+.check{list-style:none;margin:0;padding:0;display:grid;border:1px solid var(--line);border-radius:12px;background:var(--panel)}
+.check li{display:grid;grid-template-columns:24px minmax(0,1fr) auto;gap:10px;align-items:start;padding:10px 14px;border-top:1px solid var(--line)}
+.check li:first-child{border-top:0}
+.check input{width:18px;height:18px;margin-top:2px;accent-color:var(--cobalt)}
+.check label{cursor:pointer}
+.check small{display:block;color:var(--mute);font-size:12.5px}
+.check time{font-family:var(--m);font-size:11px;color:var(--mute);white-space:nowrap;margin-top:3px}
+.box{border-left:3px solid var(--orange);padding:10px 14px;background:var(--panel);border-radius:0 10px 10px 0;font-size:14px}
+.box b{display:block;font-family:var(--m);font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--mute);font-weight:400;margin-bottom:4px}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.saved{font-family:var(--m);font-size:11px;color:var(--mute)}
+
+/* playbook */
+.pb{display:grid;gap:16px}
+.pb .card p{margin:0 0 8px;max-width:70ch}
+.ladder{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.rung{border-radius:12px;padding:16px;color:#fff;display:grid;gap:6px;align-content:start}
+.rung:nth-child(1){background:var(--orange);color:#0A0D18}.rung:nth-child(2){background:var(--cobalt)}.rung:nth-child(3){background:var(--ink);color:#F6F1EA}
+.rung b{font-weight:800;font-size:30px;letter-spacing:-.05em;line-height:1}
+.rung h4{margin:0;font-size:16px}
+.rung p{margin:0;opacity:.88;font-size:14px}
+.tbl{width:100%;border-collapse:collapse;min-width:620px}
+.tbl td,.tbl th{padding:9px 10px;border-bottom:1px solid var(--line);font-size:14px;position:static;background:transparent}
+.steps{counter-reset:s;list-style:none;margin:0;padding:0;display:grid;gap:0}
+.steps li{display:grid;grid-template-columns:64px minmax(0,1fr);gap:12px;padding:10px 0;border-top:1px solid var(--line)}
+.steps li:first-child{border-top:0}
+.steps li span{font-family:var(--m);font-size:12px;color:var(--cobalt);padding-top:2px}
+.tpl{display:grid;gap:10px}
+.tpl article{border:1px solid var(--line);border-radius:10px;padding:12px 14px;background:var(--bg)}
+.tpl header{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:6px}
+.tpl h4{margin:0;font-size:14px}
+.tpl pre{margin:0;white-space:pre-wrap;font-family:var(--g);font-size:14px;line-height:1.5}
+.cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+ul.plain{margin:0;padding-left:18px;display:grid;gap:4px}
+@media (max-width:900px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.grid2,.ladder,.cols{grid-template-columns:minmax(0,1fr)}.fields{grid-template-columns:minmax(0,1fr)}}
+@media (prefers-reduced-motion:no-preference){.sheet{animation:in .22s ease}@keyframes in{from{transform:translateX(24px);opacity:.6}}}
+</style></head><body>
+
+<div class="gate" id="gate"><form id="gateForm"><div class="brand" style="color:var(--fg)">Ballast <span>GTM Desk</span></div><label for="pw" class="mono">Password</label><input id="pw" type="password" autocomplete="current-password" required><button class="btn" type="submit">Open</button><p id="gateMsg" class="seg"></p></form></div>
+<div id="app" hidden>
+<div class="bar"><div class="wrap">
+  <div class="brand">Ballast <span>GTM Desk</span></div>
+  <nav class="tabs" aria-label="Views">
+    <a href="#week" data-v="week">This week</a>
+    <a href="#leads" data-v="leads">Leads</a>
+    <a href="#playbook" data-v="playbook">Playbook</a>
+  </nav>
+</div></div>
+
+<main><div class="wrap">
+  <p class="note" id="dbnote" hidden></p>
+
+  <!-- WEEK -->
+  <section class="view" id="v-week">
+    <div class="hd"><div><h2 id="weekTitle">This week</h2><p>Targets from the GTM plan: 25 messages, 5 replies, 2 calls, 1 proposal a week. Goal: two paying clients in 60 days.</p></div></div>
+    <div class="kpis" id="kpis"></div>
+    <div class="grid2">
+      <div class="card"><h3>Pipeline <span class="seg" id="pipeTotal"></span></h3><div class="funnel" id="funnel"></div></div>
+      <div class="card"><h3>Do next <span class="seg" id="dueCount"></span></h3><ul class="due" id="due"></ul></div>
+    </div>
+  </section>
+
+  <!-- LEADS -->
+  <section class="view" id="v-leads" hidden>
+    <div class="hd"><div><h2>Leads</h2><p>Every lead runs the same checklist. Ticking a step moves its stage; follow-ups come due on their own.</p></div>
+      <button class="btn" id="addLead" type="button">+ Add lead</button></div>
+    <div class="tools">
+      <input type="search" id="q" placeholder="Search company, person, notes" aria-label="Search leads">
+      <select id="fStage" aria-label="Stage"></select>
+      <select id="fSeg" aria-label="Segment"></select>
+      <select id="fTier" aria-label="Tier"><option value="">All tiers</option><option value="1">Tier 1</option><option value="2">Tier 2</option><option value="3">Tier 3</option></select>
+    </div>
+    <div class="tablebox"><table>
+      <thead><tr><th>Company</th><th>Segment</th><th>Tier</th><th>Stage</th><th>Next step</th><th>Due</th></tr></thead>
+      <tbody id="rows"></tbody>
+    </table></div>
+    <p class="count" id="count"></p>
+  </section>
+
+  <!-- PLAYBOOK -->
+  <section class="view pb" id="v-playbook" hidden>
+    <div class="hd"><div><h2>Playbook</h2><p>How Ballast finds, works and closes leads. Built 1–4 Nov 2026 from the GTM plan, the AEO plan and the prospect research.</p></div></div>
+
+    <div class="card"><h3>What we sell</h3>
+      <div class="ladder">
+        <div class="rung"><span class="mono">Hook</span><b>Free</b><h4>Numbers review, 30 min</h4><p>Break-even ROAS, account health, and a compliance read of their live ads and landing page. The ask in every message.</p></div>
+        <div class="rung"><span class="mono">First sale</span><b>$3.5K</b><h4>The two-week sprint</h4><p>We build their scaffolding and find where they're leaking. The full $3.5K rolls into a credit on month one.</p></div>
+        <div class="rung"><span class="mono">Retainer</span><b>2×</b><h4>Growth, run for you</h4><p>Media, creative and creators run against one goal. Scoped to the job, up to $100K.</p></div>
+      </div>
+    </div>
+
+    <div class="card"><h3>Who we sell to</h3>
+      <div class="tablebox" style="border:0"><table class="tbl">
+        <thead><tr><th>Priority</th><th>Buyer</th><th>Why they buy now</th><th>Where the list comes from</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>Regulated health: telehealth, GLP-1, TRT, menopause, peptides</td><td>55 got FDA warning letters in 2026; ads get rejected; few agencies take them</td><td>FDA letters, site scans for ad tracking (97 brands seeded)</td></tr>
+          <tr><td>2</td><td>Funded AI startups hiring a first GTM engineer</td><td>They need pipeline now; the hire takes months</td><td>GTM engineer job sheet (14 seeded)</td></tr>
+          <tr><td>3</td><td>Sports, creator and fan brands</td><td>Fan Map, Fancore and History of the Game give us an edge nobody else has</td><td>Fan Map research</td></tr>
+          <tr><td>—</td><td>Referral partners: FDA law firms, LegitScript consultants, white-label telehealth platforms</td><td>They talk to our buyers and don't sell ads</td><td>Firms that wrote about the 2026 letters</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <div class="card"><h3>The checklist, per lead</h3>
+      <ol class="steps" id="stepsList"></ol>
+    </div>
+
+    <div class="card"><h3>Message templates <span class="seg">copy, then fill the brackets</span></h3><div class="tpl" id="tpls"></div></div>
+
+    <div class="cols">
+      <div class="card"><h3>Channels, fastest first</h3><ul class="plain">
+        <li><b>Network and referrals</b>, this week: Jeff (Adapti), 1031X, Netflix, Disney, Starbucks, Toyota and NEAR alumni.</li>
+        <li><b>Outbound</b>: 25 personal messages a week from this list.</li>
+        <li><b>Referral partners</b>, weeks 2–4.</li>
+        <li><b>Founder content</b> on X and LinkedIn, daily.</li>
+        <li><b>Free tools and AI search</b>: slow, compounding.</li>
+      </ul></div>
+      <div class="card"><h3>30 / 60 / 90 days</h3><ul class="plain">
+        <li><b>Day 30</b>: first 100 messages, two case studies, the compliance checklist, two partner talks.</li>
+        <li><b>Day 60</b>: first sprints sold; one turned into a retainer; compliance checker live on ballast.la.</li>
+        <li><b>Day 90</b>: second retainer; one or two referral agreements; raise the sprint price if demand holds.</li>
+      </ul></div>
+      <div class="card"><h3>House rules</h3><ul class="plain">
+        <li>Public sources only: FDA letters, sites, ad libraries, published inboxes. No bought lists.</li>
+        <li>Every number we quote has a source. SKO is a past client, past tense only.</li>
+        <li>We make claims compliant; we never help anyone get around the rules.</li>
+        <li>Compounded GLP-1 brands are unstable: bill monthly or up front.</li>
+        <li>Review the numbers every Friday and change one thing at a time.</li>
+      </ul></div>
+    </div>
+  </section>
+</div></main>
+
+</div>
+<div class="scrim" id="scrim" hidden></div>
+<aside class="sheet" id="sheet" hidden aria-label="Lead"></aside>
+
+<script>
+(function(){
+const STAGES=[['research','Research'],['ready','Ready'],['contacted','Contacted'],['replied','Replied'],['call','Call booked'],['proposal','Proposal'],['won','Won'],['lost','Lost']];
+const SEGS=[['health','Regulated health'],['ai','AI startup'],['sports','Sports & creators'],['partner','Referral partner'],['network','Network'],['other','Other']];
+// the checklist: each step, its note, and the stage it moves a lead to
+const STEPS=[
+  ['fit','Fit confirmed','Right segment, spending or about to spend on ads, can pay $3.5K.',null],
+  ['contact','Decision-maker found','Founder, CEO or head of growth. Name, LinkedIn, best inbox.',null],
+  ['ads','Live ads checked','Meta Ad Library and Google: what they run, what would get flagged.',null],
+  ['angle','Angle written','One line only they could get: their FDA letter, their ad, their hire.','ready'],
+  ['m1','First message sent','Template + the angle. LinkedIn or email.','contacted'],
+  ['f1','Follow-up 1 (day 3)','New value: one ad of theirs, what we would change.','contacted'],
+  ['f2','Follow-up 2 (day 7)','Short close: "Should I stop, or is a 30-minute review useful?"','contacted'],
+  ['replied','They replied','Any reply, yes or no. Log what they said in notes.','replied'],
+  ['review','Numbers review booked','Free 30 minutes on ballast.la. Prep their break-even ROAS.','call'],
+  ['proposal','Sprint proposal sent','$3.5K two-week sprint, credited to month one.','proposal'],
+  ['signed','Signed and paid','Kick off the sprint. Start the case study file.','won'],
+];
+const RANK=Object.fromEntries(STAGES.map((s,i)=>[s[0],i]));
+const TARGET={msgs:25,replies:5,calls:2,props:1};
+const TPLS=[
+  ['Tier 1: advertising, FDA-warned',`Hi [first name], saw [brand] is still running [Meta/Google] ads after the FDA's [date] letter. We help telehealth brands keep their ads running and compliant, then scale what works (one is past $1.2M a month in sales). Worth a free 30-minute numbers review? I'd bring your break-even ROAS and the two ads I'd change first.\n\nJack, Ballast`],
+  ['Tier 3: not advertising yet',`Hi [first name], [brand] isn't running paid ads yet. I put together what a compliant launch would look like for a [segment] brand: which channels, which claims are safe, and the spend it takes to break even. Want a free 30-minute walkthrough?\n\nJack, Ballast`],
+  ['AI startup hiring a GTM engineer',`Hi [first name], saw [company] is hiring a GTM engineer. That hire takes months. We build the target list, outbound and one paid channel in two weeks and hand it to them. $3.5K, and it rolls into month one if you keep us on. Want to see the list we'd start with?\n\nJack, Ballast`],
+  ['Referral partner (law firm, consultant)',`Hi [first name], read your note on the 2026 FDA letters to telehealth companies. Your clients still need to advertise. We run their paid media and rewrite claims so they hold up. Happy to send anyone you refer a free review, and to send compliance questions your way.\n\nJack, Ballast`],
+  ['Follow-up 1 (day 3)',`Quick one, [first name]: this ad of yours, [link], is the one I'd fix first. [One sentence: what and why.] Still happy to walk through the rest in 30 minutes.`],
+  ['Follow-up 2 (day 7)',`[first name], should I stop here, or is a 30-minute numbers review useful this month?`],
+];
+
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const today=()=>{const d=new Date();return d.toISOString().slice(0,10)};
+const day=ms=>new Date(ms).toISOString().slice(0,10);
+const weekStart=()=>{const d=new Date();d.setHours(0,0,0,0);d.setDate(d.getDate()-((d.getDay()+6)%7));return d.getTime()};
+const fmt=d=>d?new Date(d+'T12:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric'}):'';
+const segName=k=>(SEGS.find(s=>s[0]===k)||[,'Other'])[1];
+const stName=k=>(STAGES.find(s=>s[0]===k)||[,k])[1];
+
+let leads=[], ready=false, openId=null, KEY=null;
+const api=body=>fetch('/api/leads',{method:body?'POST':'GET',headers:{'content-type':'application/json','x-admin-key':KEY||''},body:body?JSON.stringify(body):undefined})
+  .then(async r=>{if(r.status===401){logout();throw {code:'auth'}}if(!r.ok)throw {code:'http_'+r.status};return r.json()});
+
+function stageOf(l){
+  if(l.lost)return 'lost';
+  const c=l.checks||{};let st='research';
+  for(const s of STEPS) if(c[s[0]]&&s[3]&&RANK[s[3]]>RANK[st])st=s[3];
+  return st;
+}
+function checkedAt(l,k){const e=(l.log||[]).filter(x=>x.k===k).pop();return e?e.at:null}
+// the next thing to do, and when
+function nextOf(l){
+  const st=stageOf(l), c=l.checks||{};
+  if(l.next) return {what:l.next, due:l.due||null, manual:true};
+  if(st==='won'||st==='lost')return {what:'',due:null};
+  if(c.m1&&!c.f1&&!c.replied){const t=checkedAt(l,'m1');return {what:'Send follow-up 1',due:t?day(t+3*864e5):null}}
+  if(c.f1&&!c.f2&&!c.replied){const t=checkedAt(l,'f1');return {what:'Send follow-up 2',due:t?day(t+4*864e5):null}}
+  let s=null;
+  if(!c.m1) s=STEPS.slice(0,5).find(x=>!c[x[0]]);
+  else if(c.replied) s=STEPS.slice(8).find(x=>!c[x[0]]);
+  else return {what:'Waiting for a reply',due:null};
+  return {what:s?s[1]:'',due:l.due||null};
+}
+
+/* ---------- views ---------- */
+const VIEWS=['week','leads','playbook'];
+function route(){
+  const v=VIEWS.includes(location.hash.slice(1))?location.hash.slice(1):'week';
+  VIEWS.forEach(x=>{$('v-'+x).hidden=x!==v});
+  document.querySelectorAll('.tabs a').forEach(a=>{if(a.dataset.v===v)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
+}
+addEventListener('hashchange',route);route();
+
+function renderWeek(){
+  const ws=weekStart(), n={msgs:0,replies:0,calls:0,props:0};
+  for(const l of leads) for(const e of (l.log||[])) if(e.at>=ws&&e.on!==false){
+    if(e.k==='m1'||e.k==='f1'||e.k==='f2')n.msgs++; else if(e.k==='replied')n.replies++; else if(e.k==='review')n.calls++; else if(e.k==='proposal')n.props++;
+  }
+  $('weekTitle').textContent='Week of '+new Date(ws).toLocaleDateString('en-US',{month:'long',day:'numeric'});
+  $('kpis').innerHTML=[['msgs','Messages sent'],['replies','Replies'],['calls','Calls booked'],['props','Proposals']].map(([k,label])=>{
+    const p=Math.min(100,Math.round(n[k]/TARGET[k]*100));
+    return `<div class="kpi${n[k]>=TARGET[k]?' hit':''}"><span class="mono">${label}</span><b>${n[k]}<small> / ${TARGET[k]}</small></b><div class="meter"><i style="width:${p}%"></i></div></div>`}).join('');
+  const counts=Object.fromEntries(STAGES.map(s=>[s[0],0]));leads.forEach(l=>counts[stageOf(l)]++);
+  const max=Math.max(1,...Object.values(counts));
+  $('funnel').innerHTML=STAGES.map(([k,label])=>`<div class="frow"><span>${label}</span><div class="fb"><i style="width:${counts[k]/max*100}%"></i></div><span class="n">${counts[k]}</span></div>`).join('');
+  $('pipeTotal').textContent=leads.length+' leads';
+  const t=today();
+  const due=leads.map(l=>({l,n:nextOf(l)})).filter(x=>x.n.what&&x.n.due&&x.n.due<=t).sort((a,b)=>a.n.due<b.n.due?-1:1);
+  const fresh=leads.filter(l=>stageOf(l)==='ready').slice(0,Math.max(0,8-due.length));
+  $('dueCount').textContent=due.length?due.length+' due':'';
+  const li=(l,what,when,late)=>`<li data-id="${esc(l.id)}"><span class="co">${esc(l.company)}</span><span class="${late?'late':'seg'}">${esc(when)}</span><span class="what">${esc(what)}</span></li>`;
+  $('due').innerHTML=(due.map(x=>li(x.l,x.n.what,x.n.due<t?'Overdue · '+fmt(x.n.due):'Today',x.n.due<t)).join('')+fresh.map(l=>li(l,'Ready: send the first message','Ready',false)).join(''))
+    ||`<li class="empty" style="cursor:default">Nothing due. Pick a Tier 1 lead and work the checklist.</li>`;
+}
+
+function fillFilters(){
+  $('fStage').innerHTML='<option value="">All stages</option><option value="open">Open (not won or lost)</option>'+STAGES.map(s=>`<option value="${s[0]}">${s[1]}</option>`).join('');
+  $('fSeg').innerHTML='<option value="">All segments</option>'+SEGS.map(s=>`<option value="${s[0]}">${s[1]}</option>`).join('');
+}
+fillFilters();
+['q','fStage','fSeg','fTier'].forEach(id=>$(id).addEventListener('input',renderLeads));
+function renderLeads(){
+  const q=$('q').value.trim().toLowerCase(), fs=$('fStage').value, fg=$('fSeg').value, ft=$('fTier').value, t=today();
+  const list=leads.filter(l=>{const st=stageOf(l);
+    if(fs==='open'?(st==='won'||st==='lost'):fs&&st!==fs)return false;
+    if(fg&&l.segment!==fg)return false; if(ft&&String(l.tier)!==ft)return false;
+    if(q&&![l.company,l.person,l.notes,l.website,l.why].join(' ').toLowerCase().includes(q))return false; return true})
+    .sort((a,b)=>(a.tier||9)-(b.tier||9)||RANK[stageOf(b)]-RANK[stageOf(a)]||String(a.company).localeCompare(b.company));
+  $('rows').innerHTML=list.map(l=>{const st=stageOf(l),n=nextOf(l),c=l.checks||{};
+    return `<tr data-id="${esc(l.id)}"><td><div class="co">${esc(l.company)}</div><div class="sub">${esc(l.person||l.website||'')}</div>
+      <div class="prog" aria-hidden="true">${STEPS.map(s=>`<i class="${c[s[0]]?'on':''}"></i>`).join('')}</div></td>
+      <td class="seg">${esc(segName(l.segment))}</td><td class="tier">${l.tier?'T'+l.tier:'—'}</td>
+      <td><span class="pill st-${st}"><i></i>${stName(st)}</span></td>
+      <td>${esc(n.what)}</td><td class="${n.due&&n.due<t?'late':''}">${n.due?fmt(n.due):''}</td></tr>`}).join('')
+    ||`<tr><td colspan="6" class="empty">${ready?'No leads match.':'Loading leads…'}</td></tr>`;
+  $('count').textContent=ready?`${list.length} of ${leads.length} leads`:'';
+}
+document.addEventListener('click',e=>{const r=e.target.closest('[data-id]');if(r&&!e.target.closest('.sheet'))openLead(r.dataset.id)});
+
+/* ---------- playbook bits ---------- */
+$('stepsList').innerHTML=STEPS.map(s=>`<li><span>${s[3]?stName(s[3]):'Prep'}</span><div><b>${s[1]}</b><br><span style="color:var(--mute);font-family:var(--g);font-size:14px">${s[2]}</span></div></li>`).join('');
+$('tpls').innerHTML=TPLS.map((t,i)=>`<article><header><h4>${esc(t[0])}</h4><button class="btn ghost" type="button" data-copy="${i}">Copy</button></header><pre id="tpl${i}">${esc(t[1])}</pre></article>`).join('');
+document.addEventListener('click',e=>{const b=e.target.closest('[data-copy]');if(!b)return;const txt=TPLS[+b.dataset.copy][1];
+  (navigator.clipboard?navigator.clipboard.writeText(txt):Promise.reject()).then(()=>{b.textContent='Copied';setTimeout(()=>b.textContent='Copy',1400)})
+  .catch(()=>{const r=document.createRange();r.selectNodeContents($('tpl'+b.dataset.copy));const s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selected'})});
+
+/* ---------- lead sheet ---------- */
+const chain={};
+function save(id,patch){
+  const l=leads.find(x=>x.id===id); if(l)Object.assign(l,patch);
+  renderAll();
+  chain[id]=(chain[id]||Promise.resolve()).then(()=>api({op:'upsert',id,patch:{...patch,updated:Date.now()}}))
+    .then(()=>{const s=document.querySelector('.sheet .saved');if(s&&openId===id)s.textContent='Saved'})
+    .catch(err=>{const s=document.querySelector('.sheet .saved');if(s)s.textContent='Not saved, try again'});
+}
+let typing=null;
+function openLead(id){
+  const l=leads.find(x=>x.id===id);if(!l)return;openId=id;
+  const c=l.checks||{};
+  $('sheet').innerHTML=`<header><div><span class="pill st-${stageOf(l)}"><i></i>${stName(stageOf(l))}</span><h2 style="margin-top:8px">${esc(l.company)}</h2>
+      ${l.website?`<a href="${esc(l.website)}" target="_blank" rel="noopener" class="seg">${esc(l.website.replace(/^https?:\/\//,''))}</a>`:''}</div>
+      <button class="x" type="button" id="close" aria-label="Close">×</button></header>
+    ${l.why||l.pitch?`<div class="box">${l.why?`<b>Why now</b>${esc(l.why)}`:''}${l.pitch?`<b style="margin-top:8px">Angle</b>${esc(l.pitch)}`:''}${l.tracking?`<b style="margin-top:8px">Ad tracking on their site</b>${esc(l.tracking)}`:''}${l.risk?`<b style="margin-top:8px">Risk</b>${esc(l.risk)}`:''}</div>`:''}
+    <ul class="check">${STEPS.map(s=>{const at=checkedAt(l,s[0]);return `<li><input type="checkbox" id="c-${s[0]}" data-k="${s[0]}" ${c[s[0]]?'checked':''}>
+      <label for="c-${s[0]}">${s[1]}<small>${s[2]}</small></label><time>${c[s[0]]&&at?fmt(day(at)):''}</time></li>`}).join('')}</ul>
+    <div class="fields">
+      <label>Person<input id="e-person" value="${esc(l.person)}"></label>
+      <label>Role<input id="e-role" value="${esc(l.role)}"></label>
+      <label>Email<input id="e-email" value="${esc(l.email)}" inputmode="email"></label>
+      <label>LinkedIn<input id="e-linkedin" value="${esc(l.linkedin)}"></label>
+      <label>Segment<select id="e-segment">${SEGS.map(s=>`<option value="${s[0]}" ${l.segment===s[0]?'selected':''}>${s[1]}</option>`).join('')}</select></label>
+      <label>Tier<select id="e-tier">${['','1','2','3'].map(t=>`<option value="${t}" ${String(l.tier||'')===t?'selected':''}>${t?'Tier '+t:'—'}</option>`).join('')}</select></label>
+      <label class="full">Next step (leave empty to follow the checklist)<input id="e-next" value="${esc(l.next)}"></label>
+      <label>Due<input type="date" id="e-due" value="${esc(l.due)}"></label>
+      <label>Company<input id="e-company" value="${esc(l.company)}"></label>
+      <label class="full">Notes<textarea id="e-notes">${esc(l.notes)}</textarea></label>
+    </div>
+    <div class="row"><button class="btn ghost" type="button" id="lost">${l.lost?'Reopen lead':'Mark lost'}</button><span class="saved"></span></div>`;
+  $('sheet').hidden=$('scrim').hidden=false;
+  $('close').onclick=closeLead;
+  $('sheet').querySelectorAll('.check input').forEach(cb=>cb.addEventListener('change',()=>{
+    const k=cb.dataset.k, L=leads.find(x=>x.id===id), checks={...(L.checks||{}),[k]:cb.checked};
+    const log=[...(L.log||[]),{k,at:Date.now(),on:cb.checked}].slice(-60);
+    save(id,{checks,log}); openLead(id);
+  }));
+  ['person','role','email','linkedin','next','notes','company'].forEach(f=>$('e-'+f).addEventListener('input',()=>{
+    clearTimeout(typing);typing=setTimeout(()=>save(id,{[f]:$('e-'+f).value}),600)}));
+  ['segment','tier','due'].forEach(f=>$('e-'+f).addEventListener('change',()=>save(id,{[f]:f==='tier'?($('e-tier').value?+$('e-tier').value:null):$('e-'+f).value})));
+  $('lost').onclick=()=>{save(id,{lost:!l.lost});openLead(id)};
+}
+function closeLead(){clearTimeout(typing);$('sheet').hidden=$('scrim').hidden=true;openId=null}
+$('scrim').onclick=closeLead;
+addEventListener('keydown',e=>{if(e.key==='Escape'&&openId)closeLead()});
+$('addLead').onclick=async()=>{
+  const id='lead-'+Date.now().toString(36);
+  const doc={company:'New lead',segment:'health',tier:null,checks:{},log:[],created:Date.now(),updated:Date.now()};
+  leads.push({id,...doc});renderAll();openLead(id);
+  try{await api({op:'upsert',id,patch:doc})}catch(err){const s=document.querySelector('.sheet .saved');if(s)s.textContent='Not saved, try again'}
+};
+
+function renderAll(){renderWeek();renderLeads()}
+renderAll();
+
+/* ---------- data: Netlify function behind a password ---------- */
+const note=t=>{$('dbnote').textContent=t;$('dbnote').hidden=!t};
+function load(){
+  return api().then(j=>{leads=Object.entries(j.leads||{}).map(([id,l])=>({id,...l}));ready=true;note(leads.length?'':'No leads yet. Add the first one from the Leads view.');renderAll();
+    if(openId&&!document.activeElement.closest('.sheet'))openLead(openId)})
+  .catch(e=>{if(e.code!=='auth')note('Couldn\'t reach the lead database ('+e.code+'). Reload to try again.')});
+}
+function logout(){try{sessionStorage.removeItem('bk')}catch(e){};KEY=null;$('gate').hidden=false;$('app').hidden=true}
+$('gateForm').addEventListener('submit',e=>{e.preventDefault();KEY=$('pw').value;$('gateMsg').textContent='Checking…';
+  api().then(j=>{try{sessionStorage.setItem('bk',KEY)}catch(e){};$('gate').hidden=true;$('app').hidden=false;$('gateMsg').textContent='';load()})
+  .catch(e=>{$('gateMsg').textContent=e.code==='auth'?'Wrong password.':'Couldn\'t reach the server ('+e.code+').';$('gate').hidden=false})});
+try{KEY=sessionStorage.getItem('bk')}catch(e){}
+if(KEY){$('gate').hidden=true;$('app').hidden=false;load()}
+addEventListener('focus',()=>{if(KEY&&!openId)load()});
+})();
+</script>
+</body></html>
