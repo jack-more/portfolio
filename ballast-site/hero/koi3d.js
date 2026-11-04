@@ -226,7 +226,7 @@ function boot() {
         mesh.customDepthMaterial = swimify(new THREE.MeshDepthMaterial({ depthPacking: THREE.RGBADepthPacking }), u);
         mesh.castShadow = true; grp.add(mesh);
       });
-      const f = { grp, u, x: rnd(.58, .9) * W, z: rnd(.18, .82) * H, y: rnd(.35, .85) * D, ty: rnd(.35, .85) * D, a: rnd(-2.9, -2.3), v: rnd(30, 46),
+      const f = { grp, u, x: rnd(.58, .9) * W, z: rnd(.18, .82) * H, y: rnd(.35, .85) * D, ty: rnd(.35, .85) * D, a: rnd(-2.9, -2.3), v: rnd(50, 70), pace: rnd(.85, 1.2),
         turn: 0, wander: rnd(-1, 1), side: rnd(0, 6.28), scale: rnd(.84, 1.08), seek: null, react: 0, nib: 0, bank: 0 };
       grp.scale.setScalar(L * f.scale); world.add(grp); fish.push(f);
     }
@@ -248,12 +248,12 @@ function boot() {
       if (f.seek && now >= f.seek.until) f.seek = null;
       if (f.seek && f.seek.obj && !f.seek.obj.alive) f.seek = null;
       f.wander += rnd(-1, 1) * dt * .9; f.wander = Math.max(-.8, Math.min(.8, f.wander));
-      const a = f.a + f.wander * .7; dx = Math.cos(a); dz = Math.sin(a); goal = 38;
+      const a = f.a + f.wander * .7; dx = Math.cos(a); dz = Math.sin(a); goal = 64 * f.pace;   // cruising: about a third of a body length a second
       if (lure && now - lure.t < 2600) {             // follow the cursor: each koi trails it from its own side, never on top of it
         const lx = lure.x + Math.cos(f.side) * len * .7, lz = lure.z + Math.sin(f.side) * len * .7;
         const ex = lx - hx, ez = lz - hz, d = Math.hypot(ex, ez), pull = Math.min(1, d / (len * 2));
         dx = dx * (1 - pull) + ex / (d || 1) * pull * 1.6; dz = dz * (1 - pull) + ez / (d || 1) * pull * 1.6;
-        goal = Math.min(95, Math.max(30, d * .6)); maxW = 1.1;
+        goal = Math.min(140, Math.max(40, d * .7)); maxW = 1.2;
       }
       if (Math.random() < dt * .15) f.ty = rnd(.3, .88) * D;
     }
@@ -273,7 +273,7 @@ function boot() {
     f.x += Math.cos(f.a) * f.v * dt; f.z += Math.sin(f.a) * f.v * dt;
     f.y += (f.ty - f.y) * Math.min(1, dt * .4);
     f.u.uPhase.value += dt * (2.6 + f.v * .045);
-    f.u.uAmp.value = .04 + Math.min(f.v, 120) / 120 * .05;
+    f.u.uAmp.value = .05 + Math.min(f.v, 120) / 120 * .06;
     f.u.uTurn.value = Math.max(-.09, Math.min(.09, -f.turn * .1));
     f.bank += (Math.max(-.17, Math.min(.17, -f.turn * .14)) - f.bank) * Math.min(1, dt * 3);
     f.grp.position.set(f.x, f.y, f.z);
@@ -527,18 +527,20 @@ function boot() {
   scene0.addEventListener('click', e => { if (e.pointerType && e.pointerType !== 'mouse') press(e); });
 
   // ---------------- frame
-  let run = true, last = 0, lowRes = false, q0 = 0, qn = 0, qDone = false;   // q*: the first seconds decide the quality
+  let run = true, last = 0, lowRes = false, q0 = 0, qn = 0, qDone = false; const onReady = [];   // q*: the first seconds decide the quality
   const floaters = () => objs.filter(o => !o.under);
   const ghost = (fl, on) => fl.forEach(o => o.mats.forEach(m => { m.colorWrite = !on; m.depthWrite = !on; }));
   function frame(now) {
     if (!run) return; requestAnimationFrame(frame);
     const dt = Math.min(.05, (now - (last || now)) / 1000); last = now;
-    if (!qDone && !document.hidden) {                 // slow machine: drop to 1x pixels; very slow: keep the still
-      if (!q0) q0 = now; qn++;
-      if (now - q0 > 4000) {
-        qDone = true; const fps = qn * 1000 / (now - q0);
-        if (fps < 32) { run = false; scene0.classList.remove('koi-live'); setTimeout(() => { renderer.dispose(); canvas.remove(); }, 1000); return; }
-        if (fps < 50 && !lowRes) { lowRes = true; layout(); }
+    if (!qDone && !document.hidden) {                 // a short speed test: step down the resolution first; give up on motion only on very slow machines
+      if (!q0) q0 = now + 1000;                       // skip the first second (start-up hiccups)
+      if (now > q0) qn++;
+      if (now - q0 > 2500) {
+        const fps = qn * 1000 / (now - q0);
+        if (fps < 45 && !lowRes) { lowRes = true; layout(); q0 = now + 500; qn = 0; }
+        else if (fps < 18) { qDone = true; run = false; scene0.classList.remove('koi-live'); setTimeout(() => { renderer.dispose(); canvas.remove(); }, 1000); return; }
+        else { qDone = true; onReady.forEach(f => f()); }
       }
     }
     shared.time.value = now / 1000;
@@ -585,7 +587,7 @@ function boot() {
       const p = twin ? Promise.resolve().then(() => { s.parts = twin.parts; s.half = twin.half; }) : loadItem(s);
       p.catch(e => console.warn('koi pool item:', s.glb || s.img, e)).then(() => idle(pump, 4000));
     };
-    first.catch(() => {}).then(() => idle(pump, 4000));
+    onReady.push(() => idle(pump, 3000));
     first.then(() => setTimeout(() => { if (!touched && live) drop(W * .3, H * .55); }, 1800)).catch(() => {});
   }).catch(err => { console.warn('koi pool:', err); renderer.dispose(); canvas.remove(); });
 }
