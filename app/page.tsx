@@ -188,6 +188,75 @@ function WorkRow({ company, desc, href, details, clients, sub = false }: WorkIte
   );
 }
 
+
+function Subscribe() {
+  const [msg, setMsg] = useState("");
+  const [busy, setBusy] = useState(false);
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const f = e.currentTarget;
+    const data = new FormData(f);
+    setBusy(true);
+    try {
+      const r = await fetch("https://ballast.la/api/subscribe", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ email: data.get("email"), company: data.get("company"), source: "jackmorello.com" }),
+      });
+      const d = await r.json().catch(() => ({}));
+      setMsg(r.ok ? "You're in. First note lands this week." : d.error || "Something went wrong. Try again.");
+      if (r.ok) f.reset();
+    } catch {
+      setMsg("Something went wrong. Try again.");
+    }
+    setBusy(false);
+  }
+  return (
+    <form className="pitch-sub" onSubmit={onSubmit}>
+      <label className="pitch-sub-label" htmlFor="sub-email">One note a week on what&apos;s actually working in paid media.</label>
+      <div className="pitch-sub-row">
+        <input id="sub-email" type="email" name="email" placeholder="you@company.com" required />
+        <input className="pitch-hp" name="company" tabIndex={-1} autoComplete="off" aria-hidden="true" />
+        <button type="submit" disabled={busy}>Subscribe</button>
+      </div>
+      {msg && <p className="pitch-sub-msg" role="status">{msg}</p>}
+    </form>
+  );
+}
+
+function Pitch() {
+  const stats = [
+    { n: "$1.2M+", l: "a month in sales for one DTC client" },
+    { n: "6x", l: "peak ROAS" },
+    { n: "1,000+", l: "ads shipped" },
+    { n: "$1M+", l: "managed for Starbucks, Toyota, STARZPLAY" },
+  ];
+  return (
+    <div className="pitch">
+      <p className="pitch-kicker">Growth &amp; performance marketing &middot; 8+ years &middot; Los Angeles</p>
+      <h1 className="pitch-h">I scale what actually sells.</h1>
+      <p className="pitch-dek">
+        Platforms grade their own homework. I run paid on Meta, TikTok and Google, ship creative at volume,
+        and move budget on verified revenue, not dashboards.
+      </p>
+      <div className="pitch-stats">
+        {stats.map((s) => (
+          <div key={s.n}>
+            <b>{s.n}</b>
+            <span>{s.l}</span>
+          </div>
+        ))}
+      </div>
+      <div className="pitch-ctas">
+        <a className="pitch-btn pitch-btn-solid" href="https://ballast.la/#book" target="_blank" rel="noopener noreferrer">Book a call</a>
+        <a className="pitch-btn" href="mailto:jack@ballast.la?subject=Hiring%20Jack">Hire me</a>
+        <a className="pitch-btn" href="/JackMorello_CV.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
+      </div>
+      <Subscribe />
+    </div>
+  );
+}
+
 export default function HomePage() {
   return (
     <>
@@ -196,6 +265,10 @@ export default function HomePage() {
       <div className="layout">
         {/* Left column */}
         <div className="col-left">
+          <DraggableCard title="Work with me">
+            <Pitch />
+          </DraggableCard>
+
           <DraggableCard width={200}>
             <div className="illustration-card">
               <Image

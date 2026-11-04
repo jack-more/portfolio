@@ -811,3 +811,36 @@ a:hover {
   .wall { --c: 4; --g: 3px; }
   .wall-tile figcaption { font-size: 9px; padding: 4px 5px; left: 4px; bottom: 4px; }
 }
+
+/* ---- Pitch card ---- */
+.pitch-kicker { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-secondary); font-weight: 600; }
+.pitch-h { font-size: clamp(34px, 4.6vw, 58px); line-height: 0.95; font-weight: 800; letter-spacing: -0.04em; text-transform: uppercase; margin: 8px 0 10px; }
+.pitch-dek { font-size: 14px; max-width: 58ch; margin-bottom: 14px; }
+.pitch-stats { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid #000; margin-bottom: 14px; }
+.pitch-stats > div { padding: 10px 12px; border-right: 1px dashed var(--dash); }
+.pitch-stats > div:last-child { border-right: none; }
+.pitch-stats b { display: block; font-size: 30px; line-height: 1; font-weight: 800; letter-spacing: -0.03em; }
+.pitch-stats span { display: block; font-size: 11px; color: var(--text-secondary); line-height: 1.35; margin-top: 4px; }
+.pitch-ctas { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+.pitch-btn { display: inline-block; padding: 8px 14px; border: 1px solid #000; font-weight: 700; font-size: 12px; text-decoration: none !important; color: var(--text); background: transparent; }
+.pitch-btn:hover { background: #000; color: #DFD6CC; }
+.pitch-btn-solid { background: #000; color: #DFD6CC; }
+.pitch-btn-solid:hover { background: var(--green); border-color: var(--green); color: #fff; }
+.pitch-sub { border-top: 1px dashed var(--dash); padding-top: 12px; }
+.pitch-sub-label { display: block; font-size: 12px; font-weight: 600; margin-bottom: 6px; }
+.pitch-sub-row { display: flex; gap: 6px; }
+.pitch-sub-row input[type="email"] { flex: 1; min-width: 0; padding: 7px 10px; border: 1px solid #000; background: #EFE8DF; font: inherit; font-size: 13px; }
+.pitch-sub-row button { padding: 7px 14px; border: 1px solid #000; background: var(--green); color: #fff; font-weight: 700; font-size: 12px; cursor: pointer; }
+.pitch-sub-row button:disabled { opacity: 0.6; }
+.pitch-hp { position: absolute; left: -9999px; width: 1px; height: 1px; }
+.pitch-sub-msg { font-size: 12px; color: var(--green); margin-top: 6px; }
+@media (max-width: 640px) {
+  .pitch-stats { grid-template-columns: repeat(2, 1fr); }
+  .pitch-stats > div:nth-child(2) { border-right: none; }
+  .pitch-stats > div:nth-child(-n+2) { border-bottom: 1px dashed var(--dash); }
+  .pitch-stats b { font-size: 24px; }
+}
+
+.pitch a.pitch-btn-solid, .pitch a.pitch-btn-solid:visited { color: #DFD6CC !important; }
+.pitch a.pitch-btn-solid:hover { color: #fff !important; }
+.pitch a.pitch-btn:hover { color: #DFD6CC !important; }

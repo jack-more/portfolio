@@ -18,7 +18,7 @@ export default function DraggableCard({ title, width, maxHeight, children }: Pro
 
   const onMouseDown = useCallback((e: React.MouseEvent) => {
     const target = e.target as HTMLElement;
-    if (target.closest("a") || target.closest("button")) return;
+    if (target.closest("a, button, input, textarea, select, label, form")) return;
     if (!cardRef.current) return;
 
     const rect = cardRef.current.getBoundingClientRect();

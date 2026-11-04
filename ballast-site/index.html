@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Ballast — Research, development and media distribution, Los Angeles</title>
-<meta name="description" content="Research. Reach. Scale. Ballast runs paid media, UGC creator campaigns and research for brands in health, streaming, retail and open finance. 6.5× blended ROAS at peak spend.">
+<meta name="description" content="Research. Reach. Scale. Ballast runs paid media, UGC creator campaigns and research for brands in health, streaming, retail and open finance. 6× peak ROAS for a DTC client.">
 <link rel="canonical" href="https://ballast.la/">
 <link rel="icon" href="/favicon.png">
 <meta property="og:type" content="website">
@@ -547,6 +547,7 @@
       <a href="#clients">Clients</a>
       <a href="#rd">Services</a>
       <a href="#pricing">Pricing</a>
+      <a href="/notes/">Notes</a>
     </nav>
     <div class="nav__end">
       <a class="btn" href="#book">Book a call</a>
@@ -570,7 +571,7 @@
           <p class="plate__body">We find what sells, put the money behind it, and keep the customers it brings.</p>
         </div>
         <div class="plate__side">
-        <div class="plate__proof num"><div><b>$2M+</b><span>a month in ad spend</span></div><div><b>4&times;</b><span>blended ROAS at that scale</span></div></div>
+        <div class="plate__proof num"><div><b>$1.2M+</b><span>a month in sales for one client</span></div><div><b>6&times;</b><span>peak ROAS</span></div></div>
         <div class="plate__cta">
           <a class="btn btn--lg scene__go" href="#book">Book a call</a>
           <a class="btn btn--lg scene__ghost" href="#work">Work</a>
@@ -606,8 +607,8 @@
       </div>
     </div>
     <div class="case__stats">
-      <div><b class="serif">6.5&times;</b><span>Blended ROAS at peak spend</span></div>
-      <div><b class="serif">$1.2M+</b><span>Monthly sales for a telehealth brand</span></div>
+      <div><b class="serif">6&times;</b><span>Peak ROAS for a DTC client</span></div>
+      <div><b class="serif">$1.2M+</b><span>Monthly sales for a health and wellness brand</span></div>
       <div><b class="serif">30+</b><span>UGC creators onboarded, paid on sales</span></div>
       <div><b class="serif">$5K</b><span>A day in sales from TikTok LIVE selling</span></div>
     </div>
@@ -674,7 +675,7 @@
           <span class="trk__a">Meta, TikTok, Google, YouTube, programmatic and CTV.</span>
           <span class="trk__more"><span class="trk__lbl">More</span><i aria-hidden="true"></i></span>
         </button>
-        <div class="trk__x" id="t02x"><p>Tested every week and reported against revenue. Up to $2M+ a month at 4&times; blended ROAS for Toyota, Starbucks and STARZPLAY.</p></div>
+        <div class="trk__x" id="t02x"><p>Tested every week and reported against revenue. $1M+ in paid media for Toyota, Starbucks and STARZPLAY at a 2.5% average CTR.</p></div>
       </li>
       <li class="trk" id="t03">
         <button type="button" class="trk__row" aria-expanded="false" aria-controls="t03x">
@@ -719,7 +720,7 @@
           <span class="trk__a">Telehealth, supplements, peptides and open finance.</span>
           <span class="trk__more"><span class="trk__lbl">More</span><i aria-hidden="true"></i></span>
         </button>
-        <div class="trk__x" id="t07x"><p>We know what Meta, Google and the FDA flag, and we write claims that hold up. $1.2M+ a month in sales for a telehealth brand.</p></div>
+        <div class="trk__x" id="t07x"><p>We know what Meta, Google and the FDA flag, and we write claims that hold up. $1.2M+ a month in sales for a health and wellness brand.</p></div>
       </li>
       <li class="trk" id="t08">
         <button type="button" class="trk__row" aria-expanded="false" aria-controls="t08x">
@@ -786,6 +787,26 @@
 
 
   <!-- book -->
+  <section class="nl pad" id="notes" aria-labelledby="nlT">
+    <div class="nl__in">
+      <div><span class="mono">Notes</span><h2 id="nlT">One note a week on what&rsquo;s actually working.</h2><p>Paid media, creative and measurement, written from the accounts we run. <a href="/notes/">Read the latest</a>.</p></div>
+      <form class="nl__form" data-sub="ballast-home"><input type="email" name="email" placeholder="you@company.com" required aria-label="Email"><input class="nl__hp" name="company" tabindex="-1" autocomplete="off" aria-hidden="true"><button type="submit" class="btn">Subscribe</button><p class="nl__msg mono" role="status"></p></form>
+    </div>
+  </section>
+  <style>
+    .nl{background:var(--cobalt);color:#fff}
+    .nl__in{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(20px,4vw,64px);align-items:end}
+    .nl h2{font:800 clamp(30px,4.2vw,60px)/.98 var(--g);letter-spacing:-.035em;text-transform:uppercase;margin:10px 0 12px}
+    .nl p{margin:0;max-width:52ch}.nl a{color:#fff}
+    .nl__form{display:flex;gap:8px;flex-wrap:wrap}
+    .nl__form input[type=email]{flex:1 1 240px;padding:15px 16px;border:0;border-radius:999px;font:400 16px var(--g)}
+    .nl__form .btn{background:var(--orange);color:var(--ink);border:0;cursor:pointer}
+    .nl__hp{position:absolute;left:-9999px}.nl__msg{flex-basis:100%;margin:4px 0 0;font-size:13px}
+    @media(max-width:760px){.nl__in{grid-template-columns:1fr}}
+  </style>
+  <script>
+    document.querySelectorAll("form[data-sub]").forEach((f)=>f.addEventListener("submit",async(e)=>{e.preventDefault();const m=f.querySelector("[role=status]"),b=f.querySelector("button");b.disabled=true;try{const r=await fetch("/api/subscribe",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({email:f.email.value,company:f.company.value,source:f.dataset.sub})});const d=await r.json().catch(()=>({}));m.textContent=r.ok?"You're in. First note lands this week.":(d.error||"Something went wrong. Try again.");if(r.ok)f.reset()}catch{m.textContent="Something went wrong. Try again."}b.disabled=false}));
+  </script>
   <section class="book pad" id="book">
     <div class="book__bar"><span class="mono">Book 30 minutes with Jack &middot; Pacific time</span><span class="book__offer mono" id="calOffer" hidden></span></div>
     <div class="cal" id="cal">
