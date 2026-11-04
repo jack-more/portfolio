@@ -236,8 +236,8 @@ function Pitch() {
       <p className="pitch-kicker">Growth &amp; performance marketing &middot; 8+ years &middot; Los Angeles</p>
       <h1 className="pitch-h">I scale what actually sells.</h1>
       <p className="pitch-dek">
-        Platforms grade their own homework. I run paid on Meta, TikTok and Google, ship creative at volume,
-        and move budget on verified revenue, not dashboards.
+        Ad platforms overcount their own results. I run paid on Meta, TikTok and Google, ship creative at volume,
+        and move budget on real sales, not dashboards.
       </p>
       <div className="pitch-stats">
         {stats.map((s) => (
