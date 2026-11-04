@@ -247,6 +247,23 @@ a:hover {
   padding-bottom: 0;
 }
 
+.work-clients {
+  margin-left: 14px;
+  border-left: 1px dashed var(--dash);
+  padding-left: 8px;
+  margin-bottom: 2px;
+}
+
+.work-row-sub {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.work-row-sub .row-left-link {
+  font-weight: 600;
+}
+
 .row-left-link {
   text-decoration: none !important;
   color: var(--text);

@@ -6,7 +6,15 @@ import GridCanvas from "./components/GridCanvas";
 import DraggableCard from "./components/DraggableCard";
 import MusicCard from "./components/MusicCard";
 
-const work = [
+type WorkItem = {
+  company: string;
+  desc: string;
+  href: string;
+  details: string[];
+  clients?: WorkItem[];
+};
+
+const work: WorkItem[] = [
   {
     company: "Ballast Research",
     desc: "Founder. Growth, paid media and research for brands ready to scale",
@@ -17,29 +25,31 @@ const work = [
       "Engagements from $3.5K to $100K: audits, sprints, fractional leadership and full media runs",
       "Built a loyalty economy for a DTC brand, and ticketing, live-event rewards and fan participation vouchers for SailGP",
     ],
-  },
-  {
-    company: "History of the Game",
-    desc: "Basketball's greatest stories, told by the players who lived them",
-    href: "https://ballast.la/",
-    details: [
-      "A media house built with retired players and the sharpest clip editors on the internet",
-      "Players commission the edits, react to the cuts and own the channels",
-      "Built by Ballast Research",
-    ],
-  },
-  {
-    company: "SKO",
-    desc: "Head of Performance Marketing: $1.2M+ a month in sales",
-    href: "https://skocompounds.com/",
-    details: [
-      "Ran TikTok paid, lifecycle, and attribution for a Beverly Hills DTC brand past 40,000 orders shipped",
-      "Set up TikTok LIVE selling, now bringing in $5K in sales a day",
-      "Scaled daily spend 5x in one week while holding ~3.5x blended ROAS and sub-$60 CPA",
-      "Built the measurement stack: pixel + server-side events with verified dedupe, RedTrack spend sync, first-party click attribution, and an admin reporting layer",
-      "Ran the creative pipeline end to end: UGC direction, AI-generated brand personas and cinematic spots, motion-graphics overlays, caption and title systems",
-      "Designed the loyalty program: points, levels and The Drop, a daily Plinko game",
-      "Hit 7x ROAS on the best campaign by pairing urgency offers with creator footage",
+    clients: [
+      {
+        company: "History of the Game",
+        desc: "Basketball's greatest stories, told by the players who lived them",
+        href: "https://ballast.la/",
+        details: [
+          "A media house built with retired players and the sharpest clip editors on the internet",
+          "Players commission the edits, react to the cuts and own the channels",
+          "Built by Ballast Research",
+        ],
+      },
+      {
+        company: "SKO",
+        desc: "Head of Performance Marketing: $1.2M+ a month in sales",
+        href: "https://skocompounds.com/",
+        details: [
+          "Ran TikTok paid, lifecycle, and attribution for a Beverly Hills DTC brand past 40,000 orders shipped",
+          "Set up TikTok LIVE selling, now bringing in $5K in sales a day",
+          "Scaled daily spend 5x in one week while holding ~3.5x blended ROAS and sub-$60 CPA",
+          "Built the measurement stack: pixel + server-side events with verified dedupe, RedTrack spend sync, first-party click attribution, and an admin reporting layer",
+          "Ran the creative pipeline end to end: UGC direction, AI-generated brand personas and cinematic spots, motion-graphics overlays, caption and title systems",
+          "Designed the loyalty program: points, levels and The Drop, a daily Plinko game",
+          "Hit 7x ROAS on the best campaign by pairing urgency offers with creator footage",
+        ],
+      },
     ],
   },
   {
@@ -48,9 +58,28 @@ const work = [
     href: "https://www.incubella.co/",
     details: [
       "Partner at growth advisory firm building GTM systems for early-stage clients",
-      "Engagement: Riskiiit, secured client contract and built early Telegram-led GTM",
-      "Engagement: Devolved AI, embedded marketing lead for private AI platform",
       "AI-assisted workflows for campaign research, creative iteration, landing pages, reporting",
+    ],
+    clients: [
+      {
+        company: "Devolved AI",
+        desc: "Embedded marketing lead for a private AI platform",
+        href: "https://www.incubella.co/",
+        details: [
+          "Owned positioning, messaging and launch strategy for enterprise users",
+          "Built a LinkedIn and content pipeline that booked 150+ demos for sales at a $22 cost per lead",
+          "Rebuilt onboarding, brand and onboarding emails, cutting drop-off 35%",
+        ],
+      },
+      {
+        company: "Riskiiit",
+        desc: "Telegram-led GTM for a crypto gaming app",
+        href: "https://www.incubella.co/",
+        details: [
+          "Secured the client contract and built the early Telegram go-to-market plan",
+          "Built a wallet cohort toolkit to find high-intent communities and creators",
+        ],
+      },
     ],
   },
   {
@@ -127,12 +156,10 @@ function Row({ left, right, href }: { left: string; right: string; href?: string
   return content;
 }
 
-function WorkRow({ company, desc, href, details }: {
-  company: string; desc: string; href: string; details: string[];
-}) {
+function WorkRow({ company, desc, href, details, clients, sub = false }: WorkItem & { sub?: boolean }) {
   const [open, setOpen] = useState(false);
   return (
-    <div className="work-row-wrapper">
+    <div className={sub ? "work-row-wrapper work-row-sub" : "work-row-wrapper"}>
       <div className="row">
         <a href={href} target="_blank" rel="noopener noreferrer" className="row-left row-left-link">{company}</a>
         <span className="row-dash" />
@@ -151,6 +178,13 @@ function WorkRow({ company, desc, href, details }: {
             <li key={d}>{d}</li>
           ))}
         </ul>
+      )}
+      {clients && clients.length > 0 && (
+        <div className="work-clients">
+          {clients.map((c) => (
+            <WorkRow key={c.company} {...c} sub />
+          ))}
+        </div>
       )}
     </div>
   );
@@ -204,13 +238,7 @@ export default function HomePage() {
               </div>
             </a>
             {work.map((w) => (
-              <WorkRow
-                key={w.company}
-                company={w.company}
-                desc={w.desc}
-                href={w.href}
-                details={w.details}
-              />
+              <WorkRow key={w.company} {...w} />
             ))}
           </DraggableCard>
         </div>
