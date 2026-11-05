@@ -93,7 +93,7 @@ main .wrap{padding-block:28px 64px}
 .btn:hover{filter:brightness(1.15)}
 .btn:disabled{opacity:.4;cursor:default}
 .tablebox{overflow-x:auto;background:var(--panel);border:1px solid var(--line);border-radius:12px}
-table{width:100%;border-collapse:collapse;min-width:760px}
+table{width:100%;border-collapse:collapse;min-width:900px}
 th{text-align:left;font-family:var(--m);font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--mute);font-weight:400;padding:10px 14px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--panel)}
 td{padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top}
 tbody tr{cursor:pointer}
@@ -104,6 +104,13 @@ td .sub{color:var(--mute);font-size:13px}
 .prog{display:flex;gap:2px;margin-top:6px}
 .prog i{width:9px;height:4px;border-radius:2px;background:var(--line)}
 .prog i.on{background:var(--cobalt)}
+.links{display:flex;flex-wrap:wrap;gap:4px 10px;font-size:13px}
+.links a{color:var(--cobalt);text-decoration:none;font-weight:500;white-space:nowrap}
+.links a:hover{text-decoration:underline}
+.links a.find{color:var(--mute);font-weight:400}
+.contact{display:grid;gap:8px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.links.big{font-size:15px;align-items:center;gap:8px 16px}
+.btn.sm{padding:4px 10px;font-size:11px}
 .count{color:var(--mute);font-size:13px;margin:10px 2px 0}
 
 /* sheet */
@@ -191,7 +198,7 @@ ul.plain{margin:0;padding-left:18px;display:grid;gap:4px}
       <select id="fTier" aria-label="Tier"><option value="">All tiers</option><option value="1">Tier 1</option><option value="2">Tier 2</option><option value="3">Tier 3</option></select>
     </div>
     <div class="tablebox"><table>
-      <thead><tr><th>Company</th><th>Segment</th><th>Tier</th><th>Stage</th><th>Next step</th><th>Due</th></tr></thead>
+      <thead><tr><th>Company</th><th>Contact</th><th>Segment</th><th>Tier</th><th>Stage</th><th>Next step</th><th>Due</th></tr></thead>
       <tbody id="rows"></tbody>
     </table></div>
     <p class="count" id="count"></p>
@@ -290,6 +297,14 @@ const today=()=>{const d=new Date();return d.toISOString().slice(0,10)};
 const day=ms=>new Date(ms).toISOString().slice(0,10);
 const weekStart=()=>{const d=new Date();d.setHours(0,0,0,0);d.setDate(d.getDate()-((d.getDay()+6)%7));return d.getTime()};
 const fmt=d=>d?new Date(d+'T12:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric'}):'';
+const mailOf=l=>(l.email||l.inbox||'').replace(/\s*\(.*$/,'').trim();
+const url=u=>!u?'':/^https?:\/\//.test(u)?u:'https://'+u;
+const liSearch=l=>'https://www.linkedin.com/search/results/people/?keywords='+encodeURIComponent((l.company||'')+' founder');
+function contactLinks(l){const m=mailOf(l),out=[];
+  if(m)out.push(`<a href="mailto:${esc(m)}" title="${esc(m)}">Email</a>`);
+  out.push(l.linkedin?`<a href="${esc(url(l.linkedin))}" target="_blank" rel="noopener">LinkedIn</a>`:`<a href="${esc(liSearch(l))}" target="_blank" rel="noopener" class="find">Find on LinkedIn</a>`);
+  if(l.website)out.push(`<a href="${esc(url(l.website))}" target="_blank" rel="noopener">Site</a>`);
+  return out.join('')}
 const segName=k=>(SEGS.find(s=>s[0]===k)||[,'Other'])[1];
 const stName=k=>(STAGES.find(s=>s[0]===k)||[,k])[1];
 
@@ -344,7 +359,7 @@ function renderWeek(){
   const due=leads.map(l=>({l,n:nextOf(l)})).filter(x=>x.n.what&&x.n.due&&x.n.due<=t).sort((a,b)=>a.n.due<b.n.due?-1:1);
   const fresh=leads.filter(l=>stageOf(l)==='ready').slice(0,Math.max(0,8-due.length));
   $('dueCount').textContent=due.length?due.length+' due':'';
-  const li=(l,what,when,late)=>`<li data-id="${esc(l.id)}"><span class="co">${esc(l.company)}</span><span class="${late?'late':'seg'}">${esc(when)}</span><span class="what">${esc(what)}</span></li>`;
+  const li=(l,what,when,late)=>`<li data-id="${esc(l.id)}"><span class="co">${esc(l.company)}</span><span class="${late?'late':'seg'}">${esc(when)}</span><span class="what">${esc(what)}</span><span class="links" style="grid-column:1/-1">${contactLinks(l)}</span></li>`;
   $('due').innerHTML=(due.map(x=>li(x.l,x.n.what,x.n.due<t?'Overdue · '+fmt(x.n.due):'Today',x.n.due<t)).join('')+fresh.map(l=>li(l,'Ready: send the first message','Ready',false)).join(''))
     ||`<li class="empty" style="cursor:default">Nothing due. Pick a Tier 1 lead and work the checklist.</li>`;
 }
@@ -365,13 +380,13 @@ function renderLeads(){
   $('rows').innerHTML=list.map(l=>{const st=stageOf(l),n=nextOf(l),c=l.checks||{};
     return `<tr data-id="${esc(l.id)}"><td><div class="co">${esc(l.company)}</div><div class="sub">${esc(l.person||l.website||'')}</div>
       <div class="prog" aria-hidden="true">${STEPS.map(s=>`<i class="${c[s[0]]?'on':''}"></i>`).join('')}</div></td>
-      <td class="seg">${esc(segName(l.segment))}</td><td class="tier">${l.tier?'T'+l.tier:'—'}</td>
+      <td><div class="links">${contactLinks(l)}</div></td><td class="seg">${esc(segName(l.segment))}</td><td class="tier">${l.tier?'T'+l.tier:'—'}</td>
       <td><span class="pill st-${st}"><i></i>${stName(st)}</span></td>
       <td>${esc(n.what)}</td><td class="${n.due&&n.due<t?'late':''}">${n.due?fmt(n.due):''}</td></tr>`}).join('')
-    ||`<tr><td colspan="6" class="empty">${ready?'No leads match.':'Loading leads…'}</td></tr>`;
+    ||`<tr><td colspan="7" class="empty">${ready?'No leads match.':'Loading leads…'}</td></tr>`;
   $('count').textContent=ready?`${list.length} of ${leads.length} leads`:'';
 }
-document.addEventListener('click',e=>{const r=e.target.closest('[data-id]');if(r&&!e.target.closest('.sheet'))openLead(r.dataset.id)});
+document.addEventListener('click',e=>{if(e.target.closest('a'))return;const r=e.target.closest('[data-id]');if(r&&!e.target.closest('.sheet'))openLead(r.dataset.id)});
 
 /* ---------- playbook bits ---------- */
 $('stepsList').innerHTML=STEPS.map(s=>`<li><span>${s[3]?stName(s[3]):'Prep'}</span><div><b>${s[1]}</b><br><span style="color:var(--mute);font-family:var(--g);font-size:14px">${s[2]}</span></div></li>`).join('');
@@ -396,6 +411,17 @@ function openLead(id){
   $('sheet').innerHTML=`<header><div><span class="pill st-${stageOf(l)}"><i></i>${stName(stageOf(l))}</span><h2 style="margin-top:8px">${esc(l.company)}</h2>
       ${l.website?`<a href="${esc(l.website)}" target="_blank" rel="noopener" class="seg">${esc(l.website.replace(/^https?:\/\//,''))}</a>`:''}</div>
       <button class="x" type="button" id="close" aria-label="Close">×</button></header>
+    <div class="contact">
+      ${l.person?`<div><b>${esc(l.person)}</b>${l.role?` · ${esc(l.role)}`:''}</div>`:`<div class="seg">No decision-maker yet.</div>`}
+      <div class="links big">${mailOf(l)?`<a href="mailto:${esc(mailOf(l))}">${esc(mailOf(l))}</a><button type="button" class="btn ghost sm" data-copymail="${esc(mailOf(l))}">Copy</button>`:''}
+        ${l.linkedin?`<a href="${esc(url(l.linkedin))}" target="_blank" rel="noopener">LinkedIn profile</a>`:''}
+        <a href="${esc(liSearch(l))}" target="_blank" rel="noopener" class="find">Search founders on LinkedIn</a>
+        ${l.website?`<a href="${esc(url(l.website))}" target="_blank" rel="noopener">Website</a>`:''}
+        ${l.website?`<a href="https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&q=${encodeURIComponent(l.company)}" target="_blank" rel="noopener">Their live ads</a>`:''}</div>
+      ${l.inbox&&l.inbox!==mailOf(l)?`<div class="seg">FDA letter went to ${esc(l.inbox)}</div>`:''}
+      ${l.address?`<div class="seg">HQ: ${esc(l.address)}</div>`:''}
+      ${/guess/i.test(l.notes||'')?`<div class="seg">${esc(l.notes)}</div>`:''}
+    </div>
     ${l.why||l.pitch?`<div class="box">${l.why?`<b>Why now</b>${esc(l.why)}`:''}${l.pitch?`<b style="margin-top:8px">Angle</b>${esc(l.pitch)}`:''}${l.tracking?`<b style="margin-top:8px">Ad tracking on their site</b>${esc(l.tracking)}`:''}${l.risk?`<b style="margin-top:8px">Risk</b>${esc(l.risk)}`:''}</div>`:''}
     <ul class="check">${STEPS.map(s=>{const at=checkedAt(l,s[0]);return `<li><input type="checkbox" id="c-${s[0]}" data-k="${s[0]}" ${c[s[0]]?'checked':''}>
       <label for="c-${s[0]}">${s[1]}<small>${s[2]}</small></label><time>${c[s[0]]&&at?fmt(day(at)):''}</time></li>`}).join('')}</ul>
@@ -424,6 +450,8 @@ function openLead(id){
   ['segment','tier','due'].forEach(f=>$('e-'+f).addEventListener('change',()=>save(id,{[f]:f==='tier'?($('e-tier').value?+$('e-tier').value:null):$('e-'+f).value})));
   $('lost').onclick=()=>{save(id,{lost:!l.lost});openLead(id)};
 }
+document.addEventListener('click',e=>{const b=e.target.closest('[data-copymail]');if(!b)return;
+  (navigator.clipboard?navigator.clipboard.writeText(b.dataset.copymail):Promise.reject()).then(()=>{b.textContent='Copied';setTimeout(()=>b.textContent='Copy',1400)}).catch(()=>{b.textContent='Select it'})});
 function closeLead(){clearTimeout(typing);$('sheet').hidden=$('scrim').hidden=true;openId=null}
 $('scrim').onclick=closeLead;
 addEventListener('keydown',e=>{if(e.key==='Escape'&&openId)closeLead()});
