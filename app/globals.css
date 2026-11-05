@@ -959,3 +959,8 @@ a.art3d-available:hover { background: var(--green); color: #fff; }
 .svc-vid video { display: block; width: 100%; height: 100%; object-fit: cover; }
 .svc-vid:hover { outline: 2px solid var(--green); outline-offset: 1px; }
 @media (max-width: 560px) { .svc-top { grid-template-columns: minmax(0, 1fr) 76px; } .svc-vid { width: 76px; } }
+.svc-vid { position: relative; }
+.svc-vid img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.svc-yt { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; pointer-events: none; }
+.svc-yt-wide { height: 100%; width: calc(100% * 16 / 9 * 16 / 9); left: 50%; transform: translateX(-50%); }
+.svc-vid-tag { position: absolute; left: 3px; bottom: 3px; font-size: 8.5px; font-weight: 700; line-height: 1; padding: 2px 3px; background: #DFD6CC; color: var(--text); border: 1px solid #000; }

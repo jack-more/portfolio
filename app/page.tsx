@@ -227,37 +227,37 @@ function Subscribe() {
 const services = [
   {
     t: "Go-to-market",
-    v: "sko-founder-1",
+    v: { yt: "zEvYcxW_QP4", poster: "https://ballast.la/work/yt/zEvYcxW_QP4.webp", wide: true, label: "LG" },
     d: "Positioning, offer and launch plan, set before the budget goes out.",
     p: "150+ demos at a $22 cost per lead for an enterprise AI platform",
   },
   {
     t: "Ads that convert",
-    v: "ugc-hanna-1",
+    v: { yt: "Y_IuBEtfzGM", poster: "https://ballast.la/work/brands/toyota-4runner.webp", wide: true, label: "Toyota" },
     d: "Paid on Meta, TikTok and Google, with creative made at volume by UGC creators and AIGC.",
     p: "$1.2M+ a month in sales at a peak 6x ROAS",
   },
   {
     t: "A funnel that converts",
-    v: "sko-freevial",
+    v: { yt: "jtJ_DbPYnrU", poster: "https://ballast.la/work/yt/jtJ_DbPYnrU.webp", wide: true, label: "Starbucks" },
     d: "A landing page for each audience, offers that get tested, and email that brings buyers back.",
     p: "Landing-page conversion up 140% at NEAR Tasks",
   },
   {
     t: "Measurement you can trust",
-    v: "sko-bubbles",
+    v: { yt: "JSpUNWjQk6c", poster: "https://i.ytimg.com/vi/JSpUNWjQk6c/oar2.jpg", wide: false, label: "STARZPLAY" },
     d: "Every sale tied to the ad that drove it and checked against real orders, so budget moves on what sold.",
     p: "Ad spend reconciled weekly against orders and invoices",
   },
   {
     t: "Agents that run on their own",
-    v: "sko-ai-spot",
+    v: { mp4: "sko-ai-spot", label: "AIGC" },
     d: "AI tools that handle the repeat work on a schedule: reporting, creative variations, budget checks.",
     p: "Built in-house tools that cut raw footage into 9:16 ads and block banned claims",
   },
   {
     t: "Fractional or full-time",
-    v: "sko-truck",
+    v: { yt: "oqxAJKy0ii4", poster: "https://ballast.la/work/yt/oqxAJKy0ii4.webp", wide: true, label: "Netflix" },
     d: "Head of Growth for a team that wants one person owning all of it.",
     p: "resume",
   },
@@ -265,24 +265,51 @@ const services = [
 
 const ADS = "https://ballast.la/work/health/ads";
 
-function SvcVideo({ file }: { file: string }) {
-  const ref = useRef<HTMLVideoElement>(null);
+type Clip = { yt?: string; mp4?: string; poster?: string; wide?: boolean; label: string };
+
+function SvcVideo({ clip }: { clip: Clip }) {
+  const box = useRef<HTMLAnchorElement>(null);
+  const vid = useRef<HTMLVideoElement>(null);
+  const [on, setOn] = useState(false);
   useEffect(() => {
-    const v = ref.current;
-    if (!v) return;
+    const el = box.current;
+    if (!el) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const io = new IntersectionObserver(([e]) => {
-      if (e.isIntersecting) {
-        if (!v.src) v.src = `${ADS}/${file}.mp4`;
-        v.play().catch(() => {});
-      } else v.pause();
-    }, { rootMargin: "150px 0px" });
-    io.observe(v);
+      setOn(e.isIntersecting);
+      const v = vid.current;
+      if (v) {
+        if (e.isIntersecting) {
+          if (!v.src && clip.mp4) v.src = `${ADS}/${clip.mp4}.mp4`;
+          v.play().catch(() => {});
+        } else v.pause();
+      }
+    }, { rootMargin: "100px 0px" });
+    io.observe(el);
     return () => io.disconnect();
-  }, [file]);
+  }, [clip.mp4]);
+  const ytSrc = clip.yt
+    ? `https://www.youtube-nocookie.com/embed/${clip.yt}?autoplay=1&mute=1&loop=1&playlist=${clip.yt}&controls=0&playsinline=1&rel=0&modestbranding=1&disablekb=1&iv_load_policy=3&fs=0&start=4`
+    : "";
   return (
-    <a className="svc-vid" href="/work" aria-label="See the ads">
-      <video ref={ref} poster={`${ADS}/${file}.webp`} muted loop playsInline preload="none" />
+    <a className="svc-vid" href="/work" aria-label={`${clip.label}: see the ads`} ref={box}>
+      {clip.mp4 ? (
+        <video ref={vid} poster={`${ADS}/${clip.mp4}.webp`} muted loop playsInline preload="none" />
+      ) : (
+        <>
+          <img src={clip.poster} alt="" loading="lazy" />
+          {on && (
+            <iframe
+              className={clip.wide ? "svc-yt svc-yt-wide" : "svc-yt"}
+              src={ytSrc}
+              title={clip.label}
+              allow="autoplay; encrypted-media"
+              tabIndex={-1}
+            />
+          )}
+        </>
+      )}
+      <span className="svc-vid-tag">{clip.label}</span>
     </a>
   );
 }
@@ -338,7 +365,7 @@ function Pitch() {
                 <h2 className="svc-t">{s.t}</h2>
                 <p className="svc-d">{s.d}</p>
               </div>
-              <SvcVideo file={s.v} />
+              <SvcVideo clip={s.v} />
             </div>
             {s.p === "resume" ? (
               <a className="svc-p svc-link" href="/JackMorello_CV.pdf" target="_blank" rel="noopener noreferrer">See my resume &rarr;</a>
