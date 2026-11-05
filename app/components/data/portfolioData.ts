@@ -379,7 +379,7 @@ export const companies: Company[] = [
     period: 'Apr 2022 – Jun 2024',
     color: '#00C9A7',
     category: 'startup',
-    desc: 'Managed full marketing strategy for AI-powered task marketplace. Grew registered user base from launch to 12,000 users in 18 months. Contributed to $1.8M+ in platform transaction volume.',
+    desc: 'Led marketing for NEAR Tasks, an AI training-data marketplace, growing it to 50K+ MAU. Cut CAC 60% and lifted landing-page conversion 140% through A/B testing.',
     clients: [],
     campaigns: [
       { title: 'NEARCON 2023 Beta', text: 'Official product beta launched at NEARCON 2023. Built waitlist to 48,000+ applicants.', tag: 'Event', image: '/images/campaigns/full-stack/nearcon-2023.jpg' },

@@ -1,0 +1,44 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;800&family=Geist+Mono:wght@500&display=swap"><link rel="stylesheet" href="/notes/notes.css">
+<title>Your ad platform is overcounting your sales — Ballast Notes</title>
+<meta name="description" content="An ad platform claimed twice the sales a DTC store could prove. How we found the gap, and the numbers we manage spend on now.">
+<link rel="canonical" href="https://ballast.la/notes/your-ad-platform-is-overcounting-your-sales/">
+<meta property="og:title" content="Your ad platform is overcounting your sales"><meta property="og:image" content="https://ballast.la/og.png">
+</head><body><header class="top"><a href="/">Ballast</a><span><a href="/notes/" style="margin-right:18px">Notes</a><a class="cta" href="/#book">Book a call</a></span></header>
+<main class="wrap"><span class="kick">Measurement · Notes №1</span>
+<h1>Your ad platform is overcounting your sales</h1>
+<p class="dek">An ad platform claimed more than twice the sales our store could prove. Here&rsquo;s where the gap came from and what we manage spend on now.</p>
+<p class="meta">Jack Morello · Ballast · November 2026</p>
+<article>
+<p>We were scaling a multi-brand DTC client on Meta, TikTok and Google. Spend was climbing, the dashboards looked great, and the bank account didn&rsquo;t match. Every budget decision rested on those dashboards, and nobody owned the gap, so we audited the whole setup before adding another dollar.</p>
+<div class="big"><div><b>2&times;+</b><span>Sales the platform claimed vs. sales we could prove</span></div><div><b>~&#8531;</b><span>Of purchases analytics was recording</span></div><div><b>23%</b><span>Of billed spend the tracking tool missed</span></div></div>
+<h2>Where the gap came from</h2>
+<ul>
+<li><b>Credit the platform hands itself.</b> View-through conversions, a 7-day click window, people who came back days later on another device, and repeat buyers who were going to reorder anyway. All counted as ad sales.</li>
+<li><b>A duplicate purchase event.</b> One order could fire Purchase three times: the site&rsquo;s own pixel, a server event, and a tag-manager tag nobody remembered adding.</li>
+<li><b>A tag container that had never run.</b> It loaded from an address that didn&rsquo;t resolve, so the setup everyone thought was live never fired once.</li>
+<li><b>Checkouts analytics couldn&rsquo;t see.</b> Express checkout skipped the confirmation page, and the purchase event only fired there. Analytics caught about a third of real orders.</li>
+<li><b>Lost sources.</b> Orders from Instagram, YouTube and influencer links dropped their UTMs at checkout, so every channel except one looked like it did nothing.</li>
+<li><b>Spend from the wrong place.</b> The tracking tool under-reported what the ad accounts actually billed by 23%.</li>
+</ul>
+<p>One thing was fine: click-ID capture sat around 83%, which is healthy once in-app browsers take their cut. Checking it took ten minutes and saved a week of chasing the wrong problem.</p>
+<h2>What we manage on now</h2>
+<ol>
+<li><b>The store is the source of truth.</b> Every checkout is tracked in our own order data down to the campaign, ad set and ad. Platform numbers are a signal for optimization, not a scoreboard.</li>
+<li><b>Spend comes from invoices.</b> Never from a tracker.</li>
+<li><b>A weekly reconciliation.</b> Platform-claimed purchases next to verified new customers, by channel. The ratio between them is the real number.</li>
+<li><b>Tighter windows on new campaigns.</b> A 1-day click window makes reported conversions drop. That drop is counting, not performance, so warn leadership before you flip it.</li>
+<li><b>Budget moves on true CAC.</b> New customers per week against spend, by ad. Creator pay and channel mix follow the same verified ratio.</li>
+</ol>
+<h2>A ten-minute check for your own account</h2>
+<ul>
+<li>Pull last week&rsquo;s orders from your store and count the ones you can tie to each platform. Compare to what each platform claims.</li>
+<li>Open your tag manager in preview on the live site. Does the container you think is running actually fire?</li>
+<li>Place a test order through express checkout. Does it show up in analytics?</li>
+<li>Click your own ad from Instagram and buy. Does the order keep its source?</li>
+<li>Line up last month&rsquo;s invoices against what your tracker says you spent.</li>
+</ul>
+<p>If any of those come back wrong, the fix is usually days, not months, and it changes every budget call you make after it. That foundation is how this client scaled to more than .2M a month in sales at a peak 6&times; ROAS.</p>
+<p>Want us to run the audit on your account? <a href="/#book">Book a call</a>.</p>
+</article>
+<section class="sub" id="subscribe"><h3>One note a week.</h3><p>What&rsquo;s actually working in paid media, creative and measurement, from the accounts we run. No fluff.</p><form data-sub="notes-measurement-1"><input type="email" name="email" placeholder="you@company.com" required aria-label="Email"><input class="hp" name="company" tabindex="-1" autocomplete="off" aria-hidden="true"><button type="submit">Subscribe</button><p class="msg" role="status"></p></form></section>
+</main><script src="/notes/subscribe.js" defer></script></body></html>
