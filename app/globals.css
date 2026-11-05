@@ -954,3 +954,8 @@ a.art3d-available:hover { background: var(--green); color: #fff; }
 }
 @media (prefers-reduced-motion: reduce) { .art3d-sway { animation: none; } }
 @media (max-width: 760px) { .art3d-sway { animation: none; } }
+.svc-top { display: grid; grid-template-columns: minmax(0, 1fr) 68px; gap: 12px; align-items: start; }
+.svc-vid { display: block; width: 68px; aspect-ratio: 9 / 16; border: 1px solid #000; overflow: hidden; background: #000; }
+.svc-vid video { display: block; width: 100%; height: 100%; object-fit: cover; }
+.svc-vid:hover { outline: 2px solid var(--green); outline-offset: 1px; }
+@media (max-width: 560px) { .svc-top { grid-template-columns: minmax(0, 1fr) 76px; } .svc-vid { width: 76px; } }

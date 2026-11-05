@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import GridCanvas from "./components/GridCanvas";
 import DraggableCard from "./components/DraggableCard";
 import MusicCard from "./components/MusicCard";
@@ -227,35 +227,65 @@ function Subscribe() {
 const services = [
   {
     t: "Go-to-market",
+    v: "sko-founder-1",
     d: "Positioning, offer and launch plan, set before the budget goes out.",
     p: "150+ demos at a $22 cost per lead for an enterprise AI platform",
   },
   {
     t: "Ads that convert",
+    v: "ugc-hanna-1",
     d: "Paid on Meta, TikTok and Google, with creative made at volume by UGC creators and AIGC.",
     p: "$1.2M+ a month in sales at a peak 6x ROAS",
   },
   {
     t: "A funnel that converts",
+    v: "sko-freevial",
     d: "A landing page for each audience, offers that get tested, and email that brings buyers back.",
     p: "Landing-page conversion up 140% at NEAR Tasks",
   },
   {
     t: "Measurement you can trust",
+    v: "sko-bubbles",
     d: "Every sale tied to the ad that drove it and checked against real orders, so budget moves on what sold.",
     p: "Ad spend reconciled weekly against orders and invoices",
   },
   {
     t: "Agents that run on their own",
+    v: "sko-ai-spot",
     d: "AI tools that handle the repeat work on a schedule: reporting, creative variations, budget checks.",
     p: "Built in-house tools that cut raw footage into 9:16 ads and block banned claims",
   },
   {
     t: "Fractional or full-time",
+    v: "sko-truck",
     d: "Head of Growth for a team that wants one person owning all of it.",
     p: "resume",
   },
 ];
+
+const ADS = "https://ballast.la/work/health/ads";
+
+function SvcVideo({ file }: { file: string }) {
+  const ref = useRef<HTMLVideoElement>(null);
+  useEffect(() => {
+    const v = ref.current;
+    if (!v) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const io = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) {
+        if (!v.src) v.src = `${ADS}/${file}.mp4`;
+        v.play().catch(() => {});
+      } else v.pause();
+    }, { rootMargin: "150px 0px" });
+    io.observe(v);
+    return () => io.disconnect();
+  }, [file]);
+  return (
+    <a className="svc-vid" href="/work" aria-label="See the ads">
+      <video ref={ref} poster={`${ADS}/${file}.webp`} muted loop playsInline preload="none" />
+    </a>
+  );
+}
 
 function Pitch() {
   const stats = [
@@ -302,9 +332,14 @@ function Pitch() {
       <ol className="svc">
         {services.map((s, i) => (
           <li key={s.t}>
-            <span className="svc-n">{String(i + 1).padStart(2, "0")}</span>
-            <h2 className="svc-t">{s.t}</h2>
-            <p className="svc-d">{s.d}</p>
+            <div className="svc-top">
+              <div>
+                <span className="svc-n">{String(i + 1).padStart(2, "0")}</span>
+                <h2 className="svc-t">{s.t}</h2>
+                <p className="svc-d">{s.d}</p>
+              </div>
+              <SvcVideo file={s.v} />
+            </div>
             {s.p === "resume" ? (
               <a className="svc-p svc-link" href="/JackMorello_CV.pdf" target="_blank" rel="noopener noreferrer">See my resume &rarr;</a>
             ) : (
