@@ -444,11 +444,11 @@ function load(){
     if(openId&&!document.activeElement.closest('.sheet'))openLead(openId)})
   .catch(e=>{if(e.code!=='auth')note('Couldn\'t reach the lead database ('+e.code+'). Reload to try again.')});
 }
-function logout(){try{sessionStorage.removeItem('bk')}catch(e){};KEY=null;$('gate').hidden=false;$('app').hidden=true}
+function logout(){try{localStorage.removeItem('bk')}catch(e){};KEY=null;$('gate').hidden=false;$('app').hidden=true}
 $('gateForm').addEventListener('submit',e=>{e.preventDefault();KEY=$('pw').value;$('gateMsg').textContent='Checking…';
-  api().then(j=>{try{sessionStorage.setItem('bk',KEY)}catch(e){};$('gate').hidden=true;$('app').hidden=false;$('gateMsg').textContent='';load()})
+  api().then(j=>{try{localStorage.setItem('bk',KEY)}catch(e){};$('gate').hidden=true;$('app').hidden=false;$('gateMsg').textContent='';load()})
   .catch(e=>{$('gateMsg').textContent=e.code==='auth'?'Wrong password.':'Couldn\'t reach the server ('+e.code+').';$('gate').hidden=false})});
-try{KEY=sessionStorage.getItem('bk')}catch(e){}
+try{KEY=localStorage.getItem('bk')}catch(e){}
 if(KEY){$('gate').hidden=true;$('app').hidden=false;load()}
 addEventListener('focus',()=>{if(KEY&&!openId)load()});
 })();

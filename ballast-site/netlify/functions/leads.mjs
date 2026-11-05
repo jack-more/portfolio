@@ -3,13 +3,15 @@
 import { getStore } from "@netlify/blobs";
 import { timingSafeEqual, createHash } from "node:crypto";
 
+const KEY_SHA256 = "8cdd6b0f4e2e3fc21514cfc5d4e9d264167e57e08a99a90714c4acabac204f88";
 const same = (a, b) => timingSafeEqual(createHash("sha256").update(a).digest(), createHash("sha256").update(b).digest());
 const json = (body, status = 200) => new Response(JSON.stringify(body), { status, headers: { "content-type": "application/json", "cache-control": "no-store", "x-robots-tag": "noindex" } });
 
 export default async (req) => {
-  const pw = process.env.ADMIN_PASSWORD || "";
-  if (!pw) return json({ error: "ADMIN_PASSWORD is not set in Netlify" }, 503);
-  if (!same(req.headers.get("x-admin-key") || "", pw)) return json({ error: "unauthorized" }, 401);
+  // the built-in password is a long random one, stored only as its SHA-256; ADMIN_PASSWORD in Netlify works too when set
+  const key = req.headers.get("x-admin-key") || "", pw = process.env.ADMIN_PASSWORD || "";
+  const ok = createHash("sha256").update(key).digest("hex") === KEY_SHA256 || (pw && same(key, pw));
+  if (!ok) return json({ error: "unauthorized" }, 401);
   const store = getStore({ name: "gtm", consistency: "strong" });
   const leads = (await store.get("leads", { type: "json" })) || {};
   if (req.method === "GET") return json({ leads });
