@@ -3,7 +3,7 @@
 import { useRef, useEffect, useCallback } from "react";
 
 const CELL = 10;
-const COLOR = "rgba(0,0,0,0.1)";
+const COLOR = "rgba(0,0,0,0.09)";
 
 export default function GridCanvas() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -83,9 +83,20 @@ export default function GridCanvas() {
       redraw();
     };
 
+    // Paint from the page background, or from an empty spot inside a window
+    // (not on text, links, buttons, inputs, media or a window's drag bar).
+    const canPaint = (t: HTMLElement) => {
+      if (t === document.body || t === document.documentElement || t.classList.contains("layout") || t.classList.contains("col-left") || t.classList.contains("col-right")) return true;
+      if (!t.closest(".card-body") || t.closest(".card-body-notitle")) return false;
+      if (t.closest("a, button, input, textarea, select, label, img, video, iframe, canvas, svg, [contenteditable]")) return false;
+      return ![...t.childNodes].some((n) => n.nodeType === 3 && (n.textContent || "").trim());
+    };
+
     const onDown = (e: MouseEvent) => {
+      if (e.button !== 0) return;
       const target = e.target as HTMLElement;
-      if (target !== canvas) return;
+      if (!canPaint(target)) return;
+      e.preventDefault();
       drawing.current = true;
       lastCell.current = null;
       paintLine(e.clientX, e.clientY);
@@ -105,14 +116,14 @@ export default function GridCanvas() {
 
     resize();
     window.addEventListener("resize", resize);
-    canvas.addEventListener("mousedown", onDown);
+    window.addEventListener("mousedown", onDown);
     window.addEventListener("mousemove", onMove);
     window.addEventListener("mouseup", onUp);
     window.addEventListener("scroll", onScroll);
 
     return () => {
       window.removeEventListener("resize", resize);
-      canvas.removeEventListener("mousedown", onDown);
+      window.removeEventListener("mousedown", onDown);
       window.removeEventListener("mousemove", onMove);
       window.removeEventListener("mouseup", onUp);
       window.removeEventListener("scroll", onScroll);

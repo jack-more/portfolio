@@ -272,30 +272,43 @@ function Pitch() {
   ];
   return (
     <div className="pitch">
-      <div className="pitch-hero">
-        <div className="pitch-hero-text">
-          <p className="pitch-kicker">Growth &amp; performance marketing &middot; 8+ years &middot; Los Angeles</p>
-          <h1 className="pitch-h">If you&apos;re here, you already know what&apos;s missing.</h1>
-          <p className="pitch-dek">
-            A go-to-market plan, ads that convert better, a funnel that converts better, and numbers you can
-            actually trust. Then maybe agents that run
-            the work on their own. I build all of it, through{" "}
-            <a href="https://ballast.la" target="_blank" rel="noopener noreferrer">Ballast Research</a>.
-          </p>
-          <div className="pitch-ctas">
-            <a className="pitch-btn pitch-btn-solid" href="https://ballast.la/#book" target="_blank" rel="noopener noreferrer">Book a call</a>
-            <a className="pitch-btn" href="mailto:jack@ballast.la?subject=Audit%20request">Get an audit</a>
-          </div>
+      <header className="mast">
+        <div className="mast-top">
+          <span>Growth &amp; performance marketing</span>
+          <span>8+ years &middot; Los Angeles</span>
         </div>
-        <Image
-          src="/images/illustration-jack.png"
-          alt="Jack Morello"
-          width={200}
-          height={200}
-          className="pitch-portrait"
-          priority
-        />
-      </div>
+        <div className="mast-body">
+          <div className="mast-text">
+            <h1 className="mast-h">If you&apos;re here, you already know <em>what&apos;s missing.</em></h1>
+            <ul className="mast-list">
+              <li>A go-to-market plan</li>
+              <li>Ads that convert better</li>
+              <li>A funnel that converts better</li>
+              <li>Numbers you can actually trust</li>
+              <li>Then, agents that run the work on their own</li>
+            </ul>
+            <p className="mast-dek">
+              I build all of it, through{" "}
+              <a href="https://ballast.la" target="_blank" rel="noopener noreferrer">Ballast Research</a>.
+            </p>
+            <div className="pitch-ctas">
+              <a className="pitch-btn pitch-btn-solid" href="https://ballast.la/#book" target="_blank" rel="noopener noreferrer">Book a call</a>
+              <a className="pitch-btn" href="mailto:jack@ballast.la?subject=Audit%20request">Get an audit</a>
+            </div>
+          </div>
+          <figure className="mast-fig">
+            <Image
+              src="/images/illustration-jack.png"
+              alt="Jack Morello"
+              width={200}
+              height={200}
+              className="pitch-portrait"
+              priority
+            />
+            <figcaption>Jack Morello, founder, Ballast Research</figcaption>
+          </figure>
+        </div>
+      </header>
       <div className="pitch-stats">
         {stats.map((s) => (
           <div key={s.n}>
