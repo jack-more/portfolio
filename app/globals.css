@@ -857,6 +857,9 @@ a:hover {
 .card-body .svc-p { margin-top: auto; font-size: 11.5px; line-height: 1.35; color: var(--text-secondary); border-top: 1px dashed var(--dash); padding-top: 8px; }
 .pitch a.svc-link { font-weight: 700; color: var(--text); text-decoration: none; display: block; }
 .pitch a.svc-link:hover { color: var(--green); }
+.pitch a.svc-m { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin: 0 0 12px; text-decoration: none; }
+.pitch a.svc-m img { display: block; width: 100%; height: auto; aspect-ratio: 9 / 16; object-fit: cover; border: 1px solid #000; transition: transform .2s ease; }
+.pitch a.svc-m:hover img { transform: translateY(-2px); }
 .pitch p.pitch-clients { font-size: 13px; font-weight: 600; margin-bottom: 14px; }
 .pitch-clients span { color: var(--text-secondary); font-weight: 400; margin-right: 4px; }
 @media (max-width: 900px) {

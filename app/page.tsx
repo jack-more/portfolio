@@ -227,31 +227,37 @@ function Subscribe() {
 const services = [
   {
     t: "Go-to-market",
+    m: ["sko-laborday-1", "sko-freevial", "sko-founder-1"],
     d: "Positioning, offer and launch plan, set before the budget goes out.",
     p: "150+ demos at a $22 cost per lead for an enterprise AI platform",
   },
   {
     t: "Ads that convert",
+    m: ["ugc-hanna-1", "ugc-dennis-1", "sko-frutiger-1"],
     d: "Paid on Meta, TikTok and Google, with creative made at volume by UGC creators and AIGC.",
     p: "$1.2M+ a month in sales at a peak 6x ROAS",
   },
   {
     t: "A funnel that converts",
+    m: ["sko-dna", "sko-cheapruos", "sko-pov"],
     d: "A landing page for each audience, offers that get tested, and email that brings buyers back.",
     p: "Landing-page conversion up 140% at NEAR Tasks",
   },
   {
     t: "Measurement you can trust",
+    m: ["ugc-ethan-1", "ugc-ethan-restock-1", "sko-truck"],
     d: "Every sale tied to the ad that drove it and checked against real orders, so budget moves on what sold.",
     p: "Ad spend reconciled weekly against orders and invoices",
   },
   {
     t: "Agents that run on their own",
+    m: ["ugc-ethan-3", "ugc-ethan-6", "ugc-ethan-7"],
     d: "AI tools that handle the repeat work on a schedule: reporting, creative variations, budget checks.",
     p: "Built in-house tools that cut raw footage into 9:16 ads and block banned claims",
   },
   {
     t: "Fractional or full-time",
+    m: ["toyota-4runner", "toyota-tacoma", "toyota-helping"],
     d: "Head of Growth for a team that wants one person owning all of it.",
     p: "resume",
   },
@@ -269,10 +275,10 @@ function Pitch() {
       <div className="pitch-hero">
         <div className="pitch-hero-text">
           <p className="pitch-kicker">Growth &amp; performance marketing &middot; 8+ years &middot; Los Angeles</p>
-          <h1 className="pitch-h">You&apos;re almost at the finish line.</h1>
+          <h1 className="pitch-h">If you&apos;re here, you already know what&apos;s missing.</h1>
           <p className="pitch-dek">
-            If you&apos;re here, you already know what&apos;s missing: a go-to-market plan, ads that convert better,
-            a funnel that converts better, and numbers you can actually trust. Then maybe agents that run
+            A go-to-market plan, ads that convert better, a funnel that converts better, and numbers you can
+            actually trust. Then maybe agents that run
             the work on their own. I build all of it, through{" "}
             <a href="https://ballast.la" target="_blank" rel="noopener noreferrer">Ballast Research</a>.
           </p>
@@ -305,6 +311,11 @@ function Pitch() {
             <span className="svc-n">{String(i + 1).padStart(2, "0")}</span>
             <h2 className="svc-t">{s.t}</h2>
             <p className="svc-d">{s.d}</p>
+            <a className="svc-m" href="https://ballast.la/#work" target="_blank" rel="noopener noreferrer" aria-label={`${s.t}: see the work on ballast.la`}>
+              {s.m.map((id) => (
+                <img key={id} src={`/thumbs/${id}.webp`} alt="" width={240} height={427} loading="lazy" decoding="async" />
+              ))}
+            </a>
             {s.p === "resume" ? (
               <a className="svc-p svc-link" href="/JackMorello_CV.pdf" target="_blank" rel="noopener noreferrer">See my resume &rarr;</a>
             ) : (
