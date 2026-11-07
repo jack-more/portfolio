@@ -227,31 +227,31 @@ function Subscribe() {
 const services = [
   {
     t: "Go-to-market",
-    m: ["sko-laborday-1", "sko-freevial", "sko-founder-1"],
+    m: ["lg-g7-launch", "near-sailgp", "dtravel-stays"],
     d: "Positioning, offer and launch plan, set before the budget goes out.",
     p: "150+ demos at a $22 cost per lead for an enterprise AI platform",
   },
   {
     t: "Ads that convert",
-    m: ["ugc-hanna-1", "ugc-dennis-1", "sko-frutiger-1"],
+    m: ["bmw-m5", "starbucks-holiday", "hint"],
     d: "Paid on Meta, TikTok and Google, with creative made at volume by UGC creators and AIGC.",
     p: "$1.2M+ a month in sales at a peak 6x ROAS",
   },
   {
     t: "A funnel that converts",
-    m: ["sko-dna", "sko-cheapruos", "sko-pov"],
+    m: ["dtravel-bali", "netflix-squidgame", "lg-v40"],
     d: "A landing page for each audience, offers that get tested, and email that brings buyers back.",
     p: "Landing-page conversion up 140% at NEAR Tasks",
   },
   {
     t: "Measurement you can trust",
-    m: ["ugc-ethan-1", "ugc-ethan-restock-1", "sko-truck"],
+    m: ["peacock-office", "universal-f9", "disney-endgame"],
     d: "Every sale tied to the ad that drove it and checked against real orders, so budget moves on what sold.",
     p: "Ad spend reconciled weekly against orders and invoices",
   },
   {
     t: "Agents that run on their own",
-    m: ["ugc-ethan-3", "ugc-ethan-6", "ugc-ethan-7"],
+    m: ["starzplay-heels", "nbc-snl", "netflix-bridgerton"],
     d: "AI tools that handle the repeat work on a schedule: reporting, creative variations, budget checks.",
     p: "Built in-house tools that cut raw footage into 9:16 ads and block banned claims",
   },
