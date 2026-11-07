@@ -233,7 +233,7 @@ const services = [
   },
   {
     t: "Ads that convert",
-    m: ["bmw-m5", "starbucks-holiday", "hint"],
+    m: ["sko-hanna", "bmw-m5", "starbucks-holiday"],
     d: "Paid on Meta, TikTok and Google, with creative made at volume by UGC creators and AIGC.",
     p: "$1.2M+ a month in sales at a peak 6x ROAS",
   },
