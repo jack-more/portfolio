@@ -277,9 +277,9 @@ function Pitch() {
           <span>Growth &amp; performance marketing</span>
           <span>8+ years &middot; Los Angeles</span>
         </div>
+        <h1 className="mast-h">If you&apos;re here, you already know<br className="mast-br" /> <em>what&apos;s missing.</em></h1>
         <div className="mast-body">
           <div className="mast-text">
-            <h1 className="mast-h">If you&apos;re here, you already know <em>what&apos;s missing.</em></h1>
             <ul className="mast-list">
               <li>A go-to-market plan</li>
               <li>Ads that convert better</li>
