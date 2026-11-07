@@ -1,0 +1,129 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><title>Ballast (preview)</title>
+<link rel="icon" href="/favicon.ico?v=3">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&family=Geist+Mono:wght@400&display=swap">
+<style>
+:root{--bg:#F3F4F6;--card:#FFFFFF;--ink:#0B0F19;--mute:#6B7280;--line:rgba(11,15,25,.14);--cobalt:#0858F0;--orange:#F85800;--pad:clamp(18px,3.2vw,52px)}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--ink);font-family:Geist,system-ui,sans-serif;font-size:17px;line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.mono{font-family:'Geist Mono',monospace;font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--mute)}
+.wrap{padding-left:var(--pad);padding-right:var(--pad)}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:30;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding-top:18px;padding-bottom:18px;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(12px)}
+.nav img{height:30px;display:block}
+.nav nav{display:flex;gap:32px;font-size:15px}
+.nav nav a{text-decoration:none}
+.nav .cta{justify-self:end}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--orange);color:#fff;text-decoration:none;font-weight:500;font-size:15px;padding:11px 20px;border-radius:999px;transition:background .2s}
+.btn:hover{background:#d94c00}
+.link{font-weight:500;text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:1px}
+
+/* hero: Motto-style headline set on hairlines */
+.hero{padding-top:clamp(28px,6vh,72px)}
+.hero h1{font-weight:500;letter-spacing:-.055em;line-height:.9;font-size:clamp(54px,11.2vw,184px)}
+.hero h1 .row{display:block;border-top:1px solid var(--line);padding:clamp(6px,1.2vh,14px) 0}
+.hero h1 .row:last-child{border-bottom:1px solid var(--line);text-align:right}
+.hero .under{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,4fr) minmax(0,3fr);gap:32px;align-items:end;padding:clamp(24px,4vh,44px) 0}
+.hero .under p{font-size:clamp(18px,1.45vw,22px);max-width:30ch;line-height:1.4}
+.stats{display:flex;gap:36px}
+.stats b{display:block;font-weight:500;font-size:clamp(34px,3.2vw,52px);letter-spacing:-.04em;line-height:1}
+.stats span{font-size:14px;color:var(--mute)}
+.hero .acts{justify-self:end;display:flex;gap:22px;align-items:center}
+
+/* work strip: real spots drifting by */
+.strip{overflow:hidden;padding:8px 0 clamp(56px,9vh,110px)}
+.strip .track{display:flex;gap:14px;width:max-content;animation:drift 70s linear infinite}
+.strip:hover .track{animation-play-state:paused}
+.strip figure{width:clamp(150px,13vw,210px);flex:none}
+.strip img{width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:14px;display:block}
+.strip figcaption{font-size:13px;color:var(--mute);margin-top:8px}
+@keyframes drift{to{transform:translateX(-50%)}}
+
+/* services */
+.shead{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px;align-items:end;border-top:1px solid var(--line);padding-top:22px;padding-bottom:clamp(28px,5vh,56px)}
+.shead h2{font-weight:500;letter-spacing:-.05em;line-height:.92;font-size:clamp(48px,7vw,112px)}
+.shead p{font-size:19px;color:var(--mute);max-width:40ch;justify-self:end}
+.stack{padding-bottom:14vh}
+.card{position:sticky;top:calc(78px + var(--i) * 10px);height:min(calc(100vh - 190px),600px);margin-bottom:8vh;overflow:hidden;
+  background:var(--card);border-radius:24px;padding:clamp(24px,3vw,44px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,64px);transform-origin:50% 0}
+.card .txt{display:flex;flex-direction:column}
+.card h3{font-weight:500;letter-spacing:-.045em;line-height:.95;font-size:clamp(36px,4vw,64px);margin:12px 0 18px}
+.card .lead{font-size:clamp(18px,1.4vw,21px);max-width:32ch}
+.card .inc{margin-top:18px;color:var(--mute);font-size:15px}
+.card .proof{margin-top:auto;padding-top:22px;border-top:1px solid var(--line);display:flex;align-items:baseline;gap:16px}
+.card .proof b{font-weight:500;font-size:clamp(36px,3.4vw,54px);letter-spacing:-.045em;line-height:1}
+.card .proof span{font-size:15px;color:var(--mute);max-width:28ch}
+.card .imgs{display:grid;grid-template-columns:1fr 1fr;gap:12px;min-height:0}
+.card figure{display:flex;flex-direction:column;min-height:0}
+.card img{flex:1;min-height:0;width:100%;object-fit:cover;border-radius:14px;display:block;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.card figcaption{font-size:13px;color:var(--mute);margin-top:8px}
+.note{font-size:13px;color:var(--mute);padding-bottom:12vh;max-width:70ch}
+
+@media (max-width:900px){
+  .nav{grid-template-columns:1fr auto}.nav nav{display:none}
+  .hero .under{grid-template-columns:1fr;gap:22px}.hero .acts{justify-self:start}
+  .shead{grid-template-columns:1fr}.shead p{justify-self:start}
+  .card{grid-template-columns:1fr;top:calc(70px + var(--i) * 6px);height:auto;overflow:visible;padding:22px}
+  .card .imgs{height:300px}
+}
+@media (prefers-reduced-motion:reduce){.strip .track{animation:none}.card{position:relative;top:auto}}
+</style></head><body>
+
+<header class="nav wrap">
+  <a href="/"><img src="/lockup.png?v=2" alt="Ballast"></a>
+  <nav><a href="#work">Work</a><a href="#services">Services</a><a href="/#pricing">Pricing</a><a href="/notes/">Notes</a></nav>
+  <div class="cta"><a class="btn" href="/#book">Book a call</a></div>
+</header>
+
+<section class="hero wrap">
+  <h1><span class="row">Scale what&rsquo;s</span><span class="row">worth running.</span></h1>
+  <div class="under">
+    <p>We find what sells, put the money behind it, and keep the customers it brings.</p>
+    <div class="stats"><div><b>$1.2M+</b><span>a month in sales, one client</span></div><div><b>6&times;</b><span>peak ROAS</span></div></div>
+    <div class="acts"><a class="link" href="#work">See the work</a><a class="btn" href="/#book">Book a call</a></div>
+  </div>
+</section>
+
+<section class="strip" id="work" aria-label="Selected work"><div class="track" id="track"></div></section>
+
+<section class="wrap" id="services">
+  <div class="shead"><h2>Services</h2><p>Nine things we run for brands that want growth they can prove.</p></div>
+  <div class="stack" id="stack"></div>
+  <p class="note">Studio and brand spots are the brands&rsquo; own creative. We worked on the media, distribution or social around them.</p>
+</section>
+
+<script>
+const W=(id,cap)=>['/work/yt/'+id+'.webp',cap];
+const STRIP=[W('oqxAJKy0ii4','Netflix · Squid Game'),['/work/brands/toyota-4runner.webp','Toyota · 4Runner'],W('TcMBFSGVi1c','Disney · Avengers'),W('jtJ_DbPYnrU','Starbucks · Holidays'),
+ W('6K0o-VQpIXU','NEAR × SailGP'),W('HZ7PAyCDwEg','Universal · Hobbs & Shaw'),W('sItKwZdGkTM','Peacock · The Office'),W('zEvYcxW_QP4','LG · G7 ThinQ'),
+ W('ndl1W4ltcmg','Netflix · The Witcher'),W('aOC8E8z_ifw','Disney · The Mandalorian'),['/work/brands/toyota-tacoma.webp','Toyota · Tacoma'],W('y3ZCJLz1m-s','Starbucks · Together Again'),
+ W('V3L1qrisKFE','Netflix · Stranger Things'),W('aSiDu3Ywi8E','Universal · F9'),W('h4Rb4tDK1GQ','Dtravel'),W('qMtiG3fU6eQ','Hint')];
+const fig=([s,c])=>`<figure><img src="${s}" alt="${c}" loading="lazy"><figcaption>${c}</figcaption></figure>`;
+document.getElementById('track').innerHTML=STRIP.concat(STRIP).map(fig).join('');
+const S=[
+ ['Media strategy','A plan tied to sales: what each channel is for, what it gets and when it gets cut.','Channel mix, budgets, break-even ROAS',['6×','Peak ROAS for a DTC client'],[['/work/brands/toyota-4runner.webp','Toyota · 4Runner'],W('oqxAJKy0ii4','Netflix · Squid Game')]],
+ ['Paid media','Meta, TikTok, Google, YouTube, programmatic and CTV, tested weekly and reported against revenue.','Buying, testing, reporting',['$2M+','A month in managed spend at peak'],[W('TcMBFSGVi1c','Disney · Avengers'),W('HZ7PAyCDwEg','Universal · Hobbs & Shaw')]],
+ ['Live shopping','TikTok LIVE that sells: the shop, the hosts, the run of show, and offers that close in the chat.','TikTok Shop, hosts, run of show',['$5K','A day in sales from TikTok LIVE'],[W('zEvYcxW_QP4','LG · G7 ThinQ'),['/work/brands/toyota-tacoma.webp','Toyota · Tacoma']]],
+ ['Creators and UGC','Creators recruited, briefed and paid on what they sell. Their best posts become your ads.','Recruiting, briefs, paid on sales',['30+','Creators onboarded, paid on sales'],[W('6K0o-VQpIXU','NEAR × SailGP'),W('y3ZCJLz1m-s','Starbucks · Together Again')]],
+ ['Measurement','One number per goal, matched to real orders, so you see what spend actually creates.','Tracking audits, store data, true CAC',['2×+','The gap one platform claimed over provable sales'],[W('sItKwZdGkTM','Peacock · The Office'),W('V3L1qrisKFE','Netflix · Stranger Things')]],
+ ['Creative','New hooks every week, cut from what is already winning and made for each platform.','Hooks, edits, platform cuts',['Weekly','New creative, every week'],[W('ndl1W4ltcmg','Netflix · The Witcher'),W('aOC8E8z_ifw','Disney · The Mandalorian')]],
+ ['Regulated categories','Health, supplements, peptides and open finance, with claims that hold up to Meta, Google and the FDA.','Compliant claims, account health, landing pages',['$1.2M+','A month in sales for a telehealth brand'],[W('qMtiG3fU6eQ','Hint'),W('h4Rb4tDK1GQ','Dtravel')]],
+ ['Oversight','Agencies, creators and vendors held to scope, cost and results, reviewed every month.','Vendor reviews, spend audits',['Monthly','Every vendor reviewed against results'],[W('aSiDu3Ywi8E','Universal · F9'),W('jtJ_DbPYnrU','Starbucks · Holidays')]],
+ ['Audience research','Who buys and why: where demand already exists and which creators and fans move it.','Buyer research, creator maps, fan data',['267','Sports creators measured in our Fan Map'],[W('jr3UYpx8gVI','NEAR × SailGP'),['/work/brands/toyota-imagine.webp','Toyota · Imagine']]],
+];
+document.getElementById('stack').innerHTML=S.map(([t,lead,inc,[pn,pl],imgs],i)=>`
+<article class="card" style="--i:${i}">
+  <div class="txt"><span class="mono">${String(i+1).padStart(2,'0')} / 09</span><h3>${t}</h3><p class="lead">${lead}</p><p class="inc">${inc}</p>
+    <div class="proof"><b>${pn}</b><span>${pl}</span></div></div>
+  <div class="imgs">${imgs.map(fig).join('')}</div>
+</article>`).join('');
+const cards=[...document.querySelectorAll('.card')];
+const tick=()=>{cards.forEach((c,i)=>{const nx=cards[i+1];if(!nx||innerWidth<900){c.style.transform='';return}
+  const r=nx.getBoundingClientRect(),top=parseFloat(getComputedStyle(nx).top),k=Math.min(1,Math.max(0,1-(r.top-top)/innerHeight));
+  c.style.transform=`scale(${1-k*.04})`})};
+if(!matchMedia('(prefers-reduced-motion: reduce)').matches){addEventListener('scroll',()=>requestAnimationFrame(tick),{passive:true});tick()}
+</script>
+</body></html>
