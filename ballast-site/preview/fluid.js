@@ -5,7 +5,7 @@ export function smoke(canvas, opts = {}) {
   if (!gl || !gl.getExtension('EXT_color_buffer_float')) return null;
   gl.getExtension('OES_texture_float_linear');
   const SIM = opts.sim || 128, DYE = opts.dye || 512, ITER = 20;
-  const DISS_V = .985, DISS_D = .965, RADIUS = opts.radius || .0022, FORCE = opts.force || 5200;
+  const DISS_V = .98, DISS_D = opts.fade || .94, RADIUS = opts.radius || .0012, FORCE = opts.force || 4200, OP = opts.opacity || .4;
   const COLOR = opts.color || [1, 1, 1];
 
   const vs = `#version 300 es
@@ -23,8 +23,8 @@ export function smoke(canvas, opts = {}) {
     grad: `uniform sampler2D P; uniform sampler2D V;
       void main(){ float L=texture(P,vL).x,R=texture(P,vR).x,T=texture(P,vT).x,B=texture(P,vB).x; vec2 v=texture(V,uv).xy-vec2(R-L,T-B); o=vec4(v,0.,1.); }`,
     clear: `uniform sampler2D T; uniform float k; void main(){ o=k*texture(T,uv); }`,
-    show: `uniform sampler2D D; uniform vec3 tint;
-      void main(){ float a=clamp(length(texture(D,uv).rgb),0.,1.); a=smoothstep(.02,.9,a)*.85; o=vec4(tint*a,a); }`,
+    show: `uniform sampler2D D; uniform vec3 tint; uniform float op;
+      void main(){ float a=clamp(length(texture(D,uv).rgb),0.,1.); a=smoothstep(.03,1.,a)*op; o=vec4(tint*a,a); }`,
   };
   const head = '#version 300 es\nprecision highp float; in vec2 uv; in vec2 vL; in vec2 vR; in vec2 vT; in vec2 vB; out vec4 o;\n';
   const sh = (t, s) => { const x = gl.createShader(t); gl.shaderSource(x, s); gl.compileShader(x); if (!gl.getShaderParameter(x, gl.COMPILE_STATUS)) throw gl.getShaderInfoLog(x); return x; };
@@ -61,7 +61,7 @@ export function smoke(canvas, opts = {}) {
     let u = use('splat', simW, simH); tex(u, 'T', vel.r.t, 0); gl.uniform1f(u.ar, ar); gl.uniform2f(u.pt, x, y);
     gl.uniform3f(u.col, dx * FORCE, dy * FORCE, 0); gl.uniform1f(u.r, RADIUS); draw(vel.w); vel.swap();
     u = use('splat', dyeW, dyeH); tex(u, 'T', dye.r.t, 0); gl.uniform1f(u.ar, ar); gl.uniform2f(u.pt, x, y);
-    const k = Math.min(1, Math.hypot(dx, dy) * 60) * .55; gl.uniform3f(u.col, k, k, k); gl.uniform1f(u.r, RADIUS * 1.4); draw(dye.w); dye.swap();
+    const k = Math.min(1, Math.hypot(dx, dy) * 40) * .32; gl.uniform3f(u.col, k, k, k); gl.uniform1f(u.r, RADIUS * 1.4); draw(dye.w); dye.swap();
   }
   let last = null; const target = opts.target || canvas;
   target.addEventListener('pointermove', e => { const r = canvas.getBoundingClientRect(); const x = (e.clientX - r.left) / r.width, y = 1 - (e.clientY - r.top) / r.height;
@@ -80,7 +80,7 @@ export function smoke(canvas, opts = {}) {
     u = use('advect', dyeW, dyeH); gl.uniform2f(u.tx, 1 / simW, 1 / simH); tex(u, 'V', vel.r.t, 0); tex(u, 'S', dye.r.t, 1); gl.uniform1f(u.dt, dt); gl.uniform1f(u.diss, DISS_D); draw(dye.w); dye.swap();
     gl.enable(gl.BLEND); gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA); gl.clearColor(0, 0, 0, 0);
     gl.bindFramebuffer(gl.FRAMEBUFFER, null); gl.viewport(0, 0, canvas.width, canvas.height); gl.clear(gl.COLOR_BUFFER_BIT);
-    u = use('show', dyeW, dyeH); tex(u, 'D', dye.r.t, 0); gl.uniform3f(u.tint, ...COLOR); draw(null); gl.disable(gl.BLEND);
+    u = use('show', dyeW, dyeH); tex(u, 'D', dye.r.t, 0); gl.uniform3f(u.tint, ...COLOR); gl.uniform1f(u.op, OP); draw(null); gl.disable(gl.BLEND);
   }
   requestAnimationFrame(step);
   return { splat, stop() { running = false; } };

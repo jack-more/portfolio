@@ -1,0 +1,61 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><title>Ballast · Draft C</title><link rel="icon" href="/favicon.ico?v=3">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&family=Geist+Mono&display=swap">
+<style>
+/* Draft C, results first: white page, the numbers lead, case studies titled by outcome, a live collage of real work. */
+:root{--bg:#FFFFFF;--ink:#0B0F19;--mute:#6B7280;--line:rgba(11,15,25,.12);--cobalt:#0858F0;--orange:#F85800;--pad:clamp(18px,3.6vw,56px);--e:cubic-bezier(.2,.9,.1,1)}
+*{box-sizing:border-box;margin:0}body{background:var(--bg);color:var(--ink);font-family:Geist,system-ui,sans-serif;font-size:17px;line-height:1.45;-webkit-font-smoothing:antialiased}
+a{color:inherit}.mono{font-family:'Geist Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--mute)}
+.serif{font-family:'Instrument Serif',serif;font-weight:400}
+.wrap{padding-left:var(--pad);padding-right:var(--pad)}
+.top{display:flex;justify-content:space-between;align-items:center;padding-top:22px;padding-bottom:22px}
+.top img{height:30px;display:block}.top .links{display:flex;gap:30px;font-size:15px}.top .links a{text-decoration:none;color:var(--mute)}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--orange);color:#fff;text-decoration:none;font-weight:500;font-size:15px;padding:12px 22px;border-radius:999px;transition:transform .25s var(--e)}
+.btn:hover{transform:translateY(-2px)}
+.hero{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,6fr);gap:clamp(24px,4vw,64px);align-items:center;padding-top:clamp(24px,5vh,64px);padding-bottom:clamp(48px,8vh,96px)}
+.hero h1{font-weight:500;font-size:clamp(44px,5.2vw,86px);line-height:.96;letter-spacing:-.05em}
+.hero h1 em{font-style:normal;color:var(--cobalt)}
+.hero p{font-size:clamp(18px,1.4vw,21px);color:var(--mute);max-width:40ch;margin:24px 0 30px}
+.collage{position:relative;height:min(68vh,620px)}
+.collage figure{position:absolute;overflow:hidden;border-radius:14px;box-shadow:0 20px 40px -24px rgba(11,15,25,.45);transition:transform .6s var(--e)}
+.collage img{width:100%;height:100%;object-fit:cover;display:block}
+.collage figcaption{position:absolute;left:10px;bottom:10px;background:#fff;border-radius:999px;padding:4px 10px;font-size:12px;font-weight:500}
+.collage figure:hover{transform:translateY(-6px) rotate(0deg)!important;z-index:5}
+.band{border-top:1px solid var(--line);border-bottom:1px solid var(--line);display:grid;grid-template-columns:repeat(4,1fr)}
+.band div{padding:34px 0 30px;border-right:1px solid var(--line);padding-left:22px}.band div:first-child{padding-left:0}.band div:last-child{border-right:0}
+.band b{display:block;font-family:'Geist Mono',monospace;font-weight:400;font-size:clamp(36px,3.6vw,58px);letter-spacing:-.04em;color:var(--cobalt);line-height:1}
+.band span{display:block;margin-top:10px;color:var(--mute);font-size:15px;max-width:22ch}
+.cases{padding-top:100px;padding-bottom:110px}
+.cases .head{display:flex;justify-content:space-between;align-items:end;margin-bottom:34px}
+.cases h2{font-weight:500;font-size:clamp(40px,4.6vw,72px);line-height:1;letter-spacing:-.05em}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.case{text-decoration:none;display:block}.case figure{aspect-ratio:4/5;border-radius:16px;overflow:hidden;background:#eef0f4}
+.case img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s var(--e)}.case:hover img{transform:scale(1.04)}
+.case .k{margin-top:14px}.case h3{font-weight:500;font-size:22px;letter-spacing:-.02em;line-height:1.2;margin-top:6px}.case p{color:var(--mute);font-size:15px;margin-top:6px}
+@media(max-width:860px){.top .links{display:none}.hero{grid-template-columns:1fr}.collage{height:420px}.band{grid-template-columns:1fr 1fr}.band div{padding-left:0;border-right:0;border-bottom:1px solid var(--line)}.grid{grid-template-columns:1fr}}
+</style></head><body>
+<header class="top wrap"><a href="/"><img src="/lockup.png?v=2" alt="Ballast"></a><nav class="links"><a href="#cases">Case studies</a><a href="/#rd">Services</a><a href="/notes/">Notes</a></nav><a class="btn" href="/#book">Book a call</a></header>
+<section class="hero wrap">
+  <div><h1>Growth you can <em>prove</em>, run by people who&rsquo;ve done it at scale.</h1>
+    <p>Paid media, creative and creators for brands in health, entertainment and consumer. Measured on real orders, not platform dashboards.</p>
+    <a class="btn" href="/#book">Get a free numbers review</a></div>
+  <div class="collage" id="collage"></div>
+</section>
+<section class="wrap"><div class="band">
+  <div><b>$2M+</b><span>a month in managed spend at peak</span></div><div><b>6&times;</b><span>peak ROAS for a DTC client</span></div>
+  <div><b>$1.2M+</b><span>a month in sales for a telehealth brand</span></div><div><b>30+</b><span>creators onboarded, paid on sales</span></div></div></section>
+<section class="cases wrap" id="cases"><div class="head"><h2>Case studies</h2><span class="mono">Selected</span></div><div class="grid">
+  <a class="case" href="/notes/your-ad-platform-is-overcounting-your-sales/"><figure><img src="/work/health/ads/sko-founder-1.webp" alt=""></figure><div class="mono k">Measurement · DTC</div><h3>How we found the ad platform was claiming twice the real sales</h3><p>And scaled to $1.2M+ a month at a peak 6&times; ROAS.</p></a>
+  <a class="case" href="/#work"><figure><img src="/work/health/ads/ugc-ethan-1.webp" alt=""></figure><div class="mono k">Creators · Health</div><h3>30+ creators, paid only on what they sold</h3><p>The best scaled; the rest cost nothing.</p></a>
+  <a class="case" href="/#work"><figure><img src="/work/yt/6K0o-VQpIXU.webp" alt=""></figure><div class="mono k">Distribution · Sport</div><h3>NEAR &times; SailGP: getting a season seen</h3><p>Highlights, shorts and paid distribution across the circuit.</p></a></div></section>
+<script>
+const C=[['/work/yt/oqxAJKy0ii4.webp','Netflix',[2,4,30,44],-4],['/work/brands/toyota-4runner.webp','Toyota',[36,0,28,40],3],['/work/yt/TcMBFSGVi1c.webp','Disney',[68,8,30,42],-2],
+ ['/work/yt/jtJ_DbPYnrU.webp','Starbucks',[14,50,28,46],2],['/work/yt/6K0o-VQpIXU.webp','NEAR × SailGP',[46,46,28,48],-3],['/work/yt/HZ7PAyCDwEg.webp','Universal',[76,54,24,40],4]];
+const box=document.getElementById('collage');
+box.innerHTML=C.map(([s,c,[l,t,w,h],r],i)=>`<figure style="left:${l}%;top:${t}%;width:${w}%;height:${h}%;transform:rotate(${r}deg);z-index:${i}"><img src="${s}" alt="${c}"><figcaption>${c}</figcaption></figure>`).join('');
+// the collage leans with the cursor
+const figs=[...box.children];box.parentElement.addEventListener('pointermove',e=>{const r=box.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+  figs.forEach((f,i)=>{const k=(i%3+1)*6;f.style.translate=`${-x*k}px ${-y*k}px`})});
+</script>
+</body></html>
