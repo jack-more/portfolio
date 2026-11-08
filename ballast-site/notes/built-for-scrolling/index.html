@@ -1,0 +1,392 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" href="/favicon.ico?v=3" sizes="any"><link rel="icon" type="image/png" href="/icon-192.png?v=3"><link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;800&family=Geist+Mono:wght@500&display=swap">
+<title>Built for scrolling — Ballast Notes</title>
+<meta name="description" content="The feed can get anyone to watch anything. It was never designed to make anyone care. What the research since 2021 says about fandom in the feed era, and how to build fans that last.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://ballast.la/notes/built-for-scrolling/">
+<meta property="og:title" content="Built for scrolling"><meta property="og:image" content="https://ballast.la/og.png">
+<style>
+@font-face{font-family:BD;src:url(../BallastDisplay-BlackItalic.woff2) format('woff2');font-display:swap}
+:root{--paper:#F6F1EA;--paper2:#EDE6DC;--ink:#0A0D18;--mute:#6E6862;--cobalt:#0B5CF6;--orange:#FD720D;--line:rgba(10,13,24,.14);
+--g:"Geist","Helvetica Neue",Arial,sans-serif;--m:"Geist Mono",ui-monospace,Menlo,monospace;--pad:clamp(16px,3vw,44px)}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 18px/1.62 var(--g)}
+a{color:inherit}
+.top{position:sticky;top:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:14px var(--pad);background:rgba(246,241,234,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);font:500 12px var(--m);letter-spacing:.08em;text-transform:uppercase}
+.top a{text-decoration:none}.top .cta{background:var(--orange);padding:8px 15px;border-radius:999px}
+.prog{position:absolute;left:0;bottom:-1px;height:2px;width:0;background:var(--cobalt)}
+.mono{font:500 12px var(--m);letter-spacing:.1em;text-transform:uppercase}
+.bd{font-family:BD,var(--g);font-weight:900;font-style:italic;letter-spacing:0}
+
+/* hero */
+.hero{padding:clamp(56px,10vh,120px) var(--pad) 40px;max-width:1240px;margin:0 auto}
+.hero .mono{color:var(--cobalt)}
+.hero h1{font-size:clamp(40px,13.5vw,210px);line-height:.84;margin:18px 0 28px;color:var(--cobalt);text-transform:uppercase}
+.hero h1 span{display:block}
+.hero .dek{font-size:clamp(20px,2.3vw,27px);line-height:1.38;max-width:760px;margin:0 0 22px}
+.hero .meta{color:var(--mute)}
+
+/* text column */
+.col{max-width:680px;margin:0 auto;padding:0 var(--pad)}
+.col p{margin:0 0 1.05em}
+sup a{font:600 11px var(--m);color:var(--cobalt);text-decoration:none;padding:0 1px}
+.sec{max-width:1240px;margin:0 auto;padding:110px var(--pad) 0}
+.sec .num{display:flex;gap:14px;align-items:baseline;border-top:1.5px solid var(--ink);padding-top:14px;margin-bottom:34px}
+.sec .num b{font:500 12px var(--m);letter-spacing:.1em}
+.sec h2{font-size:clamp(42px,6.6vw,96px);line-height:.9;text-transform:uppercase;margin:0 0 40px;max-width:1000px}
+.lead{font-size:clamp(21px,2vw,25px);line-height:1.45}
+
+/* scrolly 260 */
+.scrolly{position:relative;max-width:1240px;margin:20px auto 0;padding:0 var(--pad);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,5vw,80px)}
+.steps{padding:12vh 0 28vh}
+.step{min-height:78vh;display:flex;align-items:center}
+.step div{background:var(--paper);font-size:clamp(20px,1.9vw,24px);line-height:1.45;max-width:470px}
+.step .bd{font-size:1.25em;color:var(--cobalt)}
+.stick{position:sticky;top:64px;height:calc(100vh - 64px);display:flex;align-items:center;justify-content:center}
+.phone{width:min(380px,100%);aspect-ratio:9/17.5;border:2px solid var(--ink);border-radius:38px;padding:22px 16px 18px;display:flex;flex-direction:column;background:#fff;transition:border-color .4s, box-shadow .4s}
+.phone.done{border-color:var(--orange);box-shadow:0 0 0 6px rgba(253,114,13,.18)}
+.grid{flex:1;display:grid;grid-template-columns:repeat(13,1fr);grid-auto-rows:1fr;gap:3px}
+.grid i{border-radius:2px;background:var(--paper2);transition:background .18s}
+.cnt{display:flex;justify-content:space-between;align-items:baseline;margin-top:14px;font:500 12px var(--m);letter-spacing:.06em;text-transform:uppercase;color:var(--mute)}
+.cnt b{font-family:BD;font-style:italic;font-size:44px;line-height:1;color:var(--ink);letter-spacing:0}
+.flag{height:22px;margin-top:6px;font:500 12px var(--m);letter-spacing:.08em;text-transform:uppercase;color:var(--orange);opacity:0;transition:opacity .4s}
+.phone.done .flag{opacity:1}
+
+/* charts */
+.fig{max-width:900px;margin:44px auto 52px;padding:0 var(--pad)}
+.fig .cap{font:500 12px var(--m);letter-spacing:.08em;text-transform:uppercase;margin:0 0 18px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.fig .cap span{color:var(--mute)}
+.fig .src{font:500 11px var(--m);color:var(--mute);letter-spacing:.04em;margin-top:14px}
+.bars{display:grid;gap:14px}
+.bar{display:grid;grid-template-columns:minmax(120px,210px) 1fr 64px;gap:14px;align-items:center}
+.bar label{font-size:15px;line-height:1.25}
+.bar .tr{height:30px;background:var(--paper2);position:relative;overflow:hidden}
+.bar .fl{position:absolute;inset:0 auto 0 0;width:0;background:var(--ink);transition:width 1.2s cubic-bezier(.2,.7,.2,1)}
+.bar.c .fl{background:var(--cobalt)}.bar.o .fl{background:var(--orange)}
+.bar output{font-family:BD;font-style:italic;font-size:28px;line-height:1;text-align:right}
+.in .bar .fl{width:var(--w)}
+.pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.pair>div{background:var(--paper);padding:24px 22px}
+.pair h4{margin:0 0 16px;font:500 12px var(--m);letter-spacing:.08em;text-transform:uppercase}
+.slope{display:flex;align-items:flex-end;gap:18px;height:190px}
+.slope .yr{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:stretch;height:100%}
+.slope .yr div{height:0;background:var(--ink);transition:height 1.1s cubic-bezier(.2,.7,.2,1)}
+.slope .yr:last-child div{background:var(--orange)}
+.in .slope .yr div{height:var(--h)}
+.slope .yr b{font-family:BD;font-style:italic;font-size:40px;line-height:1;margin-bottom:8px}
+.slope .yr span{font:500 11px var(--m);color:var(--mute);margin-top:8px;letter-spacing:.06em}
+.dots3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,3vw,36px)}
+.dots{display:grid;grid-template-columns:repeat(10,1fr);gap:4px;margin-bottom:12px}
+.dots i{aspect-ratio:1;border-radius:50%;background:var(--paper2);transition:background .3s}
+.dots i.on{background:var(--ink)}.dots.c i.on{background:var(--cobalt)}.dots.o i.on{background:var(--orange)}
+.dl b{display:block;font-family:BD;font-style:italic;font-size:42px;line-height:1}
+.dl span{font-size:14px;line-height:1.3;display:block;margin-top:4px}
+.swap{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:18px;text-align:center;border:1px solid var(--line);padding:30px 18px}
+.swap b{display:block;font-family:BD;font-style:italic;font-size:clamp(64px,10vw,128px);line-height:.9}
+.swap .to b{color:var(--orange)}
+.swap span{font:500 12px var(--m);letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+.swap .arr{font-family:BD;font-size:44px;color:var(--mute)}
+.stack{display:grid;gap:16px}
+.stk{display:grid;grid-template-columns:110px 1fr;gap:14px;align-items:center}
+.stk .tr{display:flex;height:42px;background:var(--paper2)}
+.stk .live{width:0;background:var(--cobalt);color:#fff;display:flex;align-items:center;padding-left:10px;font:500 12px var(--m);white-space:nowrap;overflow:hidden;transition:width 1.2s cubic-bezier(.2,.7,.2,1)}
+.in .stk .live{width:var(--w)}
+.stk .rest{flex:1;display:flex;align-items:center;justify-content:flex-end;padding-right:10px;font:500 12px var(--m);color:var(--mute)}
+.stk label{font:500 12px var(--m);letter-spacing:.06em;text-transform:uppercase}
+
+/* quote */
+.quote{max-width:1100px;margin:70px auto;padding:0 var(--pad)}
+.quote blockquote{margin:0;font-family:BD;font-style:italic;font-size:clamp(34px,5vw,70px);line-height:1.02;color:var(--cobalt)}
+.quote cite{display:block;margin-top:18px;font:500 12px var(--m);letter-spacing:.08em;text-transform:uppercase;font-style:normal;color:var(--mute)}
+
+/* bands */
+.band{margin-top:120px;padding:10px 0 110px}
+.band.ink{background:var(--ink);color:var(--paper)}
+.band.ink .sec .num{border-color:var(--paper)}
+.band.ink .fig .src,.band.ink .fig .cap span{color:#a8a29a}
+.band.ink .dots i{background:#2a2e3a}
+.band.ink .bar .tr{background:#22263a}.band.ink .bar .fl{background:var(--paper)}
+.band.cob{background:var(--cobalt);color:#fff}
+.band.cob .sec .num{border-color:#fff}
+.band.cob sup a{color:#fff;text-decoration:underline}
+.band.ink sup a{color:#8fb3ff}
+.moves{max-width:1240px;margin:0 auto;padding:0 var(--pad);display:grid;gap:0}
+.move{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(20px,4vw,60px);padding:40px 0;border-top:1px solid rgba(255,255,255,.35)}
+.move h3{margin:0;font-size:clamp(32px,4vw,54px);line-height:.95;text-transform:uppercase}
+.move h3 small{display:block;font:500 12px var(--m);letter-spacing:.1em;margin-bottom:12px;font-style:normal}
+.move p{margin:0 0 .9em;max-width:640px}
+.move .k{display:flex;gap:28px;flex-wrap:wrap;margin:6px 0 18px}
+.move .k div b{display:block;font-family:BD;font-style:italic;font-size:46px;line-height:1}
+.move .k div span{font:500 11px var(--m);letter-spacing:.06em;text-transform:uppercase;opacity:.85}
+
+/* boxes */
+.box{max-width:680px;margin:48px auto 0;padding:28px;border:1.5px solid var(--ink)}
+.box h3{margin:0 0 10px;font:500 12px var(--m);letter-spacing:.1em;text-transform:uppercase;color:var(--cobalt)}
+.box p{margin:0 0 .8em}.box p:last-child{margin:0}
+ul.plain{padding-left:20px;margin:0}ul.plain li{margin:0 0 .6em}
+.end{max-width:680px;margin:60px auto 0;padding:0 var(--pad)}
+.end .sig{font-family:BD;font-style:italic;font-size:44px;color:var(--cobalt);margin:0 0 20px}
+.end .next{border-top:1px solid var(--line);padding-top:16px;margin-top:28px}
+.src-list{max-width:900px;margin:90px auto 0;padding:0 var(--pad) 100px}
+.src-list h2{font:500 12px var(--m);letter-spacing:.1em;text-transform:uppercase;border-top:1.5px solid var(--ink);padding-top:14px}
+.src-list ol{columns:2;column-gap:40px;padding-left:22px;margin:20px 0 0;font-size:13px;line-height:1.45}
+.src-list li{break-inside:avoid;margin:0 0 10px;color:var(--mute)}
+.src-list li a{color:var(--ink)}
+.note{font-size:15px;color:var(--mute)}
+.btn{display:inline-block;background:var(--orange);color:var(--ink);text-decoration:none;padding:13px 22px;border-radius:999px;font:500 13px var(--m);letter-spacing:.08em;text-transform:uppercase}
+
+@media (max-width:820px){
+ body{font-size:17px}
+ .scrolly{display:flex;flex-direction:column}
+ .stick{order:-1;top:49px;height:auto;padding:10px 0 12px;z-index:2;background:var(--paper);position:sticky;border-bottom:1px solid var(--line)}
+ .phone{width:min(168px,46vw);border-radius:22px;padding:12px 8px 8px}
+ .flag .lg{display:none}.cnt span+span{display:none}
+ .grid{gap:2px}.cnt{font-size:10px;margin-top:8px}.flag{font-size:10px;height:16px}
+ .cnt b{font-size:30px}
+ .steps{padding:4vh 0 18vh;position:relative;z-index:1}
+ .step{min-height:70vh}
+ .step div{padding:18px;border:1px solid var(--line);background:rgba(246,241,234,.96)}
+ .bar{grid-template-columns:1fr 78px}.bar label{grid-column:1/-1}.bar output{font-size:24px}
+ .pair,.dots3{grid-template-columns:1fr}
+ .swap{grid-template-columns:1fr;gap:8px}.swap .arr{transform:rotate(90deg)}
+ .move{grid-template-columns:1fr}
+ .src-list ol{columns:1}
+ .stk{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body>
+<header class="top"><a href="/">Ballast</a><span><a href="/notes/" style="margin-right:18px">Notes</a><a class="cta" href="/#book">Book a call</a></span><i class="prog" id="prog"></i></header>
+
+<section class="hero">
+ <span class="mono">Fandom · Ballast Notes №2</span>
+ <h1 class="bd"><span>Built for</span><span>scrolling</span></h1>
+ <p class="dek">The feed can get anyone to watch anything. It was never designed to make anyone care. What the research since 2021 says about fandom in the feed era, and how to build fans that last.</p>
+ <p class="meta mono">Jack Morello · Ballast · November 2026 · 12 min read</p>
+</section>
+
+<section class="scrolly" id="s260">
+ <div class="steps">
+  <div class="step"><div>TikTok knows how long it takes to hook someone. In internal documents that surfaced in Kentucky&rsquo;s lawsuit against the company, its own people put the number at <span class="bd">260 videos.</span><sup><a href="#s1">1</a></sup></div></div>
+  <div class="step"><div>At the length of a typical clip, state officials worked out, that&rsquo;s about <span class="bd">35 minutes.</span> Less than one episode of a sitcom.</div></div>
+  <div class="step"><div>There&rsquo;s no public number for how many videos it takes to actually care about the person in one. As far as the public record shows, nobody is measuring that.</div></div>
+ </div>
+ <div class="stick"><div class="phone" id="phone"><div class="grid" id="grid"></div>
+  <div class="cnt"><span><b id="n">0</b> / 260</span><span id="t">0:00</span></div><div class="flag">Habit formed<span class="lg"> · TikTok&rsquo;s own estimate</span></div></div></div>
+</section>
+
+<!-- 01 -->
+<section class="sec"><div class="num"><b>01</b><b>The feed</b></div><h2 class="bd">Your friends left the feed</h2></section>
+<div class="col">
+ <p class="lead">Ten years ago the feed was the people you chose. Today it&rsquo;s mostly people you didn&rsquo;t.</p>
+ <p>In 2023 Meta told investors that more than a fifth of what people saw on Facebook and Instagram came from accounts they didn&rsquo;t follow.<sup><a href="#s2">2</a></sup> By the time Meta was defending itself in the FTC&rsquo;s antitrust trial in 2025, its own exhibit showed time spent on friends&rsquo; content had fallen to 17% on Facebook and 7% on Instagram.<sup><a href="#s3">3</a></sup></p>
+</div>
+<div class="fig rv">
+ <p class="cap">Share of time spent on friends&rsquo; content <span>Meta exhibit, FTC v. Meta, 2025</span></p>
+ <div class="pair">
+  <div><h4>Facebook</h4><div class="slope"><div class="yr" style="--h:73%"><b>22%</b><div></div><span>2023</span></div><div class="yr" style="--h:57%"><b>17%</b><div></div><span>2025</span></div></div></div>
+  <div><h4>Instagram</h4><div class="slope"><div class="yr" style="--h:37%"><b>11%</b><div></div><span>2023</span></div><div class="yr" style="--h:23%"><b>7%</b><div></div><span>2025</span></div></div></div>
+ </div>
+ <p class="src">&ldquo;Friends&rdquo; is narrower than every account you follow, so followed content is somewhat higher. The direction is the point.</p>
+</div>
+<div class="col">
+ <p>It works, if the goal is time. In a three-month experiment run with Meta during the 2020 US election, researchers took about 44,000 Facebook and Instagram users and moved some of them from the algorithmic feed to a plain chronological one. Time on the apps dropped.<sup><a href="#s4">4</a></sup></p>
+</div>
+<div class="fig rv">
+ <p class="cap">Extra time per day vs. the average US user <span>Guess et al., Science, 2023</span></p>
+ <div class="bars">
+  <div class="bar c" style="--w:68%"><label>Facebook, algorithmic feed</label><div class="tr"><div class="fl"></div></div><output>+73%</output></div>
+  <div class="bar" style="--w:35%"><label>Facebook, chronological feed</label><div class="tr"><div class="fl"></div></div><output>+37%</output></div>
+  <div class="bar c" style="--w:100%"><label>Instagram, algorithmic feed</label><div class="tr"><div class="fl"></div></div><output>+107%</output></div>
+  <div class="bar" style="--w:79%"><label>Instagram, chronological feed</label><div class="tr"><div class="fl"></div></div><output>+84%</output></div>
+ </div>
+</div>
+<div class="col"><p>Following someone used to mean you&rsquo;d see them. Now it mostly buys a slightly better chance.</p></div>
+
+<!-- 02 -->
+<section class="sec"><div class="num"><b>02</b><b>The loop</b></div><h2 class="bd">Same five things, on repeat</h2></section>
+<div class="col">
+ <p class="lead">If your feed feels like the same handful of things over and over, you&rsquo;re reading it right.</p>
+ <p>Researchers who collected 4.9 million TikTok videos watched by 347 real people found the For You feed settles on what it knows about you within roughly the first 100 videos. After correcting for noise, 30% to 50% of what it serves is aimed straight at interests it already has on file.<sup><a href="#s5">5</a></sup> When the Wall Street Journal ran more than 100 bots through TikTok in 2021, one built to linger on sad videos ended up with a feed that was 93% sadness and depression after 224 videos, about 36 minutes in.<sup><a href="#s6">6</a></sup></p>
+ <p>Trying to steer it barely works. Mozilla studied 22,722 people and more than 567 million YouTube recommendations to see how well the buttons work.<sup><a href="#s7">7</a></sup></p>
+</div>
+<div class="fig rv">
+ <p class="cap">How much each YouTube control cut similar unwanted recommendations <span>Mozilla, 2022</span></p>
+ <div class="bars">
+  <div class="bar" style="--w:26%"><label>&ldquo;Not interested&rdquo;</label><div class="tr"><div class="fl"></div></div><output>11%</output></div>
+  <div class="bar" style="--w:28%"><label>Dislike</label><div class="tr"><div class="fl"></div></div><output>12%</output></div>
+  <div class="bar" style="--w:67%"><label>Remove from watch history</label><div class="tr"><div class="fl"></div></div><output>29%</output></div>
+  <div class="bar o" style="--w:100%"><label>&ldquo;Don&rsquo;t recommend channel&rdquo;</label><div class="tr"><div class="fl"></div></div><output>43%</output></div>
+ </div>
+ <p class="src">YouTube disputed the method, saying it &ldquo;doesn&rsquo;t take into account how our systems actually work.&rdquo;</p>
+</div>
+<div class="col">
+ <p>The platforms know. In 2023 TikTok added a button to wipe your For You feed for when recommendations &ldquo;no longer feel like they&rsquo;re for you.&rdquo;<sup><a href="#s8">8</a></sup> Instagram added its own reset in 2024, and Adam Mosseri warned it was &ldquo;a big thing to do&rdquo; and that the app would be less engaging right after.<sup><a href="#s9">9</a></sup></p>
+ <p>One distinction matters. The best research on politics finds YouTube&rsquo;s recommender doesn&rsquo;t drag people toward the extremes; if anything it pulls them back toward the middle.<sup><a href="#s10">10</a></sup> The loop in entertainment is quieter than radicalization. It finds what works on you and keeps serving it. That&rsquo;s comfortable, forgettable, and exactly what keeps you scrolling.</p>
+</div>
+
+<!-- 03 -->
+<section class="sec"><div class="num"><b>03</b><b>Music</b></div><h2 class="bd">The clip eats the fan</h2></section>
+<div class="col">
+ <p class="lead">Music is where you can see the cost most clearly.</p>
+ <p>MIDiA surveyed more than 10,000 people in 2025. Nearly half, 48%, hadn&rsquo;t streamed a single song they&rsquo;d heard on social media in the past month. Fewer than a third became fans of the artists.<sup><a href="#s11">11</a></sup> Then it looked at what happened after people found an artist.</p>
+</div>
+<div class="fig rv">
+ <p class="cap">Out of every 100 people who found an artist&hellip; <span>MIDiA Research, 2025</span></p>
+ <div class="dots3">
+  <div class="dl"><div class="dots" data-n="26"></div><b>26</b><span>followed them on TikTok, then listened to more of their music</span></div>
+  <div class="dl"><div class="dots c" data-n="45"></div><b>45</b><span>followed them on another social platform, then listened to more</span></div>
+  <div class="dl"><div class="dots o" data-n="74"></div><b>74</b><span>found them on a streaming service, then streamed more of them</span></div>
+ </div>
+</div>
+<div class="col">
+ <p>People aged 16 to 24 drop off at almost every step, and one of their most common reasons for not streaming is that they already hear the song enough on social.</p>
+</div>
+<div class="quote rv"><blockquote>&ldquo;The itch is for returning to the moment &ndash; the snippet &ndash; not the song or the artist.&rdquo;</blockquote><cite>Tatiana Cirisano, MIDiA Research<sup><a href="#s11">11</a></sup></cite></div>
+<div class="col">
+ <p>Chartmetric&rsquo;s data shows the squeeze from the other side. In 2020 it took a song about 340 days to reach 100,000 TikTok posts. By 2025 it took about 48. Over the same stretch, the Spotify streams a song picked up per TikTok post at the moment it went viral fell by almost two thirds.<sup><a href="#s12">12</a></sup></p>
+</div>
+<div class="fig rv">
+ <p class="cap">Spotify streams per TikTok post, at the moment a song goes viral <span>Chartmetric, 2025</span></p>
+ <div class="swap"><div><b>738</b><span>2020</span></div><div class="arr">&rarr;</div><div class="to"><b>275</b><span>2025</span></div></div>
+ <p class="src">Part of the drop is simply more people posting per song. It still points the same way as everything else here.</p>
+</div>
+
+<!-- 04 -->
+<section class="sec"><div class="num"><b>04</b><b>Sports</b></div><h2 class="bd">Free agents</h2></section>
+<div class="col">
+ <p class="lead">Sports used to be where loyalty got handed down. You watched the whole game because that was the only way to see it.</p>
+ <p>Fans aged 18 to 29 now spend a quarter of their sports viewing time on live games. Fans over 60 spend 60%. The rest goes to highlights, clips and video games.<sup><a href="#s13">13</a></sup></p>
+</div>
+<div class="fig rv">
+ <p class="cap">Share of sports viewing time spent on live games <span>L.E.K. Consulting, 2025, n=4,520</span></p>
+ <div class="stack">
+  <div class="stk" style="--w:25%"><label>Ages 18&ndash;29</label><div class="tr"><div class="live">25% live</div><div class="rest">highlights, clips, games</div></div></div>
+  <div class="stk" style="--w:60%"><label>Ages 60+</label><div class="tr"><div class="live">60% live</div><div class="rest">the rest</div></div></div>
+ </div>
+</div>
+<div class="col">
+ <p>38% of Gen Z say they have no favorite team, against 25% of all US adults. 63% say content from athletes makes them more engaged.<sup><a href="#s14">14</a></sup> And young fans are more avid than older ones about the NBA, UFC and WNBA.<sup><a href="#s13">13</a></sup> They care plenty. They follow players, formats and moments, and they move when those move.</p>
+</div>
+
+<!-- 05 -->
+<div class="band ink">
+<section class="sec"><div class="num"><b>05</b><b>The split</b></div><h2 class="bd">Two kinds of fan</h2></section>
+<div class="col">
+ <p class="lead">Put it together and fandom splits in two: a huge base that meets you in the clip and stays there, and a smaller core that goes all the way in.</p>
+ <p>Luminate counts about one in five US music listeners as superfans.<sup><a href="#s16">16</a></sup> They spend far more than everyone else.<sup><a href="#s15">15</a></sup></p>
+</div>
+<div class="fig rv">
+ <p class="cap">Monthly spend, superfans vs. the average US listener <span>Luminate, 2025</span></p>
+ <div class="bars">
+  <div class="bar o" style="--w:100%"><label>Live music, superfan</label><div class="tr"><div class="fl"></div></div><output>$113</output></div>
+  <div class="bar" style="--w:60%"><label>Live music, average</label><div class="tr"><div class="fl"></div></div><output>$68</output></div>
+  <div class="bar o" style="--w:35%"><label>Physical music, superfan</label><div class="tr"><div class="fl"></div></div><output>$39</output></div>
+  <div class="bar" style="--w:17%"><label>Physical music, average</label><div class="tr"><div class="fl"></div></div><output>$19</output></div>
+ </div>
+</div>
+<div class="col">
+ <p>Gen Z and millennials make up 63% of the most engaged superfans, and US CD sales rose 16% in the first half of 2026.<sup><a href="#s16">16</a></sup> About half of Gen Z and millennials tell Deloitte they feel more connected to social creators than to TV and film actors, and their six-month churn on streaming services runs above 50%.<sup><a href="#s17">17</a></sup> The loyalty went to people. Subscriptions get dropped casually.</p>
+ <p>The shared screen is mostly gone too. YouTube is now the biggest single place Americans watch TV, at 13.8% of viewing time, ahead of Netflix at 8%.<sup><a href="#s18">18</a></sup> New TV premieres in the first half of 2026 fell to 517, from 930 in the same stretch of 2022.<sup><a href="#s16">16</a></sup> The big exception is live sport: Super Bowl LX drew 125.6 million people.<sup><a href="#s19">19</a></sup></p>
+</div>
+</div>
+
+<!-- 06 -->
+<div class="band cob" style="margin-top:0">
+<section class="sec"><div class="num"><b>06</b><b>The fix</b></div><h2 class="bd">Recruit on the feed. Keep them somewhere else.</h2></section>
+<div class="col"><p class="lead">The feed is a great place to meet people and a bad place to keep them. Every case that held up in the research did some version of the same thing: it used the feed to get noticed, then gave people a reason to come somewhere the feed doesn&rsquo;t control.</p></div>
+<div class="moves">
+ <div class="move"><h3 class="bd"><small>Move 1</small>Give them an appointment</h3><div>
+  <div class="k"><div><b>10.17M</b><span>Eras Tour tickets</span></div><div><b>$2.08B</b><span>Gross</span></div></div>
+  <p>Fandom forms around things you have to show up for. The Eras Tour sold 10.17 million tickets and grossed $2.08 billion.<sup><a href="#s20">20</a></sup> Kai Cenat became the first Twitch streamer past one million active subscribers during his Mafiathon 3 subathon.<sup><a href="#s21">21</a></sup> How many stayed after it ended hasn&rsquo;t been published. Live sport is the last big shared screen for the same reason.</p>
+  <p>For a brand it can be small: a weekly drop, a monthly live, a show with a schedule people learn.</p></div></div>
+ <div class="move"><h3 class="bd"><small>Move 2</small>Own the room, and show up in it</h3><div>
+  <div class="k"><div><b>263</b><span>Min per user per month, Weverse</span></div><div><b>1M+</b><span>Dropout subscribers</span></div></div>
+  <p>HYBE says fans on Weverse, where K-pop artists post and message fans directly, spend about 263 minutes a month there, and that using the artist DM and live features made about 15% of users more active.<sup><a href="#s22">22</a></sup> Those are HYBE&rsquo;s own numbers. Dropout, the comedy streamer, passed one million paying subscribers on its own platform, then added a $129.99-a-year Superfan tier people pay extra for by choice.<sup><a href="#s23">23</a></sup></p>
+  <p>An email list, an app, a Discord, a membership. Somewhere the algorithm doesn&rsquo;t decide who sees you.</p></div></div>
+ <div class="move"><h3 class="bd"><small>Move 3</small>Build a cast</h3><div>
+  <div class="k"><div><b>&minus;40%</b><span>WNBA playoffs after the Fever exit</span></div><div><b>+10.5%</b><span>F1 US fans, 2024</span></div></div>
+  <p>Interest that rests on one star moves when the star does. WNBA playoff viewing fell more than 40% once Caitlin Clark&rsquo;s Fever were out.<sup><a href="#s24">24</a></sup> F1, which sells a whole grid of drivers and rivalries, grew to 52 million US fans in 2024.<sup><a href="#s25">25</a></sup> A year after Taylor Swift started showing up at Chiefs games, YouGov counted more than 4 million additional female NFL fans.<sup><a href="#s26">26</a></sup></p>
+  <p>For a brand: more than one face, more than one creator, recurring characters people can pick a favorite from.</p></div></div>
+ <div class="move"><h3 class="bd"><small>Move 4</small>Give fans something to do</h3><div>
+  <div class="k"><div><b>$70M&rarr;$750M</b><span>Stanley revenue, four years</span></div></div>
+  <p>Peer-reviewed work on influencer-driven loyalty finds engagement is what carries it. The parasocial bond amplifies it, and can flip into a sense of betrayal when the brand breaks the trust.<sup><a href="#s27">27</a></sup> Stanley went from about $70 million to more than $750 million in annual revenue in four years by seeding creators and running limited drops people chased.<sup><a href="#s28">28</a></sup></p></div></div>
+ <div class="move"><h3 class="bd"><small>Move 5</small>Sell next to the content</h3><div>
+  <div class="k"><div><b>$251M</b><span>Feastables sales, 2024</span></div><div><b>&minus;$80M</b><span>MrBeast media, 2024</span></div></div>
+  <p>MrBeast&rsquo;s media business lost about $80 million in 2024. His chocolate brand, Feastables, made about $251 million in sales and more than $20 million in profit.<sup><a href="#s29">29</a></sup> The attention lived on the feed. The money showed up in something fans could buy and hold.</p></div></div>
+</div>
+</div>
+
+<!-- 07 -->
+<section class="sec"><div class="num"><b>07</b><b>What we do now</b></div><h2 class="bd">Judge the feed by who moves</h2></section>
+<div class="col">
+ <ul class="plain">
+  <li><b>Every campaign gets a destination off the feed.</b> A list, an app, a community, a live show, a drop.</li>
+  <li><b>We report on moves.</b> People who took one step deeper (signed up, followed somewhere we own, bought, came back) per 1,000 viewers.</li>
+  <li><b>We build a cast.</b> Several creators paid on what they sell, so no single face carries the brand.</li>
+ </ul>
+ <div class="box"><h3>Try this week</h3><p>Pull your 10 most-viewed posts from the last 90 days. For each one, count the people who did something after watching: signed up, followed you somewhere you own, bought, or came back to the site. Divide by views.</p><p>That&rsquo;s your real conversion from viewer to fan. It&rsquo;s rarely a comfortable number.</p></div>
+ <p class="note" style="margin-top:36px">One honest limit: no public study yet follows people from the clip that found them to whether they&rsquo;re still fans years later. TikTok doesn&rsquo;t give researchers that kind of access. Everything above comes from large surveys, platform documents, court records and case studies, and it all points the same way.</p>
+</div>
+<div class="end">
+ <p class="sig">JM</p>
+ <a class="btn" href="/#book">Book a call</a>
+ <p class="next mono">Next week · Does server-side tracking fix attribution?</p>
+</div>
+
+<section class="src-list" id="sources"><h2>Sources</h2><ol>
+<li id="s1"><a href="https://www.npr.org/2024/10/11/nx-s1-5149878/lawsuit-documents-reveal-what-tiktok-executives-know-about-apps-effect-on-teenagers">NPR, &ldquo;TikTok executives know about app&rsquo;s effect on teens, lawsuit documents allege,&rdquo; Oct 2024</a></li>
+<li id="s2"><a href="https://s21.q4cdn.com/399680738/files/doc_financials/2023/q1/META-Q1-2023-Earnings-Call-Transcript.pdf">Meta, Q1 2023 earnings call transcript, Apr 2023</a></li>
+<li id="s3"><a href="https://www.businessinsider.com/meta-reveals-decline-friend-content-instagram-facebook-amid-ftc-trial-2025-4">Business Insider, Apr 2025</a>; <a href="https://www.ftc.gov/system/files/ftc_gov/pdf/MemorandumofOpinion.pdf">FTC v. Meta, Memorandum Opinion</a></li>
+<li id="s4"><a href="https://www.science.org/doi/10.1126/science.abp9364">Guess et al., &ldquo;How do social media feed algorithms affect attitudes and behavior in an election campaign?&rdquo; Science, Jul 2023</a></li>
+<li id="s5"><a href="https://arxiv.org/html/2403.12410v1">Vombatkere et al., TikTok personalization from real user data, The Web Conference, 2024</a></li>
+<li id="s6"><a href="https://www.tubefilter.com/2021/07/21/tiktok-recommendation-algorithm-wall-street-journal-guillaume-chaslot/amp/">Wall Street Journal TikTok bot investigation, Jul 2021, as reported by Tubefilter</a></li>
+<li id="s7"><a href="https://www.mozillafoundation.org/es/blog/mozilla-investigation-youtubes-dislike-button-other-user-controls-largely-fail-to-stop-unwanted-recommendations/">Mozilla Foundation, &ldquo;Does This Button Work?&rdquo; Sep 2022</a></li>
+<li id="s8"><a href="https://newsroom.tiktok.com/en-ie/safeguarding-recommendations-update">TikTok Newsroom, &ldquo;Safeguarding recommendations update,&rdquo; Mar 2023</a></li>
+<li id="s9"><a href="https://techcrunch.com/2024/11/19/instagram-will-soon-let-you-reset-your-recommendation-algorithm">TechCrunch, Nov 2024</a></li>
+<li id="s10"><a href="https://www.pnas.org/doi/10.1073/pnas.2313377121">Hosseinmardi et al., &ldquo;Causally estimating the effect of YouTube&rsquo;s recommender system using counterfactual bots,&rdquo; PNAS, Feb 2024</a></li>
+<li id="s11"><a href="https://www.midiaresearch.com/blog/all-eyes-no-ears-new-midia-data-shows-why-virality-is-not-building-fandom">MIDiA Research, &ldquo;All eyes, no ears,&rdquo; Sep 2025</a></li>
+<li id="s12"><a href="https://hmc.chartmetric.com/why-tiktok-songs-go-viral-faster/">Chartmetric / How Music Charts, Nov 2025</a></li>
+<li id="s13"><a href="https://www.lek.com/insights/media-entertainment/how-sports-fandom-evolving-2025-insights-leks-annual-sports-survey">L.E.K. Consulting, annual sports survey, 2025</a></li>
+<li id="s14"><a href="https://www.oliverwyman.com/our-expertise/insights/2023/oct/gen-z-reshaping-professional-sports-economics.html">Oliver Wyman with Morning Consult, Oct 2023</a></li>
+<li id="s15"><a href="https://luminatedata.com/blog/supercharge-your-super-fan-strategy/">Luminate, &ldquo;Supercharge your super fan strategy,&rdquo; Mar 2025</a></li>
+<li id="s16"><a href="https://luminatedata.com/blog/luminate-2026-midyear-report-trends-in-music-television-film/">Luminate, 2026 Midyear Report</a></li>
+<li id="s17"><a href="https://www.deloitte.com/us/en/insights/industry/technology/digital-media-trends-consumption-habits-survey/2025.html">Deloitte, Digital Media Trends 2025</a></li>
+<li id="s18"><a href="https://www.nielsen.com/news-center/2026/streaming-embarks-on-annual-summer-ascent-in-nielsens-may-2026-gauge-reports/">Nielsen, The Gauge, May 2026</a></li>
+<li id="s19"><a href="https://www.nielsen.com/news-center/2026/super-bowl-lx-2026/">Nielsen, Super Bowl LX, Feb 2026</a></li>
+<li id="s20"><a href="https://www.billboard.com/music/chart-beat/taylor-swift-eras-tour-earnings-2-billion-sales-1235847513/">Billboard, Dec 2024</a></li>
+<li id="s21"><a href="https://www.teenvogue.com/story/kai-cenat-breaks-twitch-active-subscriber-record-during-mafiathon-3">Teen Vogue, 2025</a></li>
+<li id="s22"><a href="https://www.musicbusinessworldwide.com/hybe-says-weverse-hit-12m-monthly-users-last-year-and-that-its-turning-casual-fans-into-superfans/">Music Business Worldwide, Feb 2026 (HYBE&rsquo;s own figures)</a></li>
+<li id="s23"><a href="https://variety.com/2025/tv/news/dropout-superfan-tier-price-explained-sam-reich-1236564699/">Variety, Oct 2025</a></li>
+<li id="s24"><a href="https://sports.yahoo.com/articles/wnba-playoffs-ratings-crash-over-104752266.html">Yahoo Sports / Sports Media Watch, Oct 2026</a></li>
+<li id="s25"><a href="https://www.forbes.com/sites/maurybrown/2025/03/22/data-from-nielsen-sports-shows-f1-fandom-surging-as-2025-season-gets-underway/">Forbes, citing Nielsen Sports, Mar 2025</a></li>
+<li id="s26"><a href="https://www.sportico.com/personalities/people/2024/taylor-swift-effect-nfl-attendance-girls-social-marketing-1234798352/">Sportico, citing YouGov, Sep 2024</a></li>
+<li id="s27"><a href="https://journals.sagepub.com/doi/10.1177/21582440241242928">SAGE Open, 2024</a></li>
+<li id="s28"><a href="https://www.cnbc.com/make-it/2023/12/23/how-a-40-ounce-cup-turned-stanley-into-a-750-million-a-year-business.html">CNBC, Dec 2023</a></li>
+<li id="s29"><a href="https://www.fastcompany.com/91296813/mrbeast-chocolate-empire-making-more-money-than-youtube-channel">Fast Company, summarizing Bloomberg, Mar 2025</a></li>
+</ol></section>
+
+<script>
+(()=>{
+ // 260-video feed
+ const grid=document.getElementById('grid'),phone=document.getElementById('phone'),nEl=document.getElementById('n'),tEl=document.getElementById('t'),sec=document.getElementById('s260');
+ const pal=['#0B5CF6','#FD720D','#0A0D18','#9DB8F5','#F7B98A','#B9B2A8','#3B4258','#D8CFC3'];
+ let s=7;const r=()=>(s=(s*16807)%2147483647)/2147483647;
+ const tiles=[];for(let i=0;i<260;i++){const e=document.createElement('i');e.dataset.c=pal[Math.floor(r()*pal.length)];grid.appendChild(e);tiles.push(e)}
+ let shown=-1;
+ function feed(){const b=sec.getBoundingClientRect(),vh=innerHeight;const p=Math.min(1,Math.max(0,(vh*.55-b.top)/(b.height-vh*.9)));
+  const n=Math.round(p*260);if(n!==shown){for(let i=0;i<260;i++)tiles[i].style.background=i<n?tiles[i].dataset.c:'';shown=n;
+   nEl.textContent=n;const m=n/260*35;tEl.textContent=Math.floor(m)+':'+String(Math.round((m%1)*60)%60).padStart(2,'0')+' min';phone.classList.toggle('done',n>=260)}}
+ // progress bar
+ const prog=document.getElementById('prog');
+ function bar(){const h=document.documentElement;prog.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%'}
+ addEventListener('scroll',()=>{feed();bar()},{passive:true});addEventListener('resize',feed);feed();bar();
+ // dot grids
+ document.querySelectorAll('.dots').forEach(d=>{for(let i=0;i<100;i++)d.appendChild(document.createElement('i'))});
+ // reveals
+ const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const el=e.target;el.classList.add('in');
+  el.querySelectorAll('.dots').forEach(d=>{const n=+d.dataset.n,ds=d.children;for(let i=0;i<n;i++)setTimeout(()=>ds[i].classList.add('on'),i*14)});io.unobserve(el)}),{threshold:.3});
+ document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+})();
+</script>
+</body></html>
