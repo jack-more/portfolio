@@ -1,0 +1,278 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" href="/favicon.ico?v=3" sizes="any">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;800&family=Geist+Mono:wght@500&display=swap">
+<title>Built for scrolling (reader prototype) — Ballast Notes</title>
+<meta name="robots" content="noindex">
+<style>
+@font-face{font-family:BD;src:url(/notes/BallastDisplay-BlackItalic.woff2) format('woff2');font-display:swap}
+:root{--paper:#F6F1EA;--paper2:#E9E1D5;--ink:#0A0D18;--mute:#6E6862;--cobalt:#0B5CF6;--orange:#FD720D;--line:rgba(10,13,24,.14);
+--g:"Geist","Helvetica Neue",Arial,sans-serif;--m:"Geist Mono",ui-monospace,Menlo,monospace}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 18px/1.55 var(--g)}
+a{color:inherit}
+.mono{font:500 12px var(--m);letter-spacing:.1em;text-transform:uppercase}
+.bd{font-family:BD,var(--g);font-style:italic;font-weight:900}
+.top{position:fixed;top:0;left:0;right:0;z-index:30;display:flex;justify-content:space-between;align-items:center;padding:12px clamp(16px,3vw,40px);background:rgba(246,241,234,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);font:500 12px var(--m);letter-spacing:.08em;text-transform:uppercase}
+.top a{text-decoration:none}.top .cta{background:var(--orange);padding:8px 14px;border-radius:999px}
+.prog{position:absolute;left:0;bottom:-1px;height:2px;width:0;background:var(--cobalt)}
+.chap{position:absolute;left:50%;transform:translateX(-50%);color:var(--mute)}
+/* opening */
+.open{min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding:90px clamp(16px,4vw,56px) 56px;max-width:1300px;margin:0 auto}
+.open h1{font-size:clamp(64px,14vw,220px);line-height:.82;margin:16px 0 26px;color:var(--cobalt);text-transform:uppercase}
+.open p{font-size:clamp(20px,2.2vw,27px);line-height:1.35;max-width:760px;margin:0 0 18px}
+.open .hint{display:flex;align-items:center;gap:10px;color:var(--mute);margin-top:18px}
+.open .hint i{width:22px;height:34px;border:2px solid currentColor;border-radius:12px;position:relative}
+.open .hint i::after{content:"";position:absolute;left:50%;top:6px;width:3px;height:7px;margin-left:-1.5px;border-radius:2px;background:currentColor;animation:wh 1.6s infinite}
+@keyframes wh{0%{transform:translateY(0);opacity:1}100%{transform:translateY(10px);opacity:0}}
+/* reader */
+.reader{position:relative;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);max-width:1400px;margin:0 auto;padding:0 clamp(16px,3vw,40px)}
+.steps{position:relative;z-index:2;padding:10vh 0 40vh}
+.step{min-height:100vh;display:flex;align-items:center}
+.step .card{max-width:480px;font-size:clamp(19px,1.7vw,22px);line-height:1.5;opacity:.25;transition:opacity .4s}
+.step.on .card{opacity:1}
+.step .card .k{display:block;font:500 12px var(--m);letter-spacing:.1em;text-transform:uppercase;color:var(--cobalt);margin-bottom:12px}
+.step .card b.n{font-family:BD;font-style:italic;font-weight:900;color:var(--cobalt);font-size:1.15em}
+.step .card h2{font-family:BD;font-style:italic;font-size:clamp(40px,4.6vw,72px);line-height:.9;margin:0 0 18px;text-transform:uppercase}
+sup a{font:600 11px var(--m);color:var(--cobalt);text-decoration:none;padding:0 2px}
+.stage{position:sticky;top:0;height:100vh;display:flex;align-items:center;justify-content:center}
+.scene{position:absolute;inset:60px 0 20px;display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;transform:scale(.97);transition:opacity .5s,transform .5s;pointer-events:none}
+.scene.on{opacity:1;transform:none}
+.cap{font:500 12px var(--m);letter-spacing:.1em;text-transform:uppercase;color:var(--mute);margin-top:18px;text-align:center;max-width:460px}
+.big{font-family:BD;font-style:italic;font-weight:900;line-height:.9}
+/* phone */
+.phone{width:min(330px,70%);aspect-ratio:9/17.5;border:2px solid var(--ink);border-radius:36px;padding:20px 14px 16px;background:#fff;display:flex;flex-direction:column;transition:border-color .4s,box-shadow .4s}
+.phone.done{border-color:var(--orange);box-shadow:0 0 0 7px rgba(253,114,13,.18)}
+.tiles{flex:1;display:grid;gap:3px}
+.tiles i{border-radius:2px;background:var(--paper2);transition:background .2s}
+.pc{display:flex;justify-content:space-between;align-items:baseline;margin-top:12px;font:500 11px var(--m);letter-spacing:.06em;text-transform:uppercase;color:var(--mute)}
+.pc b{font-family:BD;font-style:italic;font-size:40px;color:var(--ink);letter-spacing:0}
+/* bars */
+.bars{width:min(560px,92%);display:grid;gap:16px}
+.bar{display:grid;grid-template-columns:150px 1fr 70px;gap:12px;align-items:center;font-size:15px}
+.bar .tr{height:34px;background:var(--paper2);position:relative}.bar .fl{position:absolute;inset:0 auto 0 0;background:var(--ink)}
+.bar.c .fl{background:var(--cobalt)}.bar.o .fl{background:var(--orange)}
+.bar output{font-family:BD;font-style:italic;font-size:28px;text-align:right}
+/* dots */
+.dgrid{display:grid;grid-template-columns:repeat(10,1fr);gap:5px;width:min(300px,62vw)}
+.dgrid i{aspect-ratio:1;border-radius:50%;background:var(--paper2);transition:background .25s,transform .4s}
+.dgrid i.on{background:var(--cobalt)}.dgrid i.or{background:var(--orange)}
+.tri{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;width:min(640px,94%)}
+.tri .dgrid{width:100%;gap:3px}
+.tri b{display:block;font-family:BD;font-style:italic;font-size:44px;margin-top:10px}
+.tri span{font-size:13px;line-height:1.3;display:block}
+/* loop */
+.loop{position:relative;width:min(380px,74vw);aspect-ratio:1}
+.loop .ring{position:absolute;inset:0;border:2px dashed var(--line);border-radius:50%}
+.loop .it{position:absolute;left:50%;top:50%;width:26%;aspect-ratio:9/14;margin:-20% 0 0 -13%;border-radius:10px;border:2px solid var(--ink);background:#fff;display:flex;align-items:center;justify-content:center;font-family:BD;font-style:italic;font-size:30px}
+.loop .mid{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+/* count */
+.count{font-size:clamp(96px,16vw,220px);color:var(--orange)}
+/* split */
+.split{display:flex;gap:28px;align-items:center}
+/* fix */
+.moves{display:grid;gap:12px;width:min(520px,92%)}
+.mv{display:flex;align-items:center;gap:16px;padding:16px 18px;border:2px solid var(--line);border-radius:14px;transition:all .35s;background:#fff}
+.mv b{font-family:BD;font-style:italic;font-size:30px;color:var(--paper2);transition:color .35s;width:44px}
+.mv span{font-weight:600;font-size:19px;color:var(--mute);transition:color .35s}
+.mv.on{border-color:var(--cobalt)}.mv.on b{color:var(--cobalt)}.mv.on span{color:var(--ink)}
+.feedpath{display:flex;align-items:center;gap:14px;margin-bottom:24px;font:500 12px var(--m);letter-spacing:.08em;text-transform:uppercase}
+.feedpath i{display:inline-block;padding:10px 14px;border-radius:999px;border:2px solid var(--ink)}
+.feedpath i.own{background:var(--cobalt);color:#fff;border-color:var(--cobalt)}
+/* end */
+.end{max-width:720px;margin:0 auto;padding:10vh clamp(16px,4vw,40px) 8vh}
+.end h2{font-family:BD;font-style:italic;font-size:clamp(40px,6vw,80px);line-height:.9;text-transform:uppercase;margin:0 0 24px;color:var(--cobalt)}
+.end .three{display:grid;gap:14px;margin:0 0 36px;padding:0;list-style:none;counter-reset:n}
+.end .three li{counter-increment:n;display:grid;grid-template-columns:44px 1fr;font-size:21px;line-height:1.4}
+.end .three li::before{content:counter(n,decimal-leading-zero);font-family:BD;font-style:italic;color:var(--orange);font-size:26px}
+.box{border:2px solid var(--ink);padding:24px;margin:0 0 30px}
+.box .mono{color:var(--cobalt);display:block;margin-bottom:10px}
+.sig{display:flex;align-items:center;gap:18px;margin:30px 0}
+.sig img{width:120px}.sig b{font-family:BD;font-style:italic;font-size:44px;color:var(--cobalt)}
+.btn{display:inline-block;background:var(--orange);color:var(--ink);text-decoration:none;padding:13px 22px;border-radius:999px;font:500 13px var(--m);letter-spacing:.08em;text-transform:uppercase}
+.src-list{max-width:900px;margin:0 auto;padding:0 clamp(16px,4vw,40px) 100px}
+.src-list h2{font:500 12px var(--m);letter-spacing:.1em;text-transform:uppercase;border-top:1.5px solid var(--ink);padding-top:14px}
+.src-list ol{columns:2;column-gap:40px;padding-left:22px;font-size:13px;line-height:1.45}
+.src-list li{break-inside:avoid;margin:0 0 10px;color:var(--mute)}.src-list li a{color:var(--ink)}
+/* mobile: visual pinned on top, text cards scroll underneath */
+@media (max-width:860px){
+ .reader{display:flex;flex-direction:column;padding:0}
+ .stage{order:-1;position:sticky;top:44px;height:52svh;z-index:5;background:var(--paper);border-bottom:1px solid var(--line)}
+ .scene{inset:10px 0 6px}
+ .phone{width:auto;height:92%;aspect-ratio:9/17.5;padding:10px 8px 8px;border-radius:22px}
+ .pc b{font-size:24px}
+ .steps{padding:0 16px 30vh}
+ .step{min-height:62svh;align-items:flex-start;padding-top:2svh}
+ .step .card{opacity:.35}.step.on .card{opacity:1}
+
+ .step .card{background:rgba(246,241,234,.97);border:1px solid var(--line);padding:18px;border-radius:14px;opacity:1;font-size:18px}
+ .step .card h2{font-size:38px}
+ .bar{grid-template-columns:1fr 64px}.bar label{grid-column:1/-1;font-size:13px}.bar .tr{height:22px}
+ .tri b{font-size:28px}.tri span{font-size:11px}
+ .count{font-size:110px}
+ .loop{width:min(250px,60vw)}
+ .moves{gap:6px}.mv{padding:8px 12px}.mv b{font-size:22px}.mv span{font-size:15px}
+ .split{gap:14px}.split .dgrid{width:150px}
+ .cap{margin-top:8px;font-size:10px}
+ .src-list ol{columns:1}
+ .chap{display:none}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style></head><body>
+<header class="top"><a href="/">Ballast</a><span class="chap" id="chap">Built for scrolling</span><span><a href="/notes/" style="margin-right:16px">Notes</a><a class="cta" href="/#book">Book a call</a></span><i class="prog" id="prog"></i></header>
+
+<section class="open">
+ <span class="mono" style="color:var(--cobalt)">Fandom · Ballast Notes №2</span>
+ <h1 class="bd">Built for scrolling</h1>
+ <p>The feed can get anyone to watch anything. Getting them to care was never its job. This note is built to be scrolled, so every number shows up as something you can see.</p>
+ <span class="mono" style="color:var(--mute)">Jack Morello · Ballast · November 2026</span>
+ <div class="hint mono"><i></i>Scroll slowly</div>
+</section>
+
+<section class="reader">
+ <div class="steps" id="steps">
+  <div class="step" data-scene="habit" data-chap="The hook"><div class="card"><span class="k">01 · The hook</span>TikTok knows how long it takes to hook someone. In internal documents from Kentucky&rsquo;s lawsuit, its own people put the number at <b class="n">260 videos</b>.<sup><a href="#s1">1</a></sup> Watch the phone fill as you scroll.</div></div>
+  <div class="step" data-scene="habit" data-chap="The hook"><div class="card">At the length of a typical clip, that&rsquo;s about <b class="n">35 minutes</b>. There&rsquo;s no public number for how long it takes to care about the person in one.</div></div>
+
+  <div class="step" data-scene="friends" data-chap="The feed"><div class="card"><span class="k">02 · The feed</span><h2>Your friends left the feed</h2>Each square is a slice of your time on Instagram. The blue ones are friends. In 2023 it was <b class="n">11%</b>. By 2025, Meta&rsquo;s own trial exhibit put it at <b class="n">7%</b>.<sup><a href="#s3">3</a></sup></div></div>
+  <div class="step" data-scene="time" data-chap="The feed"><div class="card">It works if the goal is time. When researchers moved people off the algorithmic feed, time on the apps dropped. Algorithmic Instagram users spent <b class="n">107%</b> more time than average; chronological users, <b class="n">84%</b>.<sup><a href="#s4">4</a></sup></div></div>
+
+  <div class="step" data-scene="loop" data-chap="The loop"><div class="card"><span class="k">03 · The loop</span><h2>Same five things, on repeat</h2>Across 4.9 million TikTok videos watched by 347 real people, the feed settled on what it knew about each person within about <b class="n">100 videos</b>.<sup><a href="#s5">5</a></sup> Then it kept coming back around.</div></div>
+  <div class="step" data-scene="buttons" data-chap="The loop"><div class="card">Trying to steer it barely works. Across 567 million YouTube recommendations, pressing <b class="n">Dislike</b> cut similar ones by 12%. <b class="n">Not interested</b>, 11%.<sup><a href="#s7">7</a></sup></div></div>
+
+  <div class="step" data-scene="clip" data-chap="Music"><div class="card"><span class="k">04 · Music</span><h2>The clip eats the fan</h2>Out of every 100 people who found an artist, here&rsquo;s how many went on to listen to more of their music, depending on where they found them.<sup><a href="#s11">11</a></sup></div></div>
+  <div class="step" data-scene="count" data-chap="Music"><div class="card">Spotify streams a song picks up per TikTok post at the moment it goes viral. Watch it fall from 2020 to 2025.<sup><a href="#s12">12</a></sup> &ldquo;The itch is for returning to the moment, the snippet.&rdquo;</div></div>
+
+  <div class="step" data-scene="sports" data-chap="Sports"><div class="card"><span class="k">05 · Sports</span><h2>Free agents</h2>How much of their sports viewing is live games. Fans over 60: <b class="n">60%</b>. Fans 18 to 29: <b class="n">25%</b>. The rest is clips and highlights.<sup><a href="#s13">13</a></sup> 38% of Gen Z have no favorite team.<sup><a href="#s14">14</a></sup></div></div>
+
+  <div class="step" data-scene="split" data-chap="The split"><div class="card"><span class="k">06 · The split</span><h2>Two kinds of fan</h2>One in five US music listeners is a superfan.<sup><a href="#s16">16</a></sup> Watch them separate from the crowd. They spend <b class="n">$113</b> a month on live music against <b class="n">$68</b>.<sup><a href="#s15">15</a></sup></div></div>
+
+  <div class="step" data-scene="fix" data-chap="The fix"><div class="card"><span class="k">07 · The fix</span><h2>Recruit on the feed. Keep them somewhere else.</h2>Every case that held up did the same thing: used the feed to get noticed, then gave people a reason to come somewhere the feed doesn&rsquo;t control.</div></div>
+  <div class="step" data-scene="fix" data-chap="The fix"><div class="card">The Eras Tour sold <b class="n">10.17M</b> tickets.<sup><a href="#s20">20</a></sup> Weverse fans spend <b class="n">263 minutes</b> a month in a room the artist owns.<sup><a href="#s22">22</a></sup> F1 sold a whole cast and grew US fans <b class="n">10.5%</b>.<sup><a href="#s25">25</a></sup> Feastables made <b class="n">$251M</b> while the videos lost money.<sup><a href="#s29">29</a></sup></div></div>
+ </div>
+
+ <div class="stage" id="stage">
+  <div class="scene" data-s="habit"><div class="phone" id="phone"><div class="tiles" id="tiles" style="grid-template-columns:repeat(13,1fr)"></div><div class="pc"><span><b id="hn">0</b> / 260</span><span id="ht">0 min</span></div></div><div class="cap">Videos to form a habit · TikTok internal estimate</div></div>
+  <div class="scene" data-s="friends"><div class="phone"><div class="tiles" id="ftiles" style="grid-template-columns:repeat(10,1fr)"></div><div class="pc"><span><b id="fn">11%</b></span><span id="fy">2023</span></div></div><div class="cap">Share of Instagram time on friends&rsquo; posts</div></div>
+  <div class="scene" data-s="time"><div class="bars">
+   <div class="bar c" data-w="100"><label>Instagram, algorithmic</label><div class="tr"><div class="fl"></div></div><output>+107%</output></div>
+   <div class="bar" data-w="79"><label>Instagram, chronological</label><div class="tr"><div class="fl"></div></div><output>+84%</output></div>
+   <div class="bar c" data-w="68"><label>Facebook, algorithmic</label><div class="tr"><div class="fl"></div></div><output>+73%</output></div>
+   <div class="bar" data-w="35"><label>Facebook, chronological</label><div class="tr"><div class="fl"></div></div><output>+37%</output></div>
+  </div><div class="cap">Extra time per day vs. the average US user · Science, 2023</div></div>
+  <div class="scene" data-s="loop"><div class="loop" id="loop"><div class="ring"></div><div class="mid"><span class="big" id="lc" style="font-size:64px;color:var(--orange)">0</span><span class="mono" style="color:var(--mute)">videos in</span></div></div><div class="cap">The same five things, coming back around</div></div>
+  <div class="scene" data-s="buttons"><div class="bars">
+   <div class="bar" data-w="26"><label>&ldquo;Not interested&rdquo;</label><div class="tr"><div class="fl"></div></div><output>11%</output></div>
+   <div class="bar" data-w="28"><label>Dislike</label><div class="tr"><div class="fl"></div></div><output>12%</output></div>
+   <div class="bar" data-w="67"><label>Remove from history</label><div class="tr"><div class="fl"></div></div><output>29%</output></div>
+   <div class="bar o" data-w="100"><label>&ldquo;Don&rsquo;t recommend channel&rdquo;</label><div class="tr"><div class="fl"></div></div><output>43%</output></div>
+  </div><div class="cap">How much each YouTube control cut similar recommendations · Mozilla, 2022</div></div>
+  <div class="scene" data-s="clip"><div class="tri">
+   <div><div class="dgrid" data-n="26"></div><b>26</b><span>followed on TikTok</span></div>
+   <div><div class="dgrid" data-n="45"></div><b>45</b><span>followed on other social</span></div>
+   <div><div class="dgrid" data-n="74"></div><b>74</b><span>found on a streaming service</span></div>
+  </div><div class="cap">Out of 100 who found an artist, how many listened to more · MIDiA, 2025</div></div>
+  <div class="scene" data-s="count"><span class="big count" id="cn">738</span><span class="mono" id="cy" style="color:var(--mute)">2020</span><div class="cap">Spotify streams per TikTok post at the moment of virality · Chartmetric</div></div>
+  <div class="scene" data-s="sports"><div class="bars">
+   <div class="bar c" data-w="60"><label>Fans 60+</label><div class="tr"><div class="fl"></div></div><output>60%</output></div>
+   <div class="bar o" data-w="25"><label>Fans 18&ndash;29</label><div class="tr"><div class="fl"></div></div><output>25%</output></div>
+  </div><div class="cap">Share of sports viewing time spent on live games · L.E.K., 2025</div></div>
+  <div class="scene" data-s="split"><div class="split"><div class="dgrid" id="sg"></div><div class="bars" style="width:200px">
+   <div class="bar o" data-w="100" style="grid-template-columns:1fr 60px"><div class="tr"><div class="fl"></div></div><output>$113</output></div>
+   <div class="bar" data-w="60" style="grid-template-columns:1fr 60px"><div class="tr"><div class="fl"></div></div><output>$68</output></div>
+  </div></div><div class="cap">Superfans (orange) and what they spend on live music each month · Luminate</div></div>
+  <div class="scene" data-s="fix"><div class="feedpath"><i>The feed</i>&rarr;<i class="own">Somewhere you own</i></div><div class="moves" id="moves">
+   <div class="mv"><b>01</b><span>Give them an appointment</span></div>
+   <div class="mv"><b>02</b><span>Own the room, show up in it</span></div>
+   <div class="mv"><b>03</b><span>Build a cast</span></div>
+   <div class="mv"><b>04</b><span>Give fans something to do</span></div>
+   <div class="mv"><b>05</b><span>Sell next to the content</span></div>
+  </div></div>
+ </div>
+</section>
+
+<section class="end">
+ <h2>What you just read</h2>
+ <ol class="three">
+  <li>The feed gets your attention fast and almost never your loyalty.</li>
+  <li>Fandom is splitting: a huge base stuck in the clip, a small core going deep.</li>
+  <li>Use the feed to recruit. Keep people somewhere you own, and measure who moves.</li>
+ </ol>
+ <div class="box"><span class="mono">Try this week</span>Pull your 10 most-viewed posts from the last 90 days. Count the people who did something after watching: signed up, followed you somewhere you own, bought, came back. Divide by views. That&rsquo;s your real conversion from viewer to fan.</div>
+ <div class="sig"><img src="/notes/stamp.webp" alt="BALLAST.LA stamp"><b>JM</b></div>
+ <a class="btn" href="/#book">Book a call</a>
+</section>
+<section class="src-list" id="sources"><h2>Sources</h2><ol>
+<li id="s1"><a href="https://www.npr.org/2024/10/11/nx-s1-5149878/lawsuit-documents-reveal-what-tiktok-executives-know-about-apps-effect-on-teenagers">NPR, &ldquo;TikTok executives know about app&rsquo;s effect on teens, lawsuit documents allege,&rdquo; Oct 2024</a></li>
+<li id="s2"><a href="https://s21.q4cdn.com/399680738/files/doc_financials/2023/q1/META-Q1-2023-Earnings-Call-Transcript.pdf">Meta, Q1 2023 earnings call transcript, Apr 2023</a></li>
+<li id="s3"><a href="https://www.businessinsider.com/meta-reveals-decline-friend-content-instagram-facebook-amid-ftc-trial-2025-4">Business Insider, Apr 2025</a>; <a href="https://www.ftc.gov/system/files/ftc_gov/pdf/MemorandumofOpinion.pdf">FTC v. Meta, Memorandum Opinion</a></li>
+<li id="s4"><a href="https://www.science.org/doi/10.1126/science.abp9364">Guess et al., &ldquo;How do social media feed algorithms affect attitudes and behavior in an election campaign?&rdquo; Science, Jul 2023</a></li>
+<li id="s5"><a href="https://arxiv.org/html/2403.12410v1">Vombatkere et al., TikTok personalization from real user data, The Web Conference, 2024</a></li>
+<li id="s6"><a href="https://www.tubefilter.com/2021/07/21/tiktok-recommendation-algorithm-wall-street-journal-guillaume-chaslot/amp/">Wall Street Journal TikTok bot investigation, Jul 2021, as reported by Tubefilter</a></li>
+<li id="s7"><a href="https://www.mozillafoundation.org/es/blog/mozilla-investigation-youtubes-dislike-button-other-user-controls-largely-fail-to-stop-unwanted-recommendations/">Mozilla Foundation, &ldquo;Does This Button Work?&rdquo; Sep 2022</a></li>
+<li id="s8"><a href="https://newsroom.tiktok.com/en-ie/safeguarding-recommendations-update">TikTok Newsroom, &ldquo;Safeguarding recommendations update,&rdquo; Mar 2023</a></li>
+<li id="s9"><a href="https://techcrunch.com/2024/11/19/instagram-will-soon-let-you-reset-your-recommendation-algorithm">TechCrunch, Nov 2024</a></li>
+<li id="s10"><a href="https://www.pnas.org/doi/10.1073/pnas.2313377121">Hosseinmardi et al., &ldquo;Causally estimating the effect of YouTube&rsquo;s recommender system using counterfactual bots,&rdquo; PNAS, Feb 2024</a></li>
+<li id="s11"><a href="https://www.midiaresearch.com/blog/all-eyes-no-ears-new-midia-data-shows-why-virality-is-not-building-fandom">MIDiA Research, &ldquo;All eyes, no ears,&rdquo; Sep 2025</a></li>
+<li id="s12"><a href="https://hmc.chartmetric.com/why-tiktok-songs-go-viral-faster/">Chartmetric / How Music Charts, Nov 2025</a></li>
+<li id="s13"><a href="https://www.lek.com/insights/media-entertainment/how-sports-fandom-evolving-2025-insights-leks-annual-sports-survey">L.E.K. Consulting, annual sports survey, 2025</a></li>
+<li id="s14"><a href="https://www.oliverwyman.com/our-expertise/insights/2023/oct/gen-z-reshaping-professional-sports-economics.html">Oliver Wyman with Morning Consult, Oct 2023</a></li>
+<li id="s15"><a href="https://luminatedata.com/blog/supercharge-your-super-fan-strategy/">Luminate, &ldquo;Supercharge your super fan strategy,&rdquo; Mar 2025</a></li>
+<li id="s16"><a href="https://luminatedata.com/blog/luminate-2026-midyear-report-trends-in-music-television-film/">Luminate, 2026 Midyear Report</a></li>
+<li id="s17"><a href="https://www.deloitte.com/us/en/insights/industry/technology/digital-media-trends-consumption-habits-survey/2025.html">Deloitte, Digital Media Trends 2025</a></li>
+<li id="s18"><a href="https://www.nielsen.com/news-center/2026/streaming-embarks-on-annual-summer-ascent-in-nielsens-may-2026-gauge-reports/">Nielsen, The Gauge, May 2026</a></li>
+<li id="s19"><a href="https://www.nielsen.com/news-center/2026/super-bowl-lx-2026/">Nielsen, Super Bowl LX, Feb 2026</a></li>
+<li id="s20"><a href="https://www.billboard.com/music/chart-beat/taylor-swift-eras-tour-earnings-2-billion-sales-1235847513/">Billboard, Dec 2024</a></li>
+<li id="s21"><a href="https://www.teenvogue.com/story/kai-cenat-breaks-twitch-active-subscriber-record-during-mafiathon-3">Teen Vogue, 2025</a></li>
+<li id="s22"><a href="https://www.musicbusinessworldwide.com/hybe-says-weverse-hit-12m-monthly-users-last-year-and-that-its-turning-casual-fans-into-superfans/">Music Business Worldwide, Feb 2026 (HYBE&rsquo;s own figures)</a></li>
+<li id="s23"><a href="https://variety.com/2025/tv/news/dropout-superfan-tier-price-explained-sam-reich-1236564699/">Variety, Oct 2025</a></li>
+<li id="s24"><a href="https://sports.yahoo.com/articles/wnba-playoffs-ratings-crash-over-104752266.html">Yahoo Sports / Sports Media Watch, Oct 2026</a></li>
+<li id="s25"><a href="https://www.forbes.com/sites/maurybrown/2025/03/22/data-from-nielsen-sports-shows-f1-fandom-surging-as-2025-season-gets-underway/">Forbes, citing Nielsen Sports, Mar 2025</a></li>
+<li id="s26"><a href="https://www.sportico.com/personalities/people/2024/taylor-swift-effect-nfl-attendance-girls-social-marketing-1234798352/">Sportico, citing YouGov, Sep 2024</a></li>
+<li id="s27"><a href="https://journals.sagepub.com/doi/10.1177/21582440241242928">SAGE Open, 2024</a></li>
+<li id="s28"><a href="https://www.cnbc.com/make-it/2023/12/23/how-a-40-ounce-cup-turned-stanley-into-a-750-million-a-year-business.html">CNBC, Dec 2023</a></li>
+<li id="s29"><a href="https://www.fastcompany.com/91296813/mrbeast-chocolate-empire-making-more-money-than-youtube-channel">Fast Company, summarizing Bloomberg, Mar 2025</a></li>
+</ol></section>
+<script>
+(()=>{
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const clamp=v=>Math.max(0,Math.min(1,v)),ease=t=>1-Math.pow(1-t,3);
+// build tiles
+const pal=['#0B5CF6','#FD720D','#0A0D18','#9DB8F5','#F7B98A','#B9B2A8','#3B4258','#D8CFC3'];let sd=7;const rnd=()=>(sd=(sd*16807)%2147483647)/2147483647;
+const T=[];for(let i=0;i<260;i++){const e=document.createElement('i');e.dataset.c=pal[Math.floor(rnd()*8)];$('#tiles').appendChild(e);T.push(e)}
+const F=[];for(let i=0;i<100;i++){const e=document.createElement('i');$('#ftiles').appendChild(e);F.push(e)}
+const fOrder=[...Array(100).keys()].sort(()=>rnd()-.5);
+$$('.dgrid').forEach(d=>{for(let i=0;i<100;i++)d.appendChild(document.createElement('i'))});
+const L=$('#loop');const items=[];for(let i=0;i<5;i++){const e=document.createElement('div');e.className='it';e.textContent=['🏀','💸','🎧','👟','☕'][i];L.appendChild(e);items.push(e)}
+const sgOrder=[...Array(100).keys()].sort(()=>rnd()-.5).slice(0,20);
+// scenes
+const S={
+ habit(p){const n=Math.round(ease(p)*260);T.forEach((e,i)=>e.style.background=i<n?e.dataset.c:'');$('#hn').textContent=n;$('#ht').textContent=Math.round(n/260*35)+' min';$('#phone').classList.toggle('done',n>=260)},
+ friends(p){const pct=Math.round(11-4*ease(p));const set=new Set(fOrder.slice(0,pct));F.forEach((e,i)=>e.style.background=set.has(i)?'#0B5CF6':'');$('#fn').textContent=pct+'%';$('#fy').textContent=p<.5?'2023':'2025'},
+ loop(p){const a=p*Math.PI*4;items.forEach((e,i)=>{const t=a+i/5*Math.PI*2,r=38;e.style.transform=`translate(${Math.cos(t)*r*3.4}%,${Math.sin(t)*r*2.3}%)`});$('#lc').textContent=Math.round(ease(p)*100)},
+ count(p){const v=Math.round(738-(738-275)*ease(p));$('#cn').textContent=v;$('#cy').textContent=p<.98?'2020 → '+Math.round(2020+5*ease(p)):'2025'},
+ split(p){const k=Math.round(ease(p)*20);const ds=$('#sg').children;[...ds].forEach((e,i)=>e.classList.toggle('or',sgOrder.indexOf(i)>-1&&sgOrder.indexOf(i)<k))},
+ fix(p){$$('.mv').forEach((e,i)=>e.classList.toggle('on',p*5.5>i+.3))}
+};
+const bars=(sc,p)=>sc.querySelectorAll('.bar').forEach((b,i)=>{b.querySelector('.fl').style.width=(+b.dataset.w*ease(clamp(p*1.6-i*.12)))+'%'});
+const dots=(sc,p)=>sc.querySelectorAll('.dgrid[data-n]').forEach(d=>{const n=Math.round(+d.dataset.n*ease(p));[...d.children].forEach((e,i)=>e.classList.toggle('on',i<n))});
+// scroll engine: the active step decides the scene; its progress drives the scene
+const steps=$$('.step'),scenes={};$$('.scene').forEach(s=>scenes[s.dataset.s]=s);
+let cur=null;
+function tick(){
+ const vh=innerHeight;let act=steps[0],ap=0;
+ // progress for a scene runs across all consecutive steps that share it
+ const groups={};steps.forEach(s=>{const k=s.dataset.scene;(groups[k]=groups[k]||[]).push(s)});
+ for(const s of steps){const r=s.getBoundingClientRect();if(r.top<vh*(innerWidth<=860?.82:.6))act=s}
+ steps.forEach(s=>s.classList.toggle('on',s===act));
+ const g=groups[act.dataset.scene],a=g[0].getBoundingClientRect(),b=g[g.length-1].getBoundingClientRect();
+ ap=clamp((vh*.6-a.top)/(b.bottom-a.top-vh*.3));
+ const k=act.dataset.scene;
+ if(cur!==k){Object.values(scenes).forEach(s=>s.classList.toggle('on',s.dataset.s===k));cur=k}
+ const sc=scenes[k];(S[k]||(()=>{}))(ap);bars(sc,ap);dots(sc,ap);
+ const h=document.documentElement;$('#prog').style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%';
+ const rr=$('#steps').getBoundingClientRect();$('#chap').textContent=rr.top<vh&&rr.bottom>0?act.dataset.chap:'Built for scrolling';
+}
+addEventListener('scroll',()=>requestAnimationFrame(tick),{passive:true});addEventListener('resize',tick);tick();
+})();
+</script>
+</body></html>
