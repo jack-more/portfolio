@@ -16,13 +16,14 @@ const FAR = 90, EYE = .35, HORIZON = .745;               // sky distance; camera
 const flowerDist = d => Math.min(3.3, Math.max(1.5, 1.7 / Math.max(.3, d)));
 const ITEMS = [
   { glb: 'item-4runner.glb', size: .9 },
-  { img: 'obj-basketball', size: .3, sphere: true, rough: .75 },
+  { img: 'obj-basketball-eq', size: .3, sphere: true, equirect: true, rough: .75 },
   { glb: 'item-jordan.glb', size: .45 },
   { glb: 'item-cup.glb', size: .3 },
   { img: 'obj-bill', size: .4, depth: .004, curl: .1, rough: .9, shower: 6 },
   { glb: 'item-lgg2.glb', size: .3, env: .2 },
   { glb: 'item-coffee.glb', size: .32 },
-  { img: 'obj-donut', size: .3, depth: .146, rough: .5 },
+  { img: 'obj-btc', size: .3, depth: .02, rough: .45, shower: 4 },
+  { img: 'obj-eth', size: .3, depth: .02, rough: .45, shower: 4 },
   { glb: 'item-m3.glb', size: .95 },
   { glb: 'item-hint.glb', size: .32 },
   { glb: 'item-samba.glb', size: .45 },
@@ -131,7 +132,7 @@ function boot() {
     });
     if (s.sphere) return loadTex(s.img + '.webp').then(tex => {
       const geo = new THREE.SphereGeometry(.5, 48, 32), P = geo.attributes.position, uv = geo.attributes.uv;
-      for (let i = 0; i < P.count; i++) uv.setXY(i, P.getX(i) + .5, .5 - P.getZ(i));
+      if (!s.equirect) for (let i = 0; i < P.count; i++) uv.setXY(i, P.getX(i) + .5, .5 - P.getZ(i));
       s.parts = [[geo, new THREE.MeshStandardMaterial({ map: tex, roughness: s.rough || .6, metalness: 0 })]]; s.half = .5; s.ball = true;
     });
     return Promise.all([loadTex(s.img + '.webp'), new THREE.ImageLoader().loadAsync(BASE + s.img + '-h.png')]).then(([tex, hm]) => {
