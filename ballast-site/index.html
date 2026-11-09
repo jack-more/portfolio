@@ -452,6 +452,19 @@
 
   .scene .scene__h{font-family:var(--g);font-weight:800;font-size:clamp(34px,min(4.6vw,9vh),84px);line-height:.98;letter-spacing:-.04em;text-transform:none;color:#fff;margin:0;max-width:16ch;text-shadow:0 2px 24px rgba(6,28,96,.55)}
   @media (max-width:760px){.scene .scene__h{font-size:clamp(30px,9vw,40px)}.plate__proof div:first-child{border-top:0!important}}
+
+  .plate__proof b .sm{display:none}
+  @media (max-width:760px){
+    .plate__proof b .lg{display:none}.plate__proof b .sm{display:inline;margin:0;font:inherit;letter-spacing:inherit;color:inherit;text-transform:none}
+    .plate__proof{grid-template-columns:repeat(3,auto)!important;justify-content:space-between;gap:10px}
+    .plate__proof div,.plate__proof div:first-child,.plate__proof div + div{border-top:0!important;padding:4px 0!important}
+    .plate__proof b{font-size:clamp(22px,6.4vw,30px)!important}
+    .plate__proof div>span{font-size:9.5px!important;letter-spacing:.04em;white-space:nowrap}
+    .plate__proof b span{font-size:inherit!important;letter-spacing:inherit!important;margin:0!important;display:inline}
+    .plate__proof b .lg{display:none!important}
+    .plate{gap:14px!important}
+    .rd{padding-top:44px}.block{padding-top:44px;padding-bottom:44px}
+  }
   .plate__h{font-family:var(--g);font-weight:700;font-size:clamp(26px,2.6vw,46px);line-height:1.05;letter-spacing:-.035em;margin:0;color:#fff;text-transform:none;text-shadow:none;max-width:none}
   @media (max-width:760px){.plate__h{font-size:clamp(24px,7vw,32px)}}
   @media (max-width:760px){.nav__links{display:none}.scene__in{grid-template-rows:auto 1fr auto;padding-top:88px}.plate{grid-template-columns:1fr;gap:20px}.plate__proof div{padding-right:18px}.plate__proof div + div{padding-left:18px}}
@@ -589,7 +602,7 @@
       </div>
       <div class="plate">
         <div class="plate__side">
-        <div class="plate__proof num"><div><b>$250,000,000+</b><span>in ad spend managed</span></div><div><b>$25K&rarr;$1.2M+</b><span>MRR for a DTC client</span></div><div><b>6&times;</b><span>peak ROAS</span></div></div>
+        <div class="plate__proof num"><div><b><span class="lg">$250,000,000+</span><span class="sm">$250M+</span></b><span>in ad spend managed</span></div><div><b>$25K&rarr;$1.2M+</b><span>MRR for a DTC client</span></div><div><b>6&times;</b><span>peak ROAS</span></div></div>
         <div class="plate__cta">
           <a class="btn btn--lg scene__go" href="#book">Book a call</a>
           <a class="btn btn--lg scene__ghost" href="#work">Work</a>
