@@ -1,186 +1,188 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="icon" href="/favicon.ico?v=3" sizes="any">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;800&family=Geist+Mono:wght@500&display=swap">
-<title>Built for scrolling (reader prototype) — Ballast Notes</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@500;600;700;800&family=Geist+Mono:wght@500&display=swap">
+<title>Built for scrolling — Ballast Notes</title>
 <meta name="robots" content="noindex">
 <style>
 @font-face{font-family:BD;src:url(/notes/BallastDisplay-BlackItalic.woff2) format('woff2');font-display:swap}
-:root{--paper:#F6F1EA;--paper2:#E9E1D5;--ink:#0A0D18;--mute:#6E6862;--cobalt:#0B5CF6;--orange:#FD720D;--line:rgba(10,13,24,.14);
---g:"Geist","Helvetica Neue",Arial,sans-serif;--m:"Geist Mono",ui-monospace,Menlo,monospace}
+:root{--cob:#0B5CF6;--deep:#0A2C8C;--or:#FD720D;--amb:#F9A51B;--ink:#0A0D18;--paper:#F4EEE4;--w:#F3F4FA;
+--g:"Geist","Helvetica Neue",Arial,sans-serif;--m:"Geist Mono",ui-monospace,Menlo,monospace;
+--bg:var(--cob);--fg:var(--w);--ac:var(--or)}
 *{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--paper);color:var(--ink);font:400 18px/1.55 var(--g)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--g);transition:background .8s ease,color .8s ease}
 a{color:inherit}
-.mono{font:500 12px var(--m);letter-spacing:.1em;text-transform:uppercase}
-.bd{font-family:BD,var(--g);font-style:italic;font-weight:900}
-.top{position:fixed;top:0;left:0;right:0;z-index:30;display:flex;justify-content:space-between;align-items:center;padding:12px clamp(16px,3vw,40px);background:rgba(246,241,234,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);font:500 12px var(--m);letter-spacing:.08em;text-transform:uppercase}
-.top a{text-decoration:none}.top .cta{background:var(--orange);padding:8px 14px;border-radius:999px}
-.prog{position:absolute;left:0;bottom:-1px;height:2px;width:0;background:var(--cobalt)}
-.chap{position:absolute;left:50%;transform:translateX(-50%);color:var(--mute)}
-/* opening */
-.open{min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding:90px clamp(16px,4vw,56px) 56px;max-width:1300px;margin:0 auto}
-.open h1{font-size:clamp(64px,14vw,220px);line-height:.82;margin:16px 0 26px;color:var(--cobalt);text-transform:uppercase}
-.open p{font-size:clamp(20px,2.2vw,27px);line-height:1.35;max-width:760px;margin:0 0 18px}
-.open .hint{display:flex;align-items:center;gap:10px;color:var(--mute);margin-top:18px}
-.open .hint i{width:22px;height:34px;border:2px solid currentColor;border-radius:12px;position:relative}
-.open .hint i::after{content:"";position:absolute;left:50%;top:6px;width:3px;height:7px;margin-left:-1.5px;border-radius:2px;background:currentColor;animation:wh 1.6s infinite}
-@keyframes wh{0%{transform:translateY(0);opacity:1}100%{transform:translateY(10px);opacity:0}}
+.mono{font:500 12px var(--m);letter-spacing:.12em;text-transform:uppercase}
+.logo{font-family:BD,var(--g);font-style:italic;font-weight:900;color:var(--w);-webkit-text-stroke:.13em var(--cob);paint-order:stroke fill;letter-spacing:.01em;text-transform:uppercase}
+.on-cob .logo,.logo.inv{-webkit-text-stroke-color:var(--deep)}
+/* top bar */
+.top{position:fixed;inset:0 0 auto;z-index:40;display:flex;justify-content:space-between;align-items:center;padding:12px clamp(16px,3vw,36px);font:500 12px var(--m);letter-spacing:.1em;text-transform:uppercase;mix-blend-mode:normal}
+.top a{text-decoration:none}.top .cta{background:var(--or);color:var(--ink);padding:9px 15px;border-radius:999px}
+.top .chap{opacity:.75}
+.prog{position:fixed;left:0;top:0;height:4px;width:0;background:var(--or);z-index:41}
+/* open */
+.open{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;overflow:hidden;padding:80px 16px 60px}
+.open .orb{position:absolute;width:min(1200px,150vw);left:50%;top:52%;transform:translate(-50%,-50%);filter:saturate(1.1)}
+.open h1{position:relative;font-size:clamp(70px,15vw,250px);line-height:.82;margin:0}
+.open h1 span{display:block}
+.open .dek{position:relative;font-weight:700;font-size:clamp(22px,2.6vw,36px);line-height:1.15;max-width:900px;margin:34px auto 18px;letter-spacing:-.02em}
+.open .by{position:relative;opacity:.8}
+.open .go{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);animation:bob 1.6s infinite}
+@keyframes bob{50%{transform:translate(-50%,8px)}}
 /* reader */
-.reader{position:relative;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);max-width:1400px;margin:0 auto;padding:0 clamp(16px,3vw,40px)}
-.steps{position:relative;z-index:2;padding:10vh 0 40vh}
-.step{min-height:100vh;display:flex;align-items:center}
-.step .card{max-width:480px;font-size:clamp(19px,1.7vw,22px);line-height:1.5;opacity:.25;transition:opacity .4s}
-.step.on .card{opacity:1}
-.step .card .k{display:block;font:500 12px var(--m);letter-spacing:.1em;text-transform:uppercase;color:var(--cobalt);margin-bottom:12px}
-.step .card b.n{font-family:BD;font-style:italic;font-weight:900;color:var(--cobalt);font-size:1.15em}
-.step .card h2{font-family:BD;font-style:italic;font-size:clamp(40px,4.6vw,72px);line-height:.9;margin:0 0 18px;text-transform:uppercase}
-sup a{font:600 11px var(--m);color:var(--cobalt);text-decoration:none;padding:0 2px}
-.stage{position:sticky;top:0;height:100vh;display:flex;align-items:center;justify-content:center}
-.scene{position:absolute;inset:60px 0 20px;display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;transform:scale(.97);transition:opacity .5s,transform .5s;pointer-events:none}
+.reader{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);max-width:1500px;margin:0 auto;padding:0 clamp(16px,3vw,48px)}
+.steps{position:relative;z-index:3;padding:0 0 30vh}
+.step{min-height:115vh;display:flex;align-items:center}
+.say{font-weight:800;font-size:clamp(34px,3.7vw,64px);line-height:1.04;letter-spacing:-.035em;margin:0;max-width:13em}
+.say .w{opacity:.18;transition:opacity .15s}
+.say .w.lit{opacity:1}
+.say em{font-style:normal;color:var(--ac)}
+.kick{display:block;margin-bottom:20px;color:var(--ac)}
+.src{display:block;margin-top:22px;opacity:.6}
+.src a{text-decoration:none;border-bottom:1px solid currentColor}
+/* stage */
+.stage{position:sticky;top:0;height:100vh;z-index:2;display:flex;align-items:center;justify-content:center}
+.scene{position:absolute;inset:70px 0 30px;display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;transform:translateY(30px) scale(.96);transition:opacity .6s,transform .6s;pointer-events:none}
 .scene.on{opacity:1;transform:none}
-.cap{font:500 12px var(--m);letter-spacing:.1em;text-transform:uppercase;color:var(--mute);margin-top:18px;text-align:center;max-width:460px}
-.big{font-family:BD;font-style:italic;font-weight:900;line-height:.9}
+.cap{margin-top:22px;text-align:center;max-width:460px;opacity:.7}
+.num{font-size:clamp(110px,15vw,260px);line-height:.85}
+.orbwrap{position:relative;display:flex;align-items:center;justify-content:center;width:min(640px,100%);aspect-ratio:1.46}
+.orbwrap img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+.orbwrap .num{position:relative}
 /* phone */
-.phone{width:min(330px,70%);aspect-ratio:9/17.5;border:2px solid var(--ink);border-radius:36px;padding:20px 14px 16px;background:#fff;display:flex;flex-direction:column;transition:border-color .4s,box-shadow .4s}
-.phone.done{border-color:var(--orange);box-shadow:0 0 0 7px rgba(253,114,13,.18)}
+.phone{height:min(74vh,640px);aspect-ratio:9/17.5;border:3px solid var(--w);border-radius:40px;padding:22px 14px 16px;background:rgba(255,255,255,.07);display:flex;flex-direction:column;transition:box-shadow .4s,border-color .4s}
+.phone.done{border-color:var(--or);box-shadow:0 0 0 8px rgba(253,114,13,.35),0 0 120px rgba(253,114,13,.6)}
 .tiles{flex:1;display:grid;gap:3px}
-.tiles i{border-radius:2px;background:var(--paper2);transition:background .2s}
-.pc{display:flex;justify-content:space-between;align-items:baseline;margin-top:12px;font:500 11px var(--m);letter-spacing:.06em;text-transform:uppercase;color:var(--mute)}
-.pc b{font-family:BD;font-style:italic;font-size:40px;color:var(--ink);letter-spacing:0}
+.tiles i{border-radius:3px;background:rgba(255,255,255,.12)}
+.pc{display:flex;justify-content:space-between;align-items:baseline;margin-top:14px}
+.pc b{font-family:BD;font-style:italic;font-size:52px;line-height:1}
 /* bars */
-.bars{width:min(560px,92%);display:grid;gap:16px}
-.bar{display:grid;grid-template-columns:150px 1fr 70px;gap:12px;align-items:center;font-size:15px}
-.bar .tr{height:34px;background:var(--paper2);position:relative}.bar .fl{position:absolute;inset:0 auto 0 0;background:var(--ink)}
-.bar.c .fl{background:var(--cobalt)}.bar.o .fl{background:var(--orange)}
-.bar output{font-family:BD;font-style:italic;font-size:28px;text-align:right}
+.bars{width:min(620px,94%);display:grid;gap:22px}
+.bar label{display:block;font:500 12px var(--m);letter-spacing:.08em;text-transform:uppercase;opacity:.8;margin-bottom:6px}
+.bar .row{display:flex;align-items:center;gap:14px}
+.bar .tr{flex:1;height:46px;background:rgba(127,127,127,.18);border-radius:6px;overflow:hidden}
+.bar .fl{height:100%;width:0;background:var(--fg);border-radius:6px}
+.bar.a .fl{background:var(--or)}
+.bar output{font-family:BD;font-style:italic;font-size:44px;min-width:2.6em;text-align:right}
 /* dots */
-.dgrid{display:grid;grid-template-columns:repeat(10,1fr);gap:5px;width:min(300px,62vw)}
-.dgrid i{aspect-ratio:1;border-radius:50%;background:var(--paper2);transition:background .25s,transform .4s}
-.dgrid i.on{background:var(--cobalt)}.dgrid i.or{background:var(--orange)}
-.tri{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;width:min(640px,94%)}
-.tri .dgrid{width:100%;gap:3px}
-.tri b{display:block;font-family:BD;font-style:italic;font-size:44px;margin-top:10px}
-.tri span{font-size:13px;line-height:1.3;display:block}
+.dg{display:grid;grid-template-columns:repeat(10,1fr);gap:6px}
+.dg i{aspect-ratio:1;border-radius:50%;background:rgba(127,127,127,.25);transition:background .2s,transform .2s}
+.dg i.on{background:var(--fg)}.dg i.or{background:var(--or);transform:scale(1.18)}
+.tri{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;width:min(700px,96%)}
+.tri .dg{gap:3px}.tri b{display:block;font-family:BD;font-style:italic;font-size:64px;line-height:1;margin-top:12px}
+.tri span{font:500 11px var(--m);letter-spacing:.06em;text-transform:uppercase;opacity:.8}
+.tri div:first-child b{color:var(--or)}
 /* loop */
-.loop{position:relative;width:min(380px,74vw);aspect-ratio:1}
-.loop .ring{position:absolute;inset:0;border:2px dashed var(--line);border-radius:50%}
-.loop .it{position:absolute;left:50%;top:50%;width:26%;aspect-ratio:9/14;margin:-20% 0 0 -13%;border-radius:10px;border:2px solid var(--ink);background:#fff;display:flex;align-items:center;justify-content:center;font-family:BD;font-style:italic;font-size:30px}
-.loop .mid{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
-/* count */
-.count{font-size:clamp(96px,16vw,220px);color:var(--orange)}
-/* split */
-.split{display:flex;gap:28px;align-items:center}
-/* fix */
-.moves{display:grid;gap:12px;width:min(520px,92%)}
-.mv{display:flex;align-items:center;gap:16px;padding:16px 18px;border:2px solid var(--line);border-radius:14px;transition:all .35s;background:#fff}
-.mv b{font-family:BD;font-style:italic;font-size:30px;color:var(--paper2);transition:color .35s;width:44px}
-.mv span{font-weight:600;font-size:19px;color:var(--mute);transition:color .35s}
-.mv.on{border-color:var(--cobalt)}.mv.on b{color:var(--cobalt)}.mv.on span{color:var(--ink)}
-.feedpath{display:flex;align-items:center;gap:14px;margin-bottom:24px;font:500 12px var(--m);letter-spacing:.08em;text-transform:uppercase}
-.feedpath i{display:inline-block;padding:10px 14px;border-radius:999px;border:2px solid var(--ink)}
-.feedpath i.own{background:var(--cobalt);color:#fff;border-color:var(--cobalt)}
+.loop{position:relative;width:min(520px,90%);aspect-ratio:1}
+.loop .it{position:absolute;left:50%;top:50%;width:22%;aspect-ratio:9/14;margin:-17% 0 0 -11%;border-radius:14px;border:3px solid var(--fg);background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-size:44px}
+.loop .mid{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+/* moves */
+.moves{display:grid;gap:12px;width:min(600px,94%)}
+.mv{display:flex;align-items:center;gap:18px;padding:18px 22px;border-radius:999px;border:3px solid rgba(255,255,255,.25);transition:all .35s}
+.mv b{font-family:BD;font-style:italic;font-size:34px;opacity:.35;width:52px}
+.mv span{font-weight:800;font-size:clamp(18px,1.7vw,26px);letter-spacing:-.02em;opacity:.45}
+.mv.on{background:var(--or);border-color:var(--or);color:var(--ink)}.mv.on b,.mv.on span{opacity:1}
 /* end */
-.end{max-width:720px;margin:0 auto;padding:10vh clamp(16px,4vw,40px) 8vh}
-.end h2{font-family:BD;font-style:italic;font-size:clamp(40px,6vw,80px);line-height:.9;text-transform:uppercase;margin:0 0 24px;color:var(--cobalt)}
-.end .three{display:grid;gap:14px;margin:0 0 36px;padding:0;list-style:none;counter-reset:n}
-.end .three li{counter-increment:n;display:grid;grid-template-columns:44px 1fr;font-size:21px;line-height:1.4}
-.end .three li::before{content:counter(n,decimal-leading-zero);font-family:BD;font-style:italic;color:var(--orange);font-size:26px}
-.box{border:2px solid var(--ink);padding:24px;margin:0 0 30px}
-.box .mono{color:var(--cobalt);display:block;margin-bottom:10px}
-.sig{display:flex;align-items:center;gap:18px;margin:30px 0}
-.sig img{width:120px}.sig b{font-family:BD;font-style:italic;font-size:44px;color:var(--cobalt)}
-.btn{display:inline-block;background:var(--orange);color:var(--ink);text-decoration:none;padding:13px 22px;border-radius:999px;font:500 13px var(--m);letter-spacing:.08em;text-transform:uppercase}
-.src-list{max-width:900px;margin:0 auto;padding:0 clamp(16px,4vw,40px) 100px}
-.src-list h2{font:500 12px var(--m);letter-spacing:.1em;text-transform:uppercase;border-top:1.5px solid var(--ink);padding-top:14px}
-.src-list ol{columns:2;column-gap:40px;padding-left:22px;font-size:13px;line-height:1.45}
-.src-list li{break-inside:avoid;margin:0 0 10px;color:var(--mute)}.src-list li a{color:var(--ink)}
-/* mobile: visual pinned on top, text cards scroll underneath */
+.end{position:relative;padding:16vh clamp(16px,4vw,48px) 10vh;max-width:1100px;margin:0 auto}
+.end h2{font-size:clamp(56px,9vw,150px);line-height:.85;margin:0 0 40px}
+.end ol{list-style:none;padding:0;margin:0 0 50px;counter-reset:n;display:grid;gap:22px}
+.end li{counter-increment:n;display:grid;grid-template-columns:clamp(54px,6vw,90px) 1fr;font-weight:800;font-size:clamp(26px,3vw,46px);line-height:1.08;letter-spacing:-.03em}
+.end li::before{content:counter(n,decimal-leading-zero);font-family:BD;font-style:italic;color:var(--or)}
+.try{background:var(--or);color:var(--ink);border-radius:28px;padding:clamp(24px,4vw,44px);font-weight:700;font-size:clamp(20px,2vw,28px);line-height:1.3;letter-spacing:-.015em}
+.try .mono{display:block;margin-bottom:12px}
+.sig{display:flex;align-items:center;gap:24px;margin:50px 0 30px}
+.sig img{width:140px;filter:brightness(0) invert(1)}
+.sig b{font-size:72px}
+.btn{display:inline-block;background:var(--or);color:var(--ink);text-decoration:none;padding:16px 26px;border-radius:999px;font:500 14px var(--m);letter-spacing:.1em;text-transform:uppercase}
+.sources{max-width:1000px;margin:0 auto;padding:0 clamp(16px,4vw,48px) 90px;opacity:.85}
+.sources h2{font:500 12px var(--m);letter-spacing:.12em;text-transform:uppercase;border-top:2px solid currentColor;padding-top:14px}
+.sources ol{columns:2;column-gap:40px;padding-left:22px;font-size:13px;line-height:1.45}
+.sources li{break-inside:avoid;margin:0 0 10px}
+.sources a{text-decoration:none;border-bottom:1px solid rgba(255,255,255,.4)}
+/* phone layout */
 @media (max-width:860px){
  .reader{display:flex;flex-direction:column;padding:0}
- .stage{order:-1;position:sticky;top:44px;height:52svh;z-index:5;background:var(--paper);border-bottom:1px solid var(--line)}
- .scene{inset:10px 0 6px}
- .phone{width:auto;height:92%;aspect-ratio:9/17.5;padding:10px 8px 8px;border-radius:22px}
- .pc b{font-size:24px}
- .steps{padding:0 16px 30vh}
- .step{min-height:62svh;align-items:flex-start;padding-top:2svh}
- .step .card{opacity:.35}.step.on .card{opacity:1}
-
- .step .card{background:rgba(246,241,234,.97);border:1px solid var(--line);padding:18px;border-radius:14px;opacity:1;font-size:18px}
- .step .card h2{font-size:38px}
- .bar{grid-template-columns:1fr 64px}.bar label{grid-column:1/-1;font-size:13px}.bar .tr{height:22px}
- .tri b{font-size:28px}.tri span{font-size:11px}
- .count{font-size:110px}
- .loop{width:min(250px,60vw)}
- .moves{gap:6px}.mv{padding:8px 12px}.mv b{font-size:22px}.mv span{font-size:15px}
- .split{gap:14px}.split .dgrid{width:150px}
+ .stage{order:-1;top:0;height:50svh;z-index:5;background:var(--bg);transition:background .8s}
+ .scene{inset:52px 12px 8px}
+ .phone{height:92%;padding:10px 8px 8px;border-radius:24px;border-width:2px}
+ .pc b{font-size:28px}
+ .steps{padding:0 18px 40svh}
+ .step{min-height:68svh;align-items:flex-start;padding-top:3svh}
+ .say{font-size:clamp(30px,8.4vw,40px);line-height:1.06}
+ .num{font-size:30vw}
+ .orbwrap{width:96%}
+ .bars{gap:10px}.bar .tr{height:24px}.bar output{font-size:26px}.bar label{font-size:10px;margin-bottom:2px}
+ .tri{gap:12px}.tri b{font-size:34px}.tri span{font-size:9px}
+ .loop{width:min(300px,70vw)}.loop .it{font-size:26px;border-width:2px}
+ .moves{gap:6px}.mv{padding:9px 14px;border-width:2px}.mv b{font-size:22px;width:34px}.mv span{font-size:15px}
  .cap{margin-top:8px;font-size:10px}
- .src-list ol{columns:1}
- .chap{display:none}
+ .top .chap{display:none}
+ .sources ol{columns:1}
 }
-@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.say .w{opacity:1}}
 </style></head><body>
-<header class="top"><a href="/">Ballast</a><span class="chap" id="chap">Built for scrolling</span><span><a href="/notes/" style="margin-right:16px">Notes</a><a class="cta" href="/#book">Book a call</a></span><i class="prog" id="prog"></i></header>
+<i class="prog" id="prog"></i>
+<header class="top"><a href="/">Ballast</a><span class="chap" id="chap"></span><a class="cta" href="/#book">Book a call</a></header>
 
-<section class="open">
- <span class="mono" style="color:var(--cobalt)">Fandom · Ballast Notes №2</span>
- <h1 class="bd">Built for scrolling</h1>
- <p>The feed can get anyone to watch anything. Getting them to care was never its job. This note is built to be scrolled, so every number shows up as something you can see.</p>
- <span class="mono" style="color:var(--mute)">Jack Morello · Ballast · November 2026</span>
- <div class="hint mono"><i></i>Scroll slowly</div>
+<section class="open" data-theme="cob">
+ <img class="orb" src="/notes/orb.webp" alt="">
+ <h1 class="logo inv"><span>Built for</span><span>scrolling</span></h1>
+ <p class="dek">The feed can get anyone to watch anything. Getting them to care was never its job.</p>
+ <span class="by mono">Ballast Notes №2 · Jack Morello · November 2026</span>
+ <span class="go mono">Scroll ↓</span>
 </section>
 
 <section class="reader">
- <div class="steps" id="steps">
-  <div class="step" data-scene="habit" data-chap="The hook"><div class="card"><span class="k">01 · The hook</span>TikTok knows how long it takes to hook someone. In internal documents from Kentucky&rsquo;s lawsuit, its own people put the number at <b class="n">260 videos</b>.<sup><a href="#s1">1</a></sup> Watch the phone fill as you scroll.</div></div>
-  <div class="step" data-scene="habit" data-chap="The hook"><div class="card">At the length of a typical clip, that&rsquo;s about <b class="n">35 minutes</b>. There&rsquo;s no public number for how long it takes to care about the person in one.</div></div>
+ <div class="steps">
+  <div class="step" data-scene="habit" data-theme="ink" data-chap="01 · The hook"><div><span class="kick mono">01 · The hook</span><p class="say">TikTok&rsquo;s own people know how long it takes to hook you. <em>260 videos.</em></p><span class="src mono">Internal documents, Kentucky v. TikTok · <a href="#s1">NPR</a></span></div></div>
+  <div class="step" data-scene="habit" data-theme="ink" data-chap="01 · The hook"><div><p class="say">About <em>35 minutes.</em> Nobody publishes how long it takes to actually care about the person in one.</p></div></div>
 
-  <div class="step" data-scene="friends" data-chap="The feed"><div class="card"><span class="k">02 · The feed</span><h2>Your friends left the feed</h2>Each square is a slice of your time on Instagram. The blue ones are friends. In 2023 it was <b class="n">11%</b>. By 2025, Meta&rsquo;s own trial exhibit put it at <b class="n">7%</b>.<sup><a href="#s3">3</a></sup></div></div>
-  <div class="step" data-scene="time" data-chap="The feed"><div class="card">It works if the goal is time. When researchers moved people off the algorithmic feed, time on the apps dropped. Algorithmic Instagram users spent <b class="n">107%</b> more time than average; chronological users, <b class="n">84%</b>.<sup><a href="#s4">4</a></sup></div></div>
+  <div class="step" data-scene="friends" data-theme="cob" data-chap="02 · The feed"><div><span class="kick mono">02 · The feed</span><p class="say">Your friends left the feed. Their share of your Instagram time fell from 11% to <em>7%</em>.</p><span class="src mono">Meta exhibit, FTC v. Meta, 2025 · <a href="#s3">Source</a></span></div></div>
+  <div class="step" data-scene="time" data-theme="cob" data-chap="02 · The feed"><div><p class="say">It works, if the goal is time. The algorithm keeps you there <em>twice as long</em> as the average user.</p><span class="src mono">Guess et al., Science, 2023 · <a href="#s4">Source</a></span></div></div>
 
-  <div class="step" data-scene="loop" data-chap="The loop"><div class="card"><span class="k">03 · The loop</span><h2>Same five things, on repeat</h2>Across 4.9 million TikTok videos watched by 347 real people, the feed settled on what it knew about each person within about <b class="n">100 videos</b>.<sup><a href="#s5">5</a></sup> Then it kept coming back around.</div></div>
-  <div class="step" data-scene="buttons" data-chap="The loop"><div class="card">Trying to steer it barely works. Across 567 million YouTube recommendations, pressing <b class="n">Dislike</b> cut similar ones by 12%. <b class="n">Not interested</b>, 11%.<sup><a href="#s7">7</a></sup></div></div>
+  <div class="step" data-scene="loop" data-theme="ink" data-chap="03 · The loop"><div><span class="kick mono">03 · The loop</span><p class="say">Within about <em>100 videos</em> the feed knows your type. Then it serves the same five things, on repeat.</p><span class="src mono">4.9M TikTok videos, 347 real users · <a href="#s5">Source</a></span></div></div>
+  <div class="step" data-scene="buttons" data-theme="ink" data-chap="03 · The loop"><div><p class="say">Pressing Dislike barely changes it. <em>12%.</em></p><span class="src mono">Mozilla, 567M YouTube recommendations · <a href="#s7">Source</a></span></div></div>
 
-  <div class="step" data-scene="clip" data-chap="Music"><div class="card"><span class="k">04 · Music</span><h2>The clip eats the fan</h2>Out of every 100 people who found an artist, here&rsquo;s how many went on to listen to more of their music, depending on where they found them.<sup><a href="#s11">11</a></sup></div></div>
-  <div class="step" data-scene="count" data-chap="Music"><div class="card">Spotify streams a song picks up per TikTok post at the moment it goes viral. Watch it fall from 2020 to 2025.<sup><a href="#s12">12</a></sup> &ldquo;The itch is for returning to the moment, the snippet.&rdquo;</div></div>
+  <div class="step" data-scene="clip" data-theme="or" data-chap="04 · Music"><div><span class="kick mono">04 · Music</span><p class="say">The clip eats the fan. Only <em>26 in 100</em> who follow an artist on TikTok go on to listen to more.</p><span class="src mono">MIDiA Research, 2025 · <a href="#s11">Source</a></span></div></div>
+  <div class="step" data-scene="count" data-theme="ink" data-chap="04 · Music"><div><p class="say">Streams per viral TikTok post, 2020 to 2025. People want the snippet, <em>not the song.</em></p><span class="src mono">Chartmetric, 2025 · <a href="#s12">Source</a></span></div></div>
 
-  <div class="step" data-scene="sports" data-chap="Sports"><div class="card"><span class="k">05 · Sports</span><h2>Free agents</h2>How much of their sports viewing is live games. Fans over 60: <b class="n">60%</b>. Fans 18 to 29: <b class="n">25%</b>. The rest is clips and highlights.<sup><a href="#s13">13</a></sup> 38% of Gen Z have no favorite team.<sup><a href="#s14">14</a></sup></div></div>
+  <div class="step" data-scene="sports" data-theme="cob" data-chap="05 · Sports"><div><span class="kick mono">05 · Sports</span><p class="say">Fans over 60 watch the game. Fans under 30 watch <em>the clip.</em></p><span class="src mono">L.E.K. Consulting, 2025 · <a href="#s13">Source</a></span></div></div>
 
-  <div class="step" data-scene="split" data-chap="The split"><div class="card"><span class="k">06 · The split</span><h2>Two kinds of fan</h2>One in five US music listeners is a superfan.<sup><a href="#s16">16</a></sup> Watch them separate from the crowd. They spend <b class="n">$113</b> a month on live music against <b class="n">$68</b>.<sup><a href="#s15">15</a></sup></div></div>
+  <div class="step" data-scene="split" data-theme="ink" data-chap="06 · The split"><div><span class="kick mono">06 · The split</span><p class="say">Fandom splits in two. A huge crowd stuck in the clip, and <em>one in five</em> who go all the way in.</p><span class="src mono">Luminate, 2026 · <a href="#s16">Source</a></span></div></div>
+  <div class="step" data-scene="spend" data-theme="ink" data-chap="06 · The split"><div><p class="say">That one in five spends <em>$113</em> a month on live music. Everyone else, $68.</p><span class="src mono">Luminate, 2025 · <a href="#s15">Source</a></span></div></div>
 
-  <div class="step" data-scene="fix" data-chap="The fix"><div class="card"><span class="k">07 · The fix</span><h2>Recruit on the feed. Keep them somewhere else.</h2>Every case that held up did the same thing: used the feed to get noticed, then gave people a reason to come somewhere the feed doesn&rsquo;t control.</div></div>
-  <div class="step" data-scene="fix" data-chap="The fix"><div class="card">The Eras Tour sold <b class="n">10.17M</b> tickets.<sup><a href="#s20">20</a></sup> Weverse fans spend <b class="n">263 minutes</b> a month in a room the artist owns.<sup><a href="#s22">22</a></sup> F1 sold a whole cast and grew US fans <b class="n">10.5%</b>.<sup><a href="#s25">25</a></sup> Feastables made <b class="n">$251M</b> while the videos lost money.<sup><a href="#s29">29</a></sup></div></div>
+  <div class="step" data-scene="fix" data-theme="cob" data-chap="07 · The fix"><div><span class="kick mono">07 · The fix</span><p class="say">Recruit on the feed. <em>Keep them somewhere you own.</em></p></div></div>
+  <div class="step" data-scene="fix" data-theme="cob" data-chap="07 · The fix"><div><p class="say">The Eras Tour sold <em>10.17M</em> tickets. Weverse fans spend 263 minutes a month in a room the artist owns.</p><span class="src mono"><a href="#s20">Billboard</a> · <a href="#s22">MBW</a></span></div></div>
  </div>
 
- <div class="stage" id="stage">
-  <div class="scene" data-s="habit"><div class="phone" id="phone"><div class="tiles" id="tiles" style="grid-template-columns:repeat(13,1fr)"></div><div class="pc"><span><b id="hn">0</b> / 260</span><span id="ht">0 min</span></div></div><div class="cap">Videos to form a habit · TikTok internal estimate</div></div>
-  <div class="scene" data-s="friends"><div class="phone"><div class="tiles" id="ftiles" style="grid-template-columns:repeat(10,1fr)"></div><div class="pc"><span><b id="fn">11%</b></span><span id="fy">2023</span></div></div><div class="cap">Share of Instagram time on friends&rsquo; posts</div></div>
+ <div class="stage">
+  <div class="scene" data-s="habit"><div class="phone" id="phone"><div class="tiles" id="tiles" style="grid-template-columns:repeat(13,1fr)"></div><div class="pc"><span><b id="hn">0</b><span class="mono"> / 260</span></span><span class="mono" id="ht">0 min</span></div></div></div>
+  <div class="scene" data-s="friends"><div class="phone"><div class="tiles" id="ftiles" style="grid-template-columns:repeat(10,1fr)"></div><div class="pc"><span><b id="fn">11%</b></span><span class="mono" id="fy">2023</span></div></div><div class="cap mono">Orange = time on friends&rsquo; posts</div></div>
   <div class="scene" data-s="time"><div class="bars">
-   <div class="bar c" data-w="100"><label>Instagram, algorithmic</label><div class="tr"><div class="fl"></div></div><output>+107%</output></div>
-   <div class="bar" data-w="79"><label>Instagram, chronological</label><div class="tr"><div class="fl"></div></div><output>+84%</output></div>
-   <div class="bar c" data-w="68"><label>Facebook, algorithmic</label><div class="tr"><div class="fl"></div></div><output>+73%</output></div>
-   <div class="bar" data-w="35"><label>Facebook, chronological</label><div class="tr"><div class="fl"></div></div><output>+37%</output></div>
-  </div><div class="cap">Extra time per day vs. the average US user · Science, 2023</div></div>
-  <div class="scene" data-s="loop"><div class="loop" id="loop"><div class="ring"></div><div class="mid"><span class="big" id="lc" style="font-size:64px;color:var(--orange)">0</span><span class="mono" style="color:var(--mute)">videos in</span></div></div><div class="cap">The same five things, coming back around</div></div>
+   <div class="bar a" data-w="100"><label>Instagram, algorithmic feed</label><div class="row"><div class="tr"><div class="fl"></div></div><output>+107%</output></div></div>
+   <div class="bar" data-w="79"><label>Instagram, chronological</label><div class="row"><div class="tr"><div class="fl"></div></div><output>+84%</output></div></div>
+   <div class="bar a" data-w="68"><label>Facebook, algorithmic feed</label><div class="row"><div class="tr"><div class="fl"></div></div><output>+73%</output></div></div>
+   <div class="bar" data-w="35"><label>Facebook, chronological</label><div class="row"><div class="tr"><div class="fl"></div></div><output>+37%</output></div></div>
+  </div><div class="cap mono">Extra time per day vs. the average US user</div></div>
+  <div class="scene" data-s="loop"><div class="loop" id="loop"><div class="mid"><span class="logo num" id="lc" style="font-size:clamp(80px,9vw,150px)">0</span><span class="mono">videos in</span></div></div></div>
   <div class="scene" data-s="buttons"><div class="bars">
-   <div class="bar" data-w="26"><label>&ldquo;Not interested&rdquo;</label><div class="tr"><div class="fl"></div></div><output>11%</output></div>
-   <div class="bar" data-w="28"><label>Dislike</label><div class="tr"><div class="fl"></div></div><output>12%</output></div>
-   <div class="bar" data-w="67"><label>Remove from history</label><div class="tr"><div class="fl"></div></div><output>29%</output></div>
-   <div class="bar o" data-w="100"><label>&ldquo;Don&rsquo;t recommend channel&rdquo;</label><div class="tr"><div class="fl"></div></div><output>43%</output></div>
-  </div><div class="cap">How much each YouTube control cut similar recommendations · Mozilla, 2022</div></div>
+   <div class="bar" data-w="26"><label>&ldquo;Not interested&rdquo;</label><div class="row"><div class="tr"><div class="fl"></div></div><output>11%</output></div></div>
+   <div class="bar" data-w="28"><label>Dislike</label><div class="row"><div class="tr"><div class="fl"></div></div><output>12%</output></div></div>
+   <div class="bar" data-w="67"><label>Remove from watch history</label><div class="row"><div class="tr"><div class="fl"></div></div><output>29%</output></div></div>
+   <div class="bar a" data-w="100"><label>&ldquo;Don&rsquo;t recommend channel&rdquo;</label><div class="row"><div class="tr"><div class="fl"></div></div><output>43%</output></div></div>
+  </div><div class="cap mono">How much each control cut similar recommendations</div></div>
   <div class="scene" data-s="clip"><div class="tri">
-   <div><div class="dgrid" data-n="26"></div><b>26</b><span>followed on TikTok</span></div>
-   <div><div class="dgrid" data-n="45"></div><b>45</b><span>followed on other social</span></div>
-   <div><div class="dgrid" data-n="74"></div><b>74</b><span>found on a streaming service</span></div>
-  </div><div class="cap">Out of 100 who found an artist, how many listened to more · MIDiA, 2025</div></div>
-  <div class="scene" data-s="count"><span class="big count" id="cn">738</span><span class="mono" id="cy" style="color:var(--mute)">2020</span><div class="cap">Spotify streams per TikTok post at the moment of virality · Chartmetric</div></div>
+   <div><div class="dg" data-n="26"></div><b>26</b><span>Found on TikTok</span></div>
+   <div><div class="dg" data-n="45"></div><b>45</b><span>Other social</span></div>
+   <div><div class="dg" data-n="74"></div><b>74</b><span>Streaming service</span></div>
+  </div><div class="cap mono">Out of 100 who found an artist, how many listened to more</div></div>
+  <div class="scene" data-s="count"><div class="orbwrap"><img src="/notes/orb.webp" alt=""><span class="logo num" id="cn">738</span></div><div class="cap mono" id="cy">2020</div></div>
   <div class="scene" data-s="sports"><div class="bars">
-   <div class="bar c" data-w="60"><label>Fans 60+</label><div class="tr"><div class="fl"></div></div><output>60%</output></div>
-   <div class="bar o" data-w="25"><label>Fans 18&ndash;29</label><div class="tr"><div class="fl"></div></div><output>25%</output></div>
-  </div><div class="cap">Share of sports viewing time spent on live games · L.E.K., 2025</div></div>
-  <div class="scene" data-s="split"><div class="split"><div class="dgrid" id="sg"></div><div class="bars" style="width:200px">
-   <div class="bar o" data-w="100" style="grid-template-columns:1fr 60px"><div class="tr"><div class="fl"></div></div><output>$113</output></div>
-   <div class="bar" data-w="60" style="grid-template-columns:1fr 60px"><div class="tr"><div class="fl"></div></div><output>$68</output></div>
-  </div></div><div class="cap">Superfans (orange) and what they spend on live music each month · Luminate</div></div>
-  <div class="scene" data-s="fix"><div class="feedpath"><i>The feed</i>&rarr;<i class="own">Somewhere you own</i></div><div class="moves" id="moves">
+   <div class="bar" data-w="60"><label>Fans 60+ · live games</label><div class="row"><div class="tr"><div class="fl"></div></div><output>60%</output></div></div>
+   <div class="bar a" data-w="25"><label>Fans 18&ndash;29 · live games</label><div class="row"><div class="tr"><div class="fl"></div></div><output>25%</output></div></div>
+  </div><div class="cap mono">Share of sports viewing spent on live games</div></div>
+  <div class="scene" data-s="split"><div class="dg" id="sg" style="width:min(460px,80vw);gap:9px"></div><div class="cap mono">Orange = superfans</div></div>
+  <div class="scene" data-s="spend"><div class="orbwrap"><img src="/notes/orb.webp" alt=""><span class="logo num" id="sp">$0</span></div><div class="cap mono">A month on live music, superfan vs. $68 average</div></div>
+  <div class="scene" data-s="fix"><div class="moves">
    <div class="mv"><b>01</b><span>Give them an appointment</span></div>
    <div class="mv"><b>02</b><span>Own the room, show up in it</span></div>
    <div class="mv"><b>03</b><span>Build a cast</span></div>
@@ -190,18 +192,18 @@ sup a{font:600 11px var(--m);color:var(--cobalt);text-decoration:none;padding:0 
  </div>
 </section>
 
-<section class="end">
- <h2>What you just read</h2>
- <ol class="three">
+<section class="end" data-theme="ink">
+ <h2 class="logo">What you just read</h2>
+ <ol>
   <li>The feed gets your attention fast and almost never your loyalty.</li>
-  <li>Fandom is splitting: a huge base stuck in the clip, a small core going deep.</li>
-  <li>Use the feed to recruit. Keep people somewhere you own, and measure who moves.</li>
+  <li>Fandom is splitting: a huge crowd in the clip, a small core going deep.</li>
+  <li>Recruit on the feed. Keep people somewhere you own. Measure who moves.</li>
  </ol>
- <div class="box"><span class="mono">Try this week</span>Pull your 10 most-viewed posts from the last 90 days. Count the people who did something after watching: signed up, followed you somewhere you own, bought, came back. Divide by views. That&rsquo;s your real conversion from viewer to fan.</div>
- <div class="sig"><img src="/notes/stamp.webp" alt="BALLAST.LA stamp"><b>JM</b></div>
+ <div class="try"><span class="mono">Try this week</span>Take your 10 most-viewed posts from the last 90 days. Count everyone who did something after watching: signed up, followed you somewhere you own, bought, came back. Divide by views. That&rsquo;s your real conversion from viewer to fan.</div>
+ <div class="sig"><img src="/notes/stamp.webp" alt="BALLAST.LA stamp"><b class="logo">JM</b></div>
  <a class="btn" href="/#book">Book a call</a>
 </section>
-<section class="src-list" id="sources"><h2>Sources</h2><ol>
+<section class="sources" id="sources"><h2>Sources</h2><ol>
 <li id="s1"><a href="https://www.npr.org/2024/10/11/nx-s1-5149878/lawsuit-documents-reveal-what-tiktok-executives-know-about-apps-effect-on-teenagers">NPR, &ldquo;TikTok executives know about app&rsquo;s effect on teens, lawsuit documents allege,&rdquo; Oct 2024</a></li>
 <li id="s2"><a href="https://s21.q4cdn.com/399680738/files/doc_financials/2023/q1/META-Q1-2023-Earnings-Call-Transcript.pdf">Meta, Q1 2023 earnings call transcript, Apr 2023</a></li>
 <li id="s3"><a href="https://www.businessinsider.com/meta-reveals-decline-friend-content-instagram-facebook-amid-ftc-trial-2025-4">Business Insider, Apr 2025</a>; <a href="https://www.ftc.gov/system/files/ftc_gov/pdf/MemorandumofOpinion.pdf">FTC v. Meta, Memorandum Opinion</a></li>
@@ -234,43 +236,47 @@ sup a{font:600 11px var(--m);color:var(--cobalt);text-decoration:none;padding:0 
 </ol></section>
 <script>
 (()=>{
-const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
-const clamp=v=>Math.max(0,Math.min(1,v)),ease=t=>1-Math.pow(1-t,3);
-// build tiles
-const pal=['#0B5CF6','#FD720D','#0A0D18','#9DB8F5','#F7B98A','#B9B2A8','#3B4258','#D8CFC3'];let sd=7;const rnd=()=>(sd=(sd*16807)%2147483647)/2147483647;
-const T=[];for(let i=0;i<260;i++){const e=document.createElement('i');e.dataset.c=pal[Math.floor(rnd()*8)];$('#tiles').appendChild(e);T.push(e)}
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)],cl=v=>Math.max(0,Math.min(1,v)),ez=t=>1-Math.pow(1-t,3);
+const TH={cob:['#0B5CF6','#F3F4FA','#FD720D'],ink:['#0A0D18','#F3F4FA','#FD720D'],or:['#FD720D','#0A0D18','#F3F4FA']};
+function theme(k){const t=TH[k]||TH.cob,r=document.documentElement.style;r.setProperty('--bg',t[0]);r.setProperty('--fg',t[1]);r.setProperty('--ac',t[2])}
+// split sentences into words
+$$('.say').forEach(p=>{const walk=n=>{[...n.childNodes].forEach(c=>{if(c.nodeType===3){const f=document.createDocumentFragment();c.textContent.split(/(\s+)/).forEach(s=>{if(!s)return;if(/^\s+$/.test(s))f.appendChild(document.createTextNode(s));else{const w=document.createElement('span');w.className='w';w.textContent=s;f.appendChild(w)}});c.replaceWith(f)}else walk(c)})};walk(p)});
+let sd=7;const rnd=()=>(sd=(sd*16807)%2147483647)/2147483647;
+const pal=['#FD720D','#F9A51B','#F3F4FA','#0B5CF6','#7FA7FF','#FFC27A'];
+const T=[];for(let i=0;i<260;i++){const e=document.createElement('i');e.dataset.c=pal[Math.floor(rnd()*pal.length)];$('#tiles').appendChild(e);T.push(e)}
 const F=[];for(let i=0;i<100;i++){const e=document.createElement('i');$('#ftiles').appendChild(e);F.push(e)}
-const fOrder=[...Array(100).keys()].sort(()=>rnd()-.5);
-$$('.dgrid').forEach(d=>{for(let i=0;i<100;i++)d.appendChild(document.createElement('i'))});
-const L=$('#loop');const items=[];for(let i=0;i<5;i++){const e=document.createElement('div');e.className='it';e.textContent=['🏀','💸','🎧','👟','☕'][i];L.appendChild(e);items.push(e)}
-const sgOrder=[...Array(100).keys()].sort(()=>rnd()-.5).slice(0,20);
-// scenes
+const fo=[...Array(100).keys()].sort(()=>rnd()-.5);
+$$('.dg').forEach(d=>{for(let i=0;i<100;i++)d.appendChild(document.createElement('i'))});
+const L=$('#loop'),IT=['🏀','💸','🎧','👟','☕'].map(x=>{const e=document.createElement('div');e.className='it';e.textContent=x;L.appendChild(e);return e});
+const so=[...Array(100).keys()].sort(()=>rnd()-.5).slice(0,20);
 const S={
- habit(p){const n=Math.round(ease(p)*260);T.forEach((e,i)=>e.style.background=i<n?e.dataset.c:'');$('#hn').textContent=n;$('#ht').textContent=Math.round(n/260*35)+' min';$('#phone').classList.toggle('done',n>=260)},
- friends(p){const pct=Math.round(11-4*ease(p));const set=new Set(fOrder.slice(0,pct));F.forEach((e,i)=>e.style.background=set.has(i)?'#0B5CF6':'');$('#fn').textContent=pct+'%';$('#fy').textContent=p<.5?'2023':'2025'},
- loop(p){const a=p*Math.PI*4;items.forEach((e,i)=>{const t=a+i/5*Math.PI*2,r=38;e.style.transform=`translate(${Math.cos(t)*r*3.4}%,${Math.sin(t)*r*2.3}%)`});$('#lc').textContent=Math.round(ease(p)*100)},
- count(p){const v=Math.round(738-(738-275)*ease(p));$('#cn').textContent=v;$('#cy').textContent=p<.98?'2020 → '+Math.round(2020+5*ease(p)):'2025'},
- split(p){const k=Math.round(ease(p)*20);const ds=$('#sg').children;[...ds].forEach((e,i)=>e.classList.toggle('or',sgOrder.indexOf(i)>-1&&sgOrder.indexOf(i)<k))},
- fix(p){$$('.mv').forEach((e,i)=>e.classList.toggle('on',p*5.5>i+.3))}
+ habit(p){const n=Math.round(ez(p)*260);T.forEach((e,i)=>e.style.background=i<n?e.dataset.c:'');$('#hn').textContent=n;$('#ht').textContent=Math.round(n/260*35)+' min';$('#phone').classList.toggle('done',n>=258)},
+ friends(p){const n=Math.round(11-4*ez(p)),s=new Set(fo.slice(0,n));F.forEach((e,i)=>e.style.background=s.has(i)?'#FD720D':'rgba(255,255,255,.85)');$('#fn').textContent=n+'%';$('#fy').textContent=p<.5?'2023':'2025'},
+ loop(p){const a=p*Math.PI*5;IT.forEach((e,i)=>{const t=a+i/5*Math.PI*2;e.style.transform=`translate(${Math.cos(t)*150}%,${Math.sin(t)*95}%)`});$('#lc').textContent=Math.round(ez(p)*100)},
+ count(p){$('#cn').textContent=Math.round(738-463*ez(p));$('#cy').textContent='Streams per post · '+Math.round(2020+5*ez(p))},
+ split(p){const k=Math.round(ez(p)*20),d=$('#sg').children;[...d].forEach((e,i)=>{const j=so.indexOf(i);e.classList.toggle('or',j>-1&&j<k);e.classList.toggle('on',!(j>-1&&j<k))})},
+ spend(p){$('#sp').textContent='$'+Math.round(113*ez(p))},
+ fix(p){$$('.mv').forEach((e,i)=>e.classList.toggle('on',p*5.6>i+.25))}
 };
-const bars=(sc,p)=>sc.querySelectorAll('.bar').forEach((b,i)=>{b.querySelector('.fl').style.width=(+b.dataset.w*ease(clamp(p*1.6-i*.12)))+'%'});
-const dots=(sc,p)=>sc.querySelectorAll('.dgrid[data-n]').forEach(d=>{const n=Math.round(+d.dataset.n*ease(p));[...d.children].forEach((e,i)=>e.classList.toggle('on',i<n))});
-// scroll engine: the active step decides the scene; its progress drives the scene
+const bars=(sc,p)=>sc.querySelectorAll('.bar').forEach((b,i)=>b.querySelector('.fl').style.width=(+b.dataset.w*ez(cl(p*1.7-i*.14)))+'%');
+const dots=(sc,p)=>sc.querySelectorAll('.dg[data-n]').forEach(d=>{const n=Math.round(+d.dataset.n*ez(p));[...d.children].forEach((e,i)=>e.classList.toggle('on',i<n))});
 const steps=$$('.step'),scenes={};$$('.scene').forEach(s=>scenes[s.dataset.s]=s);
-let cur=null;
+const groups={};steps.forEach(s=>(groups[s.dataset.scene]=groups[s.dataset.scene]||[]).push(s));
+let cur=null,curT=null;
 function tick(){
- const vh=innerHeight;let act=steps[0],ap=0;
- // progress for a scene runs across all consecutive steps that share it
- const groups={};steps.forEach(s=>{const k=s.dataset.scene;(groups[k]=groups[k]||[]).push(s)});
- for(const s of steps){const r=s.getBoundingClientRect();if(r.top<vh*(innerWidth<=860?.82:.6))act=s}
- steps.forEach(s=>s.classList.toggle('on',s===act));
- const g=groups[act.dataset.scene],a=g[0].getBoundingClientRect(),b=g[g.length-1].getBoundingClientRect();
- ap=clamp((vh*.6-a.top)/(b.bottom-a.top-vh*.3));
- const k=act.dataset.scene;
- if(cur!==k){Object.values(scenes).forEach(s=>s.classList.toggle('on',s.dataset.s===k));cur=k}
- const sc=scenes[k];(S[k]||(()=>{}))(ap);bars(sc,ap);dots(sc,ap);
+ const vh=innerHeight,mob=innerWidth<=860,line=vh*(mob?.8:.62);
+ let act=null;for(const s of steps)if(s.getBoundingClientRect().top<line)act=s;
+ const rd=$('.reader').getBoundingClientRect();
+ // theme follows the section in view
+ let th='cob';if(act&&rd.bottom>vh*.5)th=act.dataset.theme;if(rd.bottom<vh*.5)th='ink';if(!act)th='cob';
+ if(th!==curT){theme(th);curT=th}
+ // words light up as you read
+ steps.forEach(s=>{const r=s.getBoundingClientRect(),q=cl((line-r.top)/(r.height*.5)),ws=s.querySelectorAll('.w'),n=Math.ceil(q*ws.length);ws.forEach((w,i)=>w.classList.toggle('lit',i<n))});
+ if(act){const g=groups[act.dataset.scene],a=g[0].getBoundingClientRect(),b=g[g.length-1].getBoundingClientRect(),p=cl((line-a.top)/(b.bottom-a.top-vh*.35));
+  const k=act.dataset.scene;if(k!==cur){Object.values(scenes).forEach(s=>s.classList.toggle('on',s.dataset.s===k));cur=k}
+  const sc=scenes[k];(S[k]||(()=>{}))(p);bars(sc,p);dots(sc,p);$('#chap').textContent=rd.bottom>0?act.dataset.chap:''}
+ else{$('#chap').textContent=''}
  const h=document.documentElement;$('#prog').style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%';
- const rr=$('#steps').getBoundingClientRect();$('#chap').textContent=rr.top<vh&&rr.bottom>0?act.dataset.chap:'Built for scrolling';
 }
 addEventListener('scroll',()=>requestAnimationFrame(tick),{passive:true});addEventListener('resize',tick);tick();
 })();
