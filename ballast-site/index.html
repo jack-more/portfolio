@@ -569,7 +569,6 @@
     <nav class="nav__links">
       <a href="#work">Work</a>
       <a href="#rd">Services</a>
-      <a href="#pricing">Pricing</a>
       <a href="/notes/">Notes</a>
     </nav>
     <div class="nav__end">
@@ -754,69 +753,9 @@
     </div>
   </section>
 
-  <!-- pricing -->
-  <section class="cb pad" id="pricing" aria-label="Pricing">
-    <div class="cb__hd">
-      <span class="mono">The 2&times; book &middot; Pricing</span>
-      <p>Start with a free review. If it makes sense, we go from there.</p>
-    </div>
-    <div class="cpns">
-      <article class="cpn cpn--orange">
-        <div class="cpn__stub"><span class="mono">No. 01</span><span class="cpn__code mono">BLST-001</span></div>
-        <div class="cpn__body">
-          <span class="mono">Good for</span>
-          <b class="cpn__v">Free</b>
-          <h3>Free numbers review</h3>
-          <p>Thirty minutes on your account. You leave knowing your break-even ROAS, where money is leaking and what to fix first. The notes are yours whether you hire us or not.</p>
-          <a class="cpn__go" href="#book" data-offer="Free numbers review">Redeem <span aria-hidden="true">&rarr;</span></a>
-        </div>
-      </article>
-      <article class="cpn cpn--cobalt">
-        <div class="cpn__stub"><span class="mono">No. 02</span><span class="cpn__code mono">BLST-002</span></div>
-        <div class="cpn__body">
-          <span class="mono">Good for</span>
-          <b class="cpn__v">14 days</b>
-          <h3>Two-week sprint</h3>
-          <p>We build your scaffolding and find where you&rsquo;re leaking. If you stay on, the full fee comes off your first month.</p>
-          <a class="cpn__go" href="#book" data-offer="Two-week sprint">Redeem <span aria-hidden="true">&rarr;</span></a>
-        </div>
-      </article>
-      <article class="cpn cpn--ink">
-        <div class="cpn__stub"><span class="mono">No. 03</span><span class="cpn__code mono">BLST-003</span></div>
-        <div class="cpn__body">
-          <span class="mono">Good for</span>
-          <b class="cpn__v">2&times;</b>
-          <h3>Monthly growth</h3>
-          <p>We run your media, creative and creators with one target: double your revenue. New creative every week. Priced on what the account needs.</p>
-          <a class="cpn__go" href="#book" data-offer="Ongoing media and creative">Redeem <span aria-hidden="true">&rarr;</span></a>
-        </div>
-      </article>
-    </div>
-  </section>
 
 
   <!-- book -->
-  <section class="nl pad" id="notes" aria-labelledby="nlT">
-    <div class="nl__in">
-      <div><span class="mono">Notes</span><h2 id="nlT">Notes from the accounts we run.</h2><p>What we find running paid media, creative and measurement for real brands. <a href="/notes/">Read the latest</a>.</p></div>
-      <form class="nl__form" action="https://ballastla.substack.com/api/v1/free?nojs=true" method="post" target="_blank"><input type="email" name="email" placeholder="you@company.com" required aria-label="Email"><input class="nl__hp" name="company" tabindex="-1" autocomplete="off" aria-hidden="true"><button type="submit" class="btn">Subscribe</button><p class="nl__msg mono" role="status"></p></form>
-    </div>
-  </section>
-  <style>
-    .nl{background:var(--cobalt);color:#fff;padding:clamp(56px,7vw,104px) max(var(--pad),24px)!important}
-    .nl__in{max-width:1400px;margin:0 auto}
-    .nl__in{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(20px,4vw,64px);align-items:end}
-    .nl h2{font:800 clamp(30px,4.2vw,60px)/.98 var(--g);letter-spacing:-.035em;text-transform:uppercase;margin:10px 0 12px}
-    .nl p{margin:0;max-width:52ch}.nl a{color:#fff}
-    .nl__form{display:flex;gap:8px;flex-wrap:wrap}
-    .nl__form input[type=email]{flex:1 1 240px;padding:15px 16px;border:0;border-radius:999px;font:400 16px var(--g)}
-    .nl__form .btn{background:var(--orange);color:var(--ink);border:0;cursor:pointer}
-    .nl__hp{position:absolute;left:-9999px}.nl__msg{flex-basis:100%;margin:4px 0 0;font-size:13px}
-    @media(max-width:760px){.nl__in{grid-template-columns:1fr}}
-  </style>
-  <script>
-    document.querySelectorAll("form[data-sub]").forEach((f)=>f.addEventListener("submit",async(e)=>{e.preventDefault();const m=f.querySelector("[role=status]"),b=f.querySelector("button");b.disabled=true;try{const r=await fetch("/api/subscribe",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({email:f.email.value,company:f.company.value,source:f.dataset.sub})});const d=await r.json().catch(()=>({}));m.textContent=r.ok?"You're in. First note lands this week.":(d.error||"Something went wrong. Try again.");if(r.ok)f.reset()}catch{m.textContent="Something went wrong. Try again."}b.disabled=false}));
-  </script>
   <section class="book pad" id="book">
     <div class="book__bar"><span class="mono">Book 30 minutes with Jack &middot; Pacific time</span><span class="book__offer mono" id="calOffer" hidden></span></div>
     <div class="cal" id="cal">
@@ -854,13 +793,36 @@
     </div>
   </section>
 
+  <!-- notes -->
+  <section class="nl pad" id="notes" aria-labelledby="nlT">
+    <div class="nl__in">
+      <div><span class="mono">Notes</span><h2 id="nlT">Notes from the accounts we run.</h2><p>What we find running paid media, creative and measurement for real brands. <a href="/notes/">Read the latest</a>.</p></div>
+      <form class="nl__form" action="https://ballastla.substack.com/api/v1/free?nojs=true" method="post" target="_blank"><input type="email" name="email" placeholder="you@company.com" required aria-label="Email"><input class="nl__hp" name="company" tabindex="-1" autocomplete="off" aria-hidden="true"><button type="submit" class="btn">Subscribe</button><p class="nl__msg mono" role="status"></p></form>
+    </div>
+  </section>
+  <style>
+    .nl{background:var(--cobalt);color:#fff;padding:clamp(56px,7vw,104px) max(var(--pad),24px)!important}
+    .nl__in{max-width:1400px;margin:0 auto}
+    .nl__in{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(20px,4vw,64px);align-items:end}
+    .nl h2{font:800 clamp(30px,4.2vw,60px)/.98 var(--g);letter-spacing:-.035em;text-transform:uppercase;margin:10px 0 12px}
+    .nl p{margin:0;max-width:52ch}.nl a{color:#fff}
+    .nl__form{display:flex;gap:8px;flex-wrap:wrap}
+    .nl__form input[type=email]{flex:1 1 240px;padding:15px 16px;border:0;border-radius:999px;font:400 16px var(--g)}
+    .nl__form .btn{background:var(--orange);color:var(--ink);border:0;cursor:pointer}
+    .nl__hp{position:absolute;left:-9999px}.nl__msg{flex-basis:100%;margin:4px 0 0;font-size:13px}
+    @media(max-width:760px){.nl__in{grid-template-columns:1fr}}
+  </style>
+  <script>
+    document.querySelectorAll("form[data-sub]").forEach((f)=>f.addEventListener("submit",async(e)=>{e.preventDefault();const m=f.querySelector("[role=status]"),b=f.querySelector("button");b.disabled=true;try{const r=await fetch("/api/subscribe",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({email:f.email.value,company:f.company.value,source:f.dataset.sub})});const d=await r.json().catch(()=>({}));m.textContent=r.ok?"You're in. First note lands this week.":(d.error||"Something went wrong. Try again.");if(r.ok)f.reset()}catch{m.textContent="Something went wrong. Try again."}b.disabled=false}));
+  </script>
+
 </main>
 
 <footer class="foot pad">
   <div class="foot__top">
     <div><span class="mono">Email</span><a href="mailto:jack@ballast.la">jack@ballast.la</a></div>
     <div><span class="mono">Where</span><a href="#book">Los Angeles</a></div>
-    <div><span class="mono">Site</span><a href="#work">Work</a><a href="#rd">Services</a><a href="#pricing">Pricing</a></div>
+    <div><span class="mono">Site</span><a href="#work">Work</a><a href="#rd">Services</a></div>
   </div>
   <div class="foot__word">Ballast</div>
   <div class="foot__bot mono"><span>Ballast Research LLC &mdash; Los Angeles</span><span>Research, development and media distribution</span></div>
