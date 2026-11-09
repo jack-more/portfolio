@@ -1,44 +1,100 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="/favicon.ico?v=3" sizes="any"><link rel="icon" type="image/png" href="/icon-192.png?v=3"><link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;800&family=Geist+Mono:wght@500&display=swap"><link rel="stylesheet" href="/notes/notes.css">
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" href="/favicon.ico?v=3" sizes="any"><link rel="icon" type="image/png" href="/icon-192.png?v=3"><link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;800&family=Geist+Mono:wght@500&display=swap">
 <title>Your ad platform is overcounting your sales — Ballast Notes</title>
-<meta name="description" content="An ad platform claimed twice the sales a DTC store could prove. How we found the gap, and the numbers we manage spend on now.">
+<meta name="description" content="An ad platform claimed more than twice the sales a DTC store could prove. The six places the gap came from, what we run spend on now, and a ten-minute check for your own account.">
 <link rel="canonical" href="https://ballast.la/notes/your-ad-platform-is-overcounting-your-sales/">
 <meta property="og:title" content="Your ad platform is overcounting your sales"><meta property="og:image" content="https://ballast.la/og.png">
-</head><body><header class="top"><a href="/">Ballast</a><span><a href="/notes/" style="margin-right:18px">Notes</a><a class="cta" href="/#book">Book a call</a></span></header>
-<main class="wrap"><span class="kick">Measurement · Notes №1</span>
-<h1>Your ad platform is overcounting your sales</h1>
-<p class="dek">An ad platform claimed more than twice the sales our store could prove. Here&rsquo;s where the gap came from and what we manage spend on now.</p>
-<p class="meta">Jack Morello · Ballast · November 2026</p>
-<article>
-<p>We were scaling a multi-brand DTC client on Meta, TikTok and Google. Spend was climbing, the dashboards looked great, and the bank account didn&rsquo;t match. Every budget decision rested on those dashboards, and nobody owned the gap, so we audited the whole setup before adding another dollar.</p>
-<div class="big"><div><b>2&times;+</b><span>Sales the platform claimed vs. sales we could prove</span></div><div><b>~&#8531;</b><span>Of purchases analytics was recording</span></div><div><b>23%</b><span>Of billed spend the tracking tool missed</span></div></div>
-<h2>Where the gap came from</h2>
-<ul>
-<li><b>Credit the platform hands itself.</b> View-through conversions, a 7-day click window, people who came back days later on another device, and repeat buyers who were going to reorder anyway. All counted as ad sales.</li>
-<li><b>A duplicate purchase event.</b> One order could fire Purchase three times: the site&rsquo;s own pixel, a server event, and a tag-manager tag nobody remembered adding.</li>
-<li><b>A tag container that had never run.</b> It loaded from an address that didn&rsquo;t resolve, so the setup everyone thought was live never fired once.</li>
-<li><b>Checkouts analytics couldn&rsquo;t see.</b> Express checkout skipped the confirmation page, and the purchase event only fired there. Analytics caught about a third of real orders.</li>
-<li><b>Lost sources.</b> Orders from Instagram, YouTube and influencer links dropped their UTMs at checkout, so every channel except one looked like it did nothing.</li>
-<li><b>Spend from the wrong place.</b> The tracking tool under-reported what the ad accounts actually billed by 23%.</li>
-</ul>
-<p>One thing was fine: click-ID capture sat around 83%, which is healthy once in-app browsers take their cut. Checking it took ten minutes and saved a week of chasing the wrong problem.</p>
-<h2>What we manage on now</h2>
-<ol>
-<li><b>The store is the source of truth.</b> Every checkout is tracked in our own order data down to the campaign, ad set and ad. Platform numbers are a signal for optimization, not a scoreboard.</li>
-<li><b>Spend comes from invoices.</b> Never from a tracker.</li>
-<li><b>A weekly reconciliation.</b> Platform-claimed purchases next to verified new customers, by channel. The ratio between them is the real number.</li>
-<li><b>Tighter windows on new campaigns.</b> A 1-day click window makes reported conversions drop. That drop is counting, not performance, so warn leadership before you flip it.</li>
-<li><b>Budget moves on true CAC.</b> New customers per week against spend, by ad. Creator pay and channel mix follow the same verified ratio.</li>
-</ol>
-<h2>A ten-minute check for your own account</h2>
-<ul>
-<li>Pull last week&rsquo;s orders from your store and count the ones you can tie to each platform. Compare to what each platform claims.</li>
-<li>Open your tag manager in preview on the live site. Does the container you think is running actually fire?</li>
-<li>Place a test order through express checkout. Does it show up in analytics?</li>
-<li>Click your own ad from Instagram and buy. Does the order keep its source?</li>
-<li>Line up last month&rsquo;s invoices against what your tracker says you spent.</li>
-</ul>
-<p>If any of those come back wrong, the fix is usually days, not months, and it changes every budget call you make after it. That foundation is how this client scaled to more than $1.2M a month in sales at a peak 6&times; ROAS.</p>
-<p>Want us to run the audit on your account? <a href="/#book">Book a call</a>.</p>
-</article>
-<section class="sub" id="subscribe"><h3>Get the next note.</h3><p>What we find running paid media, creative and measurement for real brands.</p><form action="https://jammo.substack.com/api/v1/free?nojs=true" method="post" target="_blank"><input type="email" name="email" placeholder="you@company.com" required aria-label="Email"><input class="hp" name="company" tabindex="-1" autocomplete="off" aria-hidden="true"><button type="submit">Subscribe</button><p class="msg" role="status"></p></form></section>
-</main></body></html>
+<link rel="stylesheet" href="/notes/essay.css">
+</head><body>
+<header class="top"><a href="/">Ballast</a><span><a href="/notes/" style="margin-right:18px">Notes</a><a class="cta" href="/#book">Book a call</a></span><i class="prog" id="prog"></i></header>
+
+<section class="hero">
+ <span class="mono">Measurement · Ballast Notes №1</span>
+ <h1 class="bd" style="font-size:clamp(40px,8.6vw,150px)"><span>Your ad platform</span><span>is overcounting</span><span>your sales</span></h1>
+ <p class="dek">An ad platform claimed more than twice the sales the store could prove. Here&rsquo;s where the gap came from, what we run spend on now, and a ten-minute check for your own account.</p>
+ <p class="meta mono">Jack Morello · Ballast · November 2026 · 7 min read</p>
+</section>
+
+<div class="col">
+ <p class="lead">We were scaling a DTC client with several brands across Meta, TikTok and Google. Spend kept going up and the dashboards kept looking great. The money in the bank added up to a lot less.</p>
+ <p>Every budget call was being made off those dashboards, so before adding another dollar we audited the whole setup, from the pixel to the invoices.</p>
+</div>
+
+<div class="fig rv">
+ <p class="cap">Sales, same period <span>Client audit, 2026</span></p>
+ <div class="bars">
+  <div class="bar o" style="--w:100%"><label>What the ad platform claimed</label><div class="tr"><div class="fl"></div></div><output>2&times;+</output></div>
+  <div class="bar" style="--w:47%"><label>What the store could prove</label><div class="tr"><div class="fl"></div></div><output>1&times;</output></div>
+ </div>
+</div>
+
+<div class="fig rv">
+ <div class="dots3" style="grid-template-columns:repeat(2,minmax(0,1fr))">
+  <div class="dl"><div class="dots c" data-n="33"></div><b>~1 in 3</b><span>real orders that analytics was recording</span></div>
+  <div class="dl"><div class="dots o" data-n="23"></div><b>23%</b><span>of billed ad spend the tracking tool never reported</span></div>
+ </div>
+</div>
+
+<!-- 01 -->
+<section class="sec"><div class="num"><b>01</b><b>The audit</b></div><h2 class="bd">Six places the gap came from</h2></section>
+<div class="cause rv">
+ <div><b class="n">01</b><h3>The platform credits itself</h3><p>View-through conversions, a 7-day click window, people who came back days later on a different device, and repeat customers who were going to reorder anyway. The platform counted every one of them as an ad sale.</p></div>
+ <div><b class="n">02</b><h3>One order, three purchases</h3><p>The site&rsquo;s pixel, a server event and an old tag-manager tag nobody remembered adding all fired Purchase for the same order.</p></div>
+ <div><b class="n">03</b><h3>A tag container that never ran</h3><p>It loaded from an address that didn&rsquo;t resolve. The setup everyone thought was live had never fired once.</p></div>
+ <div><b class="n">04</b><h3>Express checkout skipped the count</h3><p>Express checkout jumped past the confirmation page, and that page was the only place the purchase event fired. Analytics saw about a third of real orders.</p></div>
+ <div><b class="n">05</b><h3>Sources got stripped</h3><p>Orders from Instagram, YouTube and influencer links lost their UTMs at checkout, so every channel but one looked dead.</p></div>
+ <div><b class="n">06</b><h3>Spend came from the wrong place</h3><p>The tracking tool reported 23% less spend than the ad accounts actually billed, which made every return look better than it was.</p></div>
+</div>
+<div class="fig rv">
+ <div class="ring">
+  <svg width="140" height="140" viewBox="0 0 140 140" aria-hidden="true"><circle cx="70" cy="70" r="58" fill="none" stroke="#EDE6DC" stroke-width="16"/><circle cx="70" cy="70" r="58" fill="none" stroke="#0B5CF6" stroke-width="16" stroke-dasharray="302 364" transform="rotate(-90 70 70)"/><text x="70" y="80" text-anchor="middle" font-family="BD" font-style="italic" font-size="34" fill="#0A0D18">83%</text></svg>
+  <div><p class="cap" style="margin:0 0 8px">One thing was fine</p><p style="margin:0;max-width:520px">Click-ID capture sat around 83%, which is healthy once in-app browsers take their cut. It took ten minutes to check and kept us from spending a week on the wrong problem.</p></div>
+ </div>
+</div>
+
+<!-- 02 -->
+<div class="band cob">
+<section class="sec"><div class="num"><b>02</b><b>The fix</b></div><h2 class="bd">What we run spend on now</h2></section>
+<div class="moves">
+ <div class="move"><h3 class="bd"><small>Rule 1</small>The store is the scoreboard</h3><div><p>Every order is tied to its campaign, ad set and ad in our own order data. Platform numbers still help the algorithms optimize. We grade the work on the store.</p></div></div>
+ <div class="move"><h3 class="bd"><small>Rule 2</small>Spend comes from invoices</h3><div><p>The number we divide by is what the ad accounts actually billed, pulled from the invoices.</p></div></div>
+ <div class="move"><h3 class="bd"><small>Rule 3</small>Reconcile every week</h3><div><p>Platform-claimed purchases next to verified new customers, by channel. The ratio between the two is the number that matters.</p></div></div>
+ <div class="move"><h3 class="bd"><small>Rule 4</small>Shorter windows on new campaigns</h3><div><p>Switching to a 1-day click window makes reported conversions drop overnight. Sales stay the same; the counting changed. Tell leadership before you flip it.</p></div></div>
+ <div class="move"><h3 class="bd"><small>Rule 5</small>Budget follows real CAC</h3><div><p>New customers per week against spend, by ad. Creator pay and channel mix follow the same verified ratio.</p></div></div>
+</div>
+</div>
+
+<!-- 03 -->
+<section class="sec"><div class="num"><b>03</b><b>Your account</b></div><h2 class="bd">The ten-minute check</h2></section>
+<div class="col">
+ <div class="box" style="margin-top:0"><h3>Try this week</h3>
+  <ol class="plain" style="padding-left:20px">
+   <li>Count last week&rsquo;s store orders you can tie to each platform. Compare with what each platform claims.</li>
+   <li>Open your tag manager in preview mode on the live site. Make sure the container you think is running actually fires.</li>
+   <li>Place a test order through express checkout. Check that analytics records it.</li>
+   <li>Click your own Instagram ad and buy something. Check that the order keeps its source.</li>
+   <li>Line up last month&rsquo;s ad invoices against the spend your tracker reports.</li>
+  </ol>
+ </div>
+ <p style="margin-top:28px">If any of those come back wrong, it&rsquo;s usually a quick fix, and it changes every budget decision after it. This is the setup the client scaled on, to more than $1.2M a month in sales at a peak 6&times; ROAS.</p>
+</div>
+<div class="end">
+ <img class="stamp" src="/notes/stamp.webp" width="150" height="150" alt="BALLAST.LA stamp">
+ <p class="sig">JM</p>
+ <a class="btn" href="/#book">Book a call</a>
+ <p class="next mono">Next · <a href="/notes/built-for-scrolling/">Built for scrolling</a></p>
+</div>
+<section class="sub2" id="subscribe"><h3>Get the next note</h3><p>Sports markets, coin markets and marketing markets.</p>
+ <form action="https://jammo.substack.com/api/v1/free?nojs=true" method="post" target="_blank"><input type="email" name="email" placeholder="you@company.com" required aria-label="Email"><button type="submit">Subscribe</button></form></section>
+<div style="height:100px"></div>
+
+<script>
+(()=>{const prog=document.getElementById('prog');
+ const bar=()=>{const h=document.documentElement;prog.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%'};addEventListener('scroll',bar,{passive:true});bar();
+ document.querySelectorAll('.dots').forEach(d=>{for(let i=0;i<100;i++)d.appendChild(document.createElement('i'))});
+ const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const el=e.target;el.classList.add('in');
+  el.querySelectorAll('.dots').forEach(d=>{const n=+d.dataset.n,ds=d.children;for(let i=0;i<n;i++)setTimeout(()=>ds[i].classList.add('on'),i*14)});io.unobserve(el)}),{threshold:.3});
+ document.querySelectorAll('.rv').forEach(el=>io.observe(el));})();
+</script>
+</body></html>
