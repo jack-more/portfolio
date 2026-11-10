@@ -33,7 +33,7 @@ a{color:inherit}
 .steps{position:relative;z-index:3;padding:0 0 30vh}
 .step{min-height:115vh;display:flex;align-items:center}
 .say{font-weight:800;font-size:clamp(34px,3.7vw,64px);line-height:1.04;letter-spacing:-.035em;margin:0;max-width:13em}
-.say .w{opacity:.18;transition:opacity .15s}
+.say .w{opacity:1}
 .say .w.lit{opacity:1}
 .say em{font-style:normal;color:var(--ac)}
 .kick{display:block;margin-bottom:20px;color:var(--ac)}
@@ -140,18 +140,23 @@ html{scroll-behavior:smooth}
  .moves{gap:6px}.mv{padding:9px 14px;border-width:2px}.mv b{font-size:22px;width:34px}.mv span{font-size:15px}
  .cap{margin-top:8px;font-size:10px}
  .top .chap{display:none}
- html{scroll-snap-type:y proximity;scroll-padding-top:46svh}
- .stage{height:44svh!important;overflow:hidden;box-shadow:0 10px 24px var(--bg)}
- .scene{inset:50px 10px 8px!important}
+ html{scroll-snap-type:y proximity;scroll-padding-top:40svh}
+ .stage{height:38svh!important;overflow:hidden;box-shadow:0 10px 24px var(--bg)}
+ .scene{inset:54px 14px 8px!important;transition:opacity .25s,transform .25s}
+ .top{background:var(--bg);transition:background .8s}
+ .bars{width:86%;gap:5px!important}.bar .tr{height:14px!important}.bar output{font-size:19px!important;min-width:2.4em}.bar label{font-size:8.5px!important}
+ .moves{width:86%}.mv{padding:4px 12px!important;border-width:2px}.mv b{font-size:16px!important;width:26px}.mv span{font-size:12.5px!important}
+ .tri{width:78%!important}.tri b{font-size:24px!important;margin-top:4px}
+ .cap{font-size:9px!important;margin-top:6px!important}
  #sg{width:min(230px,52vw)!important;gap:5px!important}
- .step{transition:opacity .35s}.step:not(.on){opacity:.08}
  .moves{gap:5px}.mv{padding:7px 12px}.mv span{font-size:14px}
  .orbwrap{width:86%!important}
  .loop{width:min(240px,58vw)!important}
  .tri .dg{gap:2px}
  .steps{padding-bottom:20svh!important}
- .step{min-height:56svh!important;align-items:flex-start;padding-top:2svh;scroll-snap-align:start}
- .say{max-width:none;font-size:clamp(26px,7.2vw,34px)!important;line-height:1.1}
+ .step{min-height:62svh!important;align-items:flex-start;padding-top:2svh;scroll-snap-align:start}
+ .say{max-width:none;font-size:clamp(21px,6.3vw,27px)!important;line-height:1.16;font-weight:700}
+ .src{font-size:10px}
  .kick{margin-bottom:10px}.src{margin-top:12px}
  .open{padding:84px 16px 40px;justify-content:center}
  .open h1{font-size:12.6vw;line-height:.86}
@@ -169,7 +174,7 @@ html{scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.say .w{opacity:1}}
 </style></head><body>
 <i class="prog" id="prog"></i>
-<header class="top"><a href="/">Ballast</a><span class="chap" id="chap"></span><span class="tog"><a class="cta tcta" href="/#book">Book a call</a><button id="tSR" aria-pressed="true">Speed read</button><button id="tG" aria-pressed="true">Game</button><button id="tM" aria-pressed="false">&#9835; Sound</button></span></header>
+<header class="top"><a href="/">Ballast</a><span class="chap" id="chap"></span><span class="tog"><a class="cta tcta" href="/#book">Book a call</a><button id="tSR" aria-pressed="false" hidden>Speed read</button><button id="tG" aria-pressed="false" hidden>Game</button><button id="tM" aria-pressed="false">&#9835; Sound</button></span></header>
 
 <section class="open" data-theme="cob">
  <img class="orb" src="/notes/orb.webp" alt="">
@@ -344,7 +349,7 @@ const setM=on=>{tM.setAttribute('aria-pressed',on);on?tune.start():tune.stop()};
 tSR.onclick=()=>setSR(!B.classList.contains('sr'));tG.onclick=()=>setG(B.classList.contains('nogame'));tM.onclick=()=>setM(!tune.on);
 document.addEventListener('visibilitychange',()=>{if(!game)return;if(document.hidden)game.stop();else if(!B.classList.contains('nogame'))game.start()});
 new IntersectionObserver(es=>es.forEach(e=>box.classList.toggle('show',e.isIntersecting)),{threshold:0}).observe(document.querySelector('.reader'));
-setSR(ls('bn_sr')!=='0');setG(ls('bn_g2')==='1'&&!reduce);
+setSR(false);setG(ls('bn_g2')==='1'&&!reduce);
 document.getElementById('play').onclick=()=>{setM(true);document.getElementById('read').scrollIntoView({behavior:'smooth'})};
 </script>
 </body></html>
