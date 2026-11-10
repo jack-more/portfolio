@@ -48,7 +48,7 @@ a{color:inherit}
 .orbwrap{position:relative;display:flex;align-items:center;justify-content:center;width:min(640px,100%);aspect-ratio:1.46}
 .orbwrap img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
 .orbwrap{container-type:inline-size}
-.orbwrap .num{position:relative;transform:translate(-2%,-3%);text-align:center;font-size:31cqw!important;line-height:1}
+.orbwrap .num{font-size:clamp(70px,9vw,150px);position:relative;transform:translate(-2%,-3%);text-align:center;font-size:31cqw!important;line-height:1}
 /* phone */
 .phone{height:min(74vh,640px);aspect-ratio:9/17.5;border:3px solid var(--w);border-radius:40px;padding:22px 14px 16px;background:rgba(255,255,255,.07);display:flex;flex-direction:column;transition:box-shadow .4s,border-color .4s}
 .phone.done{border-color:var(--or);box-shadow:0 0 0 8px rgba(253,114,13,.35),0 0 120px rgba(253,114,13,.6)}
@@ -117,6 +117,12 @@ body:not(.nogame) .scene{right:min(290px,19vw)}
 .game .hud{position:absolute;left:12px;right:12px;top:10px;display:flex;justify-content:space-between;font:500 11px var(--m);letter-spacing:.08em;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.5)}
 .game .hud b{font-family:BD;font-style:italic;font-size:22px;letter-spacing:0}
 body.nogame .game{display:none}
+
+.starts{position:relative;display:flex;flex-direction:column;align-items:center;gap:14px;margin-top:30px}
+.play{font:800 clamp(18px,1.8vw,22px) var(--g);letter-spacing:-.01em;background:var(--or);color:var(--ink);border:0;border-radius:999px;padding:18px 30px;cursor:pointer;box-shadow:0 10px 40px rgba(0,0,0,.25)}
+.quiet{text-decoration:none;opacity:.85}
+.say{overflow-wrap:break-word}
+html{scroll-behavior:smooth}
 @media (max-width:860px){
  .reader{display:flex;flex-direction:column;padding:0}
  .stage{order:-1;top:0;height:50svh;z-index:5;background:var(--bg);transition:background .8s}
@@ -134,14 +140,24 @@ body.nogame .game{display:none}
  .moves{gap:6px}.mv{padding:9px 14px;border-width:2px}.mv b{font-size:22px;width:34px}.mv span{font-size:15px}
  .cap{margin-top:8px;font-size:10px}
  .top .chap{display:none}
+ html{scroll-snap-type:y proximity;scroll-padding-top:46svh}
+ .stage{height:44svh!important;overflow:hidden;box-shadow:0 10px 24px var(--bg)}
+ .scene{inset:50px 10px 8px!important}
+ #sg{width:min(230px,52vw)!important;gap:5px!important}
+ .step{transition:opacity .35s}.step:not(.on){opacity:.08}
+ .moves{gap:5px}.mv{padding:7px 12px}.mv span{font-size:14px}
+ .orbwrap{width:86%!important}
+ .loop{width:min(240px,58vw)!important}
+ .tri .dg{gap:2px}
+ .steps{padding-bottom:20svh!important}
+ .step{min-height:56svh!important;align-items:flex-start;padding-top:2svh;scroll-snap-align:start}
+ .say{max-width:none;font-size:clamp(26px,7.2vw,34px)!important;line-height:1.1}
+ .kick{margin-bottom:10px}.src{margin-top:12px}
+ .open .dek{font-size:21px}
+
  .game{left:0;right:0;bottom:0;width:auto;aspect-ratio:auto;height:26svh;border-radius:18px 18px 0 0;border-width:2px 0 0}
- body:not(.nogame) .stage{height:40svh;padding-right:0;overflow:hidden}
- body:not(.nogame) .scene{right:12px;transform:scale(.78);transform-origin:center top}
- body:not(.nogame) .scene.on{transform:scale(.78)}
  .game{width:auto!important}
  .tcta{display:none}
- body:not(.nogame) .steps{padding-bottom:60svh}
- body:not(.nogame) .step{min-height:60svh}
  .tog button{padding:6px 8px;font-size:9.5px}
 
  .sources ol{columns:1}
@@ -156,10 +172,10 @@ body.nogame .game{display:none}
  <h1 class="logo inv"><span>Built for</span><span>scrolling</span></h1>
  <p class="dek">The feed can get anyone to watch anything. Getting them to care was never its job.</p>
  <span class="by mono">Ballast Notes №2 · Jack Morello · November 2026</span>
- <span class="go mono">Scroll ↓</span>
+ <div class="starts"><button class="play" id="play">&#9654; Read with sound</button><a class="quiet mono" href="#read" id="quiet">Read quietly ↓</a></div>
 </section>
 
-<section class="reader">
+<section class="reader" id="read">
  <div class="steps">
   <div class="step" data-scene="habit" data-theme="ink" data-chap="01 · The hook"><div><span class="kick mono">01 · The hook</span><p class="say">TikTok&rsquo;s own people measured how long it takes to hook us. <em>Two hundred and sixty videos</em>, and we&rsquo;re in.</p><span class="src mono">Internal documents, Kentucky v. TikTok · <a href="#s1">NPR</a></span></div></div>
   <div class="step" data-scene="habit" data-theme="ink" data-chap="01 · The hook"><div><p class="say">That&rsquo;s about <em>35 minutes</em>, less than an episode of a sitcom. Nobody has bothered to measure how long it takes us to actually care about the person in one.</p></div></div>
@@ -292,14 +308,14 @@ const steps=$$('.step'),scenes={};$$('.scene').forEach(s=>scenes[s.dataset.s]=s)
 const groups={};steps.forEach(s=>(groups[s.dataset.scene]=groups[s.dataset.scene]||[]).push(s));
 let cur=null,curT=null;
 function tick(){
- const vh=innerHeight,mob=innerWidth<=860,line=vh*(mob?.8:.62);
+ const vh=innerHeight,mob=innerWidth<=860,line=vh*(mob?.92:.62);
  let act=null;for(const s of steps)if(s.getBoundingClientRect().top<line)act=s;
  const rd=$('.reader').getBoundingClientRect();
  // theme follows the section in view
  let th='cob';if(act&&rd.bottom>vh*.5)th=act.dataset.theme;if(rd.bottom<vh*.5)th='ink';if(!act)th='cob';
  if(th!==curT){theme(th);curT=th}
  // words light up as you read
- steps.forEach(s=>{const r=s.getBoundingClientRect(),q=cl((line-r.top)/(r.height*.5)),ws=s.querySelectorAll('.w'),n=Math.ceil(q*ws.length);ws.forEach((w,i)=>w.classList.toggle('lit',i<n))});
+ steps.forEach(s=>{const r=s.getBoundingClientRect(),q=cl((line-r.top)/(r.height*(mob?.32:.5))),ws=s.querySelectorAll('.w'),n=Math.ceil(q*ws.length);ws.forEach((w,i)=>w.classList.toggle('lit',i<n))});
  if(act){const g=groups[act.dataset.scene],a=g[0].getBoundingClientRect(),b=g[g.length-1].getBoundingClientRect(),p=cl((line-a.top)/(b.bottom-a.top-vh*.35));
   const k=act.dataset.scene;if(k!==cur){Object.values(scenes).forEach(s=>s.classList.toggle('on',s.dataset.s===k));cur=k}
   const sc=scenes[k];(S[k]||(()=>{}))(p);bars(sc,p);dots(sc,p);$('#chap').textContent=rd.bottom>0?act.dataset.chap:''}
@@ -324,6 +340,7 @@ const setM=on=>{tM.setAttribute('aria-pressed',on);on?tune.start():tune.stop()};
 tSR.onclick=()=>setSR(!B.classList.contains('sr'));tG.onclick=()=>setG(B.classList.contains('nogame'));tM.onclick=()=>setM(!tune.on);
 document.addEventListener('visibilitychange',()=>{if(!game)return;if(document.hidden)game.stop();else if(!B.classList.contains('nogame'))game.start()});
 new IntersectionObserver(es=>es.forEach(e=>box.classList.toggle('show',e.isIntersecting)),{threshold:0}).observe(document.querySelector('.reader'));
-setSR(ls('bn_sr')!=='0');setG(ls('bn_g')!=='0'&&!reduce);
+setSR(ls('bn_sr')!=='0');setG(ls('bn_g')==='1'&&!reduce);
+document.getElementById('play').onclick=()=>{setM(true);document.getElementById('read').scrollIntoView({behavior:'smooth'})};
 </script>
 </body></html>
