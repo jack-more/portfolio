@@ -47,7 +47,8 @@ a{color:inherit}
 .num{font-size:clamp(110px,15vw,260px);line-height:.85}
 .orbwrap{position:relative;display:flex;align-items:center;justify-content:center;width:min(640px,100%);aspect-ratio:1.46}
 .orbwrap img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
-.orbwrap .num{position:relative}
+.orbwrap{container-type:inline-size}
+.orbwrap .num{position:relative;transform:translate(-2%,-3%);text-align:center;font-size:31cqw!important;line-height:1}
 /* phone */
 .phone{height:min(74vh,640px);aspect-ratio:9/17.5;border:3px solid var(--w);border-radius:40px;padding:22px 14px 16px;background:rgba(255,255,255,.07);display:flex;flex-direction:column;transition:box-shadow .4s,border-color .4s}
 .phone.done{border-color:var(--or);box-shadow:0 0 0 8px rgba(253,114,13,.35),0 0 120px rgba(253,114,13,.6)}
@@ -112,6 +113,7 @@ body:not(.nogame) .scene{right:min(290px,19vw)}
 .game{position:fixed;right:clamp(12px,2vw,28px);bottom:clamp(12px,2vw,28px);width:clamp(220px,19vw,300px);aspect-ratio:9/14;z-index:30;border-radius:22px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.45);border:3px solid rgba(255,255,255,.9);opacity:0;transform:translateY(30px);transition:opacity .6s,transform .6s}
 .game.show{opacity:1;transform:none}
 .game canvas{display:block;width:100%;height:100%}
+.game .hud{z-index:2}
 .game .hud{position:absolute;left:12px;right:12px;top:10px;display:flex;justify-content:space-between;font:500 11px var(--m);letter-spacing:.08em;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.5)}
 .game .hud b{font-family:BD;font-style:italic;font-size:22px;letter-spacing:0}
 body.nogame .game{display:none}
@@ -147,7 +149,7 @@ body.nogame .game{display:none}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.say .w{opacity:1}}
 </style></head><body>
 <i class="prog" id="prog"></i>
-<header class="top"><a href="/">Ballast</a><span class="chap" id="chap"></span><span class="tog"><a class="cta tcta" href="/#book">Book a call</a><button id="tSR" aria-pressed="true">Speed read</button><button id="tG" aria-pressed="true">Game</button></span></header>
+<header class="top"><a href="/">Ballast</a><span class="chap" id="chap"></span><span class="tog"><a class="cta tcta" href="/#book">Book a call</a><button id="tSR" aria-pressed="true">Speed read</button><button id="tG" aria-pressed="true">Game</button><button id="tM" aria-pressed="false">&#9835; Sound</button></span></header>
 
 <section class="open" data-theme="cob">
  <img class="orb" src="/notes/orb.webp" alt="">
@@ -307,54 +309,21 @@ function tick(){
 addEventListener('scroll',()=>requestAnimationFrame(tick),{passive:true});addEventListener('resize',tick);tick();
 })();
 </script>
-<div class="game" id="game" aria-hidden="true"><canvas id="gc"></canvas><div class="hud"><span>COINS <b id="gs">0</b></span><span id="gm">0m</span></div></div>
+<div class="game" id="game" aria-hidden="true"><div class="hud"><span>COINS <b id="gs">0</b></span><span id="gm">0m</span></div></div>
 
-<script>
-(()=>{
+<script type="module">
+import {runner} from '/notes/runner.js';import {music} from '/notes/music.js';
 const B=document.body,ls=(k,v)=>{try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){return null}};
-const tSR=document.getElementById('tSR'),tG=document.getElementById('tG');
-const setSR=on=>{B.classList.toggle('sr',on);tSR.setAttribute('aria-pressed',on);ls('bn_sr',on?'1':'0')};
-const setG=on=>{B.classList.toggle('nogame',!on);tG.setAttribute('aria-pressed',on);ls('bn_g',on?'1':'0');if(on)start()};
-tSR.onclick=()=>setSR(!B.classList.contains('sr'));tG.onclick=()=>setG(B.classList.contains('nogame'));
-// ---- ambient runner: an original endless runner in Ballast colours, playing itself
-const cv=document.getElementById('gc'),cx=cv.getContext('2d'),box=document.getElementById('game');
-let W=0,H=0,dpr=1;function size(){const r=box.getBoundingClientRect();dpr=Math.min(devicePixelRatio||1,2);W=r.width;H=r.height;cv.width=W*dpr;cv.height=H*dpr;cx.setTransform(dpr,0,0,dpr,0,0)}
-let objs=[],lane=0,laneX=0,t0=0,dist=0,coins=0,bounce=0,running=false,boost=0,lastY=scrollY,spawn=0;
+const tSR=document.getElementById('tSR'),tG=document.getElementById('tG'),tM=document.getElementById('tM'),box=document.getElementById('game');
 const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
-addEventListener('scroll',()=>{boost=Math.min(2.5,boost+Math.abs(scrollY-lastY)/300);lastY=scrollY},{passive:true});
-function proj(l,z){const hz=H*.3,p=1-z,e=p*p,y=hz+(H*.92-hz)*e,s=.12+.88*e;return {x:W/2+l*W*.3*s,y,s}}
-function tick(t){if(!running)return;requestAnimationFrame(tick);const dt=Math.min(.05,(t-(t0||t))/1000);t0=t;
- const sp=(.45+boost*.5);boost*=.96;dist+=sp*dt*40;bounce+=dt*sp*14;
- spawn-=dt*sp;if(spawn<=0){spawn=.35+Math.random()*.35;const L=[-1,0,1][Math.floor(Math.random()*3)];objs.push({l:L,z:1,k:Math.random()<.45?'phone':'coin'});if(Math.random()<.3)objs.push({l:[-1,0,1].filter(x=>x!==L)[Math.floor(Math.random()*2)],z:1,k:'coin'})}
- objs.forEach(o=>o.z-=dt*sp*.55);
- // autopilot: dodge phones in our lane, drift toward coins
- const near=objs.filter(o=>o.z<.4&&o.z>.08),danger=l=>near.some(o=>o.k==='phone'&&o.l===l);
- if(danger(lane)){const c=[-1,0,1].filter(l=>!danger(l)).sort((a,b)=>Math.abs(a-lane)-Math.abs(b-lane));if(c.length)lane=c[0]}
- else{const c=near.find(o=>o.k==='coin'&&Math.abs(o.l-lane)===1&&!danger(o.l));if(c)lane=c.l}
- laneX+=(lane-laneX)*Math.min(1,dt*9);
- objs=objs.filter(o=>{if(o.z<.12&&o.z>0&&Math.abs(o.l-laneX)<.4){if(o.k==='coin'){coins++;return false}}return o.z>-.1});
- // draw
- const g=cx.createLinearGradient(0,0,0,H);g.addColorStop(0,'#0B5CF6');g.addColorStop(.3,'#5E8FFF');g.addColorStop(.31,'#0A2C8C');g.addColorStop(1,'#0A0D18');cx.fillStyle=g;cx.fillRect(0,0,W,H);
- // sun on the horizon
- const sg=cx.createRadialGradient(W/2,H*.3,4,W/2,H*.3,W*.42);sg.addColorStop(0,'#F9A51B');sg.addColorStop(.5,'#FD720D');sg.addColorStop(1,'rgba(253,114,13,0)');cx.fillStyle=sg;cx.beginPath();cx.ellipse(W/2,H*.3,W*.42,W*.29,0,Math.PI,0);cx.fill();
- // ground stripes
- for(let i=0;i<14;i++){const z=((i/14)-(dist*.02)%(1/14)+1)%1,a=proj(0,z),b=proj(0,Math.max(0,z-.035));cx.fillStyle='rgba(255,255,255,.05)';cx.fillRect(0,b.y,W,a.y-b.y)}
- // lane lines
- cx.strokeStyle='rgba(255,255,255,.45)';cx.lineWidth=2;[-.5,.5,-1.5,1.5].forEach(l=>{const a=proj(l,1),b=proj(l,0);cx.beginPath();cx.moveTo(a.x,a.y);cx.lineTo(b.x,b.y);cx.stroke()});
- // objects, far to near
- objs.slice().sort((a,b)=>b.z-a.z).forEach(o=>{const p=proj(o.l,o.z),s=p.s*W*.2;if(o.k==='phone'){cx.fillStyle='#F3F4FA';cx.beginPath();cx.roundRect(p.x-s*.38,p.y-s*1.25,s*.76,s*1.25,s*.12);cx.fill();cx.fillStyle='#FD720D';cx.fillRect(p.x-s*.3,p.y-s*1.15,s*.6,s*.95)}
-  else{const r=s*.28,yy=p.y-s*.5+Math.sin(bounce+o.z*10)*s*.05;cx.fillStyle='#F9A51B';cx.beginPath();cx.arc(p.x,yy,r,0,7);cx.fill();cx.strokeStyle='#B86A08';cx.lineWidth=Math.max(1,r*.18);cx.stroke();cx.fillStyle='#8A4D05';cx.font=`900 ${r*1.1}px Geist,Arial`;cx.textAlign='center';cx.textBaseline='middle';cx.fillText('₿',p.x,yy+r*.05)}});
- // runner: the energy ball
- const rp=proj(laneX,.04),R=W*.075,by=rp.y-R-Math.abs(Math.sin(bounce))*R*.9;cx.fillStyle='rgba(0,0,0,.35)';cx.beginPath();cx.ellipse(rp.x,rp.y-2,R*.9,R*.25,0,0,7);cx.fill();
- const bg=cx.createRadialGradient(rp.x-R*.3,by-R*.3,R*.1,rp.x,by,R*1.1);bg.addColorStop(0,'#FFE7A3');bg.addColorStop(.45,'#F9A51B');bg.addColorStop(1,'#E0540A');cx.fillStyle=bg;cx.beginPath();cx.ellipse(rp.x,by,R*1.2,R,0,0,7);cx.fill();cx.strokeStyle='#0B5CF6';cx.lineWidth=3;cx.stroke();
- document.getElementById('gs').textContent=coins;document.getElementById('gm').textContent=Math.round(dist)+'m';
-}
-function start(){if(reduce||running||B.classList.contains('nogame'))return;size();running=true;t0=0;requestAnimationFrame(tick)}
-addEventListener('resize',size);
-document.addEventListener('visibilitychange',()=>{if(document.hidden)running=false;else start()});
-// show the game once the reader starts
-const rd=document.querySelector('.reader');new IntersectionObserver(es=>es.forEach(e=>{box.classList.toggle('show',e.isIntersecting);if(e.isIntersecting)start()}),{threshold:0}).observe(rd);
+let game=null;try{game=runner(box,{coins:document.getElementById('gs'),dist:document.getElementById('gm')})}catch(e){B.classList.add('nogame');tG.style.display='none'}
+const tune=music();
+const setSR=on=>{B.classList.toggle('sr',on);tSR.setAttribute('aria-pressed',on);ls('bn_sr',on?'1':'0')};
+const setG=on=>{B.classList.toggle('nogame',!on);tG.setAttribute('aria-pressed',on);ls('bn_g',on?'1':'0');if(game){on?game.start():game.stop()}};
+const setM=on=>{tM.setAttribute('aria-pressed',on);on?tune.start():tune.stop()};
+tSR.onclick=()=>setSR(!B.classList.contains('sr'));tG.onclick=()=>setG(B.classList.contains('nogame'));tM.onclick=()=>setM(!tune.on);
+document.addEventListener('visibilitychange',()=>{if(!game)return;if(document.hidden)game.stop();else if(!B.classList.contains('nogame'))game.start()});
+new IntersectionObserver(es=>es.forEach(e=>box.classList.toggle('show',e.isIntersecting)),{threshold:0}).observe(document.querySelector('.reader'));
 setSR(ls('bn_sr')!=='0');setG(ls('bn_g')!=='0'&&!reduce);
-})();
 </script>
 </body></html>
