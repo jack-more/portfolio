@@ -1,0 +1,157 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<link rel="icon" href="/favicon.ico?v=3" sizes="any">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@600;700;800&family=Geist+Mono:wght@500&display=swap">
+<title>Built for scrolling — Ballast Notes</title>
+<meta name="robots" content="noindex">
+<style>
+@font-face{font-family:BD;src:url(/notes/BallastDisplay-BlackItalic.woff2) format('woff2');font-display:swap}
+*{box-sizing:border-box}html,body{margin:0;background:#EEF2FF;color:#0A0D18;font-family:"Geist",Arial,sans-serif;-webkit-text-size-adjust:100%}
+#world{position:fixed;inset:0;width:100%;height:100%;display:block}
+.top{position:fixed;inset:0 0 auto;z-index:5;display:flex;justify-content:space-between;align-items:center;padding:14px 18px;font:500 12px "Geist Mono",monospace;letter-spacing:.12em;text-transform:uppercase}
+.top a{text-decoration:none;color:inherit}.top button{font:inherit;letter-spacing:inherit;background:#0A0D18;color:#fff;border:0;border-radius:999px;padding:9px 14px;cursor:pointer}
+.prog{position:fixed;left:0;top:0;height:3px;background:#FD720D;width:0;z-index:6}
+/* the reading card: always on screen, one sentence at a time */
+.card{position:fixed;left:50%;bottom:max(18px,env(safe-area-inset-bottom));transform:translateX(-50%);z-index:4;width:min(680px,calc(100% - 28px));background:#fff;border-radius:22px;padding:20px 22px 18px;box-shadow:0 18px 50px rgba(10,13,24,.18)}
+.card .k{font:500 11px "Geist Mono",monospace;letter-spacing:.12em;text-transform:uppercase;color:#0B5CF6;display:flex;justify-content:space-between}
+.card p{margin:10px 0 0;font-weight:800;font-size:clamp(21px,2.3vw,30px);line-height:1.18;letter-spacing:-.025em;transition:opacity .25s}
+.card p em{font-style:normal;color:#FD720D}
+.card p.out{opacity:0}
+/* big number overlay */
+.big{position:fixed;left:50%;top:20%;transform:translate(-50%,-50%);z-index:3;font-family:BD;font-style:italic;font-size:clamp(70px,13vw,170px);line-height:1;color:#fff;-webkit-text-stroke:.12em #0B5CF6;paint-order:stroke fill;pointer-events:none;transition:opacity .3s}
+.open{position:fixed;inset:0;z-index:4;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:16vh 18px 0;text-align:center;pointer-events:none;transition:opacity .4s}
+.open h1{font-family:BD;font-style:italic;font-size:clamp(52px,11vw,150px);line-height:.86;margin:0;color:#fff;-webkit-text-stroke:.13em #0B5CF6;paint-order:stroke fill;text-transform:uppercase}
+.open p{background:rgba(255,255,255,.92);border-radius:16px;padding:12px 16px;font-weight:800;font-size:clamp(19px,2vw,26px);max-width:620px;margin:20px 0 0;letter-spacing:-.02em}
+.open .go{background:#fff;border-radius:999px;padding:8px 14px;margin-top:12px;font:500 12px "Geist Mono",monospace;letter-spacing:.14em;text-transform:uppercase;color:#0B5CF6}
+.spacer{height:100vh}
+.end{position:relative;z-index:4;background:#0A0D18;color:#fff;padding:14vh 20px 12vh}
+.end .in{max-width:760px;margin:0 auto}
+.end h2{font-family:BD;font-style:italic;font-size:clamp(46px,8vw,110px);line-height:.88;margin:0 0 30px;color:#fff;-webkit-text-stroke:.12em #0B5CF6;paint-order:stroke fill;text-transform:uppercase}
+.end ol{list-style:none;padding:0;margin:0 0 36px;display:grid;gap:16px;counter-reset:n}
+.end li{counter-increment:n;display:grid;grid-template-columns:50px 1fr;font-weight:800;font-size:clamp(21px,2.4vw,32px);line-height:1.15;letter-spacing:-.02em}
+.end li::before{content:counter(n,decimal-leading-zero);font-family:BD;font-style:italic;color:#FD720D}
+.try{background:#FD720D;color:#0A0D18;border-radius:22px;padding:24px;font-weight:700;font-size:clamp(18px,1.8vw,23px);line-height:1.3}
+.try b{display:block;font:500 11px "Geist Mono",monospace;letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px}
+.btn{display:inline-block;margin-top:30px;background:#fff;color:#0A0D18;text-decoration:none;padding:15px 24px;border-radius:999px;font:500 13px "Geist Mono",monospace;letter-spacing:.1em;text-transform:uppercase}
+@media (max-width:700px){.card{padding:16px 18px 14px;border-radius:18px}.open{padding-top:13vh}.big{top:17%}}
+</style></head><body>
+<i class="prog" id="prog"></i>
+<header class="top"><a href="/">Ballast</a><button id="snd">&#9835; Sound</button></header>
+<canvas id="world"></canvas>
+<div class="open" id="open"><h1>Built for<br>scrolling</h1><p>The feed can get anyone to watch anything. Getting them to care was never its job.</p><span class="go">Scroll to ride along ↓</span></div>
+<div class="big" id="big" style="opacity:0"></div>
+<div class="card" id="card" style="opacity:0"><div class="k"><span id="kc"></span><span id="kn"></span></div><p id="say"></p></div>
+<main id="track"></main>
+<section class="end"><div class="in">
+ <h2>What you just read</h2>
+ <ol><li>The feed gets your attention fast and almost never your loyalty.</li><li>Fandom is splitting: a huge crowd in the clip, a small core going deep.</li><li>Recruit on the feed. Keep people somewhere you own. Measure who moves.</li></ol>
+ <div class="try"><b>Try this week</b>Take your 10 most-viewed posts from the last 90 days. Count everyone who did something after watching: signed up, followed you somewhere you own, bought, came back. Divide by views. That&rsquo;s your real conversion from viewer to fan.</div>
+ <a class="btn" href="/#book">Book a call</a> <a class="btn" href="/notes/built-for-scrolling/v2/#sources" style="background:transparent;color:#fff;border:1.5px solid #fff">Sources</a>
+</div></section>
+<script>window.LINES={"says": ["TikTok&rsquo;s own people measured how long it takes to hook us. <em>Two hundred and sixty videos</em>, and we&rsquo;re in.", "That&rsquo;s about <em>35 minutes</em>, less than an episode of a sitcom. Nobody has bothered to measure how long it takes us to actually care about the person in one.", "Yes, our friends are still in there somewhere. Meta&rsquo;s own trial exhibit put them at <em>7%</em> of our time on Instagram, down from 11% two years earlier.", "And it works, if the goal is time. Researchers switched people to a plain chronological feed, and they simply <em>drifted off</em> and spent less of their lives on the app.", "Within about <em>100 videos</em> the feed has us figured out. After that it serves the same five things on rotation, and we keep showing up for it.", "We can press Dislike all we want. Across 567 million YouTube recommendations, it cut the unwanted ones by <em>12%</em>.", "Music feels it first. Of everyone who followed an artist on TikTok, <em>26 in 100</em> went on to listen to more of their music.", "In 2020 a viral post was worth 738 streams to the artist. By 2025 it was <em>275</em>. We keep coming back to the snippet, and the song gets left behind.", "Our grandparents watched the whole game. Fans under 30 spend <em>three quarters</em> of their sports time on clips, and 38% of Gen Z don&rsquo;t have a team at all.", "So fandom splits in two: a huge crowd that never leaves the clip, and <em>one in five</em> who go all the way in.", "That one in five spends <em>$113</em> a month on live music, against $68 for everyone else. They&rsquo;re what the whole industry is quietly chasing now.", "The feed is a great place to meet people and a terrible place to keep them. Recruit there, then bring them <em>somewhere the algorithm doesn&rsquo;t get a vote.</em>", "The Eras Tour sold <em>10.17 million</em> tickets. Weverse fans spend 263 minutes a month in a room the artist owns. Both are places the feed can&rsquo;t reach."], "chaps": ["01 \u00b7 The hook", "01 \u00b7 The hook", "02 \u00b7 The feed", "02 \u00b7 The feed", "03 \u00b7 The loop", "03 \u00b7 The loop", "04 \u00b7 Music", "04 \u00b7 Music", "05 \u00b7 Sports", "06 \u00b7 The split", "06 \u00b7 The split", "07 \u00b7 The fix", "07 \u00b7 The fix"]};</script>
+<script type="module">
+import * as THREE from '/hero/vendor/three.module.min.js';
+import {music} from '/notes/music.js';
+const L=window.LINES, N=L.says.length;
+// scroll track: one screen of scroll per sentence, plus the opening
+const track=document.getElementById('track');for(let i=0;i<N+1;i++){const d=document.createElement('div');d.className='spacer';track.appendChild(d)}
+// ---------- world
+const cv=document.getElementById('world');
+const R=new THREE.WebGLRenderer({canvas:cv,antialias:true});R.setPixelRatio(Math.min(devicePixelRatio||1,2));R.outputColorSpace=THREE.SRGBColorSpace;
+R.shadowMap.enabled=true;R.shadowMap.type=THREE.PCFSoftShadowMap;
+const scene=new THREE.Scene();scene.background=new THREE.Color('#EEF2FF');
+const cam=new THREE.OrthographicCamera(-10,10,10,-10,-100,200);
+scene.add(new THREE.HemisphereLight('#FFFFFF','#B9C6F0',1.5));
+const sun=new THREE.DirectionalLight('#FFF1DC',2.4);sun.position.set(14,26,10);sun.castShadow=true;sun.shadow.mapSize.set(2048,2048);
+Object.assign(sun.shadow.camera,{left:-30,right:30,top:30,bottom:-30,near:1,far:80});sun.shadow.bias=-.0006;scene.add(sun);
+const M=c=>new THREE.MeshStandardMaterial({color:c,roughness:.85});
+const box=(w,h,d,c,x,y,z,par=scene)=>{const m=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),typeof c==='string'?M(c):c);m.position.set(x,y+h/2,z);m.castShadow=m.receiveShadow=true;par.add(m);return m};
+// ground island
+box(40,1,40,'#DCE4FA',0,-1,0);
+box(40.6,.6,40.6,'#0B5CF6',0,-1.6,0);
+// rail loop (rounded rectangle path)
+const W=13,D=9,RR=3.5;
+const path=new THREE.CurvePath();
+const P=(x,z)=>new THREE.Vector3(x,0,z);
+path.add(new THREE.LineCurve3(P(-W+RR,-D),P(W-RR,-D)));path.add(new THREE.QuadraticBezierCurve3(P(W-RR,-D),P(W,-D),P(W,-D+RR)));
+path.add(new THREE.LineCurve3(P(W,-D+RR),P(W,D-RR)));path.add(new THREE.QuadraticBezierCurve3(P(W,D-RR),P(W,D),P(W-RR,D)));
+path.add(new THREE.LineCurve3(P(W-RR,D),P(-W+RR,D)));path.add(new THREE.QuadraticBezierCurve3(P(-W+RR,D),P(-W,D),P(-W,D-RR)));
+path.add(new THREE.LineCurve3(P(-W,D-RR),P(-W,-D+RR)));path.add(new THREE.QuadraticBezierCurve3(P(-W,-D+RR),P(-W,-D),P(-W+RR,-D)));
+const pts=path.getSpacedPoints(400);
+const bed=new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts,true),400,.75,4,true),M('#C9D3F2'));bed.scale.y=.12;bed.position.y=-.45;bed.receiveShadow=true;scene.add(bed);
+for(let i=0;i<400;i+=4){const a=pts[i],b=pts[(i+1)%400],s=new THREE.Mesh(new THREE.BoxGeometry(1.5,.08,.22),M('#8A93B8'));s.position.set(a.x,-.38,a.z);s.lookAt(b.x,-.38,b.z);s.rotateY(Math.PI/2);scene.add(s)}
+const railL=pts.map(p=>p),rail=(off)=>{const c=new THREE.CatmullRomCurve3(pts.map((p,i)=>{const n=pts[(i+1)%400].clone().sub(p).normalize();return new THREE.Vector3(p.x-n.z*off,-.3,p.z+n.x*off)}),true);const m=new THREE.Mesh(new THREE.TubeGeometry(c,400,.06,4,true),M('#5D6688'));scene.add(m)};rail(.45);rail(-.45);
+// city blocks inside and outside the loop
+const pal=['#FFFFFF','#FFE1C2','#CFE0FF','#FFD0A8','#E7ECFF','#FFF4E6'];
+const winM=new THREE.MeshStandardMaterial({color:'#0B5CF6',roughness:.4,emissive:'#0B5CF6',emissiveIntensity:.15});
+function building(x,z,w,d,h,c){const g=new THREE.Group();g.position.set(x,0,z);scene.add(g);box(w,h,d,c,0,-.5,0,g);
+ for(let y=.6;y<h-.6;y+=1)for(let k=-w/2+.6;k<=w/2-.5;k+=.9){const wn=new THREE.Mesh(new THREE.BoxGeometry(.42,.5,.04),winM);wn.position.set(k,y,d/2+.01);g.add(wn);const w2=wn.clone();w2.rotation.y=Math.PI/2;w2.position.set(w/2+.01,y,k*d/w);g.add(w2)}
+ box(w*.9,.25,d*.9,'#FD720D',0,h-.5,0,g);return g}
+[[-7,-3.5,3,3,4],[-3,-4,3,2.5,6],[1.5,-3.5,2.5,3,3.2],[5,-4,3,2.5,5],[8.5,-3,2.6,2.6,3.6]].forEach((b,i)=>building(b[0],b[1],b[2],b[3],b[4],pal[i%pal.length]));
+[[-16,-14,3,3,5],[-11,-15,3,3,3],[12,-15,4,3,7],[16.5,-12,2.6,3,4],[-17,13,3,3,3.5],[16,14,3,3,5.5]].forEach((b,i)=>building(b[0],b[1],b[2],b[3],b[4],pal[(i+2)%pal.length]));
+// landmarks: stadium (sports), stage (music), venue (the fix)
+const stadium=new THREE.Group();stadium.position.set(-6.5,0,4);scene.add(stadium);
+const ring=new THREE.Mesh(new THREE.CylinderGeometry(3.4,3.1,1.6,40,1,true),M('#FFFFFF'));ring.material.side=THREE.DoubleSide;ring.position.y=.3;ring.scale.z=.7;ring.castShadow=true;stadium.add(ring);
+const pitch=new THREE.Mesh(new THREE.CylinderGeometry(2.7,2.7,.1,40),M('#3FA34D'));pitch.scale.z=.7;pitch.position.y=-.45;stadium.add(pitch);
+const stage=new THREE.Group();stage.position.set(4.5,0,4);scene.add(stage);
+box(4,.5,2.4,'#0A0D18',0,-.5,-1,stage);box(4.2,2.6,.25,'#0A0D18',0,-.5,-2.2,stage);
+const scr=box(3.2,1.7,.05,new THREE.MeshBasicMaterial({color:'#FD720D'}),0,.3,-2.05,stage);
+// the owned venue: the warm room the fix sends people to
+const venue=new THREE.Group();venue.position.set(15.5,0,-1);scene.add(venue);
+box(4,3,4.5,'#FD720D',0,-.5,0,venue);box(4.4,.3,4.9,'#0A0D18',0,2.5,0,venue);
+const door=box(1.2,1.8,.05,new THREE.MeshBasicMaterial({color:'#FFE7A3'}),-2.03,-.5,0,venue);door.rotation.y=Math.PI/2;door.position.x=-2.03;
+// palms
+const trunk=M('#9A6A45'),leaf=new THREE.MeshStandardMaterial({color:'#2E8A4A',roughness:.9,side:THREE.DoubleSide});
+function palm(x,z){const g=new THREE.Group();g.position.set(x,-.5,z);scene.add(g);const h=2.6+Math.random();const t=new THREE.Mesh(new THREE.CylinderGeometry(.09,.14,h,6),trunk);t.position.y=h/2;t.castShadow=true;g.add(t);
+ for(let i=0;i<6;i++){const l=new THREE.Mesh(new THREE.ConeGeometry(.22,1.6,4,1,true),leaf);l.position.y=h;l.rotation.z=Math.PI/2-.5;l.rotation.y=i/6*Math.PI*2;l.translateY(-.7);l.castShadow=true;g.add(l)}}
+[[-18,-4],[-18,4],[18,8],[-11,17],[-4,17],[3,17],[10,17],[-9,-18],[0,-17],[8,-18],[18,-6]].forEach(p=>palm(p[0],p[1]));
+// people: instanced capsules spread on the plaza in front
+const PN=100,pg=new THREE.CapsuleGeometry(.16,.32,3,8),pm=new THREE.MeshStandardMaterial({roughness:.7});
+const people=new THREE.InstancedMesh(pg,pm,PN);people.castShadow=true;scene.add(people);
+const home=[],pos=[],dummy=new THREE.Object3D(),cWhite=new THREE.Color('#FFFFFF'),cOr=new THREE.Color('#FD720D'),cBlue=new THREE.Color('#0B5CF6'),cGrey=new THREE.Color('#9AA3C4');
+for(let i=0;i<PN;i++){const gx=i%10,gz=Math.floor(i/10);home.push(new THREE.Vector3(-4.5+gx*1+((gz%2)?.5:0),0,11.5+gz*.62));pos.push(home[i].clone());people.setColorAt(i,cWhite)}
+const fanIdx=[...Array(PN).keys()].sort(()=>Math.random()-.5);
+// train: engine + cars that look like phones
+const train=[];const carM=M('#FFFFFF'),screenM=new THREE.MeshStandardMaterial({color:'#0B5CF6',emissive:'#0B5CF6',emissiveIntensity:.25});
+for(let i=0;i<9;i++){const g=new THREE.Group();scene.add(g);box(1.15,.95,1.9,i===0?M('#FD720D'):carM,0,-.25,0,g);
+ const s=new THREE.Mesh(new THREE.BoxGeometry(1.17,.55,1.4),screenM);s.position.y=.25;g.add(s);train.push(g)}
+// ---------- camera framing per chapter
+const SHOT={hook:[0,0,1.05],feed:[0,0,.95],loop:[0,0,1.1],music:[4.5,4,1.9],sports:[-6.5,4,1.9],split:[0,12.8,1.7],fix:[11,0,1.25],open:[0,0,1.0]};
+const chap=L.chaps.map(c=>/hook/i.test(c)?'hook':/feed/i.test(c)?'feed':/loop/i.test(c)?'loop':/music/i.test(c)?'music':/sport/i.test(c)?'sports':/split/i.test(c)?'split':'fix');
+let view={x:0,z:0,zoom:1};
+function size(){const w=innerWidth,h=innerHeight,a=w/h,s=a<1?17:13;cam.left=-s*a;cam.right=s*a;cam.top=s;cam.bottom=-s;cam.updateProjectionMatrix();R.setSize(w,h,false)}
+addEventListener('resize',size);size();
+// ---------- reading state
+const card=document.getElementById('card'),say=document.getElementById('say'),kc=document.getElementById('kc'),kn=document.getElementById('kn'),big=document.getElementById('big'),open=document.getElementById('open');
+let shown=-1,last=0,t=0,trainS=0,speed=0;
+const BIG={0:['0',260],1:['0',35],2:['11%'],4:['0',100],6:['26 in 100'],7:['738'],8:['25%'],9:['1 in 5'],10:['$113'],12:['10.17M']};
+function frame(now){requestAnimationFrame(frame);const dt=Math.min(.05,(now-(last||now))/1000);last=now;t+=dt;
+ const sc=scrollY/innerHeight,i=Math.floor(sc)-1,f=sc-Math.floor(sc),endTop=document.querySelector('.end').getBoundingClientRect().top;
+ const reading=i>=0&&i<N&&endTop>innerHeight*.5;
+ open.style.opacity=sc<.6?1-sc/.6:0;card.style.opacity=reading?1:0;
+ if(reading&&i!==shown){say.classList.add('out');setTimeout(()=>{say.innerHTML=L.says[i];say.classList.remove('out')},140);kc.textContent=L.chaps[i];kn.textContent=(i+1)+' / '+N;shown=i}
+ const key=reading?chap[i]:'open',s=SHOT[key];
+ view.x+=(s[0]-view.x)*Math.min(1,dt*2.5);view.z+=(s[1]-view.z)*Math.min(1,dt*2.5);view.zoom+=(s[2]-view.zoom)*Math.min(1,dt*2.5);
+ const D=40,off=2.6/view.zoom,lx=view.x+off,lz=view.z+off;cam.position.set(lx+D,D*.82,lz+D);cam.lookAt(lx,0,lz);cam.zoom=view.zoom;cam.updateProjectionMatrix();
+ // train speed follows scrolling
+ const target=.012+Math.min(.2,Math.abs(sc-(frame.ps||sc))*3);frame.ps=sc;speed+=(target-speed)*Math.min(1,dt*3);trainS=(trainS+speed*dt)%1;
+ train.forEach((g,k)=>{const u=((trainS-k*.022)%1+1)%1,p=path.getPointAt(u),q=path.getPointAt((u+.002)%1);g.position.set(p.x,0,p.z);g.lookAt(q.x,0,q.z)});
+ // chapter-specific scene beats
+ const fanN=key==='split'?Math.round(20*Math.min(1,f*1.6)):(key==='fix'?20:0);
+ const musicN=key==='music'?Math.round(26*Math.min(1,f*1.6)):0;
+ for(let k=0;k<PN;k++){const idx=fanIdx[k];let tgt=home[idx];
+  if(key==='fix'&&k<20)tgt=new THREE.Vector3(13.2+(k%4)*.45,0,-2.5+Math.floor(k/4)*.7);
+  pos[idx].lerp(tgt,Math.min(1,dt*1.6));
+  const bob=Math.abs(Math.sin(t*6+idx))*(key==='music'&&k<musicN?.25:.04);
+  dummy.position.set(pos[idx].x,.06+bob,pos[idx].z);dummy.updateMatrix();people.setMatrixAt(idx,dummy.matrix);
+  people.setColorAt(idx,k<fanN?cOr:(k<musicN?cBlue:(key==='sports'?(k%4===0?cWhite:cGrey):cWhite)))}
+ people.instanceMatrix.needsUpdate=true;people.instanceColor.needsUpdate=true;
+ scr.material.color.set(key==='music'?(Math.sin(t*4)>0?'#FD720D':'#F9A51B'):'#FD720D');
+ // the big number for this sentence counts up with your scroll
+ const b=reading?BIG[i]:null;if(b){big.style.opacity=1;big.textContent=b[1]?Math.round(b[1]*Math.min(1,f*1.5)):b[0]}else big.style.opacity=0;
+ document.getElementById('prog').style.width=(scrollY/(document.documentElement.scrollHeight-innerHeight)*100)+'%';
+ R.render(scene,cam)}
+requestAnimationFrame(frame);
+// sound
+const tune=music(),snd=document.getElementById('snd');snd.onclick=()=>{tune.on?tune.stop():tune.start();snd.textContent=tune.on?'❚❚ Sound':'♫ Sound'};
+</script>
+</body></html>
