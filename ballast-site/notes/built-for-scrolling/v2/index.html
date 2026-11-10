@@ -119,7 +119,7 @@ body:not(.nogame) .scene{right:min(290px,19vw)}
 body.nogame .game{display:none}
 
 .starts{position:relative;display:flex;flex-direction:column;align-items:center;gap:14px;margin-top:30px}
-.play{font:800 clamp(18px,1.8vw,22px) var(--g);letter-spacing:-.01em;background:var(--or);color:var(--ink);border:0;border-radius:999px;padding:18px 30px;cursor:pointer;box-shadow:0 10px 40px rgba(0,0,0,.25)}
+.play{font:800 clamp(18px,1.8vw,22px) var(--g);letter-spacing:-.01em;background:var(--ink);color:#fff;border:0;border-radius:999px;padding:18px 30px;cursor:pointer;box-shadow:0 10px 40px rgba(0,0,0,.25)}
 .quiet{text-decoration:none;opacity:.85}
 .say{overflow-wrap:break-word}
 html{scroll-behavior:smooth}
@@ -153,7 +153,11 @@ html{scroll-behavior:smooth}
  .step{min-height:56svh!important;align-items:flex-start;padding-top:2svh;scroll-snap-align:start}
  .say{max-width:none;font-size:clamp(26px,7.2vw,34px)!important;line-height:1.1}
  .kick{margin-bottom:10px}.src{margin-top:12px}
- .open .dek{font-size:21px}
+ .open{padding:84px 16px 40px;justify-content:center}
+ .open h1{font-size:12.6vw;line-height:.86}
+ .open .dek{font-size:20px;margin:24px auto 12px}
+ .starts{margin-top:22px}
+ .tog{gap:4px}
 
  .game{left:0;right:0;bottom:0;width:auto;aspect-ratio:auto;height:26svh;border-radius:18px 18px 0 0;border-width:2px 0 0}
  .game{width:auto!important}
@@ -172,7 +176,7 @@ html{scroll-behavior:smooth}
  <h1 class="logo inv"><span>Built for</span><span>scrolling</span></h1>
  <p class="dek">The feed can get anyone to watch anything. Getting them to care was never its job.</p>
  <span class="by mono">Ballast Notes №2 · Jack Morello · November 2026</span>
- <div class="starts"><button class="play" id="play">&#9654; Read with sound</button><a class="quiet mono" href="#read" id="quiet">Read quietly ↓</a></div>
+ <div class="starts"><button class="play" id="play"><svg width="16" height="18" viewBox="0 0 16 18" aria-hidden="true" style="vertical-align:-2px;margin-right:8px"><path d="M0 0l16 9-16 9z" fill="currentColor"/></svg>Read with sound</button><a class="quiet mono" href="#read" id="quiet">Read quietly ↓</a></div>
 </section>
 
 <section class="reader" id="read">
@@ -335,12 +339,12 @@ const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
 let game=null;try{game=runner(box,{coins:document.getElementById('gs'),dist:document.getElementById('gm')})}catch(e){B.classList.add('nogame');tG.style.display='none'}
 const tune=music();
 const setSR=on=>{B.classList.toggle('sr',on);tSR.setAttribute('aria-pressed',on);ls('bn_sr',on?'1':'0')};
-const setG=on=>{B.classList.toggle('nogame',!on);tG.setAttribute('aria-pressed',on);ls('bn_g',on?'1':'0');if(game){on?game.start():game.stop()}};
+const setG=on=>{B.classList.toggle('nogame',!on);tG.setAttribute('aria-pressed',on);ls('bn_g2',on?'1':'0');if(game){on?game.start():game.stop()}};
 const setM=on=>{tM.setAttribute('aria-pressed',on);on?tune.start():tune.stop()};
 tSR.onclick=()=>setSR(!B.classList.contains('sr'));tG.onclick=()=>setG(B.classList.contains('nogame'));tM.onclick=()=>setM(!tune.on);
 document.addEventListener('visibilitychange',()=>{if(!game)return;if(document.hidden)game.stop();else if(!B.classList.contains('nogame'))game.start()});
 new IntersectionObserver(es=>es.forEach(e=>box.classList.toggle('show',e.isIntersecting)),{threshold:0}).observe(document.querySelector('.reader'));
-setSR(ls('bn_sr')!=='0');setG(ls('bn_g')==='1'&&!reduce);
+setSR(ls('bn_sr')!=='0');setG(ls('bn_g2')==='1'&&!reduce);
 document.getElementById('play').onclick=()=>{setM(true);document.getElementById('read').scrollIntoView({behavior:'smooth'})};
 </script>
 </body></html>
