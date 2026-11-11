@@ -1,0 +1,423 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow"><title>Run It Back · a career in five minutes</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+:root{--cream:#F6EBD9;--ink:#1B120B;--amber:#F2A33A;--rust:#C2531C;--wood:#8A4B22;--glass:rgba(27,18,11,.62);--line:rgba(246,235,217,.18);
+--d:"Bricolage Grotesque",Georgia,sans-serif;--m:"JetBrains Mono",ui-monospace,monospace}
+*{box-sizing:border-box}html,body{margin:0;height:100%;background:#2a160a;color:var(--cream);font-family:var(--d);-webkit-text-size-adjust:100%;overflow:hidden}
+button{font:inherit;color:inherit;cursor:pointer}
+#gym{position:fixed;inset:0;width:100%;height:100%;display:block}
+.grain{position:fixed;inset:0;pointer-events:none;opacity:.12;mix-blend-mode:overlay;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+.mono{font:500 11px var(--m);letter-spacing:.14em;text-transform:uppercase}
+/* top bar */
+.bar{position:fixed;top:0;left:0;right:0;z-index:5;display:flex;align-items:center;justify-content:space-between;padding:14px 18px;pointer-events:none}
+.brand{font-weight:800;font-size:20px;letter-spacing:-.02em;pointer-events:auto}
+.brand i{font-style:normal;color:var(--amber)}
+.stats{display:flex;gap:6px;pointer-events:auto}
+.st{background:var(--glass);backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:12px;padding:6px 10px;min-width:62px;text-align:center}
+.st b{display:block;font-weight:800;font-size:19px;line-height:1.05}
+.st span{font:500 9px var(--m);letter-spacing:.12em;opacity:.7}
+.st.pop{animation:pop .5s}
+@keyframes pop{40%{transform:scale(1.18);border-color:var(--amber)}}
+/* my player panel */
+.mp{position:fixed;left:16px;top:70px;bottom:16px;width:310px;z-index:4;background:var(--glass);backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:22px;display:flex;flex-direction:column;overflow:hidden}
+.mp h2{margin:0;padding:16px 18px 6px;font-size:24px;font-weight:800;letter-spacing:-.02em}
+.mp .sub{padding:0 18px 10px;opacity:.7;font-size:13px}
+.tabs{display:flex;gap:4px;padding:0 12px 10px;overflow-x:auto;scrollbar-width:none}
+.tabs button{border:1px solid var(--line);background:transparent;border-radius:999px;padding:7px 12px;font:500 11px var(--m);letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}
+.tabs button.on{background:var(--cream);color:var(--ink)}
+.opts{flex:1;overflow:auto;padding:4px 14px 14px}
+.grp{margin:8px 0 14px}.grp>span{display:block;margin:0 0 7px 4px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{border:1px solid var(--line);background:rgba(246,235,217,.06);border-radius:12px;padding:8px 11px;font-size:14px;font-weight:600;display:flex;align-items:center;gap:7px}
+.chip.on{background:var(--amber);color:var(--ink);border-color:var(--amber)}
+.sw{width:16px;height:16px;border-radius:50%;border:1.5px solid rgba(0,0,0,.25)}
+.name{margin:0 14px 12px;display:flex;gap:6px}
+.name input{flex:1;min-width:0;background:rgba(246,235,217,.08);border:1px solid var(--line);border-radius:12px;color:var(--cream);font:700 16px var(--d);padding:9px 12px}
+.name input.num{flex:0 0 64px;text-align:center}
+.look{margin:0 14px 14px;padding:10px 12px;border-radius:14px;background:rgba(242,163,58,.14);border:1px solid rgba(242,163,58,.35);font-size:13px;line-height:1.35}
+.look b{color:var(--amber)}
+/* career feed */
+.feed{position:fixed;right:16px;top:70px;bottom:16px;width:min(420px,calc(100% - 360px));z-index:4;display:flex;flex-direction:column;gap:10px}
+.log{flex:1;overflow:auto;display:flex;flex-direction:column;gap:10px;padding-right:2px;scrollbar-width:thin;mask-image:linear-gradient(transparent,#000 24px)}
+.card{background:var(--glass);backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:20px;padding:16px 18px;animation:in .45s ease both}
+@keyframes in{from{opacity:0;transform:translateY(14px)}}
+.card .yr{color:var(--amber)}
+.card h3{margin:6px 0 6px;font-size:22px;line-height:1.08;font-weight:800;letter-spacing:-.02em}
+.card p{margin:0;font-size:15.5px;line-height:1.42;opacity:.92}
+.delta{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.delta span{font:700 11px var(--m);padding:4px 8px;border-radius:8px;background:rgba(246,235,217,.1)}
+.delta .up{color:#9BE07A}.delta .dn{color:#FF8A6B}
+.snip{margin-top:10px;padding:9px 11px;border-left:3px solid var(--amber);background:rgba(242,163,58,.1);border-radius:0 10px 10px 0;font-size:14px;line-height:1.35}
+.snip::before{content:"YOUR LOOK  ";font:700 10px var(--m);letter-spacing:.12em;color:var(--amber)}
+.choice{background:var(--cream);color:var(--ink);border-radius:20px;padding:16px;animation:in .45s ease both}
+.choice .q{font-weight:800;font-size:21px;line-height:1.1;letter-spacing:-.02em;margin:4px 0 12px}
+.choice .yr{color:var(--rust)}
+.choice button{display:block;width:100%;text-align:left;margin-top:7px;background:#fff;border:1.5px solid rgba(27,18,11,.14);border-radius:14px;padding:12px 14px;font-weight:700;font-size:16px;transition:transform .12s,border-color .12s}
+.choice button:hover{transform:translateY(-1px);border-color:var(--rust)}
+.choice button small{display:block;font-weight:500;font-size:13px;opacity:.65;margin-top:2px}
+.go{background:var(--amber);color:var(--ink);border:0;border-radius:16px;padding:16px;font-weight:800;font-size:18px;letter-spacing:-.01em;box-shadow:0 8px 30px rgba(242,163,58,.35)}
+/* intro */
+.intro{position:fixed;inset:0;z-index:8;display:flex;align-items:center;justify-content:center;background:radial-gradient(ellipse at 60% 40%,rgba(42,22,10,.35),rgba(20,10,5,.88));transition:opacity .6s}
+.intro.out{opacity:0;pointer-events:none}
+.intro .in{max-width:620px;padding:24px;text-align:center}
+.intro h1{font-size:clamp(56px,10vw,120px);line-height:.86;margin:0 0 18px;font-weight:800;letter-spacing:-.045em}
+.intro h1 i{font-style:normal;color:var(--amber)}
+.intro p{font-size:19px;line-height:1.4;opacity:.9;margin:0 auto 26px;max-width:470px}
+/* end card */
+.end{position:fixed;inset:0;z-index:9;display:none;align-items:center;justify-content:center;background:rgba(20,10,5,.78);backdrop-filter:blur(6px);padding:16px}
+.end.show{display:flex}
+.cc{width:min(420px,100%);background:var(--cream);color:var(--ink);border-radius:26px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.5);animation:in .5s ease both}
+.cc img{display:block;width:100%;aspect-ratio:1.15;object-fit:cover;background:#7a3d17}
+.cc .bd{padding:16px 18px 18px}
+.cc h2{margin:0;font-size:30px;line-height:1;font-weight:800;letter-spacing:-.03em}
+.cc .tag{margin:6px 0 12px;font-weight:700;color:var(--rust)}
+.cc .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:12px}
+.cc .grid div{background:#fff;border-radius:12px;padding:8px 6px;text-align:center}
+.cc .grid b{display:block;font-size:20px;font-weight:800}
+.cc .grid span{font:500 9px var(--m);letter-spacing:.1em;opacity:.6}
+.cc .why{font-size:14px;line-height:1.4;margin:0 0 14px}
+.cc .row{display:flex;gap:8px}
+.cc .row button{flex:1;border-radius:14px;padding:12px;font-weight:800;border:1.5px solid var(--ink);background:transparent}
+.cc .row button.p{background:var(--ink);color:var(--cream)}
+.hint{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:3;opacity:.7;pointer-events:none}
+/* phone */
+@media (max-width:860px){
+ html,body{overflow:auto}
+ .bar{padding:10px 12px}.brand{font-size:17px}.st{min-width:0;padding:5px 7px}.st b{font-size:15px}.st span{font-size:8px}
+ #gym{height:46svh}
+ .mp{position:fixed;left:0;right:0;top:auto;bottom:0;width:auto;height:auto;max-height:40svh;border-radius:20px 20px 0 0;transform:translateY(calc(100% - 52px));transition:transform .35s}
+ .mp.open{transform:none}
+ .mp h2{font-size:18px;padding:14px 16px 4px;display:flex;justify-content:space-between}
+ .mp h2::after{content:"Edit ▲";font:500 11px var(--m);letter-spacing:.1em;opacity:.7;align-self:center}
+ .mp.open h2::after{content:"Close ▼"}
+ .feed{position:absolute;left:10px;right:10px;top:46svh;bottom:auto;width:auto;padding-bottom:70px}
+ .log{overflow:visible;mask-image:none}
+ .hint{display:none}
+}
+</style></head><body>
+<canvas id="gym"></canvas><div class="grain"></div>
+<header class="bar"><div class="brand">Run It <i>Back</i></div>
+ <div class="stats"><div class="st" id="sOvr"><b>60</b><span>OVR</span></div><div class="st" id="sHype"><b>10</b><span>HYPE</span></div><div class="st" id="sRep"><b>50</b><span>RESPECT</span></div><div class="st" id="sBank"><b>$0</b><span>BANK</span></div><div class="st" id="sRing"><b>0</b><span>RINGS</span></div></div></header>
+
+<aside class="mp" id="mp">
+ <h2 id="mpH">My Player</h2>
+ <div class="sub">Change the look any time. It changes the story.</div>
+ <div class="name"><input id="pName" value="J. Rivers" maxlength="16" aria-label="Player name"><input id="pNum" class="num" value="23" maxlength="2" inputmode="numeric" aria-label="Number"></div>
+ <div class="tabs" id="tabs"></div>
+ <div class="opts" id="opts"></div>
+ <div class="look" id="lookRead"></div>
+</aside>
+
+<section class="feed"><div class="log" id="log"></div></section>
+<div class="hint mono">Drag the gym to look around</div>
+
+<div class="intro" id="intro"><div class="in">
+ <span class="mono" style="color:var(--amber)">A career in five minutes</span>
+ <h1>Run It <i>Back</i></h1>
+ <p>Build your player, pick the fit, and play a whole career from high school gym to the last game. What you wear changes how it goes.</p>
+ <button class="go" id="start">Lace up</button>
+</div></div>
+
+<div class="end" id="end"><div class="cc">
+ <img id="ccImg" alt="Your player">
+ <div class="bd"><h2 id="ccName"></h2><div class="tag" id="ccTag"></div>
+  <div class="grid" id="ccGrid"></div><p class="why" id="ccWhy"></p>
+  <div class="row"><button class="p" id="save">Save card</button><button id="again">Run it back</button></div></div>
+</div></div>
+
+<script type="module">
+import * as THREE from '/hero/vendor/three.module.min.js';
+const $=s=>document.querySelector(s);
+// ================= look options =================
+const SKIN=['#F1C9A5','#D9A47A','#B57A50','#8C5636','#5E3A24','#3E2618'];
+const LOOK={
+ body:{label:'Body',groups:[
+  ['Skin',SKIN.map((c,i)=>({id:'s'+i,sw:c}))],
+  ['Height',[{id:'pg',t:"6'1\""},{id:'wing',t:"6'6\""},{id:'big',t:"6'11\""}]],
+  ['Build',[{id:'lean',t:'Lean'},{id:'solid',t:'Solid'},{id:'strong',t:'Strong'}]],
+ ]},
+ hair:{label:'Hair',groups:[
+  ['Style',[{id:'buzz',t:'Buzz'},{id:'fro',t:'Afro'},{id:'flat',t:'Flat top'},{id:'braids',t:'Braids'},{id:'bald',t:'Bald'},{id:'curls',t:'Curls'}]],
+  ['Face',[{id:'clean',t:'Clean'},{id:'stache',t:'Mustache'},{id:'beard',t:'Beard'}]],
+ ]},
+ fit:{label:'Fit',groups:[
+  ['Jersey',[{id:'j0',sw:'#F3EEE3',t:'Home white'},{id:'j1',sw:'#1F4E8C',t:'Royal'},{id:'j2',sw:'#C2531C',t:'Burnt orange'},{id:'j3',sw:'#1E5B3A',t:'Forest'},{id:'j4',sw:'#6B2A4A',t:'Plum'}]],
+  ['Shorts',[{id:'short',t:'Short shorts'},{id:'long',t:'Baggy'}]],
+  ['Socks',[{id:'tube',t:'Tube socks'},{id:'crew',t:'Crew'},{id:'none',t:'Ankle'}]],
+ ]},
+ gear:{label:'Gear',groups:[
+  ['Head',[{id:'nohb',t:'Nothing'},{id:'hb',t:'Headband'},{id:'goggles',t:'Goggles'}]],
+  ['Arms',[{id:'noarm',t:'Nothing'},{id:'wrist',t:'Wristbands'},{id:'sleeve',t:'Shooting sleeve'}]],
+  ['Neck',[{id:'nochain',t:'Nothing'},{id:'chain',t:'Gold chain'}]],
+  ['Shoes',[{id:'sh0',sw:'#F3EEE3',t:'White'},{id:'sh1',sw:'#141414',t:'Black'},{id:'sh2',sw:'#E8C547',t:'Gold'},{id:'sh3',sw:'#E2453C',t:'Red'}]],
+ ]},
+};
+const P={skin:'s2',height:'wing',build:'solid',style:'fro',face:'clean',jersey:'j2',shorts:'short',socks:'tube',head:'hb',arms:'wrist',neck:'nochain',shoes:'sh0'};
+const KEY={Skin:'skin',Height:'height',Build:'build',Style:'style',Face:'face',Jersey:'jersey',Shorts:'shorts',Socks:'socks',Head:'head',Arms:'arms',Neck:'neck',Shoes:'shoes'};
+let tab='body',changes=0,lastChangeBeat=-1;
+function drawTabs(){$('#tabs').innerHTML=Object.entries(LOOK).map(([k,v])=>`<button class="${k===tab?'on':''}" data-t="${k}">${v.label}</button>`).join('');
+ $('#tabs').querySelectorAll('button').forEach(b=>b.onclick=()=>{tab=b.dataset.t;drawTabs();drawOpts()})}
+function drawOpts(){$('#opts').innerHTML=LOOK[tab].groups.map(([g,items])=>`<div class="grp"><span class="mono">${g}</span><div class="chips">${items.map(o=>`<button class="chip ${P[KEY[g]]===o.id?'on':''}" data-k="${KEY[g]}" data-v="${o.id}">${o.sw?`<i class="sw" style="background:${o.sw}"></i>`:''}${o.t||''}</button>`).join('')}</div></div>`).join('');
+ $('#opts').querySelectorAll('.chip').forEach(b=>b.onclick=()=>{if(P[b.dataset.k]!==b.dataset.v){P[b.dataset.k]=b.dataset.v;changes++;lastChangeBeat=beat;rebuild();drawOpts();readLook()}})}
+// ================= the look's personality =================
+function vibe(){
+ const v={swag:0,throwback:0,pro:0,flash:0,tags:[]};
+ if(P.head==='hb'){v.swag+=2;v.throwback+=1}
+ if(P.head==='goggles'){v.pro+=2;v.tags.push('goggles')}
+ if(P.socks==='tube'){v.throwback+=3}
+ if(P.shorts==='short'){v.throwback+=2}else{v.swag+=1}
+ if(P.neck==='chain'){v.flash+=3;v.pro-=1}
+ if(P.arms==='sleeve'){v.swag+=1;v.pro+=1}
+ if(P.arms==='wrist'){v.throwback+=1}
+ if(P.shoes==='sh2'||P.shoes==='sh3'){v.flash+=2}
+ if(P.style==='fro'){v.throwback+=2;v.swag+=1}
+ if(P.style==='flat'){v.throwback+=2}
+ if(P.style==='braids'){v.swag+=2}
+ if(P.style==='bald'){v.pro+=1}
+ if(P.face==='stache'){v.throwback+=2}
+ if(P.face==='beard'){v.pro+=1}
+ return v}
+function readLook(){const v=vibe();let t;
+ if(v.throwback>=7)t='<b>Full throwback.</b> Old heads will love you. Some coaches will call it a costume.';
+ else if(v.flash>=4)t='<b>Flashy.</b> Cameras find you. So do critics when you miss.';
+ else if(v.pro>=3)t='<b>All business.</b> Coaches trust it. The highlight shows ignore it.';
+ else if(v.swag>=4)t='<b>Pure swagger.</b> Fans pick you as their favorite before you\'ve done much.';
+ else t='<b>Clean and simple.</b> Nobody talks about the fit. Your game has to do the talking.';
+ $('#lookRead').innerHTML=t}
+// ================= 3D gym =================
+const cv=$('#gym');
+const R=new THREE.WebGLRenderer({canvas:cv,antialias:true,preserveDrawingBuffer:true});
+R.setPixelRatio(Math.min(devicePixelRatio||1,1.75));R.outputColorSpace=THREE.SRGBColorSpace;R.toneMapping=THREE.ACESFilmicToneMapping;R.toneMappingExposure=1.15;
+R.shadowMap.enabled=true;R.shadowMap.type=THREE.PCFSoftShadowMap;
+const scene=new THREE.Scene();scene.background=new THREE.Color('#3a1d0c');scene.fog=new THREE.FogExp2('#5a2e12',.022);
+const cam=new THREE.PerspectiveCamera(38,1,.1,200);
+// textures made in code
+function tex(w,h,draw,rep){const c=document.createElement('canvas');c.width=w;c.height=h;draw(c.getContext('2d'),w,h);const t=new THREE.CanvasTexture(c);t.colorSpace=THREE.SRGBColorSpace;t.anisotropy=8;if(rep){t.wrapS=t.wrapT=THREE.RepeatWrapping;t.repeat.set(...rep)}return t}
+const floorTex=tex(1024,1024,(g,w,h)=>{const rows=32,bw=w/rows;for(let i=0;i<rows;i++){let y=0;while(y<h){const L=120+Math.random()*260,l=50+Math.random()*16;g.fillStyle=`hsl(${28+Math.random()*6},${55+Math.random()*12}%,${l}%)`;g.fillRect(i*bw,y,bw-1,L);g.fillStyle='rgba(60,25,8,.25)';g.fillRect(i*bw,y+L-1,bw,1.5);y+=L}}
+ for(let k=0;k<1800;k++){g.fillStyle=`rgba(80,35,10,${Math.random()*.08})`;g.fillRect(Math.random()*w,Math.random()*h,1+Math.random()*2,8+Math.random()*30)}},[6,6]);
+const wallTex=tex(1024,512,(g,w,h)=>{const n=48,bw=w/n;for(let i=0;i<n;i++){g.fillStyle=`hsl(${24+Math.random()*6},${48+Math.random()*10}%,${36+Math.random()*10}%)`;g.fillRect(i*bw,0,bw-1.5,h);g.fillStyle='rgba(0,0,0,.25)';g.fillRect(i*bw+bw-1.5,0,1.5,h)}
+ g.fillStyle='rgba(20,8,2,.55)';[h*.25,h*.62].forEach(y=>g.fillRect(0,y,w,4));for(let k=0;k<500;k++){g.fillStyle='rgba(30,12,4,.5)';g.beginPath();g.arc(Math.random()*w,Math.random()*h,1.2,0,7);g.fill()}},[3,1]);
+const M=(c,o={})=>new THREE.MeshStandardMaterial({color:c,roughness:.8,...o});
+const floor=new THREE.Mesh(new THREE.PlaneGeometry(40,40),new THREE.MeshStandardMaterial({map:floorTex,roughness:.28,metalness:.05}));floor.rotation.x=-Math.PI/2;floor.receiveShadow=true;scene.add(floor);
+// court lines
+const lineM=new THREE.MeshBasicMaterial({color:'#F4E6CC',transparent:true,opacity:.85});
+function ring(r,a0,a1,z){const g=new THREE.RingGeometry(r-.05,r,64,1,a0,a1-a0);const m=new THREE.Mesh(g,lineM);m.rotation.x=-Math.PI/2;m.position.set(0,.005,z);scene.add(m)}
+const key=new THREE.Mesh(new THREE.PlaneGeometry(4.9,5.8),new THREE.MeshStandardMaterial({color:'#B5461A',roughness:.35,transparent:true,opacity:.55}));key.rotation.x=-Math.PI/2;key.position.set(0,.004,-7.1);scene.add(key);
+[[-2.45],[2.45]].forEach(([x])=>{const l=new THREE.Mesh(new THREE.PlaneGeometry(.05,5.8),lineM);l.rotation.x=-Math.PI/2;l.position.set(x,.006,-7.1);scene.add(l)});
+const ft=new THREE.Mesh(new THREE.PlaneGeometry(4.9,.05),lineM);ft.rotation.x=-Math.PI/2;ft.position.set(0,.006,-4.2);scene.add(ft);
+ring(1.8,Math.PI,2*Math.PI,-4.2);ring(6.75,Math.PI*1.06,Math.PI*1.94,-9.2);
+// walls
+const wallM=new THREE.MeshStandardMaterial({map:wallTex,roughness:.75});
+const back=new THREE.Mesh(new THREE.PlaneGeometry(40,16),wallM);back.position.set(0,8,-11);back.receiveShadow=true;scene.add(back);
+const left=new THREE.Mesh(new THREE.PlaneGeometry(40,16),wallM);left.position.set(-12,8,4);left.rotation.y=Math.PI/2;left.receiveShadow=true;scene.add(left);
+// wainscot band
+const band=new THREE.Mesh(new THREE.BoxGeometry(40,1.6,.1),M('#B35A1F',{roughness:.5}));band.position.set(0,.8,-10.95);scene.add(band);
+const band2=band.clone();band2.position.set(-11.95,.8,4);band2.rotation.y=Math.PI/2;scene.add(band2);
+// big windows on the right wall (light source)
+const winGrp=new THREE.Group();scene.add(winGrp);
+const glow=new THREE.MeshBasicMaterial({color:'#FFE2A6'}),mull=M('#3b2414');
+for(let i=0;i<4;i++){const z=-8+i*4.2;const pane=new THREE.Mesh(new THREE.PlaneGeometry(3,7),glow);pane.position.set(12,6.5,z);pane.rotation.y=-Math.PI/2;winGrp.add(pane);
+ for(const dy of[-3.5,0,3.5]){const b=new THREE.Mesh(new THREE.BoxGeometry(.12,.12,3.1),mull);b.position.set(11.95,6.5+dy,z);winGrp.add(b)}
+ for(const dz of[-1.5,0,1.5]){const b=new THREE.Mesh(new THREE.BoxGeometry(.12,7.1,.12),mull);b.position.set(11.95,6.5,z+dz);winGrp.add(b)}}
+const wallR=new THREE.Mesh(new THREE.PlaneGeometry(40,16),M('#6a3417'));wallR.position.set(12.05,8,4);wallR.rotation.y=-Math.PI/2;scene.add(wallR);
+// hoop
+const hoop=new THREE.Group();hoop.position.set(0,0,-10.6);scene.add(hoop);
+const bb=new THREE.Mesh(new THREE.BoxGeometry(1.83,1.07,.05),new THREE.MeshStandardMaterial({color:'#F7F2E8',roughness:.4}));bb.position.y=3.6;bb.castShadow=true;hoop.add(bb);
+const bbr=new THREE.Mesh(new THREE.BoxGeometry(.6,.46,.06),new THREE.MeshBasicMaterial({color:'#C2531C',wireframe:false}));bbr.position.set(0,3.42,.02);hoop.add(bbr);
+const bbi=new THREE.Mesh(new THREE.BoxGeometry(.5,.36,.07),new THREE.MeshStandardMaterial({color:'#F7F2E8'}));bbi.position.set(0,3.44,.02);hoop.add(bbi);
+const rim=new THREE.Mesh(new THREE.TorusGeometry(.23,.02,8,32),M('#D2491A',{metalness:.5,roughness:.4}));rim.rotation.x=Math.PI/2;rim.position.set(0,3.05,.3);hoop.add(rim);
+const net=new THREE.Mesh(new THREE.CylinderGeometry(.23,.14,.42,16,3,true),new THREE.MeshStandardMaterial({color:'#fff',wireframe:true,transparent:true,opacity:.75}));net.position.set(0,2.83,.3);hoop.add(net);
+// folded bleachers on the left
+for(let r=0;r<6;r++){const s=new THREE.Mesh(new THREE.BoxGeometry(.5,.4,14),M(r%2?'#6b3517':'#7d4019'));s.position.set(-11.4+r*.12,.2+r*.42,2);s.castShadow=s.receiveShadow=true;scene.add(s)}
+// a ball rack + scoreboard
+const sb=new THREE.Mesh(new THREE.BoxGeometry(3.2,1.4,.3),M('#1b120b'));sb.position.set(-6,7.4,-10.8);scene.add(sb);
+const sbs=new THREE.Mesh(new THREE.PlaneGeometry(2.8,1),new THREE.MeshBasicMaterial({color:'#ff7a2a'}));sbs.position.set(-6,7.4,-10.64);scene.add(sbs);
+// light
+scene.add(new THREE.HemisphereLight('#FFD9A8','#3a1a08',.55));
+const sun=new THREE.DirectionalLight('#FFC27A',4.2);sun.position.set(16,11,-2);sun.target.position.set(-4,0,-2);scene.add(sun,sun.target);
+sun.castShadow=true;sun.shadow.mapSize.set(2048,2048);Object.assign(sun.shadow.camera,{left:-16,right:16,top:16,bottom:-16,near:1,far:50});sun.shadow.bias=-.0005;
+const fill=new THREE.PointLight('#ff9a4a',30,30,1.6);fill.position.set(-4,6,6);scene.add(fill);
+// light shafts: soft additive slabs from each window
+const shaftTex=tex(64,256,(g,w,h)=>{const gr=g.createLinearGradient(0,0,0,h);gr.addColorStop(0,'rgba(255,220,160,0)');gr.addColorStop(.25,'rgba(255,210,150,.55)');gr.addColorStop(1,'rgba(255,190,120,0)');g.fillStyle=gr;g.fillRect(0,0,w,h)});
+const shaftM=new THREE.MeshBasicMaterial({map:shaftTex,transparent:true,blending:THREE.AdditiveBlending,depthWrite:false,opacity:.22,side:THREE.DoubleSide});
+for(let i=0;i<4;i++){const s=new THREE.Mesh(new THREE.PlaneGeometry(2.6,20),shaftM);s.position.set(4,4.5,-8+i*4.2);s.rotation.set(0,Math.PI/2,1.0);scene.add(s);
+ const pool=new THREE.Mesh(new THREE.PlaneGeometry(2.8,7),new THREE.MeshBasicMaterial({color:'#FFC680',transparent:true,opacity:.16,blending:THREE.AdditiveBlending,depthWrite:false}));pool.rotation.x=-Math.PI/2;pool.rotation.z=.15;pool.position.set(-3,.01,-8+i*4.2);scene.add(pool)}
+// dust
+const DN=900,dg=new THREE.BufferGeometry(),dp=new Float32Array(DN*3);for(let i=0;i<DN;i++){dp[i*3]=(Math.random()-.3)*22;dp[i*3+1]=Math.random()*10;dp[i*3+2]=(Math.random()-.5)*20}
+dg.setAttribute('position',new THREE.BufferAttribute(dp,3));
+const dust=new THREE.Points(dg,new THREE.PointsMaterial({color:'#FFE0B0',size:.045,transparent:true,opacity:.75,depthWrite:false,blending:THREE.AdditiveBlending}));scene.add(dust);
+// ================= player =================
+const player=new THREE.Group();scene.add(player);player.position.set(0,0,-3.2);
+const ball=new THREE.Mesh(new THREE.SphereGeometry(.12,24,16),new THREE.MeshStandardMaterial({color:'#C8571F',roughness:.7}));ball.castShadow=true;scene.add(ball);
+let parts={};
+function cap(r,l,mat){const m=new THREE.Mesh(new THREE.CapsuleGeometry(r,l,6,12),mat);m.castShadow=true;return m}
+function limb(len,r,mat){const g=new THREE.Group();const m=cap(r,len,mat);m.position.y=-len/2-r;g.add(m);g.userData.len=len;return g}
+function rebuild(){
+ player.clear();const H={pg:.93,wing:1,big:1.08}[P.height],W={lean:.86,solid:1,strong:1.14}[P.build];
+ const skin=new THREE.MeshStandardMaterial({color:SKIN[+P.skin[1]],roughness:.55});
+ const jc={j0:'#F3EEE3',j1:'#1F4E8C',j2:'#C2531C',j3:'#1E5B3A',j4:'#6B2A4A'}[P.jersey];
+ const jersey=M(jc,{roughness:.65}),trim=M(P.jersey==='j0'?'#C2531C':'#F3EEE3');
+ const shoeC={sh0:'#F3EEE3',sh1:'#141414',sh2:'#E8C547',sh3:'#E2453C'}[P.shoes];
+ const g=new THREE.Group();g.scale.set(W,H,W);player.add(g);
+ const torso=cap(.27,.42,jersey);torso.position.y=1.38;torso.scale.set(1,1,.72);g.add(torso);
+ // jersey number on the back and front
+ const num=document.createElement('canvas');num.width=num.height=128;const nx=num.getContext('2d');nx.fillStyle=P.jersey==='j0'?'#C2531C':'#F3EEE3';nx.font='800 84px Bricolage Grotesque, sans-serif';nx.textAlign='center';nx.textBaseline='middle';nx.fillText($('#pNum').value||'0',64,70);
+ const nt=new THREE.CanvasTexture(num);nt.colorSpace=THREE.SRGBColorSpace;
+ for(const z of[.2,-.2]){const p=new THREE.Mesh(new THREE.PlaneGeometry(.3,.3),new THREE.MeshBasicMaterial({map:nt,transparent:true}));p.position.set(0,1.42,z);if(z<0)p.rotation.y=Math.PI;g.add(p)}
+ const neck=cap(.08,.06,skin);neck.position.y=1.78;g.add(neck);
+ const head=new THREE.Mesh(new THREE.SphereGeometry(.17,24,18),skin);head.position.y=1.97;head.scale.set(.95,1.08,1);head.castShadow=true;g.add(head);
+ const hairM=M('#16100c',{roughness:.95});
+ if(P.style==='fro'){const f=new THREE.Mesh(new THREE.SphereGeometry(.26,20,16),hairM);f.position.set(0,2.06,-.02);f.scale.set(1,.9,1);f.castShadow=true;g.add(f)}
+ if(P.style==='buzz'){const f=new THREE.Mesh(new THREE.SphereGeometry(.178,20,14,0,Math.PI*2,0,Math.PI/1.9),hairM);f.position.y=1.985;g.add(f)}
+ if(P.style==='flat'){const f=new THREE.Mesh(new THREE.CylinderGeometry(.17,.18,.2,20),hairM);f.position.y=2.14;g.add(f)}
+ if(P.style==='curls'){for(let i=0;i<22;i++){const c=new THREE.Mesh(new THREE.SphereGeometry(.06,8,6),hairM);const a=Math.random()*Math.PI*2,b=Math.random()*1.2;c.position.set(Math.cos(a)*Math.sin(b)*.17,2.0+Math.cos(b)*.17,Math.sin(a)*Math.sin(b)*.17-.01);g.add(c)}}
+ if(P.style==='braids'){const f=new THREE.Mesh(new THREE.SphereGeometry(.178,20,14,0,Math.PI*2,0,Math.PI/1.9),hairM);f.position.y=1.985;g.add(f);for(let i=0;i<7;i++){const b=cap(.022,.22,hairM);const a=Math.PI*.15+i/6*Math.PI*.7;b.position.set(Math.cos(a)*.15,1.86,-Math.sin(a)*.12);g.add(b)}}
+ if(P.face!=='clean'){const fh=new THREE.Mesh(P.face==='beard'?new THREE.SphereGeometry(.13,16,10,0,Math.PI*2,Math.PI*.5,Math.PI*.5):new THREE.BoxGeometry(.13,.025,.03),hairM);fh.position.set(0,P.face==='beard'?1.93:1.93,P.face==='beard'?.05:.165);g.add(fh)}
+ if(P.head==='hb'){const h=new THREE.Mesh(new THREE.TorusGeometry(.172,.032,8,24),M('#F3EEE3'));h.rotation.x=Math.PI/2;h.position.y=2.05;h.scale.set(1,1.08,1);g.add(h)}
+ if(P.head==='goggles'){const s=new THREE.Mesh(new THREE.TorusGeometry(.172,.012,6,24),M('#111'));s.rotation.x=Math.PI/2;s.position.y=1.99;g.add(s);for(const x of[-.06,.06]){const l=new THREE.Mesh(new THREE.TorusGeometry(.045,.014,8,16),M('#111',{metalness:.3}));l.position.set(x,1.99,.155);g.add(l)}}
+ if(P.neck==='chain'){const c=new THREE.Mesh(new THREE.TorusGeometry(.12,.012,6,24,Math.PI),M('#E8C547',{metalness:1,roughness:.25}));c.rotation.set(-1.25,0,Math.PI);c.position.set(0,1.73,.07);g.add(c)}
+ const shortsLen=P.shorts==='short'?.2:.36;
+ const shorts=cap(.26,shortsLen*.6,jersey);shorts.position.y=1.0-shortsLen*.2;shorts.scale.set(1.02,1,.78);g.add(shorts);
+ const sband=new THREE.Mesh(new THREE.TorusGeometry(.255,.018,6,24),trim);sband.rotation.x=Math.PI/2;sband.position.y=1.12;g.add(sband);
+ const mk=(side)=>{const thigh=limb(.42,.085,skin);thigh.position.set(.13*side,.98,0);g.add(thigh);
+  const shin=limb(.42,.07,skin);shin.position.y=-.6;thigh.add(shin);
+  const sockLen=P.socks==='tube'?.3:P.socks==='crew'?.14:.02;if(sockLen>.05){const s=cap(.074,sockLen,M('#F3EEE3'));s.position.y=-.5+sockLen/2;shin.add(s);
+   if(P.socks==='tube'){for(const dy of[.07,.12]){const st=new THREE.Mesh(new THREE.TorusGeometry(.076,.01,4,16),M(jc));st.rotation.x=Math.PI/2;st.position.y=-.5+sockLen-dy;shin.add(st)}}}
+  const shoe=new THREE.Mesh(new THREE.BoxGeometry(.15,.11,.3),M(shoeC,{roughness:.5}));shoe.position.set(0,-.6,.06);shoe.castShadow=true;shin.add(shoe);return thigh};
+ const lL=mk(-1),lR=mk(1);
+ const arm=(side)=>{const up=limb(.32,.07,skin);up.position.set(.36*side,1.62,0);g.add(up);const sl=cap(.1,.08,jersey);sl.position.y=-.06;up.add(sl);
+  const fa=limb(.3,.06,skin);fa.position.y=-.46;up.add(fa);
+  if(P.arms==='sleeve'&&side>0){const s=cap(.068,.5,M('#141414'));s.position.y=-.2;up.add(s)}
+  if(P.arms==='wrist'){const w=cap(.07,.05,M('#F3EEE3'));w.position.y=-.32;fa.add(w)}
+  return [up,fa]};
+ const [aL,faL]=arm(-1),[aR,faR]=arm(1);
+ parts={g,torso,head,lL,lR,aL,aR,faL,faR,H};
+}
+// ================= camera + loop =================
+let yaw=.35,pitch=.12,dist=7.2,drag=null,t=0,last=0,bounce=0;
+cv.addEventListener('pointerdown',e=>{drag=[e.clientX,e.clientY,yaw,pitch]});
+addEventListener('pointerup',()=>drag=null);
+addEventListener('pointermove',e=>{if(!drag)return;yaw=drag[2]-(e.clientX-drag[0])*.006;pitch=Math.max(-.05,Math.min(.5,drag[3]+(e.clientY-drag[1])*.004))});
+function size(){const r=cv.getBoundingClientRect();R.setSize(r.width,r.height,false);cam.aspect=r.width/r.height;cam.updateProjectionMatrix()}
+addEventListener('resize',size);
+let mood='idle';
+function frame(now){requestAnimationFrame(frame);const dt=Math.min(.05,(now-(last||now))/1000);last=now;t+=dt;
+ const mob=innerWidth<=860;
+ const tx=mob?0:.6, ty=1.2;
+ cam.position.set(player.position.x+Math.sin(yaw)*dist+tx,ty+pitch*6+1.2,player.position.z+Math.cos(yaw)*dist);
+ cam.lookAt(player.position.x+tx*.4,1.15,player.position.z);
+ if(parts.g){const s=mood==='hype'?14:mood==='down'?5:8.5;bounce+=dt*s;
+  const b=Math.abs(Math.sin(bounce));const H=parts.H;
+  // dribble with the right hand
+  const hx=.42*parts.g.scale.x, by=.12+b*.78;
+  ball.position.set(player.position.x+hx,by*1,player.position.z+.18);
+  parts.aR.rotation.x=-.5-(1-b)*.5;parts.faR.rotation.x=-.6;parts.aL.rotation.x=-.25+Math.sin(t*1.6)*.08;parts.aL.rotation.z=.12;
+  const crouch=mood==='down'?.12:.06;parts.g.position.y=-crouch+(mood==='hype'?Math.abs(Math.sin(t*3))*.04:0);
+  parts.lL.rotation.x=.25;parts.lR.rotation.x=-.18;parts.torso.rotation.x=mood==='down'?.18:.08;parts.head.rotation.x=mood==='down'?.35:0;
+  player.rotation.y=Math.PI*.85+Math.sin(t*.4)*.2+(mood==='hype'?Math.sin(t*2)*.1:0)}
+ const pa=dg.attributes.position.array;for(let i=0;i<DN;i++){pa[i*3+1]+=Math.sin(t*.3+i)*.0015+.0008;pa[i*3]+=Math.cos(t*.2+i*.7)*.001;if(pa[i*3+1]>10)pa[i*3+1]=0}dg.attributes.position.needsUpdate=true;
+ R.render(scene,cam)}
+// ================= career =================
+const S={ovr:60,hype:10,rep:50,bank:0,rings:0,allstar:0,ppg:[],team:''};
+const TEAMS=['Venice Tides','Oakland Foundry','Gary Steelheads','Memphis Kings of Beale','Portland Lumber','Cincinnati Rails','Baltimore Harbor'];
+let beat=0;
+function fmt$(n){return n>=1e6?'$'+(n/1e6).toFixed(n>=1e7?0:1)+'M':n>=1e3?'$'+Math.round(n/1e3)+'K':'$'+n}
+function show(){const set=(id,v)=>{const e=$(id).querySelector('b');if(e.textContent!==String(v)){e.textContent=v;$(id).classList.remove('pop');void $(id).offsetWidth;$(id).classList.add('pop')}};
+ set('#sOvr',S.ovr);set('#sHype',S.hype);set('#sRep',S.rep);set('#sBank',fmt$(S.bank));set('#sRing',S.rings)}
+function apply(d){const out=[];for(const[k,v]of Object.entries(d)){if(!v)continue;S[k]=k==='bank'?S[k]+v:Math.max(0,Math.min(k==='ovr'?99:100,S[k]+v));out.push(`<span class="${v>0?'up':'dn'}">${{ovr:'OVR',hype:'HYPE',rep:'RESPECT',bank:'BANK',rings:'RING'}[k]} ${v>0?'+':''}${k==='bank'?fmt$(v):v}</span>`)}show();return out.join('')}
+function add(html){const d=document.createElement('div');d.innerHTML=html;const el=d.firstElementChild;$('#log').appendChild(el);el.scrollIntoView({behavior:'smooth',block:'end'});return el}
+function card(yr,h,p,d,snip){add(`<div class="card"><span class="mono yr">${yr}</span><h3>${h}</h3><p>${p}</p>${d?`<div class="delta">${d}</div>`:''}${snip?`<div class="snip">${snip}</div>`:''}</div>`)}
+function ask(yr,q,opts){return new Promise(res=>{const el=add(`<div class="choice"><span class="mono yr">${yr}</span><div class="q">${q}</div>${opts.map((o,i)=>`<button data-i="${i}">${o.t}<small>${o.s}</small></button>`).join('')}</div>`);
+ el.querySelectorAll('button').forEach(b=>b.onclick=()=>{el.remove();res(+b.dataset.i)})})}
+const wait=ms=>new Promise(r=>setTimeout(r,ms));
+function lookSnip(ctx){const v=vibe(),n=($('#pName').value||'You').split(' ').pop(),out=[];
+ const pick=a=>a[Math.floor(Math.random()*a.length)];
+ if(ctx==='hs'){if(P.socks==='tube')out.push(['Tube socks pulled to the knee at a high school showcase. A scout wrote "old soul" in his notes and circled it.',{hype:2}]);
+  if(P.style==='fro')out.push(['The afro made the local paper\'s front page photo. Your mom bought six copies.',{hype:2}])}
+ if(ctx==='draft'){}
+ if(ctx==='media'){if(P.neck==='chain')out.push(['The chain caught the studio lights in every shot. The clip did numbers. Your coach asked if it comes off for practice.',{hype:4,rep:-2}]);
+  if(P.head==='goggles')out.push(['Goggles at media day. A columnist called you "the professor" and it stuck.',{rep:3}]);
+  if(v.throwback>=6)out.push(['You showed up looking like a 1979 trading card. Old heads in the comments: "finally, a hooper."',{hype:4}])}
+ if(ctx==='slump'){if(lastChangeBeat===beat)out.push(['You changed your look in the middle of a slump. Next game you hit 7 straight. Nobody can prove it was the fit. Nobody can prove it wasn\'t.',{ovr:2,hype:3}]);
+  else if(P.arms==='sleeve')out.push(['Shooting 31% with the sleeve on. A meme account asked what the sleeve is actually doing.',{hype:-2}]);
+  else if(P.head==='hb')out.push(['Somebody started a "lose the headband" chant on the road. You kept it. Respect.',{rep:2}])}
+ if(ctx==='breakout'){if(P.shoes==='sh2'||P.shoes==='sh3')out.push(['Loud shoes on a 40-point night. Every highlight starts with a close-up of your feet.',{hype:5}]);
+  if(P.shorts==='short')out.push(['The short shorts went viral. A brand you\'ve never heard of slid into your DMs with a "retro capsule."',{bank:150000,hype:2}])}
+ if(ctx==='shoe'){if(P.shoes==='sh2')out.push(['They built the colorway around your gold game shoes. It sells out in nine minutes.',{bank:2000000,hype:4}])}
+ if(ctx==='vet'){if(P.face==='stache')out.push(['The mustache is now a veteran presence. Rookies grow one to get your attention.',{rep:4}]);
+  if(P.style==='bald')out.push(['You shaved it all off. The internet says you look ten years older and somehow faster.',{hype:2}])}
+ if(!out.length&&Math.random()<.5){const g=[['Nobody talked about the fit this year. That might be the point.',{}],[`A kid in the stands is dressed exactly like you, down to the ${P.socks==='tube'?'tube socks':'shoes'}.`,{hype:2}]];out.push(pick(g))}
+ if(!out.length)return['',''];const [txt,d]=out[0];return[txt,apply(d)]}
+function season(yr,base){const pts=Math.max(4,Math.round((S.ovr-50)*.75+base+(Math.random()*6-3)));S.ppg.push(pts);let star='';
+ if(S.ovr>=84){S.allstar++;star=' All-Star.'}return [pts,star]}
+async function run(){
+ const n=()=>$('#pName').value||'J. Rivers';mood='idle';
+ card('Senior year','The gym before anyone knew your name',`Open run at 6 a.m., the light coming in sideways through the windows. ${n()} is the best player in the county and three programs are calling.`);
+ await wait(900);let [s,d]=lookSnip('hs');if(s)card('Senior year','Word gets around',s,d);
+ beat=1;let c=await ask('Senior year','Where do you go next?',[{t:'Stay home, play for the local school',s:'Start right away. Smaller stage.'},{t:'Go to the powerhouse program',s:'Bright lights. You might sit a year.'},{t:'Play a year overseas, get paid',s:'Grown men. Real checks.'}]);
+ if(c===0)card('College','Hometown hero','You start every game and average 21. The whole town knows your number.',apply({ovr:4,rep:6,hype:4}));
+ if(c===1)card('College','Sixth man to star','You come off the bench as a freshman, then run the show as a sophomore. National TV twice a week.',apply({ovr:6,hype:8}));
+ if(c===2)card('Overseas','Learned the hard way','Grown men in a cold gym hand you your lunch for two months. Then you figure it out.',apply({ovr:7,rep:4,bank:200000}));
+ await wait(700);beat=2;
+ c=await ask('Draft night','What are you wearing to the draft?',[{t:'A clean navy suit',s:'Classic. Nobody will remember it.'},{t:'A loud custom suit with your hometown on the lining',s:'Big swing.'},{t:'Tracksuit and sneakers',s:'Showing up as yourself.'}]);
+ const pick=Math.max(1,Math.round(30-(S.ovr-60)*1.6+Math.random()*6));S.team=TEAMS[Math.floor(Math.random()*TEAMS.length)];
+ const fit=[{rep:3},{hype:7,rep:-1},{hype:4,rep:-3}][c];
+ card('Draft night',`Pick ${pick}: ${S.team}`,[`The suit looked right. ${pick<=10?'Top ten.':'You heard your name, that\'s what counts.'}`,`The lining got its own camera shot. Every outlet ran the photo.`,`Tracksuit on the biggest night of your life. Half the internet loved it, a GM called it "unserious."`][c],apply({...fit,bank:pick<=5?6000000:pick<=15?3500000:1500000}));
+ await wait(700);beat=3;
+ c=await ask('Media day','First media day. A reporter asks what your goal is.',[{t:'"Just here to work."',s:'Humble. Safe.'},{t:'"Rookie of the Year. Write it down."',s:'Now you have to deliver.'},{t:'Wear sunglasses indoors and say nothing',s:'Mysterious.'}]);
+ card('Media day',['Humble pie','Bulletin board material','The sunglasses'][c],['Coaches love it. Nobody clips it.','Every opponent this season has the quote on their locker.','Nobody knows what you meant. Everyone posts it anyway.'][c],apply([{rep:4},{hype:8,rep:-2},{hype:6}][c]));
+ [s,d]=lookSnip('media');if(s)card('Media day','The fit report',s,d);
+ await wait(800);
+ let [p,st]=season('Rookie',8);card('Year 1',`Rookie year: ${p} points a game`,`${p>=16?'You were good right away.':'Up and down, like every rookie.'}${c===1&&p<16?' Rookie of the Year went to someone else. The quote is still on the lockers.':''}`,apply({ovr:3,hype:p>=16?5:1,rep:p>=16?3:0}));
+ await wait(800);mood='down';beat=4;
+ card('Year 2','The slump',`Twelve games under 30% from three. Somebody made a compilation. ${n().split(' ').pop()}, you could change something: tap My Player and switch up the look before you choose.`,apply({ovr:-3,hype:-6}));
+ c=await ask('Year 2','How do you get out of it?',[{t:'5 a.m. shootaround, every day, alone',s:'Grind it out.'},{t:'Switch up the whole look',s:'New fit, new player. (Go change it in My Player first.)'},{t:'Tell reporters it\'s the system',s:'Bold.'}]);
+ card('Year 2',['Back in the empty gym','New look, new guy','Blame the system'][c],['Same light through the same windows. Thousand shots a day. It comes back.','You walk into the arena looking like somebody else and play like it.','The coach reads it. You don\'t start the next game.'][c],apply([{ovr:5,rep:4},{ovr:2,hype:5},{ovr:-1,rep:-6,hype:3}][c]));
+ [s,d]=lookSnip('slump');if(s)card('Year 2','The fit report',s,d);
+ mood='idle';await wait(800);beat=5;
+ [p,st]=season('Breakout',12);mood='hype';card('Year 3',`The breakout: ${p} a game.${st}`,`You start closing games. The crowd stands up when you get the ball in the last two minutes.`,apply({ovr:6,hype:9,rep:4}));
+ [s,d]=lookSnip('breakout');if(s)card('Year 3','The fit report',s,d);
+ await wait(800);beat=6;mood='idle';
+ c=await ask('Year 4','Your contract is up.',[{t:'Max money from a bad team',s:'Set for life. Losing.'},{t:'Take less to join a contender',s:'Chase a ring.'},{t:'One-year deal, bet on yourself',s:'Big risk.'}]);
+ const ok=Math.random()<.4+S.ovr/200;
+ if(c===0)card('Contract','Max deal','The money is real. So are the 50 losses.',apply({bank:150000000,rep:-2}));
+ if(c===1)card('Contract','Contender','You took less. The locker room noticed.',apply({bank:60000000,rep:6}));
+ if(c===2)card('Contract',ok?'Bet paid off':'Bet didn\'t land',ok?'You had a career year and signed the biggest deal of your class.':'You got hurt in March. Next summer the offers were smaller.',apply(ok?{bank:190000000,hype:6}:{bank:30000000,hype:-3}));
+ await wait(800);beat=7;
+ [p,st]=season('Prime',14);const ringOdds=(c===1?.55:c===0?.08:.25)+(S.ovr-80)*.02;const won=Math.random()<ringOdds;
+ mood=won?'hype':'idle';card('Years 5 to 8',won?`Champion. ${p} a game.`:`The prime: ${p} a game.${st}`,won?'Confetti in your hair, the trophy, the parade. Your hometown shuts down for a day.':'Deep playoff runs, one heartbreak in a game seven. The ring stays just out of reach.',apply(won?{rings:1,hype:10,rep:8}:{rep:3,hype:2}));
+ if(won&&Math.random()<.4){await wait(600);card('Year 9','Back to back','You did it again.',apply({rings:1,rep:5}))}
+ await wait(800);beat=8;mood='idle';
+ c=await ask('Shoe deal','Two companies want you to have your own shoe.',[{t:'The giant brand',s:'Most money, they pick the design.'},{t:'The small brand that lets you design it',s:'Your colorway, your story.'},{t:'Turn both down, launch your own',s:'You own it.'}]);
+ card('Shoe deal',['Signed with the giant','Your design','Your own company'][c],['The check is huge. The shoe looks like every other shoe.','You put your game shoes\' colorway on it and a map of your hometown on the insole.','Hard first year. By year three it\'s the shoe every high schooler in your state wants.'][c],apply([{bank:40000000},{bank:15000000,hype:6},{bank:25000000,hype:4,rep:4}][c]));
+ [s,d]=lookSnip('shoe');if(s)card('Shoe deal','The fit report',s,d);
+ await wait(800);beat=9;
+ c=await ask('Year 11','You\'re a vet now. What\'s next?',[{t:'Mentor the young guys',s:'Become the coach on the floor.'},{t:'Chase one more ring',s:'Ring chase to a contender.'},{t:'Start a podcast with your old teammates',s:'Tell the stories.'}]);
+ card('Year 11',['The big brother','One more run','The podcast'][c],['Three rookies credit you in their first All-Star interviews.','You play 18 minutes a night and hit the biggest shot of the playoffs.','Episode one: the stories you could never tell when you were playing. Two million downloads.'][c],apply([{rep:8},{rep:3,hype:3,rings:Math.random()<.35?1:0},{hype:9,bank:5000000}][c]));
+ [s,d]=lookSnip('vet');if(s)card('Year 11','The fit report',s,d);
+ await wait(900);mood='idle';
+ card('The last game','One more time in the empty gym','After the farewell tour you go back to where it started. Same windows, same light. You shoot until you miss.',apply({}));
+ await wait(1400);finish()}
+function legend(){const avg=Math.round(S.ppg.reduce((a,b)=>a+b,0)/S.ppg.length),v=vibe();
+ let tag=S.rings>=2?'Dynasty piece':S.rings===1?'Champion':S.allstar>=2?'Perennial All-Star':avg>=18?'Bucket getter':'Fan favorite';
+ let why=v.throwback>=7?'They remember the tube socks and the headband before they remember the stats. That\'s a compliment.':v.flash>=4?'Loudest fit in the building, every night. You made people watch.':v.pro>=3?'Goggles, business face, no wasted motion. Coaches still use your tape.':'Your game did the talking.';
+ if(S.hype>=80)why+=' Kids still dress like you on Halloween.';
+ return{avg,tag,why}}
+function finish(){const L=legend();R.render(scene,cam);$('#ccImg').src=cv.toDataURL('image/jpeg',.9);
+ $('#ccName').textContent=($('#pName').value||'J. Rivers')+'  #'+($('#pNum').value||'0');$('#ccTag').textContent=L.tag+' · '+S.team;
+ $('#ccGrid').innerHTML=[['PPG',L.avg],['RINGS',S.rings],['HYPE',S.hype],['EARNED',fmt$(S.bank)]].map(([a,b])=>`<div><b>${b}</b><span>${a}</span></div>`).join('');
+ $('#ccWhy').textContent=L.why;$('#end').classList.add('show')}
+$('#save').onclick=()=>{const c=document.createElement('canvas');c.width=1080;c.height=1350;const g=c.getContext('2d');const img=$('#ccImg');
+ g.fillStyle='#F6EBD9';g.fillRect(0,0,1080,1350);const r=img.naturalWidth/img.naturalHeight,h=1080/1.15;g.drawImage(img,(img.naturalWidth-img.naturalHeight*1.15)/2,0,img.naturalHeight*1.15,img.naturalHeight,0,0,1080,h);
+ g.fillStyle='#1B120B';g.font='800 72px Bricolage Grotesque, sans-serif';g.fillText($('#ccName').textContent,50,h+90);g.fillStyle='#C2531C';g.font='700 34px Bricolage Grotesque, sans-serif';g.fillText($('#ccTag').textContent,50,h+145);
+ g.fillStyle='#1B120B';g.font='500 26px JetBrains Mono, monospace';g.fillText([...$('#ccGrid').children].map(d=>d.querySelector('span').textContent+' '+d.querySelector('b').textContent).join('   '),50,h+205);
+ g.font='500 24px JetBrains Mono, monospace';g.fillStyle='#C2531C';g.fillText('RUN IT BACK',50,1310);
+ const a=document.createElement('a');a.download='run-it-back.png';a.href=c.toDataURL('image/png');a.click()};
+$('#again').onclick=()=>location.reload();
+$('#mpH').onclick=()=>{if(innerWidth<=860)$('#mp').classList.toggle('open')};
+$('#pNum').oninput=()=>rebuild();
+$('#start').onclick=()=>{$('#intro').classList.add('out');run()};
+drawTabs();drawOpts();readLook();rebuild();size();requestAnimationFrame(frame);
+</script></body></html>

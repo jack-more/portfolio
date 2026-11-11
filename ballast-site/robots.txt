@@ -4,3 +4,4 @@ Disallow: /admin
 
 Sitemap: https://ballast.la/sitemap.xml
 Disallow: /fanread
+Disallow: /sim
