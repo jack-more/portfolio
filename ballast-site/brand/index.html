@@ -8,12 +8,13 @@
 <link rel="icon" href="/favicon.ico?v=4" sizes="any"><link rel="icon" type="image/png" href="/icon-192.png?v=4"><link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4">
 <meta name="theme-color" content="#0076B6">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&family=Geist:wght@300;400;500&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&family=Geist:wght@300;400;500;800&family=Geist+Mono:wght@400;500&display=swap">
 <style>
+  @font-face{font-family:"Ballast Display";src:url(/notes/BallastDisplay-BlackItalic.woff2) format("woff2");font-weight:400 900;font-style:normal italic;font-display:swap}
   :root{
     --paper:#FFFFFF; --ink:#0A0D18; --mute:#6E6862; --line:rgba(10,13,24,.16);
     --cobalt:#0076B6; --orange:#F86608; --amber:#F9A51B; --deep:#12204E; --leaf:#004225;
-    --s:"Instrument Serif",Georgia,serif; --g:"Geist","Helvetica Neue",Arial,sans-serif; --m:"Geist Mono",ui-monospace,Menlo,monospace;
+    --s:"Ballast Display","Geist",Arial,sans-serif; --g:"Geist","Helvetica Neue",Arial,sans-serif; --m:"Geist Mono",ui-monospace,Menlo,monospace;
     --pad:clamp(16px,2.6vw,40px);
   }
   *{box-sizing:border-box}
@@ -24,7 +25,7 @@
   section{padding:clamp(56px,7vw,104px) 0;border-top:1px solid var(--line)}
   .hd{display:flex;align-items:baseline;gap:16px;margin-bottom:clamp(28px,3.4vw,48px);flex-wrap:wrap}
   .hd .n{font-family:var(--m);font-size:12px;color:var(--cobalt)}
-  .hd h2{font-family:var(--s);font-weight:400;font-size:clamp(40px,5vw,72px);line-height:.95;text-transform:uppercase;margin:0;letter-spacing:-.01em}
+  .hd h2{font-family:var(--s);font-style:italic;font-weight:900;font-size:clamp(40px,5vw,72px);line-height:.95;text-transform:uppercase;margin:0;letter-spacing:-.01em}
   .hd .r{margin-left:auto;color:var(--mute)}
   p{max-width:62ch;margin:0 0 14px}
   .dim{color:var(--mute)}
@@ -32,10 +33,10 @@
   /* cover: the mark in the pool */
   .cover{position:relative;min-height:min(86vh,820px);display:flex;align-items:flex-end;color:#fff;overflow:hidden;isolation:isolate}
   .cover>img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
-  .cover::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(7,30,104,.5),rgba(7,30,104,.15) 40%,rgba(5,18,66,.8))}
+  .cover::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(0,79,122,.5),rgba(0,79,122,.15) 40%,rgba(5,18,66,.8))}
   .cover .wrap{width:100%;padding-bottom:clamp(36px,6vh,72px)}
   .cover img.lock{width:min(360px,64%);filter:drop-shadow(0 10px 30px rgba(6,28,96,.5));margin-bottom:28px}
-  .cover h1{font-family:var(--s);font-weight:400;font-size:clamp(52px,8vw,128px);line-height:.92;text-transform:uppercase;margin:0 0 18px;letter-spacing:-.015em;text-shadow:0 2px 30px rgba(6,28,96,.6)}
+  .cover h1{font-family:var(--s);font-style:italic;font-weight:900;font-size:clamp(52px,8vw,128px);line-height:.92;text-transform:uppercase;margin:0 0 18px;letter-spacing:-.015em;text-shadow:0 2px 30px rgba(6,28,96,.6)}
   .cover p{color:rgba(255,255,255,.86);font-size:clamp(17px,1.6vw,20px)}
 
   table{width:100%;border-collapse:collapse;max-width:760px}
@@ -46,13 +47,13 @@
   /* the lozenge */
   .mold{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:clamp(20px,3vw,40px);align-items:stretch}
   .stage{border-radius:28px;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:clamp(40px,6vw,88px) clamp(24px,4vw,56px);min-height:420px;
-    background:radial-gradient(120% 90% at 50% 40%,#1b4fd8 0%,#0b3fb0 45%,#071e68 100%)}
+    background:radial-gradient(120% 90% at 50% 40%,#1C8BD0 0%,#0076B6 45%,#004F7A 100%)}
   .stage img{width:min(100%,520px);filter:drop-shadow(0 24px 48px rgba(3,10,40,.55)) drop-shadow(0 0 60px rgba(253,114,13,.25))}
   .mold .copy{display:flex;flex-direction:column;justify-content:center}
-  .mold .copy p.big{font-family:var(--s);font-size:clamp(30px,3vw,44px);line-height:1.05;max-width:18ch;margin-bottom:22px}
+  .mold .copy p.big{font-family:var(--g);font-weight:800;letter-spacing:-.03em;font-size:clamp(30px,3vw,44px);line-height:1.05;max-width:18ch;margin-bottom:22px}
   .facts{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-top:10px}
   .facts div{background:var(--paper);padding:14px 16px}
-  .facts b{display:block;font-family:var(--s);font-weight:400;font-size:30px;line-height:1}
+  .facts b{display:block;font-family:var(--s);font-style:italic;font-weight:900;font-size:30px;line-height:1}
   .facts span{font-family:var(--m);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute)}
 
   /* colour */
@@ -66,8 +67,8 @@
   /* type */
   .spec{border-top:1px solid var(--line);padding:22px 0;display:grid;grid-template-columns:200px minmax(0,1fr);gap:24px;align-items:baseline}
   .spec .mono{color:var(--mute)}
-  .t1{font-family:var(--s);font-size:clamp(56px,8vw,120px);line-height:.9;text-transform:uppercase}
-  .t2{font-family:var(--s);font-size:clamp(36px,4.6vw,64px);line-height:1}
+  .t1{font-family:var(--s);font-style:italic;font-size:clamp(56px,8vw,120px);line-height:.9;text-transform:uppercase}
+  .t2{font-family:var(--g);font-weight:800;letter-spacing:-.035em;font-size:clamp(34px,4.2vw,58px);line-height:1}
   .t3{font-family:var(--g);font-weight:300;font-size:clamp(26px,3vw,40px);line-height:1.15}
   .t4{font-family:var(--g);font-size:17px;max-width:58ch}
 
@@ -75,17 +76,17 @@
   .world{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:clamp(20px,3vw,40px);align-items:center}
   .world>img{border-radius:28px;width:100%;aspect-ratio:16/10;object-fit:cover}
   .objs{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:22px}
-  .objs div{background:radial-gradient(90% 90% at 50% 40%,#1b4fd8,#071e68);border-radius:18px;aspect-ratio:1;display:flex;align-items:center;justify-content:center;padding:18%}
+  .objs div{background:radial-gradient(90% 90% at 50% 40%,#1C8BD0,#004F7A);border-radius:18px;aspect-ratio:1;display:flex;align-items:center;justify-content:center;padding:18%}
   .objs img{filter:drop-shadow(0 10px 18px rgba(0,0,0,.35))}
 
   /* components */
   .row{display:flex;gap:12px;flex-wrap:wrap;align-items:center;padding:26px;border-radius:22px;background:#fff;border:1px solid var(--line)}
-  .row.dark{background:radial-gradient(120% 120% at 30% 20%,#1b4fd8,#071e68);border-color:transparent}
+  .row.dark{background:radial-gradient(120% 120% at 30% 20%,#1C8BD0,#004F7A);border-color:transparent}
   .btn{display:inline-flex;align-items:center;gap:10px;text-decoration:none;background:var(--cobalt);color:#fff;padding:12px 20px;border-radius:999px;font-family:var(--m);font-size:13px;letter-spacing:.04em;text-transform:uppercase;font-weight:500;border:1px solid var(--cobalt)}
   .btn.ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
   .btn.go{background:var(--orange);border-color:var(--orange);color:var(--ink)}
   .btn.glass{background:transparent;border-color:rgba(255,255,255,.75);color:#fff}
-  .stat b{display:block;font-family:var(--s);font-weight:400;font-size:64px;line-height:.9;color:#fff}
+  .stat b{display:block;font-family:var(--s);font-style:italic;font-weight:900;font-size:64px;line-height:.9;color:#fff}
   .stat span{font-family:var(--m);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.8)}
 
   /* rules */
@@ -176,9 +177,9 @@
 
 <section>
   <div class="wrap">
-    <div class="hd"><span class="n">04</span><h2>Type</h2><span class="r mono">Instrument Serif · Geist · Geist Mono</span></div>
-    <div class="spec"><span class="mono">Display · Instrument Serif, caps</span><span class="t1">Research. Reach. Scale.</span></div>
-    <div class="spec"><span class="mono">Section · Instrument Serif</span><span class="t2">Ads we've run.</span></div>
+    <div class="hd"><span class="n">04</span><h2>Type</h2><span class="r mono">Ballast Display · Geist · Geist Mono</span></div>
+    <div class="spec"><span class="mono">Display · Ballast Display, caps</span><span class="t1">Research. Reach. Scale.</span></div>
+    <div class="spec"><span class="mono">Statement · Geist ExtraBold</span><span class="t2">Ads we've run.</span></div>
     <div class="spec"><span class="mono">Headline · Geist Light</span><span class="t3">Media, aligned to the business.</span></div>
     <div class="spec"><span class="mono">Body · Geist 17px</span><span class="t4">Every channel gets a job, a budget and the number it's judged on. Then we run it.</span></div>
     <div class="spec"><span class="mono">Labels · Geist Mono, caps</span><span class="mono" style="font-size:14px">Book a call · Work · Pricing</span></div>
@@ -191,7 +192,7 @@
     <div class="world">
       <img src="/hero/koi/still.webp" alt="The Ballast pool: orange koi over blue tiles">
       <div>
-        <p class="big" style="font-family:var(--s);font-size:clamp(30px,3vw,44px);line-height:1.05;max-width:18ch">Orange moving through blue.</p>
+        <p class="big" style="font-family:var(--g);font-weight:800;letter-spacing:-.03em;font-size:clamp(28px,2.8vw,40px);line-height:1.05;max-width:18ch">Orange moving through blue.</p>
         <p class="dim">The pool is the brand at full scale: blue tile, live water, koi carrying the heat. The work we've run drops in and floats.</p>
         <div class="objs">
           <div><img src="/hero/koi/obj-basketball.webp" alt="Basketball"></div>
@@ -221,7 +222,7 @@
       <img src="/brand/gym/jack-gym.webp" width="768" height="1376" alt="Illustration of Jack in a faded BALLAST.LA tee, green gym shorts and crew socks on an LA street lined with palms">
       <div>
         <img class="printimg" src="/brand/gym/ballast-la-print.png" alt="BALLAST.LA screen print with the ink running low" style="filter:invert(0)">
-        <p class="big" style="font-family:var(--s);font-size:clamp(30px,3vw,44px);line-height:1.05;max-width:20ch">Ballast off duty. A gym-class tee that&rsquo;s been through a few hundred washes.</p>
+        <p class="big" style="font-family:var(--g);font-weight:800;letter-spacing:-.03em;font-size:clamp(28px,2.8vw,40px);line-height:1.05;max-width:20ch">Ballast off duty. A gym-class tee that&rsquo;s been through a few hundred washes.</p>
         <p class="dim">For merch, social and anything casual. One print, BALLAST.LA in condensed caps, screen printed like the ink was running out. Nothing else on the shirt.</p>
         <div class="facts">
           <div><b>1</b><span>Ink colour</span></div>
