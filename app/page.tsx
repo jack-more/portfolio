@@ -37,7 +37,7 @@ const work: WorkItem[] = [
         ],
       },
       {
-        company: "SKO",
+        company: "DTC wellness brand",
         desc: "Head of Performance Marketing: $1.2M+ a month in sales",
         href: "https://skocompounds.com/",
         details: [
