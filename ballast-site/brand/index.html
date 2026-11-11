@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Ballast — Brand</title>
 <meta name="robots" content="noindex">
-<link rel="icon" href="/favicon.ico?v=4" sizes="any"><link rel="icon" type="image/png" href="/icon-192.png?v=4"><link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4">
+<link rel="icon" href="/favicon.ico?v=5" sizes="any"><link rel="icon" type="image/png" href="/icon-192.png?v=5"><link rel="apple-touch-icon" href="/apple-touch-icon.png?v=5">
 <meta name="theme-color" content="#0076B6">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&family=Geist:wght@300;400;500;800&family=Geist+Mono:wght@400;500&display=swap">
@@ -47,8 +47,8 @@
   /* the lozenge */
   .mold{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:clamp(20px,3vw,40px);align-items:stretch}
   .stage{border-radius:28px;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:clamp(40px,6vw,88px) clamp(24px,4vw,56px);min-height:420px;
-    background:radial-gradient(120% 90% at 50% 40%,#1C8BD0 0%,#0076B6 45%,#004F7A 100%)}
-  .stage img{width:min(100%,520px);filter:drop-shadow(0 24px 48px rgba(3,10,40,.55)) drop-shadow(0 0 60px rgba(253,114,13,.25))}
+    background:#fff;border:1px solid var(--line)}
+  .stage img{width:min(100%,520px)}
   .mold .copy{display:flex;flex-direction:column;justify-content:center}
   .mold .copy p.big{font-family:var(--g);font-weight:800;letter-spacing:-.03em;font-size:clamp(30px,3vw,44px);line-height:1.05;max-width:18ch;margin-bottom:22px}
   .facts{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-top:10px}
@@ -112,6 +112,20 @@
   .sock .pad{height:60px}
   .kit ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:8px}
   @media (max-width:820px){.gym-hero,.kit{grid-template-columns:1fr}.tees{grid-template-columns:1fr}.gym-hero>img{max-width:420px}}
+
+  /* logos */
+  .logos-g{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;align-items:start}
+  .lg{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#fff;display:flex;flex-direction:column}
+  .lg .art{aspect-ratio:1.5;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:10%}
+  .lg .art img{max-width:100%;max-height:100%;object-fit:contain}
+  .lg .meta{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 14px;border-top:1px solid var(--line)}
+  .lg .meta b{font-weight:500;font-size:15px}
+  .lg .meta a{font-family:var(--m);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--cobalt);text-decoration:none}
+  .sq{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin-top:12px}
+  .sq a{display:block;border-radius:14px;overflow:hidden;border:1px solid var(--line)}
+  .sq img{width:100%;aspect-ratio:1;display:block;background:repeating-conic-gradient(#eee 0 25%,#fff 0 50%) 0 0/20px 20px}
+  .sq span{display:block;padding:8px 10px;font-family:var(--m);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);background:#fff}
+  @media (max-width:820px){.logos-g{grid-template-columns:1fr}.sq{grid-template-columns:repeat(2,minmax(0,1fr))}}
   footer{padding:40px 0 60px;border-top:1px solid var(--line);color:var(--mute)}
 
   @media (max-width:820px){.mold,.world,.rules{grid-template-columns:1fr}.spec{grid-template-columns:1fr;gap:8px}.hd .r{margin-left:0}}
@@ -122,18 +136,37 @@
 <header class="cover">
   <img class="bg" src="/hero/koi/still.webp" alt="Orange koi in a pool lined with blue tiles" width="2688" height="1152">
   <div class="wrap">
-    <img class="lock" src="/lockup.png?v=3" width="1400" height="591" alt="Ballast">
+    <img class="lock" src="/lockup.png?v=4" width="1400" height="591" alt="Ballast">
     <h1>Brand</h1>
     <p>Luxury blue, held in sunlight. Everything here is measured off the mark and runs exactly as the site does.</p>
   </div>
 </header>
 
 <main>
+<section id="logos">
+  <div class="wrap">
+    <div class="hd"><span class="n">00</span><h2>Logos</h2><span class="r mono">Download the files</span></div>
+    <div class="logos-g">
+      <div class="lg"><div class="art" style="background:#fff"><img src="/brand/logos/ballast-lockup.png" alt="Ballast lockup"></div><div class="meta"><b>Lockup</b><a href="/brand/logos/ballast-lockup.png" download>PNG</a></div></div>
+      <div class="lg"><div class="art" style="background:#0A0D18"><img src="/brand/logos/ballast-wordmark.png" alt="Ballast wordmark"></div><div class="meta"><b>Wordmark</b><a href="/brand/logos/ballast-wordmark.png" download>PNG</a></div></div>
+      <div class="lg"><div class="art" style="background:#F2F4F7"><img src="/brand/logos/ballast-icon-512.png" alt="Ballast icon" style="height:100%;width:auto;border-radius:22%"></div><div class="meta"><b>App icon</b><a href="/brand/logos/ballast-icon-512.png" download>PNG</a></div></div>
+    </div>
+    <div class="sq">
+      <a href="/brand/logos/ballast-square-white.png" download><img src="/brand/logos/ballast-square-white.png" alt="Square logo on white"><span>Square · white</span></a>
+      <a href="/brand/logos/ballast-square-ink.png" download><img src="/brand/logos/ballast-square-ink.png" alt="Square logo on ink"><span>Square · ink</span></a>
+      <a href="/brand/logos/ballast-square-green.png" download><img src="/brand/logos/ballast-square-green.png" alt="Square logo on racing green"><span>Square · racing green</span></a>
+      <a href="/brand/logos/ballast-square-transparent.png" download><img src="/brand/logos/ballast-square-transparent.png" alt="Square logo, transparent"><span>Square · transparent</span></a>
+      <a href="/brand/logos/ballast-stamp.png" download><img src="/brand/logos/ballast-stamp.png" alt="BALLAST.LA stamp" style="padding:8%;background:#fff"><span>Stamp</span></a>
+    </div>
+    <p class="dim" style="margin-top:14px">On Honolulu blue grounds, use the lockup on a white or ink panel: the outline is the same blue and disappears against it.</p>
+  </div>
+</section>
+
 <section>
   <div class="wrap">
     <div class="hd"><span class="n">01</span><h2>The Lozenge</h2><span class="r mono">The solar mold</span></div>
     <div class="mold">
-      <div class="stage"><img src="/lockup.png?v=3" width="1400" height="591" alt="The Ballast lockup: the wordmark inside the orange lozenge"></div>
+      <div class="stage"><img src="/lockup.png?v=4" width="1400" height="591" alt="The Ballast lockup: the wordmark inside the orange lozenge"></div>
       <div class="copy">
         <p class="big">A mold made of sunlight, wrapped around the most valuable thing in the room.</p>
         <p class="dim">The lozenge holds luxury blue and keeps it charged. Heat gathers at the core and builds toward the rim. Polished, futuristic and always in motion.</p>
