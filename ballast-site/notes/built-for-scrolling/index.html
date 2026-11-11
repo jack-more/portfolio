@@ -1,5 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="icon" href="/favicon.ico?v=3" sizes="any"><link rel="icon" type="image/png" href="/icon-192.png?v=3"><link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3">
+<link rel="icon" href="/favicon.ico?v=4" sizes="any"><link rel="icon" type="image/png" href="/icon-192.png?v=4"><link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;800&family=Geist+Mono:wght@500&display=swap">
 <title>Built for scrolling — Ballast Notes</title>
 <meta name="description" content="The feed can get anyone to watch anything. It was never designed to make anyone care. What the research since 2021 says about fandom in the feed era, and how to build fans that last.">
@@ -224,7 +224,7 @@
 (()=>{
  // 260-video feed
  const grid=document.getElementById('grid'),phone=document.getElementById('phone'),nEl=document.getElementById('n'),tEl=document.getElementById('t'),sec=document.getElementById('s260');
- const pal=['#0B5CF6','#FD720D','#0A0D18','#9DB8F5','#F7B98A','#B9B2A8','#3B4258','#D8CFC3'];
+ const pal=['#0076B6','#F86608','#0A0D18','#9DB8F5','#F7B98A','#B9B2A8','#3B4258','#D8CFC3'];
  let s=7;const r=()=>(s=(s*16807)%2147483647)/2147483647;
  const tiles=[];for(let i=0;i<260;i++){const e=document.createElement('i');e.dataset.c=pal[Math.floor(r()*pal.length)];grid.appendChild(e);tiles.push(e)}
  let shown=-1;

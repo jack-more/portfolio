@@ -1,11 +1,11 @@
 
 @font-face{font-family:BD;src:url(/notes/BallastDisplay-BlackItalic.woff2) format('woff2');font-display:swap}
-:root{--paper:#F6F1EA;--paper2:#EDE6DC;--ink:#0A0D18;--mute:#6E6862;--cobalt:#0B5CF6;--orange:#FD720D;--line:rgba(10,13,24,.14);
+:root{--paper:#FFFFFF;--paper2:#EDE6DC;--ink:#0A0D18;--mute:#6E6862;--cobalt:#0076B6;--orange:#F86608;--line:rgba(10,13,24,.14);
 --g:"Geist","Helvetica Neue",Arial,sans-serif;--m:"Geist Mono",ui-monospace,Menlo,monospace;--pad:clamp(16px,3vw,44px)}
 *{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--paper);color:var(--ink);font:400 18px/1.62 var(--g)}
 a{color:inherit}
-.top{position:sticky;top:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:14px var(--pad);background:rgba(246,241,234,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);font:500 12px var(--m);letter-spacing:.08em;text-transform:uppercase}
+.top{position:sticky;top:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:14px var(--pad);background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);font:500 12px var(--m);letter-spacing:.08em;text-transform:uppercase}
 .top a{text-decoration:none}.top .cta{background:var(--orange);padding:8px 15px;border-radius:999px}
 .prog{position:absolute;left:0;bottom:-1px;height:2px;width:0;background:var(--cobalt)}
 .mono{font:500 12px var(--m);letter-spacing:.1em;text-transform:uppercase}
@@ -138,7 +138,7 @@ ul.plain{padding-left:20px;margin:0}ul.plain li{margin:0 0 .6em}
  .cnt b{font-size:30px}
  .steps{padding:4vh 0 18vh;position:relative;z-index:1}
  .step{min-height:70vh}
- .step div{padding:18px;border:1px solid var(--line);background:rgba(246,241,234,.96)}
+ .step div{padding:18px;border:1px solid var(--line);background:rgba(255,255,255,.96)}
  .bar{grid-template-columns:1fr 78px}.bar label{grid-column:1/-1}.bar output{font-size:24px}
  .pair,.dots3{grid-template-columns:1fr}
  .swap{grid-template-columns:1fr;gap:8px}.swap .arr{transform:rotate(90deg)}

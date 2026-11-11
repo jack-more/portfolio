@@ -1,11 +1,11 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="icon" href="/favicon.ico?v=3" sizes="any">
+<link rel="icon" href="/favicon.ico?v=4" sizes="any">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&family=Geist+Mono:wght@500&display=swap">
 <title>Built for scrolling — Ballast Notes</title>
 <meta name="robots" content="noindex">
 <style>
 @font-face{font-family:BD;src:url(/notes/BallastDisplay-BlackItalic.woff2) format('woff2');font-display:swap}
-:root{--cob:#0B5CF6;--deep:#0A2C8C;--or:#FD720D;--amb:#F9A51B;--ink:#0A0D18;--paper:#F4EEE4;--w:#F3F4FA;
+:root{--cob:#0076B6;--deep:#0A2C8C;--or:#F86608;--amb:#F9A51B;--ink:#0A0D18;--paper:#F4EEE4;--w:#F3F4FA;
 --g:"Geist","Helvetica Neue",Arial,sans-serif;--m:"Geist Mono",ui-monospace,Menlo,monospace;
 --bg:var(--cob);--fg:var(--w);--ac:var(--or)}
 *{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
@@ -290,12 +290,12 @@ html{scroll-behavior:smooth}
 <script>
 (()=>{
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)],cl=v=>Math.max(0,Math.min(1,v)),ez=t=>1-Math.pow(1-t,3);
-const TH={cob:['#0B5CF6','#F3F4FA','#FD720D'],ink:['#0A0D18','#F3F4FA','#FD720D'],or:['#FD720D','#0A0D18','#F3F4FA']};
+const TH={cob:['#0076B6','#F3F4FA','#F86608'],ink:['#0A0D18','#F3F4FA','#F86608'],or:['#F86608','#0A0D18','#F3F4FA']};
 function theme(k){const t=TH[k]||TH.cob,r=document.documentElement.style;r.setProperty('--bg',t[0]);r.setProperty('--fg',t[1]);r.setProperty('--ac',t[2])}
 // split sentences into words
 $$('.say').forEach(p=>{const walk=n=>{[...n.childNodes].forEach(c=>{if(c.nodeType===3){const f=document.createDocumentFragment();c.textContent.split(/(\s+)/).forEach(s=>{if(!s)return;if(/^\s+$/.test(s))f.appendChild(document.createTextNode(s));else{const w=document.createElement('span');w.className='w';const m=s.match(/^([^A-Za-z0-9$]*)(.*)$/),core=m[2],k=core.length<=3?Math.min(1,core.length):Math.ceil(core.length*.45);const fx=document.createElement('span');fx.className='fx';fx.textContent=m[1]+core.slice(0,k);w.appendChild(fx);w.appendChild(document.createTextNode(core.slice(k)));f.appendChild(w)}});c.replaceWith(f)}else walk(c)})};walk(p)});
 let sd=7;const rnd=()=>(sd=(sd*16807)%2147483647)/2147483647;
-const pal=['#FD720D','#F9A51B','#F3F4FA','#0B5CF6','#7FA7FF','#FFC27A'];
+const pal=['#F86608','#F9A51B','#F3F4FA','#0076B6','#7FA7FF','#FFC27A'];
 const T=[];for(let i=0;i<260;i++){const e=document.createElement('i');e.dataset.c=pal[Math.floor(rnd()*pal.length)];$('#tiles').appendChild(e);T.push(e)}
 const F=[];for(let i=0;i<100;i++){const e=document.createElement('i');$('#ftiles').appendChild(e);F.push(e)}
 const fo=[...Array(100).keys()].sort(()=>rnd()-.5);
@@ -304,7 +304,7 @@ const L=$('#loop'),IT=['🏀','💸','🎧','👟','☕'].map(x=>{const e=docume
 const so=[...Array(100).keys()].sort(()=>rnd()-.5).slice(0,20);
 const S={
  habit(p){const n=Math.round(ez(p)*260);T.forEach((e,i)=>e.style.background=i<n?e.dataset.c:'');$('#hn').textContent=n;$('#ht').textContent=Math.round(n/260*35)+' min';$('#phone').classList.toggle('done',n>=258)},
- friends(p){const n=Math.round(11-4*ez(p)),s=new Set(fo.slice(0,n));F.forEach((e,i)=>e.style.background=s.has(i)?'#FD720D':'rgba(255,255,255,.85)');$('#fn').textContent=n+'%';$('#fy').textContent=p<.5?'2023':'2025'},
+ friends(p){const n=Math.round(11-4*ez(p)),s=new Set(fo.slice(0,n));F.forEach((e,i)=>e.style.background=s.has(i)?'#F86608':'rgba(255,255,255,.85)');$('#fn').textContent=n+'%';$('#fy').textContent=p<.5?'2023':'2025'},
  loop(p){const a=p*Math.PI*5;IT.forEach((e,i)=>{const t=a+i/5*Math.PI*2;e.style.transform=`translate(${Math.cos(t)*150}%,${Math.sin(t)*95}%)`});$('#lc').textContent=Math.round(ez(p)*100)},
  count(p){$('#cn').textContent=Math.round(738-463*ez(p));$('#cy').textContent='Streams per post · '+Math.round(2020+5*ez(p))},
  split(p){const k=Math.round(ez(p)*20),d=$('#sg').children;[...d].forEach((e,i)=>{const j=so.indexOf(i);e.classList.toggle('or',j>-1&&j<k);e.classList.toggle('on',!(j>-1&&j<k))})},

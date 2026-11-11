@@ -1,5 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<link rel="icon" href="/favicon.ico?v=3" sizes="any">
+<link rel="icon" href="/favicon.ico?v=4" sizes="any">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@600;700;800&family=Geist+Mono:wght@500&display=swap">
 <title>Built for scrolling — Ballast Notes</title>
 <meta name="robots" content="noindex">
@@ -9,27 +9,27 @@
 #world{position:fixed;inset:0;width:100%;height:100%;display:block}
 .top{position:fixed;inset:0 0 auto;z-index:5;display:flex;justify-content:space-between;align-items:center;padding:14px 18px;font:500 12px "Geist Mono",monospace;letter-spacing:.12em;text-transform:uppercase}
 .top a{text-decoration:none;color:inherit}.top button{font:inherit;letter-spacing:inherit;background:#0A0D18;color:#fff;border:0;border-radius:999px;padding:9px 14px;cursor:pointer}
-.prog{position:fixed;left:0;top:0;height:3px;background:#FD720D;width:0;z-index:6}
+.prog{position:fixed;left:0;top:0;height:3px;background:#F86608;width:0;z-index:6}
 /* the reading card: always on screen, one sentence at a time */
 .card{position:fixed;left:50%;bottom:max(18px,env(safe-area-inset-bottom));transform:translateX(-50%);z-index:4;width:min(680px,calc(100% - 28px));background:#fff;border-radius:22px;padding:20px 22px 18px;box-shadow:0 18px 50px rgba(10,13,24,.18)}
-.card .k{font:500 11px "Geist Mono",monospace;letter-spacing:.12em;text-transform:uppercase;color:#0B5CF6;display:flex;justify-content:space-between}
+.card .k{font:500 11px "Geist Mono",monospace;letter-spacing:.12em;text-transform:uppercase;color:#0076B6;display:flex;justify-content:space-between}
 .card p{margin:10px 0 0;font-weight:800;font-size:clamp(21px,2.3vw,30px);line-height:1.18;letter-spacing:-.025em;transition:opacity .25s}
-.card p em{font-style:normal;color:#FD720D}
+.card p em{font-style:normal;color:#F86608}
 .card p.out{opacity:0}
 /* big number overlay */
-.big{position:fixed;left:50%;top:20%;transform:translate(-50%,-50%);z-index:3;font-family:BD;font-style:italic;font-size:clamp(70px,13vw,170px);line-height:1;color:#fff;-webkit-text-stroke:.12em #0B5CF6;paint-order:stroke fill;pointer-events:none;transition:opacity .3s}
+.big{position:fixed;left:50%;top:20%;transform:translate(-50%,-50%);z-index:3;font-family:BD;font-style:italic;font-size:clamp(70px,13vw,170px);line-height:1;color:#fff;-webkit-text-stroke:.12em #0076B6;paint-order:stroke fill;pointer-events:none;transition:opacity .3s}
 .open{position:fixed;inset:0;z-index:4;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:16vh 18px 0;text-align:center;pointer-events:none;transition:opacity .4s}
-.open h1{font-family:BD;font-style:italic;font-size:clamp(52px,11vw,150px);line-height:.86;margin:0;color:#fff;-webkit-text-stroke:.13em #0B5CF6;paint-order:stroke fill;text-transform:uppercase}
+.open h1{font-family:BD;font-style:italic;font-size:clamp(52px,11vw,150px);line-height:.86;margin:0;color:#fff;-webkit-text-stroke:.13em #0076B6;paint-order:stroke fill;text-transform:uppercase}
 .open p{background:rgba(255,255,255,.92);border-radius:16px;padding:12px 16px;font-weight:800;font-size:clamp(19px,2vw,26px);max-width:620px;margin:20px 0 0;letter-spacing:-.02em}
-.open .go{background:#fff;border-radius:999px;padding:8px 14px;margin-top:12px;font:500 12px "Geist Mono",monospace;letter-spacing:.14em;text-transform:uppercase;color:#0B5CF6}
+.open .go{background:#fff;border-radius:999px;padding:8px 14px;margin-top:12px;font:500 12px "Geist Mono",monospace;letter-spacing:.14em;text-transform:uppercase;color:#0076B6}
 .spacer{height:100vh}
 .end{position:relative;z-index:4;background:#0A0D18;color:#fff;padding:14vh 20px 12vh}
 .end .in{max-width:760px;margin:0 auto}
-.end h2{font-family:BD;font-style:italic;font-size:clamp(46px,8vw,110px);line-height:.88;margin:0 0 30px;color:#fff;-webkit-text-stroke:.12em #0B5CF6;paint-order:stroke fill;text-transform:uppercase}
+.end h2{font-family:BD;font-style:italic;font-size:clamp(46px,8vw,110px);line-height:.88;margin:0 0 30px;color:#fff;-webkit-text-stroke:.12em #0076B6;paint-order:stroke fill;text-transform:uppercase}
 .end ol{list-style:none;padding:0;margin:0 0 36px;display:grid;gap:16px;counter-reset:n}
 .end li{counter-increment:n;display:grid;grid-template-columns:50px 1fr;font-weight:800;font-size:clamp(21px,2.4vw,32px);line-height:1.15;letter-spacing:-.02em}
-.end li::before{content:counter(n,decimal-leading-zero);font-family:BD;font-style:italic;color:#FD720D}
-.try{background:#FD720D;color:#0A0D18;border-radius:22px;padding:24px;font-weight:700;font-size:clamp(18px,1.8vw,23px);line-height:1.3}
+.end li::before{content:counter(n,decimal-leading-zero);font-family:BD;font-style:italic;color:#F86608}
+.try{background:#F86608;color:#0A0D18;border-radius:22px;padding:24px;font-weight:700;font-size:clamp(18px,1.8vw,23px);line-height:1.3}
 .try b{display:block;font:500 11px "Geist Mono",monospace;letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px}
 .btn{display:inline-block;margin-top:30px;background:#fff;color:#0A0D18;text-decoration:none;padding:15px 24px;border-radius:999px;font:500 13px "Geist Mono",monospace;letter-spacing:.1em;text-transform:uppercase}
 @media (max-width:700px){.card{padding:16px 18px 14px;border-radius:18px}.open{padding-top:13vh}.big{top:17%}}
@@ -67,7 +67,7 @@ const M=c=>new THREE.MeshStandardMaterial({color:c,roughness:.85});
 const box=(w,h,d,c,x,y,z,par=scene)=>{const m=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),typeof c==='string'?M(c):c);m.position.set(x,y+h/2,z);m.castShadow=m.receiveShadow=true;par.add(m);return m};
 // ground island
 box(40,1,40,'#DCE4FA',0,-1,0);
-box(40.6,.6,40.6,'#0B5CF6',0,-1.6,0);
+box(40.6,.6,40.6,'#0076B6',0,-1.6,0);
 // rail loop (rounded rectangle path)
 const W=13,D=9,RR=3.5;
 const path=new THREE.CurvePath();
@@ -82,10 +82,10 @@ for(let i=0;i<400;i+=4){const a=pts[i],b=pts[(i+1)%400],s=new THREE.Mesh(new THR
 const railL=pts.map(p=>p),rail=(off)=>{const c=new THREE.CatmullRomCurve3(pts.map((p,i)=>{const n=pts[(i+1)%400].clone().sub(p).normalize();return new THREE.Vector3(p.x-n.z*off,-.3,p.z+n.x*off)}),true);const m=new THREE.Mesh(new THREE.TubeGeometry(c,400,.06,4,true),M('#5D6688'));scene.add(m)};rail(.45);rail(-.45);
 // city blocks inside and outside the loop
 const pal=['#FFFFFF','#FFE1C2','#CFE0FF','#FFD0A8','#E7ECFF','#FFF4E6'];
-const winM=new THREE.MeshStandardMaterial({color:'#0B5CF6',roughness:.4,emissive:'#0B5CF6',emissiveIntensity:.15});
+const winM=new THREE.MeshStandardMaterial({color:'#0076B6',roughness:.4,emissive:'#0076B6',emissiveIntensity:.15});
 function building(x,z,w,d,h,c){const g=new THREE.Group();g.position.set(x,0,z);scene.add(g);box(w,h,d,c,0,-.5,0,g);
  for(let y=.6;y<h-.6;y+=1)for(let k=-w/2+.6;k<=w/2-.5;k+=.9){const wn=new THREE.Mesh(new THREE.BoxGeometry(.42,.5,.04),winM);wn.position.set(k,y,d/2+.01);g.add(wn);const w2=wn.clone();w2.rotation.y=Math.PI/2;w2.position.set(w/2+.01,y,k*d/w);g.add(w2)}
- box(w*.9,.25,d*.9,'#FD720D',0,h-.5,0,g);return g}
+ box(w*.9,.25,d*.9,'#F86608',0,h-.5,0,g);return g}
 [[-7,-3.5,3,3,4],[-3,-4,3,2.5,6],[1.5,-3.5,2.5,3,3.2],[5,-4,3,2.5,5],[8.5,-3,2.6,2.6,3.6]].forEach((b,i)=>building(b[0],b[1],b[2],b[3],b[4],pal[i%pal.length]));
 [[-16,-14,3,3,5],[-11,-15,3,3,3],[12,-15,4,3,7],[16.5,-12,2.6,3,4],[-17,13,3,3,3.5],[16,14,3,3,5.5]].forEach((b,i)=>building(b[0],b[1],b[2],b[3],b[4],pal[(i+2)%pal.length]));
 // landmarks: stadium (sports), stage (music), venue (the fix)
@@ -94,10 +94,10 @@ const ring=new THREE.Mesh(new THREE.CylinderGeometry(3.4,3.1,1.6,40,1,true),M('#
 const pitch=new THREE.Mesh(new THREE.CylinderGeometry(2.7,2.7,.1,40),M('#3FA34D'));pitch.scale.z=.7;pitch.position.y=-.45;stadium.add(pitch);
 const stage=new THREE.Group();stage.position.set(4.5,0,4);scene.add(stage);
 box(4,.5,2.4,'#0A0D18',0,-.5,-1,stage);box(4.2,2.6,.25,'#0A0D18',0,-.5,-2.2,stage);
-const scr=box(3.2,1.7,.05,new THREE.MeshBasicMaterial({color:'#FD720D'}),0,.3,-2.05,stage);
+const scr=box(3.2,1.7,.05,new THREE.MeshBasicMaterial({color:'#F86608'}),0,.3,-2.05,stage);
 // the owned venue: the warm room the fix sends people to
 const venue=new THREE.Group();venue.position.set(15.5,0,-1);scene.add(venue);
-box(4,3,4.5,'#FD720D',0,-.5,0,venue);box(4.4,.3,4.9,'#0A0D18',0,2.5,0,venue);
+box(4,3,4.5,'#F86608',0,-.5,0,venue);box(4.4,.3,4.9,'#0A0D18',0,2.5,0,venue);
 const door=box(1.2,1.8,.05,new THREE.MeshBasicMaterial({color:'#FFE7A3'}),-2.03,-.5,0,venue);door.rotation.y=Math.PI/2;door.position.x=-2.03;
 // palms
 const trunk=M('#9A6A45'),leaf=new THREE.MeshStandardMaterial({color:'#2E8A4A',roughness:.9,side:THREE.DoubleSide});
@@ -107,12 +107,12 @@ function palm(x,z){const g=new THREE.Group();g.position.set(x,-.5,z);scene.add(g
 // people: instanced capsules spread on the plaza in front
 const PN=100,pg=new THREE.CapsuleGeometry(.16,.32,3,8),pm=new THREE.MeshStandardMaterial({roughness:.7});
 const people=new THREE.InstancedMesh(pg,pm,PN);people.castShadow=true;scene.add(people);
-const home=[],pos=[],dummy=new THREE.Object3D(),cWhite=new THREE.Color('#FFFFFF'),cOr=new THREE.Color('#FD720D'),cBlue=new THREE.Color('#0B5CF6'),cGrey=new THREE.Color('#9AA3C4');
+const home=[],pos=[],dummy=new THREE.Object3D(),cWhite=new THREE.Color('#FFFFFF'),cOr=new THREE.Color('#F86608'),cBlue=new THREE.Color('#0076B6'),cGrey=new THREE.Color('#9AA3C4');
 for(let i=0;i<PN;i++){const gx=i%10,gz=Math.floor(i/10);home.push(new THREE.Vector3(-4.5+gx*1+((gz%2)?.5:0),0,11.5+gz*.62));pos.push(home[i].clone());people.setColorAt(i,cWhite)}
 const fanIdx=[...Array(PN).keys()].sort(()=>Math.random()-.5);
 // train: engine + cars that look like phones
-const train=[];const carM=M('#FFFFFF'),screenM=new THREE.MeshStandardMaterial({color:'#0B5CF6',emissive:'#0B5CF6',emissiveIntensity:.25});
-for(let i=0;i<9;i++){const g=new THREE.Group();scene.add(g);box(1.15,.95,1.9,i===0?M('#FD720D'):carM,0,-.25,0,g);
+const train=[];const carM=M('#FFFFFF'),screenM=new THREE.MeshStandardMaterial({color:'#0076B6',emissive:'#0076B6',emissiveIntensity:.25});
+for(let i=0;i<9;i++){const g=new THREE.Group();scene.add(g);box(1.15,.95,1.9,i===0?M('#F86608'):carM,0,-.25,0,g);
  const s=new THREE.Mesh(new THREE.BoxGeometry(1.17,.55,1.4),screenM);s.position.y=.25;g.add(s);train.push(g)}
 // ---------- camera framing per chapter
 const SHOT={hook:[0,0,1.05],feed:[0,0,.95],loop:[0,0,1.1],music:[4.5,4,1.9],sports:[-6.5,4,1.9],split:[0,12.8,1.7],fix:[11,0,1.25],open:[0,0,1.0]};
@@ -145,7 +145,7 @@ function frame(now){requestAnimationFrame(frame);const dt=Math.min(.05,(now-(las
   dummy.position.set(pos[idx].x,.06+bob,pos[idx].z);dummy.updateMatrix();people.setMatrixAt(idx,dummy.matrix);
   people.setColorAt(idx,k<fanN?cOr:(k<musicN?cBlue:(key==='sports'?(k%4===0?cWhite:cGrey):cWhite)))}
  people.instanceMatrix.needsUpdate=true;people.instanceColor.needsUpdate=true;
- scr.material.color.set(key==='music'?(Math.sin(t*4)>0?'#FD720D':'#F9A51B'):'#FD720D');
+ scr.material.color.set(key==='music'?(Math.sin(t*4)>0?'#F86608':'#F9A51B'):'#F86608');
  // the big number for this sentence counts up with your scroll
  const b=reading?BIG[i]:null;if(b){big.style.opacity=1;big.textContent=b[1]?Math.round(b[1]*Math.min(1,f*1.5)):b[0]}else big.style.opacity=0;
  document.getElementById('prog').style.width=(scrollY/(document.documentElement.scrollHeight-innerHeight)*100)+'%';

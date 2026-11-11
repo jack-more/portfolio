@@ -19,7 +19,7 @@ export function runner(box, hud) {
   scene.add(new THREE.Mesh(new THREE.SphereGeometry(100, 24, 16), skyMat));
   const sun = new THREE.Mesh(new THREE.CircleGeometry(9, 48), new THREE.MeshBasicMaterial({ color: '#FFD27A', fog: false }));
   sun.position.set(0, 7, -95); scene.add(sun);
-  const halo = new THREE.Mesh(new THREE.CircleGeometry(16, 48), new THREE.MeshBasicMaterial({ color: '#FD720D', transparent: true, opacity: .35, fog: false }));
+  const halo = new THREE.Mesh(new THREE.CircleGeometry(16, 48), new THREE.MeshBasicMaterial({ color: '#F86608', transparent: true, opacity: .35, fog: false }));
   halo.position.set(0, 7, -96); scene.add(halo);
 
   scene.add(new THREE.HemisphereLight('#FFE3C0', '#3A3F7A', 1.6));
@@ -31,7 +31,7 @@ export function runner(box, hud) {
   road.rotation.x = -Math.PI / 2; road.position.z = -80; scene.add(road);
   const side = new THREE.MeshStandardMaterial({ color: '#E9D8BE', roughness: 1 });
   [-1, 1].forEach(s => { const m = new THREE.Mesh(new THREE.PlaneGeometry(30, 200), side); m.rotation.x = -Math.PI / 2; m.position.set(s * 19.5, -.01, -80); scene.add(m); });
-  const curbM = new THREE.MeshStandardMaterial({ color: '#0B5CF6' });
+  const curbM = new THREE.MeshStandardMaterial({ color: '#0076B6' });
   [-4.6, 4.6].forEach(x => { const c = new THREE.Mesh(new THREE.BoxGeometry(.25, .25, 200), curbM); c.position.set(x, .12, -80); scene.add(c); });
 
   const LANE = 2.6, lanes = [-LANE, 0, LANE];
@@ -61,7 +61,7 @@ export function runner(box, hud) {
   const skin = new THREE.MeshStandardMaterial({ color: '#E7B48F', roughness: .7 });
   const tee = new THREE.MeshStandardMaterial({ color: '#F3F1EA', roughness: .8 });
   const shorts = new THREE.MeshStandardMaterial({ color: '#2F7A3E', roughness: .8 });
-  const shoe = new THREE.MeshStandardMaterial({ color: '#0B5CF6', roughness: .5 });
+  const shoe = new THREE.MeshStandardMaterial({ color: '#0076B6', roughness: .5 });
   const hair = new THREE.MeshStandardMaterial({ color: '#2A1E16', roughness: .9 });
   const torso = new THREE.Mesh(new THREE.CapsuleGeometry(.32, .55, 4, 10), tee); torso.position.y = 1.35; P.add(torso);
   const head = new THREE.Mesh(new THREE.SphereGeometry(.27, 16, 12), skin); head.position.y = 2.05; P.add(head);
@@ -78,8 +78,8 @@ export function runner(box, hud) {
   shadow.rotation.x = -Math.PI / 2; shadow.position.y = .02; scene.add(shadow);
 
   // obstacles and coins
-  const barM = [new THREE.MeshStandardMaterial({ color: '#FD720D' }), new THREE.MeshStandardMaterial({ color: '#F3F4FA' })];
-  const phoneM = new THREE.MeshStandardMaterial({ color: '#0A0D18', roughness: .4 }), screenM = new THREE.MeshBasicMaterial({ color: '#0B5CF6' });
+  const barM = [new THREE.MeshStandardMaterial({ color: '#F86608' }), new THREE.MeshStandardMaterial({ color: '#F3F4FA' })];
+  const phoneM = new THREE.MeshStandardMaterial({ color: '#0A0D18', roughness: .4 }), screenM = new THREE.MeshBasicMaterial({ color: '#0076B6' });
   const coinM = new THREE.MeshStandardMaterial({ color: '#FFC23A', metalness: .35, roughness: .3, emissive: '#C46A00', emissiveIntensity: .55 });
   const pool = [];
   function make(kind) {
@@ -92,7 +92,7 @@ export function runner(box, hud) {
       o = new THREE.Group();
       const b = new THREE.Mesh(new THREE.BoxGeometry(1.7, 3.1, .25), phoneM); b.position.y = 1.55; o.add(b);
       const s = new THREE.Mesh(new THREE.PlaneGeometry(1.45, 2.7), screenM); s.position.set(0, 1.55, .13); o.add(s);
-      const h = new THREE.Mesh(new THREE.TorusGeometry(.32, .09, 8, 18), new THREE.MeshBasicMaterial({ color: '#FD720D' })); h.position.set(0, 1.7, .15); o.add(h);
+      const h = new THREE.Mesh(new THREE.TorusGeometry(.32, .09, 8, 18), new THREE.MeshBasicMaterial({ color: '#F86608' })); h.position.set(0, 1.7, .15); o.add(h);
     } else {                            // coin
       const cg = new THREE.CylinderGeometry(.36, .36, .09, 28); cg.rotateX(Math.PI / 2); o = new THREE.Mesh(cg, coinM); o.position.y = .9;
     }
