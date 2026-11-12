@@ -165,18 +165,21 @@ body.simming #skip{display:block}
 .opts{transition:opacity .25s}.opts.fade{opacity:0}
 .choose{font:700 11px var(--m);letter-spacing:.14em;text-transform:uppercase;color:var(--amber);margin:4px 0 8px;display:flex;align-items:center;gap:8px}
 .choose:before{content:'';width:8px;height:8px;border-radius:50%;background:var(--amber);animation:pulse 1.6s infinite}
-.pick{position:relative}.pick:after{content:'Choose ›';position:absolute;right:12px;top:12px;font:700 10px var(--m);letter-spacing:.12em;text-transform:uppercase;opacity:.55}
+.pick{position:relative}.pick em{padding-right:62px}.pick:after{content:'Choose ›';position:absolute;right:12px;top:12px;font:700 10px var(--m);letter-spacing:.12em;text-transform:uppercase;opacity:.55}
 #meter{display:none!important}.hint{display:none}
-#hold{position:fixed;left:calc((100vw - var(--pw))/2);bottom:calc(34px + env(safe-area-inset-bottom));transform:translateX(-50%) scale(.85);z-index:8;width:124px;height:124px;opacity:0;pointer-events:none;transition:opacity .3s,transform .3s;touch-action:none;-webkit-user-select:none;user-select:none}
-body.clutching #hold{opacity:1;transform:translateX(-50%) scale(1);pointer-events:auto}
+#hold{position:fixed;left:calc((100vw - var(--pw))/2);bottom:calc(26px + env(safe-area-inset-bottom));transform:translateX(-50%) translateY(14px);z-index:8;width:120px;display:flex;flex-direction:column;align-items:center;gap:10px;opacity:0;pointer-events:none;transition:opacity .3s,transform .3s;touch-action:none;-webkit-user-select:none;user-select:none}
+body.clutching #hold{opacity:1;transform:translateX(-50%);pointer-events:auto}
 body.clutching .chipsT,body.clutching .sound{opacity:0!important}
-#hold svg{position:absolute;inset:0;transform:rotate(-90deg)}
-#hold .core{position:absolute;inset:18px;border-radius:50%;background:rgba(21,16,11,.72);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:grid;place-items:center;text-align:center;border:1.5px solid rgba(246,235,217,.25)}
-#hold .core b{font:800 19px/1 var(--d);letter-spacing:-.01em;display:block}#hold .core small{display:block;font:700 8.5px var(--m);letter-spacing:.14em;text-transform:uppercase;opacity:.7;margin-top:4px}
-#hold.idle .core{animation:pulse 1.4s infinite}
-#hold.in .core{background:var(--green);color:var(--ink);border-color:var(--green)}
-#hold.miss .core{background:var(--red);color:#fff}
-#hold .thumb{position:absolute;left:50%;top:-34px;transform:translateX(-50%);font:700 10px var(--m);letter-spacing:.14em;text-transform:uppercase;white-space:nowrap;color:var(--amber)}
+#hold .trk{position:relative;width:46px;height:min(34vh,250px);border-radius:14px;background:rgba(21,16,11,.72);border:2px solid rgba(246,235,217,.85);overflow:hidden;box-shadow:0 8px 30px rgba(0,0,0,.45);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+#hold .f{position:absolute;left:0;right:0;bottom:0;height:0;background:linear-gradient(0deg,#d9cbb3,#F6EBD9);z-index:1}
+#hold .g{position:absolute;left:0;right:0;z-index:2;background:rgba(59,227,122,.35);border-top:3px solid var(--green);border-bottom:3px solid var(--green);box-shadow:0 0 14px rgba(59,227,122,.8)}
+#hold .tick{position:absolute;left:-2px;right:-2px;height:3px;bottom:0;background:#fff;z-index:3;box-shadow:0 0 6px #fff}
+#hold .lbl{text-align:center;padding:8px 14px;border-radius:14px;background:rgba(21,16,11,.72);border:1.5px solid rgba(246,235,217,.25);min-width:110px}
+#hold .lbl b{font:800 20px/1 var(--d);display:block}#hold .lbl small{display:block;font:700 8.5px var(--m);letter-spacing:.14em;text-transform:uppercase;opacity:.75;margin-top:4px}
+#hold.idle .lbl{animation:pulse 1.4s infinite}
+#hold.in .trk{border-color:var(--green);box-shadow:0 0 26px var(--green)}#hold.in .f{background:var(--green)}#hold.in .lbl{background:var(--green);color:var(--ink);border-color:var(--green)}
+#hold.miss .lbl{background:var(--red);color:#fff;border-color:var(--red)}
+#hold .thumb{font:700 10px var(--m);letter-spacing:.14em;text-transform:uppercase;white-space:nowrap;color:var(--amber);order:-1}
 #hold:not(.idle) .thumb{opacity:0}
 #skip{border-color:var(--amber)!important;color:var(--amber)}
 /* ---- cinematic grade ---- */
@@ -188,8 +191,8 @@ body.clutching .chipsT,body.clutching .sound{opacity:0!important}
 #grade[data-era=arena]{background:linear-gradient(180deg,rgba(255,190,110,.13),rgba(60,30,10,.22));--grain:.12}
 #grade[data-era=arena99]{background:linear-gradient(180deg,rgba(120,150,255,.05),rgba(10,10,20,.15));--grain:.06}
 #grade[data-era=arena08]{background:linear-gradient(180deg,rgba(170,200,255,.06),rgba(0,0,0,.1));--grain:.035}
-#grade[data-era=void]{background:linear-gradient(180deg,rgba(255,60,240,.08),rgba(40,0,80,.18));--grain:.06}
-@media (max-width:820px){#hold{left:50%;bottom:calc(30px + env(safe-area-inset-bottom))}body.clutching #mp{opacity:.25}}
+#grade[data-era=arena16]{background:linear-gradient(180deg,rgba(255,200,150,.06),rgba(0,0,0,.14));--grain:.05}
+@media (max-width:820px){#hold{left:auto;right:calc(var(--pw) + 14px);transform:translateY(14px);bottom:calc(24px + env(safe-area-inset-bottom))}body.clutching #hold{transform:none}body.clutching #mp{opacity:.25}}
 </style>
 <script type="importmap">{"imports":{"three":"/hero/vendor/three.module.min.js"}}</script>
 </head><body class="build">
@@ -200,7 +203,7 @@ body.clutching .chipsT,body.clutching .sound{opacity:0!important}
 <div class="hint" id="hint"><b>Hold. Let go at the top.</b></div>
 <button class="sound" id="snd">Sound on</button>
 <div id="grade" data-era="rec"></div>
-<div id="hold" class="idle"><span class="thumb">Press and hold</span><svg viewBox="0 0 124 124"><circle cx="62" cy="62" r="54" fill="none" stroke="rgba(246,235,217,.18)" stroke-width="9"/><circle id="hG" cx="62" cy="62" r="54" fill="none" stroke="#3BE37A" stroke-width="13"/><circle id="hF" cx="62" cy="62" r="54" fill="none" stroke="#F6EBD9" stroke-width="7" stroke-linecap="round"/></svg><div class="core"><div><b id="hT">HOLD</b><small id="hS">Let go on green</small></div></div></div>
+<div id="hold" class="idle"><span class="thumb">Press and hold</span><div class="trk"><i class="g" id="hG"></i><i class="f" id="hF"></i><i class="tick" id="hK"></i></div><div class="lbl"><b id="hT">HOLD</b><small id="hS">Let go on green</small></div></div>
 <div id="meter"><div class="g"></div><div class="f"></div></div>
 <div id="call"></div><div id="eraT"></div><div id="flash"></div><div id="toast"></div>
 <div id="sim"><div class="row"><div class="big"><b id="tG">0/82</b><span>GAMES</span></div><div class="big"><b id="tR">0-0</b><span>RECORD</span></div><div class="big"><b id="tP">0.0</b><span>PPG</span></div><div class="big"><b id="tA">0.0</b><span>APG</span></div></div><div class="bar"><i id="tBar"></i></div><div id="news"></div></div>
@@ -553,28 +556,22 @@ era({key:'arena08',env:'crossfit_gym',envI:.25,yr:'2008',name:'The peak',bg:'#0b
  },
  tick(t,dt){tickFlashes(this);this.leds.forEach(l=>{l.t.offset.x=(l.t.offset.x+dt*.05)%1})}});
 
-// ∞ · the other side
-era({key:'void',yr:'∞',name:'The Other Side',bg:'#05010d',fog:['#0a0420',.01],exp:1.2,rim:'#ff3df2',bb:'#ffffff',bbOp:.15,net:'#7dfcff',
- build(g){
-  const grid=new THREE.GridHelper(200,100,'#ff3df2','#3b1d8f');grid.position.y=.012;g.add(grid);this.grid=grid;
-  const fl=new THREE.Mesh(new THREE.PlaneGeometry(200,200),new THREE.MeshStandardMaterial({color:'#080314',roughness:.05,metalness:.9}));fl.rotation.x=-Math.PI/2;fl.receiveShadow=true;g.add(fl);
-  courtLines(g,'#7dfcff',.9);
-  const sunT=tex(512,512,(c,w,h)=>{const gr=c.createLinearGradient(0,0,0,h);gr.addColorStop(0,'#ffe66b');gr.addColorStop(.55,'#ff5ea8');gr.addColorStop(1,'#7b2cff');c.fillStyle=gr;c.beginPath();c.arc(w/2,h/2,w/2,0,7);c.fill();c.globalCompositeOperation='destination-out';for(let k=0;k<9;k++){const y=h*.55+k*k*3.2+k*8;c.fillRect(0,y,w,4+k*1.6)}});
-  this.sun=new THREE.Mesh(new THREE.PlaneGeometry(60,60),new THREE.MeshBasicMaterial({map:sunT,transparent:true,fog:false}));this.sun.position.set(0,18,-90);g.add(this.sun);
-  const SN=2500,sg=new THREE.BufferGeometry(),sp=new Float32Array(SN*3);for(let k=0;k<SN;k++){const r=60+Math.random()*80,a=Math.random()*Math.PI*2,b=Math.random()*Math.PI*.5;sp.set([Math.cos(a)*Math.cos(b)*r,Math.sin(b)*r,Math.sin(a)*Math.cos(b)*r],k*3)}
-  sg.setAttribute('position',new THREE.BufferAttribute(sp,3));g.add(new THREE.Points(sg,new THREE.PointsMaterial({color:'#ffffff',size:.35,fog:false})));
-  // everyone who ever watched you, still here
-  const ghosts=[];for(let k=0;k<700;k++){const a=-Math.PI*.95+Math.random()*Math.PI*.9,d=16+Math.random()*16;ghosts.push({p:V(Math.cos(a)*d,(d-16)*.45+Math.random()*.3,Math.sin(a)*d+HOOPZ+6),ry:Math.atan2(-Math.cos(a),-Math.sin(a)),s:1.1,t:.5})}crowdMesh(g,ghosts,.5);
-  this.shapes=[];const geos=[new THREE.IcosahedronGeometry(1.2),new THREE.TorusKnotGeometry(.9,.25,90,12),new THREE.OctahedronGeometry(1.3),new THREE.TorusGeometry(1.4,.12,8,48)];
-  for(let k=0;k<22;k++){const m=new THREE.Mesh(geos[k%4],new THREE.MeshStandardMaterial({color:new THREE.Color().setHSL(Math.random(),1,.6),emissive:new THREE.Color().setHSL(Math.random(),1,.35),wireframe:k%3===0,roughness:.2,metalness:.6}));
-   const a=Math.random()*Math.PI*2,d=10+Math.random()*22;m.position.set(Math.cos(a)*d,4+Math.random()*12,Math.sin(a)*d-8);m.userData={s:.2+Math.random()*.8,y:m.position.y};g.add(m);this.shapes.push(m)}
-  this.h1=new THREE.HemisphereLight('#ff7af6','#2a0c5c',1.1);g.add(this.h1);
-  const key=new THREE.DirectionalLight('#9ffcff',2.2);key.position.set(6,14,8);g.add(key);shadowSun(key);
-  this.pl=new THREE.PointLight('#ff3df2',60,30,1.5);this.pl.position.set(0,4,HOOPZ+2);g.add(this.pl);this.hue=0;
+// 2016 · last season: the farewell tour, a black alternate court, a building that came to say goodbye
+era({key:'arena16',env:'crossfit_gym',envI:.2,yr:'2016',name:'Last season',bg:'#07070a',fog:['#0e0e14',.011],exp:1.04,rim:'#F25A1F',bb:'#ffffff',bbOp:.25,net:'#ffffff',
+ paint(T){return{wood:'maple',key:'#111114',keyA:.92,center:'#111114',logo:T.short,logoC:T.c1,apron:'#0c0c0f',apronA:.96,line:T.c2,base:'FAREWELL TOUR',side:'THANK YOU'+(T.name?' #'+P.num:''),text:T.c2,rough:.22}},
+ build(g){arenaCommon(this);const T0={c1:'#1F4E8C',c2:'#C2531C',name:'',short:''};
+  this.floor=courtFloor(g,this.paint(T0));gloss(g,.42);
+  const out=new THREE.Mesh(new THREE.PlaneGeometry(140,140),M('#0d0e12',{roughness:.85}));out.rotation.x=-Math.PI/2;out.position.y=-.01;g.add(out);
+  const b=bowl(g,{rows:15,up:14,fill:.97,tint:.92,upT:.72,step:'#1a1b20',seat:'#1d2333',rise:.48,upLift:2.8,upGap:2});
+  courtside(g,{tint:1,fill:.97});this.pads=stanchion(g,'#1F4E8C');
+  roof(g,b.top+3,'#08090c');rafterLights(g,{roof:b.top+3,col:'#fff1dc',power:1,hemi:.45,sky:'#e8e0d0'});
+  const rd=HW+3.4+15*.86+.9;
+  addLeds(this,g,T0,[[20,.85,0,.45,BASE_Z-3.0,0,'THANK YOU|FAREWELL TOUR|ONE LAST TIME',''],[64,1.2,-rd,b.ribbonY,HALF_Z,Math.PI/2,'THANK YOU|ONE LAST TIME|FAREWELL TOUR',''],[64,1.2,rd,b.ribbonY,HALF_Z,-Math.PI/2,'THANK YOU|ONE LAST TIME|FAREWELL TOUR',''],[32,1.2,0,b.ribbonY,BASE_Z-4.6-15*.86-.9,0,'THANK YOU|FAREWELL',''],
+   [7,.75,HW+1.1,.4,HALF_Z,-Math.PI/2,'THANK YOU|FAREWELL','']]);
+  const tbl=new THREE.Mesh(new THREE.BoxGeometry(.8,.85,7),M('#0c0c0e'));tbl.position.set(HW+1.5,.43,HALF_Z);g.add(tbl);
+  this.jb=jumbo.call(this,g,{y:b.top-2.5,w:7});this.bulbs=flashes(g,900,{r:28});
  },
- crowdCols(){return['#7b2cff','#ff3df2']},cheer(){HYPE.v=1},
- tick(t,dt){this.hue=(this.hue+dt*.03)%1;this.grid.position.z=(t*3)%2;this.shapes.forEach((m,i)=>{m.rotation.x+=dt*m.userData.s;m.rotation.y+=dt*m.userData.s*.7;m.position.y=m.userData.y+Math.sin(t*m.userData.s+i)*.6});
-  this.h1.color.setHSL(this.hue,1,.6);this.pl.color.setHSL((this.hue+.5)%1,1,.55);this.sun.rotation.z=Math.sin(t*.2)*.05}});
+ tick(t,dt){tickFlashes(this);this.leds.forEach(l=>{l.t.offset.x=(l.t.offset.x+dt*.05)%1})}});
 
 let E=null;
 function setEra(i){ERAS.forEach((e,k)=>e.g.visible=k===i);E=ERAS[i];scene.background=new THREE.Color(E.bg);scene.fog=new THREE.FogExp2(E.fog[0],E.fog[1]);R.toneMappingExposure=E.exp;
@@ -719,7 +716,8 @@ function uncard(){$('#card').classList.remove('on')}
 
 /* meter */
 const meter=$('#meter'),mG=meter.querySelector('.g'),mF=meter.querySelector('.f');const TARGET=.86;let MW=.12,MS=1;
-const HC=2*Math.PI*54;function holdUI(f,cls){const g=$('#hG'),F=$('#hF'),h=$('#hold');g.setAttribute('stroke-dasharray',`${HC*MW} ${HC}`);g.setAttribute('stroke-dashoffset',`${-HC*(TARGET-MW/2)}`);F.setAttribute('stroke-dasharray',`${HC*clamp(f,0,1)} ${HC}`);h.className=cls||(f>0?'':'idle');if(Math.abs(f-TARGET)<=MW/2&&f>0)h.classList.add('in');$('#hT').textContent=f>0?(h.classList.contains('in')?'NOW':'HOLD'):'HOLD';$('#hS').textContent=f>0?'Let go on green':'Let go on green'}
+function holdUI(f,cls){const h=$('#hold'),g=$('#hG');g.style.bottom=((TARGET-MW/2)*100)+'%';g.style.height=(MW*100)+'%';const v=clamp(f,0,1)*100+'%';$('#hF').style.height=v;$('#hK').style.bottom=`calc(${v} - 2px)`;
+ h.className=cls||(f>0?'':'idle');const inn=f>0&&Math.abs(f-TARGET)<=MW/2;if(inn)h.classList.add('in');$('#hT').textContent=f>0?(inn?'NOW!':(f>TARGET?'LATE':'HOLD')):'HOLD';$('#hS').textContent='Let go on green'}
 function meterLayout(){mG.style.bottom=((TARGET-MW/2)*100)+'%';mG.style.height=(MW*100)+'%'}
 function fillAt(t){const base=t*MS/.78;if(P.head==='goggles'&&base>TARGET-.2)return TARGET-.2+(base-(TARGET-.2))*.62;return base}
 
@@ -775,7 +773,7 @@ const STAGES=[
  {era:1,yr:'1991',t:'Rookie year',games:82,league:'the league',clutch:['Playoffs, game 5','0:02.4','Tied. Everyone knows who\'s shooting.'],win:'Series won'},
  {era:2,yr:'1999',t:'Your prime',games:82,league:'the league',clutch:['Conference finals','0:04.0','Down 2. Pull up from deep.'],win:'Finals bound'},
  {era:3,yr:'2008',t:'The peak',games:82,league:'the league',clutch:['Game 7, the Finals','0:03.1','Down 1. This is the one.'],win:'Champion',ring:1},
- {era:4,yr:'∞',t:'Last season',games:82,league:'the league',clutch:['Your final shot','0:01.0','Tied. Last time you touch it.'],win:'Walk-off'}];
+ {era:4,yr:'2016',t:'Last season',games:82,league:'the league',clutch:['Final home game','0:01.0','Tied. Last time you touch it.'],win:'Walk-off'}];
 let simSkip=false;$('#skip').onclick=e=>{e.stopPropagation();simSkip=true};
 function seasonLine(st){const r=S.r,o=ovr(),hs=st.games<40;
  const ppg=clamp((r.SHT*.22+r.HND*.1+r.ATH*.12+r.IQ*.06)-(hs?2:9)+(Math.random()*4-2)+(P.pos==='big'?-2:0),6,hs?38:36);
@@ -819,9 +817,22 @@ async function seasonCard(st,L,res,aw){mode='off';drawPanel();
 
 /* ================= offseason: choices depend on your build ================= */
 const fx=(o)=>Object.entries(o).map(([k,v])=>`<i class="${v<0?'neg':''}">${k==='bank'?(v<0?'-':'+')+fmt$(Math.abs(v)):(RN[k]||k.toUpperCase())+' '+(v>0?'+':'')+v}</i>`).join('');
+const COLLEGES=[
+ ['Duke','A coach who has seen everything. You learn to run a team.',()=>S.r.IQ>=64?`IQ ${S.r.IQ}`:vibe()==='pro'?'Pro fit':null,{IQ:7,DEF:2,rep:8}],
+ ['North Carolina','Blue blood. Learn the system, then break it.',()=>ovr()>=62?`OVR ${ovr()}`:null,{IQ:4,SHT:3,rep:8}],
+ ['Kentucky','One year in Lexington. Pure bounce, packed arena every night.',()=>S.r.ATH>=58?`Athleticism ${S.r.ATH}`:null,{ATH:4,hype:10,rep:4}],
+ ['Kansas','The loudest old gym you will ever play in.',()=>S.r.SHT>=66?`Shooting ${S.r.SHT}`:null,{SHT:4,IQ:3,rep:6}],
+ ['Georgetown','Defense first, defense last. Nobody likes playing you.',()=>S.r.DEF>=52?`Defense ${S.r.DEF}`:vibe()==='throwback'?'Throwback fit':null,{DEF:6,ATH:2,rep:6}],
+ ['UNLV','Run and gun in the desert. Flash on every possession.',()=>vibe()==='flash'?'Flash fit':S.r.HND>=62?`Handles ${S.r.HND}`:null,{HND:4,hype:12}],
+ ['Syracuse','The zone, and the Garden every March.',()=>P.pos==='big'?'Big man':S.r.DEF>=56?`Defense ${S.r.DEF}`:null,{DEF:4,IQ:3,rep:5}],
+ ['Indiana','Basketball is religion here. Shoot until your arm falls off.',()=>P.arch==='shooter'?'Sharpshooter':null,{SHT:6,rep:5}],
+ ['Michigan','A freshman class everybody talks about.',()=>S.hype>=8?`Hype ${Math.round(S.hype)}`:vibe()==='flash'?'Flash fit':null,{hype:14,ATH:2}],
+ ['UCLA','Eleven banners hang over your head every practice.',()=>S.rep>=55?`Respect ${Math.round(S.rep)}`:null,{IQ:3,SHT:2,rep:9}],
+ ['Villanova','Small school, giant-killer in March.',()=>P.arch==='general'?'Floor general':S.r.IQ>=60?`IQ ${S.r.IQ}`:null,{IQ:5,DEF:3,rep:6}],
+ ['Georgia Tech','Your guard skills, their offense. Lots of shots.',()=>P.pos==='guard'?'Guard':null,{HND:5,SHT:2}]];
 const CHOICES=[
  // after high school
- {id:'college',st:[0],get t(){return`Four years at ${SCHOOL[vibe()]}`},s:'Learn the game from a coach who has seen everything.',why:()=>S.r.IQ<70?`IQ ${S.r.IQ}`:vibe()==='pro'?'Pro fit':null,eff:{IQ:7,DEF:3,rep:8},act:()=>{S.school=SCHOOL[vibe()]}},
+ ...COLLEGES.map(([n,s_,why,eff])=>({id:'c_'+n,st:[0],t:n,s:s_,why,eff,act:()=>{S.school=n}})),
  {id:'straight',st:[0],t:'Straight to the league',s:'Skip school. Bet on the hype and the bounce.',why:()=>S.r.ATH>=70?`Athleticism ${S.r.ATH}`:S.hype>=15?`Hype ${Math.round(S.hype)}`:vibe()==='flash'?'Flash fit':null,eff:{ATH:3,hype:15}},
  {id:'overseas',st:[0],t:'A year in Italy',s:'Grown men, tough refs, a paycheck. Your jumper gets serious.',why:()=>S.r.SHT>=68?`Shooting ${S.r.SHT}`:vibe()==='throwback'?'Throwback fit':null,eff:{SHT:5,HND:2,bank:6e5},act:()=>{S.school='Italy'}},
  {id:'walkon',st:[0],t:'Walk on at Gonzaga',s:'Small school, nobody recruited you. You make them sorry.',why:()=>'Always open',eff:{HND:4,DEF:3,rep:5},act:()=>{S.school='Gonzaga'}},
@@ -841,24 +852,39 @@ const CHOICES=[
  {id:'rest',st:[1,2,3],t:'Rest and get right',s:'No camps, no tours. Your body thanks you.',why:()=>'Always open',eff:{ATH:2,rep:2}},
  {id:'camp',st:[2,3],t:'Run a camp at the old rec',s:'The kids from your block, every summer.',why:()=>S.rep>=70?`Respect ${Math.round(S.rep)}`:vibe()==='throwback'?'Throwback fit':null,eff:{rep:12,IQ:2}}];
 function eligible(stage){const pool=CHOICES.filter(c=>c.st.includes(stage)).map(c=>({c,why:c.why()})).filter(x=>x.why);
- pool.sort((a,b)=>(a.why==='Always open'||a.why==='It happens')-(b.why==='Always open'||b.why==='It happens')||Math.random()-.5);return pool.slice(0,3)}
+ pool.sort((a,b)=>(a.why==='Always open'||a.why==='It happens')-(b.why==='Always open'||b.why==='It happens')||Math.random()-.5);
+ if(stage===0){const col=pool.filter(x=>x.c.id.startsWith('c_')).slice(0,5),rest=pool.filter(x=>!x.c.id.startsWith('c_'));return[...col,...rest]}return pool.slice(0,3)}
 function applyEff(e){S.prev={...S.r};for(const[k,v]of Object.entries(e)){if(k in RN)S.r[k]=clamp(S.r[k]+v,25,99);else if(k==='bank')S.bank+=v;else S[k]+=v}stats()}
 async function offseason(stage){S.injury=Math.random()<.5;mode='off';tab='card';drawPanel();const next=STAGES[stage+1];
  return new Promise(res=>{const render=()=>{const picks=eligible(stage);
-  card(`<span class="mono" style="color:var(--amber)">Offseason · next up ${next.yr}, ${next.t.toLowerCase()}</span><h2>${stage===0?'Where do you go?':'What do you do this summer?'}</h2>
+  card(`<span class="mono" style="color:var(--amber)">${stage===0?'Recruiting · '+picks.filter(x=>x.c.id.startsWith('c_')).length+' offers':'Offseason · next up '+next.yr+', '+next.t.toLowerCase()}</span><h2>${stage===0?'Signing day. Who gets you?':'What do you do this summer?'}</h2>
   <p>What you get offered depends on who you are: your ratings, your fit, your money, your name. ${mobile()?'Open My Player to change the fit.':'Change your fit on the right and the offers change.'}</p>
   <div class="choose">Tap one to choose</div><div class="picks">${picks.map((x,i)=>`<button class="pick" data-i="${i}"><em>Because: ${x.why}</em><b>${x.c.t}</b><span>${x.c.s}</span><div class="fx">${fx(x.c.eff)}</div></button>`).join('')}</div>`);
-  $('#card').querySelectorAll('.pick').forEach(b=>b.onclick=()=>{const x=picks[+b.dataset.i];applyEff(x.c.eff);x.c.act&&x.c.act();S.story.push(`${stage===0?'After high school':next.yr==='∞'?'Before the last season':'Summer before '+next.yr}: ${x.c.t.charAt(0).toLowerCase()+x.c.t.slice(1)}.`);sfx.green();cleanup();uncard();res(x.c)})};
+  $('#card').querySelectorAll('.pick').forEach(b=>b.onclick=()=>{const x=picks[+b.dataset.i];applyEff(x.c.eff);x.c.act&&x.c.act();S.story.push(x.c.id.startsWith('c_')?`Signing day: committed to ${x.c.t}.`:`${stage===0?'After high school':next.yr==='2016'?'Before the last season':'Summer before '+next.yr}: ${x.c.t.charAt(0).toLowerCase()+x.c.t.slice(1)}.`);sfx.green();cleanup();uncard();res(x.c)})};
   render();const cleanup=()=>{$('#opts').removeEventListener('click',re)};const re=()=>setTimeout(render,0);$('#opts').addEventListener('click',re)})}
 function growth(stage){S.prev={...S.r};const d=stage<=2?{SHT:2,HND:2,ATH:1,DEF:1,IQ:2}:stage===3?{SHT:1,HND:0,ATH:0,DEF:1,IQ:3}:{SHT:0,HND:-2,ATH:-4,DEF:-2,IQ:3};for(const k in d)S.r[k]=clamp(S.r[k]+d[k],25,99)}
 async function travel(stage){camState.from.copy(camState.pos);camState.mode='dive';camState.t=0;sfx.whoosh();speedLines(1000);await sleep(800);await flash(500);
  const st=STAGES[stage];setEra(st.era);if(stage===1&&!S.team){S.team=pick(TEAMS[vibe()]);S.teamStr=S.team.str;S.story.push(`Draft night: the ${S.team.name} took you${S.school==='Italy'?' straight out of Italy':S.school?' out of '+S.school:' straight out of Bayview High'}. Your ${VIBE[vibe()].toLowerCase()} fit was all over TV.`)}
  if(E.setTeam)E.setTeam(S.team||TEAMS.plain[0]);pl.pos.copy(spotPos(0));pl.face=faceHoop(pl.pos);holdBall();
  hud(`${st.yr} · ${S.team&&stage>0?S.team.name:'Bayview High'}`,st.t);const et=$('#eraT');et.innerHTML=`<b>${st.yr}</b><span>${st.t}</span>`;et.classList.remove('go');void et.offsetWidth;et.classList.add('go');camState.mode='fly';camState.t=0;await sleep(1800)}
+const NEED=['Needs a scorer','Loves your fit','Young core, wants a leader','Their GM watched every game','Need a shooter, bad','Big market, big lights','Rebuilding around you'];
+async function draftNight(){mode='off';drawPanel();const o=ovr(),pk=clamp(Math.round(31-(o-55)*1.35-S.hype*.08+(Math.random()*4-2)),1,30);
+ const all=Object.entries(TEAMS).filter(([k])=>k!=='contender').flatMap(([k,a])=>a.map(t=>({t,k})));const mine=all.filter(x=>x.k===vibe()).map(x=>x.t),others=all.filter(x=>x.k!==vibe()).map(x=>x.t).sort(()=>Math.random()-.5);
+ const three=[pick(mine.length?mine:others),...others].filter((t,i,a)=>a.indexOf(t)===i).slice(0,3),need=[...NEED].sort(()=>Math.random()-.5);
+ const from=S.school==='Italy'?'out of Italy':S.school?'out of '+S.school:'straight out of Bayview High';
+ await new Promise(res=>{card(`<span class="mono" style="color:var(--amber)">Draft night · 1991 · projected pick #${pk}</span><h2>Three teams want you.</h2>
+  <p>Your agent can steer you to one of them. Pick where you want to go.</p><div class="choose">Tap one to choose</div>
+  <div class="picks">${three.map((t,i)=>`<button class="pick" data-i="${i}"><em>Because: ${i===0?VIBE[vibe()]+' fit':need[i]}</em><b><span style="display:inline-block;width:12px;height:12px;border-radius:3px;background:${t.c1};box-shadow:4px 0 0 ${t.c2};margin-right:12px"></span>${t.name}</b><span>${i===0?'They love how you carry yourself.':need[i+3]+'.'} Team strength ${t.str}.</span></button>`).join('')}</div>`);
+  $('#card').querySelectorAll('.pick').forEach(b=>b.onclick=()=>{S.team=three[+b.dataset.i];S.teamStr=S.team.str;sfx.green();res()})});
+ S.story.push(`Draft night: the ${S.team.name} took you with the #${pk} pick, ${from}.`);
+ card(`<span class="mono" style="color:var(--amber)">Round 1 · Pick ${pk}</span><h2 style="font-size:clamp(64px,18vw,120px);margin:4px 0">#${pk}</h2>
+  <p>With the ${pk}${[,'st','nd','rd'][pk%10]&&Math.floor(pk/10)!==1?[,'st','nd','rd'][pk%10]:'th'} pick, the <b style="color:var(--amber)">${S.team.name}</b> select ${P.name}, ${from}.</p>
+  <div class="go"><span class="sm">Rookie year starts now.</span><button class="btn cta" id="nx">Put on the hat ›</button></div>`);E.cheer&&E.cheer();sfx.crowd(.3);
+ await new Promise(r=>$('#nx').onclick=r);uncard()}
 async function startCareer(){if(!ready3d)return;S.r=baseRatings();S.unlocked=new Set();mode='sim';tab='card';drawPanel();document.body.classList.remove('build','open');stats();
  if(soundOn)tune.start();
  for(let i=0;i<STAGES.length;i++){const st=STAGES[i];if(i>0)growth(i);await travel(i);const L=await simSeason(st);S.lastL=L;const res=await clutch(st);const aw=awardsFor(st,L,res);
-  await seasonCard(st,L,res,aw);if(i<STAGES.length-1)await offseason(i)}
+  await seasonCard(st,L,res,aw);if(i<STAGES.length-1)await offseason(i);if(i===0)await draftNight()}
  hof()}
 async function hof(){camState.from.copy(camState.pos);camState.mode='dive';camState.t=0;speedLines(900);await sleep(800);await flash(600);setEra(0);mode='end';drawPanel();
  hud('Years later','The rec, again');pl.pos.set(0,0,-3.2);pl.face=faceHoop(pl.pos);camState.mode='end';camState.t=0;holdBall();await sleep(1200);
