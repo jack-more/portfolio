@@ -153,6 +153,43 @@ body.simming #skip{display:block}
  .hint{bottom:calc(14px + env(safe-area-inset-bottom))}
  #clock p{font-size:15px}
 }
+
+/* ---- guided UI ---- */
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(242,163,58,.55)}50%{box-shadow:0 0 0 10px rgba(242,163,58,0)}}
+.cta{animation:pulse 1.6s ease-in-out infinite;background:var(--amber)!important;color:var(--ink)!important;border-color:var(--amber)!important}
+.btn.cta{font-weight:800}
+.tabs button{position:relative}
+.tabs button i{font-style:normal;display:inline-grid;place-items:center;width:17px;height:17px;border-radius:50%;border:1.5px solid currentColor;margin-right:6px;font-size:9.5px;vertical-align:-3px}
+.tabs button.done i{background:var(--green);border-color:var(--green);color:var(--ink)}
+.step{padding:6px 2px 4px;font-size:15px;line-height:1.35}.step b{display:block;font:700 10.5px var(--m);letter-spacing:.14em;text-transform:uppercase;color:var(--amber);margin-bottom:3px}
+.opts{transition:opacity .25s}.opts.fade{opacity:0}
+.choose{font:700 11px var(--m);letter-spacing:.14em;text-transform:uppercase;color:var(--amber);margin:4px 0 8px;display:flex;align-items:center;gap:8px}
+.choose:before{content:'';width:8px;height:8px;border-radius:50%;background:var(--amber);animation:pulse 1.6s infinite}
+.pick{position:relative}.pick:after{content:'Choose ›';position:absolute;right:12px;top:12px;font:700 10px var(--m);letter-spacing:.12em;text-transform:uppercase;opacity:.55}
+#meter{display:none!important}.hint{display:none}
+#hold{position:fixed;left:calc((100vw - var(--pw))/2);bottom:calc(34px + env(safe-area-inset-bottom));transform:translateX(-50%) scale(.85);z-index:8;width:124px;height:124px;opacity:0;pointer-events:none;transition:opacity .3s,transform .3s;touch-action:none;-webkit-user-select:none;user-select:none}
+body.clutching #hold{opacity:1;transform:translateX(-50%) scale(1);pointer-events:auto}
+body.clutching .chipsT,body.clutching .sound{opacity:0!important}
+#hold svg{position:absolute;inset:0;transform:rotate(-90deg)}
+#hold .core{position:absolute;inset:18px;border-radius:50%;background:rgba(21,16,11,.72);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:grid;place-items:center;text-align:center;border:1.5px solid rgba(246,235,217,.25)}
+#hold .core b{font:800 19px/1 var(--d);letter-spacing:-.01em;display:block}#hold .core small{display:block;font:700 8.5px var(--m);letter-spacing:.14em;text-transform:uppercase;opacity:.7;margin-top:4px}
+#hold.idle .core{animation:pulse 1.4s infinite}
+#hold.in .core{background:var(--green);color:var(--ink);border-color:var(--green)}
+#hold.miss .core{background:var(--red);color:#fff}
+#hold .thumb{position:absolute;left:50%;top:-34px;transform:translateX(-50%);font:700 10px var(--m);letter-spacing:.14em;text-transform:uppercase;white-space:nowrap;color:var(--amber)}
+#hold:not(.idle) .thumb{opacity:0}
+#skip{border-color:var(--amber)!important;color:var(--amber)}
+/* ---- cinematic grade ---- */
+#grade{position:fixed;inset:0;z-index:1;pointer-events:none;transition:background .8s}
+#grade:before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 45%,rgba(0,0,0,0) 45%,rgba(0,0,0,.55) 100%)}
+#grade:after{content:'';position:absolute;inset:-50%;opacity:var(--grain,.07);background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");animation:grain .5s steps(4) infinite;mix-blend-mode:overlay}
+@keyframes grain{0%{transform:translate(0,0)}25%{transform:translate(-3%,2%)}50%{transform:translate(2%,-3%)}75%{transform:translate(-2%,-1%)}}
+#grade[data-era=rec]{background:linear-gradient(180deg,rgba(255,170,80,.10),rgba(120,50,10,.12));--grain:.08}
+#grade[data-era=arena]{background:linear-gradient(180deg,rgba(255,190,110,.13),rgba(60,30,10,.22));--grain:.12}
+#grade[data-era=arena99]{background:linear-gradient(180deg,rgba(120,150,255,.05),rgba(10,10,20,.15));--grain:.06}
+#grade[data-era=arena08]{background:linear-gradient(180deg,rgba(170,200,255,.06),rgba(0,0,0,.1));--grain:.035}
+#grade[data-era=void]{background:linear-gradient(180deg,rgba(255,60,240,.08),rgba(40,0,80,.18));--grain:.06}
+@media (max-width:820px){#hold{left:50%;bottom:calc(30px + env(safe-area-inset-bottom))}body.clutching #mp{opacity:.25}}
 </style>
 <script type="importmap">{"imports":{"three":"/hero/vendor/three.module.min.js"}}</script>
 </head><body class="build">
@@ -162,10 +199,12 @@ body.simming #skip{display:block}
 <div class="chipsT"><div class="st ovr" id="sOvr"><b>60</b><span>OVR</span></div><div class="st" id="sRep"><b>50</b><span>RESPECT</span></div><div class="st" id="sHype"><b>0</b><span>HYPE</span></div><div class="st" id="sBank"><b>$0</b><span>BANK</span></div><div class="st" id="sRing"><b>0</b><span>RINGS</span></div></div>
 <div class="hint" id="hint"><b>Hold. Let go at the top.</b></div>
 <button class="sound" id="snd">Sound on</button>
+<div id="grade" data-era="rec"></div>
+<div id="hold" class="idle"><span class="thumb">Press and hold</span><svg viewBox="0 0 124 124"><circle cx="62" cy="62" r="54" fill="none" stroke="rgba(246,235,217,.18)" stroke-width="9"/><circle id="hG" cx="62" cy="62" r="54" fill="none" stroke="#3BE37A" stroke-width="13"/><circle id="hF" cx="62" cy="62" r="54" fill="none" stroke="#F6EBD9" stroke-width="7" stroke-linecap="round"/></svg><div class="core"><div><b id="hT">HOLD</b><small id="hS">Let go on green</small></div></div></div>
 <div id="meter"><div class="g"></div><div class="f"></div></div>
 <div id="call"></div><div id="eraT"></div><div id="flash"></div><div id="toast"></div>
 <div id="sim"><div class="row"><div class="big"><b id="tG">0/82</b><span>GAMES</span></div><div class="big"><b id="tR">0-0</b><span>RECORD</span></div><div class="big"><b id="tP">0.0</b><span>PPG</span></div><div class="big"><b id="tA">0.0</b><span>APG</span></div></div><div class="bar"><i id="tBar"></i></div><div id="news"></div></div>
-<button id="skip">Skip to the moment</button>
+<button id="skip">Skip to the big moment ›</button>
 <div id="clock"><span id="ckTag">Game 7</span><b id="ckT">0:04.0</b><p id="ckP">Down 2. Ball's yours.</p></div>
 <div id="load" class="mono">Loading player…</div>
 <aside id="mp" aria-label="My Player">
@@ -521,7 +560,7 @@ let E=null;
 function setEra(i){ERAS.forEach((e,k)=>e.g.visible=k===i);E=ERAS[i];scene.background=new THREE.Color(E.bg);scene.fog=new THREE.FogExp2(E.fog[0],E.fog[1]);R.toneMappingExposure=E.exp;
  rimM.color.set(E.rim);bbM.color.set(E.bb);bbM.opacity=E.bbOp;netM.color.set(E.net);sqM.color.set(E.key==='void'?'#7dfcff':'#C2531C');
  rimM.emissive.set(E.key==='void'?'#ff3df2':'#000');rimM.emissiveIntensity=E.key==='void'?1.2:0;pole.visible=harm.visible=!E.stanchion;
- if(E.crowdCols)buildCrowd(E.crowdCols())}
+ if(E.crowdCols)buildCrowd(E.crowdCols());const gd=document.getElementById('grade');if(gd)gd.dataset.era=E.key}
 
 
 /* ================= the player: realistic body built in Blender from MakeHuman's CC0 data ================= */
@@ -622,10 +661,11 @@ const FIT={
  arms:{l:'Arms',it:[{id:'none',t:'None'},{id:'wrist',t:'Wristbands'},{id:'sleeve',t:'Sleeve',key:'sleeve'}]},
  neck:{l:'Neck',it:[{id:'none',t:'None'},{id:'chain',t:'Chain',key:'chain'}]}};
 let tab='build',mode='build';
-function chipGroup(k,g){return `<div class="grp"><span class="mono">${g.l}</span><div class="cs">${g.it.map(o=>{const lk=o.key&&!S.unlocked.has(o.key);return `<button class="c ${String(P[k])===String(o.id)?'on':''} ${lk?'lock':''} ${S.fresh===o.key?'new':''}" data-k="${k}" data-v="${o.id}" ${lk?'disabled':''}>${o.sw?`<i class="sw" style="background:${o.sw}"></i>`:''}${o.t||''}${lk?' 🔒':''}</button>`}).join('')}</div></div>`}
+function chipGroup(k,g){return `<div class="grp"><span class="mono">${g.l}</span><div class="cs">${g.it.map(o=>{const lk=o.key&&!S.unlocked.has(o.key);return `<button class="c ${String(P[k])===String(o.id)?'on':''} ${lk?'lock':''} ${S.fresh&&S.fresh===o.key?'new':''}" data-k="${k}" data-v="${o.id}" ${lk?'disabled':''}>${o.sw?`<i class="sw" style="background:${o.sw}"></i>`:''}${o.t||''}${lk?' 🔒':''}</button>`}).join('')}</div></div>`}
 function ratingRows(){const r=mode==='build'?baseRatings():S.r;return `<div class="rt">${Object.keys(RN).map(k=>`<div class="${S.prev[k]&&r[k]>S.prev[k]?'up':''}"><span>${RN[k]}</span><i><u style="width:${r[k]}%"></u></i><b>${r[k]}</b></div>`).join('')}</div>`}
 function drawPanel(){const tabs=mode==='build'?[['build','Build'],['look','Look'],['fit','Fit']]:[['card','Player'],['fit','Fit']];if(!tabs.some(t=>t[0]===tab))tab=tabs[0][0];
- $('#tabs').innerHTML=tabs.map(([k,t])=>`<button class="${k===tab?'on':''}" data-t="${k}">${t}</button>`).join('');let h='';
+ const ti=tabs.findIndex(t=>t[0]===tab);$('#tabs').innerHTML=tabs.map(([k,t],i)=>`<button class="${k===tab?'on':''} ${mode==='build'&&i<ti?'done':''}" data-t="${k}">${mode==='build'?`<i>${i<ti?'✓':i+1}</i>`:''}${t}</button>`).join('');let h='';
+ const STEP={build:['Step 1 of 3','Name him, then pick how he plays.'],look:['Step 2 of 3','Pick his skin, face and hair.'],fit:['Step 3 of 3','Pick the fit. It changes which doors open later.']};
  if(tab==='build'){h=`<div class="nm"><input id="pName" value="${P.name}" maxlength="16" aria-label="Name"><input id="pNum" class="n" value="${P.num}" maxlength="2" inputmode="numeric" aria-label="Number"></div>
   <div class="grp"><span class="mono">Archetype</span><div class="cs">${Object.entries(ARCH).map(([k,a])=>`<button class="c arch ${P.arch===k?'on':''}" data-k="arch" data-v="${k}">${a.t}<small>${a.s}</small></button>`).join('')}</div></div>
   <div class="grp"><span class="mono">Position</span><div class="cs">${Object.entries(POS).map(([k,a])=>`<button class="c ${P.pos===k?'on':''}" data-k="pos" data-v="${k}">${a.t}</button>`).join('')}</div></div>
@@ -633,9 +673,9 @@ function drawPanel(){const tabs=mode==='build'?[['build','Build'],['look','Look'
  if(tab==='look')h=Object.entries(LOOK).map(([k,g])=>chipGroup(k,g)).join('');
  if(tab==='fit')h=Object.entries(FIT).map(([k,g])=>chipGroup(k,g)).join('')+`<div class="trait">What you wear changes which doors open. Your fit reads <b>${VIBE[vibe()]}</b>.${mode!=='build'&&mode!=='off'?'<br>You can change it in the offseason.':''}</div>`;
  if(tab==='card'){h=`${ratingRows()}<div class="trait">${S.story.length?S.story.slice(-3).map(s=>'· '+s.replace(/<[^>]+>/g,'')).join('<br>'):'Your story starts here.'}</div>`}
- $('#opts').innerHTML=h;$('#mp').classList.toggle('locked',mode!=='build'&&mode!=='off');
- $('#foot').innerHTML=mode==='build'?`<button class="btn" id="startBtn">Start career</button>`:'';$('#foot').style.display=mode==='build'?'':'none';
- const sb=$('#startBtn');if(sb)sb.onclick=()=>startCareer();
+ if(mode==='build'&&STEP[tab])h=`<div class="step"><b>${STEP[tab][0]}</b>${STEP[tab][1]}</div>`+h;$('#opts').innerHTML=h;$('#mp').classList.toggle('locked',mode!=='build'&&mode!=='off');
+ $('#foot').innerHTML=mode==='build'?`<button class="btn cta" id="startBtn">${tab==='build'?'Next: his look ›':tab==='look'?'Next: his fit ›':'Start career ›'}</button>`:'';$('#foot').style.display=mode==='build'?'':'none';
+ const sb=$('#startBtn');if(sb)sb.onclick=()=>{if(tab==='fit')return startCareer();const o=$('#opts');o.classList.add('fade');setTimeout(()=>{tab=tab==='build'?'look':'fit';drawPanel();o.scrollTop=0;o.classList.remove('fade')},180);sfx.tick()};
  const pn=$('#pName');if(pn){pn.oninput=()=>P.name=pn.value;$('#pNum').oninput=e=>{P.num=e.target.value.replace(/\D/g,'');numTex()}}
  refreshTop()}
 function refreshTop(){const o=mode==='build'?ovr(baseRatings()):ovr();$('#pvOvr').textContent=o;$('#railOvr').textContent=o;$('#fitName').textContent=VIBE[vibe()]+' fit';$('#fitArch').textContent=`${ARCH[P.arch].t} · ${POS[P.pos].t}`;$('#pvTag').textContent=mode==='build'?'Create player':P.name.toUpperCase()+' #'+P.num}
@@ -659,6 +699,7 @@ function uncard(){$('#card').classList.remove('on')}
 
 /* meter */
 const meter=$('#meter'),mG=meter.querySelector('.g'),mF=meter.querySelector('.f');const TARGET=.86;let MW=.12,MS=1;
+const HC=2*Math.PI*54;function holdUI(f,cls){const g=$('#hG'),F=$('#hF'),h=$('#hold');g.setAttribute('stroke-dasharray',`${HC*MW} ${HC}`);g.setAttribute('stroke-dashoffset',`${-HC*(TARGET-MW/2)}`);F.setAttribute('stroke-dasharray',`${HC*clamp(f,0,1)} ${HC}`);h.className=cls||(f>0?'':'idle');if(Math.abs(f-TARGET)<=MW/2&&f>0)h.classList.add('in');$('#hT').textContent=f>0?(h.classList.contains('in')?'NOW':'HOLD'):'HOLD';$('#hS').textContent=f>0?'Let go on green':'Let go on green'}
 function meterLayout(){mG.style.bottom=((TARGET-MW/2)*100)+'%';mG.style.height=(MW*100)+'%'}
 function fillAt(t){const base=t*MS/.78;if(P.head==='goggles'&&base>TARGET-.2)return TARGET-.2+(base-(TARGET-.2))*.62;return base}
 
@@ -672,7 +713,7 @@ addEventListener('pointerdown',down);addEventListener('pointerup',up);addEventLi
 addEventListener('keydown',e=>{if(e.code==='Space'&&!e.repeat&&document.activeElement.tagName!=='INPUT'){e.preventDefault();down({target:document.body})}});addEventListener('keyup',e=>{if(e.code==='Space')up()});
 addEventListener('contextmenu',e=>e.preventDefault());
 function release(){const f=fillAt(pl.holdT),d=Math.abs(f-TARGET),green=d<=MW/2,good=!green&&d<=MW*1.1,make=green||(good?Math.random()<.5:Math.random()<.05);
- state='shot';meter.classList.toggle('green',green);setTimeout(()=>meter.classList.remove('on'),500);if(green)sfx.green();
+ state='shot';meter.classList.toggle('green',green);{const h=$('#hold');h.className=green?'in':'miss';$('#hT').textContent=green?'GREEN':(f<TARGET?'EARLY':'LATE');$('#hS').textContent=green?'Perfect release':'Missed the window'}setTimeout(()=>meter.classList.remove('on'),500);if(green)sfx.green();
  const early=f<TARGET,label=green?'Perfect release':good?(early?'Slightly early':'Slightly late'):(early?'Very early':'Very late');
  shoot3d(make,green,label,()=>{clutchRes&&clutchRes({make,green,label})})}
 
@@ -739,8 +780,8 @@ async function simSeason(st){mode='sim';drawPanel();document.body.classList.add(
 async function clutch(st){mode='clutch';drawPanel();await runTo(Math.floor(Math.random()*9));pl.spot=0;
  const[tag,clock,line]=st.clutch;$('#ckTag').textContent=tag;$('#ckT').textContent=clock;$('#ckP').textContent=line;$('#clock').classList.add('on');camState.mode='clutch';camState.t=0;sfx.crowd(.3);
  const r=S.r;MW=clamp(.055+r.SHT/99*.085,.06,.15)*(P.head==='band'?1.2:1);MS=1+st.era*.07+(P.neck==='chain'?.12:0);
- await sleep(1200);state='ready';meterLayout();mF.style.height='0%';meter.classList.remove('green','in');meter.classList.add('on');const hint=$('#hint');hint.querySelector('b').textContent=mobile()?'Hold. Let go on the green.':'Hold (or Space). Let go on the green.';hint.style.opacity=1;
- const res=await new Promise(r=>clutchRes=r);clutchRes=null;$('#clock').classList.remove('on');
+ await sleep(1200);state='ready';meterLayout();mF.style.height='0%';meter.classList.remove('green','in');holdUI(0);document.body.classList.add('clutching');document.body.classList.remove('open');const hint=$('#hint');hint.querySelector('b').textContent=mobile()?'Hold. Let go on the green.':'Hold (or Space). Let go on the green.';hint.style.opacity=1;
+ const res=await new Promise(r=>clutchRes=r);clutchRes=null;$('#clock').classList.remove('on');setTimeout(()=>document.body.classList.remove('clutching'),700);
  if(res.make){call(st.win.toUpperCase(),res.green?'Green. Perfect release.':'It falls.','#3BE37A');S.hype+=12;S.rep+=8;E.cheer&&E.cheer();sfx.crowd(.35)}
  else{call('NO GOOD',res.label,'#ff6a4d');S.rep-=2}
  stats();await sleep(1800);return res}
@@ -753,7 +794,7 @@ async function seasonCard(st,L,res,aw){mode='off';drawPanel();
  card(`<span class="mono" style="color:var(--amber)">${st.yr} · ${st.t} · ${S.team?S.team.name:'Bayview High'}</span><h2>${L.wins}-${L.losses}</h2>
  <div class="line"><div><b>${L.ppg.toFixed(1)}</b><span>PPG</span></div><div><b>${L.rpg.toFixed(1)}</b><span>RPG</span></div><div><b>${L.apg.toFixed(1)}</b><span>APG</span></div><div><b>${L.ovr}</b><span>OVR</span></div></div>
  <p>${res.make?`The clutch shot fell. <b>${st.win}.</b>`:`The last shot rimmed out. Season over.`}</p>${aw.length?`<div class="aw">${aw.map(a=>`<span>${a}</span>`).join('')}</div>`:''}
- <div class="go"><span class="sm">${st===STAGES[STAGES.length-1]?'That was the last one.':'The offseason is where you build.'}</span><button class="btn" id="nx">${st===STAGES[STAGES.length-1]?'Retire':'Offseason'}</button></div>`);
+ <div class="go"><span class="sm">${st===STAGES[STAGES.length-1]?'That was the last one.':'The offseason is where you build.'}</span><button class="btn cta" id="nx">${st===STAGES[STAGES.length-1]?'Retire ›':'Go to the offseason ›'}</button></div>`);
  await new Promise(r=>$('#nx').onclick=r);uncard()}
 
 /* ================= offseason: choices depend on your build ================= */
@@ -786,7 +827,7 @@ async function offseason(stage){S.injury=Math.random()<.5;mode='off';tab='card';
  return new Promise(res=>{const render=()=>{const picks=eligible(stage);
   card(`<span class="mono" style="color:var(--amber)">Offseason · next up ${next.yr}, ${next.t.toLowerCase()}</span><h2>${stage===0?'Where do you go?':'What do you do this summer?'}</h2>
   <p>What you get offered depends on who you are: your ratings, your fit, your money, your name. ${mobile()?'Open My Player to change the fit.':'Change your fit on the right and the offers change.'}</p>
-  <div class="picks">${picks.map((x,i)=>`<button class="pick" data-i="${i}"><em>Because: ${x.why}</em><b>${x.c.t}</b><span>${x.c.s}</span><div class="fx">${fx(x.c.eff)}</div></button>`).join('')}</div>`);
+  <div class="choose">Tap one to choose</div><div class="picks">${picks.map((x,i)=>`<button class="pick" data-i="${i}"><em>Because: ${x.why}</em><b>${x.c.t}</b><span>${x.c.s}</span><div class="fx">${fx(x.c.eff)}</div></button>`).join('')}</div>`);
   $('#card').querySelectorAll('.pick').forEach(b=>b.onclick=()=>{const x=picks[+b.dataset.i];applyEff(x.c.eff);x.c.act&&x.c.act();S.story.push(`${stage===0?'After high school':next.yr==='∞'?'Before the last season':'Summer before '+next.yr}: ${x.c.t.charAt(0).toLowerCase()+x.c.t.slice(1)}.`);sfx.green();cleanup();uncard();res(x.c)})};
   render();const cleanup=()=>{$('#opts').removeEventListener('click',re)};const re=()=>setTimeout(render,0);$('#opts').addEventListener('click',re)})}
 function growth(stage){S.prev={...S.r};const d=stage<=2?{SHT:2,HND:2,ATH:1,DEF:1,IQ:2}:stage===3?{SHT:1,HND:0,ATH:0,DEF:1,IQ:3}:{SHT:0,HND:-2,ATH:-4,DEF:-2,IQ:3};for(const k in d)S.r[k]=clamp(S.r[k]+d[k],25,99)}
@@ -806,7 +847,7 @@ async function hof(){camState.from.copy(camState.pos);camState.mode='dive';camSt
  card(`<span class="mono" style="color:var(--amber)">Career over · ${ARCH[P.arch].t} · ${VIBE[vibe()]} fit</span><h2>${P.name.toUpperCase()} #${P.num}<br><span style="color:var(--amber)">${title}</span></h2>
  <div class="line"><div><b>${pts.toLocaleString()}</b><span>POINTS</span></div><div><b>${ppg.toFixed(1)}</b><span>PPG</span></div><div><b>${S.rings}</b><span>RINGS</span></div><div><b>${o}</b><span>PEAK OVR</span></div></div>
  ${S.awards.length?`<div class="aw">${S.awards.map(a=>`<span>${a}</span>`).join('')}</div>`:''}<ol>${S.story.map(s=>`<li>${s}</li>`).join('')}</ol>
- <div class="go"><button class="btn alt" id="save">Save card</button><button class="btn" id="again">Run it back</button></div>`);
+ <div class="go"><button class="btn alt" id="save">Save card</button><button class="btn cta" id="again">Run it back</button></div>`);
  $('#again').onclick=()=>location.reload();$('#save').onclick=()=>saveCard(title,ppg)}
 function saveCard(title,ppg){const W=1080,H=1350,c=document.createElement('canvas');c.width=W;c.height=H;const g=c.getContext('2d');
  const src=cv,pr=R.getPixelRatio(),playW=(FW-(mobile()?58:348))*pr,sh=src.height,sw=Math.min(playW,sh*W/H);g.drawImage(src,(playW-sw)/2,0,sw,sh,0,0,W,H);
@@ -826,7 +867,7 @@ function size(){FW=innerWidth;FH=innerHeight;DPR=Math.min(devicePixelRatio||1,2)
 addEventListener('resize',size);size();
 let last=0,T=0;const tmp=V(),tmp2=V();
 function frame(now){requestAnimationFrame(frame);const rdt=Math.min(.25,(now-(last||now))/1000),dt=Math.min(.05,rdt);last=now;T+=dt;
- if(state==='hold'){pl.holdT+=dt;const f=fillAt(pl.holdT);mF.style.height=clamp(f,0,1)*100+'%';meter.classList.toggle('in',Math.abs(f-TARGET)<=MW/2);if(f>=1.08&&mode==='clutch')release()}
+ if(state==='hold'){pl.holdT+=dt;const f=fillAt(pl.holdT);mF.style.height=clamp(f,0,1)*100+'%';meter.classList.toggle('in',Math.abs(f-TARGET)<=MW/2);holdUI(f);if(f>=1.08&&mode==='clutch')release()}
  if(!E)return;E.tick&&E.tick(T,dt);HYPE.v=lerp(HYPE.v,mode==='clutch'?.32:HYPE.base,1-Math.exp(-dt*.6));CROWD_U.uT.value=T;CROWD_U.uHype.value=HYPE.v;
  const F=V(Math.sin(pl.face),0,Math.cos(pl.face)),Rt=V(-Math.cos(pl.face),0,Math.sin(pl.face));
  if(model){mixer.update(dt);model.position.copy(pl.pos);model.rotation.y=pl.face;
