@@ -28,10 +28,10 @@ body.build .chipsT{opacity:0}
 .hint{position:fixed;left:0;right:var(--pw);bottom:calc(26px + env(safe-area-inset-bottom));z-index:5;text-align:center;pointer-events:none;transition:opacity .4s;opacity:0}
 .hint b{font:700 13px var(--m);letter-spacing:.14em;text-transform:uppercase;padding:9px 14px;border-radius:999px;border:1.5px solid currentColor;display:inline-block;background:rgba(21,16,11,.5)}
 .sound{position:fixed;left:16px;bottom:calc(18px + env(safe-area-inset-bottom));z-index:7;font:700 11px var(--m);letter-spacing:.14em;text-transform:uppercase;border:1.5px solid currentColor;border-radius:999px;padding:8px 12px;opacity:.8}
-#meter{position:fixed;z-index:5;width:16px;height:132px;border-radius:9px;background:rgba(21,16,11,.55);border:2px solid rgba(246,235,217,.85);overflow:hidden;opacity:0;transition:opacity .15s;pointer-events:none;box-shadow:0 4px 18px rgba(0,0,0,.35)}
+#meter{position:fixed;z-index:5;width:22px;height:176px;border-radius:9px;background:rgba(21,16,11,.55);border:2px solid rgba(246,235,217,.85);overflow:hidden;opacity:0;transition:opacity .15s;pointer-events:none;box-shadow:0 4px 18px rgba(0,0,0,.35)}
 #meter.on{opacity:1}
-#meter .g{position:absolute;left:0;right:0;background:var(--green);opacity:.9}
-#meter .f{position:absolute;left:0;right:0;bottom:0;background:var(--cream)}
+#meter .g{position:absolute;left:0;right:0;z-index:2;background:rgba(59,227,122,.45);border-top:3px solid var(--green);border-bottom:3px solid var(--green);box-shadow:0 0 12px var(--green)}#meter.in .f{background:var(--green)}
+#meter .f{position:absolute;left:0;right:0;bottom:0;z-index:1;background:var(--cream)}
 #meter.green{border-color:var(--green);box-shadow:0 0 22px var(--green)}
 #call{position:fixed;left:0;right:var(--pw);top:28%;z-index:6;text-align:center;pointer-events:none;font-weight:800;letter-spacing:-.04em;font-size:clamp(46px,9vw,120px);line-height:.9;opacity:0;text-shadow:0 4px 30px rgba(0,0,0,.35)}
 #call.go{animation:call 1.1s cubic-bezier(.2,.9,.3,1.2) forwards}
@@ -131,6 +131,7 @@ body.simming #skip{display:block}
  :root{--pw:58px}
  #mp{right:0;top:0;bottom:0;width:min(92vw,380px);transform:translateX(calc(100% - var(--pw)));transition:transform .5s cubic-bezier(.2,.9,.25,1)}
  body.open #mp{transform:none}
+ body.open.build #mp{width:100vw}body.open.build .rail{display:none}body.open.build #pv,body.open.build .pb{margin-left:0}body.open.build #pv{flex-basis:42%}
  #pv{border-radius:0;margin-left:var(--pw);flex-basis:34%;border-top:0}
  .pb{border-radius:0;margin-left:var(--pw);border-bottom:0}
  .rail{display:flex;position:absolute;left:0;top:0;bottom:0;width:var(--pw);flex-direction:column;align-items:center;justify-content:center;gap:12px;background:rgba(21,16,11,.82);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-left:1px solid var(--line)}
@@ -408,24 +409,23 @@ const LM={hips:1.114,spine2:1.454,neck:1.68,top:1.947,eyeY:1.829,eyeZ:.137,eyeX:
 let model=null,mixer=null,acts={},bones={},cur=null,ready3d=false;const MAT={},MESH={};
 const SKIN=['#F1C9A5','#D9A47A','#B07246','#8D5534','#64391F','#3E2414'];
 const numCanvas=document.createElement('canvas');numCanvas.width=numCanvas.height=128;const numT=new THREE.CanvasTexture(numCanvas);
-const UNI={uJersey:{value:new THREE.Color('#F3EEE3')},uTrim:{value:new THREE.Color('#C2531C')},uShortBot:{value:.8},uSockTop:{value:.2},uTube:{value:0},uNum:{value:numT},uHair:{value:1},uHairCol:{value:new THREE.Color('#141010')},uShoe:{value:new THREE.Color('#F3EEE3')}};
+const UNI={uJersey:{value:new THREE.Color('#F3EEE3')},uTrim:{value:new THREE.Color('#C2531C')},uShortBot:{value:.8},uSockTop:{value:.2},uTube:{value:0},uNum:{value:numT},uHair:{value:1},uHairCol:{value:new THREE.Color('#141010')},uShoe:{value:new THREE.Color('#F3EEE3')},uShoeTop:{value:.1}};
 function numTex(){const c=numCanvas.getContext('2d');c.clearRect(0,0,128,128);c.fillStyle='#fff';c.font='800 96px Bricolage Grotesque, sans-serif';c.textAlign='center';c.textBaseline='middle';c.fillText(String(P.num||'0').slice(0,2),64,72);numT.needsUpdate=true}
 function shaderMat(opts,frag){const m=new THREE.MeshStandardMaterial(opts);m.onBeforeCompile=s=>{Object.assign(s.uniforms,UNI);
- s.vertexShader=s.vertexShader.replace('#include <common>','#include <common>\nvarying vec3 vB;').replace('#include <begin_vertex>','#include <begin_vertex>\nvB=position;');
- s.fragmentShader=s.fragmentShader.replace('#include <common>','#include <common>\nvarying vec3 vB;uniform vec3 uJersey,uTrim,uHairCol,uShoe;uniform float uShortBot,uSockTop,uTube,uHair;uniform sampler2D uNum;\nfloat h21(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}')
-  .replace('#include <color_fragment>','#include <color_fragment>\n{float ax=abs(vB.x),y=vB.y;'+frag+'}')};m.customProgramCacheKey=()=>frag;return m}
+ const sk=frag===FRAG.skin;s.vertexShader=s.vertexShader.replace('#include <common>','#include <common>\nvarying vec3 vB;'+(sk?'attribute float aArm;varying float vArm;':'')).replace('#include <begin_vertex>','#include <begin_vertex>\nvB=position;'+(sk?'vArm=aArm;':''));
+ s.fragmentShader=s.fragmentShader.replace('#include <common>','#include <common>\nvarying vec3 vB;uniform vec3 uJersey,uTrim,uHairCol,uShoe;uniform float uShortBot,uSockTop,uTube,uHair,uShoeTop;uniform sampler2D uNum;'+(sk?'varying float vArm;':'')+'\nfloat h21(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}\nfloat aa(float d){return clamp(d/max(fwidth(d),1e-5)+.5,0.,1.);}\nfloat fnF(vec3 b){return b.z>0.?pow(b.x/.105,2.)+pow((b.y-1.668)/.105,2.):pow(b.x/.088,2.)+pow((b.y-1.668)/.045,2.);}\nfloat ahF(vec3 b){return pow((abs(b.x)-.222)/.078,2.)+pow((b.y-1.52)/.165,2.);}')
+  .replace('#include <color_fragment>','#include <color_fragment>\n{float ax=abs(vB.x),y=vB.y;'+frag+'}')};m.alphaToCoverage=frag!==FRAG.skin&&frag!==FRAG.shoes;m.customProgramCacheKey=()=>frag;return m}
 const FRAG={
  skin:`if(uHair>.5){float h=0.;h=max(h,smoothstep(1.872,1.882,y)*step(vB.z,.06));h=max(h,smoothstep(1.895,1.905,y)*step(vB.z,.105));h=max(h,smoothstep(1.918,1.925,y));
-  h*=.78+.22*h21(floor(vB.xz*900.));diffuseColor.rgb=mix(diffuseColor.rgb,uHairCol,h*.92);}`,
- jersey:`if(y>1.668||y<1.03||ax>.255)discard;
-  float fn=vB.z>0.?pow(vB.x/.105,2.)+pow((y-1.668)/.105,2.):pow(vB.x/.088,2.)+pow((y-1.668)/.045,2.);if(fn<1.)discard;
-  float ah=pow((ax-.222)/.078,2.)+pow((y-1.52)/.165,2.);if(ah<1.)discard;
+  h*=.78+.22*h21(floor(vB.xz*900.));diffuseColor.rgb=mix(diffuseColor.rgb,uHairCol,h*.92);}
+  if(vArm<.5){bool cv=(y<1.652&&y>1.045&&ax<.243&&fnF(vB)>1.15&&ahF(vB)>1.15)||(y>uShortBot+.018&&y<1.2)||(y<uSockTop-.014)||(y<uShoeTop-.014);if(cv)discard;}`,
+ jersey:`float fn=fnF(vB),ah=ahF(vB);float cv=min(min(aa(1.668-y),aa(y-1.06)),min(aa(.255-ax),min(aa(fn-1.),aa(ah-1.))));if(cv<.02)discard;diffuseColor.a=cv;
   vec3 c=uJersey;if(fn<1.25||ah<1.3)c=uTrim;
-  vec2 uv=vB.z<0.?vec2((-vB.x+.11)/.22,(y-1.19)/.22):vec2((vB.x+.055)/.11,(y-1.37)/.11);
+  vec2 uv=vB.z<0.?vec2((-vB.x+.12)/.24,(y-1.18)/.24):vec2((vB.x+.075)/.15,(y-1.33)/.15);
   if(uv.x>0.&&uv.x<1.&&uv.y>0.&&uv.y<1.)c=mix(c,uTrim,texture2D(uNum,uv).a);diffuseColor.rgb=c;`,
- shorts:`if(y<uShortBot||y>1.215)discard;vec3 c=uJersey;if(y>1.18||y<uShortBot+.024)c=uTrim;diffuseColor.rgb=c;`,
- socks:`if(y>uSockTop)discard;vec3 c=vec3(.95,.94,.91);if(uTube>.5&&((y>uSockTop-.055&&y<uSockTop-.04)||(y>uSockTop-.09&&y<uSockTop-.075)))c=uJersey;diffuseColor.rgb=c;`,
- band:`if(y<${(1.947-.083).toFixed(3)}||y>${(1.947-.045).toFixed(3)})discard;`,
+ shorts:`float cv=min(aa(y-uShortBot),aa(1.14-y));if(cv<.02)discard;diffuseColor.a=cv;vec3 c=uJersey;if(y>1.115||y<uShortBot+.024)c=uTrim;diffuseColor.rgb=c;`,
+ socks:`float cv=aa(uSockTop-y);if(cv<.02)discard;diffuseColor.a=cv;vec3 c=vec3(.95,.94,.91);if(uTube>.5&&((y>uSockTop-.055&&y<uSockTop-.04)||(y>uSockTop-.09&&y<uSockTop-.075)))c=uJersey;diffuseColor.rgb=c;`,
+ band:`float cv=min(aa(y-${(1.947-.083).toFixed(3)}),aa(${(1.947-.045).toFixed(3)}-y));if(cv<.02)discard;diffuseColor.a=cv;`,
  shoes:`vec3 c=uShoe;if(y<.028)c=vec3(.93,.91,.87);else if(y<.04)c=mix(uShoe,vec3(.1),.25);diffuseColor.rgb=c;`};
 function setupModel(gl){model=gl.scene;
  model.traverse(o=>{if(o.isBone)bones[o.name.replace(/^mixamorig:?/,'')]=o;if(!o.isMesh)return;o.castShadow=true;o.frustumCulled=false;const n=o.material.name;MESH[n]=MESH[n]||[];MESH[n].push(o);
@@ -446,6 +446,9 @@ function setupModel(gl){model=gl.scene;
  const strap=new THREE.Mesh(new THREE.TorusGeometry(.098,.005,6,40),fm);strap.rotation.x=Math.PI/2;strap.position.set(0,LM.eyeY,.03);strap.scale.set(1,1.25,1);gg.add(strap);attach(gg,'Head');MESH.goggles=[gg];
  const gm=M('#E8C547',{metalness:1,roughness:.22}),cg=new THREE.Group();const ch=new THREE.Mesh(new THREE.TorusGeometry(.085,.006,8,48,Math.PI*1.15),gm);ch.rotation.set(-1.1,0,Math.PI*1.93);ch.position.set(0,1.585,.06);
  const pend=new THREE.Mesh(new THREE.CylinderGeometry(.022,.022,.008,20),gm);pend.rotation.x=Math.PI/2-.2;pend.position.set(0,1.5,.135);cg.add(ch,pend);attach(cg,'Spine2');MESH.chain=[cg];
+ (MESH.Skin||[]).forEach(o=>{const g=o.geometry,si=g.attributes.skinIndex,sw=g.attributes.skinWeight;if(!si||!o.skeleton)return;const arm=o.skeleton.bones.map(b=>/(Arm|Hand)/.test(b.name)?1:0),a=new Float32Array(si.count);
+  for(let i=0;i<si.count;i++)a[i]=arm[si.getX(i)]*sw.getX(i)+arm[si.getY(i)]*sw.getY(i)+arm[si.getZ(i)]*sw.getZ(i)+arm[si.getW(i)]*sw.getW(i);g.setAttribute('aArm',new THREE.BufferAttribute(a,1))});
+ {let top=0;(MESH.Shoes||[]).forEach(o=>{o.geometry.computeBoundingBox();top=Math.max(top,o.geometry.boundingBox.max.y)});UNI.uShoeTop.value=top||.1}
  play('idle',0);dress();ready3d=true;window.__ready=true;$('#load').remove()}
 function attach(g,bone){const b=bones[bone];if(!b)return;g.updateMatrixWorld(true);const inv=new THREE.Matrix4().copy(b.matrixWorld).invert();// model is at origin, scale 1, in bind pose
  g.children.forEach(c=>{c.applyMatrix4(inv)});b.add(g)}
@@ -543,7 +546,7 @@ function fillAt(t){const base=t*MS/.78;if(P.head==='goggles'&&base>TARGET-.2)ret
 let clutchRes=null;
 function down(e){ac();const tg=e&&e.target;if(tg&&tg.closest&&tg.closest('#mp,.card,button,input'))return;
  if(document.body.classList.contains('open')&&mobile()){document.body.classList.remove('open');return}
- if(state!=='ready'||!ready3d)return;state='hold';pl.holdT=0;meterLayout();mF.style.height='0%';meter.classList.add('on');meter.classList.remove('green');$('#hint').style.opacity=0}
+ if(state!=='ready'||!ready3d)return;state='hold';pl.holdT=0;meterLayout();mF.style.height='0%';meter.classList.add('on');meter.classList.remove('green','in');$('#hint').style.opacity=0}
 function up(){if(state==='hold')release()}
 addEventListener('pointerdown',down);addEventListener('pointerup',up);addEventListener('pointercancel',up);
 addEventListener('keydown',e=>{if(e.code==='Space'&&!e.repeat&&document.activeElement.tagName!=='INPUT'){e.preventDefault();down({target:document.body})}});addEventListener('keyup',e=>{if(e.code==='Space')up()});
@@ -616,7 +619,7 @@ async function simSeason(st){mode='sim';drawPanel();document.body.classList.add(
 async function clutch(st){mode='clutch';drawPanel();await runTo(Math.floor(Math.random()*9));pl.spot=0;
  const[tag,clock,line]=st.clutch;$('#ckTag').textContent=tag;$('#ckT').textContent=clock;$('#ckP').textContent=line;$('#clock').classList.add('on');camState.mode='clutch';camState.t=0;sfx.crowd(.3);
  const r=S.r;MW=clamp(.055+r.SHT/99*.085,.06,.15)*(P.head==='band'?1.2:1);MS=1+st.era*.07+(P.neck==='chain'?.12:0);
- await sleep(1200);state='ready';const hint=$('#hint');hint.querySelector('b').textContent=mobile()?'Hold. Let go on the green.':'Hold (or Space). Let go on the green.';hint.style.opacity=1;
+ await sleep(1200);state='ready';meterLayout();mF.style.height='0%';meter.classList.remove('green','in');meter.classList.add('on');const hint=$('#hint');hint.querySelector('b').textContent=mobile()?'Hold. Let go on the green.':'Hold (or Space). Let go on the green.';hint.style.opacity=1;
  const res=await new Promise(r=>clutchRes=r);clutchRes=null;$('#clock').classList.remove('on');
  if(res.make){call(st.win.toUpperCase(),res.green?'Green. Perfect release.':'It falls.','#3BE37A');S.hype+=12;S.rep+=8;if(E.key==='arena')E.burst=80;sfx.crowd(.35)}
  else{call('NO GOOD',res.label,'#ff6a4d');S.rep-=2}
@@ -703,7 +706,7 @@ function size(){FW=innerWidth;FH=innerHeight;DPR=Math.min(devicePixelRatio||1,2)
 addEventListener('resize',size);size();
 let last=0,T=0;const tmp=V(),tmp2=V();
 function frame(now){requestAnimationFrame(frame);const rdt=Math.min(.25,(now-(last||now))/1000),dt=Math.min(.05,rdt);last=now;T+=dt;
- if(state==='hold'){pl.holdT+=dt;const f=fillAt(pl.holdT);mF.style.height=clamp(f,0,1)*100+'%';if(f>=1.08&&mode==='clutch')release()}
+ if(state==='hold'){pl.holdT+=dt;const f=fillAt(pl.holdT);mF.style.height=clamp(f,0,1)*100+'%';meter.classList.toggle('in',Math.abs(f-TARGET)<=MW/2);if(f>=1.08&&mode==='clutch')release()}
  if(!E)return;E.tick&&E.tick(T,dt);
  const F=V(Math.sin(pl.face),0,Math.cos(pl.face)),Rt=V(-Math.cos(pl.face),0,Math.sin(pl.face));
  if(model){mixer.update(dt);model.position.copy(pl.pos);model.rotation.y=pl.face;
@@ -734,7 +737,7 @@ function frame(now){requestAnimationFrame(frame);const rdt=Math.min(.25,(now-(la
  if(camState.mode==='end'){const a=pl.face+.5+T*.05;cp=V().copy(pl.pos).add(V(Math.sin(a)*6,2.2,Math.cos(a)*6));cl=V().copy(pl.pos).add(V(0,1.2,0));if(camState.t<.1)k=1}
  camState.pos.lerp(cp,k);camState.look.lerp(cl,k);camState.fov=lerp(camState.fov,fov,k);
  cam.position.copy(camState.pos);cam.lookAt(camState.look);if(Math.abs(cam.fov-camState.fov)>.01){cam.fov=camState.fov;cam.updateProjectionMatrix()}
- if(meter.classList.contains('on')){tmp.copy(pl.pos).addScaledVector(Rt,-.8).add(V(0,1.5,0)).project(cam);meter.style.left=((tmp.x*.5+.5)*FW-8)+'px';meter.style.top=((-tmp.y*.5+.5)*FH-66)+'px'}
+ if(meter.classList.contains('on')){tmp.copy(pl.pos).addScaledVector(Rt,-.8).add(V(0,1.5,0)).project(cam);meter.style.left=clamp((tmp.x*.5+.5)*FW-11,12,FW-(mobile()?110:40))+'px';meter.style.top=clamp((-tmp.y*.5+.5)*FH-88,90,FH-(mobile()?300:220))+'px'}
  R.setScissorTest(false);R.setViewport(0,0,FW,FH);R.render(scene,cam);
  const pv=$('#pv').getBoundingClientRect(),open=!mobile()||document.body.classList.contains('open');
  if(model&&open&&pv.width>20&&pv.left<FW-20){const fa=pl.face+.25+Math.sin(T*.5)*.3;const close=mode==='build'&&tab==='look';const dd=close?1.6:3.9,ly=close?1.62:1.0;
