@@ -45,6 +45,12 @@
   [headers.values]
     X-Robots-Tag = "noindex, nofollow, noarchive"
 
+# HOTG brand showcase: private share link, keep out of search
+[[headers]]
+  for = "/hotg-brand/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow, noarchive"
+
 # The archive link Baron has opens the video archive (the vault)
 [[redirects]]
   from = "/baron85/archive"
