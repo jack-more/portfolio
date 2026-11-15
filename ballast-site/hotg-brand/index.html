@@ -82,7 +82,7 @@ function build(){const w=box.clientWidth;cols=w<640?6:w<1000?9:12;const rows=w<6
   if(game){const x=D.games[gi++%D.games.length];it={a:x[2],b:x[3],k:'Live game',nm:x[0]+' vs '+x[1]}}
   else{const x=D.segs[(i*3+(i/cols|0))%D.segs.length];it={a:x[0],b:x[0],k:x[2],nm:x[1]}}
   cells.push(it);const r=0;
-  h+='<button type="button" class="fld-c" data-i="'+i+'" aria-label="'+it.nm+'" style="--a:'+it.a+';--b:'+it.b+';--r:'+r+'deg;--d:'+((i*53)%17)/4+'s"><svg viewBox="58 60 524 524"><use href="#fb"/></svg></button>'}
+  h+='<button type="button" class="fld-c" data-i="'+i+'" aria-label="'+it.nm+'" style="--a:'+it.a+';--b:'+it.b+';--r:'+r+'deg;--d:'+((i*53)%17)/4+'s"><svg viewBox="0 0 524 524" overflow="visible"><use href="#fb"/></svg></button>'}
  cells=cells.slice(-n);g.innerHTML=h}
 function show(i,auto){const el=g.children[i];if(!el)return;const r=el.getBoundingClientRect(),b=box.getBoundingClientRect(),c=cells[i];
  sel.style.cssText='left:'+(r.left-b.left-6)+'px;top:'+(r.top-b.top-6)+'px;width:'+(r.width+12)+'px;height:'+(r.height+12)+'px;opacity:1';
