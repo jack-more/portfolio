@@ -126,6 +126,45 @@ footer svg{height:18px;width:auto;fill:var(--ink)}
 .shop-c figcaption{margin:0;border-top:3px solid #16130F;background:#fff;color:#16130F;text-align:center;display:grid;place-items:center;padding:9px 6px;font:700 clamp(10px,1vw,13px)/1.15 var(--display);letter-spacing:.04em;text-transform:uppercase}
 @media (max-width:860px){.shops{grid-template-columns:1fr}}
 @media (max-width:420px){.shop-g{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.lk{width:min(1180px,calc(100% - 32px));margin:0 auto clamp(48px,8vw,96px);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:clamp(20px,4vw,56px);align-items:center}
+.lk-intro{display:grid;gap:12px;align-content:center;max-width:42ch}.lk-k{font:700 10px/1 var(--display);letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.lk-intro b{font:700 clamp(26px,3.2vw,40px)/1.04 var(--display);letter-spacing:-.03em}.lk-intro p{margin:0;font:400 16px/1.5 var(--body);color:#4A4540}
+.lk-phones{display:flex;gap:clamp(12px,2vw,24px);align-items:flex-start}
+.lk-ph{width:300px;border-radius:44px;background:#0E0C0A;padding:10px;box-shadow:0 30px 60px rgba(22,19,15,.28)}
+.lk-scr{height:640px;border-radius:35px;overflow:hidden;background:#16130F;color:#F7F3EA;display:flex;flex-direction:column;gap:12px;padding-bottom:16px}
+.lk-hero{position:relative;height:214px;flex:none;background:radial-gradient(90% 90% at 78% 30%,#C7343F,#B3202E 45%,#6E0F1F);overflow:hidden}
+.lk-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(94,12,24,.9) 0%,rgba(94,12,24,.55) 34%,rgba(94,12,24,0) 58%)}
+.lk-hero img{position:absolute;right:-74px;bottom:0;height:88%;width:auto;filter:drop-shadow(0 6px 14px rgba(0,0,0,.35))}
+.lk-id{position:absolute;left:16px;bottom:16px;display:grid;gap:7px;z-index:1;max-width:118px}.lk-id b{font:700 30px/.94 var(--display);letter-spacing:-.035em}
+.lk-id em{font:700 9.5px/1.2 var(--display);letter-spacing:.08em;text-transform:uppercase;font-style:normal;opacity:.9}
+.lk-live{display:inline-flex;align-items:center;gap:6px;width:max-content;background:#F7F3EA;color:#16130F;border-radius:999px;padding:5px 9px;font:700 9px/1 var(--display);letter-spacing:.1em;text-transform:uppercase}.lk-live i{width:6px;height:6px;border-radius:50%;background:#B3202E}
+.lk-stats{display:grid;grid-template-columns:repeat(3,1fr);margin:0 14px;background:#24201B;border-radius:12px}.lk-stats span{display:grid;place-items:center;gap:3px;padding:9px 0;font:700 8.5px/1 var(--display);letter-spacing:.1em;text-transform:uppercase;color:#9C958C}
+.lk-stats b{font:700 17px/1 var(--display);letter-spacing:-.02em;color:#F7F3EA;font-variant-numeric:tabular-nums}
+.lk-h{margin:2px 16px 0;font:700 9.5px/1 var(--display);letter-spacing:.14em;text-transform:uppercase;color:#9C958C}
+.lk-cards{display:flex;gap:8px;overflow-x:auto;padding:0 16px 2px;scrollbar-width:none;flex:none}.lk-cards::-webkit-scrollbar{display:none}
+.lk-c{position:relative;flex:none;width:104px;height:140px;border-radius:12px;background:linear-gradient(160deg,color-mix(in srgb,var(--a) 72%,#16130F),#16130F 80%);border:1.5px solid color-mix(in srgb,var(--a) 70%,#F7F3EA);display:grid;grid-template-rows:auto 1fr auto;padding:9px;overflow:hidden}
+.lk-cy{font:700 17px/1 var(--display);letter-spacing:-.02em;display:flex;justify-content:space-between;align-items:baseline}.lk-cy span{font-size:8px;letter-spacing:.1em;text-transform:uppercase;opacity:.85}
+.lk-c svg{width:56px;height:56px;place-self:center;overflow:visible}
+.lk-ct{display:grid;gap:2px}.lk-ct b{font:700 11px/1.1 var(--display)}.lk-ct em{font:700 7.5px/1 var(--display);letter-spacing:.08em;text-transform:uppercase;font-style:normal;color:#CFC8BB}
+.lk-sig{position:absolute;top:30px;left:9px;background:#F2A51A;color:#16130F;font:700 7px/1 var(--display);letter-spacing:.1em;text-transform:uppercase;padding:3px 5px;border-radius:4px}
+.lk-feat{margin:0 14px;display:grid;grid-template-columns:96px minmax(0,1fr);gap:10px;background:#24201B;border-radius:14px;padding:8px}
+.lk-fimg{position:relative;border-radius:9px;overflow:hidden;aspect-ratio:1;background:#EFE9DE}.lk-fimg img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.22)}
+.lk-no{position:absolute;left:5px;bottom:5px;background:#16130F;color:#F2A51A;font:700 7px/1 var(--display);letter-spacing:.08em;text-transform:uppercase;padding:3px 5px;border-radius:4px}
+.lk-fm{display:grid;gap:5px;align-content:start;min-width:0}.lk-fm b{font:700 13px/1.1 var(--display)}.lk-fm em{font:400 10px/1.3 var(--body);font-style:normal;color:#CFC8BB}
+.lk-req{display:grid;gap:3px}.lk-req span{font:700 8px/1.2 var(--display);letter-spacing:.05em;text-transform:uppercase;color:#9C958C}.lk-req span::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;border:1.5px solid currentColor;margin-right:5px;vertical-align:-0.5px}
+.lk-req span.done{color:#6FCF8F}.lk-req span.done::before{background:currentColor}
+.lk-btn{all:unset;text-align:center;margin-top:2px;padding:7px 8px;border-radius:999px;background:#3A342D;color:#CFC8BB;font:700 8.5px/1 var(--display);letter-spacing:.08em;text-transform:uppercase}
+.lk-tag{gap:14px;padding:22px 18px 18px}.lk-tagtop{display:flex;align-items:center;gap:10px;font:700 13px/1 var(--display)}.lk-tagtop svg{width:30px;height:30px}
+.lk-tagimg{border-radius:16px;overflow:hidden;aspect-ratio:1.15;background:#EFE9DE;flex:none}.lk-tagimg img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.18)}
+.lk-tagm{display:grid;gap:4px}.lk-tagm b{font:700 19px/1.05 var(--display);letter-spacing:-.02em}.lk-tagm em{font:700 9.5px/1.2 var(--display);letter-spacing:.08em;text-transform:uppercase;font-style:normal;color:#F2A51A}
+.lk-list{list-style:none;margin:0;padding:0;display:grid;gap:2px;background:#24201B;border-radius:14px;overflow:hidden}.lk-list li{display:grid;grid-template-columns:28px minmax(0,1fr);gap:10px;align-items:center;padding:9px 11px;background:#24201B}
+.lk-list li+li{border-top:1px solid #16130F}.lk-list span{display:grid;gap:2px;min-width:0}.lk-list b{font:700 12px/1.1 var(--display)}.lk-list em{font:400 10px/1.25 var(--body);font-style:normal;color:#9C958C}
+.lk-ic{width:28px;height:28px;border-radius:8px;background:#3A342D;position:relative}.lk-ic.play::after{content:"";position:absolute;left:11px;top:8px;border-left:9px solid #F7F3EA;border-top:6px solid transparent;border-bottom:6px solid transparent}
+.lk-ic.card::after{content:"";position:absolute;left:9px;top:6px;width:10px;height:15px;border:2px solid #F7F3EA;border-radius:3px;box-sizing:border-box}
+.lk-ic.pen::after{content:"";position:absolute;left:7px;top:13px;width:14px;height:3px;background:#F2A51A;border-radius:2px;transform:rotate(-35deg)}
+.lk-ic.id::after{content:"";position:absolute;left:8px;top:8px;width:12px;height:12px;border-radius:50%;border:2px solid #6FCF8F;box-sizing:border-box}
+.lk-own{margin-top:auto;text-align:center;font:700 9px/1 var(--display);letter-spacing:.1em;text-transform:uppercase;color:#9C958C}
+@media (max-width:1060px){.lk{grid-template-columns:1fr}.lk-intro{max-width:none}.lk-phones{justify-content:center;flex-wrap:wrap}}
 </style>
 <style>
 .fld{position:relative;background:#16130F;overflow:hidden;padding:clamp(14px,2vw,28px);--ground:#16130F;--ball:#B04B1C}
@@ -338,6 +377,36 @@ $('lubest').addEventListener('click',()=>{const all=D.players.map(p=>p.id);let b
   for(let j=i;j<all.length;j++){acc.push(all[j]);combo(s,j+1,acc);acc.pop()}};combo(0,0,[]);
  const order=['PG','SG','SF','PF','C'];st=best[1].sort((x,y)=>order.indexOf(P[x].pos)-order.indexOf(P[y].pos));bn=best[2];col=all.filter(x=>!st.includes(x)&&!bn.includes(x));pick=null;render()});
 render()})()</script>
+
+<section class="lk" aria-label="Legend locker, Baron Davis">
+<div class="lk-intro"><span class="lk-k">Legend locker</span><b>Every reaction becomes a card. The best ones come signed.</b>
+<p>A Legend reacts on the show. That clip becomes a moment card in their locker. For the biggest moments, a signed piece is made in a numbered run, with a rose tag that opens the moment.</p></div>
+<div class="lk-phones">
+ <div class="lk-ph"><div class="lk-scr">
+  <div class="lk-hero"><img src="img/card-1884.webp" alt="Baron Davis"><div class="lk-id"><span class="lk-live"><i></i>Hosts HOTG</span><b>Baron<br>Davis</b><em>UCLA · 13 seasons · 2× All-Star</em></div></div>
+  <div class="lk-stats"><span><b>38</b>Moments</span><span><b>7</b>Signed left</span><span><b>18.2k</b>Fans</span></div>
+  <div class="lk-h">Moments</div>
+  <div class="lk-cards"><div class="lk-c" style="--a:#2D68C4;--b:#2D68C4;--c:#F2A900;--d:#F2A900;--ground:#16130F;--ball:#B04B1C"><div class="lk-cy">1999<span>UCLA</span></div><svg viewBox="58 60 524 524" aria-hidden="true"><use href="#falt2"/></svg><div class="lk-ct"><b>Bruin years</b><em>Reaction · 2:14</em></div><span class="lk-sig">Signed piece</span></div><div class="lk-c" style="--a:#00788C;--b:#1D1160;--c:#1D1160;--d:#00788C;--ground:#16130F;--ball:#B04B1C"><div class="lk-cy">2001<span>Hornets</span></div><svg viewBox="58 60 524 524" aria-hidden="true"><use href="#falt2"/></svg><div class="lk-ct"><b>89-foot shot</b><em>Reaction · 1:48</em></div></div><div class="lk-c" style="--a:#1D428A;--b:#FFC72C;--c:#FFC72C;--d:#1D428A;--ground:#16130F;--ball:#B04B1C"><div class="lk-cy">2007<span>Warriors</span></div><svg viewBox="58 60 524 524" aria-hidden="true"><use href="#falt2"/></svg><div class="lk-ct"><b>We Believe: 8 over 1</b><em>Reaction · 3:02</em></div></div><div class="lk-c" style="--a:#1D428A;--b:#1D428A;--c:#FFC72C;--d:#FFC72C;--ground:#16130F;--ball:#B04B1C"><div class="lk-cy">2007<span>Warriors</span></div><svg viewBox="58 60 524 524" aria-hidden="true"><use href="#falt2"/></svg><div class="lk-ct"><b>Oakland dunk</b><em>Reaction · 1:31</em></div></div></div>
+  <div class="lk-h">Signed from a moment</div>
+  <div class="lk-feat"><div class="lk-fimg"><img src="img/merch-jersey-ucla-signed.jpg" alt="Signed blue and gold HOTG jersey"><span class="lk-no">No. 18 of 25</span></div>
+   <div class="lk-fm"><b>Bruin years jersey</b><em>Signed across the petals. Rose tag at the hem.</em>
+    <div class="lk-req"><span class="done">10/10 call-in questions</span><span>0/1 on-air appearance</span></div>
+    <button type="button" class="lk-btn" disabled>7 left</button></div></div>
+ </div></div>
+ <div class="lk-ph"><div class="lk-scr lk-tag">
+  <div class="lk-tagtop"><svg viewBox="58 60 524 524" aria-hidden="true" style="--a:#F2EBDD;--b:#F2EBDD;--ball:#B04B1C;--ground:#16130F"><use href="#falt"/></svg><span>You tapped the rose</span></div>
+  <div class="lk-tagimg"><img src="img/merch-jersey-ucla-signed.jpg" alt=""></div>
+  <div class="lk-tagm"><b>Bruin years jersey</b><em>No. 18 of 25 · signed by Baron Davis</em></div>
+  <ul class="lk-list">
+   <li><i class="lk-ic play"></i><span><b>Reaction</b><em>Baron on his UCLA years · 2:14</em></span></li>
+   <li><i class="lk-ic card"></i><span><b>Moment card</b><em>UCLA · 1997 to 1999 · now in your locker</em></span></li>
+   <li><i class="lk-ic pen"></i><span><b>Signing</b><em>Signed on camera, 14 Nov 2026</em></span></li>
+   <li><i class="lk-ic id"></i><span><b>Certificate</b><em>HOTG-BD-0018 · matches the hologram</em></span></li>
+  </ul>
+  <div class="lk-own">Owned by you · transfer when you sell</div>
+ </div></div>
+</div>
+</section>
 
 <style>
 .xp{width:min(1080px,100%);margin:0 auto clamp(48px,8vw,96px);padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
