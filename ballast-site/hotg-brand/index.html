@@ -191,7 +191,7 @@ footer svg{height:18px;width:auto;fill:var(--ink)}
 .tv-seal-s .t1{fill:var(--a)}
 .tv-bar{background:#F7F3EA;border-radius:clamp(10px,1.4vw,20px);padding:clamp(10px,1.4vw,18px) clamp(12px,2vw,24px) clamp(10px,1.4vw,18px) clamp(42px,6vw,92px);display:grid;gap:4px;min-width:0}
 .tv-bar .k{font:700 clamp(9px,1vw,13px)/1.2 var(--display);letter-spacing:.06em;text-transform:uppercase;color:#7A7268;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.tv-bar .h{font:700 clamp(18px,3.2vw,46px)/1.06 var(--display);letter-spacing:-.04em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tv-bar .h{font:700 clamp(18px,3.2vw,46px)/1.25 var(--display);letter-spacing:-.04em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:-.12em}
 .tv-blk{border-radius:clamp(10px,1.4vw,20px);padding:0 clamp(12px,2vw,26px);display:grid;align-content:center;gap:5px;min-width:clamp(96px,20vw,280px)}
 .tv-blk .s{font:700 clamp(8px,.9vw,12px)/1 var(--display);letter-spacing:.08em;text-transform:uppercase;opacity:.82;white-space:nowrap}.tv-blk .n{font:700 clamp(13px,2.2vw,30px)/1 var(--display);text-transform:uppercase;letter-spacing:-.01em;white-space:nowrap}
 .tv-blk.sc{display:flex;gap:clamp(4px,.6vw,8px);padding:0;min-width:0}.tv-blk.sc span{display:grid;place-items:center;color:#F7F3EA;border-radius:clamp(10px,1.4vw,20px);font:700 clamp(22px,4vw,60px)/1 var(--display);font-variant-numeric:tabular-nums;min-width:clamp(50px,8vw,120px)}
@@ -245,13 +245,13 @@ function frame(){raf=0;if(!vis||!cells.length)return;const b=box.getBoundingClie
 g.addEventListener('pointerdown',e=>{const h=e.target.closest('.fld-grab');if(!h)return;const i=+h.parentNode.dataset.i;e.preventDefault();
  grab={i,x0:e.clientX,y0:e.clientY,x:e.clientX,y:e.clientY,id:e.pointerId};try{h.setPointerCapture(e.pointerId)}catch(_){}show(i);loop()});
 addEventListener('pointermove',e=>{if(!grab||e.pointerId!==grab.id)return;grab.x=e.clientX;grab.y=e.clientY;loop()});
-const drop=e=>{if(!grab||e.pointerId!==grab.id)return;grab=null;loop()};addEventListener('pointerup',drop);addEventListener('pointercancel',drop);
+let dragged=0;const drop=e=>{if(!grab||e.pointerId!==grab.id)return;dragged=Math.hypot(grab.x-grab.x0,grab.y-grab.y0);grab=null;loop()};addEventListener('pointerup',drop);addEventListener('pointercancel',drop);
 const loop=()=>{if(!raf&&!RM)raf=requestAnimationFrame(frame)};
 new IntersectionObserver(es=>{vis=es[0].isIntersecting;if(vis)loop()}).observe(box);
 // every other pick rolls into the show: the bloom flies into the seal and the lower third comes up
 const $=id=>document.getElementById(id),tvk=$('tvk'),tvh=$('tvh'),tvblk=$('tvblk'),tvseal=$('tvseal'),tvTop=$('tvTop'),tvBot=$('tvBot');
 function roll(i){const c=cells[i],el=g.children[i];rolling=true;card.style.opacity=0;
- tvseal.style.setProperty('--a',c.a);tvseal.style.setProperty('--b',c.b);if(c.game){tvseal.style.setProperty('--c',c.c);tvseal.style.setProperty('--d',c.d)}document.getElementById('tvuse').setAttribute('href',c.game?'#falt2':'#falt');tvblk.removeAttribute('style');
+ const sa=c.a==='#F2EBDD'?'#B3202E':c.a,sb=c.b==='#F2EBDD'?'#B3202E':c.b;tvseal.style.setProperty('--a',sa);tvseal.style.setProperty('--b',sb);if(c.game){tvseal.style.setProperty('--c',c.c);tvseal.style.setProperty('--d',c.d)}document.getElementById('tvuse').setAttribute('href',c.game?'#falt2':'#falt');tvblk.removeAttribute('style');
  if(c.game){const x=c.game,sa=78+((i*13)%30),sb=78+((i*29)%30);tvTop.textContent=(x[0]+' vs '+x[1]).toUpperCase();tvBot.textContent='Q3 · 4:12';
   tvk.textContent='Live game · Q3 4:12';tvh.textContent=x[0]+' vs '+x[1];tvblk.className='tv-blk sc';
   tvblk.innerHTML='<span style="background:'+x[2]+'">'+sa+'</span><span style="background:'+x[3]+'">'+sb+'</span>'}
@@ -283,9 +283,12 @@ g.addEventListener('pointerleave',()=>{hov=-1;if(cur>=0&&!rolling)show(cur)});
 g.addEventListener('focusin',e=>{const c=e.target.closest('.fld-c');if(c&&c.matches(':focus-visible')){hov=+c.dataset.i;show(hov)}});
 g.addEventListener('focusout',()=>{hov=-1});
 let rt;addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(()=>{build();show(Math.min(cur,g.children.length-1),true)},200)});
+// click or tap a bloom: its segment rolls into the show (a drag on the ball is a pull, not a click)
+g.addEventListener('click',e=>{const c=e.target.closest('.fld-c');if(!c)return;if(dragged>6){dragged=0;return}dragged=0;if(rolling)return;
+ const i=+c.dataset.i;hov=-1;show(i,true);clearInterval(timer);roll(i);setTimeout(start,9800)});
 window.HOTGroll=i=>roll(i??cur);
 })()</script>
-<div class="col est-cap"><span>Every bloom is a segment. Hover to see it.</span><span>HOTG · History of the Game</span></div>
+<div class="col est-cap"><span>Every bloom is a segment. Tap one to put it on air.</span><span>HOTG · History of the Game</span></div>
 <section class="band" style="--b:#B3202E;--f:#F7F3EA"><div class="in"><span class="no">01</span><h2>Logo</h2><p>Eight petals, eight panels of a ball, one shape</p></div></section>
 <div class="row "><figure style="--w:0.78"><img src="img/page-src-a3-clean.jpg" alt="HOTG" width="1400" height="933" loading="lazy"></figure></div>
 <p class="txt">HOTG gives players their roses while they are still here to hold them. Eight petals flow into the eight panels of a basketball, set in the calm symmetry of California mission tile, so the rose and the game are one shape.</p>
