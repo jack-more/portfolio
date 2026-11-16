@@ -86,7 +86,7 @@ const work: WorkItem[] = [
     desc: "Paid media for Toyota, Starzplay, Starbucks",
     href: "https://www.iheartmedia.com/",
     details: [
-      "Managed $1M+ in paid media for Starbucks, Toyota and STARZPLAY, holding a 2.5% average CTR",
+      "Managed $25M+ in paid media for Starbucks, Toyota and STARZPLAY, holding a 2.5% average CTR",
       "Ran multicultural (Toyota), regional (Starbucks Pacific Northwest) and international (STARZPLAY) campaigns for 5+ concurrent clients",
       "Built creative testing and bid optimization that improved ROAS 25%+ quarter over quarter",
       "Campaigns across Meta, Snapchat, X and programmatic DSPs",
@@ -268,7 +268,7 @@ function Pitch() {
     { n: "$1.2M+", l: "a month in sales for one DTC client" },
     { n: "6x", l: "peak ROAS" },
     { n: "1,000+", l: "ads shipped" },
-    { n: "$1M+", l: "managed for Starbucks, Toyota, STARZPLAY" },
+    { n: "$50M+", l: "in paid media managed over 10 years" },
   ];
   return (
     <div className="pitch">
