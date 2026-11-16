@@ -134,7 +134,8 @@ footer svg{height:18px;width:auto;fill:var(--ink)}
 .fld-c{all:unset;cursor:pointer;aspect-ratio:1;display:grid;place-items:center;border-radius:12px}
 .fld-c .fw{display:grid;place-items:center;width:100%;height:100%;will-change:transform}
 .fld-c{position:relative}.fld-c svg{width:88%;height:88%;overflow:visible;transition:transform 1.4s cubic-bezier(.2,.7,.2,1)}
-.fld-grab{position:absolute;left:50%;top:50%;width:46%;height:46%;transform:translate(-50%,-50%);border-radius:50%;cursor:grab;touch-action:none}.fld-grab:active{cursor:grabbing}
+.fld-grab{position:absolute;left:50%;top:50%;width:46%;height:46%;transform:translate(-50%,-50%);border-radius:50%;cursor:grab;touch-action:none}
+@media (hover:none){.fld-grab{touch-action:pan-y}}.fld-grab:active{cursor:grabbing}
 .fld-c.on svg{transform:scale(1.1)}
 .fld-c:focus-visible{outline:2px solid #F7F3EA;outline-offset:2px}
 .fld-sel{position:absolute;border:3px solid #F7F3EA;border-radius:16px;opacity:0;pointer-events:none;transition:left 2.4s cubic-bezier(.65,0,.35,1),top 2.4s cubic-bezier(.65,0,.35,1),width .6s,height .6s,opacity .8s,filter .8s}
@@ -238,9 +239,9 @@ function tick(){if(hov>=0||rolling)return;let n;do{n=Math.floor(Math.random()*g.
  if(picks%2===0&&!RM)setTimeout(()=>{if(hov<0)roll(n)},2700)}
 function start(){clearInterval(timer);if(!RM)timer=setInterval(tick,6000)}
 build();requestAnimationFrame(()=>{show(Math.floor(g.children.length/2)+2,true);start()});
-g.addEventListener('pointerover',e=>{const c=e.target.closest('.fld-c');if(!c||rolling)return;hov=+c.dataset.i;show(hov)});
+let tapT=0;g.addEventListener('pointerover',e=>{const c=e.target.closest('.fld-c');if(!c||rolling)return;if(e.pointerType!=='mouse'){clearTimeout(tapT);hov=-1;show(+c.dataset.i,true);tapT=setTimeout(start,0);return}hov=+c.dataset.i;show(hov)});
 g.addEventListener('pointerleave',()=>{hov=-1;if(cur>=0&&!rolling)show(cur)});
-g.addEventListener('focusin',e=>{const c=e.target.closest('.fld-c');if(c){hov=+c.dataset.i;show(hov)}});
+g.addEventListener('focusin',e=>{const c=e.target.closest('.fld-c');if(c&&c.matches(':focus-visible')){hov=+c.dataset.i;show(hov)}});
 g.addEventListener('focusout',()=>{hov=-1});
 let rt;addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(()=>{build();show(Math.min(cur,g.children.length-1),true)},200)});
 window.HOTGroll=i=>roll(i??cur);
@@ -282,6 +283,7 @@ svg.tabIndex=0;})()</script>
 <div class="row "><figure style="--w:1"><img src="img/page-src-a3-lock.jpg" alt="Lockup" width="2400" height="1100" loading="lazy"><figcaption>Lockup</figcaption></figure></div>
 <div class="row wide"><figure style="--w:1"><img src="img/merch-tees-stack3-f.jpg" alt="History of the Game, stacked" width="1578" height="988" loading="lazy"><figcaption>History of the Game, stacked</figcaption></figure></div>
 <div class="row "><figure style="--w:0.5"><img src="img/merch-tees-stack3-d.jpg" alt="One bloom" width="1400" height="922" loading="lazy"><figcaption>One bloom</figcaption></figure></div>
+<div class="row wide"><figure style="--w:1"><img src="img/relic-court-midcourt.jpg" alt="Midcourt" width="2000" height="1116" loading="lazy"><figcaption>Midcourt</figcaption></figure></div>
 <section class="band" style="--b:#F2A51A;--f:#1A1716"><div class="in"><span class="no">02</span><h2>Materials</h2><p>Metal, enamel, leather, silicone</p></div></section>
 <div class="grid g4 "><figure style="--w:0.25"><img src="img/hero-mat-met-red.jpg" alt="Red metal" width="900" height="900" loading="lazy"><figcaption>Red metal</figcaption></figure><figure style="--w:0.25"><img src="img/hero-mat-met-green.jpg" alt="Green metal" width="900" height="900" loading="lazy"><figcaption>Green metal</figcaption></figure><figure style="--w:0.25"><img src="img/hero-mat-met-blue.jpg" alt="Blue metal" width="900" height="900" loading="lazy"><figcaption>Blue metal</figcaption></figure><figure style="--w:0.25"><img src="img/hero-mat-met-ball.jpg" alt="White enamel" width="900" height="900" loading="lazy"><figcaption>White enamel</figcaption></figure><figure style="--w:0.25"><img src="img/hero-mat-chrome.jpg" alt="Chrome" width="900" height="900" loading="lazy"><figcaption>Chrome</figcaption></figure><figure style="--w:0.25"><img src="img/hero-mat-gold.jpg" alt="Gold" width="900" height="900" loading="lazy"><figcaption>Gold</figcaption></figure><figure style="--w:0.25"><img src="img/hero-mat-jade.jpg" alt="Jade" width="900" height="900" loading="lazy"><figcaption>Jade</figcaption></figure><figure style="--w:0.25"><img src="img/hero-mat-bronze.jpg" alt="Aged bronze" width="900" height="900" loading="lazy"><figcaption>Aged bronze</figcaption></figure></div>
 <div class="row wide"><figure style="--w:1"><img src="img/merch-hat-hat-pins.jpg" alt="Every metal, pinned" width="2048" height="2048" loading="lazy"><figcaption>Every metal, pinned</figcaption></figure></div>
