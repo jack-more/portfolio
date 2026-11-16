@@ -164,14 +164,16 @@ function show(i,auto){const el=g.children[i];if(!el)return;const r=el.getBoundin
  [...g.children].forEach((e,j)=>e.classList.toggle('on',j===i));if(auto)cur=i;loop()}
 // motion only happens in two cases: someone grabs a ball and pulls, or the selector travels to a new spot.
 // Each bloom moves as one piece (never reshaped) on a damped spring, so it settles back to its normal shape.
-let raf=0,vis=true,last=null,grab=null;
+let raf=0,vis=true,last=null,grab=null,FLY=null;
 function tgt(c,ux,uy,w,mv){const sA=1+.18*w,sP=1-.06*w;return [1+(sA-1)*ux*ux+(sP-1)*uy*uy,(sA-sP)*ux*uy,(sA-sP)*ux*uy,1+(sA-1)*uy*uy+(sP-1)*ux*ux,ux*mv,uy*mv]}
 const I=[1,0,0,1,0,0];
 function frame(){raf=0;if(!vis||!cells.length)return;const b=box.getBoundingClientRect(),s=sel.getBoundingClientRect();
  const px=s.left-b.left+s.width/2,py=s.top-b.top+s.height/2;const sp=last?Math.hypot(px-last[0],py-last[1]):0;last=[px,py];
- const kids=g.children,cw=kids[0].getBoundingClientRect().width,reach=cw*1.9,moving=Math.min(1,sp/(cw*.05));let active=moving>.02||!!grab;
+ const kids=g.children,cw=kids[0].getBoundingClientRect().width,reach=cw*1.9,moving=Math.min(1,sp/(cw*.05));let active=moving>.02||!!grab||!!FLY;
  for(let i=0;i<cells.length;i++){const c=cells[i];let T=I;
   if(grab&&grab.i===i){const dx=grab.x-grab.x0,dy=grab.y-grab.y0,d=Math.hypot(dx,dy);if(d>2){const w=Math.min(1,d/(cw*1.2));T=tgt(c,dx/d,dy/d,w*1.6,Math.min(d*.45,cw*.55))}}
+  else if(FLY){const r=kids[i].getBoundingClientRect(),cx=r.left-b.left+r.width/2,cy=r.top-b.top+r.height/2,dx=FLY[0]-cx,dy=FLY[1]-cy,dist=Math.hypot(dx,dy)||1;
+   const f=Math.exp(-(dist*dist)/(reach*reach*1.4))*Math.max(0,1-cw*.4/dist)*Math.min(1,FLY[2]/6);if(f>.01)T=tgt(c,dx/dist,dy/dist,f,Math.min(dist*.2,cw*.16)*f)}
   else if(moving>.02){const r=kids[i].getBoundingClientRect(),cx=r.left-b.left+r.width/2,cy=r.top-b.top+r.height/2,dx=px-cx,dy=py-cy,dist=Math.hypot(dx,dy)||1;
    const f=Math.exp(-(dist*dist)/(reach*reach))*Math.max(0,1-cw*.45/dist)*moving;if(f>.01)T=tgt(c,dx/dist,dy/dist,f,Math.min(dist*.2,cw*.14)*f)}
   c.v=c.v||[0,0,0,0,0,0];let e=0;for(let k=0;k<6;k++){c.v[k]=(c.v[k]+(T[k]-c.m[k])*.14)*.78;c.m[k]+=c.v[k];e+=Math.abs(c.v[k])+Math.abs(T[k]-c.m[k])}
@@ -197,11 +199,19 @@ function roll(i){const c=cells[i],el=g.children[i];rolling=true;card.style.opaci
   tvblk.style.background=s[0]==='#F2EBDD'?'#1E1D1B':s[0];tvblk.style.color=s[0]==='#F2A51A'?'#1E1D1B':'#F7F3EA'}
  box.classList.add('tvon');
  const fr=el.getBoundingClientRect(),b=box.getBoundingClientRect(),fl=el.querySelector('svg').cloneNode(true);
- fl.classList.add('tv-fly');fl.style.cssText='left:'+(fr.left-b.left)+'px;top:'+(fr.top-b.top)+'px;width:'+fr.width+'px;height:'+fr.height+'px;--a:'+c.a+';--b:'+c.b+(c.game?';--c:'+c.c+';--d:'+c.d:'');box.appendChild(fl);
+ fl.classList.add('tv-fly');fl.style.transformOrigin='0 0';fl.style.cssText='left:'+(fr.left-b.left)+'px;top:'+(fr.top-b.top)+'px;width:'+fr.width+'px;height:'+fr.height+'px;--a:'+c.a+';--b:'+c.b+(c.game?';--c:'+c.c+';--d:'+c.d:'');box.appendChild(fl);
  setTimeout(()=>{const sr=tvseal.getBoundingClientRect(),w=sr.width*.524,bb=box.getBoundingClientRect();
-  const an=fl.animate([{transform:'translate(0px,0px) scale(1)'},{transform:'translate('+(sr.left-bb.left+sr.width/2-w/2-(fr.left-b.left))+'px,'+(sr.top-bb.top+sr.height/2-w/2-(fr.top-b.top))+'px) scale('+(w/fr.width)+')'}],{duration:1300,easing:'cubic-bezier(.65,0,.35,1)',fill:'forwards'});
-  
-  an.onfinish=()=>{tv.classList.add('seal');fl.remove()}},850);
+  const X0=fr.left-b.left,Y0=fr.top-b.top,X1=sr.left-bb.left+sr.width/2-w/2,Y1=sr.top-bb.top+sr.height/2-w/2,S1=w/fr.width,T0=performance.now(),DUR=RM?1:1300,WOB=520;
+  const ease=u=>u<.5?4*u*u*u:1-Math.pow(-2*u+2,3)/2;let px=X0,py=Y0;
+  const step=now=>{const u=Math.min(1,(now-T0)/DUR),e=ease(u),x=X0+(X1-X0)*e,y=Y0+(Y1-Y0)*e,s=1+(S1-1)*e;
+   const vx=x-px,vy=y-py,v=Math.hypot(vx,vy);px=x;py=y;let M='';
+   if(u<1&&v>.2){const ux=vx/v,uy=vy/v,k=1+Math.min(.36,v*.025),q=1/Math.sqrt(k);M=' matrix('+[1+(k-1)*ux*ux+(q-1)*uy*uy,(k-q)*ux*uy,(k-q)*ux*uy,1+(k-1)*uy*uy+(q-1)*ux*ux,0,0].map(n=>n.toFixed(4)).join(',')+')'}
+   const lw=Math.max(0,(now-T0-DUR)/WOB);if(u>=1&&lw<1){const dx=X1-X0,dy=Y1-Y0,dl=Math.hypot(dx,dy)||1,ux=dx/dl,uy=dy/dl,k=1+Math.exp(-5*lw)*Math.sin(lw*Math.PI*4)*.18,q=1/Math.sqrt(k);
+    M=' matrix('+[1+(k-1)*ux*ux+(q-1)*uy*uy,(k-q)*ux*uy,(k-q)*ux*uy,1+(k-1)*uy*uy+(q-1)*ux*ux,0,0].map(n=>n.toFixed(4)).join(',')+')'}
+   fl.style.transform='translate('+(x-X0).toFixed(1)+'px,'+(y-Y0).toFixed(1)+'px) scale('+s.toFixed(4)+')'+M;
+   FLY=u<1?[x+fr.width*s/2,y+fr.height*s/2,v]:null;loop();
+   if(u>=1)tv.classList.add('seal');if(u<1||lw<1)requestAnimationFrame(step);else{fl.remove();FLY=null}};
+  requestAnimationFrame(step)},850);
  setTimeout(()=>{box.classList.remove('tvon');tv.classList.remove('seal');setTimeout(()=>{rolling=false;show(cur,false)},700)},7200)}
 function tick(){if(hov>=0||rolling)return;let n;do{n=Math.floor(Math.random()*g.children.length)}while(n===cur);show(n,true);picks++;
  if(picks%2===0&&!RM)setTimeout(()=>{if(hov<0)roll(n)},1800)}
@@ -329,16 +339,25 @@ render()})()</script>
 .xp-pop{position:absolute;right:14px;top:-6px;font:700 14px/1 var(--display);color:#17963F;animation:pop .9s ease-out forwards;pointer-events:none}
 @keyframes pop{to{transform:translateY(-26px);opacity:0}}
 .xp-acts{display:flex;gap:18px;margin-top:12px}.xp-reset{background:none;border:0;padding:4px 0;font:700 11px/1 var(--display);letter-spacing:.1em;text-transform:uppercase;color:var(--mute);cursor:pointer}.xp-reset:hover{color:var(--ink)}
-.xp-track{list-style:none;margin:16px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
-.xt-l{background:#16130F;color:#F7F3EA;border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:12px;min-width:0;border:2px solid transparent}
-.xt-l[data-s=Current]{box-shadow:0 0 0 3px var(--paper),0 0 0 5px #16130F}.xt-l[data-s=Locked] .xt-i{opacity:.45}.xt-l[data-s=Locked] .xt-r{opacity:.6}
-.xt-i svg{width:58%;height:auto;display:block}.xt-n{font:700 11px/1 var(--display);letter-spacing:.1em;text-transform:uppercase;color:#9C958C}
-.xt-h{font:700 22px/1.1 var(--display);letter-spacing:-.01em;margin-top:4px}.xt-h span{color:#9C958C}
-.xt-x{font:400 13px/1.3 var(--body);color:#C9C2B7;margin-top:2px}
-.xt-r{list-style:none;margin:10px 0 0;padding:0;display:grid;gap:8px}.xt-r li{font:400 13px/1.35 var(--body);color:#C9C2B7}.xt-r li b{display:block;font:700 11px/1.2 var(--display);letter-spacing:.08em;color:#F7F3EA}
-.xt-r li.got{color:#F7F3EA}.xt-r li.got b::after{content:" · unlocked";color:#6FCF8F}
-.xt-s{margin-top:auto;font:700 10px/1 var(--display);letter-spacing:.1em;text-transform:uppercase;color:#9C958C}.xt-l[data-s=Current] .xt-s{color:#F7F3EA}.xt-l[data-s=Complete] .xt-s{color:#6FCF8F}
-.xt-o{display:flex;gap:8px;align-items:center;min-height:86px}.xt-o img{height:86px;width:auto;max-width:48%;object-fit:contain;border-radius:8px}
+.xp-track{list-style:none;margin:16px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:repeat(4,auto);column-gap:14px;row-gap:0}
+.xt-l{grid-row:span 4;display:grid;grid-template-rows:subgrid;row-gap:14px;background:#16130F;color:#F7F3EA;border-radius:18px;padding:18px;min-width:0;outline:2px solid transparent;outline-offset:3px}
+.xt-l[data-s=Current]{outline-color:#16130F}
+.xt-hd{display:grid;grid-template-columns:72px minmax(0,1fr);gap:14px;align-items:center}
+.xt-pin{width:72px;height:72px;object-fit:contain;display:block;filter:drop-shadow(0 8px 14px rgba(0,0,0,.5))}
+.xt-n{font:700 10px/1 var(--display);letter-spacing:.12em;text-transform:uppercase;color:var(--tc)}
+.xt-h{font:700 26px/1 var(--display);letter-spacing:-.025em;margin-top:6px}
+.xt-x{font:400 13px/1.2 var(--body);color:#9C958C;margin-top:5px;font-variant-numeric:tabular-nums}
+.xt-pg{display:grid;gap:7px;align-content:start}.xt-bar{height:6px;border-radius:3px;background:#2B2724;overflow:hidden}.xt-bar i{display:block;height:100%;width:0;background:var(--tc);transition:width .6s}
+.xt-s{font:700 10px/1 var(--display);letter-spacing:.1em;text-transform:uppercase;color:#9C958C}
+.xt-l[data-s=Complete] .xt-s{color:#6FCF8F}.xt-l[data-s=Current] .xt-s{color:#F7F3EA}
+.xt-rw{display:grid;gap:10px;align-content:start;min-width:0}
+.xt-rw figure{position:relative;margin:0;aspect-ratio:4/3;border-radius:12px;overflow:hidden;background:#EFE9DE}
+.xt-rw figure img{width:100%;height:100%;display:block}.xt-rw figure.cover img{object-fit:cover}.xt-rw figure.contain img{object-fit:contain;padding:10%;box-sizing:border-box}
+.xt-sig{position:absolute;left:10px;top:10px;background:#16130F;color:#E2A632;font:700 9px/1 var(--display);letter-spacing:.12em;text-transform:uppercase;font-style:normal;padding:5px 7px;border-radius:5px}
+.xt-rt{display:grid;gap:3px;min-width:0}.xt-rt b{font:700 10px/1 var(--display);letter-spacing:.1em;color:#9C958C;font-variant-numeric:tabular-nums}
+.xt-rt span{font:700 15px/1.2 var(--display);letter-spacing:-.01em}.xt-rt em{font:400 12.5px/1.35 var(--body);font-style:normal;color:#9C958C}
+.xt-rw.got .xt-rt b{color:#6FCF8F}.xt-rw.got .xt-rt b::after{content:" · unlocked"}
+.xt-l[data-s=Locked] .xt-rw figure img{filter:grayscale(.85) brightness(.75)}.xt-l[data-s=Locked] .xt-pin{filter:grayscale(.6) brightness(.7)}
 .xp-cap{margin-top:12px;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(18px,4vw,48px);align-items:center;background:linear-gradient(135deg,#0E0D0B,#26231F 55%,#0E0D0B);color:#F7F3EA;border-radius:18px;padding:clamp(20px,3vw,40px);position:relative;overflow:hidden}
 .xp-cap::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.10) 50%,transparent 65%);background-size:250% 100%;animation:sheen 6s linear infinite;pointer-events:none}
 @keyframes sheen{from{background-position:150% 0}to{background-position:-100% 0}}
@@ -347,7 +366,9 @@ render()})()</script>
 .xp-cap-h span{font-size:.62em;vertical-align:.38em;margin-right:.08em}
 .xp-cap p{font:400 16px/1.5 var(--body);color:#C9C2B7;max-width:42ch;margin:14px 0 0}
 .xp-cap-b{display:inline-block;margin-top:18px;font:700 11px/1 var(--display);letter-spacing:.1em;text-transform:uppercase;border:1.5px solid #4A4540;color:#9C958C;border-radius:999px;padding:9px 14px}.xp-cap-b.on{border-color:#E9EDF1;color:#F7F3EA}
-@media (max-width:860px){.xp-cap{grid-template-columns:1fr}.xp-top{grid-template-columns:1fr}.xp-track{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:1000px){.xp-track{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(8,auto);row-gap:14px}}
+@media (max-width:860px){.xp-cap{grid-template-columns:1fr}.xp-top{grid-template-columns:1fr}}
+@media (max-width:560px){.xp-track{grid-template-columns:1fr;grid-template-rows:none}.xt-l{grid-row:auto;grid-template-rows:auto}}
 @media (prefers-reduced-motion:reduce){.xp-pop{animation:none;display:none}.xp-cap::after{animation:none}}
 </style><section class="xp" id="xp" aria-label="Fan progression">
 <div class="xp-top">
@@ -373,15 +394,15 @@ render()})()</script>
  </div>
 </div>
 <div class="xp-k" style="margin-top:44px">Four levels. Every full bloom unlocks a new material</div>
-<ol class="xp-track"><li class="xt-l" data-t="0"><div class="xt-i"><svg viewBox="58 60 524 524" aria-hidden="true"><g transform="rotate(90 320 322)"><g clip-path="url(#xw1)"><use href="#xpet" fill="url(#m-red)"/></g><g clip-path="url(#xw2)"><use href="#xpet" fill="url(#m-red)"/></g><g clip-path="url(#xw3)"><use href="#xpet" fill="url(#m-red)"/></g><g clip-path="url(#xw4)"><use href="#xpet" fill="url(#m-red)"/></g><g clip-path="url(#xw5)"><use href="#xpet" fill="url(#m-red)"/></g><g clip-path="url(#xw6)"><use href="#xpet" fill="url(#m-red)"/></g><g clip-path="url(#xw7)"><use href="#xpet" fill="url(#m-red)"/></g><g clip-path="url(#xw8)"><use href="#xpet" fill="url(#m-red)"/></g><circle cx="320" cy="322" r="135" fill="#B04B1C"/><use href="#xseam"/></g></svg></div><div class="xt-m"><div class="xt-n">Level 1</div><div class="xt-h">Red <span>Rookie</span></div><div class="xt-x">0–2,000 XP</div>
-<ul class="xt-r"><li><b>1,000 XP</b> Welcome bonus +100 XP and your Field avatar</li><li><b>2,000 XP</b> Your first enamel pin</li></ul><div class="xt-o"><img src="img/xp-hero-mat-met-red.png" alt="" loading="lazy"></div><div class="xt-s"></div></div></li><li class="xt-l" data-t="1"><div class="xt-i"><svg viewBox="58 60 524 524" aria-hidden="true"><g transform="rotate(90 320 322)"><g clip-path="url(#xw1)"><use href="#xpet" fill="url(#m-gold)"/></g><g clip-path="url(#xw2)"><use href="#xpet" fill="url(#m-gold)"/></g><g clip-path="url(#xw3)"><use href="#xpet" fill="url(#m-gold)"/></g><g clip-path="url(#xw4)"><use href="#xpet" fill="url(#m-gold)"/></g><g clip-path="url(#xw5)"><use href="#xpet" fill="url(#m-gold)"/></g><g clip-path="url(#xw6)"><use href="#xpet" fill="url(#m-gold)"/></g><g clip-path="url(#xw7)"><use href="#xpet" fill="url(#m-gold)"/></g><g clip-path="url(#xw8)"><use href="#xpet" fill="url(#m-gold)"/></g><circle cx="320" cy="322" r="135" fill="#B04B1C"/><use href="#xseam"/></g></svg></div><div class="xt-m"><div class="xt-n">Level 2</div><div class="xt-h">Gold <span>Starter</span></div><div class="xt-x">2,000–6,000 XP</div>
-<ul class="xt-r"><li><b>4,000 XP</b> Sticker sheet and your name in the show credits</li><li><b>6,000 XP</b> History of the Game tee</li></ul><div class="xt-o"><img src="img/xp-merch-tees-tee-f-solid.jpg" alt="" loading="lazy"></div><div class="xt-s"></div></div></li><li class="xt-l" data-t="2"><div class="xt-i"><svg viewBox="58 60 524 524" aria-hidden="true"><g transform="rotate(90 320 322)"><g clip-path="url(#xw1)"><use href="#xpet" fill="url(#m-chrome)"/></g><g clip-path="url(#xw2)"><use href="#xpet" fill="url(#m-chrome)"/></g><g clip-path="url(#xw3)"><use href="#xpet" fill="url(#m-chrome)"/></g><g clip-path="url(#xw4)"><use href="#xpet" fill="url(#m-chrome)"/></g><g clip-path="url(#xw5)"><use href="#xpet" fill="url(#m-chrome)"/></g><g clip-path="url(#xw6)"><use href="#xpet" fill="url(#m-chrome)"/></g><g clip-path="url(#xw7)"><use href="#xpet" fill="url(#m-chrome)"/></g><g clip-path="url(#xw8)"><use href="#xpet" fill="url(#m-chrome)"/></g><circle cx="320" cy="322" r="135" fill="#B04B1C"/><use href="#xseam"/></g></svg></div><div class="xt-m"><div class="xt-n">Level 3</div><div class="xt-h">Chrome <span>All-Star</span></div><div class="xt-x">6,000–14,000 XP</div>
-<ul class="xt-r"><li><b>10,000 XP</b> Chrome pin and double XP on trivia nights</li><li><b>14,000 XP</b> Hoodie and a question guaranteed on air</li></ul><div class="xt-o"><img src="img/xp-hero-mat-chrome.png" alt="" loading="lazy"></div><div class="xt-s"></div></div></li><li class="xt-l" data-t="3"><div class="xt-i"><svg viewBox="58 60 524 524" aria-hidden="true"><g transform="rotate(90 320 322)"><g clip-path="url(#xw1)"><use href="#xpet" fill="url(#m-jade)"/></g><g clip-path="url(#xw2)"><use href="#xpet" fill="url(#m-jade)"/></g><g clip-path="url(#xw3)"><use href="#xpet" fill="url(#m-jade)"/></g><g clip-path="url(#xw4)"><use href="#xpet" fill="url(#m-jade)"/></g><g clip-path="url(#xw5)"><use href="#xpet" fill="url(#m-jade)"/></g><g clip-path="url(#xw6)"><use href="#xpet" fill="url(#m-jade)"/></g><g clip-path="url(#xw7)"><use href="#xpet" fill="url(#m-jade)"/></g><g clip-path="url(#xw8)"><use href="#xpet" fill="url(#m-jade)"/></g><circle cx="320" cy="322" r="135" fill="#B04B1C"/><use href="#xseam"/></g></svg></div><div class="xt-m"><div class="xt-n">Level 4</div><div class="xt-h">Jade <span>Legend</span></div><div class="xt-x">14,000–30,000 XP</div>
-<ul class="xt-r"><li><b>22,000 XP</b> Jade pin and +1,000 XP</li><li><b>30,000 XP</b> A relic, and a Legend calls you live on the show</li></ul><div class="xt-o"><img src="img/xp-hero-mat-jade.png" alt="" loading="lazy"><img src="img/xp-relic-r2-sculpture.jpg" alt="" loading="lazy"></div><div class="xt-s"></div></div></li></ol>
+<ol class="xp-track"><li class="xt-l" data-t="0" style="--tc:#D23A45"><div class="xt-hd"><img class="xt-pin" src="img/xp-hero-mat-met-red.png" alt="Red pin"><div><div class="xt-n">Level 1 · Red</div><div class="xt-h">Rookie</div><div class="xt-x">0–2,000 XP</div></div></div>
+<div class="xt-pg"><div class="xt-bar"><i></i></div><div class="xt-s"></div></div><div class="xt-rw" data-xp="1000"><figure class="contain"><img src="img/xp-live3-2x-card-front.jpg" alt="Your fan card" loading="lazy"></figure><div class="xt-rt"><b>1,000 XP</b><span>Your fan card</span><em>Printed, numbered and mailed to you</em></div></div><div class="xt-rw" data-xp="2000"><figure class="cover"><img src="img/xp-merch-goods-keys-moulded.png" alt="Silicone keychains" loading="lazy"></figure><div class="xt-rt"><b>2,000 XP</b><span>Silicone keychains</span><em>The bloom in all four colours</em></div></div></li><li class="xt-l" data-t="1" style="--tc:#E2A632"><div class="xt-hd"><img class="xt-pin" src="img/xp-hero-mat-gold.png" alt="Gold pin"><div><div class="xt-n">Level 2 · Gold</div><div class="xt-h">Starter</div><div class="xt-x">2,000–6,000 XP</div></div></div>
+<div class="xt-pg"><div class="xt-bar"><i></i></div><div class="xt-s"></div></div><div class="xt-rw" data-xp="4000"><figure class="cover"><img src="img/xp-merch-tees-tee-f-solid.jpg" alt="History of the Game tee" loading="lazy"></figure><div class="xt-rt"><b>4,000 XP</b><span>History of the Game tee</span><em>Black tee, stacked four-bloom lockup</em></div></div><div class="xt-rw" data-xp="6000"><figure class="cover"><img src="img/xp-relic-round2-card-1.jpg" alt="Holo bloom card, slabbed" loading="lazy"></figure><div class="xt-rt"><b>6,000 XP</b><span>Holo bloom card, slabbed</span><em>Graded and sealed, your name on the label</em></div></div></li><li class="xt-l" data-t="2" style="--tc:#DDE2E8"><div class="xt-hd"><img class="xt-pin" src="img/xp-hero-mat-chrome.png" alt="Chrome pin"><div><div class="xt-n">Level 3 · Chrome</div><div class="xt-h">All-Star</div><div class="xt-x">6,000–14,000 XP</div></div></div>
+<div class="xt-pg"><div class="xt-bar"><i></i></div><div class="xt-s"></div></div><div class="xt-rw" data-xp="10000"><figure class="cover"><img src="img/xp-merch-mesh-solid-out-black.jpg" alt="Mesh shorts, your colourway" loading="lazy"></figure><div class="xt-rt"><b>10,000 XP</b><span>Mesh shorts, your colourway</span><em>Plus double XP on trivia nights</em></div></div><div class="xt-rw" data-xp="14000"><figure class="cover"><img src="img/xp-relic-round2-stand-2.jpg" alt="Signed ball on the bloom stand" loading="lazy"><i class="xt-sig">Signed</i></figure><div class="xt-rt"><b>14,000 XP</b><span>Signed ball on the bloom stand</span><em>Signed by a Legend from the show</em></div></div></li><li class="xt-l" data-t="3" style="--tc:#6FB08F"><div class="xt-hd"><img class="xt-pin" src="img/xp-hero-mat-jade.png" alt="Jade pin"><div><div class="xt-n">Level 4 · Jade</div><div class="xt-h">Legend</div><div class="xt-x">14,000–30,000 XP</div></div></div>
+<div class="xt-pg"><div class="xt-bar"><i></i></div><div class="xt-s"></div></div><div class="xt-rw" data-xp="22000"><figure class="cover"><img src="img/xp-relic-round3-signed-1.jpg" alt="Framed signed panel" loading="lazy"><i class="xt-sig">Signed</i></figure><div class="xt-rt"><b>22,000 XP</b><span>Framed signed panel</span><em>Game-ball leather, numbered of 100</em></div></div><div class="xt-rw" data-xp="30000"><figure class="cover"><img src="img/xp-relic-round2-case-2.jpg" alt="Signed collector case" loading="lazy"><i class="xt-sig">Signed</i></figure><div class="xt-rt"><b>30,000 XP</b><span>Signed collector case</span><em>And a Legend calls you live on the show</em></div></div></li></ol>
 <div class="xp-cap"><div class="xp-cap-i"><img src="img/xp-relic-r2-sculpture.jpg" alt="The chrome HOTG award"></div><div class="xp-cap-m"><div class="xp-k" style="color:#9C958C">After Legend</div>
 <div class="xp-cap-h"><span>#1</span> HOTG</div><p>One fan each season. The most XP at the end of the season wins the chrome HOTG award, presented live on the show by a Legend, and a seat at the next taping.</p>
 <div class="xp-cap-b" id="xpcap">Locked until Legend</div></div></div>
-</section><script>(()=>{const TI=[["red", "Red", "Rookie", 0, 2000, [[1000, "Welcome bonus +100 XP and your Field avatar"], [2000, "Your first enamel pin"]]], ["gold", "Gold", "Starter", 2000, 6000, [[4000, "Sticker sheet and your name in the show credits"], [6000, "History of the Game tee"]]], ["chrome", "Chrome", "All-Star", 6000, 14000, [[10000, "Chrome pin and double XP on trivia nights"], [14000, "Hoodie and a question guaranteed on air"]]], ["jade", "Jade", "Legend", 14000, 30000, [[22000, "Jade pin and +1,000 XP"], [30000, "A relic, and a Legend calls you live on the show"]]]],ORD=[5, 6, 7, 8, 1, 2, 3, 4],START=7200,R0=135,R1=264,E='#2B2724',CT='#B04B1C';
+</section><script>(()=>{const TI=[["red", "Red", "Rookie", 0, 2000, [[1000, "Your fan card", "Printed, numbered and mailed to you", "img/xp-live3-2x-card-front.jpg", "contain", 0], [2000, "Silicone keychains", "The bloom in all four colours", "img/xp-merch-goods-keys-moulded.png", "cover", 0]]], ["gold", "Gold", "Starter", 2000, 6000, [[4000, "History of the Game tee", "Black tee, stacked four-bloom lockup", "img/xp-merch-tees-tee-f-solid.jpg", "cover", 0], [6000, "Holo bloom card, slabbed", "Graded and sealed, your name on the label", "img/xp-relic-round2-card-1.jpg", "cover", 0]]], ["chrome", "Chrome", "All-Star", 6000, 14000, [[10000, "Mesh shorts, your colourway", "Plus double XP on trivia nights", "img/xp-merch-mesh-solid-out-black.jpg", "cover", 0], [14000, "Signed ball on the bloom stand", "Signed by a Legend from the show", "img/xp-relic-round2-stand-2.jpg", "cover", 1]]], ["jade", "Jade", "Legend", 14000, 30000, [[22000, "Framed signed panel", "Game-ball leather, numbered of 100", "img/xp-relic-round3-signed-1.jpg", "cover", 1], [30000, "Signed collector case", "And a Legend calls you live on the show", "img/xp-relic-round2-case-2.jpg", "cover", 1]]]],ORD=[5, 6, 7, 8, 1, 2, 3, 4],START=7200,R0=135,R1=264,E='#2B2724',CT='#B04B1C';
 let xp=START,shown=START;try{const v=+localStorage.getItem('hotg-xp2');if(v>0)xp=shown=v}catch(e){}
 const $=id=>document.getElementById(id),fmt=n=>Math.round(n).toLocaleString('en-US'),MAXX=TI[3][4];
 const tierOf=x=>{for(let t=0;t<4;t++)if(x<TI[t][4])return t;return 3};
@@ -392,10 +413,11 @@ function paint(x){for(let t=0;t<4;t++){const a=TI[t][3],b=TI[t][4],sp=(b-a)/8;
  const t=tierOf(x),T=TI[t],full=x>=MAXX;$('xpv').textContent=fmt(x);
  $('xpl').innerHTML='Level '+(t+1)+' · '+T[1]+' · '+T[2];$('xpl').style.color=COL[T[0]];
  const p=full?1:(x-T[3])/(T[4]-T[3]);$('xpbar').style.width=(p*100)+'%';$('xpbar').style.background=COL[T[0]];
- const nr=TI.flatMap(z=>z[5]).find(r=>x<r[0]);$('xpn').textContent=full?'Full jade bloom. You are a Legend.':fmt(nr[0]-x)+' XP to '+nr[1].charAt(0).toLowerCase()+nr[1].slice(1);
+ const nr=TI.flatMap(z=>z[5]).find(r=>x<r[0]);$('xpn').textContent=full?'Full jade bloom. You are a Legend.':fmt(nr[0]-x)+' XP to '+nr[1].charAt(0).toLowerCase()+nr[1].slice(1)+(nr[5]?' (signed)':'');
  const done=Math.min(8,Math.floor((x-T[3])/((T[4]-T[3])/8)));$('xppips').innerHTML=Array.from({length:8},(_,i)=>'<i class="'+(i<done||full?'on':'')+'" style="--c:'+COL[T[0]]+'"></i>').join('')+'<span>'+(full?8:done)+' of 8 petals · '+T[1]+'</span>';
- document.querySelectorAll('.xt-l').forEach((e,i)=>{const st=x>=TI[i][4]?'Complete':i===t?'Current':'Locked';e.dataset.s=st;e.querySelector('.xt-s').textContent=st;
-  e.querySelectorAll('.xt-r li').forEach((li,j)=>li.classList.toggle('got',x>=TI[i][5][j][0]))});
+ document.querySelectorAll('.xt-l').forEach((e,i)=>{const L=TI[i],st=x>=L[4]?'Complete':i===t?'Current':'Locked';e.dataset.s=st;
+  e.querySelector('.xt-s').textContent=st==='Current'?fmt(L[4]-x)+' XP to finish':st;e.querySelector('.xt-bar i').style.width=(Math.max(0,Math.min(1,(x-L[3])/(L[4]-L[3])))*100)+'%';
+  e.querySelectorAll('.xt-rw').forEach(r=>r.classList.toggle('got',x>=+r.dataset.xp))});
  document.querySelector('.xp-stage').style.setProperty('--glow',COL[T[0]]);$('xpcap').textContent=full?'In the running for #1':'Unlocks at Legend · '+fmt(MAXX-x)+' XP to go';$('xpcap').classList.toggle('on',full)}
 function go(to){const from=shown,t0=performance.now(),d=1100;const tick=n=>{const k=Math.min(1,(n-t0)/d),e=1-Math.pow(1-k,3);shown=from+(to-from)*e;paint(shown);if(k<1)requestAnimationFrame(tick)};requestAnimationFrame(tick)}
 const save=()=>{try{localStorage.setItem('hotg-xp2',xp)}catch(e){}};
