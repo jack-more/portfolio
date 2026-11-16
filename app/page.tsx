@@ -268,7 +268,7 @@ function Pitch() {
     { n: "$1.2M+", l: "a month in sales for one DTC client" },
     { n: "6x", l: "peak ROAS" },
     { n: "1,000+", l: "ads shipped" },
-    { n: "$50M+", l: "in paid media managed over 10 years" },
+    { n: "$50M+", l: "in paid media managed" },
   ];
   return (
     <div className="pitch">
