@@ -138,8 +138,8 @@ footer svg{height:18px;width:auto;fill:var(--ink)}
 @media (hover:none){.fld-grab{touch-action:pan-y}}.fld-grab:active{cursor:grabbing}
 .fld-c.on svg{transform:scale(1.1)}
 .fld-c:focus-visible{outline:2px solid #F7F3EA;outline-offset:2px}
-.fld-sel{position:absolute;border:3px solid #F7F3EA;border-radius:16px;opacity:0;pointer-events:none;transition:left 2.4s cubic-bezier(.65,0,.35,1),top 2.4s cubic-bezier(.65,0,.35,1),width .6s,height .6s,opacity .8s,filter .8s}
-.fld-card{position:absolute;z-index:2;width:260px;background:#F7F3EA;color:#16130F;border-radius:14px;padding:10px 14px 12px;display:grid;gap:2px;opacity:0;pointer-events:none;transition:left 2.4s cubic-bezier(.65,0,.35,1),top 2.4s cubic-bezier(.65,0,.35,1),opacity .4s;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.fld-sel{position:absolute;border:3px solid #F7F3EA;border-radius:16px;opacity:0;pointer-events:none;transition:left 1.05s cubic-bezier(.65,0,.35,1),top 1.05s cubic-bezier(.65,0,.35,1),width .6s,height .6s,opacity .8s,filter .8s}
+.fld-card{position:absolute;z-index:2;width:260px;background:#F7F3EA;color:#16130F;border-radius:14px;padding:10px 14px 12px;display:grid;gap:2px;opacity:0;pointer-events:none;transition:left 1.05s cubic-bezier(.65,0,.35,1),top 1.05s cubic-bezier(.65,0,.35,1),opacity .4s;box-shadow:0 10px 30px rgba(0,0,0,.35)}
 .fld-card .k{font:700 11px/1 var(--display);letter-spacing:.1em;text-transform:uppercase;color:#7A7268}.fld-card .n{font:700 22px/1.1 var(--display);letter-spacing:-.02em}
 .tv-fly{position:absolute;z-index:5;pointer-events:none;overflow:visible;transform-origin:0 0}
 .tv{position:absolute;inset:0;pointer-events:none;z-index:4;font-family:var(--display);color:#1E1D1B}
@@ -236,8 +236,8 @@ function roll(i){const c=cells[i],el=g.children[i];rolling=true;card.style.opaci
   requestAnimationFrame(step)},850);
  setTimeout(()=>{box.classList.remove('tvon');tv.classList.remove('seal');setTimeout(()=>{rolling=false;show(cur,false)},700)},9000)}
 function tick(){if(hov>=0||rolling)return;let n;do{n=Math.floor(Math.random()*g.children.length)}while(n===cur);show(n,true);picks++;
- if(picks%2===0&&!RM)setTimeout(()=>{if(hov<0)roll(n)},2700)}
-function start(){clearInterval(timer);if(!RM)timer=setInterval(tick,6000)}
+ if(picks%2===0&&!RM)setTimeout(()=>{if(hov<0)roll(n)},1400)}
+function start(){clearInterval(timer);if(!RM)timer=setInterval(tick,3600)}
 build();requestAnimationFrame(()=>{show(Math.floor(g.children.length/2)+2,true);start()});
 let tapT=0;g.addEventListener('pointerover',e=>{const c=e.target.closest('.fld-c');if(!c||rolling)return;if(e.pointerType!=='mouse'){clearTimeout(tapT);hov=-1;show(+c.dataset.i,true);tapT=setTimeout(start,0);return}hov=+c.dataset.i;show(hov)});
 g.addEventListener('pointerleave',()=>{hov=-1;if(cur>=0&&!rolling)show(cur)});
