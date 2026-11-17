@@ -791,5 +791,27 @@
     "plays": 595
    }
   ]
+ },
+ "x": {
+  "team": "Minnesota Timberwolves",
+  "window": "2026-11-03 to 2026-11-17",
+  "source": "X public posts (x-com search)",
+  "note": "Original query returned no posts; retried with query \"Wolves fans\". Off-topic matches (other sports/teams named Hawks/Wolves/Magic/Suns etc.) were dropped. Mostly low-engagement posts from 2026-11-17.",
+  "posts": [
+   {
+    "id": "2122770222252007432",
+    "url": "https://x.com/whytefolks1/status/2122770222252007432",
+    "username": "whytefolks1",
+    "name": "Dame-N-Ja RipCity",
+    "description": "All I do is talk Portland shit and swallow spit! Scoot and Sharpe are the future! #RipCity",
+    "text": "Oh let the Wolves fans tell it. They’re all crying about the whistle when they shot 3x as many FTs as Portland! 😂 crazy work crying after a dub and also shooting three time as many FTs! ",
+    "created_at": "2026-11-17T19:13:54.000Z",
+    "likes": 0,
+    "reposts": 0,
+    "replies": 1,
+    "voice": "fan",
+    "heat": "critical"
+   }
+  ]
  }
 }

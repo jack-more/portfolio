@@ -819,5 +819,40 @@
    }
   ],
   "players": []
+ },
+ "x": {
+  "team": "Milwaukee Bucks",
+  "window": "2026-11-03 to 2026-11-17",
+  "source": "X public posts (x-com search)",
+  "posts": [
+   {
+    "id": "2122567130537210332",
+    "url": "https://x.com/ClutchPoints/status/2122567130537210332",
+    "username": "ClutchPoints",
+    "name": "ClutchPoints",
+    "description": "📲 Changing how you follow sports. Get exclusive insider scoops with the Clutch Newsletter  👉 https://t.co/sEOAPvMk81",
+    "text": "“I had fun... I think I was able to give my heart and soul every single night for the organization and for the fans. The fans were wonderful. They welcomed me when I was 18 years old... Spent 13 years there. So I hope I mean something for the city.\" Giannis Antetokounmpo reflects on the legacy he's built during his time with the Bucks 🗣️ (via @ZachWeinberger)",
+    "created_at": "2026-11-17T05:46:53.000Z",
+    "likes": 208,
+    "reposts": 17,
+    "replies": 2,
+    "voice": "media",
+    "heat": "neutral"
+   },
+   {
+    "id": "2122206519387197544",
+    "url": "https://x.com/YanPeronn/status/2122206519387197544",
+    "username": "YanPeronn",
+    "name": "Yan",
+    "description": "sports @ polymarket",
+    "text": "In case you didn't follow the NBA last night: ... Bucks blew a 22-pt lead to the Hawks & are 1-13, their worst start in 52 years -10 straight losses ...",
+    "created_at": "2026-11-16T05:53:57.000Z",
+    "likes": 2951,
+    "reposts": 120,
+    "replies": 35,
+    "voice": "media",
+    "heat": "neutral"
+   }
+  ]
  }
 }

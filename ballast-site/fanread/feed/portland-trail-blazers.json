@@ -857,5 +857,97 @@
     "plays": 2536
    }
   ]
+ },
+ "x": {
+  "team": "Portland Trail Blazers",
+  "window": "2026-11-03 to 2026-11-17",
+  "source": "X public posts (x-com search)",
+  "note": "Original query returned no posts; retried with query \"Blazers fans\". Off-topic matches (other sports/teams named Hawks/Wolves/Magic/Suns etc.) were dropped. Mostly low-engagement posts from 2026-11-17.",
+  "posts": [
+   {
+    "id": "2122784146204635640",
+    "url": "https://x.com/mikescriba/status/2122784146204635640",
+    "username": "mikescriba",
+    "name": "Receipts Of Doom",
+    "description": "From Providence, Rhode Island. Guatemalan 🇬🇹 #Repbx ﾒ𝟶TWOD",
+    "text": "OMG bro you are actually dumb as fuck. Ant was short for Anfernee Simons. Blazers fans called him that, why would i be talking about Edwards with a Blazers fan. Holy fuck what a moron LMFAO",
+    "created_at": "2026-11-17T20:09:14.000Z",
+    "likes": 3,
+    "reposts": 0,
+    "replies": 0,
+    "voice": "fan",
+    "heat": "neutral"
+   },
+   {
+    "id": "2122763706807226612",
+    "url": "https://x.com/bjvanbeek/status/2122763706807226612",
+    "username": "bjvanbeek",
+    "name": "Beau J Van Beek",
+    "description": null,
+    "text": "Just absurd.  Nobody wants this, not even Blazers fans.",
+    "created_at": "2026-11-17T18:48:01.000Z",
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "voice": "fan",
+    "heat": "neutral"
+   },
+   {
+    "id": "2122753563139145732",
+    "url": "https://x.com/R1PCITYS/status/2122753563139145732",
+    "username": "R1PCITYS",
+    "name": "9 - 4 ✧ ✡️",
+    "description": "@trailblazers ✧ @brooklynnets ✧ Deni Avdija ✧ Danny Wolf ✧ Ben Saraf",
+    "text": "It’s the Wolves fans including the commentators doing the crying not the Blazers. The Blazers shot significantly less free throws so everything you are saying literally doesn’t land at all.",
+    "created_at": "2026-11-17T18:07:42.000Z",
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "voice": "fan",
+    "heat": "supportive"
+   },
+   {
+    "id": "2122739427466465771",
+    "url": "https://x.com/TimelessArie/status/2122739427466465771",
+    "username": "TimelessArie",
+    "name": "Arie van Gemeren, CFA | The Timeless Investor",
+    "description": "Ex-Goldman | $150M+ multifamily | Building the next empire through cycles, history & contrarian real estate",
+    "text": "Had the pleasure of watching the Blazers absolutely crush the Oklahoma City Thunder last week. ... What exactly do professional sports franchises do for your town?",
+    "created_at": "2026-11-17T17:11:32.000Z",
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "voice": "fan",
+    "heat": "neutral"
+   },
+   {
+    "id": "2122738088246133003",
+    "url": "https://x.com/JackCGC1997/status/2122738088246133003",
+    "username": "JackCGC1997",
+    "name": "Jack Smile",
+    "description": null,
+    "text": "A lot of Chinese fans might be really harsh in their words! They just want Yang Hansen to be treated fairly, and obviously the Blazers didn't do that, and neither did the coach! Some even think it might be racial discrimination, which is pretty common in America! Bro",
+    "created_at": "2026-11-17T17:06:13.000Z",
+    "likes": 2,
+    "reposts": 0,
+    "replies": 0,
+    "voice": "fan",
+    "heat": "critical"
+   },
+   {
+    "id": "2122725652801659166",
+    "url": "https://x.com/77Blazers/status/2122725652801659166",
+    "username": "77Blazers",
+    "name": "Blazers History",
+    "description": "Ever wonder what happened on this date in Portland @trailblazers history? and in the NBA? Follow along and you'll find out.",
+    "text": "November 17, 1984 - Early assessments of the 1984 NBA Draft and the acquisition of Kiki Vandeweghe is on the minds of Blazer fans. #RipCity #ThisDateinBlazersHistory",
+    "created_at": "2026-11-17T16:16:48.000Z",
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "voice": "fan",
+    "heat": "neutral"
+   }
+  ]
  }
 }

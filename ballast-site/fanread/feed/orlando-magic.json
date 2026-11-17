@@ -855,5 +855,27 @@
     "plays": 1239
    }
   ]
+ },
+ "x": {
+  "team": "Orlando Magic",
+  "window": "2026-11-03 to 2026-11-17",
+  "source": "X public posts (x-com search)",
+  "note": "Original query returned no posts; retried with query \"Magic fans\". Off-topic matches (other sports/teams named Hawks/Wolves/Magic/Suns etc.) were dropped. Mostly low-engagement posts from 2026-11-17.",
+  "posts": [
+   {
+    "id": "2122782910151372800",
+    "url": "https://x.com/MuseBarnes/status/2122782910151372800",
+    "username": "MuseBarnes",
+    "name": "RJPrime27🦉",
+    "description": null,
+    "text": "Raptor fans becoming the new magic fans that defended Paolo",
+    "created_at": "2026-11-17T20:04:19.000Z",
+    "likes": 3,
+    "reposts": 0,
+    "replies": 0,
+    "voice": "fan",
+    "heat": "critical"
+   }
+  ]
  }
 }

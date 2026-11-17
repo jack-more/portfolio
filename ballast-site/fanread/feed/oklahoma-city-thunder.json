@@ -860,5 +860,40 @@
     "plays": 370
    }
   ]
+ },
+ "x": {
+  "team": "Oklahoma City Thunder",
+  "window": "2026-11-03 to 2026-11-17",
+  "source": "X public posts (x-com search)",
+  "posts": [
+   {
+    "id": "2122458581593436356",
+    "url": "https://x.com/SleeperThunder/status/2122458581593436356",
+    "username": "SleeperThunder",
+    "name": "SleeperThunder",
+    "description": "Thunder News, Highlights, Rumors & more from @SleeperHQ & #SleeperApp 🏀 Tap view more for terms and restrictions",
+    "text": "Dwyane Wade says he loves what Aday Mara has brought to the Thunder 👀\n\n“He just came off a national championship. Big dude, 7’3.” He was one of the guys we got to follow. In the midst of following him, I became a fan. Once I saw OKC drafted him, to me that was a position they needed when you think about going up against Wemby… When they brought young fella in, I was excited because what I thought he was is what he’s showing that he is. I thought he was a rim protector, he’s proven to be a rim protector… I don’t like the Wemby Stopper tag, please take that tag of that young man. Stop putting tags on these young men. Wemby can shoot any time he want, you can’t stop him, so let’s not put the buckets on young fella. But what he is is he is a rim protector and he’s not afraid. He’s willing to meet someone at the rim and there’s not many people that will be willing to meet Wemby at the rim, and so I really love what he’s brought to this team very early.”\n\n(🎥 @wynetwork)",
+    "created_at": "2026-11-16T22:35:33.000Z",
+    "likes": 193,
+    "reposts": 13,
+    "replies": 1,
+    "voice": "media",
+    "heat": "supportive"
+   },
+   {
+    "id": "2119498940748025965",
+    "url": "https://x.com/ThunderChats/status/2119498940748025965",
+    "username": "ThunderChats",
+    "name": "ThunderChats",
+    "description": "Podcast and contributor: @OKCTopicThunder",
+    "text": "Nick is a HUGE Kings fan, his reaction should tell you all you need to know about the swing the Thunder just made \n\nAlso… sorry, Nick 😅",
+    "created_at": "2026-11-08T18:35:00.000Z",
+    "likes": 124,
+    "reposts": 0,
+    "replies": 1,
+    "voice": "fan_show",
+    "heat": "supportive"
+   }
+  ]
  }
 }

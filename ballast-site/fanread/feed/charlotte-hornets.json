@@ -828,5 +828,26 @@
     "plays": 37753
    }
   ]
+ },
+ "x": {
+  "team": "Charlotte Hornets",
+  "window": "2026-11-03 to 2026-11-17",
+  "source": "X public posts (x-com search)",
+  "posts": [
+   {
+    "id": "2120836341998968991",
+    "url": "https://x.com/TBoneWFNZ/status/2120836341998968991",
+    "username": "TBoneWFNZ",
+    "name": "Travis Hancock",
+    "description": "Cohost of the Mac & Bone Show on 92.7 in Charlotte. Podcasts available on Apple and Spotify. Hornets pregame host. Dog dad to Murphy. RIP Mabel.🐾🐾.",
+    "text": "Tune in to 92.7 or stream live! Here is what’s on tap today:\n\n🏈 PANTHERS & NFL\n• How many guys could Carolina get back on Sunday?\n• Lots of line movement happening across the league\n• It’s Victory Formula day\n• What are the realistic expectations the rest of the way?\n\n🏆 COLLEGE FOOTBALL\n• NC State is set to hire Philip Rivers as Head Coach\n• Full Wolfpack fan reaction\n• How does this hire compare to Bill Belichick’s?\n\n🐝 HORNETS\n• The Bugs head west to take on Phoenix tonight\n• Bill Simmons urges fans not to panic about Charlotte just yet\n\n💬 SOUND OFF: How are we feeling about Philip Rivers taking over in Raleigh?",
+    "created_at": "2026-11-12T11:09:21.000Z",
+    "likes": 6,
+    "reposts": 1,
+    "replies": 0,
+    "voice": "media",
+    "heat": "neutral"
+   }
+  ]
  }
 }

@@ -783,5 +783,97 @@
     "plays": 320200
    }
   ]
+ },
+ "x": {
+  "team": "Denver Nuggets",
+  "window": "2026-11-03 to 2026-11-17",
+  "source": "X public posts (x-com search)",
+  "note": "Original query returned no posts; retried with query \"Nuggets fans\". Off-topic matches (other sports/teams named Hawks/Wolves/Magic/Suns etc.) were dropped. Mostly low-engagement posts from 2026-11-17.",
+  "posts": [
+   {
+    "id": "2122782524984451471",
+    "url": "https://x.com/LuxFuxs/status/2122782524984451471",
+    "username": "LuxFuxs",
+    "name": "Lucretia 🇵🇸",
+    "description": "Pro Palestine, Anti Capitalist, Trans rights are human rights. Nugget fan though and through. Type O Negative girlie",
+    "text": "I would love to come on here and be like “ I don’t know what the Nuggets are doing blah blah blah” but they very clearly know what they are doing and it’s wasting the players and fans time.",
+    "created_at": "2026-11-17T20:02:48.000Z",
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "voice": "fan",
+    "heat": "critical"
+   },
+   {
+    "id": "2122779868551377374",
+    "url": "https://x.com/jadengordon_/status/2122779868551377374",
+    "username": "jadengordon_",
+    "name": "Fade",
+    "description": "Nuggets 🏆- Bears 🐻 - Broncos 🐴",
+    "text": "But does he give a quality post game presser and put more Nuggets fans at ease?? No he also doesn’t do that 🙂",
+    "created_at": "2026-11-17T19:52:14.000Z",
+    "likes": 2,
+    "reposts": 0,
+    "replies": 1,
+    "voice": "fan",
+    "heat": "critical"
+   },
+   {
+    "id": "2122778524494770493",
+    "url": "https://x.com/BrilliantHoops/status/2122778524494770493",
+    "username": "BrilliantHoops",
+    "name": "BrilliantHoops",
+    "description": "BRILLIANT about Hoops.",
+    "text": "Local fans tend to overrate the talent on their teams and blame the coach because it’s very easy to do. The Nuggets don’t have enough talent. The coach is not the problem.",
+    "created_at": "2026-11-17T19:46:54.000Z",
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "voice": "fan",
+    "heat": "critical"
+   },
+   {
+    "id": "2122777910633467965",
+    "url": "https://x.com/malditoamor77/status/2122777910633467965",
+    "username": "malditoamor77",
+    "name": "Guillermo Lopez",
+    "description": null,
+    "text": "@josh_kroenke  @nuggets I think fans streaming out of the arena with 4 minutes left against a sub .500 team is more embarrassing than being booed off the court, hopefully changes are coming",
+    "created_at": "2026-11-17T19:44:27.000Z",
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "voice": "fan",
+    "heat": "critical"
+   },
+   {
+    "id": "2122774971244278061",
+    "url": "https://x.com/TerezOwens/status/2122774971244278061",
+    "username": "TerezOwens",
+    "name": "Terez Owens",
+    "description": "The World's Most Famous Sports Gossip Blog.",
+    "text": "Nikola Jokic told his Nuggets teammates \"don't be ungrateful for your role\" after the Suns loss, and fans are reportedly pointing at DeMar DeRozan 👀 https://terezowens.com/nikola-jokic-tells-nuggets-teammates-dont-be-ungrateful-for-your-role-after-suns-loss-and-everybody-is-looking-at-demar-derozan/",
+    "created_at": "2026-11-17T19:32:47.000Z",
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "voice": "media",
+    "heat": "neutral"
+   },
+   {
+    "id": "2122741323921027234",
+    "url": "https://x.com/WeatherMaker007/status/2122741323921027234",
+    "username": "WeatherMaker007",
+    "name": "Roflcopter-DnvrNgtz",
+    "description": "Hello",
+    "text": "let us cope with this stat nuggets fans",
+    "created_at": "2026-11-17T17:19:04.000Z",
+    "likes": 3,
+    "reposts": 0,
+    "replies": 2,
+    "voice": "fan",
+    "heat": "neutral"
+   }
+  ]
  }
 }

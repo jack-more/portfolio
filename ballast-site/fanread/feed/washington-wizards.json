@@ -809,5 +809,12 @@
     "plays": 47000
    }
   ]
+ },
+ "x": {
+  "team": "Washington Wizards",
+  "window": "2026-11-03 to 2026-11-17",
+  "source": "X public posts (x-com search)",
+  "posts": [],
+  "note": "x-com posts/search returned no matching posts about this team for this query and window."
  }
 }

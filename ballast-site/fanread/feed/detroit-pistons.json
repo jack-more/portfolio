@@ -812,5 +812,96 @@
     "plays": 134
    }
   ]
+ },
+ "x": {
+  "team": "Detroit Pistons",
+  "window": "2026-11-03 to 2026-11-17",
+  "source": "X public posts (x-com search)",
+  "posts": [
+   {
+    "id": "2118247630014763111",
+    "url": "https://x.com/_the6thman/status/2118247630014763111",
+    "username": "_the6thman",
+    "name": "Poppa Left",
+    "description": "New York Regional Community Manager @fanatics #FanAdvisoryNetwork apply to the network!",
+    "text": "This is pathetic. You can see firsthand. He’s a sore loser. Divests so much of his energy in crying instead of coaching. Until the Pistons move on from JB + get help for Cade, this will be the truest reflection of their product. If I was a Pistons fan, I’d be livid.. you can see them wasting the window",
+    "created_at": "2026-11-05T07:42:44.000Z",
+    "likes": 363,
+    "reposts": 15,
+    "replies": 27,
+    "voice": "fan",
+    "heat": "critical"
+   },
+   {
+    "id": "2119756560914145299",
+    "url": "https://x.com/Gmzeroog/status/2119756560914145299",
+    "username": "Gmzeroog",
+    "name": "Yaxel LendeBeast (Loyalist)",
+    "description": "YXL💎 Best Draft and NBA Analysis on X #DubNation #MourinhoFC 🏟️ #MahomesFC 🏈 KhamanFC, LaMeloFC and Zanos FC",
+    "text": "Yaxel Lendeborg reacts to FlightReacts reacting to the scuffle between Georges Niang and Wendell Carter Jr. and makes a declaration: “We finna be the remodeled Bad Boy Pistons, you feel me. We all— Yeah it’s just been too much going on bro. I feel like there’s 10 ejections in our nearby future. I think my boy Dray got like 2 more in him. I feel like I might have 2 in me.” NEGATIVITY 😤😤😤",
+    "created_at": "2026-11-09T11:38:41.000Z",
+    "likes": 3195,
+    "reposts": 110,
+    "replies": 27,
+    "voice": "fan",
+    "heat": "supportive"
+   },
+   {
+    "id": "2119606392482881548",
+    "url": "https://x.com/DetSportsRamble/status/2119606392482881548",
+    "username": "DetSportsRamble",
+    "name": "#DetroitBasketball #OnePride",
+    "description": "Degenerate gambler. Habitual line stepper. Full time professional ball knower.",
+    "text": "Pistons are a second round exit at best. I love Cade but he’s not a killer. Too passive. He’s like a rec league guy who’s clearly the best on the court but is more concerned with getting his guys involved than winning a game himself. Duren isn’t making a difference. This team isn’t good enough",
+    "created_at": "2026-11-09T01:41:59.000Z",
+    "likes": 210,
+    "reposts": 3,
+    "replies": 47,
+    "voice": "fan",
+    "heat": "critical"
+   },
+   {
+    "id": "2117425396564304053",
+    "url": "https://x.com/PistonNati0n/status/2117425396564304053",
+    "username": "PistonNati0n",
+    "name": "Piston Nation",
+    "description": null,
+    "text": "Meanwhile on the pistons broadcast, George Blaha had absolutely no reaction. He was legit dead silent like come on we deserve more energy",
+    "created_at": "2026-11-03T01:15:29.000Z",
+    "likes": 277,
+    "reposts": 8,
+    "replies": 47,
+    "voice": "fan",
+    "heat": "critical"
+   },
+   {
+    "id": "2119941192737587389",
+    "url": "https://x.com/oddtreebanjo/status/2119941192737587389",
+    "username": "oddtreebanjo",
+    "name": "audri🪕",
+    "description": "artist. normal about detroit sports. president of troy melton nation. all the pistons bunnies are girls 🐇 pink puffle 🇵🇸 @ferraudri🏎️ @iluvchrisknight",
+    "text": "this is my first pistons game ever btw im driving my mom crazy because i keep saying im going to vomit everywhere from excitement but AUSAR THOMPSON IS RIGHT THEREEEE  😭😭😭😭😭😭😭 IM GNNA PUKEEEE",
+    "created_at": "2026-11-09T23:52:21.000Z",
+    "likes": 254,
+    "reposts": 1,
+    "replies": 15,
+    "voice": "fan",
+    "heat": "supportive"
+   },
+   {
+    "id": "2120311848826294448",
+    "url": "https://x.com/KuKhahil/status/2120311848826294448",
+    "username": "KuKhahil",
+    "name": "Ku 🦉",
+    "description": "•Host @lockedonpistons •Substack: https://t.co/qkVZDPKq2I •KumaylKhahil@icloud.com 🇬🇭🇱🇧 10/1/22💍",
+    "text": "Winners: Huerter, Ausar on-ball playmaking/handle, new offensive system leading to great early results, Duncan Losers: Joe (injury related), Collins, Ron, those that said Pistons would be ass this year",
+    "created_at": "2026-11-11T00:25:12.000Z",
+    "likes": 25,
+    "reposts": 1,
+    "replies": 1,
+    "voice": "fan_show",
+    "heat": "supportive"
+   }
+  ]
  }
 }

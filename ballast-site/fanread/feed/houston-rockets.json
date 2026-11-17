@@ -792,5 +792,96 @@
     "plays": 18
    }
   ]
+ },
+ "x": {
+  "team": "Houston Rockets",
+  "window": "2026-11-03 to 2026-11-17",
+  "source": "X public posts (x-com search)",
+  "posts": [
+   {
+    "id": "2119288084009201952",
+    "url": "https://x.com/teroyaeason/status/2119288084009201952",
+    "username": "teroyaeason",
+    "name": "MOMSTER “Tea🫖”",
+    "description": "L.A. Lady/MANIFESTOR/ art+music+film+hoop/soc justice project pusher/ @ladybugsforeva /Philanthropist/ NBA Mom @TAR13ASON & Tega/@celtics fan/Go🚀’s",
+    "text": "WE LOST TO THE SUNS!!!?!??? Ugh I texted my son I’m ANGRY. It’s okay. Watch my plus minus. I know you most of you don’t get it, but ask Will Wade why he went and got him. We got a plan. This loss is on me. And my son. We will hold the weight. All of it. Clown me. I’ll carry it. Unacceptable. \n\nRockets fans. Don’t lost sight. Don’t give up. The best is the rest!🤘🏾",
+    "created_at": "2026-11-08T04:37:08.000Z",
+    "likes": 256,
+    "reposts": 4,
+    "replies": 28,
+    "voice": "fan",
+    "heat": "supportive"
+   },
+   {
+    "id": "2118150903673004319",
+    "url": "https://x.com/HoustonRockets/status/2118150903673004319",
+    "username": "HoustonRockets",
+    "name": "Houston Rockets",
+    "description": "The official Twitter account of the Houston Rockets.",
+    "text": "this fan's reaction to Amen is everything 🥹",
+    "created_at": "2026-11-05T01:18:23.000Z",
+    "likes": 277,
+    "reposts": 22,
+    "replies": 5,
+    "voice": "team",
+    "heat": "supportive"
+   },
+   {
+    "id": "2122168996002927012",
+    "url": "https://x.com/BanishImeUdoka/status/2122168996002927012",
+    "username": "BanishImeUdoka",
+    "name": "⛽️",
+    "description": "Christ FC",
+    "text": "NEW RULES FOR ROCKETS FC\n\nWin = mandatory “ring me” xeet\nLose = ime’s fault\nReed/KD/amen stinker = fred fault\nSengun/bari stinker = TRADE FOR JALEN SMITH\nGsw or phx loses = cook all day\nAmen dpoy agenda = mandatory\nKD banger = better than flurry all time",
+    "created_at": "2026-11-16T03:24:51.000Z",
+    "likes": 241,
+    "reposts": 12,
+    "replies": 7,
+    "voice": "fan",
+    "heat": "neutral"
+   },
+   {
+    "id": "2117613379145683364",
+    "url": "https://x.com/BinkleyHoops/status/2117613379145683364",
+    "username": "BinkleyHoops",
+    "name": "Lachard Binkley",
+    "description": "Credentialed reporter @DreamShakeSBN covering @HoustonRockets @RGVVipers. Weekly appearance on Fox 26 Houston. Host of @ROCKETFUELPOD",
+    "text": "Good morning, Houston Rockets fans how are you feeling about the team with the best record in the NBA?",
+    "created_at": "2026-11-03T13:42:27.000Z",
+    "likes": 270,
+    "reposts": 20,
+    "replies": 11,
+    "voice": "media",
+    "heat": "supportive"
+   },
+   {
+    "id": "2117724033324285989",
+    "url": "https://x.com/BrickCenter_/status/2117724033324285989",
+    "username": "BrickCenter_",
+    "name": "BrickCenter",
+    "description": "The Worldwide Leader in Sports Fails | Featured on @ESPN, @NBATV, @BleacherReport | Parody | Powered by @rainbetcom",
+    "text": "A Rockets fan told KD to shoot more\n\nKD told him to watch his highlights on YouTube 😭",
+    "created_at": "2026-11-03T21:02:09.000Z",
+    "likes": 1564,
+    "reposts": 87,
+    "replies": 35,
+    "voice": "media",
+    "heat": "neutral"
+   },
+   {
+    "id": "2118211030446645395",
+    "url": "https://x.com/skobuffss/status/2118211030446645395",
+    "username": "skobuffss",
+    "name": "BuffBoy 🦬",
+    "description": "🥷🏽",
+    "text": "Nightcap reacts to the Timberwolves beating the Rockets 🔥🔥",
+    "created_at": "2026-11-05T05:17:18.000Z",
+    "likes": 1107,
+    "reposts": 50,
+    "replies": 5,
+    "voice": "fan",
+    "heat": "neutral"
+   }
+  ]
  }
 }

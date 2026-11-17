@@ -814,5 +814,96 @@
     "plays": 860
    }
   ]
+ },
+ "x": {
+  "team": "Boston Celtics",
+  "window": "2026-11-03 to 2026-11-17",
+  "source": "X public posts (x-com search)",
+  "posts": [
+   {
+    "id": "2122563038083527059",
+    "url": "https://x.com/YanPeronn/status/2122563038083527059",
+    "username": "YanPeronn",
+    "name": "Yan",
+    "description": "sports @ polymarket",
+    "text": "In case you didn't follow the NBA last night: ... Magic snapped the Celtics' 6-game win streak & handed them their first home loss ...",
+    "created_at": "2026-11-17T05:30:38.000Z",
+    "likes": 1599,
+    "reposts": 50,
+    "replies": 30,
+    "voice": "media",
+    "heat": "neutral"
+   },
+   {
+    "id": "2122206519387197544",
+    "url": "https://x.com/YanPeronn/status/2122206519387197544",
+    "username": "YanPeronn",
+    "name": "Yan",
+    "description": "sports @ polymarket",
+    "text": "In case you didn't follow the NBA last night: ... Celtics led the Mavs 42-9 after the 1st Q, the biggest quarter margin since 1987 -Tatum dropped 32 in 30 mins ...",
+    "created_at": "2026-11-16T05:53:57.000Z",
+    "likes": 2951,
+    "reposts": 120,
+    "replies": 35,
+    "voice": "media",
+    "heat": "neutral"
+   },
+   {
+    "id": "2120950182552678753",
+    "url": "https://x.com/StoolGreenie/status/2120950182552678753",
+    "username": "StoolGreenie",
+    "name": "Dan Greenberg",
+    "description": "Celtics/NBA for @barstoolsports. Proud Sun Devil. I once lost a game of knock out to Walter McCarty and it was the best day of my life.",
+    "text": "As a reminder, Joel Embiid got his own superteam, including Jayson Tatum's former running mate who Sixers fans say is the better player, then went 2-9 vs the Celtics and lost by 22 points",
+    "created_at": "2026-11-12T18:41:43.000Z",
+    "likes": 1315,
+    "reposts": 81,
+    "replies": 26,
+    "voice": "media",
+    "heat": "supportive"
+   },
+   {
+    "id": "2120777763023929347",
+    "url": "https://x.com/YanPeronn/status/2120777763023929347",
+    "username": "YanPeronn",
+    "name": "Yan",
+    "description": "sports @ polymarket",
+    "text": "In case you didn't watch sports tonight: ... Celtics also came back from 22 down vs Raptors ...",
+    "created_at": "2026-11-12T07:16:35.000Z",
+    "likes": 669,
+    "reposts": 20,
+    "replies": 17,
+    "voice": "media",
+    "heat": "neutral"
+   },
+   {
+    "id": "2120708454415311315",
+    "url": "https://x.com/Marc_DAmico/status/2120708454415311315",
+    "username": "Marc_DAmico",
+    "name": "Marc D'Amico",
+    "description": "Official @Celtics Insider (host/analyst/reporter). Host of View from the Rafters, Celtics Weekly, and SOUND OFF. Watch/listen on YouTube/all pod platforms 📺🎙",
+    "text": "What a SWEEP of a 4-game road trip! The Celtics polish this one off in Toronto to pull off a 22-point comeback win over the Raptors. Tatum and D-White were amazing. What are your reactions to what the C's just pulled off?",
+    "created_at": "2026-11-12T02:41:11.000Z",
+    "likes": 345,
+    "reposts": 28,
+    "replies": 12,
+    "voice": "media",
+    "heat": "supportive"
+   },
+   {
+    "id": "2120127350377505180",
+    "url": "https://x.com/celticsfreak50/status/2120127350377505180",
+    "username": "celticsfreak50",
+    "name": "Anna☘️",
+    "description": "can’t. Celtics are on☘️BLEED GREEN - 162 girl⚾️ I love the Red Sox more than you do #differenthere #dirtywater #NEPATS",
+    "text": "goooood morning to CELTICS FANS AND CELTICS FANS ONLYYYYYYY IT’S GAMEDAYYYYYYYYYYYYYYYYYYYYYYYYYYY BIG GAME IN PHILLY TONIGHT 8 PM GET THE WIN AND CHECK THE BALL UP OR WHATEVAAA🤭 LET’S GO CELTICS☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️",
+    "created_at": "2026-11-10T12:12:05.000Z",
+    "likes": 366,
+    "reposts": 39,
+    "replies": 36,
+    "voice": "fan",
+    "heat": "supportive"
+   }
+  ]
  }
 }

@@ -847,5 +847,54 @@
     "plays": 1107
    }
   ]
+ },
+ "x": {
+  "team": "Utah Jazz",
+  "window": "2026-11-03 to 2026-11-17",
+  "source": "X public posts (x-com search)",
+  "posts": [
+   {
+    "id": "2121770395284205636",
+    "url": "https://x.com/adammantiam/status/2121770395284205636",
+    "username": "adammantiam",
+    "name": "adam",
+    "description": "",
+    "text": "We see Wizards fans constantly in Utah Jazz threads talking shit. Both players will be great. Both franchises are going to be happy. Can we all chill out",
+    "created_at": "2026-11-15T01:00:57.000Z",
+    "likes": 1,
+    "reposts": 0,
+    "replies": 1,
+    "voice": "fan",
+    "heat": "supportive"
+   },
+   {
+    "id": "2121265608700711074",
+    "url": "https://x.com/rob_alvord/status/2121265608700711074",
+    "username": "rob_alvord",
+    "name": "REALTOR - ROB Utah Jazz Fan",
+    "description": "I mostly tweet about the NBA and the Utah Jazz. If you have anything Utah Jazz in your profile, I’ll follow you back. Buying or selling a house? Let’s talk",
+    "text": "Fair. I can’t tell anyone how to fan. I’m excited for our young core too",
+    "created_at": "2026-11-13T15:35:06.000Z",
+    "likes": 2,
+    "reposts": 0,
+    "replies": 0,
+    "voice": "fan",
+    "heat": "supportive"
+   },
+   {
+    "id": "2119850250018197730",
+    "url": "https://x.com/EricSpyroNBA/status/2119850250018197730",
+    "username": "EricSpyroNBA",
+    "name": "Eric Spyropoulos",
+    "description": "@utahjazz Digital Reporter | All thoughts and opinions are my own | 🏳️‍🌈",
+    "text": "Happy Miracle in Miami day to all @utahjazz fans who celebrate! Throwing it back to the story I wrote last year to recognize the 15th anniversary of that unforgettable night: https://www.nba.com/jazz/news/how-did-that-happen-inside-the-utah-jazz-miracle-in-miami",
+    "created_at": "2026-11-09T17:50:59.000Z",
+    "likes": 10,
+    "reposts": 1,
+    "replies": 0,
+    "voice": "media",
+    "heat": "supportive"
+   }
+  ]
  }
 }

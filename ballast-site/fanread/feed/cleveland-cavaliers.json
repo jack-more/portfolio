@@ -865,5 +865,68 @@
     "plays": 515
    }
   ]
+ },
+ "x": {
+  "team": "Cleveland Cavaliers",
+  "window": "2026-11-03 to 2026-11-17",
+  "source": "X public posts (x-com search)",
+  "posts": [
+   {
+    "id": "2118330453845299602",
+    "url": "https://x.com/playofftyson/status/2118330453845299602",
+    "username": "playofftyson",
+    "name": "JT",
+    "description": "Cavs fan first, Tyson fan second | #LetEmKnow",
+    "text": "Cavs:\n-Mitchell can't stand not being the center of attention\n-Outside of Mobley, Allen, Hezonja, and Watson, our defense has been laughable\n-Kenny needs to be on the next plane out of Cleveland\n-Even though we improved in overall team size, we can't rebound at all because Kenny is obsessed with three or FOUR guard lineups for long stretches of games\n\nSo bad man",
+    "created_at": "2026-11-05T13:11:51.000Z",
+    "likes": 856,
+    "reposts": 44,
+    "replies": 28,
+    "voice": "fan",
+    "heat": "critical"
+   },
+   {
+    "id": "2118866574799172078",
+    "url": "https://x.com/HoodiGarland/status/2118866574799172078",
+    "username": "HoodiGarland",
+    "name": "¹⁰",
+    "description": "𝘽𝙖𝙨𝙠𝙚𝙩𝙗𝙖𝙡𝙡 𝙞𝙨 𝙩𝙝𝙚 𝙗𝙚𝙨𝙩 𝙨𝙥𝙤𝙧𝙩 𝙚𝙫𝙚𝙧 • 𝙥𝙖𝙧𝙤𝙙𝙮 𝙖𝙘𝙘𝙤𝙪𝙣𝙩 || @Cavs ⟡ @Giants ⟡ @Browns ⟡ @PlayoffGarland ⟡ @HGVids",
+    "text": "Cavs fans cheer for LeBron James when his name was announced. Most loyal fanbase ever ❤️",
+    "created_at": "2026-11-07T00:42:12.000Z",
+    "likes": 336,
+    "reposts": 13,
+    "replies": 6,
+    "voice": "fan",
+    "heat": "supportive"
+   },
+   {
+    "id": "2118411197263536400",
+    "url": "https://x.com/HoodiGarland/status/2118411197263536400",
+    "username": "HoodiGarland",
+    "name": "¹⁰",
+    "description": "𝘽𝙖𝙨𝙠𝙚𝙩𝙗𝙖𝙡𝙡 𝙞𝙨 𝙩𝙝𝙚 𝙗𝙚𝙨𝙩 𝙨𝙥𝙤𝙧𝙩 𝙚𝙫𝙚𝙧 • 𝙥𝙖𝙧𝙤𝙙𝙮 𝙖𝙘𝙘𝙤𝙪𝙣𝙩 || @Cavs ⟡ @Giants ⟡ @Browns ⟡ @PlayoffGarland ⟡ @HGVids",
+    "text": "Deadass the only dude on the Cavs that cares about winning man 💔",
+    "created_at": "2026-11-05T18:32:42.000Z",
+    "likes": 2624,
+    "reposts": 80,
+    "replies": 33,
+    "voice": "fan",
+    "heat": "critical"
+   },
+   {
+    "id": "2117499265639407642",
+    "url": "https://x.com/HoodiGarland/status/2117499265639407642",
+    "username": "HoodiGarland",
+    "name": "¹⁰",
+    "description": "𝘽𝙖𝙨𝙠𝙚𝙩𝙗𝙖𝙡𝙡 𝙞𝙨 𝙩𝙝𝙚 𝙗𝙚𝙨𝙩 𝙨𝙥𝙤𝙧𝙩 𝙚𝙫𝙚𝙧 • 𝙥𝙖𝙧𝙤𝙙𝙮 𝙖𝙘𝙘𝙤𝙪𝙣𝙩 || @Cavs ⟡ @Giants ⟡ @Browns ⟡ @PlayoffGarland ⟡ @HGVids",
+    "text": "Cavs filled Ernest Udeh Jr. and Meleek Thomas cars with popcorn 😭😭😭",
+    "created_at": "2026-11-03T06:09:00.000Z",
+    "likes": 603,
+    "reposts": 23,
+    "replies": 11,
+    "voice": "fan",
+    "heat": "neutral"
+   }
+  ]
  }
 }

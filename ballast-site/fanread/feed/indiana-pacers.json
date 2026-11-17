@@ -793,5 +793,111 @@
     "plays": 23700
    }
   ]
+ },
+ "x": {
+  "team": "Indiana Pacers",
+  "window": "2026-11-03 to 2026-11-17",
+  "source": "X public posts (x-com search)",
+  "note": "Original query returned no posts; retried with query \"Pacers fans\". Off-topic matches (other sports/teams named Hawks/Wolves/Magic/Suns etc.) were dropped. Mostly low-engagement posts from 2026-11-17.",
+  "posts": [
+   {
+    "id": "2122742408584863774",
+    "url": "https://x.com/hPizzzLe/status/2122742408584863774",
+    "username": "hPizzzLe",
+    "name": "p!z",
+    "description": "pacers fan 💙💛 girl dad 💜",
+    "text": "Carlisle and the Pacers keep leading fans on about Haliburton’s injury saying he’ll *MAYBE* be back soon, just to sell tickets and “gold deals” for the holidays. We ain’t seeing him til the New Year I’m guessing",
+    "created_at": "2026-11-17T17:23:23.000Z",
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "voice": "fan",
+    "heat": "critical"
+   },
+   {
+    "id": "2122736592510951454",
+    "url": "https://x.com/vanvleet999/status/2122736592510951454",
+    "username": "vanvleet999",
+    "name": "Vanvleet",
+    "description": "spoiler alert the second act is tragic",
+    "text": "we all know ab jarace but i dont think pacers fans have quite caught onto how bad Huff is too",
+    "created_at": "2026-11-17T17:00:16.000Z",
+    "likes": 9,
+    "reposts": 0,
+    "replies": 2,
+    "voice": "fan",
+    "heat": "critical"
+   },
+   {
+    "id": "2122719260828979491",
+    "url": "https://x.com/BoomBabyBurner/status/2122719260828979491",
+    "username": "BoomBabyBurner",
+    "name": "MillerTime",
+    "description": "#YesCers #ChiefsKingdom #FountainsUp #GoPokes",
+    "text": "The front office was the one that was open to trading him for years. If pacers fans were calling him ass; imagine what the bucks fans are calling him now 😭",
+    "created_at": "2026-11-17T15:51:24.000Z",
+    "likes": 0,
+    "reposts": 0,
+    "replies": 1,
+    "voice": "fan",
+    "heat": "neutral"
+   },
+   {
+    "id": "2122712805941846319",
+    "url": "https://x.com/SamChotty/status/2122712805941846319",
+    "username": "SamChotty",
+    "name": "a Hoosier",
+    "description": "What I got to say? Power to the people, no delay",
+    "text": "So pacers fans didn’t call him ass and ask for him to be traded a million times ? It’s okay that both things are true",
+    "created_at": "2026-11-17T15:25:45.000Z",
+    "likes": 0,
+    "reposts": 0,
+    "replies": 1,
+    "voice": "fan",
+    "heat": "neutral"
+   },
+   {
+    "id": "2122707389119885595",
+    "url": "https://x.com/hoosierlottery/status/2122707389119885595",
+    "username": "hoosierlottery",
+    "name": "Hoosier Lottery",
+    "description": "Official Hoosier Lottery Twitter. Must be 18+ to play. Please play responsibly. Problem Gambling Helpline: 1-800-994-8448.",
+    "text": "Calling all Pacers fans! 🏀 We're giving you the chance to win the Ultimate Fan Experience including Pacers Lexus Loft tickets, pregame access, up to $100,000 and more! Don't miss your shot! Sign up or sign in to your myLOTTERY account and enter at https://hoosierlottery.com/mylottery/pacers/",
+    "created_at": "2026-11-17T15:04:14.000Z",
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "voice": "media",
+    "heat": "neutral"
+   },
+   {
+    "id": "2122691724296536170",
+    "url": "https://x.com/Pacers/status/2122691724296536170",
+    "username": "Pacers",
+    "name": "Indiana Pacers",
+    "description": "#YesCers",
+    "text": "We’re teaming up with MatchWornShirt for a first-of-its-kind partnership to offer game-worn memorabilia to fans worldwide via MWS’ global auction platform. Learn more: https://www.nba.com/pacers/news/pacers-sports-entertainment-and-matchwornshirt-announce-first-of-its-kindpartnership-to-offer-nba-and-wnba-game-worn-memorabilia-to-fans-worldwide",
+    "created_at": "2026-11-17T14:01:59.000Z",
+    "likes": 38,
+    "reposts": 3,
+    "replies": 1,
+    "voice": "team",
+    "heat": "neutral"
+   },
+   {
+    "id": "2122686180479131889",
+    "url": "https://x.com/PacersUniTrackr/status/2122686180479131889",
+    "username": "PacersUniTrackr",
+    "name": "Pacers & Fever Uniform Tracker",
+    "description": "Your unofficial source for @Pacers / @IndianaFever uni news, stats, history, and concepts • Not affiliated with either team. #PacersTwitter #IndianaFever",
+    "text": "This is pretty cool 👀 Game-worn Pacers jerseys will be available through MatchWornShirt beginning this month, with Fever jerseys following in 2027. Even better, each jersey will come with authentication documenting its game use. https://www.nba.com/pacers/news/pacers-sports-entertainment-and-matchwornshirt-announce-first-of-its-kindpartnership-to-offer-nba-and-wnba-game-worn-memorabilia-to-fans-worldwide",
+    "created_at": "2026-11-17T13:39:57.000Z",
+    "likes": 21,
+    "reposts": 4,
+    "replies": 0,
+    "voice": "fan",
+    "heat": "supportive"
+   }
+  ]
  }
 }

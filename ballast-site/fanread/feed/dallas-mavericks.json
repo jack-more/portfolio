@@ -812,5 +812,139 @@
     "plays": 352100
    }
   ]
+ },
+ "x": {
+  "team": "Dallas Mavericks",
+  "window": "2026-11-03 to 2026-11-17",
+  "source": "X public posts (x-com search)",
+  "note": "Original query returned no posts; retried with query \"Mavs fans\". Off-topic matches (other sports/teams named Hawks/Wolves/Magic/Suns etc.) were dropped. Mostly low-engagement posts from 2026-11-17.",
+  "posts": [
+   {
+    "id": "2122793763592376516",
+    "url": "https://x.com/LetsGoMavsgm/status/2122793763592376516",
+    "username": "LetsGoMavsgm",
+    "name": "Lets.Go.Mavs",
+    "description": "Dallas Mavericks | NBA Aficionado | Creative Content | FOC",
+    "text": "to all Mavs fans \n#mffl #letsgomavs",
+    "created_at": "2026-11-17T20:47:27.000Z",
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "voice": "fan",
+    "heat": "supportive"
+   },
+   {
+    "id": "2122789643070370133",
+    "url": "https://x.com/_AverageJoaan/status/2122789643070370133",
+    "username": "_AverageJoaan",
+    "name": "Meme the 🦄",
+    "description": "Baylor Alum (Sic ‘Em Bears 💚💛🐻) • Sports & Arts Lover 🏈🏀🎾🎨🎭 • Fluent in sarcasm 😌🤭",
+    "text": "Mavs were the 5th seed in 23-24 but yea they tried that “sorry Mavs fans, seeding matters” bullsh*t lmao smh",
+    "created_at": "2026-11-17T20:31:05.000Z",
+    "likes": 1,
+    "reposts": 0,
+    "replies": 0,
+    "voice": "fan",
+    "heat": "neutral"
+   },
+   {
+    "id": "2122766709593706790",
+    "url": "https://x.com/JustinCen2/status/2122766709593706790",
+    "username": "JustinCen2",
+    "name": "CaptainCaillou",
+    "description": "Regular",
+    "text": "He’s legit won on all levels. No shit a couple of losses and blowouts makes him down as hell. Same with cooper Flagg when the Mavs lost a bunch of games. \n\nSome fans man",
+    "created_at": "2026-11-17T18:59:57.000Z",
+    "likes": 1,
+    "reposts": 0,
+    "replies": 0,
+    "voice": "fan",
+    "heat": "neutral"
+   },
+   {
+    "id": "2122753109663400323",
+    "url": "https://x.com/TinFoilMavs/status/2122753109663400323",
+    "username": "TinFoilMavs",
+    "name": "tinfoil mavericks",
+    "description": "Mavericks fan for 15+ years, NBA conspiracy theorist #PabloTorre investigate the Luka Doncic trade",
+    "text": "The injuries, the bad attitude, the rich paul podcast… Ricardi & Finley traded him for nothing & mavs fans agreed",
+    "created_at": "2026-11-17T18:05:54.000Z",
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "voice": "fan",
+    "heat": "critical"
+   },
+   {
+    "id": "2122742141621563485",
+    "url": "https://x.com/TheREAL_DTEB/status/2122742141621563485",
+    "username": "TheREAL_DTEB",
+    "name": "Evan Brown 👑🌃",
+    "description": "I said what I said🤷🏾‍♂️+ #MFFL Salute the Flagg 🫡#Cowboys (In 77 I trust) ΚΑΨ♦️",
+    "text": "For Mavs fans who didn’t stick around through last season and the back half of the 2025 season I promise you it can be worse",
+    "created_at": "2026-11-17T17:22:19.000Z",
+    "likes": 1,
+    "reposts": 0,
+    "replies": 0,
+    "voice": "fan",
+    "heat": "neutral"
+   },
+   {
+    "id": "2122739734745149934",
+    "url": "https://x.com/drodroslim100/status/2122739734745149934",
+    "username": "drodroslim100",
+    "name": "dro",
+    "description": "Taking Dj Michael Watts(R.I.P) place for now\nPlease like the music and follow i want to get paid like everybody else support a blky bidness",
+    "text": "Mavs fans being mad at Nico is making the same mistakes he did..Hillarious.. we going to suck forever",
+    "created_at": "2026-11-17T17:12:46.000Z",
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "voice": "fan",
+    "heat": "critical"
+   },
+   {
+    "id": "2122739667887861859",
+    "url": "https://x.com/miss77ela/status/2122739667887861859",
+    "username": "miss77ela",
+    "name": "m⁷⁷",
+    "description": "i like luka, nikola, my cats and my dog 🐾",
+    "text": "feel for my fellow mavs fans that miss him :(",
+    "created_at": "2026-11-17T17:12:30.000Z",
+    "likes": 20,
+    "reposts": 0,
+    "replies": 0,
+    "voice": "fan",
+    "heat": "neutral"
+   },
+   {
+    "id": "2122739339780411797",
+    "url": "https://x.com/TheREAL_DTEB/status/2122739339780411797",
+    "username": "TheREAL_DTEB",
+    "name": "Evan Brown 👑🌃",
+    "description": "I said what I said🤷🏾‍♂️+ #MFFL Salute the Flagg 🫡#Cowboys (In 77 I trust) ΚΑΨ♦️",
+    "text": "Us Mavs fans watching Luka finally get his MVP in LA after everything he went through in Dallas",
+    "created_at": "2026-11-17T17:11:11.000Z",
+    "likes": 11,
+    "reposts": 1,
+    "replies": 0,
+    "voice": "fan",
+    "heat": "neutral"
+   },
+   {
+    "id": "2122726385194053737",
+    "url": "https://x.com/stacksats03/status/2122726385194053737",
+    "username": "stacksats03",
+    "name": "WAD3 🐐| ₿",
+    "description": "#bitcoin & #heatculture •  I agree to disagree",
+    "text": "Mavs fans right now",
+    "created_at": "2026-11-17T16:19:43.000Z",
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "voice": "fan",
+    "heat": "neutral"
+   }
+  ]
  }
 }

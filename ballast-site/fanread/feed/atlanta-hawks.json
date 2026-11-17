@@ -854,5 +854,41 @@
     "plays": 232
    }
   ]
+ },
+ "x": {
+  "team": "Atlanta Hawks",
+  "window": "2026-11-03 to 2026-11-17",
+  "source": "X public posts (x-com search)",
+  "note": "Original query returned no posts; retried with query \"Hawks fans\". Off-topic matches (other sports/teams named Hawks/Wolves/Magic/Suns etc.) were dropped. Mostly low-engagement posts from 2026-11-17.",
+  "posts": [
+   {
+    "id": "2122785198291206401",
+    "url": "https://x.com/_AlexGookin/status/2122785198291206401",
+    "username": "_AlexGookin",
+    "name": "Alex Gookin",
+    "description": "i’ll leave when i wanna",
+    "text": "it's a joke about history repeating itself (former coach named McC******'s son (PMac) starting for the Hawks). I'm surprised at how many Hawk fans didn't get it or are hurt by it lol.",
+    "created_at": "2026-11-17T20:13:25.000Z",
+    "likes": 0,
+    "reposts": 0,
+    "replies": 2,
+    "voice": "fan",
+    "heat": "neutral"
+   },
+   {
+    "id": "2122783732629151875",
+    "url": "https://x.com/BlackManThurr/status/2122783732629151875",
+    "username": "BlackManThurr",
+    "name": "BlackMANthurr",
+    "description": "Don't start none won't be none.  If you have an agenda the convo will end quickly.",
+    "text": "Wizards fans all in Hawks fans mentions during the off-season.... All of a sudden",
+    "created_at": "2026-11-17T20:07:35.000Z",
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "voice": "fan",
+    "heat": "neutral"
+   }
+  ]
  }
 }

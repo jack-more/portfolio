@@ -798,5 +798,82 @@
    }
   ],
   "players": []
+ },
+ "x": {
+  "team": "Brooklyn Nets",
+  "window": "2026-11-03 to 2026-11-17",
+  "source": "X public posts (x-com search)",
+  "posts": [
+   {
+    "id": "2122533697467330682",
+    "url": "https://x.com/brooklynnets85/status/2122533697467330682",
+    "username": "brooklynnets85",
+    "name": "BKN 85 (Fire Marks)",
+    "description": "powered by spite",
+    "text": "The saddest part about the Brooklyn Nets situation is that they have exactly two promising players on this roster: Nolan Traore and Mikel Brown Jr.\n\nAnd at this point, both guys need to be playing 30+ minutes every single night. It’s painfully obvious. Mikel can’t get in rhythm with this inconsistent role next to 3 bums. Nolan can’t be sitting as long as he did when hot. \n\nMikel has to play 33-35 mins bc he’s the most talented player this franchise has drafted since 2000. Nolan because he’s playing like the best guard on the team by a mile.\n\nBut Marks has constructed such a shitty, disastrous roster that they don’t even have the pieces around these two to allow them to play together competently.\n\nSo Jordi refuses to play them together. And every time one of them is having a great game, the other barely sees the floor. It’s like they’re incapable of both having a good game on the same night because the roster construction won’t allow it.\n\nThere’s genuinely no good answer here. It’s a complete managerial disaster.\n\nNothing else on this roster is particularly promising, and somehow the only two players worth getting excited about can’t even share the floor.\n\nPersonally, I’d say fuck it. Play them both 30+ minutes together every night and live with the consequences. What exactly do we have to lose at this point?\n\nBut the bigger picture is that Marks and Jordi both have to go. This entire thing needs to be torn down and restarted.\n\nJust a complete and utter disaster. It’s honestly a shame what this franchise has become.",
+    "created_at": "2026-11-17T03:34:02.000Z",
+    "likes": 186,
+    "reposts": 13,
+    "replies": 17,
+    "voice": "fan",
+    "heat": "critical"
+   },
+   {
+    "id": "2121333058607415729",
+    "url": "https://x.com/BrooklynNets/status/2121333058607415729",
+    "username": "BrooklynNets",
+    "name": "Brooklyn Nets",
+    "description": "Brooooooklynnn #NetsWorld",
+    "text": "JULIUS “DR. J” ERVING‼️\n\nfirst 5K fans will receive a special @JuliusErving bobblehead as we celebrate ABA Night on 11/18!",
+    "created_at": "2026-11-13T20:03:08.000Z",
+    "likes": 306,
+    "reposts": 34,
+    "replies": 17,
+    "voice": "team",
+    "heat": "neutral"
+   },
+   {
+    "id": "2121795014292299808",
+    "url": "https://x.com/bamaperspective/status/2121795014292299808",
+    "username": "bamaperspective",
+    "name": "Bama Perspective",
+    "description": "Where Crimson Tide passion meets perspective. A fan's heart. A journalist's eye.",
+    "text": "...\n🏀Bama pro: Grant Nelson, a Brooklyn Nets two-way, hit a buzzer-beater to give the Long Island Nets a 117-116 win over the College Park Skyhawks. (vid in replies)\n     - He finished with 16 points, 9 rebounds and 2 assists in 27 minutes.\n...",
+    "created_at": "2026-11-15T02:38:47.000Z",
+    "likes": 127,
+    "reposts": 5,
+    "replies": 5,
+    "voice": "media",
+    "heat": "neutral"
+   },
+   {
+    "id": "2120984992461316256",
+    "url": "https://x.com/dylanhoops/status/2120984992461316256",
+    "username": "dylanhoops",
+    "name": "dylandoesbasketball",
+    "description": "basketball youtuber with 220k+ subscribers",
+    "text": "This is not the insult NBA fans think it is. The only reason the 2021 Brooklyn Nets weren’t NBA champions is due to unprecedented misfortune and nothing else.",
+    "created_at": "2026-11-12T21:00:02.000Z",
+    "likes": 132,
+    "reposts": 11,
+    "replies": 6,
+    "voice": "media",
+    "heat": "supportive"
+   },
+   {
+    "id": "2122766096638091500",
+    "url": "https://x.com/axelthescourge/status/2122766096638091500",
+    "username": "axelthescourge",
+    "name": "Jared",
+    "description": "powered by spite",
+    "text": "Blg probably has more fans than the Brooklyn nets",
+    "created_at": "2026-11-17T18:57:31.000Z",
+    "likes": 58,
+    "reposts": 0,
+    "replies": 1,
+    "voice": "fan",
+    "heat": "critical"
+   }
+  ]
  }
 }

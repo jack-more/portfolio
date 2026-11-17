@@ -834,5 +834,26 @@
     "plays": 2813
    }
   ]
+ },
+ "x": {
+  "team": "Sacramento Kings",
+  "window": "2026-11-03 to 2026-11-17",
+  "source": "X public posts (x-com search)",
+  "posts": [
+   {
+    "id": "2118373536989647272",
+    "url": "https://x.com/TheKevinDalton/status/2118373536989647272",
+    "username": "TheKevinDalton",
+    "name": "Kevin Dalton",
+    "description": "I tried fixing the system by working with the system. Now I'm doing it my way.",
+    "text": "A Sacramento Kings fan sitting courtside is ejected after aggressively throwing the ball at a female referee during last night‘s Lakers game.\n\nAm I missing the aggressive part? This seems like a pretty standard pass to me…",
+    "created_at": "2026-11-05T16:03:03.000Z",
+    "likes": 605,
+    "reposts": 31,
+    "replies": 168,
+    "voice": "media",
+    "heat": "neutral"
+   }
+  ]
  }
 }

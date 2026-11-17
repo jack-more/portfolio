@@ -827,5 +827,40 @@
     "plays": 38359
    }
   ]
+ },
+ "x": {
+  "team": "San Antonio Spurs",
+  "window": "2026-11-03 to 2026-11-17",
+  "source": "X public posts (x-com search)",
+  "posts": [
+   {
+    "id": "2120925193929674835",
+    "url": "https://x.com/_bingwu/status/2120925193929674835",
+    "username": "_bingwu",
+    "name": "Bing Wu",
+    "description": "Co-founder & CEO @retellai",
+    "text": "The San Antonio Spurs saw 505× ROI in 4 months using Retell for season ticket outreach.\n\nOur AI voice agents handle routine customer outreach, giving the team more time for personal conversations with fans.\n\nThank you to Chris, John, and the Spurs team for building with us.",
+    "created_at": "2026-11-12T17:02:25.000Z",
+    "likes": 69,
+    "reposts": 10,
+    "replies": 5,
+    "voice": "media",
+    "heat": "neutral"
+   },
+   {
+    "id": "2120561954884599901",
+    "url": "https://x.com/JeffGSpursZone/status/2120561954884599901",
+    "username": "JeffGSpursZone",
+    "name": "JeffGSpursZone",
+    "description": "SIF: https://t.co/ifxnLh3jyu .\nOfficial SA Toros writer. Long-time Spurs Writer. SA Comic Con host. Member @SAAHJ. Nerdy. RT not endorsements",
+    "text": "Check this out, #porvida fans.... Victor Wembanyama's dominance and 1-of-1 status by the numbers! Stats are insane!!! 😤 #nba #sanantonio #gospursgo (via IG Hoopers Stats)",
+    "created_at": "2026-11-11T16:59:02.000Z",
+    "likes": 262,
+    "reposts": 29,
+    "replies": 3,
+    "voice": "media",
+    "heat": "supportive"
+   }
+  ]
  }
 }
