@@ -30,7 +30,7 @@ img{display:block;max-width:100%}
 
 /* home */
 #home{align-items:center;justify-content:space-between;padding:calc(30px + env(safe-area-inset-top)) var(--g) calc(18px + env(safe-area-inset-bottom))}
-#home .wm{font-size:clamp(48px,6.4vw,92px);color:var(--ink)}
+#home .wm{margin:0;font-size:clamp(72px,15vw,220px);color:var(--ink)}
 .stage{position:relative;width:min(380px,74vw,52svh);aspect-ratio:4/5;margin:28px 0 10px}
 .stage figure{position:absolute;inset:0;margin:0;opacity:0;transition:opacity 1.1s ease,transform 6s linear;transform:scale(1.02)}
 .stage figure.on{opacity:1;transform:scale(1)}
@@ -50,7 +50,8 @@ img{display:block;max-width:100%}
 .endf{margin-top:auto;padding:28px var(--g) calc(22px + env(safe-area-inset-bottom));text-align:center;color:var(--mute)}
 
 /* projects: folders */
-#work .grid{flex:1;display:grid;grid-template-columns:repeat(5,minmax(0,124px));gap:44px 30px;justify-content:center;align-content:center;padding:48px var(--g)}
+#work .grid{flex:1;display:flex;flex-wrap:wrap;gap:44px 30px;justify-content:center;align-content:center;padding:48px var(--g);max-width:calc(6*124px + 5*30px + 2*var(--g));margin:0 auto}
+#work .fo{width:124px}
 .fo{display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center}
 .fd{position:relative;width:100%;aspect-ratio:120/106;transition:transform .25s cubic-bezier(.2,.8,.2,1)}
 .fo:hover .fd{transform:translateY(-4px)}
@@ -87,7 +88,7 @@ img{display:block;max-width:100%}
 .plates figcaption{display:flex;justify-content:space-between;padding:10px 2px 0;color:var(--mute)}
 .plates.two{grid-template-columns:repeat(2,minmax(0,1fr))}
 .reel{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:28px var(--g);padding:0 var(--g);max-width:1440px;width:100%;margin:0 auto}
-.reel button,.reel a{display:block;text-align:left;width:100%}
+.reel button,.reel a{display:flex;flex-direction:column;justify-content:flex-start;align-self:start;text-align:left;width:100%}
 .reel .th{display:block;position:relative;aspect-ratio:16/9;overflow:hidden;background:var(--soft);border-radius:2px}
 .reel .th.v{aspect-ratio:9/16}
 .reel .th img,.reel .th video{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
@@ -155,7 +156,7 @@ img{display:block;max-width:100%}
 #lb .x{position:absolute;top:calc(18px + env(safe-area-inset-top));right:var(--g)}
 
 @media (max-width:900px){
- #work .grid{grid-template-columns:repeat(3,minmax(0,110px));gap:34px 26px}
+ #work .grid{gap:34px 20px;max-width:calc(3*96px + 2*20px + 2*var(--g))}#work .fo{width:96px}
  #proj .hd{grid-template-columns:minmax(0,1fr);gap:28px;padding-top:48px}
  .plates.two,.bks{grid-template-columns:minmax(0,1fr)}
  .pil{grid-template-columns:minmax(0,1fr)}.pil section,.pil section+section{padding:20px 0;border-left:0;border-bottom:1px solid var(--line)}
@@ -176,11 +177,8 @@ img{display:block;max-width:100%}
 
 <!-- HOME -->
 <main class="view" id="home">
-  <span class="wm" id="wm">Ballast</span>
-  <div>
-    <div class="stage" id="stage"></div>
-    <div class="stage-cap cap" id="scap"><span id="sname">&nbsp;</span><span class="i" id="sidx"></span></div>
-  </div>
+  <span></span>
+  <h1 class="wm" id="wm">Ballast</h1>
   <div style="display:flex;flex-direction:column;align-items:center;width:100%">
     <nav class="dock" aria-label="Main">
       <a href="#/work"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M3 11a3 3 0 0 1 3-3h9l3 3h16a3 3 0 0 1 3 3v17a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3z" fill="#A4ACB6"/><path d="M3 15h34v16a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3z" fill="#B9C0C9"/></svg><span class="cap mute">Projects</span></a>
@@ -322,9 +320,10 @@ const P={
  starbucks:{name:'Starbucks',c1:'#1E8A5C',c2:'#0B5A3A',mark:'starbucks.png',brands:['Starbucks']},
  peacock:{name:'Peacock',c1:'#3A3F47',c2:'#16191D',mark:'peacock.png',brands:['Peacock','NBC']},
  bmw:{name:'BMW',c1:'#5AA0E0',c2:'#24609E',mark:'bmw.svg',brands:['BMW IG'],nm:'BMW'},
- archive:{name:'Archive',c1:'#B9C0C9',c2:'#8D96A1',glyph:GRID,brands:['NEAR × SailGP','LG','STARZPLAY','Dtravel','Hint'],
-  line:'More paid media and launches: NEAR &times; SailGP, LG, STARZPLAY, Dtravel and Hint.'}};
-const ORDER=['dtc','hotg','netflix','disney','universal','toyota','starbucks','peacock','bmw','archive'];
+ chain:{name:'Blockchain',c1:'#3B3F46',c2:'#121418',mark:'near.png',brands:['NEAR × SailGP','Dtravel'],kind:'Paid media'},
+ archive:{name:'Archive',c1:'#B9C0C9',c2:'#8D96A1',glyph:GRID,brands:['LG','STARZPLAY','Hint'],
+  line:'More paid media and launches: LG, STARZPLAY and Hint.'}};
+const ORDER=['dtc','hotg','chain','netflix','disney','universal','toyota','starbucks','peacock','bmw','archive'];
 let WORK=[];
 
 /* home stage */
@@ -364,7 +363,7 @@ function vProj(k){
 /* router */
 function route(){const h=location.hash.replace(/^#\/?/,'').split('/');const v=h[0]||'home';
   const id={'':'home',home:'home',work:h[1]?'proj':'work',info:'info',book:'book'}[v]||'home';
-  if(id==='work')vWork();if(id==='proj')vProj(h[1]);if(id==='home')buildStage();
+  if(id==='work')vWork();if(id==='proj')vProj(h[1]);
   $$('.view').forEach(x=>{const on=x.id===id;if(on&&!x.classList.contains('on')){x.classList.add('on');requestAnimationFrame(()=>requestAnimationFrame(()=>x.classList.add('in')))}else if(!on){x.classList.remove('on','in')}});
   scrollTo(0,0);document.title=id==='proj'&&P[h[1]]?P[h[1]].name+' · Ballast':'Ballast';
 }
