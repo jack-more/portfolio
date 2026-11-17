@@ -50,7 +50,7 @@ img{display:block;max-width:100%}
 .endf{margin-top:auto;padding:28px var(--g) calc(22px + env(safe-area-inset-bottom));text-align:center;color:var(--mute)}
 
 /* projects: folders */
-#work .grid{flex:1;display:grid;grid-template-columns:repeat(6,minmax(0,124px));gap:44px 30px;justify-content:center;align-content:center;padding:48px var(--g)}
+#work .grid{flex:1;display:grid;grid-template-columns:repeat(5,minmax(0,124px));gap:44px 30px;justify-content:center;align-content:center;padding:48px var(--g)}
 .fo{display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center}
 .fd{position:relative;width:100%;aspect-ratio:120/106;transition:transform .25s cubic-bezier(.2,.8,.2,1)}
 .fo:hover .fd{transform:translateY(-4px)}
@@ -77,6 +77,10 @@ img{display:block;max-width:100%}
 .cv.sq{box-shadow:none}
 .cv img{width:auto;max-width:100%;max-height:min(70svh,760px);height:auto}
 .cvm{display:flex;align-items:center;gap:22px;flex-wrap:wrap;justify-content:center}
+.bks{display:grid;grid-template-columns:minmax(0,1.49fr) minmax(0,1.79fr);align-items:start;gap:var(--g);padding:0 var(--g);max-width:1440px;width:100%;margin:0 auto 64px}
+.bks figure{margin:0;display:flex;flex-direction:column;gap:18px}
+.bks .cv img{width:100%;max-height:none}
+.bks .cvm{justify-content:flex-start;gap:16px}
 .plates{display:grid;gap:var(--g);padding:0 var(--g);max-width:1440px;width:100%;margin:0 auto}
 .plates figure{margin:0}
 .plates img{width:100%;height:auto;border-radius:2px;background:var(--soft)}
@@ -153,7 +157,7 @@ img{display:block;max-width:100%}
 @media (max-width:900px){
  #work .grid{grid-template-columns:repeat(3,minmax(0,110px));gap:34px 26px}
  #proj .hd{grid-template-columns:minmax(0,1fr);gap:28px;padding-top:48px}
- .plates.two{grid-template-columns:minmax(0,1fr)}
+ .plates.two,.bks{grid-template-columns:minmax(0,1fr)}
  .pil{grid-template-columns:minmax(0,1fr)}.pil section,.pil section+section{padding:20px 0;border-left:0;border-bottom:1px solid var(--line)}
  .cal{grid-template-columns:minmax(0,1fr)}
  .cal__month{padding:22px 0;border-right:0;border-bottom:1px solid var(--line)}
@@ -280,14 +284,14 @@ const PLAYG='<svg viewBox="0 0 100 100" aria-hidden="true"><rect x="8" y="20" wi
 
 /* the stage on the home screen: one object at a time */
 const STAGE=[
- {img:'s/meridian-1.webp',n:'Meridian · Botanica',p:'meridian'},
+ {img:'s/meridian-1.webp',n:'Meridian · Botanica',p:'dtc'},
  {img:'s/hotg-bloom.webp',n:'History of the Game · The bloom',p:'hotg',wm:'#B3202E'},
- {img:'s/sko-1.webp',n:'SKO Compounds · Isometrica',p:'sko',wm:'#2E5DA8'},
- {img:'s/meridian-2.webp',n:'Meridian · Botanica',p:'meridian',wm:'#3AA845'},
+ {img:'s/sko-1.webp',n:'SKO Compounds · Isometrica',p:'dtc',wm:'#2E5DA8'},
+ {img:'s/meridian-2.webp',n:'Meridian · Botanica',p:'dtc',wm:'#3AA845'},
  {img:'s/hotg-ring.webp',n:'History of the Game · The ring',p:'hotg',wm:'#B08A3E'},
- {img:'s/sko-2.webp',n:'SKO Compounds · Isometrica',p:'sko',wm:'#2E5DA8'},
+ {img:'s/sko-2.webp',n:'SKO Compounds · Isometrica',p:'dtc',wm:'#2E5DA8'},
  {img:'s/hotg-jersey.webp',n:'History of the Game · Signed jersey',p:'hotg',wm:'#B3202E'},
- {img:'s/meridian-3.webp',n:'Meridian · Botanica',p:'meridian',wm:'#3AA845'}];
+ {img:'s/meridian-3.webp',n:'Meridian · Botanica',p:'dtc',wm:'#3AA845'}];
 STAGE[0].wm='#3AA845';
 
 /* projects */
@@ -308,10 +312,9 @@ const P={
   cover:'hotg-hero-mat-met-red',plates:['hotg-hero-mat-met-red','hotg-relic-r2-ring','hotg-relic-r2-jersey-signed','hotg-hero-mat-jade','hotg-live3-2x-card-front','hotg-merch-hat-hat-pins','hotg-merch-mesh-solid-out-blue','hotg-relic-r2-patch','hotg-merch-goods-keys-moulded','hotg-relic-r2-sculpture'],two:1,
   caps:{'hotg-hero-mat-met-red':'The bloom, red chrome','hotg-relic-r2-ring':'The ring','hotg-relic-r2-jersey-signed':'Signed jersey','hotg-hero-mat-jade':'The bloom, jade','hotg-live3-2x-card-front':'Fan card','hotg-merch-hat-hat-pins':'Pins','hotg-merch-mesh-solid-out-blue':'Mesh shorts','hotg-relic-r2-patch':'Chenille patch','hotg-merch-goods-keys-moulded':'Keychains','hotg-relic-r2-sculpture':'The award'},
   link:['See the full system','https://ballast.la/hotg--brand/']},
- dtc:{name:'DTC wellness',c1:'#6E7F8E',c2:'#3E4C59',glyph:PLAYG,kind:'Paid social',
-  line:'Paid social for a DTC wellness brand, from $25K to $1.2M in monthly revenue. Creators and UGC, paid on sales, with new hooks every week.',
-  spec:[['Work','Paid media, creators and UGC, creative'],['Result','$25K to $1.2M monthly revenue']],
-  ads:['ugc-hanna-1','sko-tennis','ugc-ethan-restock-1','sko-sophie-35k']},
+ dtc:{name:'DTC wellness',c1:'#6E7F8E',c2:'#3E4C59',glyph:PLAYG,
+  line:'Product books, paid social and creators for two wellness brands, from $25K to $1.2M in monthly revenue.',kind:'Brand and growth',
+  books:['meridian','sko'],ads:['ugc-hanna-1','sko-tennis','ugc-ethan-restock-1','sko-sophie-35k']},
  netflix:{name:'Netflix',c1:'#2B2B2B',c2:'#0E0E0E',mark:'netflix.svg',brands:['Netflix']},
  disney:{name:'Disney',c1:'#2D5FC7',c2:'#14337A',mark:'disney.png',brands:['Disney']},
  universal:{name:'Universal',c1:'#4F5862',c2:'#262C33',mark:'universal.svg',brands:['Universal']},
@@ -321,7 +324,7 @@ const P={
  bmw:{name:'BMW',c1:'#5AA0E0',c2:'#24609E',mark:'bmw.svg',brands:['BMW IG'],nm:'BMW'},
  archive:{name:'Archive',c1:'#B9C0C9',c2:'#8D96A1',glyph:GRID,brands:['NEAR × SailGP','LG','STARZPLAY','Dtravel','Hint'],
   line:'More paid media and launches: NEAR &times; SailGP, LG, STARZPLAY, Dtravel and Hint.'}};
-const ORDER=['meridian','sko','hotg','dtc','netflix','disney','universal','toyota','starbucks','peacock','bmw','archive'];
+const ORDER=['dtc','hotg','netflix','disney','universal','toyota','starbucks','peacock','bmw','archive'];
 let WORK=[];
 
 /* home stage */
@@ -340,14 +343,16 @@ function vProj(k){
   const i=ORDER.indexOf(k),nx=ORDER[(i+1)%ORDER.length];
   const items=p.brands?WORK.filter(w=>p.brands.includes(w.b)):[];
   const line=p.line||`Paid media and launch campaigns for ${esc(p.name)}: ${items.length} spots, trailers and posts.`;
-  const spec=p.spec||[['Client',p.brands.join(', ')],['Work','Paid media, launch campaigns'],['Pieces',String(items.length)]];
+  const spec=p.spec||(p.brands?[['Client',p.brands.join(', ')],['Work','Paid media, launch campaigns'],['Pieces',String(items.length)]]:[]);
   if(p.cover){const href=p.book||p.link[1],lab=p.book?'Open the book':'Open the system';
     $('#pbody').innerHTML=`<section class="cov"><a href="${href}" target="_blank" rel="noopener" class="cv${p.book?'':' sq'}"><img src="${B}p/${p.cover}.webp" alt="${esc(p.name)}"></a>
      <div class="cvm"><span class="cap">${esc(p.name)}</span><span class="cap mute">${p.book?`${esc(p.kind)} &middot; ${p.pages} pages`:esc(p.kind)}</span><a class="btn" href="${href}" target="_blank" rel="noopener">${lab}</a></div></section>
      <nav class="next cap"><a href="#/work">&larr; All projects</a><a href="#/work/${nx}">Next: ${esc(P[nx].nm||P[nx].name)} &rarr;</a></nav>`;return}
   let h=`<section class="hd"><div><span class="cap mute">${esc(p.kind||'Paid media')} &middot; ${String(i+1).padStart(2,'0')} / ${String(ORDER.length).padStart(2,'0')}</span><h1>${esc(p.name)}</h1>${p.brands?'':`<p class="ln">${line}</p>`}${p.link?`<p style="margin-top:22px"><a class="btn gh" href="${p.link[1]}" target="_blank" rel="noopener">${esc(p.link[0])}</a></p>`:''}</div>
-   ${p.brands?`<div class="cap mute" style="justify-self:end">${items.length} pieces</div>`:`<dl class="spec">${spec.map(([a,b])=>`<div><dt class="cap mute">${esc(a)}</dt><dd>${esc(b)}</dd></div>`).join('')}</dl>`}</section>`;
+   ${p.books?'':p.brands?`<div class="cap mute" style="justify-self:end">${items.length} pieces</div>`:`<dl class="spec">${spec.map(([a,b])=>`<div><dt class="cap mute">${esc(a)}</dt><dd>${esc(b)}</dd></div>`).join('')}</dl>`}</section>`;
   if(p.plates)h+=`<div class="plates${p.two?' two':''}">${p.plates.map((n,j)=>`<figure><img src="${B}p/${n}.webp" alt="${esc(p.caps[n]||'')}" loading="${j<2?'eager':'lazy'}" decoding="async"><figcaption class="cap"><span>${esc(p.caps[n]||'')}</span><span>${String(j+1).padStart(2,'0')}</span></figcaption></figure>`).join('')}</div>`;
+  if(p.books)h+=`<div class="bks">${p.books.map(k=>{const b=P[k];return `<figure><a class="cv" href="${b.book}" target="_blank" rel="noopener"><img src="${B}p/${b.cover}.webp" alt="${esc(b.name)}"></a>
+    <figcaption class="cvm"><span class="cap">${esc(b.name)}</span><span class="cap mute">${b.pages} pages</span><a class="btn" href="${b.book}" target="_blank" rel="noopener">Open the book</a></figcaption></figure>`}).join('')}</div>`;
   if(p.ads)h+=`<div class="reel vt">${p.ads.map(a=>`<figure style="margin:0"><div class="th v"><video src="/work/health/ads/${a}.mp4" poster="/work/health/ads/${a}.webp" muted loop playsinline preload="none"></video></div></figure>`).join('')}</div>`;
   if(items.length){const vt=true;   // the wall's thumbnails are all cut 9:16
     h+=`<div class="reel${vt?' vt':''}">${items.map(w=>{const v=w.ar==='9/16'||w.ig;const inner=`<span class="th v"><img src="${esc(w.img)}" alt="" loading="lazy" decoding="async"><span class="pl">${PLAY}</span></span><span class="t cap">${esc(w.b==='BMW IG'?'BMW':w.b)} &middot; ${esc(w.t)}</span>`;
