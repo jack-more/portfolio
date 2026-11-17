@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>Ballast</title>
+<meta name="description" content="Ballast is a performance marketing and brand studio in Los Angeles.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@125,800;125,900&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Ballast. One white room, one object at a time, the work in folders. */
+:root{--bg:#FFFFFF;--ink:#1C1E21;--mute:#8B8F95;--line:#E6E7E9;--soft:#F4F4F2;
+ --wd:'Archivo',system-ui,sans-serif;--tx:'Inter',system-ui,sans-serif;--mo:'JetBrains Mono',ui-monospace,monospace;--g:clamp(16px,2.4vw,28px)}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font:400 14px/1.5 var(--tx);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+img{display:block;max-width:100%}
+.cap{font:500 11px/1.4 var(--mo);letter-spacing:.06em;text-transform:uppercase}
+.mute{color:var(--mute)}
+.wm{font:900 clamp(34px,4.4vw,58px)/.8 var(--wd);font-stretch:125%;letter-spacing:.02em;text-transform:uppercase;display:inline-block}
+.wm-s{font-size:22px}
+
+/* ---------- views ---------- */
+.view{display:none;min-height:100svh;opacity:0;transition:opacity .45s ease}
+.view.on{display:flex;flex-direction:column}
+.view.in{opacity:1}
+
+/* home */
+#home{align-items:center;justify-content:space-between;padding:calc(30px + env(safe-area-inset-top)) var(--g) calc(18px + env(safe-area-inset-bottom))}
+#home .wm{font-size:clamp(40px,5.4vw,78px);color:var(--ink)}
+.stage{position:relative;width:min(380px,74vw,52svh);aspect-ratio:4/5;margin:28px 0 10px}
+.stage figure{position:absolute;inset:0;margin:0;opacity:0;transition:opacity 1.1s ease,transform 6s linear;transform:scale(1.02)}
+.stage figure.on{opacity:1;transform:scale(1)}
+.stage img{width:100%;height:100%;object-fit:cover;border-radius:3px}
+.stage-cap{display:flex;gap:14px;align-items:center;justify-content:center;min-height:18px}
+.stage-cap .i{color:var(--mute)}
+.dock{display:flex;gap:44px;align-items:flex-start;justify-content:center;margin-top:26px}
+.dock a{display:flex;flex-direction:column;align-items:center;gap:10px}
+.dock svg{width:40px;height:40px}
+.dock a:hover svg{transform:translateY(-2px)}.dock svg{transition:transform .2s}
+.foot{width:100%;display:flex;justify-content:space-between;gap:16px;margin-top:22px;color:var(--mute)}
+
+/* top bar for inner views */
+.bar{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:calc(26px + env(safe-area-inset-top)) var(--g) 0}
+.bar .l{justify-self:start;display:flex;gap:20px}.bar .r{justify-self:end;display:flex;gap:20px}
+.bar a.cap:hover{color:var(--mute)}
+.endf{margin-top:auto;padding:28px var(--g) calc(22px + env(safe-area-inset-bottom));text-align:center;color:var(--mute)}
+
+/* projects: folders */
+#work .grid{flex:1;display:grid;grid-template-columns:repeat(6,minmax(0,124px));gap:44px 30px;justify-content:center;align-content:center;padding:48px var(--g)}
+.fo{display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center}
+.fd{position:relative;width:100%;aspect-ratio:120/106;transition:transform .25s cubic-bezier(.2,.8,.2,1)}
+.fo:hover .fd{transform:translateY(-4px)}
+.fd .tab{position:absolute;left:0;top:0;width:44%;height:22%;border-radius:7px 9px 0 0;background:var(--c2);clip-path:polygon(0 0,78% 0,100% 100%,0 100%)}
+.fd .bk{position:absolute;left:0;right:0;top:10%;bottom:0;border-radius:4px 8px 8px 8px;background:var(--c2)}
+.fd .fr{position:absolute;left:0;right:0;top:19%;bottom:0;border-radius:6px;background:linear-gradient(180deg,var(--c1),var(--c2));box-shadow:inset 0 1px 0 rgba(255,255,255,.35);display:flex;align-items:center;justify-content:center}
+.fd .fr::before{content:"";position:absolute;inset:0;border-radius:6px;background:linear-gradient(180deg,rgba(255,255,255,.18),rgba(255,255,255,0) 40%)}
+.fd .gl{position:relative;width:46%;height:56%;display:flex;align-items:center;justify-content:center;color:#fff}
+.fd .gl img{max-width:100%;max-height:100%;filter:brightness(0) invert(1)}
+.fd .gl svg{width:100%;height:100%}
+.fd .gl b{font:400 54px/1 Georgia,'Times New Roman',serif;font-style:italic;letter-spacing:-.04em}
+.fo .cap{max-width:140px}
+
+/* a project */
+#proj .hd{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:40px;padding:72px var(--g) 46px;max-width:1440px;width:100%;margin:0 auto;align-items:end}
+#proj h1{margin:12px 0 0;font:900 clamp(38px,6vw,86px)/.88 var(--wd);font-stretch:125%;letter-spacing:-.01em;text-transform:uppercase}
+#proj .ln{font-size:17px;line-height:1.45;max-width:34em;margin-top:22px}
+.spec{border-top:1px solid var(--ink)}
+.spec div{display:grid;grid-template-columns:120px 1fr;gap:16px;padding:11px 0;border-bottom:1px solid var(--line);font-size:14px}
+.spec dt{margin:0}.spec dd{margin:0}
+.plates{display:grid;gap:var(--g);padding:0 var(--g);max-width:1440px;width:100%;margin:0 auto}
+.plates figure{margin:0}
+.plates img{width:100%;height:auto;border-radius:2px;background:var(--soft)}
+.plates figcaption{display:flex;justify-content:space-between;padding:10px 2px 0;color:var(--mute)}
+.plates.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.reel{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:28px var(--g);padding:0 var(--g);max-width:1440px;width:100%;margin:0 auto}
+.reel button,.reel a{display:block;text-align:left;width:100%}
+.reel .th{display:block;position:relative;aspect-ratio:16/9;overflow:hidden;background:var(--soft);border-radius:2px}
+.reel .th.v{aspect-ratio:9/16}
+.reel .th img,.reel .th video{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.reel button:hover img{transform:scale(1.03)}
+.reel .pl{position:absolute;left:12px;bottom:12px;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center}
+.reel .pl svg{width:12px;height:12px;margin-left:2px}
+.reel .t{display:block;margin-top:10px;line-height:1.5}
+.reel.vt{grid-template-columns:repeat(auto-fill,minmax(200px,1fr))}
+.next{display:flex;justify-content:space-between;align-items:center;max-width:1440px;width:100%;margin:72px auto 0;padding:24px var(--g) 0;border-top:1px solid var(--line)}
+.next a:hover{color:var(--mute)}
+
+/* information */
+#info .mid{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:42px;padding:64px var(--g)}
+.stats{display:flex;gap:clamp(28px,6vw,80px);justify-content:center;flex-wrap:wrap}
+.stats b{display:block;font:900 clamp(30px,3.6vw,46px)/1 var(--wd);font-stretch:125%;letter-spacing:-.01em}
+.stats span{display:block;margin-top:10px;color:var(--mute)}
+.pil{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;width:min(1080px,100%);text-align:left;border-top:1px solid var(--ink)}
+.pil section{padding:22px 26px 26px 0}
+.pil section+section{padding-left:26px;border-left:1px solid var(--line)}
+.pil h2{margin:10px 0 0;font:900 clamp(26px,2.6vw,36px)/1 var(--wd);font-stretch:125%;text-transform:uppercase;letter-spacing:.005em}
+.pil p{margin:12px 0 18px;font-size:15px;line-height:1.4}
+.pil ul{margin:0;padding:0;list-style:none;display:grid;gap:7px;color:var(--mute)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:44px;padding:0 22px;border-radius:999px;background:var(--ink);color:#fff;font:500 12px/1 var(--mo);letter-spacing:.06em;text-transform:uppercase}
+.btn.gh,.btn--ghost{background:transparent;color:var(--ink);border:1px solid var(--ink)}
+.btn:disabled{opacity:.3;cursor:default}
+.nl{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.nl input{height:44px;width:min(300px,70vw);padding:0 16px;border:1px solid var(--line);border-radius:999px;font:inherit}
+.nl p{flex-basis:100%;margin:0;min-height:20px;color:var(--mute)}
+
+/* booking */
+#book .mid{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:44px var(--g)}
+.cal{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);width:min(860px,100%);border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}
+.cal__month{padding:26px 26px 26px 0;border-right:1px solid var(--line)}
+.cal__nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+.cal__nav b{font:900 20px/1 var(--wd);font-stretch:125%;text-transform:uppercase;letter-spacing:.01em}
+.cal__nav button{width:32px;height:32px;border:1px solid var(--line);border-radius:50%}
+.cal__nav button:disabled{opacity:.3}
+.cal__dow,.cal__days{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));text-align:center}
+.cal__dow{color:var(--mute);margin-bottom:8px}
+.cal__days{row-gap:4px}
+.cal__days button{height:40px;border-radius:50%;font-size:14px}
+.cal__days button:disabled{color:#C9CCD0;cursor:default}
+.cal__days button.is-on{background:var(--ink);color:#fff}
+.cal__days button.is-today{box-shadow:inset 0 0 0 1px var(--line)}
+.cal__side{padding:26px 0 26px 26px;display:flex;flex-direction:column;gap:12px}
+.slots{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+.slots button{height:38px;border:1px solid var(--line);border-radius:999px;font-size:13px}
+.slots button.is-on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.cal__pick{font-size:15px;font-weight:500}
+.cal__local{color:var(--mute);font-size:13px;min-height:1px}
+.cal__form{display:grid;gap:6px}
+.cal__in{height:42px;padding:0 14px;border:1px solid var(--line);border-radius:999px;font:inherit;width:100%}
+.cal__acts{display:grid;gap:6px;margin-top:4px}
+.cal__note{color:var(--mute);font-size:12px;margin:2px 0 0}
+.cal__done{font-weight:500;font-size:16px;line-height:1.4;margin:0 0 8px}
+.cal__adds{display:grid;gap:6px}
+.book__bar{margin-bottom:22px;text-align:center}
+
+/* lightbox */
+#lb{position:fixed;inset:0;z-index:50;background:rgba(255,255,255,.96);display:none;align-items:center;justify-content:center;padding:var(--g)}
+#lb.on{display:flex}
+#lb .f{width:min(1100px,100%);aspect-ratio:16/9;background:#000}
+#lb .f.v{width:auto;height:min(86svh,900px);aspect-ratio:9/16}
+#lb iframe{width:100%;height:100%;border:0}
+#lb .x{position:absolute;top:calc(18px + env(safe-area-inset-top));right:var(--g)}
+
+@media (max-width:900px){
+ #work .grid{grid-template-columns:repeat(3,minmax(0,110px));gap:34px 26px}
+ #proj .hd{grid-template-columns:minmax(0,1fr);gap:28px;padding-top:48px}
+ .plates.two{grid-template-columns:minmax(0,1fr)}
+ .pil{grid-template-columns:minmax(0,1fr)}.pil section,.pil section+section{padding:20px 0;border-left:0;border-bottom:1px solid var(--line)}
+ .cal{grid-template-columns:minmax(0,1fr)}
+ .cal__month{padding:22px 0;border-right:0;border-bottom:1px solid var(--line)}
+ .cal__side{padding:22px 0}
+}
+@media (max-width:520px){
+ .dock{gap:30px}
+ .foot{flex-direction:column;align-items:center;gap:4px;text-align:center}
+ .bar{grid-template-columns:auto 1fr auto}.bar .wm-s{font-size:18px;justify-self:center}
+ .reel.vt{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (prefers-reduced-motion:reduce){.view,.stage figure,.fd{transition:none}}
+</style>
+</head>
+<body>
+
+<!-- HOME -->
+<main class="view" id="home">
+  <span class="wm" id="wm">Ballast</span>
+  <div>
+    <div class="stage" id="stage"></div>
+    <div class="stage-cap cap" id="scap"><span id="sname">&nbsp;</span><span class="i" id="sidx"></span></div>
+  </div>
+  <div style="display:flex;flex-direction:column;align-items:center;width:100%">
+    <nav class="dock" aria-label="Main">
+      <a href="#/work"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M3 11a3 3 0 0 1 3-3h9l3 3h16a3 3 0 0 1 3 3v17a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3z" fill="#A4ACB6"/><path d="M3 15h34v16a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3z" fill="#B9C0C9"/></svg><span class="cap mute">Projects</span></a>
+      <a href="#/info"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="17" fill="none" stroke="#A4ACB6" stroke-width="2.4"/><circle cx="20" cy="12.5" r="2.2" fill="#A4ACB6"/><path d="M17 17.5h4v11h2.5" fill="none" stroke="#A4ACB6" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="cap mute">Information</span></a>
+      <a href="#/book"><svg viewBox="0 0 40 40" aria-hidden="true"><rect x="4" y="7" width="32" height="29" rx="4" fill="none" stroke="#A4ACB6" stroke-width="2.4"/><path d="M4 15h32M13 3v8M27 3v8" stroke="#A4ACB6" stroke-width="2.4" stroke-linecap="round"/><circle cx="20" cy="25" r="3" fill="#A4ACB6"/></svg><span class="cap mute">Book a call</span></a>
+    </nav>
+    <div class="foot cap"><span>Performance marketing and brand studio</span><span>Los Angeles</span></div>
+  </div>
+</main>
+
+<!-- PROJECTS -->
+<main class="view" id="work">
+  <header class="bar"><span class="l"><a class="cap" href="#/">Home</a></span><a href="#/" class="wm wm-s" aria-label="Ballast home">Ballast</a><span class="r"><a class="cap" href="#/info">Information</a></span></header>
+  <div class="grid" id="folders"></div>
+  <div class="endf cap">&copy;2026 Ballast Research LLC</div>
+</main>
+
+<!-- ONE PROJECT -->
+<main class="view" id="proj">
+  <header class="bar"><span class="l"><a class="cap" href="#/work">&larr; Projects</a></span><a href="#/" class="wm wm-s" aria-label="Ballast home">Ballast</a><span class="r"><a class="cap" href="#/book">Book a call</a></span></header>
+  <div id="pbody"></div>
+  <div class="endf cap">&copy;2026 Ballast Research LLC</div>
+</main>
+
+<!-- INFORMATION -->
+<main class="view" id="info">
+  <header class="bar"><span class="l"><a class="cap" href="#/">Home</a></span><a href="#/" class="wm wm-s" aria-label="Ballast home">Ballast</a><span class="r"><a class="cap" href="#/work">Projects</a></span></header>
+  <div class="mid">
+    <p class="cap">Performance marketing and brand studio &middot; Los Angeles</p>
+    <div class="stats">
+      <div><b>$50M+</b><span class="cap">Ad spend managed</span></div>
+      <div><b>$25K &rarr; $1.2M</b><span class="cap">Monthly revenue, one DTC client</span></div>
+      <div><b>6&times;</b><span class="cap">Peak return on ad spend</span></div>
+    </div>
+    <div class="pil">
+      <section><span class="cap mute">01</span><h2>Growth</h2><p>Media that pays for itself.</p>
+        <ul class="cap"><li>Media strategy</li><li>Paid media: Meta, TikTok, Google, YouTube, CTV</li><li>Live shopping</li><li>Creators and UGC, paid on sales</li></ul></section>
+      <section><span class="cap mute">02</span><h2>Brand</h2><p>Identity people want to own.</p>
+        <ul class="cap"><li>Identity systems</li><li>Brand and product books</li><li>Creative, new hooks every week</li><li>Merchandise and on-air packages</li></ul></section>
+      <section><span class="cap mute">03</span><h2>Research</h2><p>One number per goal, matched to real orders.</p>
+        <ul class="cap"><li>Measurement</li><li>Audience research</li><li>Oversight of agencies and vendors</li><li>Regulated categories</li></ul></section>
+    </div>
+    <div class="cap">Jack Morello<br><a href="mailto:jack@ballast.la">jack@ballast.la</a></div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center"><a class="btn" href="#/book">Book 30 minutes</a><a class="btn gh" href="https://ballastla.substack.com/" target="_blank" rel="noopener">Notes</a></div>
+    <form class="nl" data-sub="home-info" novalidate>
+      <input type="email" name="email" placeholder="Your email for the notes" required autocomplete="email">
+      <input type="text" name="company" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
+      <button class="btn gh" type="submit">Subscribe</button>
+      <p role="status" class="cap"></p>
+    </form>
+  </div>
+  <div class="endf cap">&copy;2026 Ballast Research LLC</div>
+</main>
+
+<!-- BOOK -->
+<main class="view" id="book">
+  <header class="bar"><span class="l"><a class="cap" href="#/">Home</a></span><a href="#/" class="wm wm-s" aria-label="Ballast home">Ballast</a><span class="r"><a class="cap" href="#/info">Information</a></span></header>
+  <div class="mid">
+    <div class="book__bar cap">Book 30 minutes with Jack &middot; Pacific time<span id="calOffer" hidden></span></div>
+    <div class="cal" id="cal">
+      <div class="cal__month">
+        <div class="cal__nav"><b id="calTitle">&nbsp;</b><div style="display:flex;gap:6px"><button type="button" id="calPrev" aria-label="Previous month">&larr;</button><button type="button" id="calNext" aria-label="Next month">&rarr;</button></div></div>
+        <div class="cal__dow cap"><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span><span>Su</span></div>
+        <div class="cal__days" id="calDays"></div>
+      </div>
+      <div class="cal__side">
+        <div class="cal__pick" id="calPick">Pick a day.</div>
+        <div class="slots" id="calSlots"></div>
+        <div class="cal__local" id="calLocal"></div>
+        <form class="cal__form" id="calForm" name="booking" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="booking">
+          <input type="hidden" name="time" id="calTime">
+          <input type="hidden" name="offer" id="calOfferIn">
+          <p hidden><label>Leave this empty <input name="bot-field"></label></p>
+          <input class="cal__in" name="name" id="calName" placeholder="Your name" autocomplete="name" required>
+          <input class="cal__in" name="email" id="calEmail" type="email" placeholder="Work email" autocomplete="email" required>
+          <input class="cal__in" name="company" id="calCo" placeholder="Company or website" autocomplete="organization">
+          <div class="cal__acts">
+            <button class="btn" id="calBook" type="submit" disabled>Book the call</button>
+            <a class="btn gh" id="calMail" href="mailto:jack@ballast.la?subject=Ballast%20%E2%80%94%20call">Email instead</a>
+          </div>
+        </form>
+        <p class="cal__note" id="calNote">The invite comes from jack@ballast.la.</p>
+      </div>
+    </div>
+  </div>
+  <div class="endf cap">&copy;2026 Ballast Research LLC</div>
+</main>
+
+<div id="lb" role="dialog" aria-modal="true" aria-label="Video"><button class="x cap" type="button" data-close>Close &times;</button><div class="f" id="lbf"></div></div>
+
+<script>
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const B='./';   // where this page's own images live
+const PLAY='<svg viewBox="0 0 12 14"><path d="M0 0l12 7-12 7z" fill="#1C1E21"/></svg>';
+const BLOOM='<svg viewBox="0 0 100 100" aria-hidden="true"><g fill="#fff">'+Array.from({length:8},(_,i)=>`<ellipse cx="50" cy="22" rx="13" ry="19" transform="rotate(${i*45} 50 50)"/>`).join('')+'</g><circle cx="50" cy="50" r="17" fill="none" stroke="currentColor" stroke-width="0"/><circle cx="50" cy="50" r="15" fill="#C3283A" stroke="#fff" stroke-width="4"/></svg>';
+const HEX='<svg viewBox="0 0 100 100" aria-hidden="true" fill="none" stroke="#fff" stroke-width="5"><path d="M50 14l31 18v36L50 86 19 68V32z"/><path d="M81 32l14-8M50 86v12M19 32L5 24"/><g fill="#fff" stroke="none"><circle cx="50" cy="14" r="7"/><circle cx="81" cy="32" r="7"/><circle cx="81" cy="68" r="7"/><circle cx="50" cy="86" r="7"/><circle cx="19" cy="68" r="7"/><circle cx="19" cy="32" r="7"/></g></svg>';
+const GRID='<svg viewBox="0 0 100 100" aria-hidden="true" fill="#fff"><rect x="10" y="10" width="34" height="34" rx="3"/><rect x="56" y="10" width="34" height="34" rx="3" opacity=".7"/><rect x="10" y="56" width="34" height="34" rx="3" opacity=".7"/><rect x="56" y="56" width="34" height="34" rx="3" opacity=".45"/></svg>';
+const PLAYG='<svg viewBox="0 0 100 100" aria-hidden="true"><rect x="8" y="20" width="84" height="60" rx="10" fill="none" stroke="#fff" stroke-width="6"/><path d="M42 36l24 14-24 14z" fill="#fff"/></svg>';
+
+/* the stage on the home screen: one object at a time */
+const STAGE=[
+ {img:'s/meridian-1.webp',n:'Meridian · Botanica',p:'meridian'},
+ {img:'s/hotg-bloom.webp',n:'History of the Game · The bloom',p:'hotg',wm:'#B3202E'},
+ {img:'s/sko-1.webp',n:'SKO Compounds · Isometrica',p:'sko',wm:'#2E5DA8'},
+ {img:'s/meridian-2.webp',n:'Meridian · Botanica',p:'meridian',wm:'#3AA845'},
+ {img:'s/hotg-ring.webp',n:'History of the Game · The ring',p:'hotg',wm:'#B08A3E'},
+ {img:'s/sko-2.webp',n:'SKO Compounds · Isometrica',p:'sko',wm:'#2E5DA8'},
+ {img:'s/hotg-jersey.webp',n:'History of the Game · Signed jersey',p:'hotg',wm:'#B3202E'},
+ {img:'s/meridian-3.webp',n:'Meridian · Botanica',p:'meridian',wm:'#3AA845'}];
+STAGE[0].wm='#3AA845';
+
+/* projects */
+const P={
+ meridian:{name:'Meridian',c1:'#59C46A',c2:'#2E9A43',glyph:'<b>m</b>',kind:'Brand book',
+  line:'Botanica, the product book. Thirty-seven compounds, each photographed on the one piece of nature that belongs to it: lichen, sage, bark, a cut branch, a stone. One flat green page, one offering, nothing else on it.',
+  spec:[['Client','Meridian'],['Work','Product book, photography direction, packaging'],['Format','76 pages'],['Year','2026']],
+  plates:['bot-1','bot-4','bot-14','bot-18','bot-22','bot-26','bot-36','bot-42','bot-52','bot-58','bot-64','bot-68','bot-70','bot-76','bot-10'],
+  caps:{'bot-1':'Cover','bot-4':'M-3 RT on lichen','bot-14':'MOTS-c on fern','bot-18':'BPC-157 in driftwood','bot-22':'GLOW on magnolia','bot-26':'KPV on olive','bot-36':'MT-2 on slate','bot-42':'Selank on ginkgo','bot-52':'DSIP on lavender','bot-58':'TESA/IPA on catkins','bot-64':'AOD-9604 on moss','bot-68':'Kisspeptin on blossom','bot-70':'PT-141 on protea','bot-76':'Bacteriostatic water','bot-10':'GHK-Cu on a rose'}},
+ sko:{name:'SKO Compounds',c1:'#4D86D9',c2:'#1F4C9A',glyph:HEX,kind:'Brand book',
+  line:'Isometrica, edition three. Each product&rsquo;s real molecule, built from its published coordinates in liquid chrome and stood in alpine snow. Blue is the pigment, chrome is the machine.',
+  spec:[['Client','SKO Compounds'],['Work','Product book, 3D molecules, photography direction'],['Format','40 pages'],['Year','2026']],
+  plates:['iso-1','iso-3','iso-5','iso-6','iso-8','iso-14','iso-16','iso-30','iso-38'],
+  caps:{'iso-1':'Cover','iso-3':'5-Amino-1MQ','iso-5':'GHK-Cu','iso-6':'GLOW','iso-8':'MOTS-c','iso-14':'BPC-157','iso-16':'DSIP','iso-30':'GHK-Cu spray','iso-38':'Bacteriostatic water'}},
+ hotg:{name:'History of the Game',c1:'#D9374B',c2:'#9E1B2C',glyph:BLOOM,kind:'Identity system',
+  line:'The identity for Baron Davis&rsquo;s platform for current and retired players. An eight-petal bloom that fills as fans earn XP, cast in four materials and carried through relics, merchandise, cards and the live show.',
+  spec:[['Client','History of the Game'],['Work','Identity, XP system, relics, merchandise, on-air package, fan app'],['Year','2026']],
+  plates:['hotg-hero-mat-met-red','hotg-relic-r2-ring','hotg-relic-r2-jersey-signed','hotg-hero-mat-jade','hotg-live3-2x-card-front','hotg-merch-hat-hat-pins','hotg-merch-mesh-solid-out-blue','hotg-relic-r2-patch','hotg-merch-goods-keys-moulded','hotg-relic-r2-sculpture'],two:1,
+  caps:{'hotg-hero-mat-met-red':'The bloom, red chrome','hotg-relic-r2-ring':'The ring','hotg-relic-r2-jersey-signed':'Signed jersey','hotg-hero-mat-jade':'The bloom, jade','hotg-live3-2x-card-front':'Fan card','hotg-merch-hat-hat-pins':'Pins','hotg-merch-mesh-solid-out-blue':'Mesh shorts','hotg-relic-r2-patch':'Chenille patch','hotg-merch-goods-keys-moulded':'Keychains','hotg-relic-r2-sculpture':'The award'},
+  link:['See the full system','https://ballast.la/hotg--brand/']},
+ dtc:{name:'DTC wellness',c1:'#6E7F8E',c2:'#3E4C59',glyph:PLAYG,kind:'Paid social',
+  line:'Paid social for a DTC wellness brand, from $25K to $1.2M in monthly revenue. Creators and UGC, paid on sales, with new hooks every week.',
+  spec:[['Work','Paid media, creators and UGC, creative'],['Result','$25K to $1.2M monthly revenue']],
+  ads:['ugc-hanna-1','sko-tennis','ugc-ethan-restock-1','sko-sophie-35k']},
+ netflix:{name:'Netflix',c1:'#2B2B2B',c2:'#0E0E0E',mark:'netflix.svg',brands:['Netflix']},
+ disney:{name:'Disney',c1:'#2D5FC7',c2:'#14337A',mark:'disney.png',brands:['Disney']},
+ universal:{name:'Universal',c1:'#4F5862',c2:'#262C33',mark:'universal.svg',brands:['Universal']},
+ toyota:{name:'Toyota',c1:'#E1343C',c2:'#A9141C',mark:'toyota.png',brands:['Toyota']},
+ starbucks:{name:'Starbucks',c1:'#1E8A5C',c2:'#0B5A3A',mark:'starbucks.png',brands:['Starbucks']},
+ peacock:{name:'Peacock',c1:'#3A3F47',c2:'#16191D',mark:'peacock.png',brands:['Peacock','NBC']},
+ bmw:{name:'BMW',c1:'#5AA0E0',c2:'#24609E',mark:'bmw.svg',brands:['BMW IG'],nm:'BMW'},
+ archive:{name:'Archive',c1:'#B9C0C9',c2:'#8D96A1',glyph:GRID,brands:['NEAR × SailGP','LG','STARZPLAY','Dtravel','Hint'],
+  line:'More paid media and launches: NEAR &times; SailGP, LG, STARZPLAY, Dtravel and Hint.'}};
+const ORDER=['meridian','sko','hotg','dtc','netflix','disney','universal','toyota','starbucks','peacock','bmw','archive'];
+let WORK=[];
+
+/* home stage */
+function buildStage(){
+  const st=$('#stage');st.innerHTML=STAGE.map((s,i)=>`<figure data-i="${i}"><a href="#/work/${s.p}"><img src="${B}${s.img}" alt="${esc(s.n)}" ${i>1?'loading="lazy"':''}></a></figure>`).join('');
+  let i=0;const show=k=>{$$('figure',st).forEach((f,j)=>f.classList.toggle('on',j===k));$('#sname').textContent=STAGE[k].n;$('#sidx').textContent=String(k+1).padStart(2,'0')+' / '+String(STAGE.length).padStart(2,'0')};
+  show(0);clearInterval(buildStage.t);buildStage.t=setInterval(()=>{if(document.hidden||!$('#home').classList.contains('on'))return;i=(i+1)%STAGE.length;show(i)},4200);
+}
+/* folders */
+function folder(k){const p=P[k];const g=p.mark?`<img src="/marks/${p.mark}" alt="">`:p.glyph;
+  return `<a class="fo" href="#/work/${k}" style="--c1:${p.c1};--c2:${p.c2}"><span class="fd"><span class="tab"></span><span class="bk"></span><span class="fr"><span class="gl">${g}</span></span></span><span class="cap">${esc(p.nm||p.name)}</span></a>`}
+function vWork(){$('#folders').innerHTML=ORDER.map(folder).join('')}
+/* one project */
+function vProj(k){
+  const p=P[k];if(!p){location.hash='#/work';return}
+  const i=ORDER.indexOf(k),nx=ORDER[(i+1)%ORDER.length];
+  const items=p.brands?WORK.filter(w=>p.brands.includes(w.b)):[];
+  const line=p.line||`Paid media and launch campaigns for ${esc(p.name)}: ${items.length} spots, trailers and posts.`;
+  const spec=p.spec||[['Client',p.brands.join(', ')],['Work','Paid media, launch campaigns'],['Pieces',String(items.length)]];
+  let h=`<section class="hd"><div><span class="cap mute">${esc(p.kind||'Paid media')} &middot; ${String(i+1).padStart(2,'0')} / ${String(ORDER.length).padStart(2,'0')}</span><h1>${esc(p.name)}</h1><p class="ln">${line}</p>${p.link?`<p style="margin-top:22px"><a class="btn gh" href="${p.link[1]}" target="_blank" rel="noopener">${esc(p.link[0])}</a></p>`:''}</div>
+   <dl class="spec">${spec.map(([a,b])=>`<div><dt class="cap mute">${esc(a)}</dt><dd>${esc(b)}</dd></div>`).join('')}</dl></section>`;
+  if(p.plates)h+=`<div class="plates${p.two?' two':''}">${p.plates.map((n,j)=>`<figure><img src="${B}p/${n}.webp" alt="${esc(p.caps[n]||'')}" loading="${j<2?'eager':'lazy'}" decoding="async"><figcaption class="cap"><span>${esc(p.caps[n]||'')}</span><span>${String(j+1).padStart(2,'0')}</span></figcaption></figure>`).join('')}</div>`;
+  if(p.ads)h+=`<div class="reel vt">${p.ads.map(a=>`<figure style="margin:0"><div class="th v"><video src="/work/health/ads/${a}.mp4" poster="/work/health/ads/${a}.webp" muted loop playsinline preload="none"></video></div></figure>`).join('')}</div>`;
+  if(items.length){const vt=true;   // the wall's thumbnails are all cut 9:16
+    h+=`<div class="reel${vt?' vt':''}">${items.map(w=>{const v=w.ar==='9/16'||w.ig;const inner=`<span class="th v"><img src="${esc(w.img)}" alt="" loading="lazy" decoding="async"><span class="pl">${PLAY}</span></span><span class="t cap">${esc(w.b==='BMW IG'?'BMW':w.b)} &middot; ${esc(w.t)}</span>`;
+      return w.ig?`<a href="https://www.instagram.com/p/${esc(w.ig)}/" target="_blank" rel="noopener">${inner}</a>`:`<button type="button" data-yt="${esc(w.id)}" data-ar="${esc(w.ar)}">${inner}</button>`}).join('')}</div>`}
+  h+=`<nav class="next cap"><a href="#/work">&larr; All projects</a><a href="#/work/${nx}">Next: ${esc(P[nx].nm||P[nx].name)} &rarr;</a></nav>`;
+  $('#pbody').innerHTML=h;
+  if(p.ads){const io=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;if(e.isIntersecting){v.play().catch(()=>{})}else v.pause()}),{threshold:.4});$$('#pbody video').forEach(v=>io.observe(v))}
+}
+/* router */
+function route(){const h=location.hash.replace(/^#\/?/,'').split('/');const v=h[0]||'home';
+  const id={'':'home',home:'home',work:h[1]?'proj':'work',info:'info',book:'book'}[v]||'home';
+  if(id==='work')vWork();if(id==='proj')vProj(h[1]);if(id==='home')buildStage();
+  $$('.view').forEach(x=>{const on=x.id===id;if(on&&!x.classList.contains('on')){x.classList.add('on');requestAnimationFrame(()=>requestAnimationFrame(()=>x.classList.add('in')))}else if(!on){x.classList.remove('on','in')}});
+  scrollTo(0,0);document.title=id==='proj'&&P[h[1]]?P[h[1]].name+' · Ballast':'Ballast';
+}
+addEventListener('hashchange',route);
+fetch(B+'work.json').then(r=>r.json()).then(d=>{WORK=d;route()}).catch(()=>route());
+/* video lightbox */
+document.addEventListener('click',e=>{const b=e.target.closest('[data-yt]');if(b){const v=b.dataset.ar==='9/16';$('#lbf').className='f'+(v?' v':'');$('#lbf').innerHTML=`<iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(b.dataset.yt)}?autoplay=1&rel=0&playsinline=1" allow="autoplay; encrypted-media; fullscreen" allowfullscreen title="Video"></iframe>`;$('#lb').classList.add('on');return}
+  if(e.target.closest('[data-close]')||e.target.id==='lb'){$('#lb').classList.remove('on');$('#lbf').innerHTML=''}});
+addEventListener('keydown',e=>{if(e.key==='Escape'){$('#lb').classList.remove('on');$('#lbf').innerHTML=''}});
+/* notes signup (same endpoint as before) */
+$$("form[data-sub]").forEach(f=>f.addEventListener("submit",async e=>{e.preventDefault();const m=f.querySelector("[role=status]"),b=f.querySelector("button");if(!f.email.value)return;b.disabled=true;try{const r=await fetch("/api/subscribe",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({email:f.email.value,company:f.company.value,source:f.dataset.sub})});const d=await r.json().catch(()=>({}));m.textContent=r.ok?"You're in. First note lands this week.":(d.error||"Something went wrong. Try again.");if(r.ok)f.reset()}catch{m.textContent="Something went wrong. Try again."}b.disabled=false}));
+</script>
+<script src="cal.js"></script>
+</body>
+</html>

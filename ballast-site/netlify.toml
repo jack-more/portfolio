@@ -61,6 +61,11 @@
   [headers.values]
     X-Robots-Tag = "noindex, nofollow, noarchive"
 
+[[headers]]
+  for = "/new/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow, noarchive"
+
 # The archive link Baron has opens the video archive (the vault)
 [[redirects]]
   from = "/baron85/archive"
