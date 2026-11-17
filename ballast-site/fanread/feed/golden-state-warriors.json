@@ -487,5 +487,372 @@
     "comments": 3
    }
   ]
+ },
+ "tiktok": {
+  "team": "Golden State Warriors",
+  "season_start": "2026-10-20",
+  "videos_relevant": 51,
+  "videos_in_season": 47,
+  "in_season_top": [
+   {
+    "desc": "I've never seen a team stay this chill while down by so many points. 🥶😭#warriors #stephcurry #nba #tiktokcampaign #basketball ",
+    "url": "https://www.tiktok.com/@leif_homby26/video/7703145808312552718",
+    "author": "leif_homby26",
+    "followers": 13700,
+    "plays": 6500000,
+    "likes": 668900,
+    "comments": 1762,
+    "shares": 20200,
+    "source": "fan",
+    "date": "2026-11-01"
+   },
+   {
+    "desc": "Woah. 😳🍿 @Chris #nba #spurs #wemby #warriors #prank ",
+    "url": "https://www.tiktok.com/@houseofhighlights/video/7707896562571169038",
+    "author": "houseofhighlights",
+    "followers": 33400000,
+    "plays": 5400000,
+    "likes": 544200,
+    "comments": 1137,
+    "shares": 28400,
+    "source": "league_media",
+    "date": "2026-11-13"
+   },
+   {
+    "desc": "Thoughts on the rook’s new look? 🤔 #yaxellendeborg #warriors #nba #dubnation #fyp ",
+    "url": "https://www.tiktok.com/@nbcsportsauthentic/video/7708941755118308621",
+    "author": "nbcsportsauthentic",
+    "followers": 854200,
+    "plays": 1600000,
+    "likes": 100300,
+    "comments": 536,
+    "shares": 4077,
+    "source": "fan",
+    "date": "2026-11-16"
+   },
+   {
+    "desc": "Warriors down BIG in 1Q to the Pelicans 😳 #NBA #basketball #warriors #nbabasketball #pelicans ",
+    "url": "https://www.tiktok.com/@houseofhighlights/video/7708950052336717070",
+    "author": "houseofhighlights",
+    "followers": 33400000,
+    "plays": 1500000,
+    "likes": 149800,
+    "comments": 730,
+    "shares": 11500,
+    "source": "league_media",
+    "date": "2026-11-16"
+   },
+   {
+    "desc": "#draymond #jordanpoole #nba #warriors #espnsocial",
+    "url": "https://www.tiktok.com/@espn/video/7708972382995729678",
+    "author": "espn",
+    "followers": 62000000,
+    "plays": 741900,
+    "likes": 84800,
+    "comments": 321,
+    "shares": 2975,
+    "source": "league_media",
+    "date": "2026-11-16"
+   },
+   {
+    "desc": "Wait all day for next just to lose in 15 minutes 😂😂 #nba #basketball #bball #warriors #funny ",
+    "url": "https://www.tiktok.com/@houseofhighlights/video/7708958673548201229",
+    "author": "houseofhighlights",
+    "followers": 33400000,
+    "plays": 689900,
+    "likes": 47800,
+    "comments": 215,
+    "shares": 2306,
+    "source": "league_media",
+    "date": "2026-11-16"
+   },
+   {
+    "desc": "Yaxel Lendeborg wasn’t happy with Warriors performance vs. the Spurs 😳 (via @KNBR) #nba #nbabasketball #yaxellendeborg #warriors ",
+    "url": "https://www.tiktok.com/@bleacherreport/video/7707904381449932063",
+    "author": "bleacherreport",
+    "followers": 12300000,
+    "plays": 406400,
+    "likes": 39900,
+    "comments": 517,
+    "shares": 1180,
+    "source": "league_media",
+    "date": "2026-11-13"
+   },
+   {
+    "desc": "#warriors #wemby #nba #espnsocial ",
+    "url": "https://www.tiktok.com/@espn/video/7707931477555563807",
+    "author": "espn",
+    "followers": 62000000,
+    "plays": 291700,
+    "likes": 40000,
+    "comments": 388,
+    "shares": 1775,
+    "source": "league_media",
+    "date": "2026-11-13"
+   }
+  ],
+  "all_time_top": [
+   {
+    "desc": "I've never seen a team stay this chill while down by so many points. 🥶😭#warriors #stephcurry #nba #tiktokcampaign #basketball ",
+    "url": "https://www.tiktok.com/@leif_homby26/video/7703145808312552718",
+    "author": "leif_homby26",
+    "followers": 13700,
+    "plays": 6500000,
+    "likes": 668900,
+    "comments": 1762,
+    "shares": 20200,
+    "source": "fan",
+    "date": "2026-11-01"
+   },
+   {
+    "desc": "Woah. 😳🍿 @Chris #nba #spurs #wemby #warriors #prank ",
+    "url": "https://www.tiktok.com/@houseofhighlights/video/7707896562571169038",
+    "author": "houseofhighlights",
+    "followers": 33400000,
+    "plays": 5400000,
+    "likes": 544200,
+    "comments": 1137,
+    "shares": 28400,
+    "source": "league_media",
+    "date": "2026-11-13"
+   },
+   {
+    "desc": "Thoughts on the rook’s new look? 🤔 #yaxellendeborg #warriors #nba #dubnation #fyp ",
+    "url": "https://www.tiktok.com/@nbcsportsauthentic/video/7708941755118308621",
+    "author": "nbcsportsauthentic",
+    "followers": 854200,
+    "plays": 1600000,
+    "likes": 100300,
+    "comments": 536,
+    "shares": 4077,
+    "source": "fan",
+    "date": "2026-11-16"
+   },
+   {
+    "desc": "Warriors down BIG in 1Q to the Pelicans 😳 #NBA #basketball #warriors #nbabasketball #pelicans ",
+    "url": "https://www.tiktok.com/@houseofhighlights/video/7708950052336717070",
+    "author": "houseofhighlights",
+    "followers": 33400000,
+    "plays": 1500000,
+    "likes": 149800,
+    "comments": 730,
+    "shares": 11500,
+    "source": "league_media",
+    "date": "2026-11-16"
+   },
+   {
+    "desc": "#draymond #jordanpoole #nba #warriors #espnsocial",
+    "url": "https://www.tiktok.com/@espn/video/7708972382995729678",
+    "author": "espn",
+    "followers": 62000000,
+    "plays": 741900,
+    "likes": 84800,
+    "comments": 321,
+    "shares": 2975,
+    "source": "league_media",
+    "date": "2026-11-16"
+   }
+  ],
+  "fan_creators": [
+   {
+    "author": "leif_homby26",
+    "name": "leif homby",
+    "url": "https://www.tiktok.com/@leif_homby26",
+    "source": "fan",
+    "followers": 13700,
+    "videos": 1,
+    "plays": 6500000,
+    "best_plays": 6500000,
+    "best_url": "https://www.tiktok.com/@leif_homby26/video/7703145808312552718",
+    "best_desc": "I've never seen a team stay this chill while down by so many points. 🥶😭#warriors #stephcurry #nba #tiktokcampaign #basketball ",
+    "hit_ratio": 474.5
+   },
+   {
+    "author": "nbcsportsauthentic",
+    "name": "NBC Sports Bay Area & CA",
+    "url": "https://www.tiktok.com/@nbcsportsauthentic",
+    "source": "fan",
+    "followers": 854200,
+    "videos": 1,
+    "plays": 1600000,
+    "best_plays": 1600000,
+    "best_url": "https://www.tiktok.com/@nbcsportsauthentic/video/7708941755118308621",
+    "best_desc": "Thoughts on the rook’s new look? 🤔 #yaxellendeborg #warriors #nba #dubnation #fyp ",
+    "hit_ratio": 1.9
+   },
+   {
+    "author": "ym1kh",
+    "name": "Ym1kh",
+    "url": "https://www.tiktok.com/@ym1kh",
+    "source": "fan",
+    "followers": 482100,
+    "videos": 1,
+    "plays": 149800,
+    "best_plays": 149800,
+    "best_url": "https://www.tiktok.com/@ym1kh/video/7709016614108138773",
+    "best_desc": "#history #warriors #warrior #army #historyedit ",
+    "hit_ratio": 0.3
+   },
+   {
+    "author": "diphoops",
+    "name": "dip",
+    "url": "https://www.tiktok.com/@diphoops",
+    "source": "fan",
+    "followers": 25,
+    "videos": 1,
+    "plays": 80200,
+    "best_plays": 80200,
+    "best_url": "https://www.tiktok.com/@diphoops/video/7708954433534627102",
+    "best_desc": "They are genuinely not a nba team if curry isn’t on the court😭😭 #warriors #nba #fyp #nbabasketball #stephcurry ",
+    "hit_ratio": 3208.0
+   },
+   {
+    "author": "alexgalij",
+    "name": "Alex Galindo",
+    "url": "https://www.tiktok.com/@alexgalij",
+    "source": "fan",
+    "followers": 25900,
+    "videos": 1,
+    "plays": 76100,
+    "best_plays": 76100,
+    "best_url": "https://www.tiktok.com/@alexgalij/video/7709008478278356245",
+    "best_desc": "Los Warriors se caen a pedazos #alexgalij #nba #warriors #sixers #curry",
+    "hit_ratio": 2.9
+   },
+   {
+    "author": "nba22action",
+    "name": "NBA ACTION 🎬 🇵🇭 🏀",
+    "url": "https://www.tiktok.com/@nba22action",
+    "source": "fan",
+    "followers": 185200,
+    "videos": 1,
+    "plays": 59800,
+    "best_plays": 59800,
+    "best_url": "https://www.tiktok.com/@nba22action/video/7709071642508446983",
+    "best_desc": "NEW ORLEANS PELICANS 115 WON OVER GOLDEN STATE WARRIORS 94 TODAY'S GAME REGULAR SEASON 2026 ❤️🔥🏀",
+    "hit_ratio": 0.3
+   },
+   {
+    "author": "kenlovehoops",
+    "name": "KenLovesHoops",
+    "url": "https://www.tiktok.com/@kenlovehoops",
+    "source": "fan",
+    "followers": 267100,
+    "videos": 1,
+    "plays": 29600,
+    "best_plays": 29600,
+    "best_url": "https://www.tiktok.com/@kenlovehoops/video/7708980730491079949",
+    "best_desc": "The Warriors without Steph Curry are TERRIBLE. @Real App ",
+    "hit_ratio": 0.1
+   },
+   {
+    "author": "dandaman.561",
+    "name": "DanDaMan",
+    "url": "https://www.tiktok.com/@dandaman.561",
+    "source": "fan",
+    "followers": 112600,
+    "videos": 1,
+    "plays": 26100,
+    "best_plays": 26100,
+    "best_url": "https://www.tiktok.com/@dandaman.561/video/7709002675534220558",
+    "best_desc": "YAX GOT DUNKED ON! But Got His Get Back… #fyp #nba #yaxellendeborg #goldenstatewarriors #yax ",
+    "hit_ratio": 0.2
+   },
+   {
+    "author": "d3rlord3327",
+    "name": "𖤐✦˖˚⋆ ᖇOᗯᗩᑎ.ɱαɾƚιʂ⋆˚˖✦𖤐",
+    "url": "https://www.tiktok.com/@d3rlord3327",
+    "source": "fan",
+    "followers": 340,
+    "videos": 1,
+    "plays": 22300,
+    "best_plays": 22300,
+    "best_url": "https://www.tiktok.com/@d3rlord3327/video/7702927927859498253",
+    "best_desc": "ALL CREDS GO TO THE OWNERS/PPL IN THE CLIP IM JUST BOOSTING IT OMG  #warriors #warriorcats #ivypool #map #peak ",
+    "hit_ratio": 65.6
+   },
+   {
+    "author": "beaniesports",
+    "name": "BeanieSports",
+    "url": "https://www.tiktok.com/@beaniesports",
+    "source": "fan",
+    "followers": 53700,
+    "videos": 2,
+    "plays": 18930,
+    "best_plays": 14300,
+    "best_url": "https://www.tiktok.com/@beaniesports/video/7708949957490822413",
+    "best_desc": "WHAT IS GOING ON 😭 #Warriors #Pelicans #NBA",
+    "hit_ratio": 0.3
+   }
+  ],
+  "share_by_source": {
+   "team": 0,
+   "league_media": 9700487,
+   "fan": 8647977
+  },
+  "hashtags": [
+   {
+    "tag": "yaxellendeborg",
+    "videos": 9,
+    "plays": 2153382
+   },
+   {
+    "tag": "stephcurry",
+    "videos": 8,
+    "plays": 6594966
+   },
+   {
+    "tag": "nbabasketball",
+    "videos": 7,
+    "plays": 2095453
+   },
+   {
+    "tag": "curry",
+    "videos": 7,
+    "plays": 296496
+   },
+   {
+    "tag": "tiktokcampaign",
+    "videos": 6,
+    "plays": 6524079
+   },
+   {
+    "tag": "goldenstatewarriors",
+    "videos": 5,
+    "plays": 37747
+   },
+   {
+    "tag": "pelicans",
+    "videos": 4,
+    "plays": 1519163
+   },
+   {
+    "tag": "espnsocial",
+    "videos": 3,
+    "plays": 1198600
+   },
+   {
+    "tag": "stephencurry",
+    "videos": 3,
+    "plays": 2600
+   },
+   {
+    "tag": "wemby",
+    "videos": 2,
+    "plays": 5691700
+   }
+  ],
+  "players": [
+   {
+    "name": "Stephen Curry",
+    "videos": 17,
+    "plays": 429013
+   },
+   {
+    "name": "Yaxel Lendeborg",
+    "videos": 4,
+    "plays": 419486
+   }
+  ]
  }
 }

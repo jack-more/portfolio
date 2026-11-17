@@ -434,5 +434,377 @@
     "comments": 6
    }
   ]
+ },
+ "tiktok": {
+  "team": "Miami Heat",
+  "season_start": "2026-10-20",
+  "videos_relevant": 57,
+  "videos_in_season": 51,
+  "in_season_top": [
+   {
+    "desc": "an INTENSE OVERTIME ENDING last night in INGLEWOOD 🤯🔥 #miamiheat #nba #giannis #klaythompson #reaction @ChicoFilo ",
+    "url": "https://www.tiktok.com/@miamiheat/video/7704692339498896653",
+    "author": "miamiheat",
+    "followers": 1600000,
+    "plays": 6000000,
+    "likes": 525600,
+    "comments": 1219,
+    "shares": 12700,
+    "source": "team",
+    "date": "2026-11-05"
+   },
+   {
+    "desc": "GIANNIS WOULD NOT BE DENIED 🔥 #nba #basketball #giannis #hoops #miamiheat ",
+    "url": "https://www.tiktok.com/@houseofhighlights/video/7708960019504532750",
+    "author": "houseofhighlights",
+    "followers": 33400000,
+    "plays": 993600,
+    "likes": 93200,
+    "comments": 428,
+    "shares": 3317,
+    "source": "league_media",
+    "date": "2026-11-16"
+   },
+   {
+    "desc": "bro is a THREE MACHINE 🤯 #klaythompson #nba #miamiheat #threes #klay ",
+    "url": "https://www.tiktok.com/@miamiheat/video/7708940607351246093",
+    "author": "miamiheat",
+    "followers": 1600000,
+    "plays": 750500,
+    "likes": 82000,
+    "comments": 590,
+    "shares": 1280,
+    "source": "team",
+    "date": "2026-11-16"
+   },
+   {
+    "desc": "#giannisantetokounmpo #miamiheat #nba #fyp",
+    "url": "https://www.tiktok.com/@youisnottufff/video/7708788552573848845",
+    "author": "youisnottufff",
+    "followers": 4333,
+    "plays": 439800,
+    "likes": 112300,
+    "comments": 798,
+    "shares": 11400,
+    "source": "fan",
+    "date": "2026-11-16"
+   },
+   {
+    "desc": "WHAT WAS SAID TO GIANNIS?!?! #miamiheat ",
+    "url": "https://www.tiktok.com/@al3xwilliammball/video/7709010846038510870",
+    "author": "al3xwilliammball",
+    "followers": 600,
+    "plays": 296900,
+    "likes": 30200,
+    "comments": 185,
+    "shares": 994,
+    "source": "fan",
+    "date": "2026-11-16"
+   },
+   {
+    "desc": "Miami Heat vs Houston Rockets November 16, 2026 former teammates Klay Thompson and Kevin Durant getting chippy 👀 and then Bam Adebayo knocks down a beautiful reverse fadeaway @Miami HEAT @houstonrockets @13am1of1 #miamiheat #nba #houstonrockets #bamadebayo #kevindurant ",
+    "url": "https://www.tiktok.com/@courtsidemiami/video/7708997449318288654",
+    "author": "courtsidemiami",
+    "followers": 5424,
+    "plays": 296100,
+    "likes": 14400,
+    "comments": 61,
+    "shares": 362,
+    "source": "fan",
+    "date": "2026-11-16"
+   },
+   {
+    "desc": "It’s the quickest Klay has reached 50 threes in his 16 seasons 🔥#NBA #Basketball #KlayThompson #Heat #MiamiHeat ",
+    "url": "https://www.tiktok.com/@nba/video/7709005341941320974",
+    "author": "nba",
+    "followers": 27500000,
+    "plays": 223500,
+    "likes": 25600,
+    "comments": 215,
+    "shares": 918,
+    "source": "league_media",
+    "date": "2026-11-16"
+   },
+   {
+    "desc": "Giannis & KD Still Going At It In 2026😭!! #giannisantetokounmpo #kevindurant #miamiheat #houstonrockets ",
+    "url": "https://www.tiktok.com/@justh00ps/video/7708987072748604702",
+    "author": "justh00ps",
+    "followers": 47300,
+    "plays": 220400,
+    "likes": 29600,
+    "comments": 224,
+    "shares": 970,
+    "source": "fan",
+    "date": "2026-11-16"
+   }
+  ],
+  "all_time_top": [
+   {
+    "desc": "an INTENSE OVERTIME ENDING last night in INGLEWOOD 🤯🔥 #miamiheat #nba #giannis #klaythompson #reaction @ChicoFilo ",
+    "url": "https://www.tiktok.com/@miamiheat/video/7704692339498896653",
+    "author": "miamiheat",
+    "followers": 1600000,
+    "plays": 6000000,
+    "likes": 525600,
+    "comments": 1219,
+    "shares": 12700,
+    "source": "team",
+    "date": "2026-11-05"
+   },
+   {
+    "desc": "GIANNIS WOULD NOT BE DENIED 🔥 #nba #basketball #giannis #hoops #miamiheat ",
+    "url": "https://www.tiktok.com/@houseofhighlights/video/7708960019504532750",
+    "author": "houseofhighlights",
+    "followers": 33400000,
+    "plays": 993600,
+    "likes": 93200,
+    "comments": 428,
+    "shares": 3317,
+    "source": "league_media",
+    "date": "2026-11-16"
+   },
+   {
+    "desc": "bro is a THREE MACHINE 🤯 #klaythompson #nba #miamiheat #threes #klay ",
+    "url": "https://www.tiktok.com/@miamiheat/video/7708940607351246093",
+    "author": "miamiheat",
+    "followers": 1600000,
+    "plays": 750500,
+    "likes": 82000,
+    "comments": 590,
+    "shares": 1280,
+    "source": "team",
+    "date": "2026-11-16"
+   },
+   {
+    "desc": "#giannisantetokounmpo #miamiheat #nba #fyp",
+    "url": "https://www.tiktok.com/@youisnottufff/video/7708788552573848845",
+    "author": "youisnottufff",
+    "followers": 4333,
+    "plays": 439800,
+    "likes": 112300,
+    "comments": 798,
+    "shares": 11400,
+    "source": "fan",
+    "date": "2026-11-16"
+   },
+   {
+    "desc": "WHAT WAS SAID TO GIANNIS?!?! #miamiheat ",
+    "url": "https://www.tiktok.com/@al3xwilliammball/video/7709010846038510870",
+    "author": "al3xwilliammball",
+    "followers": 600,
+    "plays": 296900,
+    "likes": 30200,
+    "comments": 185,
+    "shares": 994,
+    "source": "fan",
+    "date": "2026-11-16"
+   }
+  ],
+  "fan_creators": [
+   {
+    "author": "youisnottufff",
+    "name": "youisnottufff",
+    "url": "https://www.tiktok.com/@youisnottufff",
+    "source": "fan",
+    "followers": 4333,
+    "videos": 1,
+    "plays": 439800,
+    "best_plays": 439800,
+    "best_url": "https://www.tiktok.com/@youisnottufff/video/7708788552573848845",
+    "best_desc": "#giannisantetokounmpo #miamiheat #nba #fyp",
+    "hit_ratio": 101.5
+   },
+   {
+    "author": "al3xwilliammball",
+    "name": "al3xwilliammball",
+    "url": "https://www.tiktok.com/@al3xwilliammball",
+    "source": "fan",
+    "followers": 600,
+    "videos": 1,
+    "plays": 296900,
+    "best_plays": 296900,
+    "best_url": "https://www.tiktok.com/@al3xwilliammball/video/7709010846038510870",
+    "best_desc": "WHAT WAS SAID TO GIANNIS?!?! #miamiheat ",
+    "hit_ratio": 494.8
+   },
+   {
+    "author": "courtsidemiami",
+    "name": "courtsidemiami",
+    "url": "https://www.tiktok.com/@courtsidemiami",
+    "source": "fan",
+    "followers": 5424,
+    "videos": 1,
+    "plays": 296100,
+    "best_plays": 296100,
+    "best_url": "https://www.tiktok.com/@courtsidemiami/video/7708997449318288654",
+    "best_desc": "Miami Heat vs Houston Rockets November 16, 2026 former teammates Klay Thompson and Kevin Durant getting chippy 👀 and then Bam Adebayo knocks",
+    "hit_ratio": 54.6
+   },
+   {
+    "author": "justh00ps",
+    "name": "JustH00ps",
+    "url": "https://www.tiktok.com/@justh00ps",
+    "source": "fan",
+    "followers": 47300,
+    "videos": 1,
+    "plays": 220400,
+    "best_plays": 220400,
+    "best_url": "https://www.tiktok.com/@justh00ps/video/7708987072748604702",
+    "best_desc": "Giannis & KD Still Going At It In 2026😭!! #giannisantetokounmpo #kevindurant #miamiheat #houstonrockets ",
+    "hit_ratio": 4.7
+   },
+   {
+    "author": "armanibuckets",
+    "name": "armanibuckets",
+    "url": "https://www.tiktok.com/@armanibuckets",
+    "source": "fan",
+    "followers": 290900,
+    "videos": 1,
+    "plays": 101000,
+    "best_plays": 101000,
+    "best_url": "https://www.tiktok.com/@armanibuckets/video/7708993625203412255",
+    "best_desc": "These Miami Heat are ROLLING. My goodness. ",
+    "hit_ratio": 0.3
+   },
+   {
+    "author": "ballboypodcast",
+    "name": "The Ball Boy Podcast",
+    "url": "https://www.tiktok.com/@ballboypodcast",
+    "source": "fan",
+    "followers": 79300,
+    "videos": 1,
+    "plays": 78100,
+    "best_plays": 78100,
+    "best_url": "https://www.tiktok.com/@ballboypodcast/video/7708983464225295629",
+    "best_desc": "WHATEVER HE SAID TO GIANNIS WAS NOT A GOOD IDEA… #miamiheat #giannis #NBA #davionmitchell #kalshipartner ",
+    "hit_ratio": 1.0
+   },
+   {
+    "author": "alejandroarroyo176",
+    "name": "￴￴￴￴ ￴￴￴￴￴ ￴￴ ￴ ￴￴￴TheSaint⚜️",
+    "url": "https://www.tiktok.com/@alejandroarroyo176",
+    "source": "fan",
+    "followers": 472,
+    "videos": 1,
+    "plays": 44700,
+    "best_plays": 44700,
+    "best_url": "https://www.tiktok.com/@alejandroarroyo176/video/7709086468072852756",
+    "best_desc": "#CapCut #fyp #nba #miamiheat #fyp",
+    "hit_ratio": 94.7
+   },
+   {
+    "author": "windhorstespn",
+    "name": "Brian Windhorst",
+    "url": "https://www.tiktok.com/@windhorstespn",
+    "source": "fan",
+    "followers": 14600,
+    "videos": 1,
+    "plays": 43700,
+    "best_plays": 43700,
+    "best_url": "https://www.tiktok.com/@windhorstespn/video/7708906298556878094",
+    "best_desc": "The Miami Heat are back above .500 @hoopcollectiveshow #nba #heat #giannis",
+    "hit_ratio": 3.0
+   },
+   {
+    "author": "wisk.quiroz",
+    "name": "Wisk Quiroz",
+    "url": "https://www.tiktok.com/@wisk.quiroz",
+    "source": "fan",
+    "followers": 12900,
+    "videos": 1,
+    "plays": 28200,
+    "best_plays": 28200,
+    "best_url": "https://www.tiktok.com/@wisk.quiroz/video/7709141673355365663",
+    "best_desc": "What Did Jabari Smith Say to Turn Giannis Into Thanos? #NBA #giannis #miamiheat #tiktokcampaign #basketball ",
+    "hit_ratio": 2.2
+   },
+   {
+    "author": "larsson.editz",
+    "name": "Larsson.prodz",
+    "url": "https://www.tiktok.com/@larsson.editz",
+    "source": "fan",
+    "followers": 197,
+    "videos": 1,
+    "plays": 17200,
+    "best_plays": 17200,
+    "best_url": "https://www.tiktok.com/@larsson.editz/video/7708652444770749703",
+    "best_desc": "Miami are 7-2 since that slow start #miamiheat #comeback #nba #edit ",
+    "hit_ratio": 87.3
+   }
+  ],
+  "share_by_source": {
+   "team": 6897000,
+   "league_media": 1526500,
+   "fan": 1662883
+  },
+  "hashtags": [
+   {
+    "tag": "giannis",
+    "videos": 12,
+    "plays": 7294777
+   },
+   {
+    "tag": "klaythompson",
+    "videos": 10,
+    "plays": 7214811
+   },
+   {
+    "tag": "giannisantetokounmpo",
+    "videos": 6,
+    "plays": 680031
+   },
+   {
+    "tag": "houstonrockets",
+    "videos": 6,
+    "plays": 624953
+   },
+   {
+    "tag": "heatnation",
+    "videos": 4,
+    "plays": 18589
+   },
+   {
+    "tag": "bamadebayo",
+    "videos": 3,
+    "plays": 307376
+   },
+   {
+    "tag": "davionmitchell",
+    "videos": 3,
+    "plays": 126400
+   },
+   {
+    "tag": "edit",
+    "videos": 3,
+    "plays": 21914
+   },
+   {
+    "tag": "kevindurant",
+    "videos": 2,
+    "plays": 516500
+   },
+   {
+    "tag": "nbabasketball",
+    "videos": 2,
+    "plays": 65509
+   }
+  ],
+  "players": [
+   {
+    "name": "Klay Thompson",
+    "videos": 3,
+    "plays": 302914
+   },
+   {
+    "name": "Bam Adebayo",
+    "videos": 1,
+    "plays": 296100
+   },
+   {
+    "name": "Giannis Antetokounmpo",
+    "videos": 1,
+    "plays": 30900
+   }
+  ]
  }
 }

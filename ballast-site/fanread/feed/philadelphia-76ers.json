@@ -458,5 +458,382 @@
     "comments": 6
    }
   ]
+ },
+ "tiktok": {
+  "team": "Philadelphia 76ers",
+  "season_start": "2026-10-20",
+  "videos_relevant": 58,
+  "videos_in_season": 50,
+  "in_season_top": [
+   {
+    "desc": "LeBron & Tacko Fall🏀🤯‼️#nba #basketball #sixers #lebronjames #tackofall ",
+    "url": "https://www.tiktok.com/@robpomarico/video/7708539240812006687",
+    "author": "robpomarico",
+    "followers": 71000,
+    "plays": 1300000,
+    "likes": 224000,
+    "comments": 754,
+    "shares": 3735,
+    "source": "fan",
+    "date": "2026-11-15"
+   },
+   {
+    "desc": "😂😂😂. #nba #basketball #sixers #funny #fail ",
+    "url": "https://www.tiktok.com/@houseofhighlights/video/7708963632603778318",
+    "author": "houseofhighlights",
+    "followers": 33400000,
+    "plays": 1100000,
+    "likes": 36900,
+    "comments": 117,
+    "shares": 603,
+    "source": "league_media",
+    "date": "2026-11-16"
+   },
+   {
+    "desc": "Bro took a whole journey 😭 #hoopsnation #nba #basketball #tyresemaxey #sixers ",
+    "url": "https://www.tiktok.com/@hoopsnation/video/7708937619899567373",
+    "author": "hoopsnation",
+    "followers": 6000000,
+    "plays": 1100000,
+    "likes": 50100,
+    "comments": 5247,
+    "shares": 13000,
+    "source": "fan",
+    "date": "2026-11-16"
+   },
+   {
+    "desc": "nah vj tapped in😭#vjedgecombe #redpuffer #flightreacts #sixers #ftc ",
+    "url": "https://www.tiktok.com/@ballingadnxtdoor/video/7708866404379938079",
+    "author": "ballingadnxtdoor",
+    "followers": 64700,
+    "plays": 842600,
+    "likes": 195500,
+    "comments": 298,
+    "shares": 11900,
+    "source": "fan",
+    "date": "2026-11-16"
+   },
+   {
+    "desc": "LeBron laughing after Quenton Jackson pushed him 😅 #nba #basketball #lebron #sixers #pacers ",
+    "url": "https://www.tiktok.com/@bleacherreport/video/7708473485164580126",
+    "author": "bleacherreport",
+    "followers": 12300000,
+    "plays": 836600,
+    "likes": 71000,
+    "comments": 1883,
+    "shares": 2196,
+    "source": "league_media",
+    "date": "2026-11-15"
+   },
+   {
+    "desc": "76ers are having TOO MUCH fun 😂🔥 #foryou #foryoupage #NBA #basketball ",
+    "url": "https://www.tiktok.com/@mtnhoops/video/7704559160062528798",
+    "author": "mtnhoops",
+    "followers": 274900,
+    "plays": 613600,
+    "likes": 103000,
+    "comments": 496,
+    "shares": 7463,
+    "source": "fan",
+    "date": "2026-11-04"
+   },
+   {
+    "desc": "the vet finds the rook 👌 #sixers #nba #lebron #labaronphilon ",
+    "url": "https://www.tiktok.com/@sixers/video/7708473081437670686",
+    "author": "sixers",
+    "followers": 1600000,
+    "plays": 538900,
+    "likes": 43900,
+    "comments": 195,
+    "shares": 1662,
+    "source": "team",
+    "date": "2026-11-15"
+   },
+   {
+    "desc": "Prime Joel throwing that down. 🥲💔 #nba #basketball #sixers #joelembiid #nbabasketball ",
+    "url": "https://www.tiktok.com/@houseofhighlights/video/7708953891479620878",
+    "author": "houseofhighlights",
+    "followers": 33400000,
+    "plays": 448000,
+    "likes": 40000,
+    "comments": 241,
+    "shares": 1415,
+    "source": "league_media",
+    "date": "2026-11-16"
+   }
+  ],
+  "all_time_top": [
+   {
+    "desc": "LeBron & Tacko Fall🏀🤯‼️#nba #basketball #sixers #lebronjames #tackofall ",
+    "url": "https://www.tiktok.com/@robpomarico/video/7708539240812006687",
+    "author": "robpomarico",
+    "followers": 71000,
+    "plays": 1300000,
+    "likes": 224000,
+    "comments": 754,
+    "shares": 3735,
+    "source": "fan",
+    "date": "2026-11-15"
+   },
+   {
+    "desc": "😂😂😂. #nba #basketball #sixers #funny #fail ",
+    "url": "https://www.tiktok.com/@houseofhighlights/video/7708963632603778318",
+    "author": "houseofhighlights",
+    "followers": 33400000,
+    "plays": 1100000,
+    "likes": 36900,
+    "comments": 117,
+    "shares": 603,
+    "source": "league_media",
+    "date": "2026-11-16"
+   },
+   {
+    "desc": "Bro took a whole journey 😭 #hoopsnation #nba #basketball #tyresemaxey #sixers ",
+    "url": "https://www.tiktok.com/@hoopsnation/video/7708937619899567373",
+    "author": "hoopsnation",
+    "followers": 6000000,
+    "plays": 1100000,
+    "likes": 50100,
+    "comments": 5247,
+    "shares": 13000,
+    "source": "fan",
+    "date": "2026-11-16"
+   },
+   {
+    "desc": "nah vj tapped in😭#vjedgecombe #redpuffer #flightreacts #sixers #ftc ",
+    "url": "https://www.tiktok.com/@ballingadnxtdoor/video/7708866404379938079",
+    "author": "ballingadnxtdoor",
+    "followers": 64700,
+    "plays": 842600,
+    "likes": 195500,
+    "comments": 298,
+    "shares": 11900,
+    "source": "fan",
+    "date": "2026-11-16"
+   },
+   {
+    "desc": "LeBron laughing after Quenton Jackson pushed him 😅 #nba #basketball #lebron #sixers #pacers ",
+    "url": "https://www.tiktok.com/@bleacherreport/video/7708473485164580126",
+    "author": "bleacherreport",
+    "followers": 12300000,
+    "plays": 836600,
+    "likes": 71000,
+    "comments": 1883,
+    "shares": 2196,
+    "source": "league_media",
+    "date": "2026-11-15"
+   }
+  ],
+  "fan_creators": [
+   {
+    "author": "robpomarico",
+    "name": "RobPomarico",
+    "url": "https://www.tiktok.com/@robpomarico",
+    "source": "fan",
+    "followers": 71000,
+    "videos": 1,
+    "plays": 1300000,
+    "best_plays": 1300000,
+    "best_url": "https://www.tiktok.com/@robpomarico/video/7708539240812006687",
+    "best_desc": "LeBron & Tacko Fall🏀🤯‼️#nba #basketball #sixers #lebronjames #tackofall ",
+    "hit_ratio": 18.3
+   },
+   {
+    "author": "hoopsnation",
+    "name": "Hoops Nation",
+    "url": "https://www.tiktok.com/@hoopsnation",
+    "source": "fan",
+    "followers": 6000000,
+    "videos": 2,
+    "plays": 1124100,
+    "best_plays": 1100000,
+    "best_url": "https://www.tiktok.com/@hoopsnation/video/7708937619899567373",
+    "best_desc": "Bro took a whole journey 😭 #hoopsnation #nba #basketball #tyresemaxey #sixers ",
+    "hit_ratio": 0.2
+   },
+   {
+    "author": "ballingadnxtdoor",
+    "name": "ballingnxtdoor",
+    "url": "https://www.tiktok.com/@ballingadnxtdoor",
+    "source": "fan",
+    "followers": 64700,
+    "videos": 1,
+    "plays": 842600,
+    "best_plays": 842600,
+    "best_url": "https://www.tiktok.com/@ballingadnxtdoor/video/7708866404379938079",
+    "best_desc": "nah vj tapped in😭#vjedgecombe #redpuffer #flightreacts #sixers #ftc ",
+    "hit_ratio": 13.0
+   },
+   {
+    "author": "mtnhoops",
+    "name": "MTN Hoops",
+    "url": "https://www.tiktok.com/@mtnhoops",
+    "source": "fan",
+    "followers": 274900,
+    "videos": 1,
+    "plays": 613600,
+    "best_plays": 613600,
+    "best_url": "https://www.tiktok.com/@mtnhoops/video/7704559160062528798",
+    "best_desc": "76ers are having TOO MUCH fun 😂🔥 #foryou #foryoupage #NBA #basketball ",
+    "hit_ratio": 2.2
+   },
+   {
+    "author": "nbcsphilly",
+    "name": "nbcsphilly",
+    "url": "https://www.tiktok.com/@nbcsphilly",
+    "source": "fan",
+    "followers": 535800,
+    "videos": 1,
+    "plays": 135300,
+    "best_plays": 135300,
+    "best_url": "https://www.tiktok.com/@nbcsphilly/video/7708946567599852831",
+    "best_desc": "Sixers are in sync 🤩",
+    "hit_ratio": 0.3
+   },
+   {
+    "author": "thescore",
+    "name": "theScore",
+    "url": "https://www.tiktok.com/@thescore",
+    "source": "fan",
+    "followers": 5700000,
+    "videos": 1,
+    "plays": 78400,
+    "best_plays": 78400,
+    "best_url": "https://www.tiktok.com/@thescore/video/7708963556527492372",
+    "best_desc": "This is how much LeBron still cares in year 24…🍿🗣️ #lebron #lebronjames #nba #sixers ",
+    "hit_ratio": 0.0
+   },
+   {
+    "author": "armanibuckets",
+    "name": "armanibuckets",
+    "url": "https://www.tiktok.com/@armanibuckets",
+    "source": "fan",
+    "followers": 290900,
+    "videos": 1,
+    "plays": 62600,
+    "best_plays": 62600,
+    "best_url": "https://www.tiktok.com/@armanibuckets/video/7709001459530009886",
+    "best_desc": "Joel looked like Joel tonight. This Sixers team is rolling…",
+    "hit_ratio": 0.2
+   },
+   {
+    "author": "nbafrance",
+    "name": "NBA France",
+    "url": "https://www.tiktok.com/@nbafrance",
+    "source": "fan",
+    "followers": 185600,
+    "videos": 1,
+    "plays": 35500,
+    "best_plays": 35500,
+    "best_url": "https://www.tiktok.com/@nbafrance/video/7709005231920549142",
+    "best_desc": "MVP mode activé ✅ #joelembiid #nba #sixers #basketball ",
+    "hit_ratio": 0.2
+   },
+   {
+    "author": "kowch.potatoes",
+    "name": "Kowch Potatoes Podcast",
+    "url": "https://www.tiktok.com/@kowch.potatoes",
+    "source": "fan",
+    "followers": 304,
+    "videos": 1,
+    "plays": 32100,
+    "best_plays": 32100,
+    "best_url": "https://www.tiktok.com/@kowch.potatoes/video/7708894214838340877",
+    "best_desc": "“THEY LIED TO YOU” 🤥 Montrezl Harrell on why he regrets signing with the Sixers😂 FULL INTERVIEW ON YOUTUBE! Link in bio. #MontrezlHarrell #K",
+    "hit_ratio": 105.6
+   },
+   {
+    "author": "hoopplanetoriginal",
+    "name": "Hoop Planet",
+    "url": "https://www.tiktok.com/@hoopplanetoriginal",
+    "source": "fan",
+    "followers": 2045,
+    "videos": 1,
+    "plays": 19800,
+    "best_plays": 19800,
+    "best_url": "https://www.tiktok.com/@hoopplanetoriginal/video/7708557513628732685",
+    "best_desc": "This Sixers Team is too good 😭 #nbabasketball #lebronjames #tyresemaxey #jaylenbrown #hoopplanet ",
+    "hit_ratio": 9.7
+   }
+  ],
+  "share_by_source": {
+   "team": 835551,
+   "league_media": 4141581,
+   "fan": 4317738
+  },
+  "hashtags": [
+   {
+    "tag": "lebron",
+    "videos": 11,
+    "plays": 2121240
+   },
+   {
+    "tag": "lebronjames",
+    "videos": 7,
+    "plays": 2169495
+   },
+   {
+    "tag": "tyresemaxey",
+    "videos": 6,
+    "plays": 1280358
+   },
+   {
+    "tag": "joelembiid",
+    "videos": 5,
+    "plays": 610281
+   },
+   {
+    "tag": "jaylenbrown",
+    "videos": 4,
+    "plays": 224681
+   },
+   {
+    "tag": "nets",
+    "videos": 4,
+    "plays": 41563
+   },
+   {
+    "tag": "philly",
+    "videos": 3,
+    "plays": 21615
+   },
+   {
+    "tag": "funny",
+    "videos": 2,
+    "plays": 1469200
+   },
+   {
+    "tag": "hoopsnation",
+    "videos": 2,
+    "plays": 1124100
+   },
+   {
+    "tag": "vjedgecombe",
+    "videos": 2,
+    "plays": 866700
+   }
+  ],
+  "players": [
+   {
+    "name": "Tacko Fall",
+    "videos": 1,
+    "plays": 1300000
+   },
+   {
+    "name": "Jaylen Brown",
+    "videos": 2,
+    "plays": 185773
+   },
+   {
+    "name": "Joel Embiid",
+    "videos": 7,
+    "plays": 169986
+   },
+   {
+    "name": "Tyrese Maxey",
+    "videos": 3,
+    "plays": 146058
+   }
+  ]
  }
 }

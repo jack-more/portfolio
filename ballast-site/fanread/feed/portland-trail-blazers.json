@@ -495,5 +495,367 @@
     "comments": 3
    }
   ]
+ },
+ "tiktok": {
+  "team": "Portland Trail Blazers",
+  "season_start": "2026-10-20",
+  "videos_relevant": 35,
+  "videos_in_season": 30,
+  "in_season_top": [
+   {
+    "desc": "Just can't guard Ja 🤷‍♂️ #nba #blazers #jamorant #highlights",
+    "url": "https://www.tiktok.com/@trailblazers/video/7699553884800404767",
+    "author": "trailblazers",
+    "followers": 1300000,
+    "plays": 830200,
+    "likes": 80500,
+    "comments": 313,
+    "shares": 2916,
+    "source": "team",
+    "date": "2026-10-22"
+   },
+   {
+    "desc": "SOUNDED LIKE A PLAYOFF GAME 🤯🔥 #nba #basketball #damianlillard #crowd #blazers ",
+    "url": "https://www.tiktok.com/@houseofhighlights/video/7707003181288410382",
+    "author": "houseofhighlights",
+    "followers": 33400000,
+    "plays": 813500,
+    "likes": 137800,
+    "comments": 491,
+    "shares": 4698,
+    "source": "league_media",
+    "date": "2026-11-11"
+   },
+   {
+    "desc": "why are yall so pressed about me forgetting to say back #damianlillard #blazers #viralvideo #fypシ #NBA @Trail Blazers ",
+    "url": "https://www.tiktok.com/@basketball..girll67/video/7699370184129252638",
+    "author": "basketball..girll67",
+    "followers": 397,
+    "plays": 357700,
+    "likes": 44000,
+    "comments": 119,
+    "shares": 856,
+    "source": "fan",
+    "date": "2026-10-21"
+   },
+   {
+    "desc": "BLAZERS HUGE WIN ON BACK 2 BACK NIGHTS VS OKC NO RUNNING #blazers #thunder #nba #deni #shai ",
+    "url": "https://www.tiktok.com/@devowhipsit/video/7707161271849848077",
+    "author": "devowhipsit",
+    "followers": 50100,
+    "plays": 342400,
+    "likes": 26700,
+    "comments": 250,
+    "shares": 904,
+    "source": "fan",
+    "date": "2026-11-11"
+   },
+   {
+    "desc": "Dame back is so peak #imdionte #xyzbca #nba #damianlillard #blazers ",
+    "url": "https://www.tiktok.com/@imdionte/video/7707016191759453471",
+    "author": "imdionte",
+    "followers": 21000,
+    "plays": 196800,
+    "likes": 39000,
+    "comments": 294,
+    "shares": 2043,
+    "source": "fan",
+    "date": "2026-11-11"
+   },
+   {
+    "desc": "Did we underestimate this Blazers team?! What was THAT performance?",
+    "url": "https://www.tiktok.com/@armanibuckets/video/7699376717650988318",
+    "author": "armanibuckets",
+    "followers": 290900,
+    "plays": 165900,
+    "likes": 30700,
+    "comments": 239,
+    "shares": 552,
+    "source": "fan",
+    "date": "2026-10-21"
+   },
+   {
+    "desc": "Blazers 82-0 #blazers #dame #ja #fyp #viral ",
+    "url": "https://www.tiktok.com/@lillardmotion/video/7701712374943862030",
+    "author": "lillardmotion",
+    "followers": 1801,
+    "plays": 108300,
+    "likes": 6300,
+    "comments": 190,
+    "shares": 349,
+    "source": "fan",
+    "date": "2026-10-28"
+   },
+   {
+    "desc": "Are the Blazers back this year 👀 #nba #damianlillard #portlandtrailblazers #basketball #fyp",
+    "url": "https://www.tiktok.com/@jimmyc511/video/7705253705154710798",
+    "author": "jimmyc511",
+    "followers": 10300,
+    "plays": 96300,
+    "likes": 4198,
+    "comments": 28,
+    "shares": 143,
+    "source": "fan",
+    "date": "2026-11-06"
+   }
+  ],
+  "all_time_top": [
+   {
+    "desc": "Just can't guard Ja 🤷‍♂️ #nba #blazers #jamorant #highlights",
+    "url": "https://www.tiktok.com/@trailblazers/video/7699553884800404767",
+    "author": "trailblazers",
+    "followers": 1300000,
+    "plays": 830200,
+    "likes": 80500,
+    "comments": 313,
+    "shares": 2916,
+    "source": "team",
+    "date": "2026-10-22"
+   },
+   {
+    "desc": "SOUNDED LIKE A PLAYOFF GAME 🤯🔥 #nba #basketball #damianlillard #crowd #blazers ",
+    "url": "https://www.tiktok.com/@houseofhighlights/video/7707003181288410382",
+    "author": "houseofhighlights",
+    "followers": 33400000,
+    "plays": 813500,
+    "likes": 137800,
+    "comments": 491,
+    "shares": 4698,
+    "source": "league_media",
+    "date": "2026-11-11"
+   },
+   {
+    "desc": "why are yall so pressed about me forgetting to say back #damianlillard #blazers #viralvideo #fypシ #NBA @Trail Blazers ",
+    "url": "https://www.tiktok.com/@basketball..girll67/video/7699370184129252638",
+    "author": "basketball..girll67",
+    "followers": 397,
+    "plays": 357700,
+    "likes": 44000,
+    "comments": 119,
+    "shares": 856,
+    "source": "fan",
+    "date": "2026-10-21"
+   },
+   {
+    "desc": "BLAZERS HUGE WIN ON BACK 2 BACK NIGHTS VS OKC NO RUNNING #blazers #thunder #nba #deni #shai ",
+    "url": "https://www.tiktok.com/@devowhipsit/video/7707161271849848077",
+    "author": "devowhipsit",
+    "followers": 50100,
+    "plays": 342400,
+    "likes": 26700,
+    "comments": 250,
+    "shares": 904,
+    "source": "fan",
+    "date": "2026-11-11"
+   },
+   {
+    "desc": "Dame back is so peak #imdionte #xyzbca #nba #damianlillard #blazers ",
+    "url": "https://www.tiktok.com/@imdionte/video/7707016191759453471",
+    "author": "imdionte",
+    "followers": 21000,
+    "plays": 196800,
+    "likes": 39000,
+    "comments": 294,
+    "shares": 2043,
+    "source": "fan",
+    "date": "2026-11-11"
+   }
+  ],
+  "fan_creators": [
+   {
+    "author": "devowhipsit",
+    "name": "devo👑🐐",
+    "url": "https://www.tiktok.com/@devowhipsit",
+    "source": "fan",
+    "followers": 50100,
+    "videos": 3,
+    "plays": 388800,
+    "best_plays": 342400,
+    "best_url": "https://www.tiktok.com/@devowhipsit/video/7707161271849848077",
+    "best_desc": "BLAZERS HUGE WIN ON BACK 2 BACK NIGHTS VS OKC NO RUNNING #blazers #thunder #nba #deni #shai ",
+    "hit_ratio": 6.8
+   },
+   {
+    "author": "basketball..girll67",
+    "name": "basketball..girll67",
+    "url": "https://www.tiktok.com/@basketball..girll67",
+    "source": "fan",
+    "followers": 397,
+    "videos": 1,
+    "plays": 357700,
+    "best_plays": 357700,
+    "best_url": "https://www.tiktok.com/@basketball..girll67/video/7699370184129252638",
+    "best_desc": "why are yall so pressed about me forgetting to say back #damianlillard #blazers #viralvideo #fypシ #NBA @Trail Blazers ",
+    "hit_ratio": 901.0
+   },
+   {
+    "author": "imdionte",
+    "name": "Dionte ✰",
+    "url": "https://www.tiktok.com/@imdionte",
+    "source": "fan",
+    "followers": 21000,
+    "videos": 1,
+    "plays": 196800,
+    "best_plays": 196800,
+    "best_url": "https://www.tiktok.com/@imdionte/video/7707016191759453471",
+    "best_desc": "Dame back is so peak #imdionte #xyzbca #nba #damianlillard #blazers ",
+    "hit_ratio": 9.4
+   },
+   {
+    "author": "armanibuckets",
+    "name": "armanibuckets",
+    "url": "https://www.tiktok.com/@armanibuckets",
+    "source": "fan",
+    "followers": 290900,
+    "videos": 1,
+    "plays": 165900,
+    "best_plays": 165900,
+    "best_url": "https://www.tiktok.com/@armanibuckets/video/7699376717650988318",
+    "best_desc": "Did we underestimate this Blazers team?! What was THAT performance?",
+    "hit_ratio": 0.6
+   },
+   {
+    "author": "lillardmotion",
+    "name": "LucaMotion",
+    "url": "https://www.tiktok.com/@lillardmotion",
+    "source": "fan",
+    "followers": 1801,
+    "videos": 1,
+    "plays": 108300,
+    "best_plays": 108300,
+    "best_url": "https://www.tiktok.com/@lillardmotion/video/7701712374943862030",
+    "best_desc": "Blazers 82-0 #blazers #dame #ja #fyp #viral ",
+    "hit_ratio": 60.1
+   },
+   {
+    "author": "jimmyc511",
+    "name": "JimmyC511",
+    "url": "https://www.tiktok.com/@jimmyc511",
+    "source": "fan",
+    "followers": 10300,
+    "videos": 1,
+    "plays": 96300,
+    "best_plays": 96300,
+    "best_url": "https://www.tiktok.com/@jimmyc511/video/7705253705154710798",
+    "best_desc": "Are the Blazers back this year 👀 #nba #damianlillard #portlandtrailblazers #basketball #fyp",
+    "hit_ratio": 9.3
+   },
+   {
+    "author": "l.ylagrace",
+    "name": "lyla grace ☺️💗😁",
+    "url": "https://www.tiktok.com/@l.ylagrace",
+    "source": "fan",
+    "followers": 5391,
+    "videos": 1,
+    "plays": 81700,
+    "best_plays": 81700,
+    "best_url": "https://www.tiktok.com/@l.ylagrace/video/7708283965198634271",
+    "best_desc": "nike blazers 💔",
+    "hit_ratio": 15.2
+   },
+   {
+    "author": "zachloweshow",
+    "name": "The Zach Lowe Show",
+    "url": "https://www.tiktok.com/@zachloweshow",
+    "source": "fan",
+    "followers": 24200,
+    "videos": 1,
+    "plays": 27800,
+    "best_plays": 27800,
+    "best_url": "https://www.tiktok.com/@zachloweshow/video/7707754455797615903",
+    "best_desc": "The Blazers have a TOP-FIVE offense #portlandtrailblazers #nba #hoops #TheZachLoweShow ",
+    "hit_ratio": 1.1
+   },
+   {
+    "author": "jennypdx",
+    "name": "jenny ❀",
+    "url": "https://www.tiktok.com/@jennypdx",
+    "source": "fan",
+    "followers": 2540,
+    "videos": 1,
+    "plays": 23000,
+    "best_plays": 23000,
+    "best_url": "https://www.tiktok.com/@jennypdx/video/7707028740462628110",
+    "best_desc": "damn near singing😔😭😭  @Trail Blazers  #damianlillard #portlandtrailblazers #blazers #dametime ",
+    "hit_ratio": 9.1
+   },
+   {
+    "author": "karterbrown69",
+    "name": "Karter",
+    "url": "https://www.tiktok.com/@karterbrown69",
+    "source": "fan",
+    "followers": 196,
+    "videos": 1,
+    "plays": 20800,
+    "best_plays": 20800,
+    "best_url": "https://www.tiktok.com/@karterbrown69/video/7706188916285639950",
+    "best_desc": "them and the spurs😭 #nba #blazers #viral #nbaedit #blowthisup ",
+    "hit_ratio": 106.1
+   }
+  ],
+  "share_by_source": {
+   "team": 907300,
+   "league_media": 1025600,
+   "fan": 1508378
+  },
+  "hashtags": [
+   {
+    "tag": "damianlillard",
+    "videos": 13,
+    "plays": 1648986
+   },
+   {
+    "tag": "portlandtrailblazers",
+    "videos": 6,
+    "plays": 156756
+   },
+   {
+    "tag": "thunder",
+    "videos": 3,
+    "plays": 408100
+   },
+   {
+    "tag": "highlights",
+    "videos": 2,
+    "plays": 852000
+   },
+   {
+    "tag": "deni",
+    "videos": 2,
+    "plays": 370500
+   },
+   {
+    "tag": "trailblazers",
+    "videos": 2,
+    "plays": 64700
+   },
+   {
+    "tag": "timberwolves",
+    "videos": 2,
+    "plays": 35227
+   },
+   {
+    "tag": "hoops",
+    "videos": 2,
+    "plays": 61500
+   },
+   {
+    "tag": "jamorant",
+    "videos": 1,
+    "plays": 830200
+   },
+   {
+    "tag": "crowd",
+    "videos": 1,
+    "plays": 813500
+   }
+  ],
+  "players": [
+   {
+    "name": "Yang Hansen",
+    "videos": 1,
+    "plays": 2536
+   }
+  ]
  }
 }

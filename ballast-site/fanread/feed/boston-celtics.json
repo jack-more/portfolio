@@ -437,5 +437,382 @@
    "status": "final"
   },
   "most_discussed": []
+ },
+ "tiktok": {
+  "team": "Boston Celtics",
+  "season_start": "2026-10-20",
+  "videos_relevant": 50,
+  "videos_in_season": 44,
+  "in_season_top": [
+   {
+    "desc": "Return of PG13 #paulgeorge #basketball #celtics #viral #nba ",
+    "url": "https://www.tiktok.com/@kino.dokoyons/video/7706768162796113160",
+    "author": "kino.dokoyons",
+    "followers": 1276,
+    "plays": 1200000,
+    "likes": 285600,
+    "comments": 1025,
+    "shares": 23600,
+    "source": "fan",
+    "date": "2026-11-10"
+   },
+   {
+    "desc": "Do you agree? 🤔 (via @Boardroom, @NBA) #nba #basketball #jaysontatum #celtics #nbadraft ",
+    "url": "https://www.tiktok.com/@bleacherreport/video/7708890695368510750",
+    "author": "bleacherreport",
+    "followers": 12300000,
+    "plays": 806300,
+    "likes": 45000,
+    "comments": 875,
+    "shares": 358,
+    "source": "league_media",
+    "date": "2026-11-16"
+   },
+   {
+    "desc": "Tatum keeps it real on getting trolled after his NBA Finals win 👏 (via @Boardroom) #nba #basketball #jaysontatum #celtics #nbabasketball ",
+    "url": "https://www.tiktok.com/@bleacherreport/video/7708987124657294623",
+    "author": "bleacherreport",
+    "followers": 12300000,
+    "plays": 754300,
+    "likes": 85600,
+    "comments": 647,
+    "shares": 2711,
+    "source": "league_media",
+    "date": "2026-11-16"
+   },
+   {
+    "desc": "AURA 😮‍💨 (via @Celtics Coverage on CLNS) #nba #basketball #celtics #jaysontatum #paulgeorge ",
+    "url": "https://www.tiktok.com/@bleacherreport/video/7707086940885028127",
+    "author": "bleacherreport",
+    "followers": 12300000,
+    "plays": 586800,
+    "likes": 63300,
+    "comments": 339,
+    "shares": 2321,
+    "source": "league_media",
+    "date": "2026-11-11"
+   },
+   {
+    "desc": "#nba #basketball #celtics ",
+    "url": "https://www.tiktok.com/@espn/video/7706753665746406686",
+    "author": "espn",
+    "followers": 62000000,
+    "plays": 489300,
+    "likes": 59800,
+    "comments": 221,
+    "shares": 1910,
+    "source": "league_media",
+    "date": "2026-11-10"
+   },
+   {
+    "desc": "0️⃣ Gravity #fyp #boston #celtics #jaysontatum #nba ",
+    "url": "https://www.tiktok.com/@celtics/video/7706936467074895117",
+    "author": "celtics",
+    "followers": 2200000,
+    "plays": 359500,
+    "likes": 52100,
+    "comments": 671,
+    "shares": 2824,
+    "source": "team",
+    "date": "2026-11-11"
+   },
+   {
+    "desc": "JT from outta nowhere 😳🔒 #fyp #boston #celtics #jaysontatum ",
+    "url": "https://www.tiktok.com/@celtics/video/7707080893566946573",
+    "author": "celtics",
+    "followers": 2200000,
+    "plays": 162600,
+    "likes": 24400,
+    "comments": 115,
+    "shares": 1014,
+    "source": "team",
+    "date": "2026-11-11"
+   },
+   {
+    "desc": "Paul George hit the dagger three with 1:32 left and Jayson Tatum dropped 32 after needing to leave the game with a cut on his head. The Celtics have won five straight and haven't lost since opening night. #paulgeorge #jasontatum #bostonceltics #celticsnation #pg13 ",
+    "url": "https://www.tiktok.com/@clipped4youpookie/video/7703387700446924065",
+    "author": "clipped4youpookie",
+    "followers": 9073,
+    "plays": 154300,
+    "likes": 23600,
+    "comments": 66,
+    "shares": 1664,
+    "source": "fan",
+    "date": "2026-11-01"
+   }
+  ],
+  "all_time_top": [
+   {
+    "desc": "Return of PG13 #paulgeorge #basketball #celtics #viral #nba ",
+    "url": "https://www.tiktok.com/@kino.dokoyons/video/7706768162796113160",
+    "author": "kino.dokoyons",
+    "followers": 1276,
+    "plays": 1200000,
+    "likes": 285600,
+    "comments": 1025,
+    "shares": 23600,
+    "source": "fan",
+    "date": "2026-11-10"
+   },
+   {
+    "desc": "Do you agree? 🤔 (via @Boardroom, @NBA) #nba #basketball #jaysontatum #celtics #nbadraft ",
+    "url": "https://www.tiktok.com/@bleacherreport/video/7708890695368510750",
+    "author": "bleacherreport",
+    "followers": 12300000,
+    "plays": 806300,
+    "likes": 45000,
+    "comments": 875,
+    "shares": 358,
+    "source": "league_media",
+    "date": "2026-11-16"
+   },
+   {
+    "desc": "Tatum keeps it real on getting trolled after his NBA Finals win 👏 (via @Boardroom) #nba #basketball #jaysontatum #celtics #nbabasketball ",
+    "url": "https://www.tiktok.com/@bleacherreport/video/7708987124657294623",
+    "author": "bleacherreport",
+    "followers": 12300000,
+    "plays": 754300,
+    "likes": 85600,
+    "comments": 647,
+    "shares": 2711,
+    "source": "league_media",
+    "date": "2026-11-16"
+   },
+   {
+    "desc": "AURA 😮‍💨 (via @Celtics Coverage on CLNS) #nba #basketball #celtics #jaysontatum #paulgeorge ",
+    "url": "https://www.tiktok.com/@bleacherreport/video/7707086940885028127",
+    "author": "bleacherreport",
+    "followers": 12300000,
+    "plays": 586800,
+    "likes": 63300,
+    "comments": 339,
+    "shares": 2321,
+    "source": "league_media",
+    "date": "2026-11-11"
+   },
+   {
+    "desc": "#nba #basketball #celtics ",
+    "url": "https://www.tiktok.com/@espn/video/7706753665746406686",
+    "author": "espn",
+    "followers": 62000000,
+    "plays": 489300,
+    "likes": 59800,
+    "comments": 221,
+    "shares": 1910,
+    "source": "league_media",
+    "date": "2026-11-10"
+   }
+  ],
+  "fan_creators": [
+   {
+    "author": "kino.dokoyons",
+    "name": "Kino.",
+    "url": "https://www.tiktok.com/@kino.dokoyons",
+    "source": "fan",
+    "followers": 1276,
+    "videos": 1,
+    "plays": 1200000,
+    "best_plays": 1200000,
+    "best_url": "https://www.tiktok.com/@kino.dokoyons/video/7706768162796113160",
+    "best_desc": "Return of PG13 #paulgeorge #basketball #celtics #viral #nba ",
+    "hit_ratio": 940.4
+   },
+   {
+    "author": "clipped4youpookie",
+    "name": "clipped4youpookie",
+    "url": "https://www.tiktok.com/@clipped4youpookie",
+    "source": "fan",
+    "followers": 9073,
+    "videos": 1,
+    "plays": 154300,
+    "best_plays": 154300,
+    "best_url": "https://www.tiktok.com/@clipped4youpookie/video/7703387700446924065",
+    "best_desc": "Paul George hit the dagger three with 1:32 left and Jayson Tatum dropped 32 after needing to leave the game with a cut on his head. The Celt",
+    "hit_ratio": 17.0
+   },
+   {
+    "author": "made.by.william",
+    "name": "will",
+    "url": "https://www.tiktok.com/@made.by.william",
+    "source": "fan",
+    "followers": 17900,
+    "videos": 1,
+    "plays": 98600,
+    "best_plays": 98600,
+    "best_url": "https://www.tiktok.com/@made.by.william/video/7698806351081868575",
+    "best_desc": "keep sleeping on boston.. // #celtics #bostonceltics#drake #jaysontatum #nba",
+    "hit_ratio": 5.5
+   },
+   {
+    "author": "fullcourtbreakdown",
+    "name": "Full Court Breakdown",
+    "url": "https://www.tiktok.com/@fullcourtbreakdown",
+    "source": "fan",
+    "followers": 12300,
+    "videos": 1,
+    "plays": 63900,
+    "best_plays": 63900,
+    "best_url": "https://www.tiktok.com/@fullcourtbreakdown/video/7703272999943720206",
+    "best_desc": "Paul George fits this Celtics team so well #paulgeorge #jaysontatum #nba #celtics #boston",
+    "hit_ratio": 5.2
+   },
+   {
+    "author": "lockitorleaveit",
+    "name": "YT/IG LockItorLeaveit",
+    "url": "https://www.tiktok.com/@lockitorleaveit",
+    "source": "fan",
+    "followers": 79600,
+    "videos": 1,
+    "plays": 42500,
+    "best_plays": 42500,
+    "best_url": "https://www.tiktok.com/@lockitorleaveit/video/7707765304360832270",
+    "best_desc": "Never NOT Fire #nbatiktok #jaysontatum #celtics #tiktokcampaign #basketball ",
+    "hit_ratio": 0.5
+   },
+   {
+    "author": "bigdeuce.fx",
+    "name": "bigdeuce",
+    "url": "https://www.tiktok.com/@bigdeuce.fx",
+    "source": "fan",
+    "followers": 417,
+    "videos": 1,
+    "plays": 38400,
+    "best_plays": 38400,
+    "best_url": "https://www.tiktok.com/@bigdeuce.fx/video/7708667534056131847",
+    "best_desc": "The Celtics well and truly run the east #bostonceltics #nba #nbaedits #bigdeucefx #targetaudience ",
+    "hit_ratio": 92.1
+   },
+   {
+    "author": "espnw",
+    "name": "espnW",
+    "url": "https://www.tiktok.com/@espnw",
+    "source": "fan",
+    "followers": 2900000,
+    "videos": 1,
+    "plays": 34300,
+    "best_plays": 34300,
+    "best_url": "https://www.tiktok.com/@espnw/video/7708948346550996254",
+    "best_desc": "(via @NBA) #wnba #valkyries #celtics #nba #boston ",
+    "hit_ratio": 0.0
+   },
+   {
+    "author": "processmedia_",
+    "name": "processmedia",
+    "url": "https://www.tiktok.com/@processmedia_",
+    "source": "fan",
+    "followers": 15900,
+    "videos": 1,
+    "plays": 30500,
+    "best_plays": 30500,
+    "best_url": "https://www.tiktok.com/@processmedia_/video/7706339550599105822",
+    "best_desc": "Celtics vs Sixers Prediction 🏀 Nov. 10th #nba #bostonceltics #philadelphia76ers #nbapredictions #jaysontatum ",
+    "hit_ratio": 1.9
+   },
+   {
+    "author": "eoin.kelly",
+    "name": "E  o  i  n",
+    "url": "https://www.tiktok.com/@eoin.kelly",
+    "source": "fan",
+    "followers": 219700,
+    "videos": 2,
+    "plays": 25406,
+    "best_plays": 16100,
+    "best_url": "https://www.tiktok.com/@eoin.kelly/video/7708841761950436639",
+    "best_desc": "How quickly everyone forgets #TikTokCampaign #basketball #5MinutePlus #bostonceltics #jaysontatum ",
+    "hit_ratio": 0.1
+   },
+   {
+    "author": "celtics.nati0n",
+    "name": ".𝐚𝐧𝐨𝐦𝐚𝐥𝐲",
+    "url": "https://www.tiktok.com/@celtics.nati0n",
+    "source": "fan",
+    "followers": 6994,
+    "videos": 1,
+    "plays": 20900,
+    "best_plays": 20900,
+    "best_url": "https://www.tiktok.com/@celtics.nati0n/video/7708601340657716493",
+    "best_desc": "Best team itl rn#nba #celtics #win #basketball",
+    "hit_ratio": 3.0
+   }
+  ],
+  "share_by_source": {
+   "team": 617100,
+   "league_media": 2670600,
+   "fan": 1789193
+  },
+  "hashtags": [
+   {
+    "tag": "jaysontatum",
+    "videos": 16,
+    "plays": 2936618
+   },
+   {
+    "tag": "bostonceltics",
+    "videos": 11,
+    "plays": 443630
+   },
+   {
+    "tag": "paulgeorge",
+    "videos": 6,
+    "plays": 2015990
+   },
+   {
+    "tag": "boston",
+    "videos": 5,
+    "plays": 624976
+   },
+   {
+    "tag": "tiktokcampaign",
+    "videos": 4,
+    "plays": 69904
+   },
+   {
+    "tag": "magic",
+    "videos": 4,
+    "plays": 23927
+   },
+   {
+    "tag": "orlandomagic",
+    "videos": 3,
+    "plays": 9976
+   },
+   {
+    "tag": "nbabasketball",
+    "videos": 2,
+    "plays": 765200
+   },
+   {
+    "tag": "drake",
+    "videos": 2,
+    "plays": 111200
+   },
+   {
+    "tag": "paytonpritchard",
+    "videos": 2,
+    "plays": 52398
+   }
+  ],
+  "players": [
+   {
+    "name": "Jayson Tatum",
+    "videos": 5,
+    "plays": 922021
+   },
+   {
+    "name": "Paul George",
+    "videos": 3,
+    "plays": 218581
+   },
+   {
+    "name": "Payton Pritchard",
+    "videos": 1,
+    "plays": 1998
+   },
+   {
+    "name": "Mitchell Robinson",
+    "videos": 1,
+    "plays": 860
+   }
+  ]
  }
 }

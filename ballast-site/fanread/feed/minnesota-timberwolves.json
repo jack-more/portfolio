@@ -419,5 +419,377 @@
     "comments": 4
    }
   ]
+ },
+ "tiktok": {
+  "team": "Minnesota Timberwolves",
+  "season_start": "2026-10-20",
+  "videos_relevant": 56,
+  "videos_in_season": 48,
+  "in_season_top": [
+   {
+    "desc": "Melo threw up the middle finger after hitting a 3 😭 #nba #nbabasketball #lameloball #lamelo #timberwolves ",
+    "url": "https://www.tiktok.com/@bleacherreport/video/7708966252840013086",
+    "author": "bleacherreport",
+    "followers": 12300000,
+    "plays": 1500000,
+    "likes": 141700,
+    "comments": 377,
+    "shares": 8183,
+    "source": "league_media",
+    "date": "2026-11-16"
+   },
+   {
+    "desc": "LaMelo was pressed after that turnover 😂 #nba #basketball #lameloball #rudygobert #timberwolves ",
+    "url": "https://www.tiktok.com/@bleacherreport/video/7708964767578295565",
+    "author": "bleacherreport",
+    "followers": 12300000,
+    "plays": 887300,
+    "likes": 95800,
+    "comments": 1265,
+    "shares": 7869,
+    "source": "league_media",
+    "date": "2026-11-16"
+   },
+   {
+    "desc": "Gobert really did that 😭 (h/t brothaprime/X) #nba #basketball #rudygobert #timberwolves ",
+    "url": "https://www.tiktok.com/@bleacherreport/video/7708955633910844702",
+    "author": "bleacherreport",
+    "followers": 12300000,
+    "plays": 755000,
+    "likes": 98000,
+    "comments": 553,
+    "shares": 10500,
+    "source": "league_media",
+    "date": "2026-11-16"
+   },
+   {
+    "desc": "We just having fun with it 🤩 #minnesota #nba #timberwolves #jonathankuminga ",
+    "url": "https://www.tiktok.com/@timberwolves/video/7707486335162010894",
+    "author": "timberwolves",
+    "followers": 1900000,
+    "plays": 719700,
+    "likes": 108400,
+    "comments": 341,
+    "shares": 3077,
+    "source": "team",
+    "date": "2026-11-12"
+   },
+   {
+    "desc": "Lamelo brought a whole different energy to this team 😭❤️‍🩹#TikTokCampaign #basketball #nba #lameloball #timberwolves ",
+    "url": "https://www.tiktok.com/@biancakierspel/video/7707598215213862174",
+    "author": "biancakierspel",
+    "followers": 15200,
+    "plays": 653200,
+    "likes": 142100,
+    "comments": 342,
+    "shares": 6504,
+    "source": "fan",
+    "date": "2026-11-13"
+   },
+   {
+    "desc": "See you in 2 months. #anthonyedwards #lameloball #timberwolves #nba #edit ",
+    "url": "https://www.tiktok.com/@clipsvynx/video/7702995779966749982",
+    "author": "clipsvynx",
+    "followers": 23700,
+    "plays": 434000,
+    "likes": 70500,
+    "comments": 142,
+    "shares": 4481,
+    "source": "fan",
+    "date": "2026-10-31"
+   },
+   {
+    "desc": "GOT ‘EM 😂😂😂 #nba #minnesota #timberwolves ",
+    "url": "https://www.tiktok.com/@timberwolves/video/7707058438420925710",
+    "author": "timberwolves",
+    "followers": 1900000,
+    "plays": 361300,
+    "likes": 56100,
+    "comments": 259,
+    "shares": 1898,
+    "source": "team",
+    "date": "2026-11-11"
+   },
+   {
+    "desc": "YEAHHHH TJ  #terranceshannonjr #Timberwolves #nba #babyfaceray ",
+    "url": "https://www.tiktok.com/@tranquility00_/video/7708994323320212749",
+    "author": "tranquility00_",
+    "followers": 1885,
+    "plays": 341300,
+    "likes": 74900,
+    "comments": 195,
+    "shares": 2414,
+    "source": "fan",
+    "date": "2026-11-16"
+   }
+  ],
+  "all_time_top": [
+   {
+    "desc": "Who's Stopping This Team? 😤 #timberwolves #anthonyedwards #lameloball #edit #fyp ",
+    "url": "https://www.tiktok.com/@prodswtz/video/7696976171044588813",
+    "author": "prodswtz",
+    "followers": 38200,
+    "plays": 2700000,
+    "likes": 450400,
+    "comments": 2603,
+    "shares": 36600,
+    "source": "fan",
+    "date": "2026-10-15"
+   },
+   {
+    "desc": "Melo threw up the middle finger after hitting a 3 😭 #nba #nbabasketball #lameloball #lamelo #timberwolves ",
+    "url": "https://www.tiktok.com/@bleacherreport/video/7708966252840013086",
+    "author": "bleacherreport",
+    "followers": 12300000,
+    "plays": 1500000,
+    "likes": 141700,
+    "comments": 377,
+    "shares": 8183,
+    "source": "league_media",
+    "date": "2026-11-16"
+   },
+   {
+    "desc": "LaMelo was pressed after that turnover 😂 #nba #basketball #lameloball #rudygobert #timberwolves ",
+    "url": "https://www.tiktok.com/@bleacherreport/video/7708964767578295565",
+    "author": "bleacherreport",
+    "followers": 12300000,
+    "plays": 887300,
+    "likes": 95800,
+    "comments": 1265,
+    "shares": 7869,
+    "source": "league_media",
+    "date": "2026-11-16"
+   },
+   {
+    "desc": "Gobert really did that 😭 (h/t brothaprime/X) #nba #basketball #rudygobert #timberwolves ",
+    "url": "https://www.tiktok.com/@bleacherreport/video/7708955633910844702",
+    "author": "bleacherreport",
+    "followers": 12300000,
+    "plays": 755000,
+    "likes": 98000,
+    "comments": 553,
+    "shares": 10500,
+    "source": "league_media",
+    "date": "2026-11-16"
+   },
+   {
+    "desc": "We just having fun with it 🤩 #minnesota #nba #timberwolves #jonathankuminga ",
+    "url": "https://www.tiktok.com/@timberwolves/video/7707486335162010894",
+    "author": "timberwolves",
+    "followers": 1900000,
+    "plays": 719700,
+    "likes": 108400,
+    "comments": 341,
+    "shares": 3077,
+    "source": "team",
+    "date": "2026-11-12"
+   }
+  ],
+  "fan_creators": [
+   {
+    "author": "biancakierspel",
+    "name": "BallVillain",
+    "url": "https://www.tiktok.com/@biancakierspel",
+    "source": "fan",
+    "followers": 15200,
+    "videos": 1,
+    "plays": 653200,
+    "best_plays": 653200,
+    "best_url": "https://www.tiktok.com/@biancakierspel/video/7707598215213862174",
+    "best_desc": "Lamelo brought a whole different energy to this team 😭❤️‍🩹#TikTokCampaign #basketball #nba #lameloball #timberwolves ",
+    "hit_ratio": 43.0
+   },
+   {
+    "author": "clipsvynx",
+    "name": "clip$vynx",
+    "url": "https://www.tiktok.com/@clipsvynx",
+    "source": "fan",
+    "followers": 23700,
+    "videos": 1,
+    "plays": 434000,
+    "best_plays": 434000,
+    "best_url": "https://www.tiktok.com/@clipsvynx/video/7702995779966749982",
+    "best_desc": "See you in 2 months. #anthonyedwards #lameloball #timberwolves #nba #edit ",
+    "hit_ratio": 18.3
+   },
+   {
+    "author": "tranquility00_",
+    "name": "TQ",
+    "url": "https://www.tiktok.com/@tranquility00_",
+    "source": "fan",
+    "followers": 1885,
+    "videos": 1,
+    "plays": 341300,
+    "best_plays": 341300,
+    "best_url": "https://www.tiktok.com/@tranquility00_/video/7708994323320212749",
+    "best_desc": "YEAHHHH TJ  #terranceshannonjr #Timberwolves #nba #babyfaceray ",
+    "hit_ratio": 181.1
+   },
+   {
+    "author": "jackson.gilroy",
+    "name": "GilroyBall",
+    "url": "https://www.tiktok.com/@jackson.gilroy",
+    "source": "fan",
+    "followers": 36000,
+    "videos": 2,
+    "plays": 271900,
+    "best_plays": 208700,
+    "best_url": "https://www.tiktok.com/@jackson.gilroy/video/7707524127472569630",
+    "best_desc": "The Minnesota Timberwolves are the best team in the NBA #lameloball #timberwolves #TikTokCampaign #basketball ",
+    "hit_ratio": 5.8
+   },
+   {
+    "author": "sportslore_439",
+    "name": "SportsLore_439",
+    "url": "https://www.tiktok.com/@sportslore_439",
+    "source": "fan",
+    "followers": 11800,
+    "videos": 1,
+    "plays": 139500,
+    "best_plays": 139500,
+    "best_url": "https://www.tiktok.com/@sportslore_439/video/7707616396716346638",
+    "best_desc": "the whole Timberwolves team is turning into LaMelo Ball.#Timberwolves #NBA #LaMeloBall  #tiktokcampaign #basketball ",
+    "hit_ratio": 11.8
+   },
+   {
+    "author": "used4nonsense",
+    "name": "nonsense",
+    "url": "https://www.tiktok.com/@used4nonsense",
+    "source": "fan",
+    "followers": 36000,
+    "videos": 1,
+    "plays": 105900,
+    "best_plays": 105900,
+    "best_url": "https://www.tiktok.com/@used4nonsense/video/7707988998668487949",
+    "best_desc": "#lameloball #timberwolves #nba ",
+    "hit_ratio": 2.9
+   },
+   {
+    "author": "theshotclockshow",
+    "name": "The ShotClock",
+    "url": "https://www.tiktok.com/@theshotclockshow",
+    "source": "fan",
+    "followers": 144300,
+    "videos": 1,
+    "plays": 51200,
+    "best_plays": 51200,
+    "best_url": "https://www.tiktok.com/@theshotclockshow/video/7707740676217261343",
+    "best_desc": "THE SHOWTIME T-WOLVES. #minnesotatimberwolves #timberwolves #lameloball #nba #dallasmavs ",
+    "hit_ratio": 0.4
+   },
+   {
+    "author": "clipped4youpookie",
+    "name": "clipped4youpookie",
+    "url": "https://www.tiktok.com/@clipped4youpookie",
+    "source": "fan",
+    "followers": 9073,
+    "videos": 1,
+    "plays": 26700,
+    "best_plays": 26700,
+    "best_url": "https://www.tiktok.com/@clipped4youpookie/video/7709183482664078625",
+    "best_desc": "The Wolves bench went crazy for Rudy Gobert's reverse, two days after his 0-for-7 night against the Bulls. LaMelo Ball had a rough night him",
+    "hit_ratio": 2.9
+   },
+   {
+    "author": "rudygobertbiggestfan",
+    "name": "Rudy Gobert Fan Club",
+    "url": "https://www.tiktok.com/@rudygobertbiggestfan",
+    "source": "fan",
+    "followers": 1469,
+    "videos": 1,
+    "plays": 25000,
+    "best_plays": 25000,
+    "best_url": "https://www.tiktok.com/@rudygobertbiggestfan/video/7709161348948675853",
+    "best_desc": "MVP loading… #fyp #minnesotatimberwolves #nba #rudygobert #timberwolves ",
+    "hit_ratio": 17.0
+   },
+   {
+    "author": "vonpdrx",
+    "name": "von",
+    "url": "https://www.tiktok.com/@vonpdrx",
+    "source": "fan",
+    "followers": 1772,
+    "videos": 1,
+    "plays": 21500,
+    "best_plays": 21500,
+    "best_url": "https://www.tiktok.com/@vonpdrx/video/7709013044319374622",
+    "best_desc": "Terrance Shannon Jr finna be a problem#timberwolves#minnesotatimberwolves#terranceshannonjr#nba ",
+    "hit_ratio": 12.1
+   }
+  ],
+  "share_by_source": {
+   "team": 1315664,
+   "league_media": 3385000,
+   "fan": 2154834
+  },
+  "hashtags": [
+   {
+    "tag": "minnesota",
+    "videos": 13,
+    "plays": 1328325
+   },
+   {
+    "tag": "lameloball",
+    "videos": 12,
+    "plays": 4022970
+   },
+   {
+    "tag": "minnesotatimberwolves",
+    "videos": 10,
+    "plays": 170774
+   },
+   {
+    "tag": "rudygobert",
+    "videos": 9,
+    "plays": 2025208
+   },
+   {
+    "tag": "tiktokcampaign",
+    "videos": 6,
+    "plays": 1012695
+   },
+   {
+    "tag": "anthonyedwards",
+    "videos": 6,
+    "plays": 447500
+   },
+   {
+    "tag": "terranceshannonjr",
+    "videos": 4,
+    "plays": 427486
+   },
+   {
+    "tag": "lamelo",
+    "videos": 3,
+    "plays": 1526790
+   },
+   {
+    "tag": "edit",
+    "videos": 3,
+    "plays": 435134
+   },
+   {
+    "tag": "terrenceshannonjr",
+    "videos": 3,
+    "plays": 86568
+   }
+  ],
+  "players": [
+   {
+    "name": "Rudy Gobert",
+    "videos": 6,
+    "plays": 1031942
+   },
+   {
+    "name": "LaMelo Ball",
+    "videos": 2,
+    "plays": 166200
+   },
+   {
+    "name": "Anthony Edwards",
+    "videos": 2,
+    "plays": 595
+   }
+  ]
  }
 }
