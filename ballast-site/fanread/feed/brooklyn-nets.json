@@ -1,0 +1,421 @@
+{
+ "team": "Brooklyn Nets",
+ "as_of": "2026-11-16",
+ "source": "Ballast Fan Read",
+ "summary": "Julius Randle (36,097 Wikipedia views in 30 days) and Michael Porter Jr. (35,080) are the Nets fans look up most, with rookie Mikel Brown Jr. third (26,464) and the clear favourite on the subreddit. The talk is a rebuild year: a 2-6 start, reports that Randle and Porter are available, and Brown's rookie arc, while the team's biggest reach comes from comedy Shorts (a croissant bit has 5,700,000 views) and games against star opponents.",
+ "segments": [
+  {
+   "id": "mikel-brown-jr-believers",
+   "name": "Mikel Brown Jr. believers",
+   "who": "Fans who have attached the rebuild's hopes to the rookie guard and follow every pass, miss and quote.",
+   "size_signal": "Brown is third on the roster in Wikipedia views (26,464 in 30 days) but first on Reddit: seven of the top 25 r/GoNets threads this month are about him, including the top thread; House of Highlights' clip of his OT-forcing three drew 39,219; team Shorts \"MONEY MIKEL\" (34,000) and \"AND ONEEE\" (28,000).",
+   "where": [
+    "r/GoNets",
+    "Nets Shorts",
+    "Nets long-form breakdowns"
+   ],
+   "enjoys": [
+    "no-look passes",
+    "clutch shots",
+    "rookie accountability moments",
+    "meeting him in person"
+   ],
+   "offer": "A rookie-season series with Brown breaking down his own plays, plus fan meet-ups.",
+   "evidence": [
+    "https://www.reddit.com/r/GoNets/comments/1xhdqr3/mikel_apologizes_for_losing_the_game/",
+    "https://www.reddit.com/r/GoNets/comments/1xo6704/mikel_with_an_insane_nolook_pass/",
+    "https://www.reddit.com/r/GoNets/comments/1xhc0n5/mikel_brown_jr_sends_it_to_overtime/",
+    "https://www.reddit.com/r/GoNets/comments/1xhehri/mpj_being_a_supportive_vet_after_mikel_blew_a/",
+    "https://www.youtube.com/shorts/FdWj9vV82Gs"
+   ]
+  },
+  {
+   "id": "randle-and-mpj-followers",
+   "name": "Randle and MPJ followers",
+   "who": "Fans who follow the Nets through their two most-searched players, Julius Randle and Michael Porter Jr., judging their fit, their trade value and, for Porter, his off-court opinions.",
+   "size_signal": "Randle has 36,097 Wikipedia views in the past 30 days and 435,909 in the year; Porter 35,080 and 408,036, the top two on the roster. Porter's interview on Islam and Christianity drew 67,538 this month; Swish Talk's \"The Problem With Julius Randle\" drew 26,056; Chaz NBA's Porter clutch bucket drew 108,872.",
+   "where": [
+    "Wikipedia",
+    "YouTube (Swish Talk, Locked On Nets, Chaz NBA)",
+    "streamer and podcast channels"
+   ],
+   "enjoys": [
+    "\"is he helping or hurting\" debates",
+    "trade-value talk",
+    "MPJ's outspoken interviews",
+    "clutch buckets"
+   ],
+   "offer": "Randle and Porter film breakdowns that answer the fit debate, and Porter in long-form interviews on the team's own channels; Randle has only one top-15 team Short.",
+   "evidence": [
+    "https://www.youtube.com/watch?v=CU2bBA_gKAU",
+    "https://www.youtube.com/watch?v=kbJCusbQaxg",
+    "https://www.youtube.com/watch?v=rhOOyPIXBTg",
+    "https://www.youtube.com/watch?v=0sw91ByeQeQ"
+   ]
+  },
+  {
+   "id": "comedy-shorts-audience",
+   "name": "Comedy-Shorts audience",
+   "who": "Viewers, many probably not regular Nets fans, who come for player comedy and pranks rather than basketball.",
+   "size_signal": "\"half-eaten croissant\": 5,700,000 views; college-rival prank: 372,000; Moe Wagner bit: 74,000.",
+   "where": [
+    "YouTube Shorts"
+   ],
+   "enjoys": [
+    "absurd one-liners",
+    "pranks",
+    "player personality"
+   ],
+   "offer": "More player comedy, with an end card that points to game content or Brown's rookie series.",
+   "evidence": [
+    "https://www.youtube.com/shorts/tsp_KQP6_ic",
+    "https://www.youtube.com/shorts/Zs6TYq5efSs",
+    "https://www.youtube.com/shorts/6Xe5fs1v_TM"
+   ]
+  },
+  {
+   "id": "rebuild-and-trade-deadline-watchers",
+   "name": "Rebuild and trade-deadline watchers",
+   "who": "Fans tracking asset moves: who is available, who Brooklyn turned down, and what the draft picks become.",
+   "size_signal": "Randle trade reaction videos drew 148,797 and 134,699; Wikipedia views peaked at 178,077 in June 2026, four times the October figure (42,536).",
+   "where": [
+    "r/GoNets",
+    "YouTube trade talk (Club 520, Nightcap)",
+    "Wikipedia"
+   ],
+   "enjoys": [
+    "insider reports",
+    "trade-machine debates",
+    "draft talk"
+   ],
+   "offer": "Clear explainers on the cap sheet and pick ownership; deadline-week live coverage.",
+   "evidence": [
+    "https://www.reddit.com/r/GoNets/comments/1xn8xfa/fischer_the_brooklyn_nets_are_hoping_to_receive/",
+    "https://www.reddit.com/r/GoNets/comments/1xhnw1w/the_celtics_reportedly_tried_to_trade_jaylen/",
+    "https://www.youtube.com/watch?v=Ymek_U2nMMA",
+    "https://www.youtube.com/watch?v=b8JNWFhx7sI"
+   ]
+  },
+  {
+   "id": "battered-loyalists",
+   "name": "Battered loyalists",
+   "who": "Long-suffering fans who cope with losing through self-deprecating humour and New Jersey-era nostalgia.",
+   "size_signal": "Post-game threads record a 1-5 and then 2-6 start; a dedicated \"Battered Nets Fans\" podcast has 52 episodes; \"Emptying the clip because idk when our next win will be\" is a top-25 thread.",
+   "where": [
+    "r/GoNets",
+    "Battered Nets Fans podcast",
+    "Locked On Nets"
+   ],
+   "enjoys": [
+    "gallows humour",
+    "celebrating rare wins",
+    "franchise history"
+   ],
+   "offer": "Content that joins in the joke (win celebrations, Nets history such as Drazen Petrovic) rather than hype.",
+   "evidence": [
+    "https://www.reddit.com/r/GoNets/comments/1xm1z20/emptying_the_clip_because_idk_when_our_next_win/",
+    "https://www.reddit.com/r/GoNets/comments/1xixldc/sorry_ladies_but_the_new_jersey_nets_boxers_stay/",
+    "https://podcasts.apple.com/us/podcast/battered-nets-fans-a-brooklyn-nets-podcast/id1631777911?uo=4",
+    "https://www.reddit.com/r/GoNets/comments/1xo871f/postgame_thread_brooklyn_nets_26_defeat_charlotte/",
+    "https://www.reddit.com/r/GoNets/comments/1xcpjq4/celebrating_the_life_and_legacy_of_dražen_petrović/"
+   ]
+  },
+  {
+   "id": "daily-podcast-regulars",
+   "name": "Daily-podcast regulars",
+   "who": "Hardcore fans following the team every day through audio.",
+   "size_signal": "Brooklyn Buzz has 936 episodes and Locked On Nets 500 (latest 15 November); Beatline Nets has 81.",
+   "where": [
+    "Apple Podcasts"
+   ],
+   "enjoys": [
+    "daily news",
+    "rookie development",
+    "trade analysis"
+   ],
+   "offer": "Player and coach access for the daily shows; short clips they can embed.",
+   "evidence": [
+    "https://podcasts.apple.com/us/podcast/brooklyn-buzz-a-brooklyn-nets-podcast/id1298103854?uo=4",
+    "https://podcasts.apple.com/us/podcast/locked-on-nets-daily-podcast-on-the-brooklyn-nets/id1159425037?uo=4",
+    "https://podcasts.apple.com/us/podcast/beatline-nets-daily-podcast-on-the-brooklyn-nets/id6803663373?uo=4"
+   ]
+  }
+ ],
+ "players": [
+  {
+   "name": "Julius Randle",
+   "wikipedia_views_30d": 36097,
+   "wikipedia_views_year": 435909,
+   "url": "https://en.wikipedia.org/wiki/Julius_Randle"
+  },
+  {
+   "name": "Michael Porter Jr.",
+   "wikipedia_views_30d": 35080,
+   "wikipedia_views_year": 408036,
+   "url": "https://en.wikipedia.org/wiki/Michael_Porter_Jr."
+  },
+  {
+   "name": "Mikel Brown Jr.",
+   "wikipedia_views_30d": 26464,
+   "wikipedia_views_year": 178878,
+   "url": "https://en.wikipedia.org/wiki/Mikel_Brown_Jr."
+  },
+  {
+   "name": "Moritz Wagner",
+   "wikipedia_views_30d": 21774,
+   "wikipedia_views_year": 170399,
+   "url": "https://en.wikipedia.org/wiki/Moritz_Wagner_%28basketball%29"
+  },
+  {
+   "name": "Egor Demin",
+   "wikipedia_views_30d": 15192,
+   "wikipedia_views_year": 102702,
+   "url": "https://en.wikipedia.org/wiki/Egor_D%C3%ABmin"
+  },
+  {
+   "name": "Danny Wolf",
+   "wikipedia_views_30d": 9855,
+   "wikipedia_views_year": 160260,
+   "url": "https://en.wikipedia.org/wiki/Danny_Wolf"
+  },
+  {
+   "name": "Nolan Traore",
+   "wikipedia_views_30d": 10437,
+   "wikipedia_views_year": 60021,
+   "url": "https://en.wikipedia.org/wiki/Nolan_Traor%C3%A9"
+  }
+ ],
+ "formats": [
+  {
+   "type": "game_highlights",
+   "share_of_views": 0.6248,
+   "examples": [
+    "https://www.youtube.com/watch?v=IijHaTsFlLY",
+    "https://www.youtube.com/watch?v=dix2soF65Bk",
+    "https://www.youtube.com/watch?v=t44ztyYZ434"
+   ]
+  },
+  {
+   "type": "memes_jokes",
+   "share_of_views": 0.2575,
+   "examples": [
+    "https://www.youtube.com/shorts/tsp_KQP6_ic",
+    "https://www.youtube.com/shorts/Zs6TYq5efSs",
+    "https://www.youtube.com/watch?v=VsWTWSj4brY"
+   ]
+  },
+  {
+   "type": "player_moments",
+   "share_of_views": 0.0726,
+   "examples": [
+    "https://www.youtube.com/watch?v=GwcpssQ1rwA",
+    "https://www.youtube.com/watch?v=GQXPFioxKcs",
+    "https://www.youtube.com/watch?v=a_qh8SuzPbo"
+   ]
+  },
+  {
+   "type": "news_rumors",
+   "share_of_views": 0.0156,
+   "examples": [
+    "https://www.youtube.com/watch?v=Ymek_U2nMMA",
+    "https://www.youtube.com/watch?v=TRWGJc-cHfY",
+    "https://www.youtube.com/watch?v=etm6e0NWNI8"
+   ]
+  },
+  {
+   "type": "culture_crossover",
+   "share_of_views": 0.0136,
+   "examples": [
+    "https://www.youtube.com/watch?v=nDnzuJeMdkc",
+    "https://www.youtube.com/watch?v=lZamp2wxQXQ"
+   ]
+  },
+  {
+   "type": "fan_reactions",
+   "share_of_views": 0.0071,
+   "examples": [
+    "https://www.youtube.com/watch?v=_Ggqofo_3N0",
+    "https://www.youtube.com/watch?v=m98pSzLbWgA"
+   ]
+  },
+  {
+   "type": "games_challenges",
+   "share_of_views": 0.004,
+   "examples": [
+    "https://www.youtube.com/shorts/3SxulUwBnac",
+    "https://www.youtube.com/shorts/dI1oN1GUH6o",
+    "https://www.youtube.com/shorts/G1wo2M17x1Y"
+   ]
+  },
+  {
+   "type": "behind_scenes",
+   "share_of_views": 0.0035,
+   "examples": [
+    "https://www.youtube.com/shorts/3N-ZQvfqXro",
+    "https://www.youtube.com/shorts/8Xw_37Vr6No",
+    "https://www.youtube.com/shorts/t2Pf1faiIY8"
+   ]
+  },
+  {
+   "type": "analysis",
+   "share_of_views": 0.0008,
+   "examples": [
+    "https://www.youtube.com/watch?v=rTsvRJV2Wq4",
+    "https://www.youtube.com/watch?v=e7tQxsh29fk"
+   ]
+  },
+  {
+   "type": "throwbacks",
+   "share_of_views": 0.0004,
+   "examples": [
+    "https://www.youtube.com/watch?v=GHd7ShCw_Mw"
+   ]
+  },
+  {
+   "type": "pressers_interviews",
+   "share_of_views": 0.0002,
+   "examples": [
+    "https://www.youtube.com/watch?v=YfSwbv6-wXc"
+   ]
+  }
+ ],
+ "make_or_reward": [
+  {
+   "format": "Off-court comedy Shorts with players",
+   "why": "\"half-eaten croissant\" has 5,700,000 views, more than 15 times the next-best team Short (prank video, 372,000). Every team Short after the top two is under 75,000.",
+   "example": "https://www.youtube.com/shorts/tsp_KQP6_ic"
+  },
+  {
+   "format": "Mikel Brown Jr. rookie arc: clutch plays, mistakes and veteran support",
+   "why": "Seven of the month's top 25 Reddit threads are about Brown, including the top one (\"Mikel apologizes for Losing The Game\") and MPJ supporting him after a missed layup. His Shorts draw only 28,000 to 34,000, so pairing him with the comedy format is the gap to fill.",
+   "example": "https://www.reddit.com/r/GoNets/comments/1xhdqr3/mikel_apologizes_for_losing_the_game/"
+  },
+  {
+   "format": "Overtime and ending cuts",
+   "why": "\"INSANE OT Finish Celtics vs Nets\" drew 237,516 and the Magic overtime ending 202,983; Chaz NBA's Tatum game-winner over Brooklyn drew 502,929.",
+   "example": "https://www.youtube.com/watch?v=ZhIpnAXrktc"
+  },
+  {
+   "format": "Nets-angle cuts of games against star opponents",
+   "why": "The 76ers preseason game was uploaded at least four times (NBA 2,077,626; Ximo Pierto 1,443,083; GAMETIME HIGHLIGHTS 938,158; FlightReacts 168,301). Opponent stars bring an audience that a Nets-focused cut could keep.",
+   "example": "https://www.youtube.com/watch?v=IijHaTsFlLY"
+  },
+  {
+   "format": "Home-language clips for the international players' audiences",
+   "why": "The biggest non-game videos for several Nets come from home-country channels: Moe Wagner on a German TV quiz (152,561) and a German Nets preview (22,328); Egor Demin's life in New York (113,832) and two more Russian-language features (106,089 and 23,173); Nolan Traore on a French channel (24,467). These outdraw the team's own player Shorts (25,000 to 34,000).",
+   "example": "https://www.youtube.com/watch?v=UWXPvs91Chw"
+  }
+ ],
+ "talk": [
+  {
+   "title": "Mikel apologizes for Losing The Game",
+   "url": "https://www.reddit.com/r/GoNets/comments/1xhdqr3/mikel_apologizes_for_losing_the_game/"
+  },
+  {
+   "title": "[Fischer] The Brooklyn Nets are hoping to receive good trade offers for Julius Randle and Michael Porter Jr. by the trade deadline.",
+   "url": "https://www.reddit.com/r/GoNets/comments/1xn8xfa/fischer_the_brooklyn_nets_are_hoping_to_receive/"
+  },
+  {
+   "title": "The Brooklyn Nets Have a Better Record than the Boston Celtics & NY Knicks",
+   "url": "https://www.reddit.com/r/GoNets/comments/1xbasdt/the_brooklyn_nets_have_a_better_record_than_the/"
+  },
+  {
+   "title": "The Celtics reportedly tried to trade Jaylen Brown to the Nets, but Brooklyn rejected the deal because of his ties to Kyrie Irving, per @NYPost_Lewis",
+   "url": "https://www.reddit.com/r/GoNets/comments/1xhnw1w/the_celtics_reportedly_tried_to_trade_jaylen/"
+  },
+  {
+   "title": "MPJ being a supportive Vet after Mikel blew a layup",
+   "url": "https://www.reddit.com/r/GoNets/comments/1xhehri/mpj_being_a_supportive_vet_after_mikel_blew_a/"
+  },
+  {
+   "title": "Emptying the clip because idk when our next win will be 🥲",
+   "url": "https://www.reddit.com/r/GoNets/comments/1xm1z20/emptying_the_clip_because_idk_when_our_next_win/"
+  },
+  {
+   "title": "Celebrating the life and legacy of Dražen Petrović.",
+   "url": "https://www.reddit.com/r/GoNets/comments/1xcpjq4/celebrating_the_life_and_legacy_of_dražen_petrović/"
+  },
+  {
+   "title": "Dwight Howard says the Magic betrayed him by not trading him to the Nets: \"I was pissed. I did not want to go to the Lakers\"",
+   "url": "https://www.reddit.com/r/GoNets/comments/1xpk3bu/dwight_howard_says_the_magic_betrayed_him_by_not/"
+  }
+ ],
+ "pulse": {
+  "window": "2026-11-03 to 2026-11-16",
+  "label": "10–16 Nov",
+  "team_wiki": {
+   "last7": 8193,
+   "prior7": 9085
+  },
+  "rising": [
+   {
+    "name": "Egor Demin",
+    "url": "https://en.wikipedia.org/wiki/Egor_D%C3%ABmin",
+    "last7": 3029,
+    "prior7": 2662,
+    "change": 0.138
+   },
+   {
+    "name": "Michael Porter Jr.",
+    "url": "https://en.wikipedia.org/wiki/Michael_Porter_Jr.",
+    "last7": 9937,
+    "prior7": 8764,
+    "change": 0.134
+   }
+  ],
+  "videos": [
+   {
+    "title": "NETS at MAVERICKS | FULL GAME HIGHLIGHTS | November 8, 2026",
+    "url": "https://www.youtube.com/watch?v=x4SzsIG5nwo",
+    "channel": "NBA",
+    "views": 313111
+   },
+   {
+    "title": "Dallas Mavericks vs Brooklyn Nets Full Game Highlights - November 8, 2026 | NBA Season",
+    "url": "https://www.youtube.com/watch?v=Z2IsNIL_snk",
+    "channel": "GAMETIME HIGHLIGHTS",
+    "views": 115393
+   },
+   {
+    "title": "NETS at GRIZZLIES | FULL GAME HIGHLIGHTS | November 14, 2026",
+    "url": "https://www.youtube.com/watch?v=Ti118u15fwA",
+    "channel": "NBA",
+    "views": 77958
+   },
+   {
+    "title": "Memphis Grizzlies vs Brooklyn Nets Full Game Highlights - November 14, 2026 | NBA Season",
+    "url": "https://www.youtube.com/watch?v=4moWEa8rla8",
+    "channel": "GAMETIME HIGHLIGHTS",
+    "views": 57429
+   },
+   {
+    "title": "NETS at PELICANS | FULL GAME HIGHLIGHTS | November 11, 2026",
+    "url": "https://www.youtube.com/watch?v=Z8U1wx8skdE",
+    "channel": "NBA",
+    "views": 52547
+   }
+  ],
+  "threads": [
+   {
+    "title": "Egor Demin w/ barrage of 3s, 4th qtr",
+    "url": "https://www.reddit.com/r/GoNets/comments/1xu2atb/egor_demin_w_barrage_of_3s_4th_qtr/"
+   },
+   {
+    "title": "[Highlights] Egor Dëmin returns to the lineup vs. NOP",
+    "url": "https://www.reddit.com/r/GoNets/comments/1xu3reu/highlights_egor_dëmin_returns_to_the_lineup_vs_nop/"
+   },
+   {
+    "title": "[The Athletic] Nets Open to Trade Calls. Brooklyn ‘will listen’ to any offers for Julius Randle and Michael Porter, Jr.",
+    "url": "https://www.reddit.com/r/GoNets/comments/1xvawxl/the_athletic_nets_open_to_trade_calls_brooklyn/"
+   },
+   {
+    "title": "Post-Game Thread: Brooklyn Nets (3-8) defeat New Orleans Pelicans (4-8), 145-111 | NBA | Nov 11, 2026",
+    "url": "https://www.reddit.com/r/GoNets/comments/1xu2f4i/postgame_thread_brooklyn_nets_38_defeat_new/"
+   },
+   {
+    "title": "I'm officially out on Jordi Fernandez",
+    "url": "https://www.reddit.com/r/GoNets/comments/1xwklzw/im_officially_out_on_jordi_fernandez/"
+   }
+  ]
+ }
+}

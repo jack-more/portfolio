@@ -1,0 +1,413 @@
+{
+ "team": "Indiana Pacers",
+ "as_of": "2026-11-16",
+ "source": "Ballast Fan Read",
+ "summary": "Pacers fans look up Tyrese Haliburton far more than anyone else (50,425 Wikipedia views in the past 30 days and 668,590 over the year, about double rookie Braden Smith's 26,368 and Pascal Siakam's 23,547). The fanbase is in a happy-return mood: Haliburton's emotional comeback game and the \"bring out the dancing crabs\" win ritual lead r/pacers, fans keep score against the Knicks and Myles Turner, and on YouTube NBA game highlights lead while Haliburton confrontation clips, a TJ McConnell bench clip and 2025-run retrospectives each reach hundreds of thousands of views.",
+ "segments": [
+  {
+   "id": "dancing-crabs-win-posters",
+   "name": "Dancing-crabs win posters",
+   "who": "r/pacers regulars who mark every win with the same ritual post",
+   "size_signal": "5 of the top 25 r/pacers threads this month are \"bring out the dancing crabs\" posts",
+   "where": [
+    "r/pacers"
+   ],
+   "enjoys": [
+    "memes_jokes",
+    "community"
+   ],
+   "offer": "An official dancing-crabs post or graphic after wins, credited to the subreddit",
+   "evidence": [
+    "https://www.reddit.com/r/pacers/comments/1xc6suw/game_1_win_1_bring_out_the_dancing_crabs/",
+    "https://www.reddit.com/r/pacers/comments/1xvr81w/pacers_win_knicks_lose_lets_party_bring_out_the/",
+    "https://www.reddit.com/r/pacers/comments/1xo8alz/back_to_winning_basketball_bring_out_the_dancing/",
+    "https://www.reddit.com/r/pacers/comments/1xu0tc0/abracadabra_the_pacers_win_bring_out_the_dancing/"
+   ]
+  },
+  {
+   "id": "tyrese-haliburton-followers",
+   "name": "Tyrese Haliburton followers",
+   "who": "Fans who follow the Pacers through Haliburton: his return from injury, the games he has missed since, his on-court flashpoints and his media life (Mind the Game, The Kittle Things).",
+   "size_signal": "50,425 Wikipedia views in the past 30 days (the next Pacer, Braden Smith, has 26,368) and 668,590 in the year; his Derik Queen and Rollins clips drew 541,620 and 539,291 this month; \"Why People Were Dead Wrong About Tyrese Haliburton\" on Mind the Game drew 2,090,699 this year; the team's Haliburton and Reggie Miller conversation 490K; 3 of the top 25 r/pacers threads are about him.",
+   "where": [
+    "Wikipedia",
+    "r/pacers",
+    "YouTube (Chaz NBA, Mind the Game, The Kittle Things, team channel)"
+   ],
+   "enjoys": [
+    "player_moments",
+    "beef_trash_talk",
+    "podcast and guest-host appearances"
+   ],
+   "offer": "Same-night Haliburton Shorts (plays, reactions, postgame lines) and his postgame interviews in full; none of the team's top 15 Shorts features him.",
+   "evidence": [
+    "https://www.youtube.com/watch?v=LLKyKwVIdRw",
+    "https://www.youtube.com/watch?v=Yor5BSIz76w",
+    "https://www.youtube.com/watch?v=g3WWdOrk3Ik",
+    "https://www.reddit.com/r/pacers/comments/1xc72w1/tyrese_haliburton_emotional_in_postgame_interview/",
+    "https://www.youtube.com/watch?v=Dqs3HlXVcbE"
+   ]
+  },
+  {
+   "id": "braden-smith-rookie-watchers",
+   "name": "Braden Smith rookie watchers",
+   "who": "Fans, many from Purdue, following the second-round rookie who has played big minutes while Haliburton has been out.",
+   "size_signal": "26,368 Wikipedia views in the past 30 days, second on the roster; the team's \"Braden Smith Shines\" full-game highlights drew 34,048; \"Braden Smith, our 40 minute king\" is a top-25 r/pacers thread this month.",
+   "where": [
+    "r/pacers",
+    "Wikipedia",
+    "Pacers YouTube"
+   ],
+   "enjoys": [
+    "player_moments",
+    "rookie firsts",
+    "college-to-pro stories"
+   ],
+   "offer": "Short Smith assist and hustle cuts, and Purdue-to-Pacers pieces; so far his team content is full-game highlights and press conferences, not Shorts.",
+   "evidence": [
+    "https://www.reddit.com/r/pacers/comments/1xmhokm/braden_smith_our_40_minute_king/",
+    "https://www.youtube.com/watch?v=zs0MNDsHBng",
+    "https://www.youtube.com/watch?v=fHIPEtXezs0"
+   ]
+  },
+  {
+   "id": "2025-run-nostalgics",
+   "name": "2025-run nostalgics",
+   "who": "Fans and neutral viewers who rewatch the 2025 run and the Reggie Miller era",
+   "size_signal": "3 retrospectives total 1.29M views",
+   "where": [
+    "YouTube (Post2k, Nonstop, ESPN 30 for 30)"
+   ],
+   "enjoys": [
+    "throwbacks"
+   ],
+   "offer": "Anniversary edits of 2025 playoff moments and Reggie cameos",
+   "evidence": [
+    "https://www.youtube.com/watch?v=0J2SxKGRzuk",
+    "https://www.youtube.com/watch?v=4u5WLgGdGIk",
+    "https://www.youtube.com/watch?v=w96ipnr8MmU"
+   ]
+  },
+  {
+   "id": "knicks-rivalry-bettors",
+   "name": "Knicks-rivalry bettors",
+   "who": "Fans who treat the Knicks as the rival and bet on the matchup",
+   "size_signal": "Two Polymarket \"Pacers vs. Knicks\" markets at $2.96M and $2.93M volume, plus $394K on the playoff series",
+   "where": [
+    "Polymarket",
+    "r/pacers"
+   ],
+   "enjoys": [
+    "betting_fantasy",
+    "game_highlights"
+   ],
+   "offer": "Rivalry-week content and pick'em around Knicks games",
+   "evidence": [
+    "https://polymarket.com/event/nba-ind-nyk-2025-05-21",
+    "https://polymarket.com/event/nba-ind-nyk-2025-05-23",
+    "https://www.reddit.com/r/pacers/comments/1xvr81w/pacers_win_knicks_lose_lets_party_bring_out_the/"
+   ]
+  },
+  {
+   "id": "myles-turner-grudge-holders",
+   "name": "Myles Turner grudge holders",
+   "who": "Fans still keeping score against the departed center",
+   "size_signal": "4 of the top 25 r/pacers threads this month needle Myles Turner or praise his replacement on the boards",
+   "where": [
+    "r/pacers"
+   ],
+   "enjoys": [
+    "memes_jokes",
+    "community"
+   ],
+   "offer": "Rebounding stat cards for Ivica Zubac; leave the Turner jokes to fans",
+   "evidence": [
+    "https://www.reddit.com/r/pacers/comments/1xvrgol/today_ivica_zubac_grabbed_9_offensive_rebounds/",
+    "https://www.reddit.com/r/pacers/comments/1xhbhv0/myles_turner_lost_a_100000_bet_to_rapper_babytron/",
+    "https://www.reddit.com/r/pacers/comments/1xger5t/member_when_myles_turner_closed_the_book_on_his/",
+    "https://www.reddit.com/r/pacers/comments/1xc6yx3/oh_shit_centers_are_allowed_to_rebound/"
+   ]
+  }
+ ],
+ "players": [
+  {
+   "name": "Tyrese Haliburton",
+   "wikipedia_views_30d": 50425,
+   "wikipedia_views_year": 668590,
+   "url": "https://en.wikipedia.org/wiki/Tyrese_Haliburton"
+  },
+  {
+   "name": "Braden Smith",
+   "wikipedia_views_30d": 26368,
+   "wikipedia_views_year": 208585,
+   "url": "https://en.wikipedia.org/wiki/Braden_Smith_%28basketball%29"
+  },
+  {
+   "name": "Pascal Siakam",
+   "wikipedia_views_30d": 23547,
+   "wikipedia_views_year": 242759,
+   "url": "https://en.wikipedia.org/wiki/Pascal_Siakam"
+  },
+  {
+   "name": "Kelly Oubre Jr.",
+   "wikipedia_views_30d": 22832,
+   "wikipedia_views_year": 277426,
+   "url": "https://en.wikipedia.org/wiki/Kelly_Oubre_Jr."
+  },
+  {
+   "name": "T.J. McConnell",
+   "wikipedia_views_30d": 12459,
+   "wikipedia_views_year": 114236,
+   "url": "https://en.wikipedia.org/wiki/T._J._McConnell"
+  },
+  {
+   "name": "Ivica Zubac",
+   "wikipedia_views_30d": 12769,
+   "wikipedia_views_year": 214876,
+   "url": "https://en.wikipedia.org/wiki/Ivica_Zubac"
+  },
+  {
+   "name": "Andrew Nembhard",
+   "wikipedia_views_30d": 12562,
+   "wikipedia_views_year": 181831,
+   "url": "https://en.wikipedia.org/wiki/Andrew_Nembhard"
+  }
+ ],
+ "formats": [
+  {
+   "type": "game_highlights",
+   "share_of_views": 0.6501,
+   "examples": [
+    "https://www.youtube.com/watch?v=6pKZW0ocGDc",
+    "https://www.youtube.com/watch?v=67g10QAeRCM",
+    "https://www.youtube.com/watch?v=1t8MA0nC_qg"
+   ]
+  },
+  {
+   "type": "beef_trash_talk",
+   "share_of_views": 0.1277,
+   "examples": [
+    "https://www.youtube.com/watch?v=boQAv_YAALc",
+    "https://www.youtube.com/watch?v=LLKyKwVIdRw",
+    "https://www.youtube.com/watch?v=Yor5BSIz76w"
+   ]
+  },
+  {
+   "type": "throwbacks",
+   "share_of_views": 0.0666,
+   "examples": [
+    "https://www.youtube.com/watch?v=0J2SxKGRzuk",
+    "https://www.youtube.com/watch?v=Dqs3HlXVcbE",
+    "https://www.youtube.com/watch?v=w96ipnr8MmU"
+   ]
+  },
+  {
+   "type": "player_moments",
+   "share_of_views": 0.0657,
+   "examples": [
+    "https://www.youtube.com/watch?v=KFRSML3ruCI",
+    "https://www.youtube.com/watch?v=dSHvpoQQKzY",
+    "https://www.youtube.com/watch?v=VuBFfC8KtVg"
+   ]
+  },
+  {
+   "type": "memes_jokes",
+   "share_of_views": 0.0396,
+   "examples": [
+    "https://www.youtube.com/watch?v=1deDiTuYxgc"
+   ]
+  },
+  {
+   "type": "culture_crossover",
+   "share_of_views": 0.0222,
+   "examples": [
+    "https://www.youtube.com/watch?v=kVxAaY4ZBss",
+    "https://www.youtube.com/watch?v=4SZMgDjsSCI"
+   ]
+  },
+  {
+   "type": "analysis",
+   "share_of_views": 0.0166,
+   "examples": [
+    "https://www.youtube.com/watch?v=-eMZNTZzed4",
+    "https://www.youtube.com/watch?v=6iWChHa6Fc8",
+    "https://www.youtube.com/watch?v=Th8Rnarz-os"
+   ]
+  },
+  {
+   "type": "fan_reactions",
+   "share_of_views": 0.0097,
+   "examples": [
+    "https://www.youtube.com/watch?v=MZBA7ILd0jo",
+    "https://www.youtube.com/watch?v=LKuRNS_JJ48",
+    "https://www.youtube.com/watch?v=AlcUq0Q78fU"
+   ]
+  },
+  {
+   "type": "behind_scenes",
+   "share_of_views": 0.0018,
+   "examples": [
+    "https://www.youtube.com/shorts/rP6H_m0L-5A",
+    "https://www.youtube.com/shorts/FwYwQTE-3aA"
+   ]
+  }
+ ],
+ "make_or_reward": [
+  {
+   "format": "Same-night full-game highlights",
+   "why": "Game highlights are 65.0% of classified views; the 76ers game alone has 2.17M.",
+   "example": "https://www.youtube.com/watch?v=67g10QAeRCM"
+  },
+  {
+   "format": "Long-form Haliburton storyline pieces",
+   "why": "The team's 30-minute Haliburton and Reggie Miller conversation has 490K views, about 6x its best Short (80K); his emotional return is also a top r/pacers thread.",
+   "example": "https://www.youtube.com/watch?v=Dqs3HlXVcbE"
+  },
+  {
+   "format": "Same-night Haliburton Shorts: confrontations, big plays and postgame reactions",
+   "why": "Haliburton has 50,425 Wikipedia views in the past 30 days, about double any teammate, and Chaz NBA's Derik Queen and Rollins clips drew 541,620 and 539,291 this month; the team's top 15 Shorts include none of him.",
+   "example": "https://www.youtube.com/watch?v=LLKyKwVIdRw"
+  },
+  {
+   "format": "2025-run and Reggie-era retrospectives",
+   "why": "Throwback videos are 6.7% of views from 4 items, led by \"The 2025 Indiana Pacers Were Nearly Perfect\" at 591K.",
+   "example": "https://www.youtube.com/watch?v=0J2SxKGRzuk"
+  },
+  {
+   "format": "Bench-personality clips (TJ McConnell and teammates)",
+   "why": "Chaz NBA's clip of teammates making McConnell sit back down has 1.06M views, the most-viewed Pacers item this week.",
+   "example": "https://www.youtube.com/watch?v=1deDiTuYxgc"
+  },
+  {
+   "format": "Adopt the fans' \"dancing crabs\" win ritual",
+   "why": "5 of the top 25 r/pacers threads this month are \"bring out the dancing crabs\" win posts; the team could post the crabs after wins.",
+   "example": "https://www.reddit.com/r/pacers/comments/1xc6suw/game_1_win_1_bring_out_the_dancing_crabs/"
+  }
+ ],
+ "talk": [
+  {
+   "title": "Tyrese Haliburton emotional in postgame interview in his return to the hardwood",
+   "url": "https://www.reddit.com/r/pacers/comments/1xc72w1/tyrese_haliburton_emotional_in_postgame_interview/"
+  },
+  {
+   "title": "Pacers win, Knicks lose, let’s party. Bring out the dancing crabs!!!",
+   "url": "https://www.reddit.com/r/pacers/comments/1xvr81w/pacers_win_knicks_lose_lets_party_bring_out_the/"
+  },
+  {
+   "title": "Today Ivica Zubac grabbed 9 offensive rebounds. Guess when Myles Turner last grabbed that many offensive rebounds.",
+   "url": "https://www.reddit.com/r/pacers/comments/1xvrgol/today_ivica_zubac_grabbed_9_offensive_rebounds/"
+  },
+  {
+   "title": "Myles Turner lost a $100,000 bet to rapper “Babytron” and is ducking paying up so he went to the Pacers vs Bucks game last night. How humiliating for Myles. Description for explanation.",
+   "url": "https://www.reddit.com/r/pacers/comments/1xhbhv0/myles_turner_lost_a_100000_bet_to_rapper_babytron/"
+  },
+  {
+   "title": "Braden Smith, our 40 minute king",
+   "url": "https://www.reddit.com/r/pacers/comments/1xmhokm/braden_smith_our_40_minute_king/"
+  },
+  {
+   "title": "NBA Paint: “New 16k Court-side footage of Tyrese Haliburtons self bounce lob”",
+   "url": "https://www.reddit.com/r/pacers/comments/1xfwhxm/nba_paint_new_16k_courtside_footage_of_tyrese/"
+  },
+  {
+   "title": "The new alternative Pacers logo from the Mexico City game is just 🔥",
+   "url": "https://www.reddit.com/r/pacers/comments/1xr2nhl/the_new_alternative_pacers_logo_from_the_mexico/"
+  },
+  {
+   "title": "Last night’s trial by fire produced a gem",
+   "url": "https://www.reddit.com/r/pacers/comments/1xmz13g/last_nights_trial_by_fire_produced_a_gem/"
+  }
+ ],
+ "pulse": {
+  "window": "2026-11-03 to 2026-11-16",
+  "label": "10–16 Nov",
+  "team_wiki": {
+   "last7": 6279,
+   "prior7": 5462
+  },
+  "rising": [
+   {
+    "name": "Kelly Oubre Jr.",
+    "url": "https://en.wikipedia.org/wiki/Kelly_Oubre_Jr.",
+    "last7": 7120,
+    "prior7": 2766,
+    "change": 1.574
+   },
+   {
+    "name": "Pascal Siakam",
+    "url": "https://en.wikipedia.org/wiki/Pascal_Siakam",
+    "last7": 7882,
+    "prior7": 3476,
+    "change": 1.268
+   },
+   {
+    "name": "T.J. McConnell",
+    "url": "https://en.wikipedia.org/wiki/T._J._McConnell",
+    "last7": 4740,
+    "prior7": 2155,
+    "change": 1.2
+   },
+   {
+    "name": "Ivica Zubac",
+    "url": "https://en.wikipedia.org/wiki/Ivica_Zubac",
+    "last7": 3397,
+    "prior7": 2280,
+    "change": 0.49
+   }
+  ],
+  "videos": [
+   {
+    "title": "Pacers make TJ McConnell sit back down after getting up with no help 😂",
+    "url": "https://www.youtube.com/watch?v=1deDiTuYxgc",
+    "channel": "Chaz NBA",
+    "views": 1061930
+   },
+   {
+    "title": "PACERS at 76ERS | FULL GAME HIGHLIGHTS | November 15, 2026",
+    "url": "https://www.youtube.com/watch?v=DAyN_i0k368",
+    "channel": "NBA",
+    "views": 835859
+   },
+   {
+    "title": "PACERS at MAVERICKS | FULL GAME HIGHLIGHTS | November 9, 2026",
+    "url": "https://www.youtube.com/watch?v=RAPmPkOUf20",
+    "channel": "NBA",
+    "views": 548202
+   },
+   {
+    "title": "Shaq puts the viral Pacers couple on the spot and offers to buy engagement ring 💍 | Inside the NBA",
+    "url": "https://www.youtube.com/watch?v=kVxAaY4ZBss",
+    "channel": "ESPN",
+    "views": 422849
+   },
+   {
+    "title": "KNICKS AT PACERS | EMIRATES NBA CUP 🏆 | FULL GAME HIGHLIGHTS | November 13, 2026",
+    "url": "https://www.youtube.com/watch?v=p1ZbMS1_Aww",
+    "channel": "NBA",
+    "views": 382273
+   }
+  ],
+  "threads": [
+   {
+    "title": "Pacers win, Knicks lose, let’s party. Bring out the dancing crabs!!!",
+    "url": "https://www.reddit.com/r/pacers/comments/1xvr81w/pacers_win_knicks_lose_lets_party_bring_out_the/"
+   },
+   {
+    "title": "Abracadabra the Pacers win, bring out the dancing crabs!!!",
+    "url": "https://www.reddit.com/r/pacers/comments/1xu0tc0/abracadabra_the_pacers_win_bring_out_the_dancing/"
+   },
+   {
+    "title": "Today Ivica Zubac grabbed 9 offensive rebounds. Guess when Myles Turner last grabbed that many offensive rebounds.",
+    "url": "https://www.reddit.com/r/pacers/comments/1xvrgol/today_ivica_zubac_grabbed_9_offensive_rebounds/"
+   },
+   {
+    "title": "My family and I will forever be supporters!!",
+    "url": "https://www.reddit.com/r/pacers/comments/1xxc6v9/my_family_and_i_will_forever_be_supporters/"
+   },
+   {
+    "title": "Tyrese Haliburton likes a Myles Turner diss",
+    "url": "https://www.reddit.com/r/pacers/comments/1xx5wns/tyrese_haliburton_likes_a_myles_turner_diss/"
+   }
+  ]
+ }
+}

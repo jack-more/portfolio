@@ -1,0 +1,397 @@
+{
+ "team": "Los Angeles Lakers",
+ "as_of": "2026-11-16",
+ "source": "Ballast Fan Read",
+ "summary": "Lakers fans look up Luka Doncic far more than anyone else (237,520 Wikipedia views in the past 30 days and 1,894,244 over the year), followed this month by offseason arrival Walker Kessler (169,184) and Bronny James (135,903, and 1,321,275 over the year). The fanbase is enjoying a run to the #1 seed in the West without LeBron James: 13 of the top 25 r/lakers threads this month mention Luka, many about his trash talk, the top thread is Austin Reaves confronting a Pistons fan, and Luka's own Slovenia vlog is the most-viewed Lakers video of the year in the data, ahead of every playoff highlight.",
+ "segments": [
+  {
+   "id": "luka-doncic-star-followers-and-the-kessler-bandwagon",
+   "name": "Luka Doncic star-followers (and the Kessler bandwagon)",
+   "who": "Fans who follow the Lakers through Luka Doncic, including many from his Dallas and Slovenia years, now joined by fans of Walker Kessler, the offseason trade who is the second-most-searched Laker this month.",
+   "size_signal": "Luka has 237,520 Wikipedia views in the past 30 days and 1,894,244 in the year, the roster high on both; his 53-point game drew 1,150,450 on the NBA channel and his Lendeborg buzzer-beater 906,686 on Chaz NBA; his vlog 5.11M; 13 of the top 25 r/lakers threads mention him. Kessler has 169,184 Wikipedia views in 30 days and the team's Kessler-Luka Mic'd Up drew 1,035,883.",
+   "where": [
+    "Wikipedia",
+    "YouTube (Luka Dončić, NBA, Chaz NBA, team channel)",
+    "r/lakers"
+   ],
+   "enjoys": [
+    "player_moments",
+    "behind_scenes",
+    "big scoring nights",
+    "Mic'd Up and nickname moments"
+   ],
+   "offer": "More Luka-hosted off-court content co-posted with his own channel, and Kessler Shorts (blocks, \"Milk Chamberlain\"); none of the team's top 15 Shorts features Kessler.",
+   "evidence": [
+    "https://www.youtube.com/watch?v=30O4NgfgSP0",
+    "https://www.youtube.com/watch?v=8N7iy5tpoYQ",
+    "https://www.youtube.com/watch?v=ajtJvlVCq_U",
+    "https://www.youtube.com/watch?v=leYsukRhH7s",
+    "https://www.reddit.com/r/lakers/comments/1xdzcd6/walker_kessler_today_22_pts_8_rebs_3_asts_3_stls/"
+   ]
+  },
+  {
+   "id": "trash-talk-connoisseurs",
+   "name": "Trash-talk connoisseurs",
+   "who": "Fans who love Luka and Reaves answering opponents and hecklers",
+   "size_signal": "6 of the top 25 r/lakers threads are trash-talk posts, including the top one; Chaz NBA Reaves clip 660K",
+   "where": [
+    "r/lakers",
+    "YouTube (Chaz NBA, The Scoreboard)"
+   ],
+   "enjoys": [
+    "beef_trash_talk",
+    "memes_jokes"
+   ],
+   "offer": "Mic'd-up clips that capture the back-and-forth (with language cut)",
+   "evidence": [
+    "https://www.reddit.com/r/lakers/comments/1xrffap/austin_reaves_got_in_a_pistons_fans_face_after/",
+    "https://www.reddit.com/r/lakers/comments/1xc87gl/luka_doncic_told_yaxel_lendeborg_to_come_back/",
+    "https://www.reddit.com/r/lakers/comments/1xsf4gi/luka_trolling_the_hawks_fans_the_team_that/",
+    "https://www.youtube.com/watch?v=rQdTtAGIuk0"
+   ]
+  },
+  {
+   "id": "national-debate-viewers",
+   "name": "National-debate viewers",
+   "who": "Viewers who follow the Lakers through studio arguments about LeBron's exit and title odds",
+   "size_signal": "Analysis is 3.7% of classified views; Stephen A. segment 1.05M, Inside the NBA debate 1.02M",
+   "where": [
+    "YouTube (First Take, Inside the NBA, Gil's Arena)"
+   ],
+   "enjoys": [
+    "analysis"
+   ],
+   "offer": "Fast stat-based answers to national talking points (e.g. record without LeBron)",
+   "evidence": [
+    "https://www.youtube.com/watch?v=hwud3hnCsS0",
+    "https://www.youtube.com/watch?v=8XcT-6n7Yvs",
+    "https://www.youtube.com/watch?v=z6tQJntHdsM",
+    "https://www.youtube.com/watch?v=1ZriuevXEyU"
+   ]
+  },
+  {
+   "id": "deep-podcast-diehards",
+   "name": "Deep-podcast diehards",
+   "who": "Fans who listen to several Lakers shows a week, including film study",
+   "size_signal": "Lakers Lounge 2,000 episodes, Lakers Nation Podcast 1,522, Laker Film Room 1,390, all releasing this week",
+   "where": [
+    "Apple Podcasts"
+   ],
+   "enjoys": [
+    "analysis",
+    "news_rumors"
+   ],
+   "offer": "Film-room access (the team already runs \"Into the Film Room\"); share clips with these shows",
+   "evidence": [
+    "https://podcasts.apple.com/us/podcast/lakers-lounge/id1439479212?uo=4",
+    "https://podcasts.apple.com/us/podcast/lakers-nation-podcast/id1200202500?uo=4",
+    "https://podcasts.apple.com/us/podcast/laker-film-room-dedicated-to-the-study-of-lakers-basketball/id1187085559?uo=4"
+   ]
+  },
+  {
+   "id": "filipino-lakers-fans",
+   "name": "Filipino Lakers fans",
+   "who": "Tagalog-speaking fans following Luka and Reaves",
+   "size_signal": "3 The Scoreboard videos this week total 748K views",
+   "where": [
+    "YouTube (The Scoreboard)"
+   ],
+   "enjoys": [
+    "game_highlights",
+    "news_rumors"
+   ],
+   "offer": "Tagalog captions and a creator partnership for Manila-time recaps",
+   "evidence": [
+    "https://www.youtube.com/watch?v=gtvON2jHcGQ",
+    "https://www.youtube.com/watch?v=OnYlqP2PAPI",
+    "https://www.youtube.com/watch?v=aCf4LrLN61M"
+   ]
+  },
+  {
+   "id": "bronny-james-debaters",
+   "name": "Bronny James debaters",
+   "who": "Fans and critics arguing over whether Bronny James belongs in the rotation, now that LeBron has left; many came to him through LeBron-and-Bronny content.",
+   "size_signal": "135,903 Wikipedia views in the past 30 days (third on the roster) and 1,321,275 in the year (second only to Luka); this month's top Bronny videos drew 271,724, 258,086, 245,540 and 201,548, mostly critical; none of the team's top 15 Shorts features him.",
+   "where": [
+    "Wikipedia",
+    "YouTube (Awful Coaching, 93 Zay, Hoops Talk, Ballempire)"
+   ],
+   "enjoys": [
+    "analysis",
+    "news_rumors",
+    "player_moments"
+   ],
+   "offer": "Plain development content (G League, practice, minutes in context) so the team's own framing exists next to the critics'; avoid hype that invites more pile-ons.",
+   "evidence": [
+    "https://www.youtube.com/watch?v=4QB1EfJUj3w",
+    "https://www.youtube.com/watch?v=4Cz-JIrTM4Q",
+    "https://www.youtube.com/watch?v=PY6jhg2MXNk",
+    "https://www.youtube.com/watch?v=AYenTT28AsA"
+   ]
+  }
+ ],
+ "players": [
+  {
+   "name": "Luka Doncic",
+   "wikipedia_views_30d": 237520,
+   "wikipedia_views_year": 1894244,
+   "url": "https://en.wikipedia.org/wiki/Luka_Don%C4%8Di%C4%87"
+  },
+  {
+   "name": "Walker Kessler",
+   "wikipedia_views_30d": 169184,
+   "wikipedia_views_year": 534234,
+   "url": "https://en.wikipedia.org/wiki/Walker_Kessler"
+  },
+  {
+   "name": "Bronny James",
+   "wikipedia_views_30d": 135903,
+   "wikipedia_views_year": 1321275,
+   "url": "https://en.wikipedia.org/wiki/Bronny_James"
+  },
+  {
+   "name": "Sandro Mamukelashvili",
+   "wikipedia_views_30d": 78587,
+   "wikipedia_views_year": 334047,
+   "url": "https://en.wikipedia.org/wiki/Sandro_Mamukelashvili"
+  },
+  {
+   "name": "Austin Reaves",
+   "wikipedia_views_30d": 57596,
+   "wikipedia_views_year": 773078,
+   "url": "https://en.wikipedia.org/wiki/Austin_Reaves"
+  },
+  {
+   "name": "Ziaire Williams",
+   "wikipedia_views_30d": 52457,
+   "wikipedia_views_year": 167292,
+   "url": "https://en.wikipedia.org/wiki/Ziaire_Williams"
+  },
+  {
+   "name": "Matisse Thybulle",
+   "wikipedia_views_30d": 51560,
+   "wikipedia_views_year": 183631,
+   "url": "https://en.wikipedia.org/wiki/Matisse_Thybulle"
+  },
+  {
+   "name": "Collin Sexton",
+   "wikipedia_views_30d": 43974,
+   "wikipedia_views_year": 264577,
+   "url": "https://en.wikipedia.org/wiki/Collin_Sexton"
+  }
+ ],
+ "formats": [
+  {
+   "type": "game_highlights",
+   "share_of_views": 0.7505,
+   "examples": [
+    "https://www.youtube.com/watch?v=S4OAzXJWSWs",
+    "https://www.youtube.com/watch?v=s6w074klwwk",
+    "https://www.youtube.com/watch?v=9gr45EIsHLU"
+   ]
+  },
+  {
+   "type": "behind_scenes",
+   "share_of_views": 0.0971,
+   "examples": [
+    "https://www.youtube.com/watch?v=ajtJvlVCq_U",
+    "https://www.youtube.com/watch?v=CTmrHOjVBR8",
+    "https://www.youtube.com/shorts/f-zHJphMYVI"
+   ]
+  },
+  {
+   "type": "player_moments",
+   "share_of_views": 0.0731,
+   "examples": [
+    "https://www.youtube.com/watch?v=YUXq43Xa0WI",
+    "https://www.youtube.com/watch?v=30O4NgfgSP0",
+    "https://www.youtube.com/watch?v=TdGINf4iH_g"
+   ]
+  },
+  {
+   "type": "analysis",
+   "share_of_views": 0.0367,
+   "examples": [
+    "https://www.youtube.com/watch?v=hwud3hnCsS0",
+    "https://www.youtube.com/watch?v=8XcT-6n7Yvs",
+    "https://www.youtube.com/watch?v=z6tQJntHdsM"
+   ]
+  },
+  {
+   "type": "beef_trash_talk",
+   "share_of_views": 0.0151,
+   "examples": [
+    "https://www.youtube.com/watch?v=zjaC6lhglz4",
+    "https://www.youtube.com/watch?v=rQdTtAGIuk0",
+    "https://www.youtube.com/watch?v=aCf4LrLN61M"
+   ]
+  },
+  {
+   "type": "fan_reactions",
+   "share_of_views": 0.0109,
+   "examples": [
+    "https://www.youtube.com/watch?v=pPnmIGPh5B4",
+    "https://www.youtube.com/watch?v=SA4GbGndSVE"
+   ]
+  },
+  {
+   "type": "throwbacks",
+   "share_of_views": 0.0097,
+   "examples": [
+    "https://www.youtube.com/watch?v=5U9k1U6nN-g"
+   ]
+  },
+  {
+   "type": "news_rumors",
+   "share_of_views": 0.007,
+   "examples": [
+    "https://www.youtube.com/watch?v=srLhhEhZndg",
+    "https://www.youtube.com/watch?v=gtvON2jHcGQ"
+   ]
+  }
+ ],
+ "make_or_reward": [
+  {
+   "format": "Player-made vlogs and off-court access with Luka",
+   "why": "Luka's own \"My Lakers Teammates Weren't Ready for Slovenia\" has 5.11M views, more than any game in the year list; the team's Ayton's-mom video has 1.59M.",
+   "example": "https://www.youtube.com/watch?v=ajtJvlVCq_U"
+  },
+  {
+   "format": "Same-night full-game highlights",
+   "why": "Game highlights are 75.0% of classified views; Lakers at Warriors (NBA Cup) has 3.16M.",
+   "example": "https://www.youtube.com/watch?v=npXSZQsGdpw"
+  },
+  {
+   "format": "Practice and pregame Shorts",
+   "why": "Behind-the-scenes items are 9.7% of views; the practice Short \"Lakers have been COMPETING\" has 551K, close to the Luka highlight Shorts.",
+   "example": "https://www.youtube.com/shorts/CdLwEyM8rq0"
+  },
+  {
+   "format": "Walker Kessler and new-bench Shorts (blocks, Mamukelashvili and Sexton energy plays)",
+   "why": "Kessler (169,184 Wikipedia views in 30 days) and Sandro Mamukelashvili (78,587) are the second- and fourth-most-searched Lakers this month; the team's Kessler Mic'd Up drew 1,035,883 and Beyond NBA's Mamukelashvili-impresses-Luka clip 441,728, but the team's top 15 Shorts are led by Luka, with Reaves, Grimes, Cam Carr and practice clips.",
+   "example": "https://www.youtube.com/watch?v=leYsukRhH7s"
+  },
+  {
+   "format": "Trash-talk and fan-interaction moments with context",
+   "why": "The top r/lakers thread this month is Reaves confronting a Pistons fan, and Chaz NBA's clip of it has 660K.",
+   "example": "https://www.reddit.com/r/lakers/comments/1xrffap/austin_reaves_got_in_a_pistons_fans_face_after/"
+  },
+  {
+   "format": "Filipino-language recaps or creator partners",
+   "why": "The Scoreboard's three Tagalog Lakers videos total 748K views this week.",
+   "example": "https://www.youtube.com/watch?v=gtvON2jHcGQ"
+  }
+ ],
+ "talk": [
+  {
+   "title": "Austin Reaves got in a Pistons fan’s face after the fan said, “Luka is carrying you.”",
+   "url": "https://www.reddit.com/r/lakers/comments/1xrffap/austin_reaves_got_in_a_pistons_fans_face_after/"
+  },
+  {
+   "title": "Luka trolling the Hawks fans, the team that drafted and traded him \"Y'all wish you had me\" 😆",
+   "url": "https://www.reddit.com/r/lakers/comments/1xsf4gi/luka_trolling_the_hawks_fans_the_team_that/"
+  },
+  {
+   "title": "Lakers is now the #1 seed in the Western Conference after tonight",
+   "url": "https://www.reddit.com/r/lakers/comments/1xpza3o/lakers_is_now_the_1_seed_in_the_western/"
+  },
+  {
+   "title": "A full page ad from Luka Dončić is in today’s LA Times",
+   "url": "https://www.reddit.com/r/lakers/comments/1xbp7nf/a_full_page_ad_from_luka_dončić_is_in_todays_la/"
+  },
+  {
+   "title": "Luka Doncic told Yaxel Lendeborg to come back into the game “COME BACK OUT P*SSY” Steve Kerr immediately subbed him back in 😭",
+   "url": "https://www.reddit.com/r/lakers/comments/1xc87gl/luka_doncic_told_yaxel_lendeborg_to_come_back/"
+  },
+  {
+   "title": "Walker Kessler today - 22 Pts, 8 Rebs, 3 Asts, 3 Stls, 6 Blks, 10/14 FG, +/- +17",
+   "url": "https://www.reddit.com/r/lakers/comments/1xdzcd6/walker_kessler_today_22_pts_8_rebs_3_asts_3_stls/"
+  },
+  {
+   "title": "Dalton Knecht: Thank you, Los Angeles. Thank you to the Lakers organization, my teammates, the coaching staff, and especially the fans who supported me from day one. Wearing the purple and gold was an honor I will always cherish...",
+   "url": "https://www.reddit.com/r/lakers/comments/1xbdmiu/dalton_knecht_thank_you_los_angeles_thank_you_to/"
+  },
+  {
+   "title": "Giannis on Luka's scoring ability",
+   "url": "https://www.reddit.com/r/lakers/comments/1xmm8po/giannis_on_lukas_scoring_ability/"
+  }
+ ],
+ "pulse": {
+  "window": "2026-11-03 to 2026-11-16",
+  "label": "10–16 Nov",
+  "team_wiki": {
+   "last7": 21073,
+   "prior7": 21820
+  },
+  "rising": [
+   {
+    "name": "Sandro Mamukelashvili",
+    "url": "https://en.wikipedia.org/wiki/Sandro_Mamukelashvili",
+    "last7": 27264,
+    "prior7": 10167,
+    "change": 1.682
+   },
+   {
+    "name": "Collin Sexton",
+    "url": "https://en.wikipedia.org/wiki/Collin_Sexton",
+    "last7": 9294,
+    "prior7": 7026,
+    "change": 0.323
+   }
+  ],
+  "videos": [
+   {
+    "title": "LAKERS at SUNS | FULL GAME HIGHLIGHTS | November 15, 2026",
+    "url": "https://www.youtube.com/watch?v=ITflm59NiYY",
+    "channel": "NBA",
+    "views": 1380434
+   },
+   {
+    "title": "LAKERS at HAWKS | FULL GAME HIGHLIGHTS | November 9, 2026",
+    "url": "https://www.youtube.com/watch?v=FkybKoRhdPs",
+    "channel": "NBA",
+    "views": 1227051
+   },
+   {
+    "title": "LAKERS at BUCKS | FULL GAME HIGHLIGHTS | November 11, 2026",
+    "url": "https://www.youtube.com/watch?v=-a205kX3neA",
+    "channel": "NBA",
+    "views": 912726
+   },
+   {
+    "title": "‘They are the BEST TEAM IN THE NBA’ 👀 Kenny on Luka and the Lakers | NBA on ESPN",
+    "url": "https://www.youtube.com/watch?v=z6tQJntHdsM",
+    "channel": "ESPN",
+    "views": 730824
+   },
+   {
+    "title": "Los Angeles Lakers vs Phoenix Suns Full Game Highlights - November 15, 2026 | NBA Season",
+    "url": "https://www.youtube.com/watch?v=GwA3B1sPQME",
+    "channel": "GAMETIME HIGHLIGHTS",
+    "views": 620713
+   }
+  ],
+  "threads": [
+   {
+    "title": "Luka Dončić tweet when he was 14",
+    "url": "https://www.reddit.com/r/lakers/comments/1xw5c9i/luka_dončić_tweet_when_he_was_14/"
+   },
+   {
+    "title": "Dear Luka…",
+    "url": "https://www.reddit.com/r/lakers/comments/1xxbrwu/dear_luka/"
+   },
+   {
+    "title": "“Bro, I should’ve taken the smaller contract and stayed with you man, this team sucks.“",
+    "url": "https://www.reddit.com/r/lakers/comments/1xxkepl/bro_i_shouldve_taken_the_smaller_contract_and/"
+   },
+   {
+    "title": "insane numbers",
+    "url": "https://www.reddit.com/r/lakers/comments/1xulari/insane_numbers/"
+   },
+   {
+    "title": "[Video] Luka Dončić really stole the clipboard away after they blew a 31-point lead. THATS MY MVP 😤",
+    "url": "https://www.reddit.com/r/lakers/comments/1xxd6co/video_luka_dončić_really_stole_the_clipboard_away/"
+   }
+  ]
+ }
+}

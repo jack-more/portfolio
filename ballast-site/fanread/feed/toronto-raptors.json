@@ -1,0 +1,422 @@
+{
+ "team": "Toronto Raptors",
+ "as_of": "2026-11-16",
+ "source": "Ballast Fan Read",
+ "summary": "Raptors fans follow Kawhi Leonard most (89,828 Wikipedia views in 30 days and 1,594,173 in the year, more than double Scottie Barnes' 37,273 and RJ Barrett's 24,246), and his biggest video this month is First Take on his latest injury absence (653,256). The fanbase is reliving 2019: Kawhi has been traded back, Kyle Lowry signed a one-day contract to retire a Raptor, and r/torontoraptors is tracking Kawhi's minutes and mood while defending Barnes against his coach's criticism; betting interest is high, with the Nov 15 Knicks game market at 2,964,122.",
+ "segments": [
+  {
+   "id": "2019-title-nostalgists",
+   "name": "2019 title nostalgists",
+   "who": "Fans who want the 2019 feeling back now that Kawhi has returned and Lowry has retired a Raptor.",
+   "size_signal": "Top team Short 49,000; Lowry retirement clip 240,069.",
+   "where": [
+    "r/torontoraptors",
+    "team Shorts",
+    "Chaz NBA"
+   ],
+   "enjoys": [
+    "Lowry moments",
+    "Kawhi tribute videos",
+    "\"run it back\" posts"
+   ],
+   "offer": "2019 anniversary content and Lowry appearances.",
+   "evidence": [
+    "https://www.reddit.com/r/torontoraptors/comments/1xbvkg2/lets_run_it_back_again/",
+    "https://www.reddit.com/r/torontoraptors/comments/1xc3hbf/posting_again_in_honor_of_kawhi_being_back/",
+    "https://www.reddit.com/r/torontoraptors/comments/1xbsg2d/kawhi_watching_his_raptors_tribute_video_as_he/",
+    "https://www.youtube.com/watch?v=9OtrYQ7p9EA",
+    "https://www.youtube.com/shorts/GcuAYcdUJrg"
+   ]
+  },
+  {
+   "id": "kawhi-leonard-followers",
+   "name": "Kawhi Leonard followers",
+   "who": "Fans who follow the Raptors through Kawhi, the most-searched player on the roster: his return, his minutes, his mood and now his injury absence.",
+   "size_signal": "Kawhi has 89,828 Wikipedia views in 30 days and 1,594,173 in the year, the roster high; First Take on his injury drew 653,256 and a Chinese breakdown of his return 372,447 this month; 3,280,632 combined views across 12 Kawhi-return items.",
+   "where": [
+    "r/torontoraptors",
+    "ESPN (First Take)",
+    "team Open Gym",
+    "Wikipedia"
+   ],
+   "enjoys": [
+    "Kawhi quotes",
+    "Instagram-like observations",
+    "injury updates",
+    "return-to-Toronto breakdowns"
+   ],
+   "offer": "Plain health updates and more Open Gym access.",
+   "evidence": [
+    "https://www.reddit.com/r/torontoraptors/comments/1xgx58u/kawhi_posting_an_update_on_twitter/",
+    "https://www.reddit.com/r/torontoraptors/comments/1xci10s/lewenberg_kawhi_on_why_he_asked_to_go_back_in_the/",
+    "https://www.reddit.com/r/torontoraptors/comments/1xmmy8s/i_find_it_funny_that_out_of_all_post_game_posts/",
+    "https://www.reddit.com/r/torontoraptors/comments/1xc7vbd/do_we_know_why_kawhi_is_now_so_much_more/",
+    "https://www.youtube.com/watch?v=8e1Ye95BR-U",
+    "https://www.youtube.com/watch?v=GuhJIC59seY"
+   ]
+  },
+  {
+   "id": "scottie-barnes-and-rj-barrett-loyalists",
+   "name": "Scottie Barnes and RJ Barrett loyalists",
+   "who": "Fans who see Barnes as the franchise player (Kawhi himself called it Scottie's team) and Barrett as not expendable, and defend both, including against the coach's criticism of Barnes.",
+   "size_signal": "Barnes has 37,273 Wikipedia views in 30 days and Barrett 24,246, second and third on the roster. Barnes eating behind a CP24 live hit drew 1,299,097 and his jawing with Luka 630,625; Barrett's French trash-talk lesson drew 637,062. \"Scottie with the CN tower braids\" is the top monthly thread; Barnes dunk Short 41,000.",
+   "where": [
+    "r/torontoraptors",
+    "team Shorts",
+    "YouTube (Chaz NBA, CP24, NBA Canada)"
+   ],
+   "enjoys": [
+    "CN Tower braids",
+    "rebounding stat posts",
+    "dunks",
+    "chain ceremonies",
+    "personality moments"
+   ],
+   "offer": "Barnes and Barrett personality content (style, braids, local-media bits, French) alongside play.",
+   "evidence": [
+    "https://www.reddit.com/r/torontoraptors/comments/1xc18eh/scottie_with_the_cn_tower_braids/",
+    "https://www.reddit.com/r/torontoraptors/comments/1xdw8rq/in_a_game_with_anthony_davis_alex_sarr_and/",
+    "https://www.reddit.com/r/torontoraptors/comments/1xmm0ho/scottie_gets_the_chain/",
+    "https://www.reddit.com/r/torontoraptors/comments/1xjz4o3/lewenberg_darko_re_barnes_for_me_a_player_that/",
+    "https://www.youtube.com/watch?v=kQSD1LpPUtI",
+    "https://www.youtube.com/watch?v=IcG2nlxuwhc",
+    "https://www.youtube.com/watch?v=ANbbRKJAnmI",
+    "https://www.reddit.com/r/torontoraptors/comments/1xe0xfk/rowan_rj_alexander_barrett_jr_is_not_expendable/"
+   ]
+  },
+  {
+   "id": "game-day-bettors",
+   "name": "Game-day bettors",
+   "who": "A large betting audience on Raptors games.",
+   "size_signal": "Knicks vs Raptors on Nov 15 traded 2,964,122; the Cavaliers playoff series market 171,505.",
+   "where": [
+    "Polymarket"
+   ],
+   "enjoys": [
+    "single-game markets",
+    "series markets"
+   ],
+   "offer": "Injury and lineup notes early on game days.",
+   "evidence": [
+    "https://polymarket.com/event/nba-nyk-tor-2026-11-15",
+    "https://polymarket.com/event/nba-playoffs-who-will-win-series-raptors-vs-cavaliers",
+    "https://polymarket.com/event/nba-playoffs-raptors-vs-cavaliers-total-games-ou-5pt5"
+   ]
+  },
+  {
+   "id": "toronto-culture-hobbyists",
+   "name": "Toronto culture hobbyists",
+   "who": "Fans who mix the Raptors with local life: pumpkins, Pokemon art, auctions, and tributes to Scarborough figures.",
+   "size_signal": "Four top-25 monthly threads are fan art, memorabilia or local tributes.",
+   "where": [
+    "r/torontoraptors"
+   ],
+   "enjoys": [
+    "fan art",
+    "local tributes",
+    "memorabilia finds"
+   ],
+   "offer": "Fan-art features and local-community spotlights.",
+   "evidence": [
+    "https://www.reddit.com/r/torontoraptors/comments/1xkmdfv/just_finished_up_this_years_pumpkin/",
+    "https://www.reddit.com/r/torontoraptors/comments/1x8fdji/raptors_pokemon_evolution/",
+    "https://www.reddit.com/r/torontoraptors/comments/1xpg9qo/framed_picture_at_a_local_auction/",
+    "https://www.reddit.com/r/torontoraptors/comments/1xfou6i/eric_bauza_lifelong_raptors_fan_from_scarborough/"
+   ]
+  },
+  {
+   "id": "daily-podcast-listeners",
+   "name": "Daily podcast listeners",
+   "who": "Fans following the team every day through audio.",
+   "size_signal": "Hello and Welcome has 555 episodes, Locked On Raptors 500, The Raptors Show 340; all three updated Nov 16.",
+   "where": [
+    "Apple Podcasts"
+   ],
+   "enjoys": [
+    "daily shows",
+    "Sportsnet coverage"
+   ],
+   "offer": "Host access and audio-ready clips.",
+   "evidence": [
+    "https://podcasts.apple.com/us/podcast/hello-and-welcome/id1748711418?uo=4",
+    "https://podcasts.apple.com/us/podcast/locked-on-raptors-daily-podcast-on-the-toronto-raptors/id1171754319?uo=4",
+    "https://podcasts.apple.com/us/podcast/the-raptors-show/id1588453456?uo=4"
+   ]
+  }
+ ],
+ "players": [
+  {
+   "name": "Kawhi Leonard",
+   "wikipedia_views_30d": 89828,
+   "wikipedia_views_year": 1594173,
+   "url": "https://en.wikipedia.org/wiki/Kawhi_Leonard"
+  },
+  {
+   "name": "Scottie Barnes",
+   "wikipedia_views_30d": 37273,
+   "wikipedia_views_year": 488609,
+   "url": "https://en.wikipedia.org/wiki/Scottie_Barnes"
+  },
+  {
+   "name": "RJ Barrett",
+   "wikipedia_views_30d": 24246,
+   "wikipedia_views_year": 370395,
+   "url": "https://en.wikipedia.org/wiki/RJ_Barrett"
+  },
+  {
+   "name": "Allen Graves",
+   "wikipedia_views_30d": 14666,
+   "wikipedia_views_year": 88015,
+   "url": "https://en.wikipedia.org/wiki/Allen_Graves"
+  },
+  {
+   "name": "Kyle Anderson",
+   "wikipedia_views_30d": 13275,
+   "wikipedia_views_year": 222712,
+   "url": "https://en.wikipedia.org/wiki/Kyle_Anderson_%28basketball%29"
+  },
+  {
+   "name": "Collin Murray-Boyles",
+   "wikipedia_views_30d": 13170,
+   "wikipedia_views_year": 181914,
+   "url": "https://en.wikipedia.org/wiki/Collin_Murray-Boyles"
+  },
+  {
+   "name": "Jakob Poeltl",
+   "wikipedia_views_30d": 12327,
+   "wikipedia_views_year": 119726,
+   "url": "https://en.wikipedia.org/wiki/Jakob_P%C3%B6ltl"
+  }
+ ],
+ "formats": [
+  {
+   "type": "game_highlights",
+   "share_of_views": 0.73,
+   "examples": [
+    "https://www.youtube.com/watch?v=y8js21UYKz4",
+    "https://www.youtube.com/watch?v=y_F0J6Pc2Bk",
+    "https://www.youtube.com/watch?v=BfKYY2IJ3Oc"
+   ]
+  },
+  {
+   "type": "kawhi_return",
+   "share_of_views": 0.121,
+   "examples": [
+    "https://www.youtube.com/watch?v=GuhJIC59seY",
+    "https://www.youtube.com/watch?v=ExDu5rwSdw8",
+    "https://www.youtube.com/watch?v=ZZ0ggi5XaLw"
+   ]
+  },
+  {
+   "type": "opponent_star_moments",
+   "share_of_views": 0.073,
+   "examples": [
+    "https://www.youtube.com/watch?v=HAoZVhWxSeg",
+    "https://www.youtube.com/watch?v=zpdrkWX69vg",
+    "https://www.youtube.com/watch?v=6VKI5p79xic"
+   ]
+  },
+  {
+   "type": "beefs_scuffles",
+   "share_of_views": 0.044,
+   "examples": [
+    "https://www.youtube.com/watch?v=BjjLMCBGq4w",
+    "https://www.youtube.com/watch?v=IeZdRSu4Vyc"
+   ]
+  },
+  {
+   "type": "throwbacks",
+   "share_of_views": 0.011,
+   "examples": [
+    "https://www.youtube.com/watch?v=9OtrYQ7p9EA",
+    "https://www.youtube.com/shorts/GcuAYcdUJrg",
+    "https://www.youtube.com/shorts/V-sEjwx7tNI"
+   ]
+  },
+  {
+   "type": "live_streams",
+   "share_of_views": 0.01,
+   "examples": [
+    "https://www.youtube.com/watch?v=bCLOF_00FNk",
+    "https://www.youtube.com/watch?v=DD0wr8H44Hk",
+    "https://www.youtube.com/watch?v=4Y1aH2vn34g"
+   ]
+  },
+  {
+   "type": "player_moments",
+   "share_of_views": 0.007,
+   "examples": [
+    "https://www.youtube.com/shorts/Kwez3mkM-hE",
+    "https://www.youtube.com/shorts/4dT8EolCVsg",
+    "https://www.youtube.com/shorts/t4yZn-vzGPg"
+   ]
+  },
+  {
+   "type": "behind_scenes",
+   "share_of_views": 0.004,
+   "examples": [
+    "https://www.youtube.com/shorts/ahSEYXoHdQg",
+    "https://www.youtube.com/shorts/mqU_UdqJNtI",
+    "https://www.youtube.com/shorts/sK-wuQJmBW8"
+   ]
+  }
+ ],
+ "make_or_reward": [
+  {
+   "format": "Access episodes on big roster moves",
+   "why": "The team's Open Gym episode \"Kawhi Leonard Returns to the Toronto Raptors\" drew 381,179, more than ESPN's Shams trade breakdown (327,754) and the team's best item in the search lists.",
+   "example": "https://www.youtube.com/watch?v=ExDu5rwSdw8"
+  },
+  {
+   "format": "2019 title nostalgia (Lowry, Kawhi)",
+   "why": "The team's top Short is Kyle Lowry \"making himself at home\" (49,000); Chaz NBA's Lowry retirement clip with Kawhi drew 240,069; \"Let's run it back again\" is a top-five r/torontoraptors thread.",
+   "example": "https://www.youtube.com/shorts/GcuAYcdUJrg"
+  },
+  {
+   "format": "Closing-minutes ending cuts",
+   "why": "\"Final 5:09 WILD ENDING Celtics at Raptors\" drew 456,000, against 302,112 for the full highlights of the same game.",
+   "example": "https://www.youtube.com/watch?v=D59WeM7LSR0"
+  },
+  {
+   "format": "Postgame chain ceremony clips",
+   "why": "Three \"gets the chain\" threads (Scottie twice, RJ Barrett) are in the monthly top 25, but none of the team's top 15 Shorts is a chain moment.",
+   "example": "https://www.reddit.com/r/torontoraptors/comments/1xmm0ho/scottie_gets_the_chain/"
+  },
+  {
+   "format": "Pre-game notes for bettors",
+   "why": "Polymarket's Knicks vs Raptors market on Nov 15 traded 2,964,122, against 171,505 for the whole Cavaliers playoff series market.",
+   "example": "https://polymarket.com/event/nba-nyk-tor-2026-11-15"
+  },
+  {
+   "format": "Barnes and Barrett personality bits",
+   "why": "The biggest videos of the Raptors' second- and third-most-searched players are not plays: Barnes eating behind a CP24 live hit (1,299,097) and Barrett teaching Cabbie French trash talk (637,062 this month), both on non-team channels.",
+   "example": "https://www.youtube.com/watch?v=kQSD1LpPUtI"
+  }
+ ],
+ "talk": [
+  {
+   "title": "Scottie with the CN tower braids",
+   "url": "https://www.reddit.com/r/torontoraptors/comments/1xc18eh/scottie_with_the_cn_tower_braids/"
+  },
+  {
+   "title": "[Lewenberg] Darko (re: Barnes): “For me, a player that gets 34 shots in a game, who scores 41 points and goes to the free throw line 3 times, that’s kinda BS to be honest with you.”",
+   "url": "https://www.reddit.com/r/torontoraptors/comments/1xjz4o3/lewenberg_darko_re_barnes_for_me_a_player_that/"
+  },
+  {
+   "title": "Kawhi posting an update on Twitter",
+   "url": "https://www.reddit.com/r/torontoraptors/comments/1xgx58u/kawhi_posting_an_update_on_twitter/"
+  },
+  {
+   "title": "[Lewenberg] Kawhi on why he asked to go back in the game in the 4th: “I haven’t gotten a chance to play a lot. I know we were blowing them out but the goal was to get 23, 24 minutes tonight and I just needed more reps to learn plays… This is where you get better… You need game reps.”",
+   "url": "https://www.reddit.com/r/torontoraptors/comments/1xci10s/lewenberg_kawhi_on_why_he_asked_to_go_back_in_the/"
+  },
+  {
+   "title": "Do we know why Kawhi is now so much more expressive & relaxed? Is it cause Uncle Dennis is now out of the picture?",
+   "url": "https://www.reddit.com/r/torontoraptors/comments/1xc7vbd/do_we_know_why_kawhi_is_now_so_much_more/"
+  },
+  {
+   "title": "Kawhi watching his Raptors Tribute Video as he returns to Scotiabank Arena as a Clipper.",
+   "url": "https://www.reddit.com/r/torontoraptors/comments/1xbsg2d/kawhi_watching_his_raptors_tribute_video_as_he/"
+  },
+  {
+   "title": "Rowan \"RJ\" Alexander Barrett Jr. is not expendable",
+   "url": "https://www.reddit.com/r/torontoraptors/comments/1xe0xfk/rowan_rj_alexander_barrett_jr_is_not_expendable/"
+  },
+  {
+   "title": "Jontay Porter speaking out to high school students about gambling addiction",
+   "url": "https://www.reddit.com/r/torontoraptors/comments/1xg5ex6/jontay_porter_speaking_out_to_high_school/"
+  }
+ ],
+ "pulse": {
+  "window": "2026-11-03 to 2026-11-16",
+  "label": "10–16 Nov",
+  "team_wiki": {
+   "last7": 9207,
+   "prior7": 7143
+  },
+  "rising": [
+   {
+    "name": "RJ Barrett",
+    "url": "https://en.wikipedia.org/wiki/RJ_Barrett",
+    "last7": 6041,
+    "prior7": 3789,
+    "change": 0.594
+   },
+   {
+    "name": "Allen Graves",
+    "url": "https://en.wikipedia.org/wiki/Allen_Graves",
+    "last7": 2588,
+    "prior7": 1626,
+    "change": 0.592
+   },
+   {
+    "name": "Kyle Anderson",
+    "url": "https://en.wikipedia.org/wiki/Kyle_Anderson_%28basketball%29",
+    "last7": 3431,
+    "prior7": 2266,
+    "change": 0.514
+   },
+   {
+    "name": "Collin Murray-Boyles",
+    "url": "https://en.wikipedia.org/wiki/Collin_Murray-Boyles",
+    "last7": 3496,
+    "prior7": 2368,
+    "change": 0.476
+   }
+  ],
+  "videos": [
+   {
+    "title": "RAPTORS at 76ERS | FULL GAME HIGHLIGHTS | November 12, 2026",
+    "url": "https://www.youtube.com/watch?v=BfKYY2IJ3Oc",
+    "channel": "NBA",
+    "views": 1406265
+   },
+   {
+    "title": "Philadelphia 76ers vs Toronto Raptors Full Game Highlights - November 12, 2026 | NBA Season",
+    "url": "https://www.youtube.com/watch?v=NvwDf7lKCCs",
+    "channel": "GAMETIME HIGHLIGHTS",
+    "views": 513700
+   },
+   {
+    "title": "Final 5:09 WILD ENDING Celtics at Raptors | November 11, 2026",
+    "url": "https://www.youtube.com/watch?v=D59WeM7LSR0",
+    "channel": "NBA",
+    "views": 476331
+   },
+   {
+    "title": "INSANE OT Finish Knicks at Raptors | November 15, 2026",
+    "url": "https://www.youtube.com/watch?v=C4lS8_nxyDk",
+    "channel": "NBA",
+    "views": 404790
+   },
+   {
+    "title": "KNICKS at RAPTORS | FULL GAME HIGHLIGHTS | November 15, 2026",
+    "url": "https://www.youtube.com/watch?v=3NwHRCdqd28",
+    "channel": "NBA",
+    "views": 366400
+   }
+  ],
+  "threads": [
+   {
+    "title": "YOUR TORONTO TEMPO WON THE WNBA LOTTERY! JUJU WATKINS WILL BE A TORONTO TEMPO",
+    "url": "https://www.reddit.com/r/torontoraptors/comments/1xxbzw1/your_toronto_tempo_won_the_wnba_lottery_juju/"
+   },
+   {
+    "title": "[Lewenberg] Barnes: “We lost a game that we know we could’ve won. As we all watch the film, this one’s really going to sting and that’s what’s going to create those uncomfortable conversations… I think that’s how we’re going to be better from it… I’m looking forward to practice tomorrow”",
+    "url": "https://www.reddit.com/r/torontoraptors/comments/1xxencx/lewenberg_barnes_we_lost_a_game_that_we_know_we/"
+   },
+   {
+    "title": "Regardless of how this game ends, that's my franchise player!",
+    "url": "https://www.reddit.com/r/torontoraptors/comments/1xxct6d/regardless_of_how_this_game_ends_thats_my/"
+   },
+   {
+    "title": "Can someone explain why the Raptors logo looked like this at yesterday's Knicks game?",
+    "url": "https://www.reddit.com/r/torontoraptors/comments/1xxu5f5/can_someone_explain_why_the_raptors_logo_looked/"
+   },
+   {
+    "title": "OG pulling up to the Eaton Centre on November 16th at 5 PM for a meet and greet",
+    "url": "https://www.reddit.com/r/torontoraptors/comments/1xwimrw/og_pulling_up_to_the_eaton_centre_on_november/"
+   }
+  ]
+ }
+}

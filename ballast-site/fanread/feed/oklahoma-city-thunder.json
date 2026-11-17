@@ -1,0 +1,436 @@
+{
+ "team": "Oklahoma City Thunder",
+ "as_of": "2026-11-16",
+ "source": "Ballast Fan Read",
+ "summary": "Thunder fans searched rookie Aday Mara more than anyone this month (109,777 Wikipedia views in 30 days, ahead of Shai Gilgeous-Alexander's 98,278 and Jalen Williams' 79,070), while Gilgeous-Alexander leads the year by far (2,346,319). The fanbase is still processing the May 30 Game 7 loss to the Spurs (the top Thunder video of the year at 6,081,215), this month's biggest video is Williams being stretchered off (2,318,172 on Chaz NBA), and the top r/Thunder threads are JDub get-well posts, Mara highlights and the news that Russell Westbrook's No. 0 will be retired on Feb 7.",
+ "segments": [
+  {
+   "id": "aday-mara-rookie-watchers",
+   "name": "Aday Mara rookie watchers",
+   "who": "Fans tracking the 7'3\" rookie center play by play and stat by stat; he is the most-searched Thunder player this month, and many see him as OKC's Wembanyama answer.",
+   "size_signal": "Mara 109,777 Wikipedia views in 30 days, the roster high (SGA 98,278); Beyond NBA \"Put Victor Wembanyama In HELL\" 411,294; 嗨賴名人堂's 15-for-15 explainer 282,135; Drafteados episode with Mara as guest 237,815; four Mara threads in the monthly top 25; even the Lillard three over Mara drew 276,605 on Bleacher Report.",
+   "where": [
+    "Wikipedia",
+    "r/Thunder",
+    "team Shorts",
+    "YouTube (Beyond NBA, Chinese- and Spanish-language channels)"
+   ],
+   "enjoys": [
+    "firsts (first three, first block)",
+    "rim-protection stats",
+    "big-man putbacks"
+   ],
+   "offer": "A recurring Mara development clip (coach comments plus the stat of the week).",
+   "evidence": [
+    "https://www.reddit.com/r/Thunder/comments/1xbo7ak/perfection_by_aday_mara/",
+    "https://www.reddit.com/r/Thunder/comments/1xqo802/aday_mara_with_the_hesi_for_his_first_nba_3pt_fg/",
+    "https://www.reddit.com/r/Thunder/comments/1xr40ui/aday_mara_is_allowing_just_368_at_the_rim_lowest/",
+    "https://www.reddit.com/r/Thunder/comments/1xt9abs/ay_dios_mio_aday_mara_will_not_submit_and_gets_it/",
+    "https://www.youtube.com/watch?v=tOxwDSFhtG8",
+    "https://www.youtube.com/watch?v=apJtL0KP2A8"
+   ]
+  },
+  {
+   "id": "jdub-injury-vigil",
+   "name": "JDub injury vigil",
+   "who": "Fans following Jalen Williams' recovery after he was stretchered off against the Clippers.",
+   "size_signal": "Williams 79,070 Wikipedia views in 30 days, third on the roster; 2,318,172 views on the injury clip, 774,774 on the doctor explainer, 524,912 on House of Highlights' SGA-in-tears clip; JDub posts hold four of the top 25 r/Thunder threads.",
+   "where": [
+    "r/Thunder",
+    "Chaz NBA",
+    "Brian Sutterer MD"
+   ],
+   "enjoys": [
+    "injury explainers",
+    "player IG story reposts",
+    "appreciation posts"
+   ],
+   "offer": "Regular, factual recovery updates and a way for fans to send messages to Williams.",
+   "evidence": [
+    "https://www.reddit.com/r/Thunder/comments/1xfk6fx/jdub_appreciation_post/",
+    "https://www.reddit.com/r/Thunder/comments/1xgcsfs/heal_up_jdub_okc_supports_you/",
+    "https://www.reddit.com/r/Thunder/comments/1xiqmv5/jdubs_ig_story/",
+    "https://www.reddit.com/r/Thunder/comments/1xfjz2p/an_emotional_sga_on_jdub_getting_hurt_i_just_feel/",
+    "https://www.youtube.com/watch?v=Jc80G1gl1m0",
+    "https://www.youtube.com/watch?v=0zOyeUD4ab4"
+   ]
+  },
+  {
+   "id": "spurs-series-replay-viewers",
+   "name": "Spurs-series replay viewers",
+   "who": "Fans and neutrals who rewatch the 2026 WCF against San Antonio game by game, including re-uploads.",
+   "size_signal": "All seven WCF games appear in the year list; Game 7 alone 6,081,215 (NBA) plus 2,791,292 (re-upload); Wikipedia peaked at 226,566 views in May 2026.",
+   "where": [
+    "NBA YouTube",
+    "GAMETIME HIGHLIGHTS",
+    "ESPN"
+   ],
+   "enjoys": [
+    "full-game playoff highlights",
+    "Game 7 endings",
+    "Wemby vs Chet matchups"
+   ],
+   "offer": "Series retrospectives and Spurs-rematch previews; the Oct 20 rematch at San Antonio already drew 1,550,206.",
+   "evidence": [
+    "https://www.youtube.com/watch?v=1bOMYQFgK4I",
+    "https://www.youtube.com/watch?v=u5lxAbAotXc",
+    "https://www.youtube.com/watch?v=EfWBUWM5c6M",
+    "https://www.youtube.com/watch?v=PfNDre7DcVI"
+   ]
+  },
+  {
+   "id": "flashpoint-clip-viewers",
+   "name": "Flashpoint clip viewers",
+   "who": "Viewers drawn to OKC's physical play and the fights it starts, many of them not Thunder fans. The biggest clip, Jokic vs Lu Dort, predates Dort's trade to Atlanta; this season's flare-ups center on Chet Holmgren.",
+   "size_signal": "Jokic-Dort clip 4,597,609 (Dort now plays for Atlanta); Castle and Vassell vs Caruso and Ajay Mitchell 888,853; Wemby vs Jaylin Williams 725,375; Fox tossing Chet 67,637 on Bleacher Report.",
+   "where": [
+    "Chaz NBA",
+    "r/Thunder",
+    "r/nba"
+   ],
+   "enjoys": [
+    "ejections",
+    "post-whistle shoving",
+    "refereeing arguments"
+   ],
+   "offer": "Team-side context clips after a flare-up, before rival channels set the story.",
+   "evidence": [
+    "https://www.youtube.com/watch?v=loXqd0-cWJQ",
+    "https://www.youtube.com/watch?v=khbH-ma6Hu4",
+    "https://www.reddit.com/r/Thunder/comments/1xbbbua/a_scuffle_erupts_off_a_cheap_foul_on_chet_by_fox/",
+    "https://www.reddit.com/r/Thunder/comments/1xd8yo0/rnba_users_watching_the_game_frame_by_frame_to/",
+    "https://www.youtube.com/watch?v=EnSUbF3LFXg"
+   ]
+  },
+  {
+   "id": "daily-podcast-listeners",
+   "name": "Daily podcast listeners",
+   "who": "A hardcore segment that listens to Thunder audio every day.",
+   "size_signal": "Down to Dunk has 1,621 episodes; Locked On Thunder 500 and Thunder Today 287, both still daily in November 2026.",
+   "where": [
+    "Apple Podcasts"
+   ],
+   "enjoys": [
+    "daily episodes",
+    "beat-writer analysis"
+   ],
+   "offer": "Guest access for daily hosts and audio-first postgame clips.",
+   "evidence": [
+    "https://podcasts.apple.com/us/podcast/down-to-dunk-okc-thunder-podcast/id599740073?uo=4",
+    "https://podcasts.apple.com/us/podcast/locked-on-thunder-daily-podcast-on-the-oklahoma-city/id1129588849?uo=4",
+    "https://podcasts.apple.com/us/podcast/thunder-today-daily-oklahoma-city-thunder-podcast/id1819753591?uo=4"
+   ]
+  },
+  {
+   "id": "westbrook-and-durant-era-loyalists",
+   "name": "Westbrook and Durant-era loyalists",
+   "who": "Longtime fans for whom 2012-2016 OKC still matters; the Westbrook No. 0 retirement on Feb 7 is their event.",
+   "size_signal": "2016 WCF Game 6 ending 1,342,561; Morrow's Durant story 328,131.",
+   "where": [
+    "r/Thunder",
+    "NBA YouTube",
+    "podcast clips"
+   ],
+   "enjoys": [
+    "2016 WCF replays",
+    "KD departure stories",
+    "jersey retirement news"
+   ],
+   "offer": "A countdown series to the Feb 7 Westbrook night using archive footage.",
+   "evidence": [
+    "https://www.reddit.com/r/Thunder/comments/1xm6b6r/charania_the_oklahoma_city_thunder_will_retire/",
+    "https://www.youtube.com/watch?v=oZSI-I0T5CY",
+    "https://www.youtube.com/watch?v=YpUZz6vjqcM",
+    "https://www.youtube.com/watch?v=KQ7dKNUKY-Q"
+   ]
+  }
+ ],
+ "players": [
+  {
+   "name": "Aday Mara",
+   "wikipedia_views_30d": 109777,
+   "wikipedia_views_year": 660468,
+   "url": "https://en.wikipedia.org/wiki/Aday_Mara"
+  },
+  {
+   "name": "Shai Gilgeous-Alexander",
+   "wikipedia_views_30d": 98278,
+   "wikipedia_views_year": 2346319,
+   "url": "https://en.wikipedia.org/wiki/Shai_Gilgeous-Alexander"
+  },
+  {
+   "name": "Jalen Williams",
+   "wikipedia_views_30d": 79070,
+   "wikipedia_views_year": 514204,
+   "url": "https://en.wikipedia.org/wiki/Jalen_Williams"
+  },
+  {
+   "name": "Chet Holmgren",
+   "wikipedia_views_30d": 35660,
+   "wikipedia_views_year": 897871,
+   "url": "https://en.wikipedia.org/wiki/Chet_Holmgren"
+  },
+  {
+   "name": "Jared McCain",
+   "wikipedia_views_30d": 29264,
+   "wikipedia_views_year": 686087,
+   "url": "https://en.wikipedia.org/wiki/Jared_McCain"
+  },
+  {
+   "name": "Nique Clifford",
+   "wikipedia_views_30d": 28788,
+   "wikipedia_views_year": 63762,
+   "url": "https://en.wikipedia.org/wiki/Nique_Clifford"
+  },
+  {
+   "name": "Isaiah Hartenstein",
+   "wikipedia_views_30d": 27396,
+   "wikipedia_views_year": 485253,
+   "url": "https://en.wikipedia.org/wiki/Isaiah_Hartenstein"
+  },
+  {
+   "name": "Ajay Mitchell",
+   "wikipedia_views_30d": 25397,
+   "wikipedia_views_year": 409450,
+   "url": "https://en.wikipedia.org/wiki/Ajay_Mitchell"
+  }
+ ],
+ "formats": [
+  {
+   "type": "game_highlights",
+   "share_of_views": 0.774,
+   "examples": [
+    "https://www.youtube.com/watch?v=1bOMYQFgK4I",
+    "https://www.youtube.com/watch?v=wzgrVJLzLSE",
+    "https://www.youtube.com/watch?v=HFj4_oRDrtc"
+   ]
+  },
+  {
+   "type": "beefs_scuffles",
+   "share_of_views": 0.071,
+   "examples": [
+    "https://www.youtube.com/watch?v=loXqd0-cWJQ",
+    "https://www.youtube.com/watch?v=khbH-ma6Hu4"
+   ]
+  },
+  {
+   "type": "news_rumors",
+   "share_of_views": 0.049,
+   "examples": [
+    "https://www.youtube.com/watch?v=6CJr1w51dls",
+    "https://www.youtube.com/watch?v=Jc80G1gl1m0",
+    "https://www.youtube.com/watch?v=uMCdbRAAHvg"
+   ]
+  },
+  {
+   "type": "analysis",
+   "share_of_views": 0.041,
+   "examples": [
+    "https://www.youtube.com/watch?v=EfWBUWM5c6M",
+    "https://www.youtube.com/watch?v=n29t2K5I89Q",
+    "https://www.youtube.com/watch?v=GG73MDHljVg"
+   ]
+  },
+  {
+   "type": "throwbacks",
+   "share_of_views": 0.022,
+   "examples": [
+    "https://www.youtube.com/watch?v=oZSI-I0T5CY",
+    "https://www.youtube.com/watch?v=YpUZz6vjqcM"
+   ]
+  },
+  {
+   "type": "memes_jokes",
+   "share_of_views": 0.013,
+   "examples": [
+    "https://www.youtube.com/watch?v=77OU2f54MCY"
+   ]
+  },
+  {
+   "type": "player_moments",
+   "share_of_views": 0.013,
+   "examples": [
+    "https://www.youtube.com/watch?v=uXFVN4XynCs",
+    "https://www.youtube.com/shorts/cK4ePwNe90Y",
+    "https://www.youtube.com/shorts/123M0ZWtfnU"
+   ]
+  },
+  {
+   "type": "live_streams",
+   "share_of_views": 0.007,
+   "examples": [
+    "https://www.youtube.com/watch?v=ZJRQScFk9nU",
+    "https://www.youtube.com/watch?v=KM5ZkZmGlao",
+    "https://www.youtube.com/watch?v=sm7QkXz4e2o"
+   ]
+  },
+  {
+   "type": "pressers_interviews",
+   "share_of_views": 0.007,
+   "examples": [
+    "https://www.youtube.com/watch?v=PfNDre7DcVI"
+   ]
+  },
+  {
+   "type": "fan_reactions",
+   "share_of_views": 0.002,
+   "examples": [
+    "https://www.youtube.com/watch?v=lcPjGqp_MiY",
+    "https://www.youtube.com/watch?v=TlvpqNuD-Is"
+   ]
+  },
+  {
+   "type": "behind_scenes",
+   "share_of_views": 0.002,
+   "examples": [
+    "https://www.youtube.com/shorts/lfbVPqisTc8",
+    "https://www.youtube.com/shorts/x0dgILNZaSA",
+    "https://www.youtube.com/shorts/QSaa7fvU91Q"
+   ]
+  }
+ ],
+ "make_or_reward": [
+  {
+   "format": "Same-night full-game playoff highlights",
+   "why": "Spurs at Thunder Game 7 highlights drew 6,081,215 on NBA and a further 2,791,292 on the GAMETIME HIGHLIGHTS re-upload, so demand outran the official upload.",
+   "example": "https://www.youtube.com/watch?v=1bOMYQFgK4I"
+  },
+  {
+   "format": "Closing-minutes cuts of regular-season games",
+   "why": "The \"Final 4:56\" ending of the Nov 11 Blazers game drew 838,149, more than the full highlights of the same game (498,122).",
+   "example": "https://www.youtube.com/watch?v=gWIlsmnmd5k"
+  },
+  {
+   "format": "Flashpoint clips (scuffles, ejections, chirping)",
+   "why": "Chaz NBA's Jokic-Dort ejection clip (4,597,609, from before Dort's trade to Atlanta) and Wemby vs Jaylin Williams (725,375) outdrew most game highlights; r/Thunder's scuffle thread on the Fox foul shows fans want the full context.",
+   "example": "https://www.youtube.com/watch?v=loXqd0-cWJQ"
+  },
+  {
+   "format": "Plain-language injury and recovery updates on Jalen Williams",
+   "why": "The stretcher clip drew 2,318,172 and a doctor's explainer 774,774; four of the top 25 r/Thunder threads this month are JDub get-well or appreciation posts.",
+   "example": "https://www.youtube.com/watch?v=Jc80G1gl1m0"
+  },
+  {
+   "format": "Aday Mara rookie progress series",
+   "why": "Mara is the most-searched Thunder player this month (109,777 Wikipedia views in 30 days). Beyond NBA's \"Put Victor Wembanyama In HELL\" drew 411,294 and Chinese- and Spanish-language pieces 282,135 and 237,815, and four Mara threads sit in r/Thunder's monthly top 25, while the team's Mara Shorts drew 30,000 (an IHart-to-Aday dunk) and 21,000. Fans are ahead of the team here.",
+   "example": "https://www.youtube.com/shorts/IQaE1ezZzKQ"
+  },
+  {
+   "format": "Shai Gilgeous-Alexander personality and emotion clips",
+   "why": "Gilgeous-Alexander leads the roster in yearly Wikipedia views (2,346,319), but the most-viewed video naming him is \"This is Why Everyone Hates Shai Gilgeous-Alexander\" (742,375). House of Highlights' clip of him in tears over Jalen Williams drew 524,912 and a top r/Thunder thread is about it, so human moments travel; the team's top 15 Shorts name him only in two plays (31,000 and 27,000).",
+   "example": "https://www.youtube.com/watch?v=0zOyeUD4ab4"
+  }
+ ],
+ "talk": [
+  {
+   "title": "Jdub appreciation post.",
+   "url": "https://www.reddit.com/r/Thunder/comments/1xfk6fx/jdub_appreciation_post/"
+  },
+  {
+   "title": "ADAY MARA WITH THE HESI FOR HIS FIRST NBA 3PT FG!",
+   "url": "https://www.reddit.com/r/Thunder/comments/1xqo802/aday_mara_with_the_hesi_for_his_first_nba_3pt_fg/"
+  },
+  {
+   "title": "[Charania] The Oklahoma City Thunder will retire Russell Westbrook's No. 0 in the rafters on Feb. 7.",
+   "url": "https://www.reddit.com/r/Thunder/comments/1xm6b6r/charania_the_oklahoma_city_thunder_will_retire/"
+  },
+  {
+   "title": "Heal Up JDub, OKC supports you.",
+   "url": "https://www.reddit.com/r/Thunder/comments/1xgcsfs/heal_up_jdub_okc_supports_you/"
+  },
+  {
+   "title": "A SCUFFLE ERUPTS OFF A CHEAP FOUL ON CHET BY FOX! J WILL IS INCENSED!",
+   "url": "https://www.reddit.com/r/Thunder/comments/1xbbbua/a_scuffle_erupts_off_a_cheap_foul_on_chet_by_fox/"
+  },
+  {
+   "title": "BREAKING NEWS: Thunder Mascot Rumble the Bison has suffered an Achilles Tear and will be out for the rest of the season.",
+   "url": "https://www.reddit.com/r/Thunder/comments/1xk8tzy/breaking_news_thunder_mascot_rumble_the_bison_has/"
+  },
+  {
+   "title": "Aday Mara is ALLOWING just 36.8% at the rim (lowest in the NBA)",
+   "url": "https://www.reddit.com/r/Thunder/comments/1xr40ui/aday_mara_is_allowing_just_368_at_the_rim_lowest/"
+  },
+  {
+   "title": "r/nba users watching the game frame by frame to see which play they can over-react to for karma",
+   "url": "https://www.reddit.com/r/Thunder/comments/1xd8yo0/rnba_users_watching_the_game_frame_by_frame_to/"
+  }
+ ],
+ "pulse": {
+  "window": "2026-11-03 to 2026-11-16",
+  "label": "10–16 Nov",
+  "team_wiki": {
+   "last7": 8470,
+   "prior7": 9864
+  },
+  "rising": [
+   {
+    "name": "Isaiah Hartenstein",
+    "url": "https://en.wikipedia.org/wiki/Isaiah_Hartenstein",
+    "last7": 9955,
+    "prior7": 4482,
+    "change": 1.221
+   },
+   {
+    "name": "Jared McCain",
+    "url": "https://en.wikipedia.org/wiki/Jared_McCain",
+    "last7": 4961,
+    "prior7": 4424,
+    "change": 0.121
+   }
+  ],
+  "videos": [
+   {
+    "title": "Final 4:56 ELECTRIC ENDING Thunder at Trail Blazers | November 11, 2026",
+    "url": "https://www.youtube.com/watch?v=gWIlsmnmd5k",
+    "channel": "NBA",
+    "views": 850417
+   },
+   {
+    "title": "THUNDER at TRAIL BLAZERS | FULL GAME HIGHLIGHTS | November 10, 2026",
+    "url": "https://www.youtube.com/watch?v=WtmaQ-mk6Ls",
+    "channel": "NBA",
+    "views": 691631
+   },
+   {
+    "title": "Final 5:31 WILD ENDING Thunder at Clippers 🏆 | November 13, 2026",
+    "url": "https://www.youtube.com/watch?v=aO-k7asVJR4",
+    "channel": "NBA",
+    "views": 624227
+   },
+   {
+    "title": "THUNDER at TRAIL BLAZERS | FULL GAME HIGHLIGHTS | November 11, 2026",
+    "url": "https://www.youtube.com/watch?v=YH0t29hJUy8",
+    "channel": "NBA",
+    "views": 501562
+   },
+   {
+    "title": "Oklahoma City Thunder vs Portland Trail Blazers Full Game Highlights - November 10, 2026",
+    "url": "https://www.youtube.com/watch?v=FYJCSRcxeNU",
+    "channel": "GAMETIME HIGHLIGHTS",
+    "views": 456072
+   }
+  ],
+  "threads": [
+   {
+    "title": "AY DIOS MIO! ADAY MARA WILL NOT SUBMIT AND GETS IT ON HIS THIRD TRY!",
+    "url": "https://www.reddit.com/r/Thunder/comments/1xt9abs/ay_dios_mio_aday_mara_will_not_submit_and_gets_it/"
+   },
+   {
+    "title": "J Dub Latest Post \"Life is just a test in how many times you can get back up\"",
+    "url": "https://www.reddit.com/r/Thunder/comments/1xt0nw6/j_dub_latest_post_life_is_just_a_test_in_how_many/"
+   },
+   {
+    "title": "Aday Mara leads the NBA in DFG% at 30.4% (min. 100 DFGA)",
+    "url": "https://www.reddit.com/r/Thunder/comments/1xt3vl0/aday_mara_leads_the_nba_in_dfg_at_304_min_100_dfga/"
+   },
+   {
+    "title": "Watching OKC games from the east coast when tip is 11pm est (you know they won’t start until 11:25)",
+    "url": "https://www.reddit.com/r/Thunder/comments/1xssc4q/watching_okc_games_from_the_east_coast_when_tip/"
+   },
+   {
+    "title": "Not gonna lie dude, I’d take a few bullets for Mara",
+    "url": "https://www.reddit.com/r/Thunder/comments/1xtuo1e/not_gonna_lie_dude_id_take_a_few_bullets_for_mara/"
+   }
+  ]
+ }
+}

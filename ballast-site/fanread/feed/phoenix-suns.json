@@ -1,0 +1,414 @@
+{
+ "team": "Phoenix Suns",
+ "as_of": "2026-11-16",
+ "source": "Ballast Fan Read",
+ "summary": "Suns fans look up Devin Booker most (64,471 Wikipedia views in 30 days, nearly twice Jalen Green's 33,300, and 856,790 in the year), with Dillon Brooks (23,984) and new arrival Miles Bridges (20,080) next. The fanbase spent the month arguing about Kevin Durant's exit and his public spat with owner Mat Ishbia and worrying about the lack of a true point guard and Green's slump, while outsiders watch the Suns mostly through Brooks confrontations (four Chaz NBA clips, about three million views) and the team's own All-Access series (829,861).",
+ "segments": [
+  {
+   "id": "dillon-brooks-villain-fans",
+   "name": "Dillon Brooks villain fans",
+   "who": "Fans who enjoy Brooks winding up opponents, and opposing fans who love to hate him.",
+   "size_signal": "Collins-Brooks 918,037; Draymond-Brooks 877,117; Lillard-Brooks 817,491; Brooks ejection 432,076. Brooks is third among Suns in 30-day Wikipedia views (23,984) and has 459,398 in the year.",
+   "where": [
+    "Chaz NBA",
+    "r/suns",
+    "team Shorts"
+   ],
+   "enjoys": [
+    "confrontations",
+    "trolling ads",
+    "staring contests"
+   ],
+   "offer": "Lean into Brooks as a character: mic'd-up clips and fan contests like the staring-contest Short.",
+   "evidence": [
+    "https://www.youtube.com/watch?v=ulQKaOeVKQs",
+    "https://www.youtube.com/watch?v=2E3Ie92_Ej8",
+    "https://www.reddit.com/r/suns/comments/1x8sust/dillon_brooks_responds_to_kd_on_his_ig_story/",
+    "https://www.reddit.com/r/suns/comments/1xay9wg/dillon_brooks_just_dropped_an_ad_to_troll_lebron/",
+    "https://www.youtube.com/shorts/_d4Jgo6oYAY"
+   ]
+  },
+  {
+   "id": "kd-breakup-arguers",
+   "name": "KD-breakup arguers",
+   "who": "Fans still debating Kevin Durant's exit and his public back-and-forth with owner Mat Ishbia.",
+   "size_signal": "Seven of the top 25 r/suns threads this month are about Durant.",
+   "where": [
+    "r/suns"
+   ],
+   "enjoys": [
+    "KD quotes",
+    "owner responses",
+    "defending or blaming KD"
+   ],
+   "offer": "Avoid feeding the feud; offer a respectful KD tribute moment when he returns.",
+   "evidence": [
+    "https://www.reddit.com/r/suns/comments/1xqrqwa/kevin_durant_i_loved_living_in_phoenix_i_miss_it/",
+    "https://www.reddit.com/r/suns/comments/1x8kltt/kd_and_mat_go_at_it_back_and_forth_on_twitter/",
+    "https://www.reddit.com/r/suns/comments/1x8k7f0/mat_ishbia_responds_to_kd_by_taking_the_high_road/",
+    "https://www.reddit.com/r/suns/comments/1xqrm43/still_dont_know_why_kd_gets_so_much_hate_from_our/",
+    "https://www.reddit.com/r/suns/comments/1x8hxu8/so_glad_we_moved_on_from_this_locker_room_cancer/",
+    "https://www.reddit.com/r/suns/comments/1xqpukz/i_wanna_take_a_second_to_appreciate_this_moment/"
+   ]
+  },
+  {
+   "id": "devin-booker-followers",
+   "name": "Devin Booker followers",
+   "who": "Fans for whom Booker is the constant through roster changes; he is the most-searched Sun by a wide margin, and fan channels carry his biggest moments.",
+   "size_signal": "Booker has 64,471 Wikipedia views in 30 days and 856,790 in the year, about twice Jalen Green's 33,300 and 455,908. His words with Ja Morant drew 456,902 this month and his cold clutch shot 221,898; the 43-point \"masterclass\" thread is in r/suns' monthly top 10, while the team's Booker Shorts draw 9,100 to 12,000.",
+   "where": [
+    "Wikipedia",
+    "r/suns",
+    "YouTube (Chaz NBA, House of Highlights)",
+    "team Shorts"
+   ],
+   "enjoys": [
+    "Booker scoring nights",
+    "clutch fourth quarters",
+    "his run-ins with opponents",
+    "pure jumpers"
+   ],
+   "offer": "Booker clutch and confrontation clips cut the same night, plus career-milestone features; the team's Booker Shorts (12,000 at most) reach a small fraction of the fan-channel clips.",
+   "evidence": [
+    "https://www.youtube.com/watch?v=rPZV2a2AcmU",
+    "https://www.youtube.com/watch?v=s0wL7giRsXs",
+    "https://www.reddit.com/r/suns/comments/1xevud8/devin_booker_delivers_a_masterclass_with_43/",
+    "https://www.reddit.com/r/suns/comments/1xuyijy/book_with_the/",
+    "https://www.youtube.com/shorts/aVt9AOabRyw"
+   ]
+  },
+  {
+   "id": "all-access-viewers",
+   "name": "All-Access viewers",
+   "who": "Fans who watch the team's own long behind-the-scenes episodes.",
+   "size_signal": "Episode 8 829,861; Episode 7 408,388; Postseason Preview Pod 387,969.",
+   "where": [
+    "Phoenix Suns YouTube"
+   ],
+   "enjoys": [
+    "locker-room footage",
+    "All-Star access",
+    "season previews"
+   ],
+   "offer": "More All-Access episodes during the season, not just at milestones.",
+   "evidence": [
+    "https://www.youtube.com/watch?v=Qyk141KRvBc",
+    "https://www.youtube.com/watch?v=zQC8iJ_7bh0",
+    "https://www.youtube.com/watch?v=JfrAmYDJiOk"
+   ]
+  },
+  {
+   "id": "long-suffering-2021-nostalgists",
+   "name": "Long-suffering 2021 nostalgists",
+   "who": "Fans who still think about the 2021 Finals and worry about a long season without a true point guard.",
+   "size_signal": "Four top-25 threads on the 2021 Finals, the \"very long season\" and locker-room frustration.",
+   "where": [
+    "r/suns"
+   ],
+   "enjoys": [
+    "\"what if\" threads",
+    "roster complaints",
+    "memes about the bad stretch"
+   ],
+   "offer": "Honest roster talk from the front office; 2021 anniversary content.",
+   "evidence": [
+    "https://www.reddit.com/r/suns/comments/1xj1ncz/sometimes_i_feel_like_my_whole_life_would_be/",
+    "https://www.reddit.com/r/suns/comments/1xj41zk/but_there_was_a_time/",
+    "https://www.reddit.com/r/suns/comments/1xgfaon/this_is_gonna_be_a_very_long_season/",
+    "https://www.reddit.com/r/suns/comments/1ximthq/haynes_there_has_been_growing_frustration_within/"
+   ]
+  },
+  {
+   "id": "daily-podcast-listeners",
+   "name": "Daily podcast listeners",
+   "who": "Fans following the team through daily audio.",
+   "size_signal": "The Timeline has 517 episodes, Locked On Suns 500, Suns Latest 325.",
+   "where": [
+    "Apple Podcasts"
+   ],
+   "enjoys": [
+    "daily shows",
+    "beat analysis"
+   ],
+   "offer": "Guest spots for hosts and audio clips for podcast use.",
+   "evidence": [
+    "https://podcasts.apple.com/us/podcast/the-timeline-a-phoenix-suns-podcast/id1398691433?uo=4",
+    "https://podcasts.apple.com/us/podcast/locked-on-suns-daily-podcast-on-the-phoenix-suns/id1164113112?uo=4",
+    "https://podcasts.apple.com/us/podcast/suns-latest-podcast-daily-phoenix-suns-podcast/id1884468765?uo=4"
+   ]
+  }
+ ],
+ "players": [
+  {
+   "name": "Devin Booker",
+   "wikipedia_views_30d": 64471,
+   "wikipedia_views_year": 856790,
+   "url": "https://en.wikipedia.org/wiki/Devin_Booker"
+  },
+  {
+   "name": "Jalen Green",
+   "wikipedia_views_30d": 33300,
+   "wikipedia_views_year": 455908,
+   "url": "https://en.wikipedia.org/wiki/Jalen_Green"
+  },
+  {
+   "name": "Dillon Brooks",
+   "wikipedia_views_30d": 23984,
+   "wikipedia_views_year": 459398,
+   "url": "https://en.wikipedia.org/wiki/Dillon_Brooks"
+  },
+  {
+   "name": "Miles Bridges",
+   "wikipedia_views_30d": 20080,
+   "wikipedia_views_year": 329946,
+   "url": "https://en.wikipedia.org/wiki/Miles_Bridges"
+  },
+  {
+   "name": "Pat Spencer",
+   "wikipedia_views_30d": 15820,
+   "wikipedia_views_year": 160662,
+   "url": "https://en.wikipedia.org/wiki/Pat_Spencer"
+  },
+  {
+   "name": "Khaman Maluach",
+   "wikipedia_views_30d": 15744,
+   "wikipedia_views_year": 159356,
+   "url": "https://en.wikipedia.org/wiki/Khaman_Maluach"
+  },
+  {
+   "name": "Luke Kennard",
+   "wikipedia_views_30d": 12929,
+   "wikipedia_views_year": 476860,
+   "url": "https://en.wikipedia.org/wiki/Luke_Kennard"
+  }
+ ],
+ "formats": [
+  {
+   "type": "game_highlights",
+   "share_of_views": 0.722,
+   "examples": [
+    "https://www.youtube.com/watch?v=8K-SL92pXR0",
+    "https://www.youtube.com/watch?v=8m0ATulzTYg",
+    "https://www.youtube.com/watch?v=llVb-GMf-_g"
+   ]
+  },
+  {
+   "type": "brooks_flashpoints",
+   "share_of_views": 0.109,
+   "examples": [
+    "https://www.youtube.com/watch?v=ulQKaOeVKQs",
+    "https://www.youtube.com/watch?v=2E3Ie92_Ej8",
+    "https://www.youtube.com/watch?v=1uSr802H9t8"
+   ]
+  },
+  {
+   "type": "opponent_star_moments",
+   "share_of_views": 0.053,
+   "examples": [
+    "https://www.youtube.com/watch?v=qwIJIU7rIuo",
+    "https://www.youtube.com/watch?v=NZQWnKYmWxg",
+    "https://www.youtube.com/watch?v=owvmbrlHKB0"
+   ]
+  },
+  {
+   "type": "behind_scenes",
+   "share_of_views": 0.045,
+   "examples": [
+    "https://www.youtube.com/watch?v=Qyk141KRvBc",
+    "https://www.youtube.com/watch?v=zQC8iJ_7bh0",
+    "https://www.youtube.com/shorts/fRRO4QkYXrU"
+   ]
+  },
+  {
+   "type": "fan_reactions",
+   "share_of_views": 0.031,
+   "examples": [
+    "https://www.youtube.com/watch?v=pMXgLN0rf6A",
+    "https://www.youtube.com/watch?v=SQz8kBhOgn0",
+    "https://www.youtube.com/watch?v=fb7G830J5CA"
+   ]
+  },
+  {
+   "type": "beefs_scuffles",
+   "share_of_views": 0.016,
+   "examples": [
+    "https://www.youtube.com/watch?v=rPZV2a2AcmU"
+   ]
+  },
+  {
+   "type": "analysis",
+   "share_of_views": 0.014,
+   "examples": [
+    "https://www.youtube.com/watch?v=JfrAmYDJiOk"
+   ]
+  },
+  {
+   "type": "player_moments",
+   "share_of_views": 0.005,
+   "examples": [
+    "https://www.youtube.com/shorts/dik5hHtDsxo",
+    "https://www.youtube.com/shorts/qVGS2cAZ1qQ",
+    "https://www.youtube.com/shorts/8yqTDzDrXKU"
+   ]
+  },
+  {
+   "type": "live_streams",
+   "share_of_views": 0.003,
+   "examples": [
+    "https://www.youtube.com/watch?v=w-TKREwAmlA",
+    "https://www.youtube.com/watch?v=HYhy5zS01Z4"
+   ]
+  },
+  {
+   "type": "news_rumors",
+   "share_of_views": 0.002,
+   "examples": [
+    "https://www.youtube.com/watch?v=44aNJMijNVM"
+   ]
+  },
+  {
+   "type": "pressers_interviews",
+   "share_of_views": 0.0,
+   "examples": [
+    "https://www.youtube.com/shorts/ye-5tCXeSMI"
+   ]
+  }
+ ],
+ "make_or_reward": [
+  {
+   "format": "Behind-the-scenes docuseries",
+   "why": "All-Access Episode 8 drew 829,861, the team channel's best item and the tenth most-viewed Suns video of the year, about 21 times its best Short (39,000).",
+   "example": "https://www.youtube.com/watch?v=Qyk141KRvBc"
+  },
+  {
+   "format": "Dillon Brooks personality content",
+   "why": "Chaz NBA's Brooks clips drew 918,037, 877,117 and 817,491; the team's Brooks Shorts drew 17,000 and 13,000. r/suns also upvoted his ad trolling LeBron.",
+   "example": "https://www.youtube.com/watch?v=ulQKaOeVKQs"
+  },
+  {
+   "format": "Warriors-game highlights",
+   "why": "Suns at Warriors on Nov 2 is the top Suns video of the year at 1,951,124, and the Apr 17 Play-In (1,566,021) and Oct 24 (638,270) Warriors games are also in the year's top 13.",
+   "example": "https://www.youtube.com/watch?v=8K-SL92pXR0"
+  },
+  {
+   "format": "Reward watch-along creators",
+   "why": "FlightReacts covered three Suns games (431,033, 350,735, 103,473), and the Oct 24 watch-along (350,735) nearly matched GAMETIME's re-upload of that game (356,679).",
+   "example": "https://www.youtube.com/watch?v=pMXgLN0rf6A"
+  },
+  {
+   "format": "Booker clutch and confrontation clips the same night",
+   "why": "Booker is the most-searched Sun (64,471 Wikipedia views in 30 days), and fan channels carry him: Chaz NBA's Ja Morant exchange drew 456,902 and House of Highlights' clutch shot 221,898 this month, while the team's Booker Shorts top out at 12,000.",
+   "example": "https://www.youtube.com/watch?v=s0wL7giRsXs"
+  },
+  {
+   "format": "Straight answers on Jalen Green's role, including for his Filipino audience",
+   "why": "Green is the second-most-searched Sun (33,300 in 30 days), and this month's videos about him are about his slump: Staincast's \"Situation Is Getting Ugly\" drew 229,031 and Filipino channels (3B Hoops 91,574; Kwentong Basketbol 56,485 and 43,174) cover his struggles, while the team's top Short is still a Green dunk (39,000).",
+   "example": "https://www.youtube.com/watch?v=IlHarvapuaI"
+  }
+ ],
+ "talk": [
+  {
+   "title": "Kevin Durant: \"I loved living in Phoenix, I miss it everyday, to be honest with you. My favorite place to live in the league\"",
+   "url": "https://www.reddit.com/r/suns/comments/1xqrqwa/kevin_durant_i_loved_living_in_phoenix_i_miss_it/"
+  },
+  {
+   "title": "KD and Mat go at it back and forth on twitter",
+   "url": "https://www.reddit.com/r/suns/comments/1x8kltt/kd_and_mat_go_at_it_back_and_forth_on_twitter/"
+  },
+  {
+   "title": "Dillon Brooks responds to KD on his IG story",
+   "url": "https://www.reddit.com/r/suns/comments/1x8sust/dillon_brooks_responds_to_kd_on_his_ig_story/"
+  },
+  {
+   "title": "[Haynes] There has been “growing frustration” within the Phoenix Suns locker room over the lack of a true point guard to organize the offense.",
+   "url": "https://www.reddit.com/r/suns/comments/1ximthq/haynes_there_has_been_growing_frustration_within/"
+  },
+  {
+   "title": "This Is Gonna Be A Very Long Season",
+   "url": "https://www.reddit.com/r/suns/comments/1xgfaon/this_is_gonna_be_a_very_long_season/"
+  },
+  {
+   "title": "Koa Peat scores 10 points in 5 minutes in his first meaningful NBA minutes",
+   "url": "https://www.reddit.com/r/suns/comments/1xxaaby/koa_peat_scores_10_points_in_5_minutes_in_his/"
+  },
+  {
+   "title": "Sometimes I feel like my whole life would be different if the suns won the 2021 nba finals",
+   "url": "https://www.reddit.com/r/suns/comments/1xj1ncz/sometimes_i_feel_like_my_whole_life_would_be/"
+  },
+  {
+   "title": "Go the Gorilla just took part in Anarchy In The Arena on AEW Full Gear tonight at MMC!",
+   "url": "https://www.reddit.com/r/suns/comments/1xwpkv3/go_the_gorilla_just_took_part_in_anarchy_in_the/"
+  }
+ ],
+ "pulse": {
+  "window": "2026-11-03 to 2026-11-16",
+  "label": "10–16 Nov",
+  "team_wiki": {
+   "last7": 6071,
+   "prior7": 5858
+  },
+  "rising": [
+   {
+    "name": "Luke Kennard",
+    "url": "https://en.wikipedia.org/wiki/Luke_Kennard",
+    "last7": 3620,
+    "prior7": 3169,
+    "change": 0.142
+   }
+  ],
+  "videos": [
+   {
+    "title": "LAKERS at SUNS | FULL GAME HIGHLIGHTS | November 15, 2026",
+    "url": "https://www.youtube.com/watch?v=ITflm59NiYY",
+    "channel": "NBA",
+    "views": 1380434
+   },
+   {
+    "title": "Los Angeles Lakers vs Phoenix Suns Full Game Highlights - November 15, 2026 | NBA Season",
+    "url": "https://www.youtube.com/watch?v=GwA3B1sPQME",
+    "channel": "GAMETIME HIGHLIGHTS",
+    "views": 620713
+   },
+   {
+    "title": "SPURS at SUNS | FULL GAME HIGHLIGHTS | November 9, 2026",
+    "url": "https://www.youtube.com/watch?v=fZRq0ZJQa2I",
+    "channel": "NBA",
+    "views": 536731
+   },
+   {
+    "title": "Luka Doncic hits wild shots & takes clipboard to draw up play late vs Suns",
+    "url": "https://www.youtube.com/watch?v=owvmbrlHKB0",
+    "channel": "Chaz NBA",
+    "views": 441220
+   },
+   {
+    "title": "San Antonio Spurs vs Phoenix Suns Full Game Highlights - November 9, 2026 | NBA Season",
+    "url": "https://www.youtube.com/watch?v=Zw7TD6ep97k",
+    "channel": "GAMETIME HIGHLIGHTS",
+    "views": 358556
+   }
+  ],
+  "threads": [
+   {
+    "title": "Flirting vs harassment",
+    "url": "https://www.reddit.com/r/suns/comments/1xu395j/flirting_vs_harassment/"
+   },
+   {
+    "title": "JJ Redick on the Suns bench: “Their second unit is their best unit right now. That unit plays like the team they had last year. They move, they cut, they can all shoot… they’re tough to guard.”",
+    "url": "https://www.reddit.com/r/suns/comments/1xy4iok/jj_redick_on_the_suns_bench_their_second_unit_is/"
+   },
+   {
+    "title": "Book with the 🗡️",
+    "url": "https://www.reddit.com/r/suns/comments/1xuyijy/book_with_the/"
+   },
+   {
+    "title": "Koa Peat scores 10 points in 5 minutes in his first meaningful NBA minutes",
+    "url": "https://www.reddit.com/r/suns/comments/1xxaaby/koa_peat_scores_10_points_in_5_minutes_in_his/"
+   },
+   {
+    "title": "Went to my first ever NBA game",
+    "url": "https://www.reddit.com/r/suns/comments/1xuz3c8/went_to_my_first_ever_nba_game/"
+   }
+  ]
+ }
+}

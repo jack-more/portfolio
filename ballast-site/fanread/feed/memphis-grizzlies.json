@@ -1,0 +1,415 @@
+{
+ "team": "Memphis Grizzlies",
+ "as_of": "2026-11-16",
+ "source": "Ballast Fan Read",
+ "summary": "Grizzlies fans are searching Ty Jerome far more than anyone this month (211,066 Wikipedia views in 30 days, more than double rookie Cameron Boozer's 90,117), while Boozer leads the roster over the year (1,190,027). The fanbase is talking about the surprise start, when Memphis was briefly the only undefeated team, Jerome's league-leading scoring, Boozer's triple-double and Isaiah Stewart's \"Murder Ball\" toughness; on YouTube the biggest non-game items are Stewart rejecting Zion (1,292,865) and Draymond Green tangling with Stewart and Zach Edey, and former star Ja Morant now appears as an opponent taking shots at Memphis.",
+ "segments": [
+  {
+   "id": "ty-jerome-breakout-followers",
+   "name": "Ty Jerome breakout followers",
+   "who": "Fans, in Memphis and abroad, following the guard whose scoring start made him the most-searched Grizzly of the month",
+   "size_signal": "Ty Jerome 211,066 Wikipedia views in 30 days (245,165 in the year), the roster high; NBA \"104 points in 3 games\" 177,003; explainers 226,773 (太吾車神) and 185,911 (澤北SG); team Short \"TY JEROME FORCES OT\" 11K; Player of the Week thread in the top 25",
+   "where": [
+    "Wikipedia",
+    "YouTube (NBA, Chinese- and Filipino-language explainers)",
+    "r/memphisgrizzlies",
+    "team Shorts"
+   ],
+   "enjoys": [
+    "player_moments",
+    "analysis"
+   ],
+   "offer": "Jerome scoring-night Shorts and floater compilations, with English captions that international explainer channels can pick up",
+   "evidence": [
+    "https://www.youtube.com/watch?v=99zG-sAYsJ0",
+    "https://www.youtube.com/watch?v=8UVyXsNRjiI",
+    "https://www.reddit.com/r/memphisgrizzlies/comments/1xg8p5i/ty_jerome_named_western_conference_player_of_the/",
+    "https://www.youtube.com/shorts/oBfGXtq_Quc"
+   ]
+  },
+  {
+   "id": "unbeaten-start-celebrants",
+   "name": "Unbeaten-start celebrants",
+   "who": "Fans posting every win of the surprise start",
+   "size_signal": "7 of the top 25 r/memphisgrizzlies threads this month are streak or \"surprise\" posts; Kwentong Basketbol's \"6-0 UNDEFEATED\" video 180K",
+   "where": [
+    "r/memphisgrizzlies",
+    "YouTube (Kwentong Basketbol)"
+   ],
+   "enjoys": [
+    "community",
+    "game_highlights"
+   ],
+   "offer": "Streak graphics and fan-poll content during win runs",
+   "evidence": [
+    "https://www.reddit.com/r/memphisgrizzlies/comments/1xjyzax/houston_lose_at_dallas_which_means_the_memphis/",
+    "https://www.reddit.com/r/memphisgrizzlies/comments/1xk8l03/woke_up_this_morning_and_the_basketball_team_i/",
+    "https://www.reddit.com/r/memphisgrizzlies/comments/1xj5q3t/grizzlies_are_50/",
+    "https://www.youtube.com/watch?v=Z1kml8ZKBxg"
+   ]
+  },
+  {
+   "id": "murder-ball-toughness-crowd",
+   "name": "\"Murder Ball\" toughness crowd",
+   "who": "Fans who love Isaiah Stewart and Zach Edey standing up for teammates",
+   "size_signal": "House of Highlights' Stewart-rejects-Zion clip 1,292,865 and Chaz NBA's Draymond-Stewart-Edey clip 1,249,892 are the two biggest Grizzlies player clips of the month; 2 of the top 25 threads quote Stewart and another is titled \"You don't mess with my point guard.\"",
+   "where": [
+    "r/memphisgrizzlies",
+    "YouTube (Chaz NBA, House of Highlights)"
+   ],
+   "enjoys": [
+    "beef_trash_talk",
+    "pressers_interviews"
+   ],
+   "offer": "Stewart walk-off interviews and mic'd-up clips, posted fast",
+   "evidence": [
+    "https://www.reddit.com/r/memphisgrizzlies/comments/1xeb3ro/you_dont_mess_with_my_point_guard/",
+    "https://www.reddit.com/r/memphisgrizzlies/comments/1xksq1m/isaiah_stewart_walkoff_interview_play_some_murder/",
+    "https://www.reddit.com/r/memphisgrizzlies/comments/1xmmids/pagaduan_isaiah_stewart_on_the_postgame_scuffle/",
+    "https://www.youtube.com/watch?v=pz1tjDXl3TA",
+    "https://www.youtube.com/watch?v=80Oj5hyURU8"
+   ]
+  },
+  {
+   "id": "cameron-boozer-and-young-core-believers",
+   "name": "Cameron Boozer and young-core believers",
+   "who": "Fans focused on rookie Cameron Boozer, the roster's most-searched player over the year, plus Cedric Coward and the other young players",
+   "size_signal": "Boozer 1,190,027 Wikipedia views in the year and 90,117 in 30 days; NBA triple-double clip 134,501; Chaz NBA go-ahead bucket vs Warriors 159,489; Boozer game-winner Short 21.0K (team's top Short); threads on Boozer's triple-double and \"Best Young Core in the League\"",
+   "where": [
+    "Wikipedia",
+    "r/memphisgrizzlies",
+    "team Shorts",
+    "YouTube (NBA, Chaz NBA)"
+   ],
+   "enjoys": [
+    "player_moments",
+    "game_highlights"
+   ],
+   "offer": "Rookie-milestone Shorts and Summer League recaps",
+   "evidence": [
+    "https://www.reddit.com/r/memphisgrizzlies/comments/1xj5o0o/cameron_boozer_becomes_youngest_front_court/",
+    "https://www.reddit.com/r/memphisgrizzlies/comments/1xlbk79/best_young_core_in_the_league/",
+    "https://www.youtube.com/shorts/a-tQI-04RHs",
+    "https://www.youtube.com/watch?v=5bbikxXVQL0"
+   ]
+  },
+  {
+   "id": "ja-morant-breakup-watchers",
+   "name": "Ja Morant breakup watchers",
+   "who": "Fans and neutrals following the former star's jabs at Memphis",
+   "size_signal": "Two Chaz NBA clips of Ja vs Memphis total 699K; Polymarket \"Will Ja Morant be traded in 2025?\" $18.4K",
+   "where": [
+    "YouTube (Chaz NBA)",
+    "r/memphisgrizzlies"
+   ],
+   "enjoys": [
+    "beef_trash_talk",
+    "news_rumors"
+   ],
+   "offer": "Nothing from the team; keep the focus on the new core",
+   "evidence": [
+    "https://www.youtube.com/watch?v=nLNJv2hy2dA",
+    "https://www.youtube.com/watch?v=GpYoK3NHM1s",
+    "https://www.reddit.com/r/memphisgrizzlies/comments/1x9b2a1/ja_on_a_tiktok_comment/",
+    "https://polymarket.com/event/will-ja-morant-be-traded-in-2025"
+   ]
+  },
+  {
+   "id": "daily-radio-and-podcast-listeners",
+   "name": "Daily radio and podcast listeners",
+   "who": "Local fans who follow every day on audio",
+   "size_signal": "Grits and Grinds 750 episodes, Chris Vernon Show 639, Locked On Grizzlies 500",
+   "where": [
+    "Apple Podcasts"
+   ],
+   "enjoys": [
+    "analysis"
+   ],
+   "offer": "Player access for the Chris Vernon Show and independent pods on off days",
+   "evidence": [
+    "https://podcasts.apple.com/us/podcast/grits-and-grinds-memphis-grizzlies/id1481776281?uo=4",
+    "https://podcasts.apple.com/us/podcast/chris-vernon-show/id1170697415?uo=4",
+    "https://podcasts.apple.com/us/podcast/locked-on-grizzlies-daily-podcast-on-the-memphis-grizzlies/id1159426874?uo=4"
+   ]
+  }
+ ],
+ "players": [
+  {
+   "name": "Ty Jerome",
+   "wikipedia_views_30d": 211066,
+   "wikipedia_views_year": 245165,
+   "url": "https://en.wikipedia.org/wiki/Ty_Jerome"
+  },
+  {
+   "name": "Cameron Boozer",
+   "wikipedia_views_30d": 90117,
+   "wikipedia_views_year": 1190027,
+   "url": "https://en.wikipedia.org/wiki/Cameron_Boozer"
+  },
+  {
+   "name": "Zach Edey",
+   "wikipedia_views_30d": 31687,
+   "wikipedia_views_year": 343440,
+   "url": "https://en.wikipedia.org/wiki/Zach_Edey"
+  },
+  {
+   "name": "Isaiah Stewart",
+   "wikipedia_views_30d": 23293,
+   "wikipedia_views_year": 254618,
+   "url": "https://en.wikipedia.org/wiki/Isaiah_Stewart"
+  },
+  {
+   "name": "Scotty Pippen Jr.",
+   "wikipedia_views_30d": 23744,
+   "wikipedia_views_year": 253923,
+   "url": "https://en.wikipedia.org/wiki/Scotty_Pippen_Jr."
+  },
+  {
+   "name": "Cedric Coward",
+   "wikipedia_views_30d": 17098,
+   "wikipedia_views_year": 174569,
+   "url": "https://en.wikipedia.org/wiki/Cedric_Coward"
+  },
+  {
+   "name": "Jerami Grant",
+   "wikipedia_views_30d": 17353,
+   "wikipedia_views_year": 181079,
+   "url": "https://en.wikipedia.org/wiki/Jerami_Grant"
+  },
+  {
+   "name": "Karim Lopez",
+   "wikipedia_views_30d": 15806,
+   "wikipedia_views_year": 258438,
+   "url": "https://en.wikipedia.org/wiki/Karim_L%C3%B3pez"
+  }
+ ],
+ "formats": [
+  {
+   "type": "game_highlights",
+   "share_of_views": 0.6579,
+   "examples": [
+    "https://www.youtube.com/watch?v=AsAPLWibSy4",
+    "https://www.youtube.com/watch?v=hSgL6Hq0KF4",
+    "https://www.youtube.com/watch?v=2o4lgEQCOgk"
+   ]
+  },
+  {
+   "type": "beef_trash_talk",
+   "share_of_views": 0.1331,
+   "examples": [
+    "https://www.youtube.com/watch?v=pz1tjDXl3TA",
+    "https://www.youtube.com/watch?v=nLNJv2hy2dA",
+    "https://www.youtube.com/watch?v=5h181lwFYzw"
+   ]
+  },
+  {
+   "type": "player_moments",
+   "share_of_views": 0.0576,
+   "examples": [
+    "https://www.youtube.com/watch?v=GpYoK3NHM1s",
+    "https://www.youtube.com/watch?v=5OGJQCZJycQ",
+    "https://www.youtube.com/watch?v=GBitsiUEXJs"
+   ]
+  },
+  {
+   "type": "gaming_2k",
+   "share_of_views": 0.0538,
+   "examples": [
+    "https://www.youtube.com/watch?v=hBhXM6hQWzQ",
+    "https://www.youtube.com/watch?v=8wVsj4Ik1Fc"
+   ]
+  },
+  {
+   "type": "fan_reactions",
+   "share_of_views": 0.0376,
+   "examples": [
+    "https://www.youtube.com/watch?v=V5FhgWib0eA",
+    "https://www.youtube.com/watch?v=nbrYk5FyvZ4",
+    "https://www.youtube.com/watch?v=MpppDn227IE"
+   ]
+  },
+  {
+   "type": "analysis",
+   "share_of_views": 0.0281,
+   "examples": [
+    "https://www.youtube.com/watch?v=MDsUod04Mpk",
+    "https://www.youtube.com/watch?v=Z1kml8ZKBxg",
+    "https://www.youtube.com/watch?v=lo5UND19oHc"
+   ]
+  },
+  {
+   "type": "community_tributes",
+   "share_of_views": 0.017,
+   "examples": [
+    "https://www.youtube.com/watch?v=d-QKVPdayyE"
+   ]
+  },
+  {
+   "type": "behind_scenes",
+   "share_of_views": 0.014,
+   "examples": [
+    "https://www.youtube.com/watch?v=Pg5_0Be3xfQ",
+    "https://www.youtube.com/shorts/nBxTMh8XIWQ",
+    "https://www.youtube.com/shorts/nWdIyNx_XIc"
+   ]
+  },
+  {
+   "type": "news_rumors",
+   "share_of_views": 0.0009,
+   "examples": [
+    "https://www.youtube.com/watch?v=FAXBsg5a1Uc"
+   ]
+  }
+ ],
+ "make_or_reward": [
+  {
+   "format": "Ty Jerome scoring-run clips and explainers",
+   "why": "Jerome is the most-searched Grizzly of the month (211,066 Wikipedia views in 30 days). The NBA's \"104 points in 3 games\" clip drew 177,003, and Chinese- and Filipino-language explainers drew 226,773, 185,911 and 140,174; the team's \"TY JEROME FORCES OT\" Short has 11K.",
+   "example": "https://www.youtube.com/watch?v=99zG-sAYsJ0"
+  },
+  {
+   "format": "Toughness and enforcer clips (Isaiah Stewart, Zach Edey)",
+   "why": "Confrontation clips are 13.3% of classified views from 3 items; Draymond vs Stewart and Edey has 1.25M, the most-viewed Grizzlies item of the year list, and House of Highlights' Stewart-rejects-Zion clip has 1,292,865 in the players data. None of the team's top 15 Shorts features Stewart.",
+   "example": "https://www.youtube.com/watch?v=pz1tjDXl3TA"
+  },
+  {
+   "format": "Summer League and young-roster highlights",
+   "why": "The Summer League championship game has 500K; five Summer League games total 1.37M.",
+   "example": "https://www.youtube.com/watch?v=uKcXuVjvpIY"
+  },
+  {
+   "format": "Rookie milestone clips for Cameron Boozer",
+   "why": "Boozer's game-winner is the team's top Short (21.0K), and his youngest-frontcourt triple-double is a top r/memphisgrizzlies thread; the NBA's triple-double clip drew 134,501 and Chaz NBA's go-ahead bucket 159,489. He is the roster's most-searched player over the year (1,190,027).",
+   "example": "https://www.reddit.com/r/memphisgrizzlies/comments/1xj5o0o/cameron_boozer_becomes_youngest_front_court/"
+  },
+  {
+   "format": "NBA 2K creator tie-ins",
+   "why": "Two KOT4Q Grizzlies rebuild videos total 789K views.",
+   "example": "https://www.youtube.com/watch?v=8wVsj4Ik1Fc"
+  },
+  {
+   "format": "Community and tribute stories",
+   "why": "ESPN's Brandon Clarke tribute piece has 249K; 2 of the top 25 Reddit threads are Clarke tributes and another is a St. Jude visit.",
+   "example": "https://www.youtube.com/watch?v=d-QKVPdayyE"
+  }
+ ],
+ "talk": [
+  {
+   "title": "Houston lose at Dallas which means the Memphis Grizzlies are the only undefeated team remaining in the NBA",
+   "url": "https://www.reddit.com/r/memphisgrizzlies/comments/1xjyzax/houston_lose_at_dallas_which_means_the_memphis/"
+  },
+  {
+   "title": "\"You don't mess with my point guard.\"",
+   "url": "https://www.reddit.com/r/memphisgrizzlies/comments/1xeb3ro/you_dont_mess_with_my_point_guard/"
+  },
+  {
+   "title": "Cameron Boozer Becomes Youngest Front Court Player In NBA History To Record A Tripple Double",
+   "url": "https://www.reddit.com/r/memphisgrizzlies/comments/1xj5o0o/cameron_boozer_becomes_youngest_front_court/"
+  },
+  {
+   "title": "Isaiah Stewart Walkoff Interview: “Play some Murder Ball”",
+   "url": "https://www.reddit.com/r/memphisgrizzlies/comments/1xksq1m/isaiah_stewart_walkoff_interview_play_some_murder/"
+  },
+  {
+   "title": "Best Young Core in the League",
+   "url": "https://www.reddit.com/r/memphisgrizzlies/comments/1xlbk79/best_young_core_in_the_league/"
+  },
+  {
+   "title": "Ty Jerome named Western Conference Player of the Week leading the league in points through Week 1",
+   "url": "https://www.reddit.com/r/memphisgrizzlies/comments/1xg8p5i/ty_jerome_named_western_conference_player_of_the/"
+  },
+  {
+   "title": "BC Tribute Video",
+   "url": "https://www.reddit.com/r/memphisgrizzlies/comments/1xcugyh/bc_tribute_video/"
+  },
+  {
+   "title": "Ja on a TikTok comment",
+   "url": "https://www.reddit.com/r/memphisgrizzlies/comments/1x9b2a1/ja_on_a_tiktok_comment/"
+  }
+ ],
+ "pulse": {
+  "window": "2026-11-03 to 2026-11-16",
+  "label": "10–16 Nov",
+  "team_wiki": {
+   "last7": 6974,
+   "prior7": 7339
+  },
+  "rising": [
+   {
+    "name": "Cedric Coward",
+    "url": "https://en.wikipedia.org/wiki/Cedric_Coward",
+    "last7": 3798,
+    "prior7": 3002,
+    "change": 0.265
+   },
+   {
+    "name": "Karim Lopez",
+    "url": "https://en.wikipedia.org/wiki/Karim_L%C3%B3pez",
+    "last7": 3027,
+    "prior7": 2643,
+    "change": 0.145
+   },
+   {
+    "name": "Jerami Grant",
+    "url": "https://en.wikipedia.org/wiki/Jerami_Grant",
+    "last7": 3115,
+    "prior7": 2891,
+    "change": 0.077
+   }
+  ],
+  "videos": [
+   {
+    "title": "NUGGETS at GRIZZLIES | FULL GAME HIGHLIGHTS | November 11, 2026",
+    "url": "https://www.youtube.com/watch?v=4KqU70V9-SE",
+    "channel": "NBA",
+    "views": 185473
+   },
+   {
+    "title": "Denver Nuggets vs Memphis Grizzlies Full Game Highlights - November 11, 2026 | NBA Season",
+    "url": "https://www.youtube.com/watch?v=zOjyDnfYmOg",
+    "channel": "GAMETIME HIGHLIGHTS",
+    "views": 136401
+   },
+   {
+    "title": "GRIZZLIES at RAPTORS | FULL GAME HIGHLIGHTS | November 9, 2026",
+    "url": "https://www.youtube.com/watch?v=djG6fUgNcdE",
+    "channel": "NBA",
+    "views": 136343
+   },
+   {
+    "title": "GRIZZLIES AT PELICANS | EMIRATES NBA CUP 🏆 | FULL GAME HIGHLIGHTS | November 13, 2026",
+    "url": "https://www.youtube.com/watch?v=pW8Zq151Q_U",
+    "channel": "NBA",
+    "views": 87995
+   },
+   {
+    "title": "NETS at GRIZZLIES | FULL GAME HIGHLIGHTS | November 14, 2026",
+    "url": "https://www.youtube.com/watch?v=Ti118u15fwA",
+    "channel": "NBA",
+    "views": 77958
+   }
+  ],
+  "threads": [
+   {
+    "title": "Oh we back back",
+    "url": "https://www.reddit.com/r/memphisgrizzlies/comments/1xvt4uw/oh_we_back_back/"
+   },
+   {
+    "title": "That Javon Dunk.",
+    "url": "https://www.reddit.com/r/memphisgrizzlies/comments/1xwl7gg/that_javon_dunk/"
+   },
+   {
+    "title": "Stones took some of the Nuggets to St. Jude's before our game tonight",
+    "url": "https://www.reddit.com/r/memphisgrizzlies/comments/1xtm8h1/stones_took_some_of_the_nuggets_to_st_judes/"
+   },
+   {
+    "title": "YOUR MEMPHIS GRIZZLIES ARE 10-4",
+    "url": "https://www.reddit.com/r/memphisgrizzlies/comments/1xy8nha/your_memphis_grizzlies_are_104/"
+   },
+   {
+    "title": "Beef \"Social Media Intern\" Stew",
+    "url": "https://www.reddit.com/r/memphisgrizzlies/comments/1xwm7oy/beef_social_media_intern_stew/"
+   }
+  ]
+ }
+}

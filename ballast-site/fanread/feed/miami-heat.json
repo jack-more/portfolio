@@ -1,0 +1,392 @@
+{
+ "team": "Miami Heat",
+ "as_of": "2026-11-16",
+ "source": "Ballast Fan Read",
+ "summary": "Heat fans search Giannis Antetokounmpo most (156,826 Wikipedia views in 30 days and 2,144,045 over the year, both roster highs), ahead of Klay Thompson (112,839) and Bam Adebayo (58,296), whose top video of the year is last March's 83-point night (3,726,565). The fanbase is adjusting to the Giannis era after a 0-4 start: r/heat is tracking Giannis and Bam's big nights, Klay's revival and jokes about Dwyane Wade's repaired statue, Klay's game-winner is by far the team's most-viewed Short at 2.2M, and outside the team's channels fans argue about Bam's fit and his criticism of the media.",
+ "segments": [
+  {
+   "id": "giannis-followers",
+   "name": "Giannis followers",
+   "who": "Fans energized by (or newly arrived with) Giannis Antetokounmpo, the roster's most-searched player",
+   "size_signal": "Giannis 156,826 Wikipedia views in 30 days and 2,144,045 in the year, both roster highs; ESPN's trade reaction 876,596; 7 of the top 25 r/heat threads this month are about Giannis; team's Giannis Shorts reach 140K",
+   "where": [
+    "Wikipedia",
+    "r/heat",
+    "team Shorts",
+    "YouTube (ESPN)"
+   ],
+   "enjoys": [
+    "behind_scenes",
+    "player_moments"
+   ],
+   "offer": "Giannis-in-Miami lifestyle content (Costco, the city, his family)",
+   "evidence": [
+    "https://www.reddit.com/r/heat/comments/1xb738o/klay_ran_into_giannis_at_costco_i_saw_him_at/",
+    "https://www.reddit.com/r/heat/comments/1x9aqz0/giannis_and_bam_looking_at_the_retired_heat/",
+    "https://www.reddit.com/r/heat/comments/1xwlis9/the_greek_freak_with_a_34148_masterclass_on_76_fg/",
+    "https://www.youtube.com/shorts/9oWKZBPBlUc",
+    "https://www.youtube.com/watch?v=XvtTJTA29M8"
+   ]
+  },
+  {
+   "id": "klay-revival-fans",
+   "name": "Klay revival fans",
+   "who": "Fans (many from his Warriors years) following Klay Thompson's comeback",
+   "size_signal": "Klay 112,839 Wikipedia views in 30 days, second on the roster; team Klay Shorts 2.20M and 166K; Chaz NBA's game-winner clip 997,388 and Steph photo clip 1,761,881; House of Highlights \"Klay Thompson is BACK!\" 961K",
+   "where": [
+    "Wikipedia",
+    "team Shorts",
+    "YouTube (Chaz NBA, House of Highlights, Kwentong Basketbol)",
+    "r/heat"
+   ],
+   "enjoys": [
+    "player_moments",
+    "game_highlights"
+   ],
+   "offer": "Klay shooting-session and health-update content",
+   "evidence": [
+    "https://www.youtube.com/shorts/qU69iv2l6bw",
+    "https://www.youtube.com/watch?v=KFRSML3ruCI",
+    "https://www.reddit.com/r/heat/comments/1xobj95/klay_thompson_game_winner/",
+    "https://www.reddit.com/r/heat/comments/1xofx5o/klay_i_feel_amazing_i_havent_felt_this_good_in_a/",
+    "https://www.youtube.com/watch?v=1lQynpKwHcI"
+   ]
+  },
+  {
+   "id": "bam-adebayo-debaters",
+   "name": "Bam Adebayo debaters",
+   "who": "Fans and neutrals who know Bam Adebayo for the 83-point night and now argue over his play, his fit with Giannis and his comments about the media",
+   "size_signal": "Bam 58,296 Wikipedia views in 30 days and 1,309,708 in the year; the NBA's 83-point video 3,726,565; this month Stephen A.'s \"CHILL OUT, BAM!\" 477,367, \"Bam Adebayo Is A Fraud\" 166,991 and \"Giannis and Bam look absolutely horrendous together\" 150,343",
+   "where": [
+    "Wikipedia",
+    "YouTube (NBA, NBA on ESPN, 6Man, Awful Coaching)"
+   ],
+   "enjoys": [
+    "analysis",
+    "beef_trash_talk"
+   ],
+   "offer": "Bam-and-Giannis two-man-game clips after wins like the 74-point Cavs night, which answer the fit debate directly",
+   "evidence": [
+    "https://www.youtube.com/watch?v=AfHhcjfalgs",
+    "https://www.youtube.com/watch?v=W-B7MHlBsKY",
+    "https://www.youtube.com/watch?v=MPFFuA9_9Eg",
+    "https://www.youtube.com/watch?v=N9nu2YtHTqs"
+   ]
+  },
+  {
+   "id": "wade-statue-jokers",
+   "name": "Wade-statue jokers",
+   "who": "Fans who laugh at the franchise's own legend moments",
+   "size_signal": "Shaq-and-Chuck statue clip 1.52M; one of the top 25 r/heat threads is a closer look at the statue",
+   "where": [
+    "r/heat",
+    "YouTube (Chaz NBA)"
+   ],
+   "enjoys": [
+    "memes_jokes",
+    "throwbacks"
+   ],
+   "offer": "A light-touch Wade appearance or statue reveal post",
+   "evidence": [
+    "https://www.youtube.com/watch?v=YxKyanqlUmA",
+    "https://www.reddit.com/r/heat/comments/1xjivx8/a_closer_look_at_the_new_and_improved_wade_statue/"
+   ]
+  },
+  {
+   "id": "heat-culture-daily-listeners",
+   "name": "Heat Culture daily listeners",
+   "who": "Long-time fans who follow the team every day on audio",
+   "size_signal": "Five On The Floor 2,000 episodes, The Miami Heat Beat 1,173, Bleav in Miami Heat 600",
+   "where": [
+    "Apple Podcasts",
+    "r/heat"
+   ],
+   "enjoys": [
+    "analysis",
+    "throwbacks"
+   ],
+   "offer": "Spoelstra and player access for daily shows",
+   "evidence": [
+    "https://podcasts.apple.com/us/podcast/five-on-the-floor-miami-heat-nba/id1336060206?uo=4",
+    "https://podcasts.apple.com/us/podcast/the-miami-heat-beat-podcast/id1052650163?uo=4",
+    "https://podcasts.apple.com/us/podcast/bleav-in-miami-heat/id1534031931?uo=4",
+    "https://www.reddit.com/r/heat/comments/1xlah8w/erik_spoelstra_56_today_started_as_heat_coach_at/"
+   ]
+  },
+  {
+   "id": "filipino-heat-fans",
+   "name": "Filipino Heat fans",
+   "who": "Tagalog-speaking fans following Giannis, Bam and Klay",
+   "size_signal": "3 Tagalog videos this week total 546K views",
+   "where": [
+    "YouTube (The Bro TV, Kwentong Basketbol, Yeshkel Sports and Music)"
+   ],
+   "enjoys": [
+    "game_highlights",
+    "analysis"
+   ],
+   "offer": "Tagalog captions on Giannis and Klay clips",
+   "evidence": [
+    "https://www.youtube.com/watch?v=QjVNLX7_LDE",
+    "https://www.youtube.com/watch?v=DxvIQr_XrrE",
+    "https://www.youtube.com/watch?v=QTevaYe0nrs"
+   ]
+  }
+ ],
+ "players": [
+  {
+   "name": "Giannis Antetokounmpo",
+   "wikipedia_views_30d": 156826,
+   "wikipedia_views_year": 2144045,
+   "url": "https://en.wikipedia.org/wiki/Giannis_Antetokounmpo"
+  },
+  {
+   "name": "Klay Thompson",
+   "wikipedia_views_30d": 112839,
+   "wikipedia_views_year": 1438329,
+   "url": "https://en.wikipedia.org/wiki/Klay_Thompson"
+  },
+  {
+   "name": "Bam Adebayo",
+   "wikipedia_views_30d": 58296,
+   "wikipedia_views_year": 1309708,
+   "url": "https://en.wikipedia.org/wiki/Bam_Adebayo"
+  },
+  {
+   "name": "Andrew Wiggins",
+   "wikipedia_views_30d": 35152,
+   "wikipedia_views_year": 426390,
+   "url": "https://en.wikipedia.org/wiki/Andrew_Wiggins"
+  },
+  {
+   "name": "Davion Mitchell",
+   "wikipedia_views_30d": 27786,
+   "wikipedia_views_year": 168603,
+   "url": "https://en.wikipedia.org/wiki/Davion_Mitchell"
+  },
+  {
+   "name": "Tim Hardaway Jr.",
+   "wikipedia_views_30d": 17654,
+   "wikipedia_views_year": 291000,
+   "url": "https://en.wikipedia.org/wiki/Tim_Hardaway_Jr."
+  },
+  {
+   "name": "Pelle Larsson",
+   "wikipedia_views_30d": 16084,
+   "wikipedia_views_year": 138316,
+   "url": "https://en.wikipedia.org/wiki/Pelle_Larsson"
+  },
+  {
+   "name": "Bobby Portis",
+   "wikipedia_views_30d": 14386,
+   "wikipedia_views_year": 179473,
+   "url": "https://en.wikipedia.org/wiki/Bobby_Portis"
+  }
+ ],
+ "formats": [
+  {
+   "type": "game_highlights",
+   "share_of_views": 0.7002,
+   "examples": [
+    "https://www.youtube.com/watch?v=pLXx9k6RYMY",
+    "https://www.youtube.com/watch?v=ufkeiEsJrx0",
+    "https://www.youtube.com/shorts/qU69iv2l6bw"
+   ]
+  },
+  {
+   "type": "player_moments",
+   "share_of_views": 0.1421,
+   "examples": [
+    "https://www.youtube.com/watch?v=1lQynpKwHcI",
+    "https://www.youtube.com/watch?v=KFRSML3ruCI",
+    "https://www.youtube.com/watch?v=nqiwBB89Ov8"
+   ]
+  },
+  {
+   "type": "memes_jokes",
+   "share_of_views": 0.0528,
+   "examples": [
+    "https://www.youtube.com/watch?v=YxKyanqlUmA",
+    "https://www.youtube.com/shorts/3HtAzzdHmfM"
+   ]
+  },
+  {
+   "type": "analysis",
+   "share_of_views": 0.046,
+   "examples": [
+    "https://www.youtube.com/watch?v=cc2GduoxouI",
+    "https://www.youtube.com/watch?v=W-B7MHlBsKY",
+    "https://www.youtube.com/watch?v=DxvIQr_XrrE"
+   ]
+  },
+  {
+   "type": "behind_scenes",
+   "share_of_views": 0.0289,
+   "examples": [
+    "https://www.youtube.com/watch?v=el88ypBqViQ",
+    "https://www.youtube.com/shorts/9oWKZBPBlUc",
+    "https://www.youtube.com/watch?v=G4xTOVFNW-E"
+   ]
+  },
+  {
+   "type": "news_rumors",
+   "share_of_views": 0.0273,
+   "examples": [
+    "https://www.youtube.com/watch?v=ZsmNVijtp6E",
+    "https://www.youtube.com/watch?v=odgsTubJYpg",
+    "https://www.youtube.com/watch?v=9YIHxo7cw8Q"
+   ]
+  },
+  {
+   "type": "fan_reactions",
+   "share_of_views": 0.0017,
+   "examples": [
+    "https://www.youtube.com/watch?v=cmcKisLnjt0"
+   ]
+  },
+  {
+   "type": "beef_trash_talk",
+   "share_of_views": 0.001,
+   "examples": [
+    "https://www.youtube.com/watch?v=H9k0244S_rw"
+   ]
+  }
+ ],
+ "make_or_reward": [
+  {
+   "format": "Fast late-game Shorts of game-winners",
+   "why": "The team's Klay Thompson game-winner Short has 2.20M views, 13x its next-best Short (166K), and Chaz NBA's clip of the same shot drew 997,388.",
+   "example": "https://www.youtube.com/shorts/qU69iv2l6bw"
+  },
+  {
+   "format": "Giannis-Bam-Klay chemistry clips",
+   "why": "\"Giannis and Bam found their handshake\" has 140K; Chaz NBA's Giannis-Klay locker-room clip 133K; the Klay-meets-Giannis-at-Costco story is a top Reddit thread.",
+   "example": "https://www.youtube.com/shorts/9oWKZBPBlUc"
+  },
+  {
+   "format": "Bam Adebayo clips that answer the fit debate",
+   "why": "Bam is the third most-searched Heat player (58,296 Wikipedia views in 30 days). His biggest video this month is Stephen A. answering his media criticism (477,367), followed by \"Bam Adebayo Is A Fraud\" (166,991) and \"Giannis and Bam look absolutely horrendous together\" (150,343); NBA Brasil's cut of their 74 combined points against the Cavs (99,779) is the counter-evidence. Only one of the team's top 15 Shorts names Bam.",
+   "example": "https://www.youtube.com/watch?v=N9nu2YtHTqs"
+  },
+  {
+   "format": "Same-night full-game highlights",
+   "why": "Game highlights are 70.0% of views among items with counts; Timberwolves at Heat has 2.77M.",
+   "example": "https://www.youtube.com/watch?v=pLXx9k6RYMY"
+  },
+  {
+   "format": "Self-aware legends humor (the Wade statue)",
+   "why": "Chaz NBA's Shaq-and-Chuck statue clip has 1.52M, and \"A closer look at the new and improved Wade statue!\" is a top r/heat thread.",
+   "example": "https://www.youtube.com/watch?v=YxKyanqlUmA"
+  },
+  {
+   "format": "Filipino-language recap partners",
+   "why": "Three Tagalog Heat videos total 546K views this week.",
+   "example": "https://www.youtube.com/watch?v=QjVNLX7_LDE"
+  }
+ ],
+ "talk": [
+  {
+   "title": "I am sorry but this is objectively hilarious",
+   "url": "https://www.reddit.com/r/heat/comments/1xggwh5/i_am_sorry_but_this_is_objectively_hilarious/"
+  },
+  {
+   "title": "KLAY THOMPSON GAME WINNER!!!!!!!!!!!!!!!!!!!!!!!!!!",
+   "url": "https://www.reddit.com/r/heat/comments/1xobj95/klay_thompson_game_winner/"
+  },
+  {
+   "title": "Klay ran into Giannis at Costco: \"I saw him at Costco with his three kids by himself shopping and I'm like, this is one of the most famous, best athletes in the world just going for a routine shopping spree and that really impressed me that he's just so down the earth.\" 😂",
+   "url": "https://www.reddit.com/r/heat/comments/1xb738o/klay_ran_into_giannis_at_costco_i_saw_him_at/"
+  },
+  {
+   "title": "1-4!",
+   "url": "https://www.reddit.com/r/heat/comments/1xi6mt7/14/"
+  },
+  {
+   "title": "[Post Game] Heat Start Five Game Homestand with Win Over Cavs | Bam and Giannis combine for 70+ Points",
+   "url": "https://www.reddit.com/r/heat/comments/1xvsd7u/post_game_heat_start_five_game_homestand_with_win/"
+  },
+  {
+   "title": "Giannis Antetokounmpo reportedly skipped his postgame media obligations last night, a rare decision that speaks volumes about the frustration surrounding the Miami Heat, per @sam_amick",
+   "url": "https://www.reddit.com/r/heat/comments/1xpl81m/giannis_antetokounmpo_reportedly_skipped_his/"
+  },
+  {
+   "title": "Fuck Boston",
+   "url": "https://www.reddit.com/r/heat/comments/1xb4x7b/fuck_boston/"
+  },
+  {
+   "title": "Erik Spoelstra 56 today. Started as Heat coach at 37.",
+   "url": "https://www.reddit.com/r/heat/comments/1xlah8w/erik_spoelstra_56_today_started_as_heat_coach_at/"
+  }
+ ],
+ "pulse": {
+  "window": "2026-11-03 to 2026-11-16",
+  "label": "10–16 Nov",
+  "team_wiki": {
+   "last7": 9920,
+   "prior7": 10112
+  },
+  "rising": [
+   {
+    "name": "Davion Mitchell",
+    "url": "https://en.wikipedia.org/wiki/Davion_Mitchell",
+    "last7": 10294,
+    "prior7": 6254,
+    "change": 0.646
+   }
+  ],
+  "videos": [
+   {
+    "title": "PISTONS at HEAT | FULL GAME HIGHLIGHTS | November 14, 2026",
+    "url": "https://www.youtube.com/watch?v=X4Vj94oz9K4",
+    "channel": "NBA",
+    "views": 831597
+   },
+   {
+    "title": "CAVALIERS AT HEAT | EMIRATES NBA CUP 🏆 | FULL GAME HIGHLIGHTS | November 13, 2026",
+    "url": "https://www.youtube.com/watch?v=UM4WvtmbJGM",
+    "channel": "NBA",
+    "views": 709268
+   },
+   {
+    "title": "Miami Heat vs Detroit Pistons Full Game Highlights - November 14, 2026 | NBA Season",
+    "url": "https://www.youtube.com/watch?v=xckyRGzew3w",
+    "channel": "GAMETIME HIGHLIGHTS",
+    "views": 387310
+   },
+   {
+    "title": "Miami Heat vs Cleveland Cavaliers Full Game Highlights - November 13, 2026 | Emirates NBA Cup",
+    "url": "https://www.youtube.com/watch?v=1vMwYPIXXKk",
+    "channel": "GAMETIME HIGHLIGHTS",
+    "views": 369081
+   },
+   {
+    "title": "HEAT at JAZZ | FULL GAME HIGHLIGHTS | November 10, 2026",
+    "url": "https://www.youtube.com/watch?v=5hGbJnpnGQg",
+    "channel": "NBA",
+    "views": 358560
+   }
+  ],
+  "threads": [
+   {
+    "title": "Bam on the cover of NBA 2K27 “Vice City” Edition",
+    "url": "https://www.reddit.com/r/heat/comments/1xxu0lf/bam_on_the_cover_of_nba_2k27_vice_city_edition/"
+   },
+   {
+    "title": "Timeline corrected",
+    "url": "https://www.reddit.com/r/heat/comments/1xt8pkg/timeline_corrected/"
+   },
+   {
+    "title": "And the Legend Himself Was There to Witness it",
+    "url": "https://www.reddit.com/r/heat/comments/1xvtu1p/and_the_legend_himself_was_there_to_witness_it/"
+   },
+   {
+    "title": "[Post Game] HEAT WIN FIVE STRAIGHT | MIAMI DOMINATES ROCKETS, THEY NEVER LEAD",
+    "url": "https://www.reddit.com/r/heat/comments/1xy96ag/post_game_heat_win_five_straight_miami_dominates/"
+   },
+   {
+    "title": "17 assists 1 TOV. Davion Mitchell.",
+    "url": "https://www.reddit.com/r/heat/comments/1xvsdnh/17_assists_1_tov_davion_mitchell/"
+   }
+  ]
+ }
+}

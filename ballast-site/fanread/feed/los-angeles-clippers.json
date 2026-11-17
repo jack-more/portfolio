@@ -1,0 +1,394 @@
+{
+ "team": "Los Angeles Clippers",
+ "as_of": "2026-11-16",
+ "source": "Ballast Fan Read",
+ "summary": "Clippers fans' searches are spread across new faces: Rui Hachimura leads the roster over the year (653,526 Wikipedia views) and Brook Lopez narrowly leads this month (32,883 in 30 days, with Hachimura at 32,093, No. 5 pick Keaton Wagler at 29,304 and the injured Brandon Ingram at 29,283). The fanbase is coping with a 3-8 start through gallows humor (\"clippers lose\" posts, \"This is a San Diego Clippers sub until further notice\") and by rallying around Wagler, Baba Miller and Kobe Sanders, while outside the subreddit the biggest non-game videos are about the Kawhi Leonard salary-cap penalty and trade and about opponents' moments against the Clippers.",
+ "segments": [
+  {
+   "id": "gallows-humor-clippers-lose-posters",
+   "name": "Gallows-humor \"clippers lose\" posters",
+   "who": "r/LAClippers regulars coping with a 3-8 start by mocking it",
+   "size_signal": "4 of the top 25 r/LAClippers threads this month are titled \"clippers lose\"; another declares \"a San Diego Clippers sub until further notice\"",
+   "where": [
+    "r/LAClippers"
+   ],
+   "enjoys": [
+    "memes_jokes",
+    "community"
+   ],
+   "offer": "Self-aware social posts that join the joke after wins, not after losses",
+   "evidence": [
+    "https://www.reddit.com/r/LAClippers/comments/1xt8h4v/clippers_lose/",
+    "https://www.reddit.com/r/LAClippers/comments/1xoc9db/clippers_lose/",
+    "https://www.reddit.com/r/LAClippers/comments/1xtcqr6/this_is_a_san_diego_clippers_sub_until_further/",
+    "https://www.reddit.com/r/LAClippers/comments/1xvus3i/post_game_w_video_never_in_doubt_how_you_lose_to/"
+   ]
+  },
+  {
+   "id": "keaton-wagler-and-young-core-watchers",
+   "name": "Keaton Wagler and young-core watchers",
+   "who": "Fans who have moved their hope to No. 5 pick Keaton Wagler, rookie Baba Miller and second-year guard Kobe Sanders",
+   "size_signal": "Wagler has 29,304 Wikipedia views in the past 30 days (third on the roster) and 368,118 in the year; his debut clip drew 21,311; 3 of the top 25 r/LAClippers threads name a young player; Baba Miller block Short 35.0K, Wagler first-bucket Short 19.0K; Spanish channels cover Miller (a Drafteados episode on him drew 191,356)",
+   "where": [
+    "r/LAClippers",
+    "YouTube (team Shorts, CRAKOLI2011, Spanish-language channels)"
+   ],
+   "enjoys": [
+    "player_moments",
+    "behind_scenes"
+   ],
+   "offer": "A weekly rookie-progress clip package",
+   "evidence": [
+    "https://www.reddit.com/r/LAClippers/comments/1xc1vyn/king_keaton/",
+    "https://www.reddit.com/r/LAClippers/comments/1xrm4hk/wagler_looked_so_comfortable_out_there_already/",
+    "https://www.youtube.com/watch?v=6fNmEupm3O8",
+    "https://www.reddit.com/r/LAClippers/comments/1xi0ver/kobe_sanders/",
+    "https://www.youtube.com/shorts/85AnT4hvaV4"
+   ]
+  },
+  {
+   "id": "rui-hachimura-followers-led-by-japan",
+   "name": "Rui Hachimura followers, led by Japan",
+   "who": "Fans, many in Japan, who follow the Clippers through Rui Hachimura, the new arrival from the Lakers and the roster's most-searched player over the year.",
+   "size_signal": "653,526 Wikipedia views in the year (the roster high) and 32,093 in the past 30 days; Japanese creator videos on his Clippers role drew 591,655 and 105,243; NBA Japan's 14-point clip 144K; \"Rui Hachimura is HERE!\" is the team's top Short at 94K, and Hachimura Shorts total 151K across three.",
+   "where": [
+    "Wikipedia",
+    "YouTube (Japanese creators, NBA Japan, team Shorts)"
+   ],
+   "enjoys": [
+    "player_moments",
+    "role and tactics breakdowns",
+    "behind_scenes"
+   ],
+   "offer": "Japanese-captioned Hachimura clips after every game and role explainers; work with NBA Japan and the Japanese creators already covering him.",
+   "evidence": [
+    "https://www.youtube.com/watch?v=DwGxDi6BJpE",
+    "https://www.youtube.com/watch?v=deH7beDWYTc",
+    "https://www.youtube.com/watch?v=TCOdw74biD4",
+    "https://www.youtube.com/shorts/WMTiOrA-ZOA",
+    "https://www.youtube.com/shorts/6qH1C05HXEA"
+   ]
+  },
+  {
+   "id": "kawhi-scandal-watchers",
+   "name": "Kawhi-scandal watchers",
+   "who": "Neutral and Clippers viewers following the salary-cap investigation, the penalty and Kawhi Leonard's trade to the Raptors",
+   "size_signal": "News items are 14.8% of classified views from 11 videos; top 981K",
+   "where": [
+    "YouTube (ESPN, First Take, Kenny For Real, Pablo Torre)"
+   ],
+   "enjoys": [
+    "news_rumors"
+   ],
+   "offer": "Direct front-office communication to season-ticket holders before national shows frame it",
+   "evidence": [
+    "https://www.youtube.com/watch?v=7w-q0zdSCiY",
+    "https://www.youtube.com/watch?v=YfnuG1kGQYo",
+    "https://www.youtube.com/watch?v=ENBv21u8Y54",
+    "https://www.youtube.com/watch?v=dFio_9hHcuA"
+   ]
+  },
+  {
+   "id": "2k-rebuild-simulators",
+   "name": "2K rebuild simulators",
+   "who": "Gamers who rebuild the Clippers in NBA 2K",
+   "size_signal": "3 2K Clippers videos total 646K views",
+   "where": [
+    "YouTube (KOT4Q, SixringsofsteeI)"
+   ],
+   "enjoys": [
+    "gaming_2k"
+   ],
+   "offer": "2K creator tie-ins featuring the rookies",
+   "evidence": [
+    "https://www.youtube.com/watch?v=WT8E0wngF2I",
+    "https://www.youtube.com/watch?v=08rHxzT8NuY",
+    "https://www.youtube.com/watch?v=1TXF0F6XTek"
+   ]
+  },
+  {
+   "id": "matchup-bettors",
+   "name": "Matchup bettors",
+   "who": "Bettors on single games and series involving the Clippers",
+   "size_signal": "Polymarket \"Hornets vs. Clippers\" $1.57M volume; \"Nuggets vs. Clippers (To Advance)\" $886K",
+   "where": [
+    "Polymarket"
+   ],
+   "enjoys": [
+    "betting_fantasy"
+   ],
+   "offer": "Pre-game matchup and injury notes timed for game day",
+   "evidence": [
+    "https://polymarket.com/event/nba-cha-lac-2026-11-15",
+    "https://polymarket.com/event/nba-playoffs-nuggets-vs-clippers-to-advance"
+   ]
+  }
+ ],
+ "players": [
+  {
+   "name": "Rui Hachimura",
+   "wikipedia_views_30d": 32093,
+   "wikipedia_views_year": 653526,
+   "url": "https://en.wikipedia.org/wiki/Rui_Hachimura"
+  },
+  {
+   "name": "Brook Lopez",
+   "wikipedia_views_30d": 32883,
+   "wikipedia_views_year": 290051,
+   "url": "https://en.wikipedia.org/wiki/Brook_Lopez"
+  },
+  {
+   "name": "Keaton Wagler",
+   "wikipedia_views_30d": 29304,
+   "wikipedia_views_year": 368118,
+   "url": "https://en.wikipedia.org/wiki/Keaton_Wagler"
+  },
+  {
+   "name": "Brandon Ingram",
+   "wikipedia_views_30d": 29283,
+   "wikipedia_views_year": 492302,
+   "url": "https://en.wikipedia.org/wiki/Brandon_Ingram"
+  },
+  {
+   "name": "Darius Garland",
+   "wikipedia_views_30d": 17474,
+   "wikipedia_views_year": 291375,
+   "url": "https://en.wikipedia.org/wiki/Darius_Garland"
+  },
+  {
+   "name": "Gradey Dick",
+   "wikipedia_views_30d": 16976,
+   "wikipedia_views_year": 184747,
+   "url": "https://en.wikipedia.org/wiki/Gradey_Dick"
+  },
+  {
+   "name": "Kris Dunn",
+   "wikipedia_views_30d": 11222,
+   "wikipedia_views_year": 119864,
+   "url": "https://en.wikipedia.org/wiki/Kris_Dunn"
+  }
+ ],
+ "formats": [
+  {
+   "type": "game_highlights",
+   "share_of_views": 0.6638,
+   "examples": [
+    "https://www.youtube.com/watch?v=7v6Iziip4Bc",
+    "https://www.youtube.com/watch?v=TMH7IOrPz64",
+    "https://www.youtube.com/watch?v=5axvVQxzXU0"
+   ]
+  },
+  {
+   "type": "news_rumors",
+   "share_of_views": 0.1479,
+   "examples": [
+    "https://www.youtube.com/watch?v=7w-q0zdSCiY",
+    "https://www.youtube.com/watch?v=YfnuG1kGQYo",
+    "https://www.youtube.com/watch?v=ENBv21u8Y54"
+   ]
+  },
+  {
+   "type": "opponent_moments",
+   "share_of_views": 0.1424,
+   "examples": [
+    "https://www.youtube.com/watch?v=6CJr1w51dls",
+    "https://www.youtube.com/watch?v=1lQynpKwHcI",
+    "https://www.youtube.com/watch?v=TgxCVzX5va4"
+   ]
+  },
+  {
+   "type": "gaming_2k",
+   "share_of_views": 0.0179,
+   "examples": [
+    "https://www.youtube.com/watch?v=WT8E0wngF2I",
+    "https://www.youtube.com/watch?v=08rHxzT8NuY",
+    "https://www.youtube.com/watch?v=1TXF0F6XTek"
+   ]
+  },
+  {
+   "type": "player_moments",
+   "share_of_views": 0.0106,
+   "examples": [
+    "https://www.youtube.com/watch?v=TCOdw74biD4",
+    "https://www.youtube.com/shorts/WMTiOrA-ZOA",
+    "https://www.youtube.com/shorts/85AnT4hvaV4"
+   ]
+  },
+  {
+   "type": "fan_reactions",
+   "share_of_views": 0.0072,
+   "examples": [
+    "https://www.youtube.com/watch?v=frB04jni70U",
+    "https://www.youtube.com/watch?v=d_3BCmHPMlk",
+    "https://www.youtube.com/watch?v=jeMPypZn3z8"
+   ]
+  },
+  {
+   "type": "behind_scenes",
+   "share_of_views": 0.0057,
+   "examples": [
+    "https://www.youtube.com/shorts/3O8Cz-4kgY8",
+    "https://www.youtube.com/shorts/G17B8v5Qj60",
+    "https://www.youtube.com/shorts/6qH1C05HXEA"
+   ]
+  },
+  {
+   "type": "beef_trash_talk",
+   "share_of_views": 0.0034,
+   "examples": [
+    "https://www.youtube.com/watch?v=QGQBAITzOgw"
+   ]
+  },
+  {
+   "type": "memes_jokes",
+   "share_of_views": 0.0012,
+   "examples": [
+    "https://www.youtube.com/watch?v=K-m7a5PwsxY"
+   ]
+  }
+ ],
+ "make_or_reward": [
+  {
+   "format": "Same-night full-game highlights, especially LA derby games",
+   "why": "Game highlights are 66.4% of classified views; Clippers at Lakers has 1.61M and Lakers at Clippers 879K.",
+   "example": "https://www.youtube.com/watch?v=KVC5atVkCyE"
+  },
+  {
+   "format": "Japanese-language Rui Hachimura content",
+   "why": "Hachimura has the roster's most Wikipedia views over the year (653,526); \"Rui Hachimura is HERE!\" is the team's top Short at 94.0K, NBA Japan's Hachimura clip has 144K, and Japanese creators' breakdowns of his Clippers role drew 591,655 and 105,243.",
+   "example": "https://www.youtube.com/watch?v=TCOdw74biD4"
+  },
+  {
+   "format": "Rookie development series (Keaton Wagler, Kobe Sanders, Baba Miller)",
+   "why": "3 of the top 25 r/LAClippers threads this month are about the rookies by name, and 6 of the team's top 15 Shorts feature Wagler.",
+   "example": "https://www.reddit.com/r/LAClippers/comments/1xc1vyn/king_keaton/"
+  },
+  {
+   "format": "Same-night Shorts of Brook Lopez and Darius Garland big nights",
+   "why": "Lopez is the most-searched Clipper this month (32,883 Wikipedia views in 30 days) and House of Highlights' Collin Sexton-Lopez clip drew 162,872, but his 26 points vs the Thunder got a long-form upload of 4,301 views and no Short; Garland's clutch Thunder game is long-form only too.",
+   "example": "https://www.youtube.com/watch?v=wC-D65VwPTE"
+  },
+  {
+   "format": "Fan-featuring event clips",
+   "why": "The fan jersey swap Short has 51.0K, the team's second-best Short.",
+   "example": "https://www.youtube.com/shorts/3O8Cz-4kgY8"
+  },
+  {
+   "format": "A plain explainer on what the penalty means for the rebuild",
+   "why": "Kawhi and penalty news is 14.8% of classified views; Stephen A.'s take alone has 981K, so fans are hearing it from national shows first.",
+   "example": "https://www.youtube.com/watch?v=dFio_9hHcuA"
+  }
+ ],
+ "talk": [
+  {
+   "title": "This is a San Diego Clippers sub until further notice",
+   "url": "https://www.reddit.com/r/LAClippers/comments/1xtcqr6/this_is_a_san_diego_clippers_sub_until_further/"
+  },
+  {
+   "title": "clippers lose",
+   "url": "https://www.reddit.com/r/LAClippers/comments/1xt8h4v/clippers_lose/"
+  },
+  {
+   "title": "King Keaton",
+   "url": "https://www.reddit.com/r/LAClippers/comments/1xc1vyn/king_keaton/"
+  },
+  {
+   "title": "Wagler looked so comfortable out there already. Zero hesitation tonight, putting up 15/2/4 in only 18 minutes.",
+   "url": "https://www.reddit.com/r/LAClippers/comments/1xrm4hk/wagler_looked_so_comfortable_out_there_already/"
+  },
+  {
+   "title": "Post-Game Thread: LA Clippers (3-8) defeat Oklahoma City Thunder (8-5), 113-112 | NBA | Nov 13, 2026",
+   "url": "https://www.reddit.com/r/LAClippers/comments/1xvusv2/postgame_thread_la_clippers_38_defeat_oklahoma/"
+  },
+  {
+   "title": "Prayers for JDub",
+   "url": "https://www.reddit.com/r/LAClippers/comments/1xfjx6i/prayers_for_jdub/"
+  },
+  {
+   "title": "Shoutout to the only bright spot on this team atm.",
+   "url": "https://www.reddit.com/r/LAClippers/comments/1xmmxmn/shoutout_to_the_only_bright_spot_on_this_team_atm/"
+  },
+  {
+   "title": "Intuit Dome and Kia Forum rejects Macklemore show",
+   "url": "https://www.reddit.com/r/LAClippers/comments/1xpiwr5/intuit_dome_and_kia_forum_rejects_macklemore_show/"
+  }
+ ],
+ "pulse": {
+  "window": "2026-11-03 to 2026-11-16",
+  "label": "10–16 Nov",
+  "team_wiki": {
+   "last7": 8606,
+   "prior7": 9092
+  },
+  "rising": [
+   {
+    "name": "Brook Lopez",
+    "url": "https://en.wikipedia.org/wiki/Brook_Lopez",
+    "last7": 8616,
+    "prior7": 7468,
+    "change": 0.154
+   },
+   {
+    "name": "Gradey Dick",
+    "url": "https://en.wikipedia.org/wiki/Gradey_Dick",
+    "last7": 3829,
+    "prior7": 3335,
+    "change": 0.148
+   }
+  ],
+  "videos": [
+   {
+    "title": "THUNDER AT CLIPPERS | EMIRATES NBA CUP 🏆 | FULL GAME HIGHLIGHTS | November 13, 2026",
+    "url": "https://www.youtube.com/watch?v=xohvOmDZ_wg",
+    "channel": "NBA",
+    "views": 438877
+   },
+   {
+    "title": "SGA misses the shot at the Buzzer 😳 OKC vs Clippers EPIC Ending",
+    "url": "https://www.youtube.com/watch?v=_BsBPI4HD80",
+    "channel": "House of Highlights",
+    "views": 237605
+   },
+   {
+    "title": "Oklahoma City Thunder vs Los Angeles Clippers Full Game Highlights - November 13, 2026",
+    "url": "https://www.youtube.com/watch?v=QEjUhZyR_ho",
+    "channel": "GAMETIME HIGHLIGHTS",
+    "views": 160766
+   },
+   {
+    "title": "CLIPPERS at SUNS | FULL GAME HIGHLIGHTS | November 10, 2026",
+    "url": "https://www.youtube.com/watch?v=cPkfXdQbt7k",
+    "channel": "NBA",
+    "views": 127421
+   },
+   {
+    "title": "HORNETS at CLIPPERS | FULL GAME HIGHLIGHTS | November 15, 2026",
+    "url": "https://www.youtube.com/watch?v=1fv6iQMCaiM",
+    "channel": "NBA",
+    "views": 74916
+   }
+  ],
+  "threads": [
+   {
+    "title": "splash mountain",
+    "url": "https://www.reddit.com/r/LAClippers/comments/1xwf84d/splash_mountain/"
+   },
+   {
+    "title": "clippers lose",
+    "url": "https://www.reddit.com/r/LAClippers/comments/1xt8h4v/clippers_lose/"
+   },
+   {
+    "title": "[Farbod] Keaton Wagler said that he and Yanic Konan Niederhäuser joke about recreating Lob City when Yanic comes back",
+    "url": "https://www.reddit.com/r/LAClippers/comments/1xxb68t/farbod_keaton_wagler_said_that_he_and_yanic_konan/"
+   },
+   {
+    "title": "the strus is loose and so is the stinger",
+    "url": "https://www.reddit.com/r/LAClippers/comments/1xxidm0/the_strus_is_loose_and_so_is_the_stinger/"
+   },
+   {
+    "title": "Gradey Dick Appreciation Post",
+    "url": "https://www.reddit.com/r/LAClippers/comments/1xvv6m8/gradey_dick_appreciation_post/"
+   }
+  ]
+ }
+}

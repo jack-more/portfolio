@@ -1,0 +1,421 @@
+{
+ "team": "Utah Jazz",
+ "as_of": "2026-11-16",
+ "source": "Ballast Fan Read",
+ "summary": "Jazz fans follow rookie Darryn Peterson most (36,457 Wikipedia views in 30 days and 475,224 in the year, both roster highs), then Mo Bamba (26,058 after his 26-point game against the Spurs) and the injured Lauri Markkanen (24,785). The team is 1-11 on a 10-game losing streak, with Markkanen out a month and Jaren Jackson Jr. out with a torn MCL; r/UtahJazz copes with \"friccin morons\" rally posts and arguments about Will Hardy, and pins its hope on Peterson, Keyonte George and Ace Bailey.",
+ "segments": [
+  {
+   "id": "friccin-morons-loyalists",
+   "name": "\"Friccin morons\" loyalists",
+   "who": "r/UtahJazz regulars who stick with a 1-11 team through a shared game-day in-joke and dark humour.",
+   "size_signal": "Two \"friccin morons\" posts are in the monthly top 12, alongside \"Long road ahead\", \"I'll be here all year regardless\" and a definition-of-insanity post.",
+   "where": [
+    "r/UtahJazz"
+   ],
+   "enjoys": [
+    "game-day rally posts",
+    "\"long road ahead\" memes",
+    "arguing about Will Hardy's timeouts"
+   ],
+   "offer": "Acknowledge the in-joke; reward attendance and loyalty in a losing year.",
+   "evidence": [
+    "https://www.reddit.com/r/UtahJazz/comments/1xolz3s/listen_up_you_friccin_morons/",
+    "https://www.reddit.com/r/UtahJazz/comments/1xbmzxn/wake_up_you_friccin_morons_its_game_day/",
+    "https://www.reddit.com/r/UtahJazz/comments/1xmig3r/ill_be_here_all_year_regardless/",
+    "https://www.reddit.com/r/UtahJazz/comments/1xofrzr/long_road_ahead/",
+    "https://www.reddit.com/r/UtahJazz/comments/1xuj3qd/do_you_know_the_definition_of_insanity/",
+    "https://www.reddit.com/r/UtahJazz/comments/1xvh19t/jazz_up_6967_in_the_third_hoping_to_stop_the/"
+   ]
+  },
+  {
+   "id": "darryn-peterson-believers",
+   "name": "Darryn Peterson believers",
+   "who": "Fans treating the rookie's development as the season's point; Peterson is the most-searched player on the roster, and they follow him with George and Bailey as the core.",
+   "size_signal": "Peterson has 36,457 Wikipedia views in 30 days and 475,224 in the year, the roster high on both. ESPN's \"THE FUTURE\" career-high clip drew 76,365 this month and NBA's 28 vs Rockets 35,490; Dybantsa vs Peterson drew 1,007,642 (college) and 468,952 (Summer League); ESPN's Peterson Summer League debut 297,009; the team's top Short is a DP clip (15,000).",
+   "where": [
+    "r/UtahJazz",
+    "team Shorts",
+    "ESPN and NBA YouTube",
+    "Summer League YouTube"
+   ],
+   "enjoys": [
+    "career-high nights",
+    "plus-minus arguments",
+    "young-core trio posts",
+    "Peterson vs Dybantsa comparisons"
+   ],
+   "offer": "A Peterson rookie series with career-high tracking.",
+   "evidence": [
+    "https://www.reddit.com/r/UtahJazz/comments/1xrlsg3/darryn_on_top_of_having_a_genuinely_impressive/",
+    "https://www.reddit.com/r/UtahJazz/comments/1xvu5bm/the_trio_of_darryn_keyonte_and_ace_is_pretty/",
+    "https://www.reddit.com/r/UtahJazz/comments/1xj0xq6/build_around_these_3/",
+    "https://www.youtube.com/watch?v=TsooyZLt9uU",
+    "https://www.youtube.com/watch?v=8IUFrR8947Y",
+    "https://www.youtube.com/watch?v=vSPHZ0WobA4",
+    "https://www.youtube.com/shorts/zI1LsreFYM0"
+   ]
+  },
+  {
+   "id": "opponent-star-tourists",
+   "name": "Opponent-star tourists",
+   "who": "Viewers who find the Jazz through opponents' big scoring nights in Utah.",
+   "size_signal": "Luka 52 982,232; Sengun 43 on a Turkish channel 351,083; Wemby 36 213,542.",
+   "where": [
+    "NBA YouTube",
+    "Turkish and other foreign channels",
+    "Chaz NBA"
+   ],
+   "enjoys": [
+    "50-point games",
+    "record stat lines"
+   ],
+   "offer": "Not a core segment; use those games to show Jazz young players in the same clip.",
+   "evidence": [
+    "https://www.youtube.com/watch?v=p-YrUdvrG5E",
+    "https://www.youtube.com/watch?v=42hydvBjrec",
+    "https://www.youtube.com/watch?v=bgqe5CeOYvY",
+    "https://www.reddit.com/r/UtahJazz/comments/1xc5l30/jazz_giving_up_a_nuclear_performance_to_a_random/"
+   ]
+  },
+  {
+   "id": "lauri-and-finland-followers",
+   "name": "Lauri and Finland followers",
+   "who": "Fans attached to Markkanen, including a Finnish audience, now worried by his month out.",
+   "size_signal": "Markkanen has 24,785 Wikipedia views in 30 days and 306,609 in the year; SISU documentary 631,309; the \"Jazz LOSE Markkanen\" news video drew 47,625 this month; two Markkanen injury threads in the monthly top 25.",
+   "where": [
+    "team YouTube",
+    "r/UtahJazz"
+   ],
+   "enjoys": [
+    "Finland documentary",
+    "injury updates"
+   ],
+   "offer": "Lauri rehab updates with Finnish subtitles.",
+   "evidence": [
+    "https://www.youtube.com/watch?v=PtE0zhU2egg",
+    "https://www.reddit.com/r/UtahJazz/comments/1xh3a1w/sources_utah_jazz_star_lauri_markkanen_avoided_a/",
+    "https://www.reddit.com/r/UtahJazz/comments/1xtpe1l/lauri_out_for_at_least_month/",
+    "https://www.youtube.com/watch?v=Wzm1-Ip49II"
+   ]
+  },
+  {
+   "id": "game-day-bettors",
+   "name": "Game-day bettors",
+   "who": "A large betting audience on Jazz games despite the record.",
+   "size_signal": "Spurs vs Jazz on Nov 15 traded 3,250,334; an Ace Bailey Summer League availability market 18,059.",
+   "where": [
+    "Polymarket"
+   ],
+   "enjoys": [
+    "single-game markets",
+    "player-availability markets"
+   ],
+   "offer": "Clear injury and lineup notes early on game days.",
+   "evidence": [
+    "https://polymarket.com/event/nba-sas-uta-2026-11-15",
+    "https://polymarket.com/event/will-ace-bailey-play-in-the-jazz-season-opener"
+   ]
+  },
+  {
+   "id": "radio-and-podcast-lifers",
+   "name": "Radio-and-podcast lifers",
+   "who": "Fans who follow on local radio and daily podcasts, and care about the broadcasters.",
+   "size_signal": "Locked On Jazz has 500 episodes; KSL's Utah Jazz Broadcasts 101, updated Nov 16; a Bolerjack thread is in the monthly top 25.",
+   "where": [
+    "Apple Podcasts",
+    "r/UtahJazz"
+   ],
+   "enjoys": [
+    "KSL game broadcasts",
+    "Locked On Jazz",
+    "broadcaster threads"
+   ],
+   "offer": "Broadcaster-led content and radio-call clips.",
+   "evidence": [
+    "https://podcasts.apple.com/us/podcast/locked-on-jazz-daily-podcast-on-the-utah-jazz/id390453558?uo=4",
+    "https://podcasts.apple.com/us/podcast/utah-jazz-broadcasts/id1606942592?uo=4",
+    "https://www.reddit.com/r/UtahJazz/comments/1xghjl7/bolerjack/"
+   ]
+  }
+ ],
+ "players": [
+  {
+   "name": "Darryn Peterson",
+   "wikipedia_views_30d": 36457,
+   "wikipedia_views_year": 475224,
+   "url": "https://en.wikipedia.org/wiki/Darryn_Peterson"
+  },
+  {
+   "name": "Lauri Markkanen",
+   "wikipedia_views_30d": 24785,
+   "wikipedia_views_year": 306609,
+   "url": "https://en.wikipedia.org/wiki/Lauri_Markkanen"
+  },
+  {
+   "name": "Mo Bamba",
+   "wikipedia_views_30d": 26058,
+   "wikipedia_views_year": 254622,
+   "url": "https://en.wikipedia.org/wiki/Mo_Bamba"
+  },
+  {
+   "name": "Keyonte George",
+   "wikipedia_views_30d": 19183,
+   "wikipedia_views_year": 232135,
+   "url": "https://en.wikipedia.org/wiki/Keyonte_George"
+  },
+  {
+   "name": "Jaren Jackson Jr.",
+   "wikipedia_views_30d": 18248,
+   "wikipedia_views_year": 294625,
+   "url": "https://en.wikipedia.org/wiki/Jaren_Jackson_Jr."
+  },
+  {
+   "name": "Ace Bailey",
+   "wikipedia_views_30d": 17604,
+   "wikipedia_views_year": 251889,
+   "url": "https://en.wikipedia.org/wiki/Ace_Bailey_%28basketball%29"
+  },
+  {
+   "name": "Jaxson Hayes",
+   "wikipedia_views_30d": 16955,
+   "wikipedia_views_year": 232852,
+   "url": "https://en.wikipedia.org/wiki/Jaxson_Hayes"
+  }
+ ],
+ "formats": [
+  {
+   "type": "game_highlights",
+   "share_of_views": 0.579,
+   "examples": [
+    "https://www.youtube.com/watch?v=k9zo4pfctTg",
+    "https://www.youtube.com/watch?v=e0iAdn3cWWQ",
+    "https://www.youtube.com/watch?v=mHFSOKQTAVQ"
+   ]
+  },
+  {
+   "type": "opponent_star_moments",
+   "share_of_views": 0.137,
+   "examples": [
+    "https://www.youtube.com/watch?v=p-YrUdvrG5E",
+    "https://www.youtube.com/watch?v=UTZNaYoCYoA",
+    "https://www.youtube.com/watch?v=42hydvBjrec"
+   ]
+  },
+  {
+   "type": "rookies_summer_league",
+   "share_of_views": 0.136,
+   "examples": [
+    "https://www.youtube.com/watch?v=g3d8ZKD_vao",
+    "https://www.youtube.com/watch?v=vSPHZ0WobA4",
+    "https://www.youtube.com/watch?v=iTHiQh64q90"
+   ]
+  },
+  {
+   "type": "news_rumors",
+   "share_of_views": 0.044,
+   "examples": [
+    "https://www.youtube.com/watch?v=XYEOnvlx7ck",
+    "https://www.youtube.com/watch?v=Ietr06wQcWk",
+    "https://www.youtube.com/watch?v=nCTVolpNK_Q"
+   ]
+  },
+  {
+   "type": "behind_scenes",
+   "share_of_views": 0.036,
+   "examples": [
+    "https://www.youtube.com/watch?v=PtE0zhU2egg",
+    "https://www.youtube.com/shorts/F58c5DxpEWk",
+    "https://www.youtube.com/shorts/enrg1YKoGIk"
+   ]
+  },
+  {
+   "type": "memes_jokes",
+   "share_of_views": 0.024,
+   "examples": [
+    "https://www.youtube.com/watch?v=9T3AoSQkUXo"
+   ]
+  },
+  {
+   "type": "fan_reactions",
+   "share_of_views": 0.014,
+   "examples": [
+    "https://www.youtube.com/watch?v=cEqBjx7wKyc"
+   ]
+  },
+  {
+   "type": "throwbacks",
+   "share_of_views": 0.012,
+   "examples": [
+    "https://www.youtube.com/watch?v=LwDw4pGLv_8"
+   ]
+  },
+  {
+   "type": "culture_crossover",
+   "share_of_views": 0.011,
+   "examples": [
+    "https://www.youtube.com/watch?v=eKb3RQxY65g"
+   ]
+  },
+  {
+   "type": "live_streams",
+   "share_of_views": 0.004,
+   "examples": [
+    "https://www.youtube.com/watch?v=WGaVJmPG3j4",
+    "https://www.youtube.com/watch?v=aQh-nEyAC5Q"
+   ]
+  },
+  {
+   "type": "player_moments",
+   "share_of_views": 0.002,
+   "examples": [
+    "https://www.youtube.com/shorts/RrM7cSCH2Q4",
+    "https://www.youtube.com/shorts/l47IggE_vIk",
+    "https://www.youtube.com/shorts/7y6pgy7WHts"
+   ]
+  }
+ ],
+ "make_or_reward": [
+  {
+   "format": "Comedic team long-form",
+   "why": "The schedule-release video \"Your NBA Fandom Life Coach will see you now\" drew 429,625, about 29 times the team's best Short (15,000).",
+   "example": "https://www.youtube.com/watch?v=9T3AoSQkUXo"
+  },
+  {
+   "format": "Player home-country documentaries",
+   "why": "\"SISU: Finland, Lauri Markkanen welcomes the Utah Jazz\" drew 631,309, the team's most-viewed video and the sixth most-viewed Jazz item of the year.",
+   "example": "https://www.youtube.com/watch?v=PtE0zhU2egg"
+  },
+  {
+   "format": "Rookie showcase clips (Peterson)",
+   "why": "Chaz NBA's Dybantsa vs Peterson Summer League highlights drew 468,952 and ESPN's Peterson debut 297,009, and the Chaz clip outdrew all but two of NBA's Jazz regular-season game highlights this month.",
+   "example": "https://www.youtube.com/watch?v=vSPHZ0WobA4"
+  },
+  {
+   "format": "Game-day notes for bettors",
+   "why": "Polymarket's Spurs vs Jazz market on Nov 15 traded 3,250,334, far above the next Jazz market in the digest (18,059), while NBA's highlights of that game drew 215,280.",
+   "example": "https://polymarket.com/event/nba-sas-uta-2026-11-15"
+  },
+  {
+   "format": "Peterson career-high clips with the number in the title",
+   "why": "Peterson is the most-searched Jazz player (36,457 Wikipedia views in 30 days), and his biggest monthly clips are on ESPN (76,365) and NBA (28 vs Rockets, 35,490), both above the team's best Peterson Short (15,000).",
+   "example": "https://www.youtube.com/watch?v=8IUFrR8947Y"
+  },
+  {
+   "format": "Creator collaborations with players",
+   "why": "Jesser's \"Guess The Secret NBA Player ft. Jaren Jackson Jr.\" drew 3,949,035, more than any Jazz game highlight or team video in the digest.",
+   "example": "https://www.youtube.com/watch?v=RlCeif2V2Io"
+  }
+ ],
+ "talk": [
+  {
+   "title": "LISTEN UP YOU FRICCIN MORONS",
+   "url": "https://www.reddit.com/r/UtahJazz/comments/1xolz3s/listen_up_you_friccin_morons/"
+  },
+  {
+   "title": "I’ll be here all year regardless",
+   "url": "https://www.reddit.com/r/UtahJazz/comments/1xmig3r/ill_be_here_all_year_regardless/"
+  },
+  {
+   "title": "Jazz up 69-67 in the third hoping to stop the losing streak, bench subs in and immediately gives up a 25-4 run, to which Will Hardy opts to save his timeouts.",
+   "url": "https://www.reddit.com/r/UtahJazz/comments/1xvh19t/jazz_up_6967_in_the_third_hoping_to_stop_the/"
+  },
+  {
+   "title": "Chuck calls out the Jazz organization on Inside the NBA",
+   "url": "https://www.reddit.com/r/UtahJazz/comments/1xv4r55/chuck_calls_out_the_jazz_organization_on_inside/"
+  },
+  {
+   "title": "Lauri out for at least month…",
+   "url": "https://www.reddit.com/r/UtahJazz/comments/1xtpe1l/lauri_out_for_at_least_month/"
+  },
+  {
+   "title": "Jaren Jackson Jr. has sustained a torn MCL in his right knee and will be sidelined for 6-to-8 weeks",
+   "url": "https://www.reddit.com/r/UtahJazz/comments/1xh1y59/jaren_jackson_jr_has_sustained_a_torn_mcl_in_his/"
+  },
+  {
+   "title": "The trio of Darryn, Keyonte and Ace is pretty incredible",
+   "url": "https://www.reddit.com/r/UtahJazz/comments/1xvu5bm/the_trio_of_darryn_keyonte_and_ace_is_pretty/"
+  },
+  {
+   "title": "It just hasn't felt the same since that night.",
+   "url": "https://www.reddit.com/r/UtahJazz/comments/1xo9w99/it_just_hasnt_felt_the_same_since_that_night/"
+  }
+ ],
+ "pulse": {
+  "window": "2026-11-03 to 2026-11-16",
+  "label": "10–16 Nov",
+  "team_wiki": {
+   "last7": 7466,
+   "prior7": 6690
+  },
+  "rising": [
+   {
+    "name": "Mo Bamba",
+    "url": "https://en.wikipedia.org/wiki/Mo_Bamba",
+    "last7": 15573,
+    "prior7": 5083,
+    "change": 2.064
+   },
+   {
+    "name": "Ace Bailey",
+    "url": "https://en.wikipedia.org/wiki/Ace_Bailey_%28basketball%29",
+    "last7": 3777,
+    "prior7": 3157,
+    "change": 0.196
+   }
+  ],
+  "videos": [
+   {
+    "title": "SPURS at JAZZ | FULL GAME HIGHLIGHTS | November 15, 2026",
+    "url": "https://www.youtube.com/watch?v=8npj6HXy63Y",
+    "channel": "NBA",
+    "views": 458659
+   },
+   {
+    "title": "Alperen Şengün’den 43 Sayı! 🔥 | Utah Jazz ⚔️ Houston Rockets | 13.11.2026",
+    "url": "https://www.youtube.com/watch?v=42hydvBjrec",
+    "channel": "Zelimir HBK",
+    "views": 373581
+   },
+   {
+    "title": "HEAT at JAZZ | FULL GAME HIGHLIGHTS | November 10, 2026",
+    "url": "https://www.youtube.com/watch?v=5hGbJnpnGQg",
+    "channel": "NBA",
+    "views": 358560
+   },
+   {
+    "title": "San Antonio Spurs vs Utah Jazz Full Game Highlights - November 15, 2026 | NBA Season",
+    "url": "https://www.youtube.com/watch?v=tJmzaps_8Yc",
+    "channel": "GAMETIME HIGHLIGHTS",
+    "views": 340348
+   },
+   {
+    "title": "JAZZ AT ROCKETS | EMIRATES NBA CUP 🏆  | FULL GAME HIGHLIGHTS | November 13, 2026",
+    "url": "https://www.youtube.com/watch?v=BxIKfpJRZIo",
+    "channel": "NBA",
+    "views": 302663
+   }
+  ],
+  "threads": [
+   {
+    "title": "Do you know the definition of insanity?",
+    "url": "https://www.reddit.com/r/UtahJazz/comments/1xuj3qd/do_you_know_the_definition_of_insanity/"
+   },
+   {
+    "title": "Chuck calls out the Jazz organization on Inside the NBA",
+    "url": "https://www.reddit.com/r/UtahJazz/comments/1xv4r55/chuck_calls_out_the_jazz_organization_on_inside/"
+   },
+   {
+    "title": "Feels like the time to dust this off",
+    "url": "https://www.reddit.com/r/UtahJazz/comments/1xujwwx/feels_like_the_time_to_dust_this_off/"
+   },
+   {
+    "title": "Just Pulled this Bad Boy Today",
+    "url": "https://www.reddit.com/r/UtahJazz/comments/1xvdyii/just_pulled_this_bad_boy_today/"
+   },
+   {
+    "title": "Jazz up 69-67 in the third hoping to stop the losing streak, bench subs in and immediately gives up a 25-4 run, to which Will Hardy opts to save his timeouts.",
+    "url": "https://www.reddit.com/r/UtahJazz/comments/1xvh19t/jazz_up_6967_in_the_third_hoping_to_stop_the/"
+   }
+  ]
+ }
+}

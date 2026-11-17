@@ -1,0 +1,424 @@
+{
+ "team": "Dallas Mavericks",
+ "as_of": "2026-11-16",
+ "source": "Ballast Fan Read",
+ "summary": "Mavericks fans follow Cooper Flagg most (128,352 Wikipedia views in 30 days and 1,447,209 over the year, both roster highs), with Kyrie Irving close behind (100,178 and 1,162,260) and former No. 1 pick Zaccharie Risacher a distant third (58,638 this month). Flagg's 43-point game, shoulder scare and late daggers and his partnership with Kyrie drive most of the conversation, alongside early optimism about new coach Dusty May and rookies Morez Johnson Jr. and Sergio de Larrea, a farewell to the waived Dwight Powell, and leftover anger about the Luka Doncic trade and the team's ownership.",
+ "segments": [
+  {
+   "id": "cooper-flagg-devotees",
+   "name": "Cooper Flagg devotees",
+   "who": "Fans treating the 19-year-old as the franchise's new centre, the most-searched Maverick by a wide margin, and tracking every record and nickname.",
+   "size_signal": "Flagg has 128,352 Wikipedia views in the past 30 days and 1,447,209 over the year, the roster high on both. Flagg clips: 1,772,692 and 1,264,021 (Chaz NBA); a Sidemen guessing-game video featuring him drew 5,965,706 over the year; five Flagg-focused threads in the month's top 25.",
+   "where": [
+    "Wikipedia",
+    "r/Mavericks",
+    "YouTube clip channels (Chaz NBA, Bleacher Report)",
+    "Mavs Shorts"
+   ],
+   "enjoys": [
+    "clutch daggers",
+    "all-time-before-20 milestones",
+    "nicknames like \"PB&J Coop\""
+   ],
+   "offer": "Milestone graphics, Flagg-cam isolations and his own breakdowns of big shots.",
+   "evidence": [
+    "https://www.youtube.com/watch?v=boQAv_YAALc",
+    "https://www.reddit.com/r/Mavericks/comments/1xknz4u/how_is_this_not_at_the_top_of_sub_19yo_superstar/",
+    "https://www.reddit.com/r/Mavericks/comments/1xrjih9/theres_game_6_klay_hoodie_melo_masked_lebron_but/",
+    "https://www.reddit.com/r/Mavericks/comments/1xghhkv/cooper_flaggs_unstoppable_performance_vs_giannis/",
+    "https://www.youtube.com/watch?v=dSHvpoQQKzY",
+    "https://www.youtube.com/watch?v=PXYq-65DY_M",
+    "https://www.youtube.com/watch?v=V1w4y2-wo6A"
+   ]
+  },
+  {
+   "id": "kai-x-coop-duo-fans",
+   "name": "Kai x Coop duo fans",
+   "who": "Fans who frame the team around the Kyrie Irving and Cooper Flagg pairing and the veteran-rookie bond.",
+   "size_signal": "Kyrie is second on the roster in Wikipedia views (100,178 in 30 days, 1,162,260 in the year), close to Flagg. \"Kai x Coop\" is the top thread of the month; Kyrie's first game with Flagg drew 706,979 (Chaz NBA) and his bench-rousing clip 728,976 (Beyond NBA); Kyrie Shorts at 39,000 and 31,000.",
+   "where": [
+    "r/Mavericks",
+    "Mavs Shorts",
+    "YouTube"
+   ],
+   "enjoys": [
+    "duo highlights",
+    "Kyrie handles",
+    "mentor moments"
+   ],
+   "offer": "Paired mic'd-up content and \"Kai teaches Coop\" Shorts.",
+   "evidence": [
+    "https://www.reddit.com/r/Mavericks/comments/1xscsce/kai_x_coop/",
+    "https://www.reddit.com/r/Mavericks/comments/1xsfrob/best_duo_in_the_nba/",
+    "https://www.youtube.com/watch?v=ErjZ9ASrAsI",
+    "https://www.youtube.com/shorts/F0Ko1KNhd7U",
+    "https://www.youtube.com/watch?v=UTimCLp0U1o"
+   ]
+  },
+  {
+   "id": "new-look-mavs-watchers-dusty-may-risacher-and-the-rookies",
+   "name": "New-look Mavs watchers: Dusty May, Risacher and the rookies",
+   "who": "Fans enjoying the new coach's first season and tracking the new faces: Zaccharie Risacher from Atlanta, waiver pickup Walter Clayton Jr., and rookies Morez Johnson Jr. and Sergio de Larrea.",
+   "size_signal": "Risacher (58,638), Clayton (40,186), Johnson (34,053) and de Larrea (22,985) are third to sixth on the roster in Wikipedia views this month. Risacher's SGA clip drew 233,123 and de Larrea's 21 against the Spurs 92,472 on the team channel; \"Dusty first WIN!\", \"What a game by Morez\" and de Larrea's breakout are top-25 threads.",
+   "where": [
+    "r/Mavericks",
+    "Locked On Mavericks",
+    "Spanish-language YouTube",
+    "Mavs Shorts"
+   ],
+   "enjoys": [
+    "coach reactions and huddle moments",
+    "Risacher's defense",
+    "rookie breakout nights"
+   ],
+   "offer": "Coach-cam and huddle Shorts, Risacher defensive-stop cuts, and rookie progress clips with Spanish-language versions for de Larrea.",
+   "evidence": [
+    "https://www.youtube.com/watch?v=45VE_yv9Lkw",
+    "https://www.youtube.com/watch?v=L2Zrw1iLIkQ",
+    "https://www.youtube.com/watch?v=EjiK8i5e2AY",
+    "https://www.reddit.com/r/Mavericks/comments/1xpx358/what_a_game_by_morez/",
+    "https://www.reddit.com/r/Mavericks/comments/1xerbye/sergio_de_larreas_big_breakout_vs_spurs_21_pts_5/",
+    "https://www.reddit.com/r/Mavericks/comments/1xdx2aa/dusty_first_win/"
+   ]
+  },
+  {
+   "id": "franchise-loyalists",
+   "name": "Franchise loyalists",
+   "who": "Long-time fans attached to Mavs lifers and the title-era players, who marked Dwight Powell's release.",
+   "size_signal": "Two of the top 25 threads cover Powell (his \"Mavs Resume\" and the waiver report); the Shawn Marion extended cut drew 772,658.",
+   "where": [
+    "r/Mavericks",
+    "MavsTV on YouTube"
+   ],
+   "enjoys": [
+    "farewell tributes",
+    "title-era stories",
+    "career retrospectives"
+   ],
+   "offer": "Tribute packages for departing long-time players and more MavsTV legend long-form.",
+   "evidence": [
+    "https://www.reddit.com/r/Mavericks/comments/1xa3yzf/dwight_powells_mavs_resume/",
+    "https://www.reddit.com/r/Mavericks/comments/1x9ybfy/the_dallas_mavericks_are_waiving_veteran_center/",
+    "https://www.youtube.com/watch?v=2xUiWBkzNw0"
+   ]
+  },
+  {
+   "id": "luka-and-ownership-grudge-holders",
+   "name": "Luka and ownership grudge-holders",
+   "who": "Fans still angry about the Luka Doncic trade and the owners, some of whom have stopped spending money on the team.",
+   "size_signal": "Three top-25 threads: a boycott post (\"haven't spent a cent on the Mavs in almost 18 months\"), a sarcastic trade-pitch quote about Luka, and Luka's desert-island teammate answer.",
+   "where": [
+    "r/Mavericks"
+   ],
+   "enjoys": [
+    "sarcastic trade jokes",
+    "Luka quotes",
+    "ownership criticism"
+   ],
+   "offer": "Avoid content that glosses over the trade; win them back with access and player-led content rather than promotion.",
+   "evidence": [
+    "https://www.reddit.com/r/Mavericks/comments/1xi0jeg/miriam_adelson_is_the_reason_i_havent_spent_a/",
+    "https://www.reddit.com/r/Mavericks/comments/1xqa4db/i_cant_throw_in_reaves_or_the_2031_first_round/",
+    "https://www.reddit.com/r/Mavericks/comments/1xnxdcv/luka_when_he_was_asked_which_teammate_past_or/"
+   ]
+  },
+  {
+   "id": "daily-podcast-regulars",
+   "name": "Daily-podcast regulars",
+   "who": "Hardcore fans following the team every day in audio, including a Spanish-language team show.",
+   "size_signal": "Pod Maverick has 818 episodes, DLLS Mavericks 775 and Locked On Mavericks 500, and all three published in the last four days; the team's Somos Mavs podcast has 51 episodes.",
+   "where": [
+    "Apple Podcasts"
+   ],
+   "enjoys": [
+    "daily shows",
+    "player-hosted podcasts",
+    "Spanish-language coverage"
+   ],
+   "offer": "Guest access for the dailies and more Spanish-language content.",
+   "evidence": [
+    "https://podcasts.apple.com/us/podcast/pod-maverick-a-dallas-mavericks-podcast/id1365537266?uo=4",
+    "https://podcasts.apple.com/us/podcast/dlls-dallas-mavericks-podcast/id1764151396?uo=4",
+    "https://podcasts.apple.com/us/podcast/locked-on-mavericks-daily-podcast-on-the-dallas-mavs/id1153678569?uo=4",
+    "https://podcasts.apple.com/us/podcast/somos-mavs-podcast/id1714320603?uo=4"
+   ]
+  }
+ ],
+ "players": [
+  {
+   "name": "Cooper Flagg",
+   "wikipedia_views_30d": 128352,
+   "wikipedia_views_year": 1447209,
+   "url": "https://en.wikipedia.org/wiki/Cooper_Flagg"
+  },
+  {
+   "name": "Kyrie Irving",
+   "wikipedia_views_30d": 100178,
+   "wikipedia_views_year": 1162260,
+   "url": "https://en.wikipedia.org/wiki/Kyrie_Irving"
+  },
+  {
+   "name": "Zaccharie Risacher",
+   "wikipedia_views_30d": 58638,
+   "wikipedia_views_year": 669219,
+   "url": "https://en.wikipedia.org/wiki/Zaccharie_Risacher"
+  },
+  {
+   "name": "Walter Clayton Jr.",
+   "wikipedia_views_30d": 40186,
+   "wikipedia_views_year": 190608,
+   "url": "https://en.wikipedia.org/wiki/Walter_Clayton_Jr."
+  },
+  {
+   "name": "Morez Johnson Jr.",
+   "wikipedia_views_30d": 34053,
+   "wikipedia_views_year": 224898,
+   "url": "https://en.wikipedia.org/wiki/Morez_Johnson_Jr."
+  },
+  {
+   "name": "Sergio de Larrea",
+   "wikipedia_views_30d": 22985,
+   "wikipedia_views_year": 145677,
+   "url": "https://en.wikipedia.org/wiki/Sergio_de_Larrea"
+  },
+  {
+   "name": "P.J. Washington",
+   "wikipedia_views_30d": 14614,
+   "wikipedia_views_year": 132119,
+   "url": "https://en.wikipedia.org/wiki/P._J._Washington"
+  }
+ ],
+ "formats": [
+  {
+   "type": "game_highlights",
+   "share_of_views": 0.68,
+   "examples": [
+    "https://www.youtube.com/watch?v=b0dZkVV_heM",
+    "https://www.youtube.com/watch?v=13GjPstCkKw",
+    "https://www.youtube.com/watch?v=a917kl3-0Qo"
+   ]
+  },
+  {
+   "type": "cooper_flagg",
+   "share_of_views": 0.1193,
+   "examples": [
+    "https://www.youtube.com/watch?v=boQAv_YAALc",
+    "https://www.youtube.com/watch?v=PXYq-65DY_M",
+    "https://www.youtube.com/watch?v=dSHvpoQQKzY"
+   ]
+  },
+  {
+   "type": "player_moments",
+   "share_of_views": 0.1192,
+   "examples": [
+    "https://www.youtube.com/watch?v=TGQUu-4g8pk",
+    "https://www.youtube.com/watch?v=UTimCLp0U1o",
+    "https://www.youtube.com/watch?v=ErjZ9ASrAsI"
+   ]
+  },
+  {
+   "type": "analysis",
+   "share_of_views": 0.0357,
+   "examples": [
+    "https://www.youtube.com/watch?v=O5cEZ2iluRk",
+    "https://www.youtube.com/watch?v=PVdUOqYzxBQ"
+   ]
+  },
+  {
+   "type": "throwbacks",
+   "share_of_views": 0.0221,
+   "examples": [
+    "https://www.youtube.com/watch?v=2xUiWBkzNw0"
+   ]
+  },
+  {
+   "type": "pressers_interviews",
+   "share_of_views": 0.0126,
+   "examples": [
+    "https://www.youtube.com/watch?v=edWRkpyNr8k"
+   ]
+  },
+  {
+   "type": "fan_reactions",
+   "share_of_views": 0.0041,
+   "examples": [
+    "https://www.youtube.com/watch?v=MZBA7ILd0jo"
+   ]
+  },
+  {
+   "type": "news_rumors",
+   "share_of_views": 0.0027,
+   "examples": [
+    "https://www.youtube.com/watch?v=f5gAYxShaFs"
+   ]
+  },
+  {
+   "type": "memes_jokes",
+   "share_of_views": 0.0024,
+   "examples": [
+    "https://www.youtube.com/shorts/08i3NXYO8UY",
+    "https://www.youtube.com/shorts/gvHDI_HWZhw"
+   ]
+  },
+  {
+   "type": "behind_scenes",
+   "share_of_views": 0.0019,
+   "examples": [
+    "https://www.youtube.com/shorts/Nl3rDct27oU",
+    "https://www.youtube.com/shorts/O7nL8nY8Ryc",
+    "https://www.youtube.com/shorts/x5ftMYTUX34"
+   ]
+  }
+ ],
+ "make_or_reward": [
+  {
+   "format": "Flagg flashpoint and injury-update clips, posted fast",
+   "why": "Chaz NBA's clip of Flagg hurting his shoulder after a flagrant foul is the most-viewed Mavs item of the year (1,772,488), ahead of every full-game highlight. Fans want the moment and the follow-up.",
+   "example": "https://www.youtube.com/watch?v=boQAv_YAALc"
+  },
+  {
+   "format": "Flagg clutch-shot and milestone cuts",
+   "why": "Chaz NBA's Flagg dagger against Miami drew 1,263,976, the NBA's 43-point milestone 324,425 and Bleacher Report's buzzer-beater 175,632. The team's own Flagg Shorts draw 19,000 to 39,000, so this is a gap to fill.",
+   "example": "https://www.youtube.com/watch?v=PXYq-65DY_M"
+  },
+  {
+   "format": "Kyrie and Flagg duo content (\"Kai x Coop\")",
+   "why": "\"Kai x Coop\" is the top r/Mavericks thread of the month and \"Best duo in the NBA\" is also in the top 25; GD's Highlights' \"SCARIEST Duo\" video drew 114,568.",
+   "example": "https://www.reddit.com/r/Mavericks/comments/1xscsce/kai_x_coop/"
+  },
+  {
+   "format": "Risacher defense and newcomer clips",
+   "why": "Risacher is the third most-searched Maverick this month (58,638 Wikipedia views); Beyond NBA's clip of him rattling Shai Gilgeous-Alexander drew 233,123 and a Chinese-language breakdown of his defense 167,960. The team posts long-form for his 22- and 18-point games, but none of its top 15 Shorts features him.",
+   "example": "https://www.youtube.com/watch?v=45VE_yv9Lkw"
+  },
+  {
+   "format": "Franchise-legend long-form",
+   "why": "The team's Shawn Marion MavsTV extended cut drew 772,658, more than many regular-season game highlights and far more than any team Short.",
+   "example": "https://www.youtube.com/watch?v=2xUiWBkzNw0"
+  },
+  {
+   "format": "Mavs-angle cuts of big opponent nights",
+   "why": "Wembanyama's 52 and 24 against Dallas generated 1,005,668 (Inside the NBA), 811,566 (NBA) and 595,309 (Chaz NBA) views.",
+   "example": "https://www.youtube.com/watch?v=O5cEZ2iluRk"
+  }
+ ],
+ "talk": [
+  {
+   "title": "Kai x Coop 🔥",
+   "url": "https://www.reddit.com/r/Mavericks/comments/1xscsce/kai_x_coop/"
+  },
+  {
+   "title": "how is this not at the top of sub?? 19YO SUPERSTAR HITS THE DAGGER RIGHT THROUGH HOUSTON'S HEART",
+   "url": "https://www.reddit.com/r/Mavericks/comments/1xknz4u/how_is_this_not_at_the_top_of_sub_19yo_superstar/"
+  },
+  {
+   "title": "Dusty first WIN!",
+   "url": "https://www.reddit.com/r/Mavericks/comments/1xdx2aa/dusty_first_win/"
+  },
+  {
+   "title": "The Dallas Mavericks are waiving veteran center Dwight Powell, sources tell ESPN.",
+   "url": "https://www.reddit.com/r/Mavericks/comments/1x9ybfy/the_dallas_mavericks_are_waiving_veteran_center/"
+  },
+  {
+   "title": "\"I can’t throw in Reaves or the 2031 first round pick, are you crazy?! Remember, Luka is fat, doesn't have the mamba mentality that you have and he's way past his prime, and AD's nickname is Iron Man... I'm doing you a huge favor here.\"",
+   "url": "https://www.reddit.com/r/Mavericks/comments/1xqa4db/i_cant_throw_in_reaves_or_the_2031_first_round/"
+  },
+  {
+   "title": "Miriam Adelson is the reason I haven’t spent a cent on the Mavs in almost 18 months.",
+   "url": "https://www.reddit.com/r/Mavericks/comments/1xi0jeg/miriam_adelson_is_the_reason_i_havent_spent_a/"
+  },
+  {
+   "title": "There's Game 6 Klay, Hoodie Melo, Masked LeBron. But have they ever heard of PB&J Coop?",
+   "url": "https://www.reddit.com/r/Mavericks/comments/1xrjih9/theres_game_6_klay_hoodie_melo_masked_lebron_but/"
+  },
+  {
+   "title": "Sergio de Larrea's Big Breakout vs Spurs | 21 PTS, 5 REB, 4 AST (70% TS, 75% 3P)",
+   "url": "https://www.reddit.com/r/Mavericks/comments/1xerbye/sergio_de_larreas_big_breakout_vs_spurs_21_pts_5/"
+  }
+ ],
+ "pulse": {
+  "window": "2026-11-03 to 2026-11-16",
+  "label": "10–16 Nov",
+  "team_wiki": {
+   "last7": 9713,
+   "prior7": 11587
+  },
+  "rising": [
+   {
+    "name": "Cooper Flagg",
+    "url": "https://en.wikipedia.org/wiki/Cooper_Flagg",
+    "last7": 43084,
+    "prior7": 28849,
+    "change": 0.493
+   },
+   {
+    "name": "P.J. Washington",
+    "url": "https://en.wikipedia.org/wiki/P._J._Washington",
+    "last7": 4328,
+    "prior7": 3435,
+    "change": 0.26
+   },
+   {
+    "name": "Zaccharie Risacher",
+    "url": "https://en.wikipedia.org/wiki/Zaccharie_Risacher",
+    "last7": 12681,
+    "prior7": 10133,
+    "change": 0.251
+   }
+  ],
+  "videos": [
+   {
+    "title": "MAVERICKS at TIMBERWOLVES | FULL GAME HIGHLIGHTS | November 12, 2026",
+    "url": "https://www.youtube.com/watch?v=a917kl3-0Qo",
+    "channel": "NBA",
+    "views": 1471721
+   },
+   {
+    "title": "MAVERICKS at CELTICS | FULL GAME HIGHLIGHTS | November 15, 2026",
+    "url": "https://www.youtube.com/watch?v=8IDrPqujvI8",
+    "channel": "NBA",
+    "views": 631912
+   },
+   {
+    "title": "PACERS at MAVERICKS | FULL GAME HIGHLIGHTS | November 9, 2026",
+    "url": "https://www.youtube.com/watch?v=RAPmPkOUf20",
+    "channel": "NBA",
+    "views": 548831
+   },
+   {
+    "title": "Minnesota Timberwolves vs Dallas Mavericks Full Game Highlights - November 12, 2026 | NBA Season",
+    "url": "https://www.youtube.com/watch?v=4LutbFaLwUU",
+    "channel": "GAMETIME HIGHLIGHTS",
+    "views": 481697
+   },
+   {
+    "title": "Dallas Mavericks vs Minnesota Timberwolves - FULL GAME HIGHLIGHTS | November 12, 2026 NBA Season",
+    "url": "https://www.youtube.com/watch?v=-FH7O-Iw_AM",
+    "channel": "Ximo Pierto",
+    "views": 449745
+   }
+  ],
+  "threads": [
+   {
+    "title": "Happy Anniversary",
+    "url": "https://www.reddit.com/r/Mavericks/comments/1xtm8kp/happy_anniversary/"
+   },
+   {
+    "title": "Miss those Mavs\\Suns and Luka\\Booker rivalry years",
+    "url": "https://www.reddit.com/r/Mavericks/comments/1xxf67d/miss_those_mavssuns_and_lukabooker_rivalry_years/"
+   },
+   {
+    "title": "Masai Ujiri “unilaterally” decided to fire Jason Kidd two weeks after taking over as Mavs President, “in the name of starting over as completely as possible”, per @TheSteinLine",
+    "url": "https://www.reddit.com/r/Mavericks/comments/1xtpw10/masai_ujiri_unilaterally_decided_to_fire_jason/"
+   },
+   {
+    "title": "Most Wins Since 2000",
+    "url": "https://www.reddit.com/r/Mavericks/comments/1xwhcba/most_wins_since_2000/"
+   },
+   {
+    "title": "Why he always look like he about to plant a 💣?",
+    "url": "https://www.reddit.com/r/Mavericks/comments/1xwbks8/why_he_always_look_like_he_about_to_plant_a/"
+   }
+  ]
+ }
+}

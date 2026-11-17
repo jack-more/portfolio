@@ -1,0 +1,399 @@
+{
+ "team": "Houston Rockets",
+ "as_of": "2026-11-16",
+ "source": "Ballast Fan Read",
+ "summary": "Kevin Durant is the Rocket fans follow most by far (155,705 Wikipedia views in 30 days and 2,126,575 over the year), well ahead of Amen Thompson (43,754), Marcus Smart (34,216) and Alperen Sengun (33,360). On Reddit fans are celebrating a start that put them \"1st in the West\", led by Amen's game-winning block on Wembanyama and Sengun's 40-point games, and push back hard on \"overrated\" talk, while on YouTube last spring's Lakers series still draws the most views, Marcus Smart confrontation clips are this month's biggest non-NBA items, and a Turkish audience follows Sengun through its own channels.",
+ "segments": [
+  {
+   "id": "kevin-durant-followers",
+   "name": "Kevin Durant followers",
+   "who": "Fans who follow the Rockets through Kevin Durant, the most-searched Rocket by a wide margin, mostly on YouTube rather than r/rockets.",
+   "size_signal": "Durant has 155,705 Wikipedia views in 30 days and 2,126,575 in the year, more than three times any teammate this month. Chaz NBA's Nuggets-beef clip drew 1,344,619 and his words for Kuminga 576,040; Boardroom's interview on his NBA future 985,979. No thread in the r/rockets top 25 is about him, and the team's KD Shorts draw 5,500 to 10,000.",
+   "where": [
+    "Wikipedia",
+    "YouTube (Chaz NBA, Boardroom, NBA)",
+    "Rockets Shorts"
+   ],
+   "enjoys": [
+    "KD flashpoints and trolling",
+    "his own talk about his career and future",
+    "milestones"
+   ],
+   "offer": "KD content with edge and his own voice (postgame trolling, career talk, milestone context), not only wholesome teammate moments.",
+   "evidence": [
+    "https://www.youtube.com/watch?v=la_TPXtbJm0",
+    "https://www.youtube.com/watch?v=wuKpkeXkJIA",
+    "https://www.youtube.com/watch?v=BARcxEBt8oM",
+    "https://www.youtube.com/shorts/0qwk5NbwEFQ"
+   ]
+  },
+  {
+   "id": "young-core-believers-amen-s-block-and-the-overrated-rebuttals",
+   "name": "Young-core believers: Amen's block and the \"overrated\" rebuttals",
+   "who": "Fans who live on single defensive plays and replay angles from Amen Thompson, and who answer outside criticism of the young core with stat posts on Jabari Smith Jr. and others.",
+   "size_signal": "Amen is second on the roster in Wikipedia views this month (43,754). 3 of the top 25 r/rockets threads are about one Amen block, which drew 669,423 on Bleacher Report and 344,255 on Chaz NBA; 5 more are stat or rebuttal posts (Jabari Smith Jr. 44.7% from 3, Bogdanovic 66.7%, \"Most overrated they said\").",
+   "where": [
+    "r/rockets",
+    "YouTube (Bleacher Report, Chaz NBA)",
+    "Wikipedia"
+   ],
+   "enjoys": [
+    "player_moments",
+    "memes_jokes",
+    "analysis"
+   ],
+   "offer": "Fast multi-angle replays of signature plays, and shareable stat cards on Jabari Smith Jr. and Amen Thompson that fans can post back at critics.",
+   "evidence": [
+    "https://www.reddit.com/r/rockets/comments/1xdz2ty/amen_game_winning_block_on_wembanyama/",
+    "https://www.reddit.com/r/rockets/comments/1xeao4j/best_angle_ive_seen_of_this_block/",
+    "https://www.youtube.com/watch?v=zhJKtYmEo2E",
+    "https://www.reddit.com/r/rockets/comments/1xub7dl/most_overrated_they_said/",
+    "https://www.reddit.com/r/rockets/comments/1xcnlh2/and_they_said_jabari_would_never_be_a_30ppg_player/",
+    "https://www.reddit.com/r/rockets/comments/1xkt02a/after_7_games_jabari_smith_jr_is_shooting_a/"
+   ]
+  },
+  {
+   "id": "marcus-smart-enforcer-crowd",
+   "name": "Marcus Smart enforcer crowd",
+   "who": "Fans who like the team's edge and on-court confrontations",
+   "size_signal": "Confrontation clips are 8.0% of classified views from 5 items; top clip 1.67M",
+   "where": [
+    "YouTube (Chaz NBA, The Scoreboard)",
+    "r/rockets"
+   ],
+   "enjoys": [
+    "beef_trash_talk"
+   ],
+   "offer": "Smart mic'd-up and celebration content that keeps the edge without promoting fights",
+   "evidence": [
+    "https://www.youtube.com/watch?v=JVlnw3Fc6Ys",
+    "https://www.youtube.com/watch?v=9ckQL-BRoAU",
+    "https://www.reddit.com/r/rockets/comments/1xmix45/tellem_marcus/",
+    "https://www.reddit.com/r/rockets/comments/1xdzk9n/goon_bullied_wet_bananas_tonight/"
+   ]
+  },
+  {
+   "id": "turkish-sengun-followers",
+   "name": "Turkish Sengun followers",
+   "who": "Turkish-speaking fans who follow the Rockets through Alperen Sengun",
+   "size_signal": "4 Zelimir HBK Sengun videos total 898K views; 2 of the top 25 r/rockets threads celebrate \"a Turk\" scoring 40+",
+   "where": [
+    "YouTube (Zelimir HBK, Socrates Dergi)",
+    "r/rockets"
+   ],
+   "enjoys": [
+    "player_moments",
+    "analysis"
+   ],
+   "offer": "Turkish-captioned Sengun clips, or a creator partnership with Zelimir HBK, on big Sengun nights",
+   "evidence": [
+    "https://www.youtube.com/watch?v=42hydvBjrec",
+    "https://www.youtube.com/watch?v=UbuzWkLujKQ",
+    "https://www.reddit.com/r/rockets/comments/1xvsqf2/a_turk_with_two_massive_balls_drops_his_second/",
+    "https://www.reddit.com/r/rockets/comments/1xdz1cj/the_man_of_the_match_tonight_a_turkish_guy_with_a/"
+   ]
+  },
+  {
+   "id": "lakers-series-rewatchers-and-series-bettors",
+   "name": "Lakers-series rewatchers and series bettors",
+   "who": "Fans who keep replaying last spring's playoff series and put money on series outcomes",
+   "size_signal": "Lakers-vs-Rockets games 1-3 and 6 at 3.3M-3.9M views each; Polymarket \"Lakers vs. Rockets\" series market $1.37M volume, \"Rockets vs. Warriors\" $1.04M",
+   "where": [
+    "YouTube (NBA)",
+    "Polymarket"
+   ],
+   "enjoys": [
+    "game_highlights",
+    "betting_fantasy"
+   ],
+   "offer": "Series retrospectives and rivalry-week content when the Lakers come back to Houston",
+   "evidence": [
+    "https://www.youtube.com/watch?v=S4OAzXJWSWs",
+    "https://www.youtube.com/watch?v=s6w074klwwk",
+    "https://polymarket.com/event/nba-playoffs-who-will-win-series-lakers-vs-rockets",
+    "https://polymarket.com/event/nba-playoffs-rockets-vs-warriors-to-advance"
+   ]
+  },
+  {
+   "id": "daily-podcast-listeners",
+   "name": "Daily podcast listeners",
+   "who": "Hardcore fans who follow every day of the season by audio",
+   "size_signal": "Locked On Rockets has 500 episodes and released on 16 Nov; Rockets Daily has 311, Red Nation Hoops 291",
+   "where": [
+    "Apple Podcasts"
+   ],
+   "enjoys": [
+    "analysis",
+    "news_rumors"
+   ],
+   "offer": "Player and coach access for daily shows on off days (one top thread complains \"No Rockets basketball today\")",
+   "evidence": [
+    "https://podcasts.apple.com/us/podcast/locked-on-rockets-daily-podcast-on-the-houston-rockets/id1135563666?uo=4",
+    "https://podcasts.apple.com/us/podcast/rockets-daily-daily-houston-rockets-podcast/id1819753186?uo=4",
+    "https://podcasts.apple.com/us/podcast/red-nation-hoops-a-houston-rockets-pod/id1059330949?uo=4"
+   ]
+  }
+ ],
+ "players": [
+  {
+   "name": "Kevin Durant",
+   "wikipedia_views_30d": 155705,
+   "wikipedia_views_year": 2126575,
+   "url": "https://en.wikipedia.org/wiki/Kevin_Durant"
+  },
+  {
+   "name": "Amen Thompson",
+   "wikipedia_views_30d": 43754,
+   "wikipedia_views_year": 458522,
+   "url": "https://en.wikipedia.org/wiki/Amen_Thompson"
+  },
+  {
+   "name": "Marcus Smart",
+   "wikipedia_views_30d": 34216,
+   "wikipedia_views_year": 456779,
+   "url": "https://en.wikipedia.org/wiki/Marcus_Smart"
+  },
+  {
+   "name": "Alperen Sengun",
+   "wikipedia_views_30d": 33360,
+   "wikipedia_views_year": 422284,
+   "url": "https://en.wikipedia.org/wiki/Alperen_%C5%9Eeng%C3%BCn"
+  },
+  {
+   "name": "Fred VanVleet",
+   "wikipedia_views_30d": 26557,
+   "wikipedia_views_year": 222355,
+   "url": "https://en.wikipedia.org/wiki/Fred_VanVleet"
+  },
+  {
+   "name": "Steven Adams",
+   "wikipedia_views_30d": 25934,
+   "wikipedia_views_year": 393549,
+   "url": "https://en.wikipedia.org/wiki/Steven_Adams"
+  },
+  {
+   "name": "Jabari Smith Jr.",
+   "wikipedia_views_30d": 20076,
+   "wikipedia_views_year": 214604,
+   "url": "https://en.wikipedia.org/wiki/Jabari_Smith_Jr."
+  }
+ ],
+ "formats": [
+  {
+   "type": "game_highlights",
+   "share_of_views": 0.8555,
+   "examples": [
+    "https://www.youtube.com/watch?v=S4OAzXJWSWs",
+    "https://www.youtube.com/watch?v=s6w074klwwk",
+    "https://www.youtube.com/watch?v=9gr45EIsHLU"
+   ]
+  },
+  {
+   "type": "beef_trash_talk",
+   "share_of_views": 0.0798,
+   "examples": [
+    "https://www.youtube.com/watch?v=JVlnw3Fc6Ys",
+    "https://www.youtube.com/watch?v=9ckQL-BRoAU",
+    "https://www.youtube.com/watch?v=gSEhN-4IAoM"
+   ]
+  },
+  {
+   "type": "player_moments",
+   "share_of_views": 0.0454,
+   "examples": [
+    "https://www.youtube.com/watch?v=RkpI6e66RtQ",
+    "https://www.youtube.com/watch?v=ste4L1OLjkM",
+    "https://www.youtube.com/watch?v=42hydvBjrec"
+   ]
+  },
+  {
+   "type": "news_rumors",
+   "share_of_views": 0.0103,
+   "examples": [
+    "https://www.youtube.com/watch?v=9UFU8RyqwKo"
+   ]
+  },
+  {
+   "type": "fan_reactions",
+   "share_of_views": 0.0047,
+   "examples": [
+    "https://www.youtube.com/watch?v=ls29bsZv_O0"
+   ]
+  },
+  {
+   "type": "analysis",
+   "share_of_views": 0.0034,
+   "examples": [
+    "https://www.youtube.com/watch?v=PrI4NsRRnmY",
+    "https://www.youtube.com/watch?v=eaPA_uqJ8jA"
+   ]
+  },
+  {
+   "type": "behind_scenes",
+   "share_of_views": 0.0009,
+   "examples": [
+    "https://www.youtube.com/shorts/s5NrSDVobTU",
+    "https://www.youtube.com/shorts/-P2r_exryo8",
+    "https://www.youtube.com/shorts/Be6crmBDCoA"
+   ]
+  }
+ ],
+ "make_or_reward": [
+  {
+   "format": "Same-night full-game highlights of big-stage games",
+   "why": "Game highlights are 85.5% of classified views; each Lakers playoff game from April and May still sits at 3.3M-3.9M.",
+   "example": "https://www.youtube.com/watch?v=S4OAzXJWSWs"
+  },
+  {
+   "format": "Sengun content in Turkish, or with Turkish creators",
+   "why": "Zelimir HBK's video of Sengun's 43-point night has 351K views; the team's own Short of the same game has 7.1K.",
+   "example": "https://www.youtube.com/watch?v=42hydvBjrec"
+  },
+  {
+   "format": "Kevin Durant edge and career-talk clips",
+   "why": "Durant is the most-searched Rocket (155,705 Wikipedia views this month, more than three times the next player). Fans watch him on Chaz NBA (Nuggets beef 1,344,619; words for Kuminga 576,040) and Boardroom (985,979), while the team's KD Shorts draw 5,500 to 10,000.",
+   "example": "https://www.youtube.com/watch?v=la_TPXtbJm0"
+  },
+  {
+   "format": "Marcus Smart personality clips (celebrations, trash talk), framed by the team",
+   "why": "Smart's celebration clip vs the Celtics has 1.67M views and the ejection clip 1.19M, both from an independent clip channel.",
+   "example": "https://www.youtube.com/watch?v=JVlnw3Fc6Ys"
+  },
+  {
+   "format": "Multi-angle replays of one defining play",
+   "why": "Amen Thompson's block on Wembanyama has 669K views on Bleacher Report and 3 of the top 25 r/rockets threads this month are about it, including one titled \"Best Angle I've Seen of This Block\".",
+   "example": "https://www.reddit.com/r/rockets/comments/1xeao4j/best_angle_ive_seen_of_this_block/"
+  },
+  {
+   "format": "Live play-by-play watch-along streams",
+   "why": "The Sports Fury's live stream of Warriors vs Rockets has 266K views, more than any team Short.",
+   "example": "https://www.youtube.com/watch?v=ls29bsZv_O0"
+  }
+ ],
+ "talk": [
+  {
+   "title": "Amen game winning block on Wembanyama!",
+   "url": "https://www.reddit.com/r/rockets/comments/1xdz2ty/amen_game_winning_block_on_wembanyama/"
+  },
+  {
+   "title": "Most overrated they said",
+   "url": "https://www.reddit.com/r/rockets/comments/1xub7dl/most_overrated_they_said/"
+  },
+  {
+   "title": "A Turk with two massive balls drops his second 40-plus point game in the NBA",
+   "url": "https://www.reddit.com/r/rockets/comments/1xvsqf2/a_turk_with_two_massive_balls_drops_his_second/"
+  },
+  {
+   "title": "Tell'em, Marcus",
+   "url": "https://www.reddit.com/r/rockets/comments/1xmix45/tellem_marcus/"
+  },
+  {
+   "title": "1st in the West",
+   "url": "https://www.reddit.com/r/rockets/comments/1xerh4m/1st_in_the_west/"
+  },
+  {
+   "title": "After 7 games, Jabari Smith Jr is shooting a career high 44.7% from 3 (21 for 47)",
+   "url": "https://www.reddit.com/r/rockets/comments/1xkt02a/after_7_games_jabari_smith_jr_is_shooting_a/"
+  },
+  {
+   "title": "The league should be ashamed of the scheduling. Rockets finished in Austin, TX at midnight and have a game the next day at 7:30 pm in Atlanta.",
+   "url": "https://www.reddit.com/r/rockets/comments/1xebnha/the_league_should_be_ashamed_of_the_scheduling/"
+  },
+  {
+   "title": "The Houston Comets unveil their new logo🔥",
+   "url": "https://www.reddit.com/r/rockets/comments/1xj2czn/the_houston_comets_unveil_their_new_logo/"
+  }
+ ],
+ "pulse": {
+  "window": "2026-11-03 to 2026-11-16",
+  "label": "10–16 Nov",
+  "team_wiki": {
+   "last7": 7505,
+   "prior7": 7558
+  },
+  "rising": [
+   {
+    "name": "Fred VanVleet",
+    "url": "https://en.wikipedia.org/wiki/Fred_VanVleet",
+    "last7": 6957,
+    "prior7": 4242,
+    "change": 0.64
+   },
+   {
+    "name": "Alperen Sengun",
+    "url": "https://en.wikipedia.org/wiki/Alperen_%C5%9Eeng%C3%BCn",
+    "last7": 10262,
+    "prior7": 7143,
+    "change": 0.437
+   },
+   {
+    "name": "Marcus Smart",
+    "url": "https://en.wikipedia.org/wiki/Marcus_Smart",
+    "last7": 10376,
+    "prior7": 8279,
+    "change": 0.253
+   },
+   {
+    "name": "Amen Thompson",
+    "url": "https://en.wikipedia.org/wiki/Amen_Thompson",
+    "last7": 7864,
+    "prior7": 6387,
+    "change": 0.231
+   }
+  ],
+  "videos": [
+   {
+    "title": "WARRIORS at ROCKETS | FULL GAME HIGHLIGHTS | November 11, 2026",
+    "url": "https://www.youtube.com/watch?v=H5Fp_le80mw",
+    "channel": null,
+    "views": null
+   },
+   {
+    "title": "Marcus Smart throws punch at Charles Bassey and gets instantly ejected 😳",
+    "url": "https://www.youtube.com/watch?v=9ckQL-BRoAU",
+    "channel": null,
+    "views": null
+   },
+   {
+    "title": "PRAY FOR CURRY! Gulat ang lahat kay Marcus Smart ejected, SOLID PUNCH!",
+    "url": "https://www.youtube.com/watch?v=gSEhN-4IAoM",
+    "channel": null,
+    "views": null
+   },
+   {
+    "title": "NUGGETS at ROCKETS | FULL GAME HIGHLIGHTS | November 9, 2026",
+    "url": "https://www.youtube.com/watch?v=3rdz4PrUbMs",
+    "channel": null,
+    "views": null
+   },
+   {
+    "title": "Golden State Warriors vs Houston Rockets Full Game Highlights - November 11, 2026 | NBA Season",
+    "url": "https://www.youtube.com/watch?v=RLuqUycdIrI",
+    "channel": null,
+    "views": null
+   }
+  ],
+  "threads": [
+   {
+    "title": "Most overrated they said",
+    "url": "https://www.reddit.com/r/rockets/comments/1xub7dl/most_overrated_they_said/"
+   },
+   {
+    "title": "GO \"OVERRATE\" THAT NOW",
+    "url": "https://www.reddit.com/r/rockets/comments/1xvvffp/go_overrate_that_now/"
+   },
+   {
+    "title": "You’ve just been Ackerman’d",
+    "url": "https://www.reddit.com/r/rockets/comments/1xshhn9/youve_just_been_ackermand/"
+   },
+   {
+    "title": "A Turk with two massive balls drops his second 40-plus point game in the NBA",
+    "url": "https://www.reddit.com/r/rockets/comments/1xvsqf2/a_turk_with_two_massive_balls_drops_his_second/"
+   },
+   {
+    "title": "Tari Eason 25 PTS | 7 REB | 10/14 FG | 81.6 TS%",
+    "url": "https://www.reddit.com/r/rockets/comments/1xxe5do/tari_eason_25_pts_7_reb_1014_fg_816_ts/"
+   }
+  ]
+ }
+}

@@ -1,0 +1,415 @@
+{
+ "team": "New Orleans Pelicans",
+ "as_of": "2026-11-16",
+ "source": "Ballast Fan Read",
+ "summary": "Pelicans fans search Zion Williamson most (61,951 Wikipedia views in 30 days and 637,843 over the year, both roster highs), with Jordan Poole (36,483) and Dejounte Murray (35,474) next, Poole mostly through videos about his fall since Golden State and Murray through his trade request. The fanbase swings between relief and frustration: r/NOLAPelicans celebrated early wins like titles (\"Hang the banner everybody!\") and the first .500 record since November 2024, but Murray's trade request and Zion calling out the team after back-to-back blowouts now lead the conversation, and on YouTube fight clips and Zion edits from independent channels outdraw the team's own Shorts several times over.",
+ "segments": [
+  {
+   "id": "zion-believers",
+   "name": "Zion believers",
+   "who": "Fans still built around Zion Williamson, the roster's most-searched player, including his calls for accountability",
+   "size_signal": "Zion 61,951 Wikipedia views in 30 days and 637,843 in the year, both roster highs; Beyond NBA Zion edits 792K combined; 澤北SG's \"should he request a trade\" explainer 428,276; 3 of the top 25 threads are about Zion; team's best Zion Short 91.0K",
+   "where": [
+    "Wikipedia",
+    "r/NOLAPelicans",
+    "YouTube (Beyond NBA, 澤北SG, team Shorts)"
+   ],
+   "enjoys": [
+    "player_moments",
+    "pressers_interviews"
+   ],
+   "offer": "Full Zion postgame audio and two-way highlight cuts",
+   "evidence": [
+    "https://www.reddit.com/r/NOLAPelicans/comments/1xu9zoj/fans_dont_deserve_this_city_dont_deserve_this/",
+    "https://www.reddit.com/r/NOLAPelicans/comments/1xuaaud/zion_post_game_calling_out_the_players_to_take_a/",
+    "https://www.reddit.com/r/NOLAPelicans/comments/1xmu4qn/z_with_the_mid_range_shot_in_ot/",
+    "https://www.youtube.com/watch?v=L6pv5iFzYms",
+    "https://www.youtube.com/watch?v=cy6F0kHFm_M"
+   ]
+  },
+  {
+   "id": "dejounte-saga-followers",
+   "name": "Dejounte saga followers",
+   "who": "Fans tracking (and mocking) Dejounte Murray's trade request",
+   "size_signal": "Murray 35,474 Wikipedia views in 30 days, third on the roster; 3 of the top 25 threads are about the request; ESPN segment 305,246, TheFlightMike 169,272, Extra SROS \"The Dejounte Murray Trade is Happening\" 97,334",
+   "where": [
+    "r/NOLAPelicans",
+    "YouTube (NBA on ESPN, TheFlightMike, Extra SROS)"
+   ],
+   "enjoys": [
+    "news_rumors",
+    "memes_jokes"
+   ],
+   "offer": "A clear front-office statement, then a turn to the young players",
+   "evidence": [
+    "https://www.reddit.com/r/NOLAPelicans/comments/1xvhudc/shamscharania_new_orleans_pelicans_guard_dejounte/",
+    "https://www.reddit.com/r/NOLAPelicans/comments/1xvipcu/charania_dejounte_murray_will_not_play_another/",
+    "https://www.reddit.com/r/NOLAPelicans/comments/1xvijl1/this_motherfucker_retweeted_his_own_trade_request/",
+    "https://www.youtube.com/watch?v=ayD_Q-G3iio",
+    "https://www.youtube.com/watch?v=XA3QLt_lY1o"
+   ]
+  },
+  {
+   "id": "fears-and-queen-young-core-watchers",
+   "name": "Fears and Queen young-core watchers",
+   "who": "Fans following the young guards and bigs, Jeremiah Fears and Derik Queen, for their breakout nights and their willingness to mix it up",
+   "size_signal": "Fears 29,882 Wikipedia views in 30 days (247,364 in the year), Queen 247,631 in the year; Chaz NBA's Queen-Haliburton clip 541,620 and Fears-Dort fight 432,400; NBA's Fears 22-8-13 clip 30,472; team Short of Antonio Daniels wearing a Fears jersey 15K",
+   "where": [
+    "Wikipedia",
+    "YouTube (Chaz NBA, NBA, House of Highlights)",
+    "r/NOLAPelicans",
+    "team Shorts"
+   ],
+   "enjoys": [
+    "beef_trash_talk",
+    "player_moments"
+   ],
+   "offer": "Fears and Queen breakout-night Shorts, posted the same night, with the competitive moments kept in",
+   "evidence": [
+    "https://www.youtube.com/watch?v=cWFjUqUohHw",
+    "https://www.youtube.com/watch?v=pszVQ3QjoZM",
+    "https://www.youtube.com/watch?v=LLKyKwVIdRw",
+    "https://www.youtube.com/shorts/eajVHJea73E"
+   ]
+  },
+  {
+   "id": "win-starved-celebrants",
+   "name": "Win-starved celebrants",
+   "who": "Fans who treat each win as an event after a rough stretch",
+   "size_signal": "4 of the top 25 threads are win celebrations, plus \"First time at .500 since November 2024\"",
+   "where": [
+    "r/NOLAPelicans"
+   ],
+   "enjoys": [
+    "community",
+    "game_highlights"
+   ],
+   "offer": "Post-win social that matches the joke (\"hang the banner\")",
+   "evidence": [
+    "https://www.reddit.com/r/NOLAPelicans/comments/1xj4932/hang_the_banner_everybody/",
+    "https://www.reddit.com/r/NOLAPelicans/comments/1xj465x/the_new_orleans_pelicans_have_won_a_basketball/",
+    "https://www.reddit.com/r/NOLAPelicans/comments/1xmii0k/everyone_get_in_herewe_won/",
+    "https://www.reddit.com/r/NOLAPelicans/comments/1xorban/first_time_at_500_since_november_2024_gotta_give/"
+   ]
+  },
+  {
+   "id": "broadcast-booth-fans",
+   "name": "Broadcast-booth fans",
+   "who": "Fans attached to the local TV crew",
+   "size_signal": "2 of the top 25 threads are about the booth (Joel Meyers impression, fan photo with commentators)",
+   "where": [
+    "r/NOLAPelicans"
+   ],
+   "enjoys": [
+    "behind_scenes",
+    "memes_jokes"
+   ],
+   "offer": "Booth-cam and broadcaster crossover clips, like the Antonio Daniels bet Short",
+   "evidence": [
+    "https://www.reddit.com/r/NOLAPelicans/comments/1x95m3q/trey_murphys_impression_of_joel_meyers/",
+    "https://www.reddit.com/r/NOLAPelicans/comments/1xf5j3o/despite_the_loss_still_got_a_pic_with_the_best/"
+   ]
+  },
+  {
+   "id": "graphics-and-fit-check-creatives",
+   "name": "Graphics and fit-check creatives",
+   "who": "Fans who make art and outfits around games",
+   "size_signal": "2 of the top 25 threads are fan-made graphics or game-day fits",
+   "where": [
+    "r/NOLAPelicans"
+   ],
+   "enjoys": [
+    "culture_crossover",
+    "community"
+   ],
+   "offer": "Repost fan graphics with credit; a fit-check feature on city-edition nights",
+   "evidence": [
+    "https://www.reddit.com/r/NOLAPelicans/comments/1xjwd52/making_a_graphic_after_every_pelicans_game/",
+    "https://www.reddit.com/r/NOLAPelicans/comments/1xc1i3c/game_time_fit_check_the_haliban_never_stood_a/"
+   ]
+  }
+ ],
+ "players": [
+  {
+   "name": "Zion Williamson",
+   "wikipedia_views_30d": 61951,
+   "wikipedia_views_year": 637843,
+   "url": "https://en.wikipedia.org/wiki/Zion_Williamson"
+  },
+  {
+   "name": "Jordan Poole",
+   "wikipedia_views_30d": 36483,
+   "wikipedia_views_year": 281880,
+   "url": "https://en.wikipedia.org/wiki/Jordan_Poole"
+  },
+  {
+   "name": "Dejounte Murray",
+   "wikipedia_views_30d": 35474,
+   "wikipedia_views_year": 206437,
+   "url": "https://en.wikipedia.org/wiki/Dejounte_Murray"
+  },
+  {
+   "name": "Jeremiah Fears",
+   "wikipedia_views_30d": 29882,
+   "wikipedia_views_year": 247364,
+   "url": "https://en.wikipedia.org/wiki/Jeremiah_Fears"
+  },
+  {
+   "name": "Julian Reese",
+   "wikipedia_views_30d": 24476,
+   "wikipedia_views_year": 179050,
+   "url": "https://en.wikipedia.org/wiki/Julian_Reese"
+  },
+  {
+   "name": "DeAndre Jordan",
+   "wikipedia_views_30d": 24085,
+   "wikipedia_views_year": 316525,
+   "url": "https://en.wikipedia.org/wiki/DeAndre_Jordan"
+  },
+  {
+   "name": "Derik Queen",
+   "wikipedia_views_30d": 15108,
+   "wikipedia_views_year": 247631,
+   "url": "https://en.wikipedia.org/wiki/Derik_Queen"
+  },
+  {
+   "name": "Saddiq Bey",
+   "wikipedia_views_30d": 18080,
+   "wikipedia_views_year": 138940,
+   "url": "https://en.wikipedia.org/wiki/Saddiq_Bey"
+  }
+ ],
+ "formats": [
+  {
+   "type": "game_highlights",
+   "share_of_views": 0.7639,
+   "examples": [
+    "https://www.youtube.com/watch?v=krDsnJ_Ohfw",
+    "https://www.youtube.com/watch?v=HUaf_y2R-Jw",
+    "https://www.youtube.com/watch?v=e2hJQv3M-rk"
+   ]
+  },
+  {
+   "type": "beef_trash_talk",
+   "share_of_views": 0.1059,
+   "examples": [
+    "https://www.youtube.com/watch?v=CwXdmX53H74",
+    "https://www.youtube.com/watch?v=e_6CCHeViGU",
+    "https://www.youtube.com/watch?v=5h181lwFYzw"
+   ]
+  },
+  {
+   "type": "player_moments",
+   "share_of_views": 0.0583,
+   "examples": [
+    "https://www.youtube.com/watch?v=L6pv5iFzYms",
+    "https://www.youtube.com/watch?v=cy6F0kHFm_M",
+    "https://www.youtube.com/shorts/UetZMTV-v5M"
+   ]
+  },
+  {
+   "type": "news_rumors",
+   "share_of_views": 0.0438,
+   "examples": [
+    "https://www.youtube.com/watch?v=ayD_Q-G3iio",
+    "https://www.youtube.com/watch?v=c2S_VR6rUK4",
+    "https://www.youtube.com/watch?v=XA3QLt_lY1o"
+   ]
+  },
+  {
+   "type": "fan_reactions",
+   "share_of_views": 0.0167,
+   "examples": [
+    "https://www.youtube.com/watch?v=z6c5Uny3uNQ",
+    "https://www.youtube.com/watch?v=cxodBrAD4_c",
+    "https://www.youtube.com/watch?v=lR50SQQTfSM"
+   ]
+  },
+  {
+   "type": "analysis",
+   "share_of_views": 0.0052,
+   "examples": [
+    "https://www.youtube.com/watch?v=gGDy808QlQQ"
+   ]
+  },
+  {
+   "type": "behind_scenes",
+   "share_of_views": 0.0033,
+   "examples": [
+    "https://www.youtube.com/shorts/UWl7mJYlMy8",
+    "https://www.youtube.com/shorts/eajVHJea73E"
+   ]
+  },
+  {
+   "type": "culture_crossover",
+   "share_of_views": 0.0028,
+   "examples": [
+    "https://www.youtube.com/shorts/6rZsIql8XM8",
+    "https://www.youtube.com/shorts/ERbPOoKZZoc"
+   ]
+  }
+ ],
+ "make_or_reward": [
+  {
+   "format": "Same-night full-game highlights",
+   "why": "Game highlights are 76.4% of classified views; Pelicans at Warriors has 1.35M.",
+   "example": "https://www.youtube.com/watch?v=HUaf_y2R-Jw"
+  },
+  {
+   "format": "Two-way Zion Williamson edits",
+   "why": "Zion is the most-searched Pelican (61,951 Wikipedia views in 30 days). Beyond NBA's Zion edits have 445K and 347K and 澤北SG's Zion explainer 428,276; the team's best Zion Short has 91.0K.",
+   "example": "https://www.youtube.com/watch?v=L6pv5iFzYms"
+  },
+  {
+   "format": "Young-guard flashpoint and breakout clips (Jeremiah Fears, Derik Queen)",
+   "why": "Chaz NBA's Queen-Haliburton clip (541,620) and Fears-Dort fight (432,400) outdraw every team Short; the NBA's Fears 22-8-13 clip drew 30,472. Fears is fourth on the roster in 30-day Wikipedia views (29,882).",
+   "example": "https://www.youtube.com/watch?v=cWFjUqUohHw"
+  },
+  {
+   "format": "Jordan Poole's own side of his story",
+   "why": "Poole is the second most-searched Pelican this month (36,483), and the views go to explainers about his decline: Henry Hoops' \"We Finally Know EXACTLY What Happened With Jordan Poole\" has 701,987. None of the team's top 15 Shorts features him.",
+   "example": "https://www.youtube.com/watch?v=1CluC2iNrPo"
+  },
+  {
+   "format": "Win-celebration posts that match the fans' tone",
+   "why": "4 of the top 25 r/NOLAPelicans threads this month are win celebrations (\"Hang the banner everybody!\").",
+   "example": "https://www.reddit.com/r/NOLAPelicans/comments/1xj4932/hang_the_banner_everybody/"
+  },
+  {
+   "format": "Broadcast-team features (Joel Meyers)",
+   "why": "2 of the top 25 threads are about the TV booth, including Trey Murphy's impression of Joel Meyers.",
+   "example": "https://www.reddit.com/r/NOLAPelicans/comments/1x95m3q/trey_murphys_impression_of_joel_meyers/"
+  },
+  {
+   "format": "Rookie and team-life Shorts",
+   "why": "The rookie popcorn prank is the team's second-best Short at 46.0K.",
+   "example": "https://www.youtube.com/shorts/UWl7mJYlMy8"
+  }
+ ],
+ "talk": [
+  {
+   "title": "“Fans don't deserve this, city don't deserve this” – Zion Williamson calls out Pelicans after back-to-back embarrassing losses",
+   "url": "https://www.reddit.com/r/NOLAPelicans/comments/1xu9zoj/fans_dont_deserve_this_city_dont_deserve_this/"
+  },
+  {
+   "title": "[ShamsCharania] New Orleans Pelicans guard Dejounte Murray wants a trade from the franchise, and his agent Klutch Sports CEO Rich Paul and team officials have started working on a resolution for the one-time All-Star, sources tell ESPN.",
+   "url": "https://www.reddit.com/r/NOLAPelicans/comments/1xvhudc/shamscharania_new_orleans_pelicans_guard_dejounte/"
+  },
+  {
+   "title": "This motherfucker retweeted his own trade request",
+   "url": "https://www.reddit.com/r/NOLAPelicans/comments/1xvijl1/this_motherfucker_retweeted_his_own_trade_request/"
+  },
+  {
+   "title": "Hang the banner everybody!",
+   "url": "https://www.reddit.com/r/NOLAPelicans/comments/1xj4932/hang_the_banner_everybody/"
+  },
+  {
+   "title": "First time at .500 since November 2024. Gotta give Mosley some credit",
+   "url": "https://www.reddit.com/r/NOLAPelicans/comments/1xorban/first_time_at_500_since_november_2024_gotta_give/"
+  },
+  {
+   "title": "Herbert Keyshawn Jones needs to start if we’re gonna have a chance against the Grizz",
+   "url": "https://www.reddit.com/r/NOLAPelicans/comments/1xl534q/herbert_keyshawn_jones_needs_to_start_if_were/"
+  },
+  {
+   "title": "Trey Murphy’s Impression of Joel Meyers",
+   "url": "https://www.reddit.com/r/NOLAPelicans/comments/1x95m3q/trey_murphys_impression_of_joel_meyers/"
+  },
+  {
+   "title": "Making a Graphic After Every Pelicans Game - October 29, 2026 (Re-up)",
+   "url": "https://www.reddit.com/r/NOLAPelicans/comments/1xjwd52/making_a_graphic_after_every_pelicans_game/"
+  }
+ ],
+ "pulse": {
+  "window": "2026-11-03 to 2026-11-16",
+  "label": "10–16 Nov",
+  "team_wiki": {
+   "last7": 8765,
+   "prior7": 7197
+  },
+  "rising": [
+   {
+    "name": "Dejounte Murray",
+    "url": "https://en.wikipedia.org/wiki/Dejounte_Murray",
+    "last7": 27927,
+    "prior7": 2998,
+    "change": 8.315
+   },
+   {
+    "name": "Jeremiah Fears",
+    "url": "https://en.wikipedia.org/wiki/Jeremiah_Fears",
+    "last7": 12445,
+    "prior7": 4754,
+    "change": 1.618
+   },
+   {
+    "name": "Jordan Poole",
+    "url": "https://en.wikipedia.org/wiki/Jordan_Poole",
+    "last7": 15967,
+    "prior7": 7054,
+    "change": 1.264
+   },
+   {
+    "name": "Derik Queen",
+    "url": "https://en.wikipedia.org/wiki/Derik_Queen",
+    "last7": 5882,
+    "prior7": 3096,
+    "change": 0.9
+   }
+  ],
+  "videos": [
+   {
+    "title": "PELICANS at WARRIORS | FULL GAME HIGHLIGHTS | November 9, 2026",
+    "url": "https://www.youtube.com/watch?v=HUaf_y2R-Jw",
+    "channel": "NBA",
+    "views": 1360456
+   },
+   {
+    "title": "Golden State Warriors vs New Orleans Pelicans Full Game Highlights - November 9, 2026 | NBA Season",
+    "url": "https://www.youtube.com/watch?v=mN5QWVqz8ME",
+    "channel": "GAMETIME HIGHLIGHTS",
+    "views": 901191
+   },
+   {
+    "title": "Dejounte Murray REQUESTS A TRADE from the Pelicans 🚨 Could Zion be next? | NBA Today",
+    "url": "https://www.youtube.com/watch?v=ayD_Q-G3iio",
+    "channel": "NBA on ESPN",
+    "views": 321828
+   },
+   {
+    "title": "NUGGETS at PELICANS | FULL GAME HIGHLIGHTS | November 14, 2026",
+    "url": "https://www.youtube.com/watch?v=i2BFzNvtr6Y",
+    "channel": "NBA",
+    "views": 285980
+   },
+   {
+    "title": "Golden State Warriors vs New Orleans Pelicans Full Game Highlights - November 9, 2026 | NBA",
+    "url": "https://www.youtube.com/watch?v=Rmdl81skMWA",
+    "channel": "QORVIX-MC",
+    "views": 179651
+   }
+  ],
+  "threads": [
+   {
+    "title": "“Fans don't deserve this, city don't deserve this” – Zion Williamson calls out Pelicans after back-to-back embarrassing losses",
+    "url": "https://www.reddit.com/r/NOLAPelicans/comments/1xu9zoj/fans_dont_deserve_this_city_dont_deserve_this/"
+   },
+   {
+    "title": "Zion post game calling out the players to 'take a look in the mirror'",
+    "url": "https://www.reddit.com/r/NOLAPelicans/comments/1xuaaud/zion_post_game_calling_out_the_players_to_take_a/"
+   },
+   {
+    "title": "[ShamsCharania] New Orleans Pelicans guard Dejounte Murray wants a trade from the franchise, and his agent Klutch Sports CEO Rich Paul and team officials have started working on a resolution for the one-time All-Star, sources tell ESPN.",
+    "url": "https://www.reddit.com/r/NOLAPelicans/comments/1xvhudc/shamscharania_new_orleans_pelicans_guard_dejounte/"
+   },
+   {
+    "title": "[Charania] Dejounte Murray will NOT play another minute for the New Orleans Pelicans this season. Murray intends to sit out until his trade request is satisfied.",
+    "url": "https://www.reddit.com/r/NOLAPelicans/comments/1xvipcu/charania_dejounte_murray_will_not_play_another/"
+   },
+   {
+    "title": "This motherfucker retweeted his own trade request",
+    "url": "https://www.reddit.com/r/NOLAPelicans/comments/1xvijl1/this_motherfucker_retweeted_his_own_trade_request/"
+   }
+  ]
+ }
+}

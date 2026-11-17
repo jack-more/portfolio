@@ -1,0 +1,413 @@
+{
+ "team": "Sacramento Kings",
+ "as_of": "2026-11-16",
+ "source": "Ballast Fan Read",
+ "summary": "Kings fans look up Ben Simmons most (127,372 Wikipedia views in 30 days and 1,314,163 in the year, both roster highs) after his comeback ended in a torn Achilles, while rookie Darius Acuff Jr. leads on YouTube this month (top video 384,650) and Domantas Sabonis (46,239) is a distant second in searches. The fanbase is living through a 1-10 start, and r/kings runs on Acuff (12 of the top 25 threads) plus gallows humour about the first win, Sabonis wanting out and Simmons' injury, while outside Sacramento the rookie is a target, with \"hated rookie\" videos drawing 621,663 and 494,509.",
+ "segments": [
+  {
+   "id": "acuff-believers",
+   "name": "Acuff believers",
+   "who": "Fans who see rookie Darius Acuff Jr. as the reason to watch a 1-10 team.",
+   "size_signal": "12 of the top 25 monthly threads are about Acuff; NBA's 34-and-14 clip 229,436; Wikipedia peaked at 73,074 in June 2026, the draft month, and he has 246,056 views over the year.",
+   "where": [
+    "r/kings",
+    "NBA YouTube"
+   ],
+   "enjoys": [
+    "Acuff stat-line posts",
+    "franchise-record notes",
+    "his quotes"
+   ],
+   "offer": "An Acuff rookie-season series with stats in the title, posted the same night.",
+   "evidence": [
+    "https://www.reddit.com/r/kings/comments/1xkrx6l/darius_acuff_tonight_38_points_4_rebounds_5/",
+    "https://www.reddit.com/r/kings/comments/1xuo69l/the_sacramento_kings_feel_they_drafted_a/",
+    "https://www.reddit.com/r/kings/comments/1xebnsy/highlights_darius_acuff_scores_33_points_last/",
+    "https://www.reddit.com/r/kings/comments/1xmid1f/for_all_the_acuff_haters/",
+    "https://www.reddit.com/r/kings/comments/1xnxlei/darius_acuff_on_his_relationship_with_the_kings/",
+    "https://www.youtube.com/watch?v=HIzH2cqi5Rc"
+   ]
+  },
+  {
+   "id": "acuff-skeptics",
+   "name": "Acuff skeptics",
+   "who": "Mostly non-Kings viewers drawn to \"selfish rookie\" takes.",
+   "size_signal": "1,649,965 combined views across 6 Acuff-debate videos; Staincast's alone 621,663.",
+   "where": [
+    "Staincast",
+    "A.M. Hoops",
+    "Gil's Arena"
+   ],
+   "enjoys": [
+    "critical video essays",
+    "podcast takes"
+   ],
+   "offer": "Not a segment to court; give fans material to answer it with.",
+   "evidence": [
+    "https://www.youtube.com/watch?v=7-E0vendD7E",
+    "https://www.youtube.com/watch?v=8u1W3YKPaJc",
+    "https://www.youtube.com/watch?v=h-QRc61C7pQ",
+    "https://www.reddit.com/r/kings/comments/1xt9xmz/darius_acuff_jr_is_visibly_frustrated_at_his/"
+   ]
+  },
+  {
+   "id": "gallows-humour-sufferers",
+   "name": "Gallows-humour sufferers",
+   "who": "Long-time fans coping with a 1-10 start, a Sabonis trade request and ownership news through jokes.",
+   "size_signal": "The top monthly thread is \"THE SACRAMENTO KINGS HAVE WON A BASKETBALL GAME\".",
+   "where": [
+    "r/kings"
+   ],
+   "enjoys": [
+    "\"we won a game\" posts",
+    "trade-irony threads",
+    "ownership complaints"
+   ],
+   "offer": "Self-aware team social posts; this crowd responds to honesty, not hype.",
+   "evidence": [
+    "https://www.reddit.com/r/kings/comments/1xmib3u/the_sacramento_kings_have_won_a_basketball_game/",
+    "https://www.reddit.com/r/kings/comments/1xc7r17/another_year/",
+    "https://www.reddit.com/r/kings/comments/1xr7w6n/trading_a_1st_to_okc_to_get_nique_only_to_trade/",
+    "https://www.reddit.com/r/kings/comments/1xm0y3q/according_to_tim_macmahon_of_espn_domas/",
+    "https://www.reddit.com/r/kings/comments/1xk5khe/vivek_donated_a_quarter_of_a_million_dollars_to/"
+   ]
+  },
+  {
+   "id": "ben-simmons-followers",
+   "name": "Ben Simmons followers",
+   "who": "Viewers, many Australian, who followed Simmons' return and still look him up after his Achilles tear; he is the most-searched King in both the month and the year.",
+   "size_signal": "Simmons has 127,372 Wikipedia views in 30 days and 1,314,163 in the year, nearly three times Sabonis this month. NBA Australia's first-game-back highlights drew 988,989, \"looking like his old self\" vs the Spurs 353,232, the practice Achilles clip 322,902 and ESPN's E60 \"Being Ben\" 255,132.",
+   "where": [
+    "Wikipedia",
+    "NBA Australia",
+    "Chaz NBA",
+    "Staincast",
+    "ESPN"
+   ],
+   "enjoys": [
+    "comeback highlights",
+    "\"unrecognizable\" takes",
+    "injury news",
+    "his old 76ers-era story"
+   ],
+   "offer": "Simmons rehab updates, cut for the Australian audience as well as Sacramento.",
+   "evidence": [
+    "https://www.youtube.com/watch?v=EsiECnhlgJM",
+    "https://www.youtube.com/watch?v=NhTiS9JlBbk",
+    "https://www.youtube.com/watch?v=u7dev4CMZF4",
+    "https://www.youtube.com/watch?v=t0ctzz_CtbA",
+    "https://www.reddit.com/r/kings/comments/1x9ghqo/ben_simmons_tore_his_achilles_and_is_out_for_the/"
+   ]
+  },
+  {
+   "id": "2k-rebuilders",
+   "name": "2K rebuilders",
+   "who": "Gamers who treat the Kings as a rebuild project in NBA 2K, in English and Portuguese.",
+   "size_signal": "KOT4Q's rebuilds 367,893 and 299,657; Cortes do Jota's Brazilian rebuild 37,674.",
+   "where": [
+    "KOT4Q",
+    "Cortes do Jota"
+   ],
+   "enjoys": [
+    "franchise-mode rebuilds"
+   ],
+   "offer": "Creator partnerships and in-game content with these channels.",
+   "evidence": [
+    "https://www.youtube.com/watch?v=f9J2siUxX40",
+    "https://www.youtube.com/watch?v=yx5v80zN8nI",
+    "https://www.youtube.com/watch?v=sjIaeq9kY80"
+   ]
+  },
+  {
+   "id": "daily-podcast-listeners",
+   "name": "Daily podcast listeners",
+   "who": "Fans who follow the team every day through audio.",
+   "size_signal": "Deuce & Mo has 570 episodes (updated Nov 16), Locked On Kings 500, SportsEthos 327, Kings Related 262.",
+   "where": [
+    "Apple Podcasts"
+   ],
+   "enjoys": [
+    "daily shows",
+    "team-adjacent Deuce & Mo episodes"
+   ],
+   "offer": "Guest access for hosts and clips cut for audio.",
+   "evidence": [
+    "https://podcasts.apple.com/us/podcast/deuce-mo-a-sacramento-kings-nba-wnba-podcast/id1105665515?uo=4",
+    "https://podcasts.apple.com/us/podcast/locked-on-kings-daily-podcast-on-the-sacramento-kings/id1155343204?uo=4",
+    "https://podcasts.apple.com/us/podcast/kings-related-a-sacramento-kings-podcast/id1762363585?uo=4"
+   ]
+  }
+ ],
+ "players": [
+  {
+   "name": "Ben Simmons",
+   "wikipedia_views_30d": 127372,
+   "wikipedia_views_year": 1314163,
+   "url": "https://en.wikipedia.org/wiki/Ben_Simmons"
+  },
+  {
+   "name": "Darius Acuff Jr.",
+   "wikipedia_views_30d": null,
+   "wikipedia_views_year": 246056,
+   "url": "https://en.wikipedia.org/wiki/Darius_Acuff_Jr."
+  },
+  {
+   "name": "Domantas Sabonis",
+   "wikipedia_views_30d": 46239,
+   "wikipedia_views_year": 330831,
+   "url": "https://en.wikipedia.org/wiki/Domantas_Sabonis"
+  },
+  {
+   "name": "Zach LaVine",
+   "wikipedia_views_30d": 33111,
+   "wikipedia_views_year": 303524,
+   "url": "https://en.wikipedia.org/wiki/Zach_LaVine"
+  },
+  {
+   "name": "Mason Plumlee",
+   "wikipedia_views_30d": 13296,
+   "wikipedia_views_year": 204388,
+   "url": "https://en.wikipedia.org/wiki/Mason_Plumlee"
+  },
+  {
+   "name": "Keegan Murray",
+   "wikipedia_views_30d": 10534,
+   "wikipedia_views_year": 110452,
+   "url": "https://en.wikipedia.org/wiki/Keegan_Murray"
+  }
+ ],
+ "formats": [
+  {
+   "type": "game_highlights",
+   "share_of_views": 0.655,
+   "examples": [
+    "https://www.youtube.com/watch?v=MDVEfQT8iGs",
+    "https://www.youtube.com/watch?v=tkXaappAotk",
+    "https://www.youtube.com/watch?v=k4l2LmCi9GY"
+   ]
+  },
+  {
+   "type": "simmons_comeback",
+   "share_of_views": 0.119,
+   "examples": [
+    "https://www.youtube.com/watch?v=EsiECnhlgJM",
+    "https://www.youtube.com/watch?v=9utW-VpAsvw",
+    "https://www.youtube.com/watch?v=XM1_tpOsgqc"
+   ]
+  },
+  {
+   "type": "acuff_debate",
+   "share_of_views": 0.062,
+   "examples": [
+    "https://www.youtube.com/watch?v=7-E0vendD7E",
+    "https://www.youtube.com/watch?v=8u1W3YKPaJc",
+    "https://www.youtube.com/watch?v=YJU_ZjcO5cc"
+   ]
+  },
+  {
+   "type": "opponent_star_moments",
+   "share_of_views": 0.046,
+   "examples": [
+    "https://www.youtube.com/watch?v=eILrZjb2xk4",
+    "https://www.youtube.com/watch?v=EYXh97aiPu4",
+    "https://www.youtube.com/watch?v=0MJCVcCwHrY"
+   ]
+  },
+  {
+   "type": "culture_crossover",
+   "share_of_views": 0.044,
+   "examples": [
+    "https://www.youtube.com/watch?v=RgnjHs-_xSY",
+    "https://www.youtube.com/watch?v=f9J2siUxX40",
+    "https://www.youtube.com/watch?v=yx5v80zN8nI"
+   ]
+  },
+  {
+   "type": "crowd_incidents",
+   "share_of_views": 0.027,
+   "examples": [
+    "https://www.youtube.com/watch?v=zjaC6lhglz4"
+   ]
+  },
+  {
+   "type": "news_rumors",
+   "share_of_views": 0.026,
+   "examples": [
+    "https://www.youtube.com/watch?v=pPEIWZJkg0I",
+    "https://www.youtube.com/watch?v=N3pROZ9nzlU",
+    "https://www.youtube.com/watch?v=X1JCrjnla_4"
+   ]
+  },
+  {
+   "type": "player_moments",
+   "share_of_views": 0.019,
+   "examples": [
+    "https://www.youtube.com/watch?v=HIzH2cqi5Rc",
+    "https://www.youtube.com/watch?v=Ry6LtrLTDXY",
+    "https://www.youtube.com/watch?v=RzSytBizAuo"
+   ]
+  },
+  {
+   "type": "behind_scenes",
+   "share_of_views": 0.001,
+   "examples": [
+    "https://www.youtube.com/shorts/DliD9WNsJHk",
+    "https://www.youtube.com/shorts/Y7nWOmqUyBE",
+    "https://www.youtube.com/shorts/QYJi5NbEMu4"
+   ]
+  },
+  {
+   "type": "live_streams",
+   "share_of_views": 0.001,
+   "examples": [
+    "https://www.youtube.com/watch?v=GjlK2Nx7lcA"
+   ]
+  }
+ ],
+ "make_or_reward": [
+  {
+   "format": "Fast Acuff stat-line clips",
+   "why": "Twelve of the top 25 r/kings threads this month are about Acuff, and NBA's 34-and-14 package drew 229,436, while the team's Acuff Shorts drew 9,900 and 7,500.",
+   "example": "https://www.youtube.com/watch?v=HIzH2cqi5Rc"
+  },
+  {
+   "format": "Acuff-with-teammates content that answers the \"hated rookie\" story",
+   "why": "Two videos calling Acuff selfish or hated drew 621,663 and 494,509; r/kings pushed back with Acuff's quotes on the veterans and Sabonis' Instagram post featuring him.",
+   "example": "https://www.youtube.com/watch?v=7-E0vendD7E"
+  },
+  {
+   "format": "Lakers-game highlights, including preseason",
+   "why": "Lakers at Kings in preseason is the top Kings video of the year (1,808,037); the Nov 4 Lakers game (1,018,794) is the only Kings game this month above a million.",
+   "example": "https://www.youtube.com/watch?v=MDVEfQT8iGs"
+  },
+  {
+   "format": "Partner with NBA 2K rebuild creators",
+   "why": "KOT4Q's two Kings rebuild videos drew 367,893 and 299,657, and the 2K26 one outdrew NBA's highlights of the Oct 23 Blazers game (366,863).",
+   "example": "https://www.youtube.com/watch?v=f9J2siUxX40"
+  },
+  {
+   "format": "Australian-market player content",
+   "why": "NBA Australia's Ben Simmons comeback highlights drew 988,913, the fifth most-viewed Kings item of the year, and Simmons is still the most-searched King after his Achilles tear (127,372 Wikipedia views in 30 days).",
+   "example": "https://www.youtube.com/watch?v=EsiECnhlgJM"
+  }
+ ],
+ "talk": [
+  {
+   "title": "THE SACRAMENTO KINGS HAVE WON A BASKETBALL GAME",
+   "url": "https://www.reddit.com/r/kings/comments/1xmib3u/the_sacramento_kings_have_won_a_basketball_game/"
+  },
+  {
+   "title": "Darius Acuff Jr is visibly frustrated at his postgame press conference & says the 1-10 start is getting to him. “I’m not a loser.”",
+   "url": "https://www.reddit.com/r/kings/comments/1xt9xmz/darius_acuff_jr_is_visibly_frustrated_at_his/"
+  },
+  {
+   "title": "The Sacramento Kings feel they drafted a generational superstar in Darius Acuff Jr., per Sam Amick on Sactown1140",
+   "url": "https://www.reddit.com/r/kings/comments/1xuo69l/the_sacramento_kings_feel_they_drafted_a/"
+  },
+  {
+   "title": "For all the Acuff haters",
+   "url": "https://www.reddit.com/r/kings/comments/1xmid1f/for_all_the_acuff_haters/"
+  },
+  {
+   "title": "According to Tim MacMahon of ESPN, Domas apparently wants out of Sacramento",
+   "url": "https://www.reddit.com/r/kings/comments/1xm0y3q/according_to_tim_macmahon_of_espn_domas/"
+  },
+  {
+   "title": "Ben Simmons tore his Achilles and is out for the year",
+   "url": "https://www.reddit.com/r/kings/comments/1x9ghqo/ben_simmons_tore_his_achilles_and_is_out_for_the/"
+  },
+  {
+   "title": "A message from the wife of the fan who got ejected from the Lakers-Kings game on Wednesday night",
+   "url": "https://www.reddit.com/r/kings/comments/1xqssij/a_message_from_the_wife_of_the_fan_who_got/"
+  },
+  {
+   "title": "Vivek donated a quarter of a million dollars to the RNC",
+   "url": "https://www.reddit.com/r/kings/comments/1xk5khe/vivek_donated_a_quarter_of_a_million_dollars_to/"
+  }
+ ],
+ "pulse": {
+  "window": "2026-11-03 to 2026-11-16",
+  "label": "10–16 Nov",
+  "team_wiki": {
+   "last7": 10828,
+   "prior7": 10138
+  },
+  "rising": [
+   {
+    "name": "Mason Plumlee",
+    "url": "https://en.wikipedia.org/wiki/Mason_Plumlee",
+    "last7": 7981,
+    "prior7": 1772,
+    "change": 3.504
+   },
+   {
+    "name": "Zach LaVine",
+    "url": "https://en.wikipedia.org/wiki/Zach_LaVine",
+    "last7": 9970,
+    "prior7": 7097,
+    "change": 0.405
+   },
+   {
+    "name": "Keegan Murray",
+    "url": "https://en.wikipedia.org/wiki/Keegan_Murray",
+    "last7": 2451,
+    "prior7": 2292,
+    "change": 0.069
+   }
+  ],
+  "videos": [
+   {
+    "title": "THUNDER at KINGS | FULL GAME HIGHLIGHTS | November 15, 2026",
+    "url": "https://www.youtube.com/watch?v=1RKyPcfiuQY",
+    "channel": "NBA",
+    "views": 227721
+   },
+   {
+    "title": "TRAIL BLAZERS AT KINGS | EMIRATES NBA CUP 🏆 | FULL GAME HIGHLIGHTS | November 13, 2026",
+    "url": "https://www.youtube.com/watch?v=s8XSacjQ1r0",
+    "channel": "NBA",
+    "views": 173392
+   },
+   {
+    "title": "Acuff is Sick Of The Kings..",
+    "url": "https://www.youtube.com/watch?v=h-QRc61C7pQ",
+    "channel": "Gil's Arena",
+    "views": 143422
+   },
+   {
+    "title": "Portland Trail Blazers vs Sacramento Kings Full Game Highlights - November 13, 2026",
+    "url": "https://www.youtube.com/watch?v=7xAV_YOSihg",
+    "channel": "GAMETIME HIGHLIGHTS",
+    "views": 113841
+   },
+   {
+    "title": "Oklahoma City Thunder vs Sacramento Kings Full Game Highlights - November 15, 2026 | NBA Season",
+    "url": "https://www.youtube.com/watch?v=_Fh-Pe9RVEU",
+    "channel": "GAMETIME HIGHLIGHTS",
+    "views": 112072
+   }
+  ],
+  "threads": [
+   {
+    "title": "The Sacramento Kings feel they drafted a generational superstar in Darius Acuff Jr., per Sam Amick on Sactown1140",
+    "url": "https://www.reddit.com/r/kings/comments/1xuo69l/the_sacramento_kings_feel_they_drafted_a/"
+   },
+   {
+    "title": "Darius Acuff Jr is visibly frustrated at his postgame press conference & says the 1-10 start is getting to him. “I’m not a loser.”",
+    "url": "https://www.reddit.com/r/kings/comments/1xt9xmz/darius_acuff_jr_is_visibly_frustrated_at_his/"
+   },
+   {
+    "title": "Zach Lavine accepts his new role to be behind Acuff: “This isn’t for me anymore. I have to try and support him the best I can….I’m trying to be in the best support role I can for him. He’s gonna be real special, man.”",
+    "url": "https://www.reddit.com/r/kings/comments/1xtkn40/zach_lavine_accepts_his_new_role_to_be_behind/"
+   },
+   {
+    "title": "King Charles II of Spain. When he died, his autopsy showed that \"his heart was the size of a peppercorn; his lungs corroded; his intestines rotten and gangrenous; he had a single testicle, black as coal, and his head was full of water.\"",
+    "url": "https://www.reddit.com/r/kings/comments/1xwhh50/king_charles_ii_of_spain_when_he_died_his_autopsy/"
+   },
+   {
+    "title": "Even though he is not a good coach, I'll always have love for Doug.",
+    "url": "https://www.reddit.com/r/kings/comments/1xttp8n/even_though_he_is_not_a_good_coach_ill_always/"
+   }
+  ]
+ }
+}

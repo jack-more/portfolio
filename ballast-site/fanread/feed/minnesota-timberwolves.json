@@ -1,0 +1,370 @@
+{
+ "team": "Minnesota Timberwolves",
+ "as_of": "2026-11-16",
+ "source": "Ballast Fan Read",
+ "summary": "Timberwolves fans now look up LaMelo Ball more than anyone else (176,995 Wikipedia views in the past 30 days and 1,521,112 over the year, ahead of Anthony Edwards' 90,944 and 1,219,075), with Rudy Gobert a distant third (49,506). The fanbase is enjoying the LaMelo era: r/timberwolves is full of \"vibes\" posts, LaMelo-to-teammate highlights and Jaden McDaniels' extension, while Edwards' knee procedure is the main worry; the team's \"Everything LaMelo Ball Did In His First Week\" passed 1M views, critical Gobert videos (LaMelo and Kuminga chewing him out) reach 600K, and last spring's Nuggets and Spurs series still draw heavy YouTube views after pushing Wikipedia to its yearly peak in May.",
+ "segments": [
+  {
+   "id": "lamelo-ball-followers",
+   "name": "LaMelo Ball followers",
+   "who": "Fans energized by (or newly following the team for) LaMelo Ball, who now out-searches Anthony Edwards",
+   "size_signal": "176,995 Wikipedia views in the past 30 days and 1,521,112 in the year, the roster high on both (Edwards: 90,944 and 1,219,075); team's LaMelo first-week video 1.09M; Inside the NBA's LaMelo-and-Ant backcourt debate 879,400; LaMelo-trade items are 6.4% of classified views; 5 of the top 25 r/timberwolves threads feature Melo",
+   "where": [
+    "Wikipedia",
+    "r/timberwolves",
+    "YouTube (team, NBA on ESPN, A.M. Hoops, Gil's Arena)"
+   ],
+   "enjoys": [
+    "player_moments",
+    "lamelo_trade_talk"
+   ],
+   "offer": "Weekly LaMelo compilation and LaMelo-to-teammate assist cuts",
+   "evidence": [
+    "https://www.youtube.com/watch?v=J5Tji8E-xck",
+    "https://www.youtube.com/watch?v=GcSqfxGupwY",
+    "https://www.reddit.com/r/timberwolves/comments/1xfj58g/highlight_lamelo_ball_puts_on_a_dribbling_clinic/",
+    "https://www.reddit.com/r/timberwolves/comments/1xfl7mx/highlight_lamelo_ball_long_alley_hoop_to_joan/",
+    "https://www.reddit.com/r/timberwolves/comments/1xdwbm9/lonzo_ball_this_the_most_ive_ever_seen_melo/"
+   ]
+  },
+  {
+   "id": "locker-room-vibes-regulars",
+   "name": "Locker-room vibes regulars",
+   "who": "Fans who love the team's chemistry and trash talk between teammates",
+   "size_signal": "Team comedy Shorts 207K combined; 5 of the top 25 threads are vibes or teammate-hype posts",
+   "where": [
+    "r/timberwolves",
+    "team Shorts"
+   ],
+   "enjoys": [
+    "memes_jokes",
+    "behind_scenes"
+   ],
+   "offer": "More bench and huddle audio; mic'd-up teammates",
+   "evidence": [
+    "https://www.reddit.com/r/timberwolves/comments/1xs3n8j/the_good_vibes_just_keep_comin/",
+    "https://www.reddit.com/r/timberwolves/comments/1xpxuop/vibes_are_immaculate/",
+    "https://www.reddit.com/r/timberwolves/comments/1xe1gh0/kuminga_talking_trash_in_the_2nd_half_had_jaden/",
+    "https://www.youtube.com/shorts/epkcFwsM540"
+   ]
+  },
+  {
+   "id": "ant-loyalists",
+   "name": "Ant loyalists",
+   "who": "Fans centred on Anthony Edwards, now worried about his knee",
+   "size_signal": "90,944 Wikipedia views in the past 30 days and 1,219,075 in the year, second only to LaMelo; his own season-prep video 615,208 this month; 6 of the top 25 r/timberwolves threads are about Ant, 2 on his knee procedure; Ant-Wemby duel 2.04M",
+   "where": [
+    "r/timberwolves",
+    "YouTube (NBA, clutcha, Anthony Edwards)"
+   ],
+   "enjoys": [
+    "player_moments",
+    "news_rumors"
+   ],
+   "offer": "Clear injury updates and rehab access for Ant",
+   "evidence": [
+    "https://www.reddit.com/r/timberwolves/comments/1xh7cqn/charania_just_in_minnesota_timberwolves_star/",
+    "https://www.reddit.com/r/timberwolves/comments/1xirq4d/todd_per_wolves_anthony_edwards_underwent/",
+    "https://www.reddit.com/r/timberwolves/comments/1x8cmfq/anthony_edwards_on_if_he_hopes_for_a_title_i_dont/",
+    "https://www.youtube.com/watch?v=P2wz6fSOZz4",
+    "https://www.youtube.com/watch?v=T1DCI1BuK3Y"
+   ]
+  },
+  {
+   "id": "long-suffering-minnesota-sports-fans",
+   "name": "Long-suffering Minnesota sports fans",
+   "who": "Fans who also carry the Vikings and other local teams",
+   "size_signal": "2 of the top 25 r/timberwolves threads are about being a Minnesota sports fan or Vikings fans arriving",
+   "where": [
+    "r/timberwolves"
+   ],
+   "enjoys": [
+    "memes_jokes",
+    "community"
+   ],
+   "offer": "Cross-team posts with the Vikings on game weekends",
+   "evidence": [
+    "https://www.reddit.com/r/timberwolves/comments/1xfojap/how_it_feels_to_be_a_sports_fan_in_minnesota/",
+    "https://www.reddit.com/r/timberwolves/comments/1xsl9ra/vikings_fans_coming_to_this_sub_today/"
+   ]
+  },
+  {
+   "id": "playoff-run-rewatchers-and-series-bettors",
+   "name": "Playoff-run rewatchers and series bettors",
+   "who": "Fans who replay last spring's Nuggets and Spurs series and bet on series",
+   "size_signal": "Spurs Game 5 2.50M; five Polymarket series markets from $374K to $785K; Wikipedia peak 80,259 in May 2026",
+   "where": [
+    "YouTube (NBA)",
+    "Polymarket",
+    "Wikipedia"
+   ],
+   "enjoys": [
+    "game_highlights",
+    "betting_fantasy"
+   ],
+   "offer": "Series-anniversary edits and playoff-push previews",
+   "evidence": [
+    "https://www.youtube.com/watch?v=VAvciGhs-HA",
+    "https://www.youtube.com/watch?v=tGFwYvbPOtE",
+    "https://polymarket.com/event/nba-playoffs-lakers-vs-timberwolves-to-advance",
+    "https://polymarket.com/event/nba-playoffs-thunder-vs-timberwolves-series-outcome"
+   ]
+  },
+  {
+   "id": "daily-podcast-listeners",
+   "name": "Daily podcast listeners",
+   "who": "Hardcore fans following the team daily on audio",
+   "size_signal": "The Dane Moore NBA Podcast 1,054 episodes, Flagrant Howls 642, Locked On Wolves 500",
+   "where": [
+    "Apple Podcasts"
+   ],
+   "enjoys": [
+    "analysis",
+    "news_rumors"
+   ],
+   "offer": "Player and coach access for these shows on off days",
+   "evidence": [
+    "https://podcasts.apple.com/us/podcast/the-dane-moore-nba-podcast/id1399177286?uo=4",
+    "https://podcasts.apple.com/us/podcast/flagrant-howls-a-minnesota-timberwolves-podcast/id1065651304?uo=4",
+    "https://podcasts.apple.com/us/podcast/locked-on-wolves-daily-podcast-on-the-minnesota/id1153019457?uo=4"
+   ]
+  }
+ ],
+ "players": [
+  {
+   "name": "LaMelo Ball",
+   "wikipedia_views_30d": 176995,
+   "wikipedia_views_year": 1521112,
+   "url": "https://en.wikipedia.org/wiki/LaMelo_Ball"
+  },
+  {
+   "name": "Anthony Edwards",
+   "wikipedia_views_30d": 90944,
+   "wikipedia_views_year": 1219075,
+   "url": "https://en.wikipedia.org/wiki/Anthony_Edwards_%28basketball%29"
+  },
+  {
+   "name": "Rudy Gobert",
+   "wikipedia_views_30d": 49506,
+   "wikipedia_views_year": 453579,
+   "url": "https://en.wikipedia.org/wiki/Rudy_Gobert"
+  },
+  {
+   "name": "Jonathan Kuminga",
+   "wikipedia_views_30d": 36815,
+   "wikipedia_views_year": 474879,
+   "url": "https://en.wikipedia.org/wiki/Jonathan_Kuminga"
+  },
+  {
+   "name": "Jaden McDaniels",
+   "wikipedia_views_30d": 27301,
+   "wikipedia_views_year": 346114,
+   "url": "https://en.wikipedia.org/wiki/Jaden_McDaniels"
+  },
+  {
+   "name": "Ayo Dosunmu",
+   "wikipedia_views_30d": 23022,
+   "wikipedia_views_year": 399866,
+   "url": "https://en.wikipedia.org/wiki/Ayo_Dosunmu"
+  },
+  {
+   "name": "Donte DiVincenzo",
+   "wikipedia_views_30d": 22460,
+   "wikipedia_views_year": 573855,
+   "url": "https://en.wikipedia.org/wiki/Donte_DiVincenzo"
+  },
+  {
+   "name": "Bones Hyland",
+   "wikipedia_views_30d": 18011,
+   "wikipedia_views_year": 178272,
+   "url": "https://en.wikipedia.org/wiki/Bones_Hyland"
+  }
+ ],
+ "formats": [
+  {
+   "type": "game_highlights",
+   "share_of_views": 0.899,
+   "examples": [
+    "https://www.youtube.com/watch?v=CnDNAnTuKz0",
+    "https://www.youtube.com/watch?v=zUy3T1QHHg8",
+    "https://www.youtube.com/watch?v=pLXx9k6RYMY"
+   ]
+  },
+  {
+   "type": "lamelo_trade_talk",
+   "share_of_views": 0.064,
+   "examples": [
+    "https://www.youtube.com/watch?v=Owx346gqcGg",
+    "https://www.youtube.com/watch?v=TWLcd_djY10",
+    "https://www.youtube.com/watch?v=GcSqfxGupwY"
+   ]
+  },
+  {
+   "type": "player_moments",
+   "share_of_views": 0.0232,
+   "examples": [
+    "https://www.youtube.com/watch?v=J5Tji8E-xck",
+    "https://www.youtube.com/shorts/Sjs7p217L98",
+    "https://www.youtube.com/watch?v=iUL-gr1fqYw"
+   ]
+  },
+  {
+   "type": "analysis",
+   "share_of_views": 0.0062,
+   "examples": [
+    "https://www.youtube.com/watch?v=djbH6wDHg8k",
+    "https://www.youtube.com/watch?v=Qi9UwNXC7os",
+    "https://www.youtube.com/watch?v=cbyTirSsnuo"
+   ]
+  },
+  {
+   "type": "behind_scenes",
+   "share_of_views": 0.0045,
+   "examples": [
+    "https://www.youtube.com/shorts/Z3Pl-ktQH_g",
+    "https://www.youtube.com/watch?v=mOEQdU0yPTo",
+    "https://www.youtube.com/shorts/Nt19O37Ys0E"
+   ]
+  },
+  {
+   "type": "memes_jokes",
+   "share_of_views": 0.0032,
+   "examples": [
+    "https://www.youtube.com/shorts/epkcFwsM540",
+    "https://www.youtube.com/shorts/MOBWIvfxXyo"
+   ]
+  }
+ ],
+ "make_or_reward": [
+  {
+   "format": "Same-night full-game highlights",
+   "why": "Game highlights are 89.9% of classified views; Warriors at Timberwolves has 3.05M.",
+   "example": "https://www.youtube.com/watch?v=CnDNAnTuKz0"
+  },
+  {
+   "format": "Player-arrival compilation videos",
+   "why": "The team's \"Everything LaMelo Ball Did In His First Week\" has 1.09M, about 8x its best Short (128K).",
+   "example": "https://www.youtube.com/watch?v=J5Tji8E-xck"
+  },
+  {
+   "format": "Rudy Gobert defense and teammate-chemistry cuts",
+   "why": "Gobert is the third-most-searched Wolf (49,506 Wikipedia views in 30 days), and his biggest videos this month are criticism (Club 520 on LaMelo and Kuminga chewing him out, 606,948; \"Lazy Effort\", 536,368); r/timberwolves meanwhile celebrates LaMelo hyping up Rudy and his touch pass to McDaniels, which the team could clip.",
+   "example": "https://www.reddit.com/r/timberwolves/comments/1xoa2d7/melo_hyping_up_rudy_after_he_tosses_it_in/"
+  },
+  {
+   "format": "Team-chemistry comedy Shorts",
+   "why": "\"This Team Is Straight Comedy\" (128K) and \"GOT 'EM\" (79.0K) are two of the team's top four Shorts, and 2 of the top 25 Reddit threads are \"vibes\" posts.",
+   "example": "https://www.youtube.com/shorts/epkcFwsM540"
+  },
+  {
+   "format": "Playoff-series retrospectives",
+   "why": "Spurs-series games still sit at 2.33M-2.50M and Wikipedia views peaked at 80,259 in May 2026 during that run.",
+   "example": "https://www.youtube.com/watch?v=VAvciGhs-HA"
+  }
+ ],
+ "talk": [
+  {
+   "title": "[Charania] Just in: Minnesota Timberwolves star Anthony Edwards will undergo an arthroscopic procedure on his ailing right knee and miss up to two months, sources tell ESPN.",
+   "url": "https://www.reddit.com/r/timberwolves/comments/1xh7cqn/charania_just_in_minnesota_timberwolves_star/"
+  },
+  {
+   "title": "Ant: “Jonathan Kuminga. I’m his new biggest fan. Anybody that play for the Timberwolves, plus Naz Reid, I’m their biggest fan.” 🥹",
+   "url": "https://www.reddit.com/r/timberwolves/comments/1xkljif/ant_jonathan_kuminga_im_his_new_biggest_fan/"
+  },
+  {
+   "title": "How it feels to be a sports fan in Minnesota.",
+   "url": "https://www.reddit.com/r/timberwolves/comments/1xfojap/how_it_feels_to_be_a_sports_fan_in_minnesota/"
+  },
+  {
+   "title": "[Highlight] LaMelo Ball puts on a dribbling clinic into a step back 3. Ant and Bones loving it. Target Center pops off!",
+   "url": "https://www.reddit.com/r/timberwolves/comments/1xfj58g/highlight_lamelo_ball_puts_on_a_dribbling_clinic/"
+  },
+  {
+   "title": "[Charania] Minnesota Timberwolves All-Defense forward Jaden McDaniels has agreed to a one-year, $40 million extension that will keep him under contract through the 2029-30 season, agents Nima Namakian of Innovate Sports and Bill Duffy of WME Basketball tell ESPN.",
+   "url": "https://www.reddit.com/r/timberwolves/comments/1xafbxs/charania_minnesota_timberwolves_alldefense/"
+  },
+  {
+   "title": "The good vibes just keep comin’",
+   "url": "https://www.reddit.com/r/timberwolves/comments/1xs3n8j/the_good_vibes_just_keep_comin/"
+  },
+  {
+   "title": "Vikings fans coming to this sub today..",
+   "url": "https://www.reddit.com/r/timberwolves/comments/1xsl9ra/vikings_fans_coming_to_this_sub_today/"
+  },
+  {
+   "title": "Anthony Edwards on if he hopes for a title: “I don’t really have hope. I just got will. I’m just all will. It’s like, ‘I don’t think he’s better than me. I don’t think that they can beat me and my team.’ It’s just that simple.”",
+   "url": "https://www.reddit.com/r/timberwolves/comments/1x8cmfq/anthony_edwards_on_if_he_hopes_for_a_title_i_dont/"
+  }
+ ],
+ "pulse": {
+  "window": "2026-11-03 to 2026-11-16",
+  "label": "10–16 Nov",
+  "team_wiki": {
+   "last7": 7875,
+   "prior7": 8160
+  },
+  "rising": [
+   {
+    "name": "Bones Hyland",
+    "url": "https://en.wikipedia.org/wiki/Bones_Hyland",
+    "last7": 4633,
+    "prior7": 4189,
+    "change": 0.106
+   }
+  ],
+  "videos": [
+   {
+    "title": "MAVERICKS at TIMBERWOLVES | FULL GAME HIGHLIGHTS | November 12, 2026",
+    "url": "https://www.youtube.com/watch?v=a917kl3-0Qo",
+    "channel": "NBA",
+    "views": 1472089
+   },
+   {
+    "title": "Minnesota Timberwolves vs Dallas Mavericks Full Game Highlights - November 12, 2026 | NBA Season",
+    "url": "https://www.youtube.com/watch?v=4LutbFaLwUU",
+    "channel": "GAMETIME HIGHLIGHTS",
+    "views": 481719
+   },
+   {
+    "title": "BULLS at TIMBERWOLVES | FULL GAME HIGHLIGHTS | November 14, 2026",
+    "url": "https://www.youtube.com/watch?v=BJc9aQLcbAo",
+    "channel": "NBA",
+    "views": 456630
+   },
+   {
+    "title": "Dallas Mavericks vs Minnesota Timberwolves - FULL GAME HIGHLIGHTS | November 12, 2026 NBA Season",
+    "url": "https://www.youtube.com/watch?v=-FH7O-Iw_AM",
+    "channel": "Ximo Pierto",
+    "views": 449949
+   },
+   {
+    "title": "This is not the same LaMelo Ball...",
+    "url": "https://www.youtube.com/watch?v=8mR9T-98a1w",
+    "channel": "Midrange Jumper",
+    "views": 341092
+   }
+  ],
+  "threads": [
+   {
+    "title": "[Dukowitz] Jaylen Clark and Trey Lyles went out to the Prairie Island Indian Community [last night] to take part in their community drum and dance practice, play some games and share in a potluck with the tribe members and elders.",
+    "url": "https://www.reddit.com/r/timberwolves/comments/1xukz1k/dukowitz_jaylen_clark_and_trey_lyles_went_out_to/"
+   },
+   {
+    "title": "Vikings fans coming to this sub today..",
+    "url": "https://www.reddit.com/r/timberwolves/comments/1xsl9ra/vikings_fans_coming_to_this_sub_today/"
+   },
+   {
+    "title": "Jaden between the legs -> LaMelo -> Kuminga 3",
+    "url": "https://www.reddit.com/r/timberwolves/comments/1xuzrlu/jaden_between_the_legs_lamelo_kuminga_3/"
+   },
+   {
+    "title": "That 9-3 feeling!! Vibes so high Melo got Jaden CHEESIN",
+    "url": "https://www.reddit.com/r/timberwolves/comments/1xvcywz/that_93_feeling_vibes_so_high_melo_got_jaden/"
+   },
+   {
+    "title": "mfw the Timberwolves are so much fun to watch",
+    "url": "https://www.reddit.com/r/timberwolves/comments/1xuvpg5/mfw_the_timberwolves_are_so_much_fun_to_watch/"
+   }
+  ]
+ }
+}

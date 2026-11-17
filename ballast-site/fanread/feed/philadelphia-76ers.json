@@ -1,0 +1,423 @@
+{
+ "team": "Philadelphia 76ers",
+ "as_of": "2026-11-16",
+ "source": "Ballast Fan Read",
+ "summary": "Sixers fans look up LeBron James far more than anyone (577,066 Wikipedia views in 30 days and 6,803,228 in the year), then Jaylen Brown (150,415), Tyrese Maxey (133,834) and cult-hero signing Tacko Fall (94,196, ahead of Joel Embiid's 78,704). The fanbase is enjoying a 9-2 start, and r/sixers is full of LeBron quotes, Brown scoring nights and \"new era\" posts, while outside it the biggest storyline is Brown ignoring Jayson Tatum (1,373,009 on Chaz NBA), not anything the team posted.",
+ "segments": [
+  {
+   "id": "lebron-era-believers",
+   "name": "LeBron-era believers",
+   "who": "Fans energised by LeBron choosing Philadelphia and the 9-2 start; LeBron is by far the most-searched Sixer.",
+   "size_signal": "LeBron has 577,066 Wikipedia views in 30 days and 6,803,228 in the year, almost four times Jaylen Brown's 150,415 this month; team Wikipedia peaked at 223,363 views in July 2026. His Mind the Game episode drew 2,269,152, Shaq and Chuck's debate on his careers 1,378,612, and his clutch buckets with VJ Edgecombe vs the Knicks 750,105.",
+   "where": [
+    "Wikipedia",
+    "r/sixers",
+    "team Shorts",
+    "Mind the Game",
+    "YouTube (ESPN, Chaz NBA)"
+   ],
+   "enjoys": [
+    "LeBron quotes",
+    "clutch LeBron",
+    "\"new era\" posts"
+   ],
+   "offer": "Access-driven LeBron content shot in Philadelphia, not generic highlights.",
+   "evidence": [
+    "https://www.reddit.com/r/sixers/comments/1xbarwm/its_a_new_era/",
+    "https://www.reddit.com/r/sixers/comments/1xk1jjd/lebron_james_on_being_in_philadelphia_these_guys/",
+    "https://www.reddit.com/r/sixers/comments/1xjyajx/we_just_witnessed_lebron_james_in_the_clutch_in_a/",
+    "https://www.reddit.com/r/sixers/comments/1xfm95z/lebron_im_not_here_to_have_a_sustainable_role_at/",
+    "https://www.youtube.com/watch?v=rGGq11K40Gw",
+    "https://www.youtube.com/shorts/fQMDhCyNjA8",
+    "https://www.youtube.com/watch?v=vwypfGu0ZnU",
+    "https://www.youtube.com/watch?v=k4V6zI_6lH0"
+   ]
+  },
+  {
+   "id": "process-era-podcast-lifers",
+   "name": "Process-era podcast lifers",
+   "who": "Long-time fans who listen daily and still back Embiid.",
+   "size_signal": "Rights To Ricky Sanchez has 1,377 episodes, PHLY 1,262, Philly Take with RB 1,213, all updated this weekend.",
+   "where": [
+    "Apple Podcasts",
+    "r/sixers"
+   ],
+   "enjoys": [
+    "daily long episodes",
+    "Embiid stat lines",
+    "in-jokes from the Process years"
+   ],
+   "offer": "Podcast-host access and Embiid-focused content.",
+   "evidence": [
+    "https://podcasts.apple.com/us/podcast/rights-to-ricky-sanchez-the-sixers-podcast/id474529211?uo=4",
+    "https://podcasts.apple.com/us/podcast/phly-philadelphia-sixers-podcast/id679651984?uo=4",
+    "https://podcasts.apple.com/us/podcast/philly-take-with-rb-a-philadelphia-76ers-sixers-podcast/id1551283787?uo=4",
+    "https://www.reddit.com/r/sixers/comments/1xivf6h/never_change_joel/",
+    "https://www.reddit.com/r/sixers/comments/1xeqcf1/joel_embiid_tonight_281110/"
+   ]
+  },
+  {
+   "id": "brown-tatum-drama-watchers",
+   "name": "Brown-Tatum drama watchers",
+   "who": "Viewers, many of them Celtics fans and neutrals, following Jaylen Brown's split from Boston.",
+   "size_signal": "5,022,845 combined views across 11 saga videos; the lead clip 1,373,009.",
+   "where": [
+    "Chaz NBA",
+    "First Take",
+    "Gil's Arena",
+    "r/sixers"
+   ],
+   "enjoys": [
+    "body-language clips",
+    "studio takes",
+    "ex-teammate matchups"
+   ],
+   "offer": "Brown-centred content that answers the story on the Sixers' terms.",
+   "evidence": [
+    "https://www.youtube.com/watch?v=E-pz5MRhksA",
+    "https://www.youtube.com/watch?v=w6egjwWvMS4",
+    "https://www.youtube.com/watch?v=ONWyDVs7uao",
+    "https://www.reddit.com/r/sixers/comments/1xdiewl/jalyen_brown_you_are_a_philadelphia_76er/",
+    "https://www.reddit.com/r/sixers/comments/1xo7sji/jaylen_brown_goes_nuclear_again/"
+   ]
+  },
+  {
+   "id": "knicks-rivalry-crowd",
+   "name": "Knicks-rivalry crowd",
+   "who": "Fans who treat the Knicks games as the season's marquee nights.",
+   "size_signal": "76ers at Knicks 3,999,884; Knicks preseason game 3,066,251; Knicks-76ers series market volume 365,837.",
+   "where": [
+    "NBA YouTube",
+    "r/sixers",
+    "Polymarket"
+   ],
+   "enjoys": [
+    "opening-night win",
+    "fan exchanges",
+    "playoff rematches"
+   ],
+   "offer": "Rivalry-night features and fan-reaction content.",
+   "evidence": [
+    "https://www.youtube.com/watch?v=mF7pmQEkS_A",
+    "https://www.reddit.com/r/sixers/comments/1xbc3fv/audio_of_lebron_jamess_exchange_with_the_knicks/",
+    "https://www.reddit.com/r/sixers/comments/1xcwgh2/the_76ers_victory_over_the_knicks_was_the_leagues/",
+    "https://polymarket.com/event/nba-playoffs-who-will-win-series-knicks-vs-76ers"
+   ]
+  },
+  {
+   "id": "lebron-skeptics",
+   "name": "LeBron skeptics",
+   "who": "Viewers who enjoy doubting the LeBron fit, some of them Sixers fans.",
+   "size_signal": "\"LEBRON JAMES and the PHILADELPHIA 76ERS are a terrible fit\" drew 323,418; HoopsBlunt's mockery video 273,561.",
+   "where": [
+    "small commentary YouTube channels",
+    "r/sixers jokes"
+   ],
+   "enjoys": [
+    "\"bad fit\" takes",
+    "The Onion jokes",
+    "crowd-mockery clips"
+   ],
+   "offer": "Let the record answer: stat-led clips that address the fit question directly.",
+   "evidence": [
+    "https://www.youtube.com/watch?v=1A0UJ0Vyj10",
+    "https://www.youtube.com/watch?v=xQfnMs0monQ",
+    "https://www.reddit.com/r/sixers/comments/1xb0uaa/the_onion_lebron_james_squeezes_eyes_shut_to/"
+   ]
+  },
+  {
+   "id": "young-core-followers",
+   "name": "Young-core followers",
+   "who": "Fans tracking Maxey and VJ Edgecombe beside the stars; Edgecombe has the bigger video audience this month, Maxey the bigger search count (133,834 vs 77,480 in 30 days).",
+   "size_signal": "Edgecombe's clutch clips with LeBron and Brown drew 750,105 and 475,336 this month and his dunk over Embiid 612,353; team Shorts \"HIM.\" (Maxey) 69,000 and \"7,000 miles for TYRESE MAXEY\" 65,000.",
+   "where": [
+    "r/sixers",
+    "team Shorts"
+   ],
+   "enjoys": [
+    "Edgecombe clutch plays and dunks",
+    "Maxey scoring nights",
+    "fan-travel stories"
+   ],
+   "offer": "Maxey and Edgecombe series so the young players are not lost behind LeBron.",
+   "evidence": [
+    "https://www.youtube.com/watch?v=k4V6zI_6lH0",
+    "https://www.youtube.com/watch?v=Xm1CExWTF4E",
+    "https://www.reddit.com/r/sixers/comments/1xl0yya/vj_fr_just_living_the_dream/",
+    "https://www.youtube.com/shorts/vuFrRP4--ew",
+    "https://www.youtube.com/shorts/J-W9gAbFKRE",
+    "https://www.youtube.com/watch?v=PPB75G9B2LU"
+   ]
+  }
+ ],
+ "players": [
+  {
+   "name": "LeBron James",
+   "wikipedia_views_30d": 577066,
+   "wikipedia_views_year": 6803228,
+   "url": "https://en.wikipedia.org/wiki/LeBron_James"
+  },
+  {
+   "name": "Jaylen Brown",
+   "wikipedia_views_30d": 150415,
+   "wikipedia_views_year": 1340158,
+   "url": "https://en.wikipedia.org/wiki/Jaylen_Brown"
+  },
+  {
+   "name": "Tyrese Maxey",
+   "wikipedia_views_30d": 133834,
+   "wikipedia_views_year": 658237,
+   "url": "https://en.wikipedia.org/wiki/Tyrese_Maxey"
+  },
+  {
+   "name": "Tacko Fall",
+   "wikipedia_views_30d": 94196,
+   "wikipedia_views_year": 499959,
+   "url": "https://en.wikipedia.org/wiki/Tacko_Fall"
+  },
+  {
+   "name": "Joel Embiid",
+   "wikipedia_views_30d": 78704,
+   "wikipedia_views_year": 864924,
+   "url": "https://en.wikipedia.org/wiki/Joel_Embiid"
+  },
+  {
+   "name": "VJ Edgecombe",
+   "wikipedia_views_30d": 77480,
+   "wikipedia_views_year": 670672,
+   "url": "https://en.wikipedia.org/wiki/V._J._Edgecombe"
+  },
+  {
+   "name": "Anfernee Simons",
+   "wikipedia_views_30d": 48028,
+   "wikipedia_views_year": 307497,
+   "url": "https://en.wikipedia.org/wiki/Anfernee_Simons"
+  }
+ ],
+ "formats": [
+  {
+   "type": "game_highlights",
+   "share_of_views": 0.826,
+   "examples": [
+    "https://www.youtube.com/watch?v=mF7pmQEkS_A",
+    "https://www.youtube.com/watch?v=2SHdd_RRsRw",
+    "https://www.youtube.com/watch?v=XyZNAtpEWb8"
+   ]
+  },
+  {
+   "type": "brown_tatum_saga",
+   "share_of_views": 0.062,
+   "examples": [
+    "https://www.youtube.com/watch?v=E-pz5MRhksA",
+    "https://www.youtube.com/watch?v=ONWyDVs7uao",
+    "https://www.youtube.com/watch?v=oDWxpLH_91s"
+   ]
+  },
+  {
+   "type": "pressers_interviews",
+   "share_of_views": 0.028,
+   "examples": [
+    "https://www.youtube.com/watch?v=rGGq11K40Gw"
+   ]
+  },
+  {
+   "type": "player_moments",
+   "share_of_views": 0.024,
+   "examples": [
+    "https://www.youtube.com/watch?v=zjOiXQcC6UM",
+    "https://www.youtube.com/watch?v=NfZhboLQFv8",
+    "https://www.youtube.com/shorts/te4Ls7KU3M8"
+   ]
+  },
+  {
+   "type": "analysis",
+   "share_of_views": 0.021,
+   "examples": [
+    "https://www.youtube.com/watch?v=vwypfGu0ZnU",
+    "https://www.youtube.com/watch?v=1A0UJ0Vyj10"
+   ]
+  },
+  {
+   "type": "throwbacks",
+   "share_of_views": 0.021,
+   "examples": [
+    "https://www.youtube.com/watch?v=ZFXR4HwKoGc"
+   ]
+  },
+  {
+   "type": "news_rumors",
+   "share_of_views": 0.01,
+   "examples": [
+    "https://www.youtube.com/watch?v=PPB75G9B2LU",
+    "https://www.youtube.com/watch?v=A7OYZ9Rg2wU"
+   ]
+  },
+  {
+   "type": "memes_jokes",
+   "share_of_views": 0.003,
+   "examples": [
+    "https://www.youtube.com/watch?v=xQfnMs0monQ"
+   ]
+  },
+  {
+   "type": "fan_reactions",
+   "share_of_views": 0.003,
+   "examples": [
+    "https://www.youtube.com/watch?v=bDPWjtZNpTY"
+   ]
+  },
+  {
+   "type": "behind_scenes",
+   "share_of_views": 0.003,
+   "examples": [
+    "https://www.youtube.com/shorts/fQMDhCyNjA8",
+    "https://www.youtube.com/shorts/J-W9gAbFKRE",
+    "https://www.youtube.com/shorts/b-2z-WsjhEE"
+   ]
+  }
+ ],
+ "make_or_reward": [
+  {
+   "format": "Rivalry-game full highlights within hours",
+   "why": "The Oct 20 opener at the Knicks is the top Sixers video of the year (3,999,884); r/sixers notes it was the most-watched primetime opening-night game ever at 7.71 million TV viewers.",
+   "example": "https://www.youtube.com/watch?v=mF7pmQEkS_A"
+  },
+  {
+   "format": "LeBron long-form sit-downs",
+   "why": "LeBron explaining his move on Mind the Game drew 2,269,152, more than every team-channel video in the lists combined; three LeBron quote threads sit in r/sixers' monthly top 15.",
+   "example": "https://www.youtube.com/watch?v=rGGq11K40Gw"
+  },
+  {
+   "format": "Team-side follow-up on the Brown and Tatum story",
+   "why": "Chaz NBA's Brown-ignores-Tatum clip drew 1,373,009, more than GAMETIME's full highlights of that Celtics game (1,005,651); Brown's own comments clip drew 433,239.",
+   "example": "https://www.youtube.com/watch?v=jdA-I1m0PYY"
+  },
+  {
+   "format": "LeBron-with-fans Shorts",
+   "why": "The team's top Short is a LeBron fan interaction (109,000) and r/sixers' top thread is audio of LeBron's exchange with a Knicks fan.",
+   "example": "https://www.youtube.com/shorts/fQMDhCyNjA8"
+  },
+  {
+   "format": "Bench cult-hero moments",
+   "why": "Tacko Fall's home debut drew 567,465 on House of Highlights, four times the team's own Pacers highlight video (132,160), and Fall is now fourth among Sixers in 30-day Wikipedia views (94,196), ahead of Joel Embiid; r/sixers also upvoted a Dean Wade mixtape.",
+   "example": "https://www.youtube.com/watch?v=NfZhboLQFv8"
+  },
+  {
+   "format": "VJ Edgecombe clutch moments with LeBron's reaction",
+   "why": "Chaz NBA's Edgecombe clutch clips drew 750,105 (with LeBron vs the Knicks), 475,336 (with Brown vs the Bucks) and 212,893 (a dagger three that had LeBron hyped), and Beyond NBA's \"LeBron like a proud dad\" clip drew 178,706; none of the team's top 15 Short titles names Edgecombe.",
+   "example": "https://www.youtube.com/watch?v=k4V6zI_6lH0"
+  }
+ ],
+ "talk": [
+  {
+   "title": "Audio of LeBron James’s exchange with the Knicks fan",
+   "url": "https://www.reddit.com/r/sixers/comments/1xbc3fv/audio_of_lebron_jamess_exchange_with_the_knicks/"
+  },
+  {
+   "title": "The 76ers’ victory over the Knicks was the league’s most-watched primetime opening night game ever, averaging 7.71 million viewers and peaking at 9.1 million viewers at 9:45 p.m. ET.",
+   "url": "https://www.reddit.com/r/sixers/comments/1xcwgh2/the_76ers_victory_over_the_knicks_was_the_leagues/"
+  },
+  {
+   "title": "LeBron James on being in Philadelphia: “These guys are great to be around, and I’m more than happy that I made the decision to come here.”",
+   "url": "https://www.reddit.com/r/sixers/comments/1xk1jjd/lebron_james_on_being_in_philadelphia_these_guys/"
+  },
+  {
+   "title": "Jalyen Brown, you are a Philadelphia 76er!",
+   "url": "https://www.reddit.com/r/sixers/comments/1xdiewl/jalyen_brown_you_are_a_philadelphia_76er/"
+  },
+  {
+   "title": "Sixers looked like they were having FUN tonight! I have never seen this team seem so joyful in my decades of being a fan.",
+   "url": "https://www.reddit.com/r/sixers/comments/1xmino3/sixers_looked_like_they_were_having_fun_tonight_i/"
+  },
+  {
+   "title": "Lebron: “I’m not here to have a sustainable role at the 5 when you got Joel Embiid … but it’s a role we can tap into if we need it.”",
+   "url": "https://www.reddit.com/r/sixers/comments/1xfm95z/lebron_im_not_here_to_have_a_sustainable_role_at/"
+  },
+  {
+   "title": "Never change, Joel",
+   "url": "https://www.reddit.com/r/sixers/comments/1xivf6h/never_change_joel/"
+  },
+  {
+   "title": "[The Onion] LeBron James Squeezes Eyes Shut To Avoid Catching Glimpse Of Philadelphia During Commute",
+   "url": "https://www.reddit.com/r/sixers/comments/1xb0uaa/the_onion_lebron_james_squeezes_eyes_shut_to/"
+  }
+ ],
+ "pulse": {
+  "window": "2026-11-03 to 2026-11-16",
+  "label": "10–16 Nov",
+  "team_wiki": {
+   "last7": 15545,
+   "prior7": 18691
+  },
+  "rising": [
+   {
+    "name": "Tacko Fall",
+    "url": "https://en.wikipedia.org/wiki/Tacko_Fall",
+    "last7": 38873,
+    "prior7": 23320,
+    "change": 0.667
+   },
+   {
+    "name": "Jaylen Brown",
+    "url": "https://en.wikipedia.org/wiki/Jaylen_Brown",
+    "last7": 34312,
+    "prior7": 31384,
+    "change": 0.093
+   }
+  ],
+  "videos": [
+   {
+    "title": "CELTICS at 76ERS | FULL GAME HIGHLIGHTS | November 10, 2026",
+    "url": "https://www.youtube.com/watch?v=ecqeLJ32ZhA",
+    "channel": "NBA",
+    "views": 2162320
+   },
+   {
+    "title": "PACERS at 76ERS | FULL GAME HIGHLIGHTS | November 15, 2026",
+    "url": "https://www.youtube.com/watch?v=DAyN_i0k368",
+    "channel": "NBA",
+    "views": 1432498
+   },
+   {
+    "title": "RAPTORS at 76ERS | FULL GAME HIGHLIGHTS | November 12, 2026",
+    "url": "https://www.youtube.com/watch?v=BfKYY2IJ3Oc",
+    "channel": "NBA",
+    "views": 1406265
+   },
+   {
+    "title": "Jaylen Brown ignores Jayson Tatum before their first ever matchup 😬",
+    "url": "https://www.youtube.com/watch?v=E-pz5MRhksA",
+    "channel": "Chaz NBA",
+    "views": 1375163
+   },
+   {
+    "title": "Boston Celtics vs Philadelphia 76ers Full Game Highlights - November 10, 2026 | NBA Season",
+    "url": "https://www.youtube.com/watch?v=9TIL0kdjs7o",
+    "channel": "GAMETIME HIGHLIGHTS",
+    "views": 1010686
+   }
+  ],
+  "threads": [
+   {
+    "title": "VJ is one of a kind, man",
+    "url": "https://www.reddit.com/r/sixers/comments/1xuy4a7/vj_is_one_of_a_kind_man/"
+   },
+   {
+    "title": "JAYLEN GOES NUCLEAR YET AGAIN!!",
+    "url": "https://www.reddit.com/r/sixers/comments/1xx618d/jaylen_goes_nuclear_yet_again/"
+   },
+   {
+    "title": "The starting five of the 76ers when GTA 5 came out",
+    "url": "https://www.reddit.com/r/sixers/comments/1xvrc0q/the_starting_five_of_the_76ers_when_gta_5_came_out/"
+   },
+   {
+    "title": "Girl Dad Tyrese Maxey",
+    "url": "https://www.reddit.com/r/sixers/comments/1xuw495/girl_dad_tyrese_maxey/"
+   },
+   {
+    "title": "14/82",
+    "url": "https://www.reddit.com/r/sixers/comments/1xx9cvz/1482/"
+   }
+  ]
+ }
+}

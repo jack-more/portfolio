@@ -1,0 +1,419 @@
+{
+ "team": "Chicago Bulls",
+ "as_of": "2026-11-16",
+ "source": "Ballast Fan Read",
+ "summary": "Rookie Caleb Wilson is the Bull fans follow most (66,074 Wikipedia views in 30 days, more than twice Josh Giddey's 30,011, with Norman Powell at 26,780 and Matas Buzelis at 25,340 next), and he now faces four to six weeks out after hand surgery. Fans opened the season mourning broadcaster Stacey King, and the most-watched Bulls videos are mostly not game highlights: a Jesser creator collab (2,911,983), a jump ball won by Yuki Kawamura, who is no longer on the roster (2,677,969), and a team Short of players getting their favourite candy (2,300,000).",
+ "segments": [
+  {
+   "id": "caleb-wilson-rookie-watchers",
+   "name": "Caleb Wilson rookie watchers",
+   "who": "Fans who have made the rookie the centre of the season (he is by far the most-searched Bull) and now track his hand injury.",
+   "size_signal": "Wilson has 66,074 Wikipedia views in the past 30 days, more than twice the next Bull (Josh Giddey, 30,011). Eight of the top 25 Reddit threads; 7 of the 15 top team Shorts; VintageDawkins' benching video at 470,274; his record 35-point Summer League debut drew 345,202 on the NBA channel.",
+   "where": [
+    "Wikipedia",
+    "r/chicagobulls",
+    "Bulls Shorts",
+    "fan YouTube"
+   ],
+   "enjoys": [
+    "first-career milestones",
+    "poster dunks and blocks",
+    "coach-player tough love"
+   ],
+   "offer": "Injury-recovery check-ins and a running \"rookie firsts\" Shorts series.",
+   "evidence": [
+    "https://www.reddit.com/r/chicagobulls/comments/1xequ3h/highlight_caleb_wilson_has_his_first_30point_game/",
+    "https://www.reddit.com/r/chicagobulls/comments/1xupd3p/shamscharania_chicago_bulls_rookie_caleb_wilson/",
+    "https://www.reddit.com/r/chicagobulls/comments/1xjzt4j/joel_lorenzi_caleb_wilson_ive_never_been_a_loser/",
+    "https://www.youtube.com/shorts/QlewtgK4muM",
+    "https://www.youtube.com/watch?v=yaPjHtnqbE8",
+    "https://www.youtube.com/watch?v=XMYF2Ry-wg4"
+   ]
+  },
+  {
+   "id": "giddey-and-new-veteran-watchers",
+   "name": "Giddey and new-veteran watchers",
+   "who": "Fans who follow the next most-searched Bulls after Wilson: Josh Giddey, whose value they argue about, and new arrival Norman Powell.",
+   "size_signal": "Giddey has 30,011 Wikipedia views in the past 30 days and 428,286 in the year; Powell 26,780 and 374,270. Powell's apartment tour drew 330,505 this month; Bulls Central's \"The Josh Giddey Debate Is So Tiring\" drew 28,749; a Bulls Central rumour show on Powell trade interest drew 26,244.",
+   "where": [
+    "Wikipedia",
+    "YouTube (Bulls Central, Understand the Grind, Chicago Bulls Central)"
+   ],
+   "enjoys": [
+    "\"is Giddey good?\" debates",
+    "off-court features",
+    "trade-rumour shows"
+   ],
+   "offer": "Off-court features with Powell and the other new veterans, and Giddey film breakdowns that address the debate head-on.",
+   "evidence": [
+    "https://www.youtube.com/watch?v=NsvrqFV5of8",
+    "https://www.youtube.com/watch?v=TvNEEmUau2w",
+    "https://www.youtube.com/watch?v=lKVpp8RNtmw",
+    "https://www.youtube.com/watch?v=Wbzd5C37EWk"
+   ]
+  },
+  {
+   "id": "broadcast-family",
+   "name": "Broadcast family",
+   "who": "Fans attached to the Bulls' TV voices, now mourning Stacey King and welcoming Derrick Rose to the booth.",
+   "size_signal": "Four of the top 25 Reddit threads are Stacey King tributes, one shows Joakim Noah handing the headset to Derrick Rose, and the \"D-Rose back at the United Center\" Short drew 48,000.",
+   "where": [
+    "r/chicagobulls",
+    "Bulls Shorts"
+   ],
+   "enjoys": [
+    "broadcast tributes",
+    "former players in the booth",
+    "D-Rose moments"
+   ],
+   "offer": "Stacey King tribute content and booth-cam Shorts of Rose and Noah.",
+   "evidence": [
+    "https://www.reddit.com/r/chicagobulls/comments/1xc4vkm/adam_amin_gives_a_beautiful_tribute_to_his_late/",
+    "https://www.reddit.com/r/chicagobulls/comments/1xc2au6/adam_amin_will_call_first_quarter_of_bulls_opener/",
+    "https://www.reddit.com/r/chicagobulls/comments/1xu18fi/highlight_joakim_noah_passes_the_broadcast/",
+    "https://www.youtube.com/shorts/mbKhC6UuwjY"
+   ]
+  },
+  {
+   "id": "jordan-era-historians",
+   "name": "Jordan-era historians",
+   "who": "Fans who keep the 1990s dynasty central, comparing every hot start with 73-9.",
+   "size_signal": "McDaniel vs. Jordan: 1,005,245; CM Punk's Jordan-inspired WWE entrance: 1,404,764; 1996 Bulls-Pacers: 327,270.",
+   "where": [
+    "YouTube history channels",
+    "r/chicagobulls"
+   ],
+   "enjoys": [
+    "full classic games",
+    "untold stories",
+    "73-9 comparisons"
+   ],
+   "offer": "Archive stories cut for Shorts, and \"this day in Bulls history\" pegged to current games.",
+   "evidence": [
+    "https://www.youtube.com/watch?v=lO7qoMJmKg4",
+    "https://www.youtube.com/watch?v=emQvB3iHoL4",
+    "https://www.youtube.com/watch?v=rsaj7-IOUxg",
+    "https://www.reddit.com/r/chicagobulls/comments/1xwprdx/will_the_bulls_ever_lose_again_is_these_team/"
+   ]
+  },
+  {
+   "id": "daily-podcast-regulars",
+   "name": "Daily podcast regulars",
+   "who": "Fans who follow the Bulls through a deep lineup of long-running podcasts.",
+   "size_signal": "Chicago Bulls Central has 2,000 episodes, CHGO Bulls 1,575, By The Horns 859 and Locked On Bulls 500; CHGO and Bulls Central both published on 15 November.",
+   "where": [
+    "Apple Podcasts",
+    "Chicago Bulls Central YouTube"
+   ],
+   "enjoys": [
+    "daily shows",
+    "overreaction episodes",
+    "coaching debates"
+   ],
+   "offer": "Access for the big daily shows and clips they can react to.",
+   "evidence": [
+    "https://podcasts.apple.com/us/podcast/chicago-bulls-central/id1579868123?uo=4",
+    "https://podcasts.apple.com/us/podcast/chgo-chicago-bulls-podcast/id1225030836?uo=4",
+    "https://podcasts.apple.com/us/podcast/by-the-horns-a-chicago-bulls-show/id1162163701?uo=4",
+    "https://www.youtube.com/watch?v=-XNMOIbsnY0"
+   ]
+  },
+  {
+   "id": "gaming-and-creator-crossover-audience",
+   "name": "Gaming and creator crossover audience",
+   "who": "Viewers who meet the Bulls through 2K rebuilds and YouTuber collabs rather than broadcasts.",
+   "size_signal": "Jesser collab: 2,911,983; KOT4Q Bulls rebuilds: 693,862 and 672,201.",
+   "where": [
+    "YouTube creators (KOT4Q, Jesser)"
+   ],
+   "enjoys": [
+    "2K franchise rebuilds",
+    "creator challenges at games"
+   ],
+   "offer": "Repeat creator nights and real-roster tie-ins with 2K creators.",
+   "evidence": [
+    "https://www.youtube.com/watch?v=3XNTFGKhHyA",
+    "https://www.youtube.com/watch?v=PPAmwljU6KA",
+    "https://www.youtube.com/watch?v=rjsChEVzPN0"
+   ]
+  }
+ ],
+ "players": [
+  {
+   "name": "Caleb Wilson",
+   "wikipedia_views_30d": 66074,
+   "wikipedia_views_year": 81564,
+   "url": "https://en.wikipedia.org/wiki/Caleb_Wilson"
+  },
+  {
+   "name": "Josh Giddey",
+   "wikipedia_views_30d": 30011,
+   "wikipedia_views_year": 428286,
+   "url": "https://en.wikipedia.org/wiki/Josh_Giddey"
+  },
+  {
+   "name": "Norman Powell",
+   "wikipedia_views_30d": 26780,
+   "wikipedia_views_year": 374270,
+   "url": "https://en.wikipedia.org/wiki/Norman_Powell"
+  },
+  {
+   "name": "Matas Buzelis",
+   "wikipedia_views_30d": 25340,
+   "wikipedia_views_year": 323826,
+   "url": "https://en.wikipedia.org/wiki/Matas_Buzelis"
+  },
+  {
+   "name": "Buddy Hield",
+   "wikipedia_views_30d": 20739,
+   "wikipedia_views_year": 256345,
+   "url": "https://en.wikipedia.org/wiki/Buddy_Hield"
+  },
+  {
+   "name": "Jalen Smith",
+   "wikipedia_views_30d": 16913,
+   "wikipedia_views_year": 100750,
+   "url": "https://en.wikipedia.org/wiki/Jalen_Smith"
+  },
+  {
+   "name": "Leonard Miller",
+   "wikipedia_views_30d": 13879,
+   "wikipedia_views_year": 90847,
+   "url": "https://en.wikipedia.org/wiki/Leonard_Miller_%28basketball%29"
+  }
+ ],
+ "formats": [
+  {
+   "type": "game_highlights",
+   "share_of_views": 0.4623,
+   "examples": [
+    "https://www.youtube.com/watch?v=5n83r-MESag",
+    "https://www.youtube.com/watch?v=8M5rqtnkZYc",
+    "https://www.youtube.com/watch?v=eOY6tOUQiaA"
+   ]
+  },
+  {
+   "type": "culture_crossover",
+   "share_of_views": 0.1873,
+   "examples": [
+    "https://www.youtube.com/watch?v=3XNTFGKhHyA",
+    "https://www.youtube.com/watch?v=lHhy39wNGKI",
+    "https://www.youtube.com/watch?v=PPAmwljU6KA"
+   ]
+  },
+  {
+   "type": "yuki_kawamura",
+   "share_of_views": 0.1278,
+   "examples": [
+    "https://www.youtube.com/watch?v=sgKEFvm-7BU",
+    "https://www.youtube.com/watch?v=_L5tzHOo3vU",
+    "https://www.youtube.com/watch?v=52uFyvWkqas"
+   ]
+  },
+  {
+   "type": "behind_scenes",
+   "share_of_views": 0.0851,
+   "examples": [
+    "https://www.youtube.com/shorts/0N5gWtra1og",
+    "https://www.youtube.com/watch?v=NsvrqFV5of8",
+    "https://www.youtube.com/shorts/2F3RGq1YEZI"
+   ]
+  },
+  {
+   "type": "throwbacks",
+   "share_of_views": 0.0633,
+   "examples": [
+    "https://www.youtube.com/watch?v=lO7qoMJmKg4",
+    "https://www.youtube.com/watch?v=QIyvE0qy1Ec",
+    "https://www.youtube.com/watch?v=emQvB3iHoL4"
+   ]
+  },
+  {
+   "type": "caleb_wilson_rookie",
+   "share_of_views": 0.0347,
+   "examples": [
+    "https://www.youtube.com/watch?v=yaPjHtnqbE8",
+    "https://www.youtube.com/watch?v=nIkgszk04zA",
+    "https://www.youtube.com/shorts/QlewtgK4muM"
+   ]
+  },
+  {
+   "type": "player_moments",
+   "share_of_views": 0.0315,
+   "examples": [
+    "https://www.youtube.com/watch?v=0kB1VmcLfkE",
+    "https://www.youtube.com/watch?v=_Crk-lkrYQU",
+    "https://www.youtube.com/watch?v=vDyoa8TZ-kM"
+   ]
+  },
+  {
+   "type": "fan_reactions",
+   "share_of_views": 0.0071,
+   "examples": [
+    "https://www.youtube.com/watch?v=ssuJX0RIGOA",
+    "https://www.youtube.com/watch?v=KQn4l-CVtIQ",
+    "https://www.youtube.com/watch?v=-XNMOIbsnY0"
+   ]
+  },
+  {
+   "type": "memes_jokes",
+   "share_of_views": 0.0009,
+   "examples": [
+    "https://www.youtube.com/watch?v=uVKJREwfD0o"
+   ]
+  }
+ ],
+ "make_or_reward": [
+  {
+   "format": "Creator collabs filmed at games",
+   "why": "\"I Took Over An NBA Game\" with Jesser drew 2,911,983, the most-viewed Bulls item of the year once off-topic results are removed, and nearly double the top full-game highlight (1,485,583).",
+   "example": "https://www.youtube.com/watch?v=3XNTFGKhHyA"
+  },
+  {
+   "format": "Light personality Shorts with the whole roster",
+   "why": "The candy-surprise Short has 2,300,000 views, almost 30 times the next-best team Short (77,000).",
+   "example": "https://www.youtube.com/shorts/0N5gWtra1og"
+  },
+  {
+   "format": "Off-court features with the new veterans",
+   "why": "Yuki Kawamura's clips (2,677,969, 892,391 and 544,562) showed the appetite for personality content, but he is no longer on the roster. Among current players, the biggest non-Wilson video is a creator's tour of Norman Powell's new apartment (330,505), far more than the team's own top Shorts other than the candy clip (77,000 and below).",
+   "example": "https://www.youtube.com/watch?v=NsvrqFV5of8"
+  },
+  {
+   "format": "Caleb Wilson rookie tracking, including his injury recovery",
+   "why": "Eight of the month's top 25 Reddit threads are about Wilson, including the surgery news; the team already names him in 7 of its 15 top Shorts. Recovery updates would keep that interest going during the four to six weeks he is out.",
+   "example": "https://www.reddit.com/r/chicagobulls/comments/1xupd3p/shamscharania_chicago_bulls_rookie_caleb_wilson/"
+  },
+  {
+   "format": "Jordan-era archive stories",
+   "why": "McDaniel vs. Jordan (1,005,245), a full 1996 Bulls-Pacers game (327,270) and the Pete Myers story (96,864) all draw an audience; the team's own Paxson clip drew 123,037.",
+   "example": "https://www.youtube.com/watch?v=lO7qoMJmKg4"
+  }
+ ],
+ "talk": [
+  {
+   "title": "Adam Amin gives a beautiful tribute to his late & great partner, Stacey King ❤️ \"I know exactly who he was, I know what his gift could do, and I know that we were all just a little happier, a little better off, for getting to hear the song...for as long as we did.\"",
+   "url": "https://www.reddit.com/r/chicagobulls/comments/1xc4vkm/adam_amin_gives_a_beautiful_tribute_to_his_late/"
+  },
+  {
+   "title": "[Highlight] Joakim Noah passes the broadcast headset to Derrick Rose live on air",
+   "url": "https://www.reddit.com/r/chicagobulls/comments/1xu18fi/highlight_joakim_noah_passes_the_broadcast/"
+  },
+  {
+   "title": "[ShamsCharania] Chicago Bulls rookie Caleb Wilson is undergoing surgery for a fractured right hand and will miss four to six weeks, sources tell ESPN.",
+   "url": "https://www.reddit.com/r/chicagobulls/comments/1xupd3p/shamscharania_chicago_bulls_rookie_caleb_wilson/"
+  },
+  {
+   "title": "[Highlight] Caleb Wilson has his first 30-point game as a Bull 😤",
+   "url": "https://www.reddit.com/r/chicagobulls/comments/1xequ3h/highlight_caleb_wilson_has_his_first_30point_game/"
+  },
+  {
+   "title": "[Joel Lorenzi] Caleb Wilson: “I've never been a loser in my whole life, so I'm gonna try my best to make sure that doesn't happen. I'm not ever gonna accept being a loser, and this is my job to be a leader on this team.\"",
+   "url": "https://www.reddit.com/r/chicagobulls/comments/1xjzt4j/joel_lorenzi_caleb_wilson_ive_never_been_a_loser/"
+  },
+  {
+   "title": "Will the Bulls ever lose again? Is these team bound to match the legendary Jordan bulls 73-9 record?",
+   "url": "https://www.reddit.com/r/chicagobulls/comments/1xwprdx/will_the_bulls_ever_lose_again_is_these_team/"
+  },
+  {
+   "title": "Tiago Splitter testing the players on their matchups",
+   "url": "https://www.reddit.com/r/chicagobulls/comments/1x8qc4u/tiago_splitter_testing_the_players_on_their/"
+  },
+  {
+   "title": "Pics I took from section 303 at last night’s game. Had to see LeBron play before he retires in 2038.",
+   "url": "https://www.reddit.com/r/chicagobulls/comments/1xryu4d/pics_i_took_from_section_303_at_last_nights_game/"
+  }
+ ],
+ "pulse": {
+  "window": "2026-11-03 to 2026-11-16",
+  "label": "10–16 Nov",
+  "team_wiki": {
+   "last7": 11300,
+   "prior7": 11122
+  },
+  "rising": [
+   {
+    "name": "Norman Powell",
+    "url": "https://en.wikipedia.org/wiki/Norman_Powell",
+    "last7": 5993,
+    "prior7": 4334,
+    "change": 0.383
+   },
+   {
+    "name": "Matas Buzelis",
+    "url": "https://en.wikipedia.org/wiki/Matas_Buzelis",
+    "last7": 6784,
+    "prior7": 5256,
+    "change": 0.291
+   },
+   {
+    "name": "Leonard Miller",
+    "url": "https://en.wikipedia.org/wiki/Leonard_Miller_%28basketball%29",
+    "last7": 1281,
+    "prior7": 1135,
+    "change": 0.129
+   },
+   {
+    "name": "Buddy Hield",
+    "url": "https://en.wikipedia.org/wiki/Buddy_Hield",
+    "last7": 4777,
+    "prior7": 4534,
+    "change": 0.054
+   }
+  ],
+  "videos": [
+   {
+    "title": "SPURS at BULLS | FULL GAME HIGHLIGHTS | November 11, 2026",
+    "url": "https://www.youtube.com/watch?v=nU68AjSMkYE",
+    "channel": "NBA",
+    "views": 516396
+   },
+   {
+    "title": "BULLS at TIMBERWOLVES | FULL GAME HIGHLIGHTS | November 14, 2026",
+    "url": "https://www.youtube.com/watch?v=BJc9aQLcbAo",
+    "channel": "NBA",
+    "views": 409513
+   },
+   {
+    "title": "San Antonio Spurs vs Chicago Bulls Full Game Highlights - November 11, 2026 | NBA Season4",
+    "url": "https://www.youtube.com/watch?v=WQcVhwPShfo",
+    "channel": "GAMETIME HIGHLIGHTS",
+    "views": 365266
+   },
+   {
+    "title": "Wemby Powers Spurs To 10th Straight Win With 32 PTS, 5 BLK At Chicago 🔥 | November 11, 2026",
+    "url": "https://www.youtube.com/watch?v=_Crk-lkrYQU",
+    "channel": "NBA",
+    "views": 190306
+   },
+   {
+    "title": "Minnesota Timberwolves vs Chicago Bulls Full Game Highlights - November 14, 2026 | NBA Season",
+    "url": "https://www.youtube.com/watch?v=O4gDaozzm3Y",
+    "channel": "GAMETIME HIGHLIGHTS",
+    "views": 155376
+   }
+  ],
+  "threads": [
+   {
+    "title": "[Highlight] Joakim Noah passes the broadcast headset to Derrick Rose live on air",
+    "url": "https://www.reddit.com/r/chicagobulls/comments/1xu18fi/highlight_joakim_noah_passes_the_broadcast/"
+   },
+   {
+    "title": "Instagram update from Caleb",
+    "url": "https://www.reddit.com/r/chicagobulls/comments/1xv14xp/instagram_update_from_caleb/"
+   },
+   {
+    "title": "[Catch Central] D Rose 🌹, Caleb Williams and Rome Odunze celebrating with PCA on his MVP in Fulton Market tonight.",
+    "url": "https://www.reddit.com/r/chicagobulls/comments/1xvomgm/catch_central_d_rose_caleb_williams_and_rome/"
+   },
+   {
+    "title": "Beep Beep!",
+    "url": "https://www.reddit.com/r/chicagobulls/comments/1xvuhdh/beep_beep/"
+   },
+   {
+    "title": "Will the Bulls ever lose again? Is these team bound to match the legendary Jordan bulls 73-9 record?",
+    "url": "https://www.reddit.com/r/chicagobulls/comments/1xwprdx/will_the_bulls_ever_lose_again_is_these_team/"
+   }
+  ]
+ }
+}

@@ -1,0 +1,442 @@
+{
+ "team": "Milwaukee Bucks",
+ "as_of": "2026-11-16",
+ "source": "Ballast Fan Read",
+ "summary": "Bucks fans' searches are split between Kyle Kuzma (39,322 Wikipedia views in the past 30 days, the roster high) and Tyler Herro, the headline return in the Giannis Antetokounmpo trade (35,469 in 30 days and 439,636 over the year, the roster high), with rookie Nate Ament third (23,022). In the first season after Giannis' trade to Miami, r/MkeBucks mixes \"Come back Giannis\" posts with Brewers and Packers talk and arguments about the worst signings in team history, while on YouTube the trade news, Giannis' farewell and \"collapse\" retrospectives draw more views than the current roster, and Lakers fan channels supply most of the reaction content around Bucks games.",
+ "segments": [
+  {
+   "id": "giannis-grievers",
+   "name": "Giannis grievers",
+   "who": "Fans still processing the trade and hoping for a reunion",
+   "size_signal": "Giannis-exit items are 11.5% of classified views from 7 videos; 4 of the top 25 r/MkeBucks threads are about Giannis",
+   "where": [
+    "r/MkeBucks",
+    "YouTube (ESPN, Giannis Antetokounmpo)"
+   ],
+   "enjoys": [
+    "giannis_exit",
+    "news_rumors"
+   ],
+   "offer": "A respectful Giannis tribute night or video; don't pretend it didn't happen",
+   "evidence": [
+    "https://www.reddit.com/r/MkeBucks/comments/1xfclrk/come_back_giannis/",
+    "https://www.reddit.com/r/MkeBucks/comments/1xc6gmv/giannis_may_return_sooner_vs_later/",
+    "https://www.reddit.com/r/MkeBucks/comments/1xnq9lz/my_guts_telling_me_that_giannis_antetokounmpos/",
+    "https://www.youtube.com/watch?v=FtuIDjlpD7Q"
+   ]
+  },
+  {
+   "id": "herro-kuzma-and-miami-arrival-followers",
+   "name": "Herro, Kuzma and Miami-arrival followers",
+   "who": "Fans who follow the post-Giannis Bucks through its two most-searched players, Tyler Herro (the headline return from Miami) and Kyle Kuzma, plus Jaime Jaquez Jr. and the other players from the Giannis trade.",
+   "size_signal": "Kuzma has 39,322 Wikipedia views in the past 30 days and Herro 35,469 (439,636 in the year, the roster high); Herro's Shaqtin' A Fool clip drew 724,162 and his Bucks debut 22,469 on the NBA channel; Kuzma's poster-dunk clip drew 228,095; Jaquez finding out he was traded drew 240,859; \"Tyler Herro on the Bucks losing streak\" is a top-25 r/MkeBucks thread.",
+   "where": [
+    "Wikipedia",
+    "YouTube (NBA, NBA on ESPN, Chaz NBA, Nightcap, Read The Room Show)",
+    "r/MkeBucks"
+   ],
+   "enjoys": [
+    "player_moments",
+    "big scoring nights",
+    "talk-show and off-court appearances"
+   ],
+   "offer": "Herro and Kuzma Shorts after big nights (the team posts their 23- and 27-point games only as long-form highlights), and the Miami arrivals' own story of the trade.",
+   "evidence": [
+    "https://www.youtube.com/watch?v=km6QxL8sWqY",
+    "https://www.youtube.com/watch?v=ZibyYcSrXac",
+    "https://www.youtube.com/watch?v=azQNDnFjAxw",
+    "https://www.reddit.com/r/MkeBucks/comments/1xu6mdq/tyler_herro_on_the_bucks_losing_streak/"
+   ]
+  },
+  {
+   "id": "milwaukee-multi-sport-fans",
+   "name": "Milwaukee multi-sport fans",
+   "who": "Fans who follow the Bucks alongside the Brewers and Packers",
+   "size_signal": "3 of the top 25 r/MkeBucks threads this month name the Brewers or Packers; the top thread is \"Milwaukee is the city of champions once again\"",
+   "where": [
+    "r/MkeBucks"
+   ],
+   "enjoys": [
+    "community",
+    "culture_crossover"
+   ],
+   "offer": "Joint content and watch parties with the Brewers and Packers",
+   "evidence": [
+    "https://www.reddit.com/r/MkeBucks/comments/1xi90wo/milwaukee_is_the_city_of_champions_once_again/",
+    "https://www.reddit.com/r/MkeBucks/comments/1xwilgs/its_been_jarring_to_switch_from_brewers_to_bucks/",
+    "https://www.reddit.com/r/MkeBucks/comments/1xbzl3i/deer_district_to_host_outdoor_watch_parties_for/",
+    "https://www.reddit.com/r/MkeBucks/comments/1xiabo5/packers_and_bucks_cant_hurt_me_the_rest_of_the/"
+   ]
+  },
+  {
+   "id": "rebuild-realists",
+   "name": "Rebuild realists",
+   "who": "Fans and neutrals sizing up a long rebuild",
+   "size_signal": "2K rebuilds 396K; \"The Worst Future in the NBA Right Now\" 111K; \"Worst free agent signing in bucks history?\" thread; rookies Nate Ament and Brayden Burries have 23,022 and 18,891 Wikipedia views in the past 30 days",
+   "where": [
+    "YouTube (KOT4Q, SROS, SixringsofsteeI)",
+    "r/MkeBucks"
+   ],
+   "enjoys": [
+    "gaming_2k",
+    "analysis"
+   ],
+   "offer": "Prospect-development updates on the rookies (Nate Ament, Brayden Burries)",
+   "evidence": [
+    "https://www.youtube.com/watch?v=axrrUScjQBA",
+    "https://www.youtube.com/watch?v=rTAk0xYJGgU",
+    "https://www.youtube.com/watch?v=flkPy1z7ZRo",
+    "https://www.reddit.com/r/MkeBucks/comments/1xrglhr/worst_free_agent_signing_in_bucks_history/"
+   ]
+  },
+  {
+   "id": "title-era-nostalgics",
+   "name": "Title-era nostalgics",
+   "who": "Fans who rewatch 2001 and the 2021 title era",
+   "size_signal": "2 retrospectives total 458K; \"Where does Khris rank as an all time buck?\" in the top 25",
+   "where": [
+    "YouTube (Basketball Universe, That's Good Ball)",
+    "r/MkeBucks"
+   ],
+   "enjoys": [
+    "throwbacks"
+   ],
+   "offer": "Archive clips from 2001 and 2021 on anniversaries",
+   "evidence": [
+    "https://www.youtube.com/watch?v=DT9xBN_Xqh8",
+    "https://www.youtube.com/watch?v=hmAwhWsJ0DY",
+    "https://www.reddit.com/r/MkeBucks/comments/1xqkrn7/where_does_khris_rank_as_an_all_time_buck/"
+   ]
+  },
+  {
+   "id": "matchup-bettors",
+   "name": "Matchup bettors",
+   "who": "Bettors on Bucks series and the NBA Cup",
+   "size_signal": "\"Pacers vs. Bucks (To Advance)\" $531K; \"NBA Cup Final: Thunder vs. Bucks\" $341K",
+   "where": [
+    "Polymarket"
+   ],
+   "enjoys": [
+    "betting_fantasy"
+   ],
+   "offer": "NBA Cup group-stage previews",
+   "evidence": [
+    "https://polymarket.com/event/nba-playoffs-pacers-vs-bucks-to-advance",
+    "https://polymarket.com/event/nba-cup-final-thunder-vs-bucks"
+   ]
+  }
+ ],
+ "players": [
+  {
+   "name": "Kyle Kuzma",
+   "wikipedia_views_30d": 39322,
+   "wikipedia_views_year": 429885,
+   "url": "https://en.wikipedia.org/wiki/Kyle_Kuzma"
+  },
+  {
+   "name": "Tyler Herro",
+   "wikipedia_views_30d": 35469,
+   "wikipedia_views_year": 439636,
+   "url": "https://en.wikipedia.org/wiki/Tyler_Herro"
+  },
+  {
+   "name": "Nate Ament",
+   "wikipedia_views_30d": 23022,
+   "wikipedia_views_year": 218239,
+   "url": "https://en.wikipedia.org/wiki/Nate_Ament"
+  },
+  {
+   "name": "Jaime Jaquez Jr.",
+   "wikipedia_views_30d": 19909,
+   "wikipedia_views_year": 286421,
+   "url": "https://en.wikipedia.org/wiki/Jaime_Jaquez_Jr."
+  },
+  {
+   "name": "Brayden Burries",
+   "wikipedia_views_30d": 18891,
+   "wikipedia_views_year": 146841,
+   "url": "https://en.wikipedia.org/wiki/Brayden_Burries"
+  },
+  {
+   "name": "Myles Turner",
+   "wikipedia_views_30d": 15597,
+   "wikipedia_views_year": 145204,
+   "url": "https://en.wikipedia.org/wiki/Myles_Turner"
+  },
+  {
+   "name": "Kel'el Ware",
+   "wikipedia_views_30d": 12891,
+   "wikipedia_views_year": 168412,
+   "url": "https://en.wikipedia.org/wiki/Kel%27el_Ware"
+  },
+  {
+   "name": "Kasparas Jakucionis",
+   "wikipedia_views_30d": 11387,
+   "wikipedia_views_year": 128102,
+   "url": "https://en.wikipedia.org/wiki/Kasparas_Jaku%C4%8Dionis"
+  }
+ ],
+ "formats": [
+  {
+   "type": "game_highlights",
+   "share_of_views": 0.7016,
+   "examples": [
+    "https://www.youtube.com/watch?v=zUy3T1QHHg8",
+    "https://www.youtube.com/watch?v=UIiV46AZIh4",
+    "https://www.youtube.com/watch?v=pNwOgPkrexc"
+   ]
+  },
+  {
+   "type": "giannis_exit",
+   "share_of_views": 0.1146,
+   "examples": [
+    "https://www.youtube.com/watch?v=XvtTJTA29M8",
+    "https://www.youtube.com/watch?v=nsB9SmchL1w",
+    "https://www.youtube.com/watch?v=xxVBcSxWczI"
+   ]
+  },
+  {
+   "type": "player_moments",
+   "share_of_views": 0.0737,
+   "examples": [
+    "https://www.youtube.com/watch?v=Pinn_foVYJg",
+    "https://www.youtube.com/watch?v=IkFdEcn117I",
+    "https://www.youtube.com/watch?v=ZibyYcSrXac"
+   ]
+  },
+  {
+   "type": "news_rumors",
+   "share_of_views": 0.0216,
+   "examples": [
+    "https://www.youtube.com/watch?v=srLhhEhZndg",
+    "https://www.youtube.com/watch?v=6uSalGATLCc",
+    "https://www.youtube.com/watch?v=aOVfLllGBQc"
+   ]
+  },
+  {
+   "type": "beef_trash_talk",
+   "share_of_views": 0.0216,
+   "examples": [
+    "https://www.youtube.com/watch?v=Yor5BSIz76w"
+   ]
+  },
+  {
+   "type": "throwbacks",
+   "share_of_views": 0.0189,
+   "examples": [
+    "https://www.youtube.com/watch?v=DT9xBN_Xqh8",
+    "https://www.youtube.com/watch?v=hmAwhWsJ0DY",
+    "https://www.youtube.com/shorts/cDP8mMsswOo"
+   ]
+  },
+  {
+   "type": "gaming_2k",
+   "share_of_views": 0.0159,
+   "examples": [
+    "https://www.youtube.com/watch?v=axrrUScjQBA",
+    "https://www.youtube.com/watch?v=flkPy1z7ZRo"
+   ]
+  },
+  {
+   "type": "fan_reactions",
+   "share_of_views": 0.0134,
+   "examples": [
+    "https://www.youtube.com/watch?v=OgzXK3OwyNs",
+    "https://www.youtube.com/watch?v=upUWG7WmpPM",
+    "https://www.youtube.com/watch?v=xq1xDEzFwZo"
+   ]
+  },
+  {
+   "type": "behind_scenes",
+   "share_of_views": 0.0073,
+   "examples": [
+    "https://www.youtube.com/shorts/j_1HsGP1Y7w",
+    "https://www.youtube.com/shorts/qUWeOUWS9Tc",
+    "https://www.youtube.com/shorts/uQ0ggga2d7g"
+   ]
+  },
+  {
+   "type": "analysis",
+   "share_of_views": 0.0058,
+   "examples": [
+    "https://www.youtube.com/watch?v=rTAk0xYJGgU",
+    "https://www.youtube.com/shorts/LLm79TrKTfs",
+    "https://www.youtube.com/shorts/3gX7i8lDEwk"
+   ]
+  },
+  {
+   "type": "pressers_interviews",
+   "share_of_views": 0.0023,
+   "examples": [
+    "https://www.youtube.com/watch?v=svwMnJX0hYo"
+   ]
+  },
+  {
+   "type": "culture_crossover",
+   "share_of_views": 0.0017,
+   "examples": [
+    "https://www.youtube.com/shorts/muGw65cCD1w"
+   ]
+  },
+  {
+   "type": "memes_jokes",
+   "share_of_views": 0.0014,
+   "examples": [
+    "https://www.youtube.com/shorts/1KmA3kLyQ3U"
+   ]
+  }
+ ],
+ "make_or_reward": [
+  {
+   "format": "Same-night full-game highlights",
+   "why": "Game highlights are 70.2% of classified views; Bucks at 76ers has 1.80M.",
+   "example": "https://www.youtube.com/watch?v=UIiV46AZIh4"
+  },
+  {
+   "format": "Herro and Kuzma Shorts from their big nights",
+   "why": "Kuzma (39,322 Wikipedia views in 30 days) and Herro (35,469; 439,636 over the year) are the most-searched Bucks, and outside channels carry them (Herro's Shaqtin' clip 724,162, Kuzma's poster-dunk clip 228,095), but the team posts their 27- and 23-point games only as long-form highlights.",
+   "example": "https://www.youtube.com/watch?v=km6QxL8sWqY"
+  },
+  {
+   "format": "Honest rebuild storytelling (the team's \"Next Era\" series, prospects)",
+   "why": "Giannis-exit and collapse coverage is 11.5% of views; Secret Base's \"How the Bucks lost hope, then lost Giannis\" has 432K and 2K rebuild videos 396K, so fans want the rebuild explained.",
+   "example": "https://www.youtube.com/watch?v=nsB9SmchL1w"
+  },
+  {
+   "format": "Milwaukee multi-sport tie-ins (Brewers, Packers)",
+   "why": "3 of the top 25 r/MkeBucks threads this month name the Brewers or Packers (one is a Deer District Brewers watch-party post), and the top thread is \"Milwaukee is the city of champions once again\".",
+   "example": "https://www.reddit.com/r/MkeBucks/comments/1xbzl3i/deer_district_to_host_outdoor_watch_parties_for/"
+  },
+  {
+   "format": "Title-era and franchise-history retrospectives",
+   "why": "Throwbacks are 1.9% of views; \"The Legendary & CONTROVERSIAL 2001 Milwaukee Bucks Season\" has 243K and a \"where does Khris rank\" thread is in the top 25.",
+   "example": "https://www.youtube.com/watch?v=DT9xBN_Xqh8"
+  }
+ ],
+ "talk": [
+  {
+   "title": "Milwaukee is the city of champions once again",
+   "url": "https://www.reddit.com/r/MkeBucks/comments/1xi90wo/milwaukee_is_the_city_of_champions_once_again/"
+  },
+  {
+   "title": "Come back Giannis",
+   "url": "https://www.reddit.com/r/MkeBucks/comments/1xfclrk/come_back_giannis/"
+  },
+  {
+   "title": "Can we agree? Fuck D.R. for saying that",
+   "url": "https://www.reddit.com/r/MkeBucks/comments/1xsalq5/can_we_agree_fuck_dr_for_saying_that/"
+  },
+  {
+   "title": "Worst free agent signing in bucks history?",
+   "url": "https://www.reddit.com/r/MkeBucks/comments/1xrglhr/worst_free_agent_signing_in_bucks_history/"
+  },
+  {
+   "title": "Damian Lillard defends his Milwaukee tenure while addressing the critics: \"It’ll be talked about in a more negative light than it actually was\"",
+   "url": "https://www.reddit.com/r/MkeBucks/comments/1xbr1bn/damian_lillard_defends_his_milwaukee_tenure_while/"
+  },
+  {
+   "title": "All that “Heat Culture” talk just for Giannis to come in and expose them",
+   "url": "https://www.reddit.com/r/MkeBucks/comments/1xdx1cj/all_that_heat_culture_talk_just_for_giannis_to/"
+  },
+  {
+   "title": "Where does Khris rank as an all time buck?",
+   "url": "https://www.reddit.com/r/MkeBucks/comments/1xqkrn7/where_does_khris_rank_as_an_all_time_buck/"
+  },
+  {
+   "title": "Hang it in the Louvre. Bucks nba cup court",
+   "url": "https://www.reddit.com/r/MkeBucks/comments/1xphby5/hang_it_in_the_louvre_bucks_nba_cup_court/"
+  }
+ ],
+ "pulse": {
+  "window": "2026-11-03 to 2026-11-16",
+  "label": "10–16 Nov",
+  "team_wiki": {
+   "last7": 9661,
+   "prior7": 8927
+  },
+  "rising": [
+   {
+    "name": "Kyle Kuzma",
+    "url": "https://en.wikipedia.org/wiki/Kyle_Kuzma",
+    "last7": 11190,
+    "prior7": 5771,
+    "change": 0.939
+   },
+   {
+    "name": "Jaime Jaquez Jr.",
+    "url": "https://en.wikipedia.org/wiki/Jaime_Jaquez_Jr.",
+    "last7": 5069,
+    "prior7": 3579,
+    "change": 0.416
+   },
+   {
+    "name": "Kasparas Jakucionis",
+    "url": "https://en.wikipedia.org/wiki/Kasparas_Jaku%C4%8Dionis",
+    "last7": 2586,
+    "prior7": 1860,
+    "change": 0.39
+   },
+   {
+    "name": "Myles Turner",
+    "url": "https://en.wikipedia.org/wiki/Myles_Turner",
+    "last7": 4802,
+    "prior7": 4005,
+    "change": 0.199
+   }
+  ],
+  "videos": [
+   {
+    "title": "LAKERS at BUCKS | FULL GAME HIGHLIGHTS | November 11, 2026",
+    "url": "https://www.youtube.com/watch?v=-a205kX3neA",
+    "channel": "NBA",
+    "views": 912726
+   },
+   {
+    "title": "Luka Doncic ankle injury while up 24 vs Bucks and limps to locker room",
+    "url": "https://www.youtube.com/watch?v=srLhhEhZndg",
+    "channel": "Chaz NBA",
+    "views": 436029
+   },
+   {
+    "title": "Los Angeles Lakers vs Milwaukee Bucks Full Game Highlights - November 11, 2026 | NBA Season",
+    "url": "https://www.youtube.com/watch?v=QfLyXbkIqow",
+    "channel": "GAMETIME HIGHLIGHTS",
+    "views": 423371
+   },
+   {
+    "title": "BUCKS at KNICKS | FULL GAME HIGHLIGHTS | November 10, 2026",
+    "url": "https://www.youtube.com/watch?v=KQzofNjz7lI",
+    "channel": "NBA",
+    "views": 290432
+   },
+   {
+    "title": "Lakers vs Bucks | Lakers Highlights | November 11, 2026",
+    "url": "https://www.youtube.com/watch?v=yVReSyLiEP4",
+    "channel": "LakeShow Highlights",
+    "views": 197991
+   }
+  ],
+  "threads": [
+   {
+    "title": "It's been jarring to switch from Brewers to Bucks but here we are (oc)",
+    "url": "https://www.reddit.com/r/MkeBucks/comments/1xwilgs/its_been_jarring_to_switch_from_brewers_to_bucks/"
+   },
+   {
+    "title": "Just chilling tf out",
+    "url": "https://www.reddit.com/r/MkeBucks/comments/1xxf3ob/just_chilling_tf_out/"
+   },
+   {
+    "title": "Tyler Herro on the Bucks losing streak",
+    "url": "https://www.reddit.com/r/MkeBucks/comments/1xu6mdq/tyler_herro_on_the_bucks_losing_streak/"
+   },
+   {
+    "title": "6 Points 3 Games",
+    "url": "https://www.reddit.com/r/MkeBucks/comments/1xt7afy/6_points_3_games/"
+   },
+   {
+    "title": "Real recognize real",
+    "url": "https://www.reddit.com/r/MkeBucks/comments/1xu45qr/real_recognize_real/"
+   }
+  ]
+ }
+}

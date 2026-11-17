@@ -1,0 +1,438 @@
+{
+ "team": "New York Knicks",
+ "as_of": "2026-11-16",
+ "source": "Ballast Fan Read",
+ "summary": "Knicks fans search Finals MVP Jalen Brunson most (119,435 Wikipedia views in 30 days and 5,285,168 over the year, more than double anyone else's), but two others are close behind this month: Dalton Knecht (109,432), whose Knicks debut drew 1,024,787 on House of Highlights, and Andre Drummond (106,816). The fanbase is still living off the franchise's first NBA title in 53 years (ring photos, \"One last reminder that this actually happened\" and 1.46M team Wikipedia views in June), while the subreddit runs on rituals like DPOG and \"thank this man\" posts and the White House visit question has pulled the team into late-night TV and politics.",
+ "segments": [
+  {
+   "id": "53-year-wait-title-celebrants",
+   "name": "53-year-wait title celebrants",
+   "who": "Fans still reliving the first title since 1973",
+   "size_signal": "Wikipedia 1,464,804 views in June 2026; Finals Game 4 highlights 6.38M; 5 of the top 25 threads are title or ring posts",
+   "where": [
+    "r/NYKnicks",
+    "YouTube (NBA, ESPN)",
+    "Wikipedia"
+   ],
+   "enjoys": [
+    "title_celebration",
+    "game_highlights"
+   ],
+   "offer": "Ring-night and parade anniversary content; Finals mini-documentaries",
+   "evidence": [
+    "https://www.reddit.com/r/NYKnicks/comments/1x9tmzz/one_last_reminder_that_this_actually_happened/",
+    "https://www.reddit.com/r/NYKnicks/comments/1xb6ueq/the_new_york_knicks_20252026_nba_championship/",
+    "https://www.reddit.com/r/NYKnicks/comments/1xb9itd/josh_hart_has_the_trophy_in_his_braids/",
+    "https://www.youtube.com/watch?v=YxpFLi0aIxA"
+   ]
+  },
+  {
+   "id": "jalen-brunson-followers",
+   "name": "Jalen Brunson followers",
+   "who": "Fans who follow the Knicks through their captain and Finals MVP, from clutch runs to his TV cameos",
+   "size_signal": "Brunson 5,285,168 Wikipedia views in the year (Towns is next at 2,231,880) and 119,435 in 30 days, the roster high; Chaz NBA's FMVP trophy presentation 1,006,358 and LeBron on Brunson (Mind the Game) 1,391,326; this month Chaz NBA's clutch-shots clip 440,825; threads on his 18 straight points and his Law & Order SVU cameo in the top 25",
+   "where": [
+    "Wikipedia",
+    "YouTube (Chaz NBA, Mind the Game, The Tonight Show)",
+    "r/NYKnicks"
+   ],
+   "enjoys": [
+    "player_moments",
+    "culture_crossover"
+   ],
+   "offer": "Brunson scoring-run Shorts the same night and cuts of his TV cameos; he is tagged in only one of the team's top 15 Shorts",
+   "evidence": [
+    "https://www.youtube.com/watch?v=dV8Q3mcy8lE",
+    "https://www.youtube.com/watch?v=0kB1VmcLfkE",
+    "https://www.reddit.com/r/NYKnicks/comments/1xqn8ay/jalen_brunson_18_straight_points_in_the_2nd/",
+    "https://www.reddit.com/r/NYKnicks/comments/1xp1nrl/captain_clutch_jalen_brunson_as_detective_jay/"
+   ]
+  },
+  {
+   "id": "dpog-ritual-regulars",
+   "name": "DPOG ritual regulars",
+   "who": "r/NYKnicks regulars who crown a game hero and demand upvotes for him",
+   "size_signal": "6 of the top 25 r/NYKnicks threads this month are DPOG or \"thank this man\" posts",
+   "where": [
+    "r/NYKnicks"
+   ],
+   "enjoys": [
+    "memes_jokes",
+    "community"
+   ],
+   "offer": "An official nod to the DPOG pick after wins",
+   "evidence": [
+    "https://www.reddit.com/r/NYKnicks/comments/1xheagg/dpog_has_returned_for_a_second_season/",
+    "https://www.reddit.com/r/NYKnicks/comments/1xqpcpa/the_dpog_is_andre_drummond_nov_7_2026_at/",
+    "https://www.reddit.com/r/NYKnicks/comments/1xmhxiz/do_not_leave_without_upvoting_this_man/",
+    "https://www.reddit.com/r/NYKnicks/comments/1xi8omy/do_not_scroll_without_thanking_this_man/"
+   ]
+  },
+  {
+   "id": "filipino-clarkson-fans",
+   "name": "Filipino Clarkson fans",
+   "who": "Filipino fans following Jordan Clarkson in New York",
+   "size_signal": "One of the top 25 threads thanks Clarkson with a Philippine flag and another gives him DPOG; Tagalog Clarkson videos this month include The Scoreboard 555,419 and 367,844 and Courtside Buckets 261,105; Clarkson has 791,839 Wikipedia views in the year",
+   "where": [
+    "r/NYKnicks",
+    "YouTube (The Scoreboard, Courtside Buckets, The Bro TV)"
+   ],
+   "enjoys": [
+    "player_moments",
+    "analysis"
+   ],
+   "offer": "Tagalog captions on Clarkson clips; Philippines-timed posts",
+   "evidence": [
+    "https://www.reddit.com/r/NYKnicks/comments/1xi88kh/dont_forget_to_thank_this_man/",
+    "https://www.youtube.com/watch?v=BksYc5Le1Ec",
+    "https://www.youtube.com/watch?v=HdwJhHl-1T8",
+    "https://www.youtube.com/watch?v=Yk1AssAv3G8"
+   ]
+  },
+  {
+   "id": "political-crossover-audience",
+   "name": "Political-crossover audience",
+   "who": "Viewers who meet the Knicks through late-night TV and the White House question",
+   "size_signal": "Kimmel monologue 3.54M; White House refusal video 745K; Spike Lee thread in the top 25",
+   "where": [
+    "YouTube (Jimmy Kimmel Live, Charles Tabansi)",
+    "r/NYKnicks"
+   ],
+   "enjoys": [
+    "culture_crossover",
+    "news_rumors"
+   ],
+   "offer": "Nothing partisan; keep team posts on basketball and the city",
+   "evidence": [
+    "https://www.youtube.com/watch?v=9kQXQrVCT5Q",
+    "https://www.youtube.com/watch?v=_LuUKa6Xe4k",
+    "https://www.reddit.com/r/NYKnicks/comments/1xm65rl/spike_lee_wants_knicks_to_refuse_to_visit_donald/"
+   ]
+  },
+  {
+   "id": "daily-show-hardcore",
+   "name": "Daily-show hardcore",
+   "who": "Fans who follow the team every day on independent shows",
+   "size_signal": "Knicks Film School and Knicks Fan TV at 2,000 episodes each, both releasing this week",
+   "where": [
+    "Apple Podcasts"
+   ],
+   "enjoys": [
+    "analysis",
+    "news_rumors"
+   ],
+   "offer": "Player access and early clips for these shows",
+   "evidence": [
+    "https://podcasts.apple.com/us/podcast/knicks-film-school/id1439034317?uo=4",
+    "https://podcasts.apple.com/us/podcast/knicks-fan-tv-the-podcast/id1447445750?uo=4",
+    "https://podcasts.apple.com/us/podcast/locked-on-knicks-daily-podcast-on-the-new-york-knicks/id1129323212?uo=4"
+   ]
+  }
+ ],
+ "players": [
+  {
+   "name": "Jalen Brunson",
+   "wikipedia_views_30d": 119435,
+   "wikipedia_views_year": 5285168,
+   "url": "https://en.wikipedia.org/wiki/Jalen_Brunson"
+  },
+  {
+   "name": "Dalton Knecht",
+   "wikipedia_views_30d": 109432,
+   "wikipedia_views_year": 247356,
+   "url": "https://en.wikipedia.org/wiki/Dalton_Knecht"
+  },
+  {
+   "name": "Andre Drummond",
+   "wikipedia_views_30d": 106816,
+   "wikipedia_views_year": 612426,
+   "url": "https://en.wikipedia.org/wiki/Andre_Drummond"
+  },
+  {
+   "name": "Karl-Anthony Towns",
+   "wikipedia_views_30d": 70735,
+   "wikipedia_views_year": 2231880,
+   "url": "https://en.wikipedia.org/wiki/Karl-Anthony_Towns"
+  },
+  {
+   "name": "OG Anunoby",
+   "wikipedia_views_30d": 48670,
+   "wikipedia_views_year": 2153969,
+   "url": "https://en.wikipedia.org/wiki/OG_Anunoby"
+  },
+  {
+   "name": "Landry Shamet",
+   "wikipedia_views_30d": 41380,
+   "wikipedia_views_year": 781297,
+   "url": "https://en.wikipedia.org/wiki/Landry_Shamet"
+  },
+  {
+   "name": "James Wiseman",
+   "wikipedia_views_30d": 41413,
+   "wikipedia_views_year": 341475,
+   "url": "https://en.wikipedia.org/wiki/James_Wiseman"
+  },
+  {
+   "name": "Tyler Kolek",
+   "wikipedia_views_30d": 35528,
+   "wikipedia_views_year": 517259,
+   "url": "https://en.wikipedia.org/wiki/Tyler_Kolek_%28basketball%29"
+  }
+ ],
+ "formats": [
+  {
+   "type": "game_highlights",
+   "share_of_views": 0.7984,
+   "examples": [
+    "https://www.youtube.com/watch?v=4WzuI2GntPc",
+    "https://www.youtube.com/watch?v=AL0AGaoJCWY",
+    "https://www.youtube.com/watch?v=mQPbdoRZYY8"
+   ]
+  },
+  {
+   "type": "title_celebration",
+   "share_of_views": 0.0691,
+   "examples": [
+    "https://www.youtube.com/watch?v=9kQXQrVCT5Q",
+    "https://www.youtube.com/watch?v=YxpFLi0aIxA",
+    "https://www.youtube.com/watch?v=aGcM8z50Stw"
+   ]
+  },
+  {
+   "type": "analysis",
+   "share_of_views": 0.0672,
+   "examples": [
+    "https://www.youtube.com/watch?v=xlNbNHW7re4",
+    "https://www.youtube.com/watch?v=oV4UrWDiYWc",
+    "https://www.youtube.com/watch?v=CfSdyztYpfw"
+   ]
+  },
+  {
+   "type": "beef_trash_talk",
+   "share_of_views": 0.0244,
+   "examples": [
+    "https://www.youtube.com/watch?v=0JLVhNY2JKw",
+    "https://www.youtube.com/watch?v=OnSEtkfYy9A",
+    "https://www.youtube.com/watch?v=pdyJO0A1t4Q"
+   ]
+  },
+  {
+   "type": "player_moments",
+   "share_of_views": 0.0181,
+   "examples": [
+    "https://www.youtube.com/watch?v=3UZWOgSxyV8",
+    "https://www.youtube.com/watch?v=k4V6zI_6lH0",
+    "https://www.youtube.com/watch?v=1jYZrEk1xFM"
+   ]
+  },
+  {
+   "type": "throwbacks",
+   "share_of_views": 0.0121,
+   "examples": [
+    "https://www.youtube.com/watch?v=AWdIuflemFU"
+   ]
+  },
+  {
+   "type": "news_rumors",
+   "share_of_views": 0.0061,
+   "examples": [
+    "https://www.youtube.com/watch?v=_LuUKa6Xe4k"
+   ]
+  },
+  {
+   "type": "memes_jokes",
+   "share_of_views": 0.0026,
+   "examples": [
+    "https://www.youtube.com/shorts/9VQrZFYr-24"
+   ]
+  },
+  {
+   "type": "fan_reactions",
+   "share_of_views": 0.0008,
+   "examples": [
+    "https://www.youtube.com/watch?v=AlcUq0Q78fU",
+    "https://www.youtube.com/watch?v=30Q2SwsEBK0"
+   ]
+  },
+  {
+   "type": "behind_scenes",
+   "share_of_views": 0.0007,
+   "examples": [
+    "https://www.youtube.com/shorts/Funz0NtIgJ4",
+    "https://www.youtube.com/shorts/NgDMxxq92Lc",
+    "https://www.youtube.com/shorts/armYbjeu0uU"
+   ]
+  },
+  {
+   "type": "culture_crossover",
+   "share_of_views": 0.0004,
+   "examples": [
+    "https://www.youtube.com/shorts/1lnebcucGJQ",
+    "https://www.youtube.com/shorts/Gm4K5KApGPI"
+   ]
+  }
+ ],
+ "make_or_reward": [
+  {
+   "format": "Title-anniversary and Finals rewatch content",
+   "why": "Finals game highlights still sit at 4.8M-6.4M each, and Wikipedia views hit 1,464,804 in June 2026, about 17x the October figure.",
+   "example": "https://www.youtube.com/watch?v=4WzuI2GntPc"
+  },
+  {
+   "format": "Jalen Brunson clutch-run Shorts",
+   "why": "Brunson is the most-searched Knick on both counts (119,435 Wikipedia views in 30 days, 5,285,168 in the year). Chaz NBA's clip of his clutch shots drew 440,825 this month and a thread on his 18 straight points is in the top 25, but only one of the team's top 15 Shorts is tagged with him (the Derrick Rose reunion, 26K).",
+   "example": "https://www.youtube.com/watch?v=0kB1VmcLfkE"
+  },
+  {
+   "format": "New-arrival debut clips (Dalton Knecht)",
+   "why": "Knecht is second in 30-day Wikipedia views (109,432). House of Highlights' cut of his Knicks debut drew 1,024,787 and the NBA's 214,944, the team's debut Short is its second-best (56K), and two top-25 threads are about his debut and his record-tying three.",
+   "example": "https://www.youtube.com/watch?v=3UZWOgSxyV8"
+  },
+  {
+   "format": "Arena and radio audio pieces",
+   "why": "\"Listen to MSG SHAKING\" has 3.39M and VintageDawkins' uncut Knicks radio call 1.24M.",
+   "example": "https://www.youtube.com/watch?v=lL4TMc1sYmQ"
+  },
+  {
+   "format": "Join the subreddit's DPOG and \"thank this man\" rituals",
+   "why": "6 of the top 25 r/NYKnicks threads this month are DPOG or \"thank this man\" posts.",
+   "example": "https://www.reddit.com/r/NYKnicks/comments/1xheagg/dpog_has_returned_for_a_second_season/"
+  },
+  {
+   "format": "Prank and comedy Shorts",
+   "why": "\"sorry guys it was just a prank\" has 320K, almost 6x the team's next-best Short (56.0K).",
+   "example": "https://www.youtube.com/shorts/9VQrZFYr-24"
+  },
+  {
+   "format": "Filipino-language Jordan Clarkson content",
+   "why": "A top thread thanks Clarkson with a Philippine flag, and Tagalog Clarkson videos are large: The Scoreboard's NBA Cup dagger recap has 555,419 and Courtside Buckets' \"HERO ng KNICKS\" 261,105.",
+   "example": "https://www.youtube.com/watch?v=HdwJhHl-1T8"
+  }
+ ],
+ "talk": [
+  {
+   "title": "One last reminder that this actually happened 🏆",
+   "url": "https://www.reddit.com/r/NYKnicks/comments/1x9tmzz/one_last_reminder_that_this_actually_happened/"
+  },
+  {
+   "title": "DPOG has returned for a second season.",
+   "url": "https://www.reddit.com/r/NYKnicks/comments/1xheagg/dpog_has_returned_for_a_second_season/"
+  },
+  {
+   "title": "DON’T FORGET TO THANK THIS MAN 🇵🇭",
+   "url": "https://www.reddit.com/r/NYKnicks/comments/1xi88kh/dont_forget_to_thank_this_man/"
+  },
+  {
+   "title": "Jalen Brunson 18 straight points in the 2nd quarter vs. the Cavaliers. Six buckets and three free throws. With replays",
+   "url": "https://www.reddit.com/r/NYKnicks/comments/1xqn8ay/jalen_brunson_18_straight_points_in_the_2nd/"
+  },
+  {
+   "title": "Spike Lee wants Knicks to refuse to visit Donald Trump in White House",
+   "url": "https://www.reddit.com/r/NYKnicks/comments/1xm65rl/spike_lee_wants_knicks_to_refuse_to_visit_donald/"
+  },
+  {
+   "title": "Josh Hart postgame: \"We shouldn't sit here and think we're champions because we're not. We're 0-1. We're the worst team in the NBA as of right now. We need to play like it.\"",
+   "url": "https://www.reddit.com/r/NYKnicks/comments/1xbglpb/josh_hart_postgame_we_shouldnt_sit_here_and_think/"
+  },
+  {
+   "title": "Dalton Knecht debut",
+   "url": "https://www.reddit.com/r/NYKnicks/comments/1xo80hc/dalton_knecht_debut/"
+  },
+  {
+   "title": "Captain Clutch Jalen Brunson as Detective Jay Madison on Law & Order SVU! (peep cameo Rick Brunson)",
+   "url": "https://www.reddit.com/r/NYKnicks/comments/1xp1nrl/captain_clutch_jalen_brunson_as_detective_jay/"
+  }
+ ],
+ "pulse": {
+  "window": "2026-11-03 to 2026-11-16",
+  "label": "10–16 Nov",
+  "team_wiki": {
+   "last7": 14432,
+   "prior7": 15567
+  },
+  "rising": [
+   {
+    "name": "Andre Drummond",
+    "url": "https://en.wikipedia.org/wiki/Andre_Drummond",
+    "last7": 8848,
+    "prior7": 5868,
+    "change": 0.508
+   },
+   {
+    "name": "Karl-Anthony Towns",
+    "url": "https://en.wikipedia.org/wiki/Karl-Anthony_Towns",
+    "last7": 15625,
+    "prior7": 10858,
+    "change": 0.439
+   },
+   {
+    "name": "OG Anunoby",
+    "url": "https://en.wikipedia.org/wiki/OG_Anunoby",
+    "last7": 9279,
+    "prior7": 7501,
+    "change": 0.237
+   },
+   {
+    "name": "Landry Shamet",
+    "url": "https://en.wikipedia.org/wiki/Landry_Shamet",
+    "last7": 6310,
+    "prior7": 5747,
+    "change": 0.098
+   }
+  ],
+  "videos": [
+   {
+    "title": "Rick and Jalen Brunson's faces after Quenton Jackson trash talked them both 😂",
+    "url": "https://www.youtube.com/watch?v=rfmn7d17ZFI",
+    "channel": "Chaz NBA",
+    "views": 545211
+   },
+   {
+    "title": "CAVALIERS at KNICKS | FULL GAME HIGHLIGHTS | November 11, 2026",
+    "url": "https://www.youtube.com/watch?v=NLRiKoJ9Al0",
+    "channel": "NBA",
+    "views": 487122
+   },
+   {
+    "title": "Scottie Barnes hyped after clutch plays force OT then Jalen Brunson go-ahead shot to win",
+    "url": "https://www.youtube.com/watch?v=1jYZrEk1xFM",
+    "channel": "Chaz NBA",
+    "views": 421183
+   },
+   {
+    "title": "INSANE OT Finish Knicks at Raptors | November 15, 2026",
+    "url": "https://www.youtube.com/watch?v=C4lS8_nxyDk",
+    "channel": "NBA",
+    "views": 404790
+   },
+   {
+    "title": "Final 6:13 Cavaliers at Knicks Ending UNCUT | November 11, 2026",
+    "url": "https://www.youtube.com/watch?v=8lkvDqj-1Rs",
+    "channel": "NBA",
+    "views": 401128
+   }
+  ],
+  "threads": [
+   {
+    "title": "The DPOG is 🦺 Mikal Bridges ‼️Nov 15, 2026 at Toronto Raptors 💥",
+    "url": "https://www.reddit.com/r/NYKnicks/comments/1xxe6q4/the_dpog_is_mikal_bridges_nov_15_2026_at_toronto/"
+   },
+   {
+    "title": "Thank you Mr. Shamet for taking less money to stay with the Knicks",
+    "url": "https://www.reddit.com/r/NYKnicks/comments/1xxsjk9/thank_you_mr_shamet_for_taking_less_money_to_stay/"
+   },
+   {
+    "title": "LANDRYYYYYYYY THANK YOU!",
+    "url": "https://www.reddit.com/r/NYKnicks/comments/1xxdqpf/landryyyyyyyy_thank_you/"
+   },
+   {
+    "title": "The DPOG is 🦺 Miles “Deuce”McBride‼️ Nov 10, 2026 vs Milwaukee Bucks💥",
+    "url": "https://www.reddit.com/r/NYKnicks/comments/1xt86ff/the_dpog_is_miles_deucemcbride_nov_10_2026_vs/"
+   },
+   {
+    "title": "[SNY] Jalen Brunson on Mikal Bridges' start to the season: \"No matter what's going on with what people are saying, the people in this room have his back night in and night out. We see the work he puts into his game. That's our brother, we're going to keep it that way\"",
+    "url": "https://www.reddit.com/r/NYKnicks/comments/1xu2el3/sny_jalen_brunson_on_mikal_bridges_start_to_the/"
+   }
+  ]
+ }
+}

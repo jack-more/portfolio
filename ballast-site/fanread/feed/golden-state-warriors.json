@@ -1,0 +1,445 @@
+{
+ "team": "Golden State Warriors",
+ "as_of": "2026-11-16",
+ "source": "Ballast Fan Read",
+ "summary": "Rookie Yaxel Lendeborg is the Warrior fans follow most this month (676,701 Wikipedia views in 30 days, more than twice Stephen Curry's 275,490), Curry leads over the year (3,008,042), and Kristaps Porzingis is third this month (114,678) after stepping away from the game and having his pay stopped. Fans are enjoying Curry's hot start but worried about his health after he left the Rockets game hurt, Lendeborg's 37-point night and feud with Luka Doncic have taken over the subreddit, the team's archive and comedy content performs strongly (a Curry clutch-shot compilation at 2,961,414 views and a Gary Payton II prank Short at 1,800,000), and the month's top Reddit thread is the Golden State Valkyries' WNBA title.",
+ "segments": [
+  {
+   "id": "yaxel-lendeborg-hype-squad",
+   "name": "Yaxel Lendeborg hype squad",
+   "who": "Fans who have quickly adopted the rookie, now the most-searched Warrior, enjoy his edge (including calling out Luka) and track praise from veterans.",
+   "size_signal": "Lendeborg has 676,701 Wikipedia views in 30 days, more than twice Curry (275,490) and the roster high. His Luka feud and ankle-breaker clips drew 942,364, 906,686 and 646,221 (Chaz NBA) and 740,741 (Bleacher Report); nine of the top 25 Reddit threads are about him; team mentor Shorts drew 203,000 and 187,000.",
+   "where": [
+    "Wikipedia",
+    "r/warriors",
+    "YouTube clip channels (Chaz NBA, Bleacher Report)",
+    "Warriors Shorts"
+   ],
+   "enjoys": [
+    "scoring nights",
+    "trolling and trash talk",
+    "mentor moments with Curry and Green"
+   ],
+   "offer": "A rookie-season series that pairs him with Curry and Green, plus same-night clips of his matchups and trash talk, which fan channels currently own.",
+   "evidence": [
+    "https://www.youtube.com/watch?v=TgxCVzX5va4",
+    "https://www.youtube.com/watch?v=8N7iy5tpoYQ",
+    "https://www.youtube.com/watch?v=jzTzXDrbgPQ",
+    "https://www.reddit.com/r/warriors/comments/1xc9xpa/yaxel_lendeborg_said_he_lost_all_respect_for_luka/",
+    "https://www.reddit.com/r/warriors/comments/1xln6ln/yaxel_lendeborg_tonight_37_points_6_assists_4/",
+    "https://www.reddit.com/r/warriors/comments/1xlnzll/steve_kerr_on_yaxel_lendeborgs_37point_night_hes/",
+    "https://www.youtube.com/watch?v=TI1eufygPtY",
+    "https://www.youtube.com/shorts/7Jq7dLh2Qx0"
+   ]
+  },
+  {
+   "id": "curry-lifers",
+   "name": "Curry lifers",
+   "who": "Fans who follow every Curry shot, quote and Instagram story, and now track his health closely.",
+   "size_signal": "Curry has 3,008,042 Wikipedia views in the year (the roster high) and 275,490 in 30 days, second only to Lendeborg. Team Curry clutch compilation: 2,961,414; NBA's every 3-point contest round: 1,998,248; Curry dropping Luka (Chaz NBA): 1,123,190; injury clip: 576,070; a Chinese-language Curry analysis: 429,193; seven Curry threads in the top 25.",
+   "where": [
+    "r/warriors",
+    "Warriors YouTube and Shorts",
+    "Chinese-language YouTube"
+   ],
+   "enjoys": [
+    "clutch-shot compilations",
+    "ankle-breakers",
+    "injury updates",
+    "Curry defending his family"
+   ],
+   "offer": "Fast, clear health updates; more archive compilations; subtitled Curry content for Chinese-speaking fans.",
+   "evidence": [
+    "https://www.youtube.com/watch?v=mVM3nlW7mLg",
+    "https://www.youtube.com/watch?v=i0INlvIP5FE",
+    "https://www.reddit.com/r/warriors/comments/1xk0z22/this_angle_of_curry_dropping_luka/",
+    "https://www.reddit.com/r/warriors/comments/1xu37mp/steph_curry_got_injured_after_sengun_grabbed_and/",
+    "https://www.reddit.com/r/warriors/comments/1xtsenw/steph_on_ig_steph_with_a_message_to_gil_arenas/",
+    "https://www.youtube.com/watch?v=mIj-d0BfVtI"
+   ]
+  },
+  {
+   "id": "dynasty-nostalgists",
+   "name": "Dynasty nostalgists",
+   "who": "Fans who relive the title era: 38 Feet Deep, the 2016 runs and Klay Thompson.",
+   "size_signal": "\"38 Feet Deep\": 2,428,117; 2016 WCF Game 6 ending: 1,342,561; Christmas classic: 1,028,952; \"Curry Hooping as a Kid\" Short: 239,000.",
+   "where": [
+    "YouTube (Warriors, NBA)",
+    "Warriors Shorts"
+   ],
+   "enjoys": [
+    "classic-game re-airs",
+    "anniversary pieces",
+    "Klay content"
+   ],
+   "offer": "Anniversary re-airs and \"where are they now\" pieces with dynasty players.",
+   "evidence": [
+    "https://www.youtube.com/watch?v=QiyE4LiKihQ",
+    "https://www.youtube.com/watch?v=oZSI-I0T5CY",
+    "https://www.youtube.com/watch?v=5U9k1U6nN-g",
+    "https://www.youtube.com/shorts/jqxs5yCo9k8",
+    "https://www.youtube.com/watch?v=hgtdW2vQ8Rs"
+   ]
+  },
+  {
+   "id": "bay-area-valkyries-crossover",
+   "name": "Bay Area Valkyries crossover",
+   "who": "Warriors fans who also follow the Golden State Valkyries and celebrated their WNBA title.",
+   "size_signal": "The Valkyries title is the top r/warriors thread of the month; \"Reppin' the Valkyries\" is also in the top 25; the WNBA Finals Short with Green and Lendeborg drew 160,000.",
+   "where": [
+    "r/warriors",
+    "Warriors Shorts"
+   ],
+   "enjoys": [
+    "Valkyries playoff moments",
+    "Warriors players at Valkyries games"
+   ],
+   "offer": "Joint Warriors-Valkyries content and shared fan events.",
+   "evidence": [
+    "https://www.reddit.com/r/warriors/comments/1xkrvdn/the_golden_state_valkyries_are_the_2026_wnba/",
+    "https://www.reddit.com/r/warriors/comments/1xagonq/reppin_the_valkyries/",
+    "https://www.youtube.com/shorts/s2US3ewXCZM"
+   ]
+  },
+  {
+   "id": "comedy-shorts-audience",
+   "name": "Comedy Shorts audience",
+   "who": "Viewers who come for player pranks and behind-the-scenes humour.",
+   "size_signal": "Gary Payton II prank: 1,800,000; \"Curry Goes Full Baseball Mode\": 296,000; \"Warriors POV Footage is pure Comedy\": 228,000.",
+   "where": [
+    "YouTube Shorts"
+   ],
+   "enjoys": [
+    "pranks",
+    "POV footage",
+    "Curry goofing around"
+   ],
+   "offer": "A regular prank or POV series; end cards pointing to game content.",
+   "evidence": [
+    "https://www.youtube.com/shorts/aFwrMqzQ44Q",
+    "https://www.youtube.com/shorts/4VrCpS2UT9k",
+    "https://www.youtube.com/shorts/_xKLhxZ_B9s"
+   ]
+  },
+  {
+   "id": "podcast-regulars",
+   "name": "Podcast regulars",
+   "who": "Hardcore fans with a large daily and weekly podcast choice, including player-hosted shows.",
+   "size_signal": "Light Years has 1,124 episodes, Dubs Talk 707, Warriors Plus Minus 589, the team's own feed 585, Locked On Warriors 501 and The Draymond Green Show 361, and all published in the past week.",
+   "where": [
+    "Apple Podcasts"
+   ],
+   "enjoys": [
+    "beat coverage",
+    "player podcasts",
+    "team-made audio"
+   ],
+   "offer": "Cross-promote the team feed with fan shows; clip The Draymond Green Show for Shorts.",
+   "evidence": [
+    "https://podcasts.apple.com/us/podcast/light-years-a-golden-state-warriors-pod/id1296411814?uo=4",
+    "https://podcasts.apple.com/us/podcast/dubs-talk-a-golden-state-warriors-podcast/id1182594951?uo=4",
+    "https://podcasts.apple.com/us/podcast/golden-state-warriors/id1097149525?uo=4",
+    "https://podcasts.apple.com/us/podcast/the-draymond-green-show/id1595716948?uo=4"
+   ]
+  }
+ ],
+ "players": [
+  {
+   "name": "Yaxel Lendeborg",
+   "wikipedia_views_30d": 676701,
+   "wikipedia_views_year": 1493829,
+   "url": "https://en.wikipedia.org/wiki/Yaxel_Lendeborg"
+  },
+  {
+   "name": "Stephen Curry",
+   "wikipedia_views_30d": 275490,
+   "wikipedia_views_year": 3008042,
+   "url": "https://en.wikipedia.org/wiki/Stephen_Curry"
+  },
+  {
+   "name": "Kristaps Porzingis",
+   "wikipedia_views_30d": 114678,
+   "wikipedia_views_year": 622819,
+   "url": "https://en.wikipedia.org/wiki/Kristaps_Porzi%C5%86%C4%A3is"
+  },
+  {
+   "name": "Georges Niang",
+   "wikipedia_views_30d": 72080,
+   "wikipedia_views_year": 154155,
+   "url": "https://en.wikipedia.org/wiki/Georges_Niang"
+  },
+  {
+   "name": "Jimmy Butler III",
+   "wikipedia_views_30d": 62566,
+   "wikipedia_views_year": 727643,
+   "url": "https://en.wikipedia.org/wiki/Jimmy_Butler"
+  },
+  {
+   "name": "Draymond Green",
+   "wikipedia_views_30d": 57961,
+   "wikipedia_views_year": 886256,
+   "url": "https://en.wikipedia.org/wiki/Draymond_Green"
+  },
+  {
+   "name": "Charles Bassey",
+   "wikipedia_views_30d": 54250,
+   "wikipedia_views_year": 130891,
+   "url": "https://en.wikipedia.org/wiki/Charles_Bassey"
+  },
+  {
+   "name": "Brandin Podziemski",
+   "wikipedia_views_30d": 47556,
+   "wikipedia_views_year": 279467,
+   "url": "https://en.wikipedia.org/wiki/Brandin_Podziemski"
+  }
+ ],
+ "formats": [
+  {
+   "type": "game_highlights",
+   "share_of_views": 0.6704,
+   "examples": [
+    "https://www.youtube.com/watch?v=7v6Iziip4Bc",
+    "https://www.youtube.com/watch?v=npXSZQsGdpw",
+    "https://www.youtube.com/watch?v=CnDNAnTuKz0"
+   ]
+  },
+  {
+   "type": "throwbacks",
+   "share_of_views": 0.108,
+   "examples": [
+    "https://www.youtube.com/watch?v=mVM3nlW7mLg",
+    "https://www.youtube.com/watch?v=QiyE4LiKihQ",
+    "https://www.youtube.com/watch?v=oZSI-I0T5CY"
+   ]
+  },
+  {
+   "type": "flashpoints",
+   "share_of_views": 0.065,
+   "examples": [
+    "https://www.youtube.com/watch?v=pz1tjDXl3TA",
+    "https://www.youtube.com/watch?v=npve9cCNe-Y",
+    "https://www.youtube.com/watch?v=9ckQL-BRoAU"
+   ]
+  },
+  {
+   "type": "memes_jokes",
+   "share_of_views": 0.0469,
+   "examples": [
+    "https://www.youtube.com/shorts/aFwrMqzQ44Q",
+    "https://www.youtube.com/watch?v=f7wtiW57foI",
+    "https://www.youtube.com/watch?v=eJSHacoSJVo"
+   ]
+  },
+  {
+   "type": "analysis",
+   "share_of_views": 0.0312,
+   "examples": [
+    "https://www.youtube.com/watch?v=8XcT-6n7Yvs",
+    "https://www.youtube.com/watch?v=mIj-d0BfVtI",
+    "https://www.youtube.com/watch?v=hgtdW2vQ8Rs"
+   ]
+  },
+  {
+   "type": "steph_injury_watch",
+   "share_of_views": 0.0207,
+   "examples": [
+    "https://www.youtube.com/watch?v=2S8OwRPvm-A",
+    "https://www.youtube.com/watch?v=9UFU8RyqwKo",
+    "https://www.youtube.com/watch?v=xKsiGQbv2XU"
+   ]
+  },
+  {
+   "type": "player_moments",
+   "share_of_views": 0.0185,
+   "examples": [
+    "https://www.youtube.com/watch?v=TdGINf4iH_g",
+    "https://www.youtube.com/shorts/Ass-MRUbzxs",
+    "https://www.youtube.com/shorts/7yZTHxaWHy0"
+   ]
+  },
+  {
+   "type": "yaxel_lendeborg_rookie",
+   "share_of_views": 0.016,
+   "examples": [
+    "https://www.youtube.com/watch?v=TI1eufygPtY",
+    "https://www.youtube.com/watch?v=eHuAhKAyQcc",
+    "https://www.youtube.com/shorts/7Jq7dLh2Qx0"
+   ]
+  },
+  {
+   "type": "behind_scenes",
+   "share_of_views": 0.0142,
+   "examples": [
+    "https://www.youtube.com/shorts/kw8FsPJ9EqI",
+    "https://www.youtube.com/shorts/VTVBj8Wr-kw",
+    "https://www.youtube.com/shorts/DwUqIRLvMJs"
+   ]
+  },
+  {
+   "type": "fan_reactions",
+   "share_of_views": 0.0072,
+   "examples": [
+    "https://www.youtube.com/watch?v=mCl8gidkJCg",
+    "https://www.youtube.com/watch?v=ls29bsZv_O0"
+   ]
+  },
+  {
+   "type": "culture_crossover",
+   "share_of_views": 0.0019,
+   "examples": [
+    "https://www.youtube.com/shorts/s2US3ewXCZM"
+   ]
+  }
+ ],
+ "make_or_reward": [
+  {
+   "format": "Player prank and comedy Shorts",
+   "why": "The Gary Payton II prank Short has 1,800,000 views, about 6 times the next team Short (297,000). Comedy Shorts like \"Curry Goes Full Baseball Mode\" (296,000) also outdraw most play clips.",
+   "example": "https://www.youtube.com/shorts/aFwrMqzQ44Q"
+  },
+  {
+   "format": "Curry and dynasty archive compilations",
+   "why": "\"Every Stephen Curry Clutch Shot With Under 10 Seconds Left\" drew 2,961,414 and \"38 Feet Deep\" 2,428,117, which puts them among the year's top 10 Warriors videos alongside live games.",
+   "example": "https://www.youtube.com/watch?v=mVM3nlW7mLg"
+  },
+  {
+   "format": "Yaxel Lendeborg rookie series, especially veterans mentoring him",
+   "why": "Lendeborg is the most-searched Warrior this month (676,701 Wikipedia views, more than twice Curry). Nine of the month's top 25 Reddit threads are about him; the team's Shorts of Curry and Green coaching him (203,000) and his first-day photo with Curry (187,000) are among its top 11, but fan channels own his biggest moments: Chaz NBA's Luka-feud and ankle-breaker clips drew 942,364 and 906,686.",
+   "example": "https://www.youtube.com/shorts/7Jq7dLh2Qx0"
+  },
+  {
+   "format": "Draymond Green flashpoint and response content",
+   "why": "Three Draymond flashpoint clips drew 1,249,079, 1,187,303 and 877,117 on Chaz NBA.",
+   "example": "https://www.youtube.com/watch?v=pz1tjDXl3TA"
+  },
+  {
+   "format": "Valkyries cross-promotion",
+   "why": "The top r/warriors thread of the month is the Valkyries' WNBA title. A team Short of Green and Lendeborg at the WNBA Finals drew 160,000, and ESPN's Valkyries Game 7 highlights drew 1,079,787.",
+   "example": "https://www.reddit.com/r/warriors/comments/1xkrvdn/the_golden_state_valkyries_are_the_2026_wnba/"
+  },
+  {
+   "format": "Plain updates on the Kristaps Porzingis situation",
+   "why": "Porzingis is third on the roster in Wikipedia views this month (114,678) only because of his step-away and the stopped payments: ESPN's report drew 312,908, A.M. Hoops' explainer 268,392 and Chaz NBA's announcement clip 250,297, and two related threads are in the r/warriors top 25. Team content does not address him.",
+   "example": "https://www.youtube.com/watch?v=wxrLiJyg7q0"
+  }
+ ],
+ "talk": [
+  {
+   "title": "The Golden State Valkyries are the 2026 WNBA Champions!",
+   "url": "https://www.reddit.com/r/warriors/comments/1xkrvdn/the_golden_state_valkyries_are_the_2026_wnba/"
+  },
+  {
+   "title": "Yaxel Lendeborg said he “lost all respect” for Luka Doncic after facing him tonight because he said Doncic was “complaining the entire game.” On his interaction with Doncic: “I told him he sucks. He can’t score on me.”",
+   "url": "https://www.reddit.com/r/warriors/comments/1xc9xpa/yaxel_lendeborg_said_he_lost_all_respect_for_luka/"
+  },
+  {
+   "title": "YAXEL LENDEBORG TONIGHT: 37 POINTS 6 ASSISTS 4 REBOUNDS 13/19 FG 6/11 3PT",
+   "url": "https://www.reddit.com/r/warriors/comments/1xln6ln/yaxel_lendeborg_tonight_37_points_6_assists_4/"
+  },
+  {
+   "title": "Steph Curry got injured after Sengun grabbed and twisted his arm",
+   "url": "https://www.reddit.com/r/warriors/comments/1xu37mp/steph_curry_got_injured_after_sengun_grabbed_and/"
+  },
+  {
+   "title": "The Warriors are not delivering payments to Kristaps Porzingis on his $20 million salary, ruling that he is not rendering services",
+   "url": "https://www.reddit.com/r/warriors/comments/1xnrjq7/the_warriors_are_not_delivering_payments_to/"
+  },
+  {
+   "title": "[Steph on IG] Steph with a message to Gil Arenas, Nick Young and the other pod boys talking about his wife",
+   "url": "https://www.reddit.com/r/warriors/comments/1xtsenw/steph_on_ig_steph_with_a_message_to_gil_arenas/"
+  },
+  {
+   "title": "Steph took Jordan Poole's glasses and instantly made a 3 👓",
+   "url": "https://www.reddit.com/r/warriors/comments/1xsb6tz/steph_took_jordan_pooles_glasses_and_instantly/"
+  },
+  {
+   "title": "THIS ANGLE OF CURRY DROPPING LUKA 😳",
+   "url": "https://www.reddit.com/r/warriors/comments/1xk0z22/this_angle_of_curry_dropping_luka/"
+  }
+ ],
+ "pulse": {
+  "window": "2026-11-03 to 2026-11-16",
+  "label": "10–16 Nov",
+  "team_wiki": {
+   "last7": 19501,
+   "prior7": 22216
+  },
+  "rising": [
+   {
+    "name": "Jimmy Butler III",
+    "url": "https://en.wikipedia.org/wiki/Jimmy_Butler",
+    "last7": 17599,
+    "prior7": 14576,
+    "change": 0.207
+   },
+   {
+    "name": "Brandin Podziemski",
+    "url": "https://en.wikipedia.org/wiki/Brandin_Podziemski",
+    "last7": 9712,
+    "prior7": 8709,
+    "change": 0.115
+   },
+   {
+    "name": "Stephen Curry",
+    "url": "https://en.wikipedia.org/wiki/Stephen_Curry",
+    "last7": 79091,
+    "prior7": 71947,
+    "change": 0.099
+   }
+  ],
+  "videos": [
+   {
+    "title": "WARRIORS at ROCKETS | FULL GAME HIGHLIGHTS | November 11, 2026",
+    "url": "https://www.youtube.com/watch?v=H5Fp_le80mw",
+    "channel": "NBA",
+    "views": 1390521
+   },
+   {
+    "title": "PELICANS at WARRIORS | FULL GAME HIGHLIGHTS | November 9, 2026",
+    "url": "https://www.youtube.com/watch?v=HUaf_y2R-Jw",
+    "channel": "NBA",
+    "views": 1360432
+   },
+   {
+    "title": "Draymond Green trucks Wemby in the back and gets flagrant 1 😬",
+    "url": "https://www.youtube.com/watch?v=npve9cCNe-Y",
+    "channel": "Chaz NBA",
+    "views": 1201762
+   },
+   {
+    "title": "Marcus Smart throws punch at Charles Bassey and gets instantly ejected 😳",
+    "url": "https://www.youtube.com/watch?v=9ckQL-BRoAU",
+    "channel": "Chaz NBA",
+    "views": 1189647
+   },
+   {
+    "title": "WARRIORS AT SPURS | EMIRATES NBA CUP 🏆 | FULL GAME HIGHLIGHTS | November 13, 2026",
+    "url": "https://www.youtube.com/watch?v=0cL2tTuLJJk",
+    "channel": "NBA",
+    "views": 917888
+   }
+  ],
+  "threads": [
+   {
+    "title": "[Steph on IG] Steph with a message to Gil Arenas, Nick Young and the other pod boys talking about his wife",
+    "url": "https://www.reddit.com/r/warriors/comments/1xtsenw/steph_on_ig_steph_with_a_message_to_gil_arenas/"
+   },
+   {
+    "title": "Steph Curry got injured after Sengun grabbed and twisted his arm",
+    "url": "https://www.reddit.com/r/warriors/comments/1xu37mp/steph_curry_got_injured_after_sengun_grabbed_and/"
+   },
+   {
+    "title": "Me after that 1st quarter. It's been real.",
+    "url": "https://www.reddit.com/r/warriors/comments/1xvrr7s/me_after_that_1st_quarter_its_been_real/"
+   },
+   {
+    "title": "Unreal longevity",
+    "url": "https://www.reddit.com/r/warriors/comments/1xtbh86/unreal_longevity/"
+   },
+   {
+    "title": "The Rockets whenever they play against Curry",
+    "url": "https://www.reddit.com/r/warriors/comments/1xu53un/the_rockets_whenever_they_play_against_curry/"
+   }
+  ]
+ }
+}

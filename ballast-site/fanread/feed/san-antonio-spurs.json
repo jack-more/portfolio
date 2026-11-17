@@ -1,0 +1,401 @@
+{
+ "team": "San Antonio Spurs",
+ "as_of": "2026-11-16",
+ "source": "Ballast Fan Read",
+ "summary": "Spurs fans follow Victor Wembanyama above everyone else (231,104 Wikipedia views in 30 days and 6,010,583 in the year, five times the next Spur), with second-year guard Dylan Harper (45,600 in 30 days) and Stephon Castle (29,114) next. The fanbase is riding an 11-game win streak after the 2026 run through the WCF and NBA Finals: r/NBASpurs is mostly Wemby record nights and his quotes about wanting 15 to 20 years in San Antonio, alongside the three-guard argument around Harper, Castle and De'Aaron Fox; ESPN's live Finals Game 1 stream (7,821,479) is the most-viewed Spurs item of the year.",
+ "segments": [
+  {
+   "id": "wemby-witnesses",
+   "name": "Wemby witnesses",
+   "who": "Fans who treat each Wembanyama game as an event and collect his quotes about San Antonio; he is the most-searched Spur by a factor of five.",
+   "size_signal": "Wembanyama has 231,104 Wikipedia views in the past 30 days and 6,010,583 in the year (Harper, next, has 45,600 and 1,550,116); the 52-24-8 clip drew 813,055 and Inside the NBA's reaction 1,005,668; 5,887,155 combined views across 20 Wemby items; team Wikipedia views peaked at 430,414 in June 2026.",
+   "where": [
+    "r/NBASpurs",
+    "NBA YouTube",
+    "team Shorts"
+   ],
+   "enjoys": [
+    "record stat lines",
+    "\"We Are All Witnesses\" posts",
+    "Wemby quotes"
+   ],
+   "offer": "Wemby-centred content with the record or stat up front.",
+   "evidence": [
+    "https://www.youtube.com/watch?v=O5cEZ2iluRk",
+    "https://www.reddit.com/r/NBASpurs/comments/1xoanyi/we_are_all_witnesses/",
+    "https://www.reddit.com/r/NBASpurs/comments/1xsd9eq/victor_wembanyama_40_points_11_rebounds_and_8/",
+    "https://www.reddit.com/r/NBASpurs/comments/1xlwiec/victor_wembanyama_on_why_he_wanted_to_come_to_san/",
+    "https://www.reddit.com/r/NBASpurs/comments/1xsrjia/booker_on_wemby_its_something_like_weve_never/",
+    "https://www.youtube.com/watch?v=TGQUu-4g8pk"
+   ]
+  },
+  {
+   "id": "finals-run-rewatchers",
+   "name": "Finals-run rewatchers",
+   "who": "Fans and neutrals still watching the 2026 WCF and Finals games.",
+   "size_signal": "Finals Game 1 live stream 7,821,479; Finals Game 4 highlights 6,382,968; WCF Game 7 6,081,215.",
+   "where": [
+    "NBA YouTube",
+    "ESPN",
+    "GAMETIME HIGHLIGHTS"
+   ],
+   "enjoys": [
+    "full Finals highlights",
+    "live streams",
+    "Game 7 endings"
+   ],
+   "offer": "Anniversary and \"one year ago\" content around the run.",
+   "evidence": [
+    "https://www.youtube.com/watch?v=FF5Y1RH2c44",
+    "https://www.youtube.com/watch?v=4WzuI2GntPc",
+    "https://www.youtube.com/watch?v=dcf8UW7cMOI",
+    "https://www.youtube.com/watch?v=u5lxAbAotXc"
+   ]
+  },
+  {
+   "id": "overseas-wemby-followers",
+   "name": "Overseas Wemby followers",
+   "who": "European and Asian fans who follow the Spurs through Wembanyama.",
+   "size_signal": "NBA Europe's Finals cut 2,020,021; Korean Wemby video 401,079.",
+   "where": [
+    "NBA Europe",
+    "Korean YouTube",
+    "team France content"
+   ],
+   "enjoys": [
+    "decider cuts",
+    "translated breakdowns",
+    "France tour videos"
+   ],
+   "offer": "French-language and Asia-timed posts; the team already has Paris and rugby videos.",
+   "evidence": [
+    "https://www.youtube.com/watch?v=c-79vLhegoE",
+    "https://www.youtube.com/watch?v=BpCXGI1iKEA",
+    "https://www.youtube.com/watch?v=_1aXuP74460"
+   ]
+  },
+  {
+   "id": "harper-castle-and-fox-guard-followers",
+   "name": "Harper, Castle and Fox guard followers",
+   "who": "Fans of the three guards behind Wemby: Dylan Harper (the second-most-searched Spur), Stephon Castle and De'Aaron Fox, who argue about the three-guard lineup and follow the guards' scraps.",
+   "size_signal": "Harper has 45,600 Wikipedia views in 30 days and 1,550,116 in the year, Castle 29,114 and 1,299,164, Fox 20,403 and 850,612. The Harper-Castle GQ quiz drew 432,020 this month, Castle heated with Caruso 888,853 and Fox throwing Chet down 725,456; Castle team Shorts drew 209,000, 160,000 and 109,000.",
+   "where": [
+    "team Shorts",
+    "r/NBASpurs",
+    "YouTube (Chaz NBA, GQ, Nightcap)"
+   ],
+   "enjoys": [
+    "Castle dunks and Castle-Vassell passes",
+    "Harper handles and posters",
+    "guard scuffles (Castle with Caruso, Fox with Chet Holmgren)",
+    "Fox love threads"
+   ],
+   "offer": "Harper-led features and personality pieces (the GQ quiz format), not only Castle Shorts, and team-side context after guard flashpoints.",
+   "evidence": [
+    "https://www.youtube.com/watch?v=7imPuzNyeSA",
+    "https://www.youtube.com/watch?v=BCuAq2rfjHU",
+    "https://www.youtube.com/watch?v=khbH-ma6Hu4",
+    "https://www.youtube.com/shorts/28QaDnXZGCQ",
+    "https://www.reddit.com/r/NBASpurs/comments/1xon5dt/charles_barkley_asks_dylan_harper_whats_yall/",
+    "https://www.reddit.com/r/NBASpurs/comments/1xu2327/deaaron_fox_love_thread_he_kept_us_in_this_game/"
+   ]
+  },
+  {
+   "id": "civic-pride-regulars",
+   "name": "Civic-pride regulars",
+   "who": "Locals who post murals, Six Flags trips and Wemby's praise of San Antonio, and police the sub's manners.",
+   "size_signal": "Wemby's \"perfect place to spend 15-20 years\" quote and the murals post are top-25 threads this month.",
+   "where": [
+    "r/NBASpurs"
+   ],
+   "enjoys": [
+    "city murals",
+    "team outings",
+    "\"don't post cringe in the Thunder sub\""
+   ],
+   "offer": "Local-landmark content and community events.",
+   "evidence": [
+    "https://www.reddit.com/r/NBASpurs/comments/1xw7ndh/victor_wembanyama_on_what_he_likes_most_about_the/",
+    "https://www.reddit.com/r/NBASpurs/comments/1xwil6n/my_favorite_spurs_murals_in_the_city_i_drive_by/",
+    "https://www.reddit.com/r/NBASpurs/comments/1x9n7hu/spurs_at_six_flags/",
+    "https://www.reddit.com/r/NBASpurs/comments/1xfzurp/please_dont_go_to_the_thunder_sub_with_the_as_a/",
+    "https://www.reddit.com/r/NBASpurs/comments/1xfjqnv/up_for_jdub/"
+   ]
+  },
+  {
+   "id": "daily-podcast-listeners",
+   "name": "Daily podcast listeners",
+   "who": "Fans who follow every day through audio.",
+   "size_signal": "Locked On Spurs 500 episodes (updated Nov 16), SSPN 342, Spurs Insider 240, Spurs Latest 182.",
+   "where": [
+    "Apple Podcasts"
+   ],
+   "enjoys": [
+    "daily shows",
+    "Express-News beat coverage"
+   ],
+   "offer": "Host access and clips for audio.",
+   "evidence": [
+    "https://podcasts.apple.com/us/podcast/locked-on-spurs-daily-podcast-on-the-san-antonio-spurs/id1131754929?uo=4",
+    "https://podcasts.apple.com/us/podcast/sspn-a-san-antonio-spurs-podcast/id1560418833?uo=4",
+    "https://podcasts.apple.com/us/podcast/spurs-insider/id1344226066?uo=4",
+    "https://podcasts.apple.com/us/podcast/spurs-latest-daily-san-antonio-spurs-podcast/id1884474108?uo=4"
+   ]
+  }
+ ],
+ "players": [
+  {
+   "name": "Victor Wembanyama",
+   "wikipedia_views_30d": 231104,
+   "wikipedia_views_year": 6010583,
+   "url": "https://en.wikipedia.org/wiki/Victor_Wembanyama"
+  },
+  {
+   "name": "Dylan Harper",
+   "wikipedia_views_30d": 45600,
+   "wikipedia_views_year": 1550116,
+   "url": "https://en.wikipedia.org/wiki/Dylan_Harper"
+  },
+  {
+   "name": "Stephon Castle",
+   "wikipedia_views_30d": 29114,
+   "wikipedia_views_year": 1299164,
+   "url": "https://en.wikipedia.org/wiki/Stephon_Castle"
+  },
+  {
+   "name": "De'Aaron Fox",
+   "wikipedia_views_30d": 20403,
+   "wikipedia_views_year": 850612,
+   "url": "https://en.wikipedia.org/wiki/De%27Aaron_Fox"
+  },
+  {
+   "name": "Tobias Harris",
+   "wikipedia_views_30d": 22346,
+   "wikipedia_views_year": 377080,
+   "url": "https://en.wikipedia.org/wiki/Tobias_Harris"
+  },
+  {
+   "name": "Julian Champagnie",
+   "wikipedia_views_30d": 19916,
+   "wikipedia_views_year": 652790,
+   "url": "https://en.wikipedia.org/wiki/Julian_Champagnie"
+  },
+  {
+   "name": "Harrison Barnes",
+   "wikipedia_views_30d": 19721,
+   "wikipedia_views_year": 437075,
+   "url": "https://en.wikipedia.org/wiki/Harrison_Barnes"
+  }
+ ],
+ "formats": [
+  {
+   "type": "game_highlights",
+   "share_of_views": 0.85,
+   "examples": [
+    "https://www.youtube.com/watch?v=4WzuI2GntPc",
+    "https://www.youtube.com/watch?v=1bOMYQFgK4I",
+    "https://www.youtube.com/watch?v=AL0AGaoJCWY"
+   ]
+  },
+  {
+   "type": "live_streams",
+   "share_of_views": 0.057,
+   "examples": [
+    "https://www.youtube.com/watch?v=FF5Y1RH2c44",
+    "https://www.youtube.com/watch?v=3LXj0RBA5nY"
+   ]
+  },
+  {
+   "type": "analysis",
+   "share_of_views": 0.044,
+   "examples": [
+    "https://www.youtube.com/watch?v=c-79vLhegoE",
+    "https://www.youtube.com/watch?v=oV4UrWDiYWc",
+    "https://www.youtube.com/watch?v=CmfuyNFcAjs"
+   ]
+  },
+  {
+   "type": "wemby_moments",
+   "share_of_views": 0.042,
+   "examples": [
+    "https://www.youtube.com/watch?v=O5cEZ2iluRk",
+    "https://www.youtube.com/watch?v=TGQUu-4g8pk",
+    "https://www.youtube.com/watch?v=E6RrU7EvfGI"
+   ]
+  },
+  {
+   "type": "player_moments",
+   "share_of_views": 0.005,
+   "examples": [
+    "https://www.youtube.com/shorts/28QaDnXZGCQ",
+    "https://www.youtube.com/shorts/ufkxmPFAKXU",
+    "https://www.youtube.com/shorts/DMMzlL0GkHs"
+   ]
+  },
+  {
+   "type": "memes_jokes",
+   "share_of_views": 0.002,
+   "examples": [
+    "https://www.youtube.com/shorts/xAcvLkjdG-s",
+    "https://www.youtube.com/shorts/TykdaBGqFHI",
+    "https://www.youtube.com/shorts/ernsEJbQUwc"
+   ]
+  }
+ ],
+ "make_or_reward": [
+  {
+   "format": "Live watch-along streams for marquee games",
+   "why": "ESPN's live Finals Game 1 stream drew 7,821,479, more than any Spurs highlight video this year including Finals Game 4 (6,382,968).",
+   "example": "https://www.youtube.com/watch?v=FF5Y1RH2c44"
+  },
+  {
+   "format": "Wemby record-night clips with the stat in the title",
+   "why": "\"Victor Wembanyama made NBA HISTORY with 52 PTS, 24 REB & 8 BLK\" drew 811,566, and Inside the NBA's reaction to that game drew 1,005,668.",
+   "example": "https://www.youtube.com/watch?v=TGQUu-4g8pk"
+  },
+  {
+   "format": "European and Asian market cuts",
+   "why": "NBA Europe's last-seven-minutes cut of the Finals decider drew 2,020,021; a Korean channel's Wemby 40-point video drew 401,079 this week.",
+   "example": "https://www.youtube.com/watch?v=c-79vLhegoE"
+  },
+  {
+   "format": "Stephon Castle Shorts",
+   "why": "The team's top Short is Castle (209,000), ahead of its best Wemby Short (161,000); three of the top five are Castle.",
+   "example": "https://www.youtube.com/shorts/28QaDnXZGCQ"
+  },
+  {
+   "format": "Uncut runs during win streaks",
+   "why": "NBA's uncut franchise-record 18-0 opening run drew 316,024 this week during the 11-game streak.",
+   "example": "https://www.youtube.com/watch?v=LrvcTQ-E-kc"
+  },
+  {
+   "format": "Dylan Harper personality and highlight pieces",
+   "why": "Harper is the second-most-searched Spur (45,600 Wikipedia views in 30 days, 1,550,116 in the year), and his biggest videos are outside the team: the GQ teammates quiz with Castle drew 432,020 this month and Issa Sport's 'deepest bag' breakdown 583,100. Only two of the team's top 15 Shorts feature him (78,000 and 59,000).",
+   "example": "https://www.youtube.com/watch?v=7imPuzNyeSA"
+  },
+  {
+   "format": "Team-side context after guard flashpoints",
+   "why": "Fan channels carry the guards' scraps: Castle heated with Caruso and Ajay Mitchell drew 888,853 and Fox throwing Chet Holmgren to the floor 725,456 this month, while the team posts none of them.",
+   "example": "https://www.youtube.com/watch?v=khbH-ma6Hu4"
+  }
+ ],
+ "talk": [
+  {
+   "title": "We Are All Witnesses.",
+   "url": "https://www.reddit.com/r/NBASpurs/comments/1xoanyi/we_are_all_witnesses/"
+  },
+  {
+   "title": "Victor Wembanyama on what he likes most about the people in San Antonio: \"What I like most is the respect they show us.. People can sometimes be pushy and intrusive, but that's never the case here.. I'd say it's the perfect place to spend 15-20 years.\"",
+   "url": "https://www.reddit.com/r/NBASpurs/comments/1xw7ndh/victor_wembanyama_on_what_he_likes_most_about_the/"
+  },
+  {
+   "title": "Charles Barkley asks Dylan Harper: \"What's ya'll logic behind the 3 guard system?\" Harper: 'Cliche PR Answer' Barkley: \"Oh so it don't make any sense to ya'll either\"",
+   "url": "https://www.reddit.com/r/NBASpurs/comments/1xon5dt/charles_barkley_asks_dylan_harper_whats_yall/"
+  },
+  {
+   "title": "Please don't go to the Thunder sub with the 'as a spurs fan, prayers up for JDub' cringe posts.",
+   "url": "https://www.reddit.com/r/NBASpurs/comments/1xfzurp/please_dont_go_to_the_thunder_sub_with_the_as_a/"
+  },
+  {
+   "title": "We have displeased the basketball gods. We must return to the path: start him.",
+   "url": "https://www.reddit.com/r/NBASpurs/comments/1xefolw/we_have_displeased_the_basketball_gods_we_must/"
+  },
+  {
+   "title": "Victor Wembanyama: 40 points, 11 rebounds, and 8 blocks in 25 minutes of playing. We Are Not Worthy.",
+   "url": "https://www.reddit.com/r/NBASpurs/comments/1xsd9eq/victor_wembanyama_40_points_11_rebounds_and_8/"
+  },
+  {
+   "title": "De’Aaron Fox love thread. He kept us in this game during first half, and he’s been playing out of his mind this season. He is an All-Star caliber point guard and is playing like it!",
+   "url": "https://www.reddit.com/r/NBASpurs/comments/1xu2327/deaaron_fox_love_thread_he_kept_us_in_this_game/"
+  },
+  {
+   "title": "Wemby to Ref connection was smooth",
+   "url": "https://www.reddit.com/r/NBASpurs/comments/1xmigal/wemby_to_ref_connection_was_smooth/"
+  }
+ ],
+ "pulse": {
+  "window": "2026-11-03 to 2026-11-16",
+  "label": "10–16 Nov",
+  "team_wiki": {
+   "last7": 11043,
+   "prior7": 10022
+  },
+  "rising": [
+   {
+    "name": "Stephon Castle",
+    "url": "https://en.wikipedia.org/wiki/Stephon_Castle",
+    "last7": 8040,
+    "prior7": 6080,
+    "change": 0.322
+   },
+   {
+    "name": "Tobias Harris",
+    "url": "https://en.wikipedia.org/wiki/Tobias_Harris",
+    "last7": 4952,
+    "prior7": 3959,
+    "change": 0.251
+   },
+   {
+    "name": "Julian Champagnie",
+    "url": "https://en.wikipedia.org/wiki/Julian_Champagnie",
+    "last7": 2691,
+    "prior7": 2495,
+    "change": 0.079
+   }
+  ],
+  "videos": [
+   {
+    "title": "WARRIORS AT SPURS | EMIRATES NBA CUP 🏆 | FULL GAME HIGHLIGHTS | November 13, 2026",
+    "url": "https://www.youtube.com/watch?v=0cL2tTuLJJk",
+    "channel": "NBA",
+    "views": 918001
+   },
+   {
+    "title": "Golden State Warriors vs San Antonio Spurs Full Game Highlights - November 13, 2026",
+    "url": "https://www.youtube.com/watch?v=jWBbnol3suo",
+    "channel": "GAMETIME HIGHLIGHTS",
+    "views": 698186
+   },
+   {
+    "title": "SPURS at SUNS | FULL GAME HIGHLIGHTS | November 9, 2026",
+    "url": "https://www.youtube.com/watch?v=fZRq0ZJQa2I",
+    "channel": "NBA",
+    "views": 536731
+   },
+   {
+    "title": "SPURS at BULLS | FULL GAME HIGHLIGHTS | November 11, 2026",
+    "url": "https://www.youtube.com/watch?v=nU68AjSMkYE",
+    "channel": "NBA",
+    "views": 518521
+   },
+   {
+    "title": "SPURS at JAZZ | FULL GAME HIGHLIGHTS | November 15, 2026",
+    "url": "https://www.youtube.com/watch?v=8npj6HXy63Y",
+    "channel": "NBA",
+    "views": 458659
+   }
+  ],
+  "threads": [
+   {
+    "title": "Victor Wembanyama on what he likes most about the people in San Antonio: \"What I like most is the respect they show us.. People can sometimes be pushy and intrusive, but that's never the case here.. I'd say it's the perfect place to spend 15-20 years.\"",
+    "url": "https://www.reddit.com/r/NBASpurs/comments/1xw7ndh/victor_wembanyama_on_what_he_likes_most_about_the/"
+   },
+   {
+    "title": "Why did wemby like this…",
+    "url": "https://www.reddit.com/r/NBASpurs/comments/1xtnfzt/why_did_wemby_like_this/"
+   },
+   {
+    "title": "DYLAN “CLUTCH GOD” HARPER APPRECIATE POST",
+    "url": "https://www.reddit.com/r/NBASpurs/comments/1xxb8yl/dylan_clutch_god_harper_appreciate_post/"
+   },
+   {
+    "title": "[San Antonio Spurs] Different generations, same Spurs Family 🇫🇷🤝",
+    "url": "https://www.reddit.com/r/NBASpurs/comments/1xxf56y/san_antonio_spurs_different_generations_same/"
+   },
+   {
+    "title": "Booker on Wemby: \"It's something like we've never seen before. I don’t want to say he's doing what he's supposed to do because there have been people close to his size and stature that haven't been able to move like he does and remain healthy...his instincts for the game are off the charts, too.\"",
+    "url": "https://www.reddit.com/r/NBASpurs/comments/1xsrjia/booker_on_wemby_its_something_like_weve_never/"
+   }
+  ]
+ }
+}

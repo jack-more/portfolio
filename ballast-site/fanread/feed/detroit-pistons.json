@@ -1,0 +1,427 @@
+{
+ "team": "Detroit Pistons",
+ "as_of": "2026-11-16",
+ "source": "Ballast Fan Read",
+ "summary": "Pistons fans follow Cade Cunningham most (59,434 Wikipedia views in 30 days and 1,071,238 over the year, both roster highs), then Ausar Thompson (31,323) and Duncan Robinson (30,239) this month, with Jalen Duren second over the year (662,525). They are enjoying a strong start, with threads about being the only unbeaten team left in the East and having the best record, led by Cade's 52-point, zero-turnover game and Ausar's defence, and the most-shared clips are scuffles and run-ins between opponents and Pistons fans (189,470 to 1,043,417 views).",
+ "segments": [
+  {
+   "id": "ausar-thompson-defence-nerds",
+   "name": "Ausar Thompson defence nerds",
+   "who": "Fans who value defence and stats over scoring and treat Ausar Thompson, the second most-searched Piston this month, as the team's identity.",
+   "size_signal": "Ausar has 31,323 Wikipedia views in 30 days (second on the roster) and 375,456 in the year. Five of the top 25 threads are about him: his first triple-double, waving off Cade, a rim breakdown, a buzzer-beater and allowing zero points in one-on-one matchups. His top YouTube clip this month is a clutch 360 layup (192,110, Chaz NBA), not defence.",
+   "where": [
+    "r/DetroitPistons",
+    "Wikipedia",
+    "YouTube (Chaz NBA)"
+   ],
+   "enjoys": [
+    "matchup data",
+    "film breakdowns",
+    "triple-doubles and buzzer-beaters"
+   ],
+   "offer": "Defensive film breakdowns and tracking-data graphics after games.",
+   "evidence": [
+    "https://www.reddit.com/r/DetroitPistons/comments/1xcu5oe/ausar_thompson_defended_11_different_players_vs/",
+    "https://www.reddit.com/r/DetroitPistons/comments/1xuyc3m/ausars_first_career_triple_double/",
+    "https://www.reddit.com/r/DetroitPistons/comments/1xizzlu/breakdown_on_ausar_hanging_on_the_rim/",
+    "https://www.reddit.com/r/DetroitPistons/comments/1x8dz43/ausar_waves_off_cade_to_take_the_1_on_1/",
+    "https://www.youtube.com/watch?v=88q4mYKnkjU"
+   ]
+  },
+  {
+   "id": "cade-mvp-believers",
+   "name": "Cade MVP believers",
+   "who": "Fans pushing Cade Cunningham, the most-searched Piston by a wide margin, as an MVP candidate and pushing back on national doubters.",
+   "size_signal": "Cade has 59,434 Wikipedia views in 30 days and 1,071,238 in the year, nearly double the next Piston. The 52-point night drew 550,468 (Chaz NBA), 161,648 (FlightReacts) and 133,902 (NBA); NBA Today's \"flawless\" segment drew 84,273; the team's \"A Whole Lot of Candidates\" Short drew 26,000; Perkins' \"They're not\" segment drew 136,196.",
+   "where": [
+    "Wikipedia",
+    "r/DetroitPistons",
+    "YouTube (Chaz NBA, NBA, NBA on ESPN)",
+    "Pistons Shorts"
+   ],
+   "enjoys": [
+    "historic stat lines",
+    "clutch buckets",
+    "rebutting critics"
+   ],
+   "offer": "MVP-case content built on stats, and reply-style clips to national critics.",
+   "evidence": [
+    "https://www.reddit.com/r/DetroitPistons/comments/1xux3n4/cade_first_nba_player_to_record_50_pts_10_ast_and/",
+    "https://www.youtube.com/watch?v=zuONQSnmSDk",
+    "https://www.youtube.com/watch?v=Ppa2j2MIsSQ",
+    "https://www.youtube.com/shorts/RzKO5j1mF1Q",
+    "https://www.youtube.com/watch?v=sxZIApn7sYg",
+    "https://www.youtube.com/watch?v=KPYDtAwJSv8"
+   ]
+  },
+  {
+   "id": "bad-boys-toughness-crowd",
+   "name": "Bad Boys toughness crowd",
+   "who": "Fans who see physical play and confrontations as the team's identity, in the Bad Boys tradition.",
+   "size_signal": "Scuffle clips: 1,043,417, 918,037 and 602,809; the Detroit Bad Boys staff's Pindown podcast has 463 episodes; Reddit's \"J.B.'s reaction when the ref tried to touch him\" is a top thread.",
+   "where": [
+    "YouTube (Chaz NBA)",
+    "r/DetroitPistons",
+    "Detroit Bad Boys podcast"
+   ],
+   "enjoys": [
+    "scuffles",
+    "coach and player edge",
+    "belt-style toughness awards"
+   ],
+   "offer": "The belt ritual and toughness stats, framed around the Bad Boys identity.",
+   "evidence": [
+    "https://www.youtube.com/watch?v=h1gFjI25CFY",
+    "https://www.youtube.com/watch?v=ulQKaOeVKQs",
+    "https://www.reddit.com/r/DetroitPistons/comments/1xgdwyz/jbs_reaction_when_the_ref_tried_to_touch_him/",
+    "https://podcasts.apple.com/us/podcast/the-pindown-a-detroit-pistons-podcast/id1194561560?uo=4"
+   ]
+  },
+  {
+   "id": "courtside-hecklers",
+   "name": "Courtside hecklers",
+   "who": "Fans at Little Caesars Arena who engage opposing players, and the fans who share those moments.",
+   "size_signal": "Reaves run-in clips: 660,188 and 193,101; Bronny run-in: 189,470; Reddit's \"I didn't even know this happened at the game with the Lakers\" is the top thread of the month.",
+   "where": [
+    "YouTube (Chaz NBA, House of Highlights)",
+    "r/DetroitPistons"
+   ],
+   "enjoys": [
+    "heckling moments",
+    "arena atmosphere",
+    "meeting legends at halftime"
+   ],
+   "offer": "Fan-cam features and arena-moment reposts (with fan permission).",
+   "evidence": [
+    "https://www.youtube.com/watch?v=rQdTtAGIuk0",
+    "https://www.youtube.com/watch?v=uFaqWgXQ0cg",
+    "https://www.youtube.com/watch?v=wWRHW0h7f7o",
+    "https://www.reddit.com/r/DetroitPistons/comments/1xsqkgt/i_didnt_even_know_this_happened_at_the_game_with/",
+    "https://www.reddit.com/r/DetroitPistons/comments/1xmggbg/ran_into_the_legend_at_halftime/"
+   ]
+  },
+  {
+   "id": "playoff-run-rewatchers-and-series-bettors",
+   "name": "Playoff-run rewatchers and series bettors",
+   "who": "Fans who relive last spring's run as the 1 seed (the comeback against Orlando, the Game 7 loss to Cleveland), and bettors who traded those series.",
+   "size_signal": "Game 7 vs. Cleveland: 1,963,079; Game 7 vs. Orlando: 1,476,217; Pistons vs. Magic market: 605,656; Cavaliers vs. Pistons market: 537,131; Wikipedia views peaked at 106,117 in May 2026.",
+   "where": [
+    "YouTube (NBA, GAMETIME HIGHLIGHTS)",
+    "Polymarket",
+    "Wikipedia"
+   ],
+   "enjoys": [
+    "Game 7s",
+    "comeback cuts",
+    "series markets"
+   ],
+   "offer": "\"One year later\" playoff content and series previews next spring.",
+   "evidence": [
+    "https://www.youtube.com/watch?v=51C1_EzTueA",
+    "https://www.youtube.com/watch?v=JExrf8cRSTg",
+    "https://www.youtube.com/watch?v=Kio8Z16wATU",
+    "https://polymarket.com/event/nba-playoffs-who-will-win-series-pistons-vs-magic",
+    "https://polymarket.com/event/nba-playoffs-who-will-win-series-cavaliers-vs-pistons"
+   ]
+  },
+  {
+   "id": "daily-podcast-regulars",
+   "name": "Daily-podcast regulars",
+   "who": "Hardcore fans following the team every day in audio.",
+   "size_signal": "Locked On Pistons has 500 episodes, The Pindown 463, Pistons Daily 338 and Post Game Podcast 277, all published in the past week.",
+   "where": [
+    "Apple Podcasts"
+   ],
+   "enjoys": [
+    "daily shows",
+    "blog-staff shows",
+    "postgame shows"
+   ],
+   "offer": "Access for the dailies and clips they can discuss.",
+   "evidence": [
+    "https://podcasts.apple.com/us/podcast/locked-on-pistons-daily-podcast-on-the-detroit-pistons/id1139238555?uo=4",
+    "https://podcasts.apple.com/us/podcast/the-pindown-a-detroit-pistons-podcast/id1542163027?uo=4",
+    "https://podcasts.apple.com/us/podcast/pistons-daily-daily-detroit-pistons-podcast/id1822778664?uo=4",
+    "https://podcasts.apple.com/us/podcast/post-game-podcast-a-detroit-pistons-podcast/id1704589548?uo=4"
+   ]
+  }
+ ],
+ "players": [
+  {
+   "name": "Cade Cunningham",
+   "wikipedia_views_30d": 59434,
+   "wikipedia_views_year": 1071238,
+   "url": "https://en.wikipedia.org/wiki/Cade_Cunningham"
+  },
+  {
+   "name": "Ausar Thompson",
+   "wikipedia_views_30d": 31323,
+   "wikipedia_views_year": 375456,
+   "url": "https://en.wikipedia.org/wiki/Ausar_Thompson"
+  },
+  {
+   "name": "Duncan Robinson",
+   "wikipedia_views_30d": 30239,
+   "wikipedia_views_year": 332255,
+   "url": "https://en.wikipedia.org/wiki/Duncan_Robinson"
+  },
+  {
+   "name": "Jalen Duren",
+   "wikipedia_views_30d": 20827,
+   "wikipedia_views_year": 662525,
+   "url": "https://en.wikipedia.org/wiki/Jalen_Duren"
+  },
+  {
+   "name": "John Collins",
+   "wikipedia_views_30d": 19295,
+   "wikipedia_views_year": 143909,
+   "url": "https://en.wikipedia.org/wiki/John_Collins_%28basketball%29"
+  },
+  {
+   "name": "Paul Reed",
+   "wikipedia_views_30d": 19261,
+   "wikipedia_views_year": 120995,
+   "url": "https://en.wikipedia.org/wiki/Paul_Reed_%28basketball%29"
+  },
+  {
+   "name": "Ebuka Okorie",
+   "wikipedia_views_30d": 16734,
+   "wikipedia_views_year": 114484,
+   "url": "https://en.wikipedia.org/wiki/Ebuka_Okorie"
+  }
+ ],
+ "formats": [
+  {
+   "type": "game_highlights",
+   "share_of_views": 0.8027,
+   "examples": [
+    "https://www.youtube.com/watch?v=GZzCjdjsTAo",
+    "https://www.youtube.com/watch?v=51C1_EzTueA",
+    "https://www.youtube.com/watch?v=b3qMlYMESBY"
+   ]
+  },
+  {
+   "type": "scuffles",
+   "share_of_views": 0.071,
+   "examples": [
+    "https://www.youtube.com/watch?v=h1gFjI25CFY",
+    "https://www.youtube.com/watch?v=ulQKaOeVKQs",
+    "https://www.youtube.com/watch?v=qgBipb0aqeQ"
+   ]
+  },
+  {
+   "type": "analysis",
+   "share_of_views": 0.0438,
+   "examples": [
+    "https://www.youtube.com/watch?v=Y5P9VRbpqGQ",
+    "https://www.youtube.com/watch?v=n29t2K5I89Q",
+    "https://www.youtube.com/watch?v=OnYlqP2PAPI"
+   ]
+  },
+  {
+   "type": "fan_run_ins",
+   "share_of_views": 0.0258,
+   "examples": [
+    "https://www.youtube.com/watch?v=rQdTtAGIuk0",
+    "https://www.youtube.com/watch?v=uFaqWgXQ0cg",
+    "https://www.youtube.com/watch?v=wWRHW0h7f7o"
+   ]
+  },
+  {
+   "type": "fan_reactions",
+   "share_of_views": 0.0214,
+   "examples": [
+    "https://www.youtube.com/watch?v=urpu9QrEsEo",
+    "https://www.youtube.com/watch?v=6mewbAY98F4",
+    "https://www.youtube.com/watch?v=avWVlWIAi98"
+   ]
+  },
+  {
+   "type": "player_moments",
+   "share_of_views": 0.0213,
+   "examples": [
+    "https://www.youtube.com/watch?v=zuONQSnmSDk",
+    "https://www.youtube.com/watch?v=Ppa2j2MIsSQ",
+    "https://www.youtube.com/watch?v=Gu9fkfPbOjc"
+   ]
+  },
+  {
+   "type": "memes_jokes",
+   "share_of_views": 0.0069,
+   "examples": [
+    "https://www.youtube.com/shorts/rCW3eycuNic",
+    "https://www.youtube.com/shorts/Jtwmp0Tq3eQ",
+    "https://www.youtube.com/shorts/-_T8drcAOnw"
+   ]
+  },
+  {
+   "type": "locker_room_rituals",
+   "share_of_views": 0.0058,
+   "examples": [
+    "https://www.youtube.com/shorts/hAORmIR1KxQ",
+    "https://www.youtube.com/shorts/kIKXBH47Cu8",
+    "https://www.youtube.com/shorts/04jLRSVo7aI"
+   ]
+  },
+  {
+   "type": "pressers_interviews",
+   "share_of_views": 0.0008,
+   "examples": [
+    "https://www.youtube.com/shorts/JDbmKAhX0aE"
+   ]
+  },
+  {
+   "type": "behind_scenes",
+   "share_of_views": 0.0006,
+   "examples": [
+    "https://www.youtube.com/shorts/xedzElwSHtQ"
+   ]
+  }
+ ],
+ "make_or_reward": [
+  {
+   "format": "Player prank and comedy Shorts",
+   "why": "The team's three best Shorts are comedy (108,000, 87,000 and 82,000), all above every player-highlight Short (top: 29,000) and the postgame interview Short (31,000).",
+   "example": "https://www.youtube.com/shorts/rCW3eycuNic"
+  },
+  {
+   "format": "Ausar Thompson defensive breakdowns",
+   "why": "Five of the month's top 25 Reddit threads are about Ausar, including a fan breakdown of him hanging on the rim and a stat that he defended 11 players and allowed zero points one-on-one. No video in the YouTube lists covers his defence. He is second on the roster in Wikipedia views this month (31,323), and his top YouTube clip is a 360 layup (192,110), not a stop.",
+   "example": "https://www.reddit.com/r/DetroitPistons/comments/1xcu5oe/ausar_thompson_defended_11_different_players_vs/"
+  },
+  {
+   "format": "Courtside fan-interaction clips",
+   "why": "Austin Reaves trading words with a Pistons fan drew 660,188 (Chaz NBA) and 193,101 (House of Highlights); Bronny James and a Pistons fan drew 189,470. Reddit also shares an arena moment it missed.",
+   "example": "https://www.youtube.com/watch?v=rQdTtAGIuk0"
+  },
+  {
+   "format": "Scuffle and toughness clips (within league rules)",
+   "why": "Four Chaz NBA scuffle clips drew 1,043,417, 918,037, 602,809 and 304,760.",
+   "example": "https://www.youtube.com/watch?v=h1gFjI25CFY"
+  },
+  {
+   "format": "Historic-night packages for Cade Cunningham",
+   "why": "Cade is the most-searched Piston (59,434 Wikipedia views in 30 days, 1,071,238 in the year). His 52-point, 11-assist game drew 550,468 (Chaz NBA), 161,648 (FlightReacts) and 131,759 (NBA), and Reddit's \"first NBA player to record 50 pts, 10 ast, and 0 TOs\" is a top thread.",
+   "example": "https://www.youtube.com/watch?v=zuONQSnmSDk"
+  }
+ ],
+ "talk": [
+  {
+   "title": "Cade first NBA player to record 50 pts, 10 ast, and 0 TOs.",
+   "url": "https://www.reddit.com/r/DetroitPistons/comments/1xux3n4/cade_first_nba_player_to_record_50_pts_10_ast_and/"
+  },
+  {
+   "title": "Ausar Thompson defended 11 different players vs. the Celtics and allowed ZERO points in 1-on-1 matchups",
+   "url": "https://www.reddit.com/r/DetroitPistons/comments/1xcu5oe/ausar_thompson_defended_11_different_players_vs/"
+  },
+  {
+   "title": "After tonight's win, the Detroit Pistons are the only undefeated team left in the Eastern Conference.",
+   "url": "https://www.reddit.com/r/DetroitPistons/comments/1xfkv3u/after_tonights_win_the_detroit_pistons_are_the/"
+  },
+  {
+   "title": "Imagine not having the best record in the NBA",
+   "url": "https://www.reddit.com/r/DetroitPistons/comments/1xb5824/imagine_not_having_the_best_record_in_the_nba/"
+  },
+  {
+   "title": "J.B.’s reaction when the ref tried to touch him 🤣",
+   "url": "https://www.reddit.com/r/DetroitPistons/comments/1xgdwyz/jbs_reaction_when_the_ref_tried_to_touch_him/"
+  },
+  {
+   "title": "I didn’t even know this happened at the game with the Lakers 😂😂😂",
+   "url": "https://www.reddit.com/r/DetroitPistons/comments/1xsqkgt/i_didnt_even_know_this_happened_at_the_game_with/"
+  },
+  {
+   "title": "Korean Piston fan Tom Hur at his first Lions Tailgate",
+   "url": "https://www.reddit.com/r/DetroitPistons/comments/1xl8hhx/korean_piston_fan_tom_hur_at_his_first_lions/"
+  },
+  {
+   "title": "Brunson is now allowed to travel in order to foul bait. He draws his 10th free throw of the half to go along with his 1/10 from the field",
+   "url": "https://www.reddit.com/r/DetroitPistons/comments/1xhb6un/brunson_is_now_allowed_to_travel_in_order_to_foul/"
+  }
+ ],
+ "pulse": {
+  "window": "2026-11-03 to 2026-11-16",
+  "label": "10–16 Nov",
+  "team_wiki": {
+   "last7": 7551,
+   "prior7": 8180
+  },
+  "rising": [
+   {
+    "name": "Cade Cunningham",
+    "url": "https://en.wikipedia.org/wiki/Cade_Cunningham",
+    "last7": 17664,
+    "prior7": 13272,
+    "change": 0.331
+   },
+   {
+    "name": "John Collins",
+    "url": "https://en.wikipedia.org/wiki/John_Collins_%28basketball%29",
+    "last7": 3165,
+    "prior7": 2826,
+    "change": 0.12
+   },
+   {
+    "name": "Ausar Thompson",
+    "url": "https://en.wikipedia.org/wiki/Ausar_Thompson",
+    "last7": 6030,
+    "prior7": 5393,
+    "change": 0.118
+   }
+  ],
+  "videos": [
+   {
+    "title": "PISTONS at HEAT | FULL GAME HIGHLIGHTS | November 14, 2026",
+    "url": "https://www.youtube.com/watch?v=X4Vj94oz9K4",
+    "channel": null,
+    "views": null
+   },
+   {
+    "title": "PISTONS at WIZARDS | FULL GAME HIGHLIGHTS | November 12, 2026",
+    "url": "https://www.youtube.com/watch?v=vk9wsWTp5Ns",
+    "channel": null,
+    "views": null
+   },
+   {
+    "title": "WIZARDS at PISTONS | FULL GAME HIGHLIGHTS | November 9, 2026",
+    "url": "https://www.youtube.com/watch?v=ZKUHnwGRazM",
+    "channel": null,
+    "views": null
+   },
+   {
+    "title": "Miami Heat vs Detroit Pistons Full Game Highlights - November 14, 2026 | NBA Season",
+    "url": "https://www.youtube.com/watch?v=xckyRGzew3w",
+    "channel": null,
+    "views": null
+   },
+   {
+    "title": "Detroit Pistons vs Washington Wizards Full Game Highlights - November 12, 2026 | NBA Season",
+    "url": "https://www.youtube.com/watch?v=T181H-5F4so",
+    "channel": null,
+    "views": null
+   }
+  ],
+  "threads": [
+   {
+    "title": "I didn’t even know this happened at the game with the Lakers 😂😂😂",
+    "url": "https://www.reddit.com/r/DetroitPistons/comments/1xsqkgt/i_didnt_even_know_this_happened_at_the_game_with/"
+   },
+   {
+    "title": "Cade first NBA player to record 50 pts, 10 ast, and 0 TOs.",
+    "url": "https://www.reddit.com/r/DetroitPistons/comments/1xux3n4/cade_first_nba_player_to_record_50_pts_10_ast_and/"
+   },
+   {
+    "title": "AUSAR’S FIRST CAREER TRIPLE DOUBLE",
+    "url": "https://www.reddit.com/r/DetroitPistons/comments/1xuyc3m/ausars_first_career_triple_double/"
+   },
+   {
+    "title": "Duren already acting like a true vet",
+    "url": "https://www.reddit.com/r/DetroitPistons/comments/1xt20e0/duren_already_acting_like_a_true_vet/"
+   },
+   {
+    "title": "Pistons vs Wizards on a random Thursday night in November",
+    "url": "https://www.reddit.com/r/DetroitPistons/comments/1xux0tx/pistons_vs_wizards_on_a_random_thursday_night_in/"
+   }
+  ]
+ }
+}
