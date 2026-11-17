@@ -326,9 +326,11 @@ function heroStory(a) {
   if (!a) return '';
   const p = P[a.player], done = S.done['anim:' + a.id];
   const media = a.ok ? `<video src="${esc(a.video)}#t=3.3"${a.posterOk ? ` poster="${esc(a.poster)}"` : ''} muted autoplay loop playsinline preload="auto" data-hv="${esc(a.id)}"></video>
-     <button type="button" class="snd" data-snd>${ICON.play}<span>Tap for sound</span></button>`
+`
     : `<div class="hsoon"><img src="${BL.ink}" alt=""><b>Drawing the next one</b></div>`;
-  return `<section class="hero"><div class="hv">${media}<div class="hx${done ? ' done' : ''}" data-hx><svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="19"/><circle class="pg" cx="22" cy="22" r="19" pathLength="1"/></svg><b>${done ? 'Earned' : '+50'}</b><small>XP</small></div></div>
+  return `<section class="hero"><div class="hvw"><div class="hv">${media}</div>
+   <div class="hbar">${a.ok ? `<button type="button" class="snd" data-snd>${ICON.play}<span>Watch with sound</span></button>` : '<span></span>'}
+   <div class="hx${done ? ' done' : ''}" data-hx><svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="19"/><circle class="pg" cx="22" cy="22" r="19" pathLength="1"/></svg><b>${done ? 'Earned' : '+50'}</b><small>XP</small></div></div></div>
   <div class="hm"><a class="hby" href="#/p/${esc(a.player)}">${face(a.player, 'sm')}<span><b>${esc(p ? p.name : '')}</b><em>Told on ${esc(a.show)}</em></span></a>
    <h1>${esc(a.title)}</h1><p>${esc(a.place)}. Traced from the real broadcast, in his own words.</p></div></section>`;
 }
@@ -338,7 +340,7 @@ function wireHero() {
   const snd = $('[data-snd]');
   const skip = () => { if (v.muted && v.currentTime < 3.2) v.currentTime = 3.3 };   // muted preview starts on the first drawing, past the title card
   v.addEventListener('loadedmetadata', skip); v.addEventListener('seeked', () => {}); if (v.readyState >= 1) skip();
-  snd && snd.addEventListener('click', () => { v.muted = false; v.currentTime = 0; v.loop = false; v.play(); snd.remove() });
+  snd && snd.addEventListener('click', () => { v.muted = false; v.currentTime = 0; v.loop = false; v.play(); snd.innerHTML = '<span>Playing with sound</span>'; snd.disabled = true });
   v.addEventListener('timeupdate', () => { if (!v.duration) return; const f = v.currentTime / v.duration;
     if (ring) ring.style.strokeDashoffset = 1 - f;
     if (!v.muted && f > .9 && earn('anim:' + a.id, 50, 'Story watched', [a.player], a.title)) { const x = $('[data-hx]'); x.classList.add('done'); $('b', x).textContent = 'Earned' } });
