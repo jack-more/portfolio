@@ -136,6 +136,14 @@ main .wrap{padding-block:32px 64px}
 .item.open .plus{transform:rotate(45deg)}
 .item.open .row{padding-left:14px;padding-right:14px}
 .count{color:var(--mute);margin-top:14px}
+/* sections: bands like the services rows on ballast.la */
+.band{display:flex;align-items:flex-end;justify-content:space-between;gap:12px 24px;flex-wrap:wrap;background:var(--cobalt);color:#fff;padding:22px 20px 18px;margin-top:36px}
+.band:first-child{margin-top:20px}
+.band.first{background:var(--orange);color:#0A0D18}
+.band h3{font-weight:800;font-size:clamp(30px,3.4vw,52px);letter-spacing:-.05em;line-height:.95}
+.band p{max-width:52ch;opacity:.85;font-size:14.5px;margin-top:8px}
+.band .mono{opacity:.8;white-space:nowrap}
+.more{display:flex;justify-content:center;padding:16px 0;border-bottom:1px solid var(--line)}
 .keys{display:flex;flex-wrap:wrap;gap:6px 18px;color:var(--mute);margin-top:6px}
 
 /* leads: open card */
@@ -400,6 +408,18 @@ const PROOF={
   crypto:"We've run crypto paid media for NEAR and stayed live on Meta, Google and TikTok while most accounts in the category were shut off.",
   measurement:"We reconcile ad reporting to real orders, so you know what the spend actually created.",
 };
+// how the To send list is organised: the strongest first, then one band per segment
+const SECTIONS=[
+  ['first','Send first','Score 80 and up. A dated reason to write today and a contact to write to.',l=>(l.score||0)>=80],
+  ['brands','Consumer brands','DTC and consumer companies that are hiring for growth, raising or launching.',l=>l.segment==='brands'],
+  ['sports','Sports & creators','Teams, leagues, venues and athlete brands with a season, a launch or a marketing hire coming up.',l=>l.segment==='sports'],
+  ['local','LA local','LA businesses opening locations or hiring for marketing. Audits and sprints.',l=>l.segment==='local'],
+  ['health','Regulated health','Telehealth, GLP-1, TRT, peptides. Most have an FDA letter or ad-account risk on file.',l=>l.segment==='health'],
+  ['ai','AI startups','Funded AI startups hiring a first GTM engineer.',l=>l.segment==='ai'],
+  ['rest','Everyone else','Referral partners, network and anything not sorted yet.',()=>true],
+];
+const SHOW=8;
+const expanded=new Set();
 // stage groups for working the list
 const GROUPS=[['send','To send',['research','ready']],['follow','Follow up',['contacted']],['live','In play',['replied','call','proposal']],['closed','Closed',['won','lost']],['all','All',null]];
 
@@ -495,11 +515,28 @@ function renderFilters(){
   const present=SEGS.filter(s=>leads.some(l=>l.segment===s[0]));
   $('segs').innerHTML=[['','All'],...present].map(([k,label])=>`<button class="sg" type="button" data-seg="${k}" aria-pressed="${ui.seg===k}">${label}</button>`).join('');
 }
+// To send with no filter: sections. Anything else: one ranked list.
+function sectioned(){
+  const list=visible();
+  if(ui.group!=='send'||ui.seg||ui.q.trim())return [{key:null,items:list,shown:list}];
+  const left=new Set(list.map(l=>l.id)), out=[];
+  for(const [key,title,note,test] of SECTIONS){
+    const items=list.filter(l=>left.has(l.id)&&test(l)); items.forEach(l=>left.delete(l.id));
+    if(!items.length)continue;
+    const shown=expanded.has(key)||items.length<=SHOW+2?items:items.slice(0,SHOW);
+    if(openId&&items.some(l=>l.id===openId)&&!shown.some(l=>l.id===openId))shown.push(items.find(l=>l.id===openId));
+    out.push({key,title,note,items,shown});
+  }
+  return out;
+}
+// the order J/K and Sent move through
+const order=()=>sectioned().flatMap(s=>s.shown);
 function renderLeads(){
   renderFilters();
-  const list=visible(), t=today();
+  const secs=sectioned(), list=secs.flatMap(s=>s.items), t=today();
   if(openId&&!list.some(l=>l.id===openId)&&!leads.some(l=>l.id===openId))openId=null;
-  $('rows').innerHTML=list.map((l,i)=>{const st=stageOf(l),n=nextOf(l),open=l.id===openId;
+  let rank=0;
+  const rowHtml=l=>{rank++;const i=rank-1;const st=stageOf(l),n=nextOf(l),open=l.id===openId;
     const sub=[segName(l.segment),l.city,l.person].filter(Boolean).join(' · ');
     return `<div class="item${open?' open':''}" id="L-${esc(l.id)}">
       <button class="row" type="button" data-open="${esc(l.id)}" aria-expanded="${open}">
@@ -512,7 +549,12 @@ function renderLeads(){
         <span class="plus" aria-hidden="true">+</span>
       </button>
       ${open?leadCard(l):''}
-    </div>`}).join('')
+    </div>`};
+  $('rows').innerHTML=secs.map(sec=>{rank=0;
+    const head=sec.key?`<div class="band${sec.key==='first'?' first':''}"><div><h3>${esc(sec.title)}</h3><p>${esc(sec.note)}</p></div><span class="mono num">${sec.items.length} lead${sec.items.length===1?'':'s'}</span></div>`:'';
+    const more=sec.key&&sec.shown.length<sec.items.length?`<div class="more"><button class="btn ghost" type="button" data-more="${sec.key}">Show all ${sec.items.length}</button></div>`
+      :sec.key&&expanded.has(sec.key)&&sec.items.length>SHOW+2?`<div class="more"><button class="btn ghost" type="button" data-less="${sec.key}">Show fewer</button></div>`:'';
+    return head+sec.shown.map(rowHtml).join('')+more}).join('')
     ||`<p class="empty" style="padding:28px 0">${ready?(ui.group==='send'?'Everything here has been sent. Check Follow up.':'No leads match.'):'Loading leads…'}</p>`;
   $('count').textContent=ready?`${list.length} of ${leads.length} leads`:'';
   if(openId&&list.some(l=>l.id===openId))bindCard(openId);
@@ -621,7 +663,7 @@ function setOpen(id,scroll=true){
     scrollTo({top:el.getBoundingClientRect().top+scrollY-pinned-6,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})});
 }
 function step(d){
-  const list=visible(); if(!list.length)return;
+  const list=order(); if(!list.length)return;
   const i=list.findIndex(l=>l.id===openId);
   setOpen(list[i<0?0:Math.max(0,Math.min(list.length-1,i+d))].id);
 }
@@ -634,19 +676,21 @@ function copyMsg(){
 }
 function decide(kind){
   const l=leads.find(x=>x.id===openId); if(!l)return;
-  const before=visible(), i=before.findIndex(x=>x.id===l.id);
+  const before=order(), i=before.findIndex(x=>x.id===l.id);
   if(kind==='sent'){
     const checks={...(l.checks||{}),m1:true}, log=[...(l.log||[]),{k:'m1',at:Date.now(),on:true}].slice(-60);
     if($('m-body'))save(l.id,{checks,log,draft:{subject:$('m-subj').value,body:$('m-body').value}});else save(l.id,{checks,log});
   } else save(l.id,{lost:true});
-  const after=visible(), next=before.slice(i+1).find(x=>after.some(a=>a.id===x.id))||after[Math.min(i,after.length-1)];
+  const after=order(), next=before.slice(i+1).find(x=>after.some(a=>a.id===x.id))||after[Math.min(i,after.length-1)];
   renderWeek(); setOpen(next?next.id:null);
 }
 
 document.addEventListener('click',e=>{
   if(e.target.closest('a'))return;
-  const t=e.target.closest('[data-open],[data-group],[data-seg],[data-act],[data-goto]'); if(!t)return;
-  if(t.dataset.open)setOpen(t.dataset.open===openId?null:t.dataset.open);
+  const t=e.target.closest('[data-open],[data-group],[data-seg],[data-act],[data-goto],[data-more],[data-less]'); if(!t)return;
+  if(t.dataset.more){expanded.add(t.dataset.more);renderLeads()}
+  else if(t.dataset.less){expanded.delete(t.dataset.less);renderLeads()}
+  else if(t.dataset.open)setOpen(t.dataset.open===openId?null:t.dataset.open);
   else if(t.dataset.group){ui.group=t.dataset.group;keepUI();setOpen(null,false)}
   else if(t.dataset.seg!==undefined){ui.seg=t.dataset.seg;keepUI();setOpen(null,false)}
   else if(t.dataset.goto){ui.group='all';location.hash='leads';setOpen(t.dataset.goto)}
