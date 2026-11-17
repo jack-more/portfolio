@@ -1,0 +1,60 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Hint · Ballast</title><link rel="icon" href="/favicon.ico?v=5" sizes="any"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&display=swap"><style>@font-face{font-family:"Ballast Display";src:url(/notes/BallastDisplay-BlackItalic.woff2) format("woff2");font-display:swap}
+:root{--ink:#0A0D18;--mute:#7C8597;--line:#0A0D18;--grid:#EEF0F4;--cob:#0076B6;--or:#F86608}
+*{box-sizing:border-box}html,body{margin:0;background:#fff;color:var(--ink)}
+body{font:500 11px/1.5 Geist,"Helvetica Neue",Arial,sans-serif;letter-spacing:.04em;text-transform:uppercase;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}img,video{display:block;max-width:100%}
+.wm{font-family:"Ballast Display",Geist,sans-serif;font-style:italic;text-transform:none;letter-spacing:-.02em;line-height:.8}
+/* home */
+.home{position:relative;height:100svh;min-height:560px;overflow:hidden}
+.home .wm{position:absolute;left:0;right:0;top:3.5svh;text-align:center;font-size:min(21vw,42svh);line-height:1;color:#B8C7D9;white-space:nowrap;user-select:none;padding-right:.08em}
+.home .obj{position:absolute;left:50%;top:56%;transform:translate(-50%,-50%);width:min(52vw,74svh)}
+.home .obj img{width:100%}
+.corner{position:absolute;bottom:22px}.corner.l{left:24px}.corner.r{right:24px;display:flex;gap:28px;align-items:flex-end}
+.ic{display:grid;justify-items:center;gap:10px}.ic svg{width:64px;height:64px}.ic:hover span{color:var(--cob)}
+/* shared top bar */
+.top{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:20px 24px}
+.top .wm{font-size:42px;color:var(--ink)}.top a.s svg{width:44px;height:44px}.top .r{justify-self:end}
+/* work: folders */
+.work{min-height:100svh;display:grid;grid-template-rows:auto 1fr auto}
+.folders{align-self:center;display:flex;flex-wrap:wrap;justify-content:center;gap:34px 26px;max-width:1240px;margin:0 auto;padding:40px 24px}
+.fd{display:grid;justify-items:center;gap:12px;width:122px}
+.fd .f{position:relative;width:122px;height:96px}
+.fd .f::before{content:"";position:absolute;left:0;top:0;width:46%;height:24px;border-radius:9px 9px 0 0;background:var(--c);filter:brightness(.82)}
+.fd .f i{position:absolute;left:0;right:0;bottom:0;top:12px;border-radius:7px 9px 9px 9px;background:linear-gradient(180deg,rgba(255,255,255,.22),rgba(255,255,255,0) 40%),var(--c);box-shadow:inset 0 1px 0 rgba(255,255,255,.35),0 1px 2px rgba(10,13,24,.12);display:grid;place-items:center}
+.fd .f img{max-width:62%;max-height:40%;filter:brightness(0) invert(1)}
+.fd .f b{font:italic 400 30px "Ballast Display",Geist;color:#fff;letter-spacing:-.02em;text-transform:none}
+.fd:hover .f{transform:translateY(-3px)}.fd .f{transition:transform .2s}.fd span{text-align:center}
+.foot{text-align:center;padding:22px;color:var(--ink)}
+/* case */
+.case{background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:72px 72px;background-position:center 0;min-height:100svh}
+.case .top{background:#fff}
+.hd{max-width:580px;margin:56px auto 0;text-align:center;display:grid;gap:4px;padding:0 24px}
+.hd .rule{border-bottom:1px solid var(--line);padding-bottom:10px}
+.more{all:unset;cursor:pointer;justify-self:center;margin-top:16px;display:flex;gap:8px;align-items:center}
+.more::before{content:"+";display:grid;place-items:center;width:15px;height:15px;border-radius:50%;background:var(--ink);color:#fff;font-size:12px;line-height:1}
+.more[aria-expanded=true]::before{content:"–"}
+.inf{display:none;text-transform:none;letter-spacing:0;font:400 15px/1.6 Geist;text-align:left;background:#fff;padding:18px 0 4px}
+.inf.on{display:grid;gap:10px}
+.seq{display:grid;justify-items:center;gap:110px;padding:110px 24px 140px}
+.it{display:grid;justify-items:center;gap:22px;width:min(1040px,100%)}
+.it .m{width:100%;position:relative;background:#000;aspect-ratio:16/9;cursor:pointer;border:0;padding:0}
+.it .m img{width:100%;height:100%;object-fit:cover}.it .m iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.it .m::after{content:"";position:absolute;left:50%;top:50%;transform:translate(-30%,-50%);border-left:26px solid #fff;border-top:16px solid transparent;border-bottom:16px solid transparent;filter:drop-shadow(0 2px 8px rgba(0,0,0,.4))}
+.it .m.on::after{display:none}
+.it.v{width:min(400px,100%)}.it.v video{width:100%;aspect-ratio:9/16;object-fit:cover;background:#000}
+.it.i{width:min(1200px,100%)}.it.i img{width:100%;box-shadow:0 1px 3px rgba(10,13,24,.12)}
+.cap{background:#fff;padding:2px 6px}
+.go{display:inline-block;border:1px solid var(--ink);padding:12px 18px;background:#fff}.go:hover{background:var(--ink);color:#fff}
+.next{text-align:center;padding:0 24px 60px}
+/* info */
+.info{min-height:100svh;display:grid;grid-template-rows:auto 1fr auto}
+.info .c{align-self:center;text-align:center;display:grid;gap:26px;padding:24px}
+.info .c div{display:grid;gap:3px}.info .c a:hover{color:var(--cob)}
+@media (max-width:700px){.home .wm{top:12svh;font-size:26vw}.home .obj{width:88vw;top:47%}.corner.l{left:16px;right:16px;bottom:118px;text-align:center}.corner.r{left:0;right:0;justify-content:center;gap:40px}.ic svg{width:48px;height:48px}
+ .top .wm{font-size:32px}.fd{width:96px}.fd .f{width:96px;height:76px}.seq{gap:70px;padding:70px 16px 100px}}
+</style></head><body class=""><main class="case"><header class="top"><a class="s" href="/v2/work/" aria-label="Work"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M6 16a4 4 0 0 1 4-4h14l5 5h25a4 4 0 0 1 4 4v29a4 4 0 0 1-4 4H10a4 4 0 0 1-4-4z" fill="none" stroke="#0A0D18" stroke-width="2"/><path d="M6 24h52" stroke="#0A0D18" stroke-width="2"/></svg></a><a href="/v2/" class="wm" aria-label="Ballast home">Ballast</a><a class="s r" href="/v2/info/" aria-label="Information"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="27" fill="none" stroke="#0A0D18" stroke-width="2"/><circle cx="32" cy="20" r="3" fill="#0A0D18"/><rect x="29.5" y="27" width="5" height="20" rx="1.5" fill="#0A0D18"/></svg></a></header><div class="hd"><span>Hint</span><span>Paid media, creative and distribution</span><span class="rule"></span></div><div class="seq"><div class="it"><button class="m" type="button" data-yt="qMtiG3fU6eQ" aria-label="Play #whyhint"><img src="/v2/img/yt/qMtiG3fU6eQ.webp" alt="" loading="lazy"></button><span class="cap">#whyhint</span></div></div><div class="next"><a class="go" href="/v2/work/fan-read/">Next · Fan Read</a></div><div class="foot">©2026 Ballast Research LLC · Los Angeles</div></main><script>
+document.querySelectorAll('.more').forEach(b=>b.addEventListener('click',()=>{const x=document.getElementById(b.getAttribute('aria-controls'));const on=!x.classList.contains('on');x.classList.toggle('on',on);b.setAttribute('aria-expanded',on)}));
+document.querySelectorAll('button.m').forEach(b=>b.addEventListener('click',()=>{if(b.classList.contains('on'))return;b.classList.add('on');const f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+b.dataset.yt+'?autoplay=1&rel=0';f.allow='autoplay; encrypted-media; fullscreen';f.allowFullscreen=true;b.appendChild(f)}));
+const io=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;if(e.isIntersecting){if(!v.src)v.src=v.dataset.src;v.play().catch(()=>{})}else v.pause()}),{rootMargin:'300px'});
+document.querySelectorAll('video[data-src]').forEach(v=>io.observe(v));
+</script></body></html>
