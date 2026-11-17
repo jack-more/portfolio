@@ -1,0 +1,140 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "Ballast Fan Read feed",
+ "version": "0.1",
+ "type": "object",
+ "required": [
+  "team",
+  "as_of",
+  "segments",
+  "players"
+ ],
+ "properties": {
+  "team": {
+   "type": "string"
+  },
+  "as_of": {
+   "type": "string",
+   "format": "date"
+  },
+  "source": {
+   "type": "string"
+  },
+  "summary": {
+   "type": "string"
+  },
+  "segments": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "required": [
+     "id",
+     "name"
+    ],
+    "properties": {
+     "id": {
+      "type": "string"
+     },
+     "name": {
+      "type": "string"
+     },
+     "who": {
+      "type": "string"
+     },
+     "size_signal": {
+      "type": "string"
+     },
+     "where": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
+     },
+     "enjoys": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
+     },
+     "offer": {
+      "type": "string"
+     },
+     "evidence": {
+      "type": "array",
+      "items": {
+       "type": "string",
+       "format": "uri"
+      }
+     }
+    }
+   }
+  },
+  "players": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string"
+     },
+     "wikipedia_views_30d": {
+      "type": [
+       "integer",
+       "null"
+      ]
+     },
+     "wikipedia_views_year": {
+      "type": [
+       "integer",
+       "null"
+      ]
+     },
+     "url": {
+      "type": [
+       "string",
+       "null"
+      ]
+     }
+    }
+   }
+  },
+  "formats": {
+   "type": "array"
+  },
+  "make_or_reward": {
+   "type": "array"
+  },
+  "talk": {
+   "type": "array"
+  },
+  "pulse": {
+   "type": [
+    "object",
+    "null"
+   ],
+   "properties": {
+    "window": {
+     "type": "string"
+    },
+    "label": {
+     "type": "string"
+    },
+    "rising": {
+     "type": "array"
+    },
+    "videos": {
+     "type": "array"
+    },
+    "threads": {
+     "type": "array"
+    },
+    "team_wiki": {
+     "type": [
+      "object",
+      "null"
+     ]
+    }
+   }
+  }
+ }
+}
