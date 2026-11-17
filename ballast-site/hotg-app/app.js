@@ -305,18 +305,67 @@ const FILTERS = [['all', 'All'], ['clips', 'Clips'], ['episodes', 'Episodes'], [
 function dayPick(arr, salt) { return shuffle(arr, rng(hash(etDay() + salt))) }
 
 function vToday() {
-  const now = new Date(), wd = now.toLocaleDateString('en-US', { weekday: 'long', timeZone: 'America/New_York' }), md = now.toLocaleDateString('en-US', { month: 'long', day: 'numeric', timeZone: 'America/New_York' });
-  const week = DROPS.filter(d => Date.now() - new Date(d.t) < 7 * 864e5), shows = new Set(week.map(d => d.show)).size;
-  const dt = droppingToday();
-  const a = ANIM[0];
+  const a = ANIM.find(x => x.ok) || ANIM[0];
+  const bd = TOLD.filter(s => s.audio && s.k === 'baron-davis'), oth = dayPick(TOLD.filter(s => s.audio && s.k !== 'baron-davis'), 'rail');
+  const told = []; while (bd.length || oth.length) { if (bd.length) told.push(bd.shift()); if (oth.length) told.push(oth.shift()); if (bd.length) told.push(bd.shift()) }
+  const who = dayPick(WHOPOOL(), 'today-who')[0];
+  const fresh = DROPS.slice(0, 40);
   main().innerHTML = `
-  <div class="today-h"><div><div class="k">${esc(wd)} · ${esc(md)}</div><h1>Today</h1><p>${week.length} drops from ${shows} shows this week</p></div></div>
-  <section class="card you" data-you></section>
-  ${animCard(a)}
-  ${dt.length ? `<section class="dts"><div class="sech"><h2>Dropping today</h2><span>${dt.length} shows</span></div><div class="strip">${dt.map(dtTile).join('')}</div></section>` : ''}
-  <div class="chips" role="tablist">${FILTERS.map(([k, l]) => `<button type="button" class="chip${FEED === k ? ' on' : ''}" data-filter="${k}" role="tab" aria-selected="${FEED === k}">${l}${k === 'mine' && Object.keys(S.follow).length ? `<em>${Object.keys(S.follow).length}</em>` : ''}</button>`).join('')}</div>
-  <div class="stack" id="feed"></div>`;
-  paintYou(); renderFeed(); tick();
+  ${heroStory(a)}
+  <section class="earn" data-earn></section>
+  <section class="blk"><div class="sech"><h2>Told on the pods</h2><span>${told.length} stories</span></div>
+   <div class="rs trail">${told.slice(0, 12).map(tcard).join('')}</div></section>
+  ${who ? `<section class="blk">${whoCard(who, rng(hash(who.v)))}</section>` : ''}
+  <section class="blk"><div class="sech"><h2>New on the pods</h2><span>${DROPS.length} this week</span></div>
+   <div class="drows" id="drows"></div><button type="button" class="more" data-more>More drops</button></section>`;
+  let n = 0; const paint = () => { $('#drows').insertAdjacentHTML('beforeend', fresh.slice(n, n + 10).map(dropRow).join('')); n += 10; if (n >= fresh.length) $('[data-more]').remove() };
+  paint(); $('[data-more]').addEventListener('click', paint);
+  paintEarn(); wireHero();
+}
+function heroStory(a) {
+  if (!a) return '';
+  const p = P[a.player], done = S.done['anim:' + a.id];
+  const media = a.ok ? `<video src="${esc(a.video)}#t=3.3"${a.posterOk ? ` poster="${esc(a.poster)}"` : ''} muted autoplay loop playsinline preload="auto" data-hv="${esc(a.id)}"></video>
+     <button type="button" class="snd" data-snd>${ICON.play}<span>Tap for sound</span></button>`
+    : `<div class="hsoon"><img src="${BL.ink}" alt=""><b>Drawing the next one</b></div>`;
+  return `<section class="hero"><div class="hv">${media}<div class="hx${done ? ' done' : ''}" data-hx><svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="19"/><circle class="pg" cx="22" cy="22" r="19" pathLength="1"/></svg><b>${done ? 'Earned' : '+50'}</b><small>XP</small></div></div>
+  <div class="hm"><a class="hby" href="#/p/${esc(a.player)}">${face(a.player, 'sm')}<span><b>${esc(p ? p.name : '')}</b><em>Told on ${esc(a.show)}</em></span></a>
+   <h1>${esc(a.title)}</h1><p>${esc(a.place)}. Traced from the real broadcast, in his own words.</p></div></section>`;
+}
+function wireHero() {
+  const v = $('[data-hv]'); if (!v) return;
+  const a = ANIM.find(x => x.id === v.dataset.hv), ring = $('[data-hx] .pg');
+  const snd = $('[data-snd]');
+  const skip = () => { if (v.muted && v.currentTime < 3.2) v.currentTime = 3.3 };   // muted preview starts on the first drawing, past the title card
+  v.addEventListener('loadedmetadata', skip); v.addEventListener('seeked', () => {}); if (v.readyState >= 1) skip();
+  snd && snd.addEventListener('click', () => { v.muted = false; v.currentTime = 0; v.loop = false; v.play(); snd.remove() });
+  v.addEventListener('timeupdate', () => { if (!v.duration) return; const f = v.currentTime / v.duration;
+    if (ring) ring.style.strokeDashoffset = 1 - f;
+    if (!v.muted && f > .9 && earn('anim:' + a.id, 50, 'Story watched', [a.player], a.title)) { const x = $('[data-hx]'); x.classList.add('done'); $('b', x).textContent = 'Earned' } });
+  v.addEventListener('ended', () => { v.loop = true; v.muted = true; v.currentTime = 3.3; v.play() });
+}
+function paintEarn() {
+  const el = $('[data-earn]'); if (!el) return;
+  const s = xpState(S.xp), nr = nextReward(S.xp), lo = prevRewardXP(S.xp);
+  el.innerHTML = `<a href="#/xp" class="earn-in"><img class="bl" data-xpb src="${xpBloom(S.xp)}" alt="">
+   <span class="ev"><b><span data-xpn>${fmt(S.xp)}</span> XP</b><em style="color:${s.T.col}">${esc(s.T.lv)}</em>
+   <i class="bar"><i style="width:${(nr ? (S.xp - lo) / (nr.xp - lo) : 1) * 100}%"></i></i>
+   <small>${nr ? `${fmt(nr.xp - S.xp)} XP to <u>${esc(nr.t.toLowerCase())}</u>` : 'Full jade bloom. Chase #1.'}</small></span>
+   ${nr ? `<img class="rw" src="${esc(nr.img)}" alt="${esc(nr.t)}">` : ''}</a>`;
+}
+function tcard(s) {
+  const p = P[s.k], done = S.done[s.key];
+  return `<button type="button" class="tc" data-told="${esc(s.key)}">${face(s.k, 'tc')}<span class="tcb"><em>${esc(p.name)}</em><b>${esc(trunc(s.title, 52))}</b>
+   <span class="tcx">${ICON.play}${done ? 'Heard' : '+30 XP'}</span></span></button>`;
+}
+function dropRow(d) {
+  const s = SH[d.show];
+  return `<button type="button" class="drow" data-drop="${esc(d.id)}"><span class="th${d.short ? ' sh' : ''}"><img src="${thumb(d.id)}" alt="" loading="lazy"></span>
+   <span class="dr"><em>${esc(trunc(showName(d.show), 28))}${d.t ? ' · ' + esc(ago(d.t)) : d.views ? ' · ' + fmtV(d.views) + ' views' : ''}</em><b>${esc(trunc(d.title, 78))}</b></span><span class="dx">${S.done['drop:' + d.id] ? 'Seen' : '+10'}</span></button>`;
+}
+function openTold(key) {
+  const s = TOLD.find(x => x.key === key); if (!s) return;
+  openSheet(`<div class="sh-told">${toldCard(s)}</div>`);
 }
 const dtTile = x => `<a class="dt${x.out ? ' out' : ''}" href="#/s/${esc(x.s.id)}">${showPic(x.s)}<b>${esc(trunc(x.s.name, 26))}</b><span class="tm">${esc(hm({ h: +etHour(x.t), m: etMin(x.t) }))}</span>${x.out ? '<span class="cdn">Out now</span>' : `<span class="cdn" data-to="${+x.t}">${cdText(x.t - Date.now())}</span>`}</a>`;
 const etHour = t => new Intl.DateTimeFormat('en-US', { timeZone: 'America/New_York', hour: 'numeric', hour12: false }).format(t) % 24;
@@ -413,38 +462,35 @@ function lockerCard(k, big) {
   if (p.drops.length) c.push(p.drops.length + ' this week');
   else if (p.clips.length) c.push(plural(p.clips.length, 'clip'));
   const sh = p.shows.map(showName).join(' · ') || 'Guest';
-  return `<a class="card lk${big ? ' big' : ''}" href="#/p/${esc(k)}">${big ? '<span class="tab">Founder</span>' : ''}${S.follow[k] ? '<span class="fw">Following</span>' : ''}${face(k, 'lg')}<div class="lk-t"><b>${esc(p.name)}</b><span>${esc(big ? 'Host of The Locker Room. Two-time All-Star. We Believe.' : sh)}</span><span class="lc">${esc(c.slice(0, 2).join(' · '))}</span></div></a>`;
+  return `<a class="card lk${big ? ' big' : ''}" href="#/p/${esc(k)}">${big ? '<span class="tab">Founder</span>' : ''}${S.follow[k] ? '<span class="fw">Following</span>' : ''}${face(k, 'lg')}<div class="lk-t"><b>${esc(p.name)}</b><span>${esc(big ? 'Host of The Locker Room. Two-time All-Star. We Believe.' : trunc(sh, 24))}</span><span class="lc">${esc(c.slice(0, 2).join(' · '))}</span></div></a>`;
 }
 
 function vLocker(k) {
-  const p = P[k], a = ANIM.filter(x => x.player === k);
+  const p = P[k], a = ANIM.filter(x => x.player === k && x.ok);
   const drops = p.drops.map(id => DROP[id]).filter(Boolean);
-  const lines = LINES.filter(l => l.k === k), told = TOLD.filter(s => s.k === k);
+  const lines = LINES.filter(l => l.k === k), told = TOLD.filter(s => s.k === k).sort((x, y) => (!!y.audio - !!x.audio) || y.strength - x.strength);
   const clips = p.clips.slice().sort((x, y) => y.views - x.views);
   const ment = [...p.mentions].filter(x => P[x]), about = p.about;
-  const stats = [[told.length, 'Stories'], [lines.length, 'Lines'], [drops.length, 'This week'], [clips.length || p.highlights.length, clips.length ? 'Clips' : 'Highlights']].filter(x => x[0] > 0);
+  const n = Math.min(8, Object.keys(S.pe[k] || {}).length);
   let h = `<a class="back" href="#/lockers">${ICON.back}Lockers</a>
-  <section class="card lh"><div class="lh-f">${face(k, 'xl')}</div><div class="lh-m">
-   <div class="k">${p.shows.map(s => `<a href="#/s/${esc(s)}">${esc(showName(s))}</a>`).join(' · ') || 'Guest on the shows'}</div>
-   <h1>${esc(p.name)}</h1>
-   <div class="stats">${stats.map(([n, l]) => `<div><b>${n}</b><span>${l}</span></div>`).join('')}</div>
-   <div class="pbl" data-pbl="${esc(k)}">${pBloomInner(k)}</div>
-   <div class="acts">${followBtn(k)}</div></div></section>`;
-  if (a.length) h += `<section class="sec"><div class="sech"><h2>Animated</h2><span>+50 XP</span></div>${a.map(animCard).join('')}</section>`;
-  if (told.length) {
-    const audioFirst = told.slice().sort((x, y) => (!!y.audio - !!x.audio) || y.strength - x.strength);
-    h += `<section class="sec"><div class="sech"><h2>Told</h2><span>${plural(told.length, 'story').replace('storys', 'stories')}</span></div><div class="stack">${audioFirst.slice(0, 2).map(toldCard).join('')}
-    ${audioFirst.slice(2, 8).map(s => toldRow(s)).join('')}</div>${audioFirst.length > 8 ? `<div class="stack" data-rest hidden style="margin-top:34px">${audioFirst.slice(8).map(s => toldRow(s)).join('')}</div><button type="button" class="btn ghost more" data-more>${audioFirst.length - 8} more stories</button>` : ''}</section>`;
-  }
-  if (lines.length) h += `<section class="sec"><div class="sech"><h2>Said</h2><span>${plural(lines.length, 'line')} · +5 XP each</span></div><div class="lines">${lines.map(lineRow).join('')}</div></section>`;
-  if (ment.length) h += `<section class="sec"><div class="sech"><h2>In his stories</h2><span>${ment.length} players</span></div><div class="fwrap">${ment.map(x => `<a href="#/p/${esc(x)}">${face(x, 'lg')}${esc(P[x].name)}</a>`).join('')}</div></section>`;
-  if (about.length) h += `<section class="sec"><div class="sech"><h2>Told about him</h2><span>${about.length} by others</span></div><div class="stack">${about.slice(0, 6).map(s => toldRow(s, true)).join('')}</div></section>`;
-  if (drops.length) h += `<section class="sec"><div class="sech"><h2>This week</h2><span>${plural(drops.length, 'drop')}</span></div><div class="wkl">${drops.filter(d => !d.short).slice(0, 4).map(dropCard).join('')}
-   ${drops.some(d => d.short) ? `<div class="tgrid">${drops.filter(d => d.short).slice(0, 9).map(d => tile(d)).join('')}</div>` : ''}</div></section>`;
-  if (clips.length) h += `<section class="sec"><div class="sech"><h2>Clips</h2><span>Top moments</span></div><div class="tgrid">${clips.slice(0, 9).map(c => clipTile(c, k)).join('')}</div>
-   ${clips.length > 9 ? `<div class="tgrid" data-rest hidden style="margin-top:18px">${clips.slice(9).map(c => clipTile(c, k)).join('')}</div><button type="button" class="btn ghost more" data-more>${clips.length - 9} more clips</button>` : ''}</section>`;
-  if (p.highlights.length) h += `<section class="sec"><div class="sech"><h2>Career</h2><span>Highlights</span></div><div class="hl">${p.highlights.map(x => `<a class="hli" href="https://www.youtube.com/watch?v=${esc(x.id)}" target="_blank" rel="noopener"><span class="th"><img src="${thumb(x.id)}" alt="" loading="lazy"></span><div><b>${esc(x.title)}</b><span>${esc(x.channel)} · ${fmtV(x.views)} views · YouTube</span></div></a>`).join('')}</div></section>`;
-  main().innerHTML = h;
+  <section class="lk2"><div class="lk2-f">${face(k, 'xl')}</div>
+   <div class="lk2-m"><div class="k">${p.shows.map(s => `<a href="#/s/${esc(s)}">${esc(showName(s))}</a>`).join(' · ') || 'Guest on the shows'}</div>
+   <h1>${esc(p.name)}</h1></div>
+   <div class="lk2-b"><span class="pbl" data-pbl="${esc(k)}">${pBloomInner(k)}</span>${followBtn(k)}</div></section>`;
+  if (a.length) h += `<section class="blk">${heroStory(a[0])}</section>`;
+  if (told.length) h += `<section class="blk"><div class="sech"><h2>Told</h2><span>${told.length} stories · +30 XP each</span></div><div class="srows">${told.map(srow).join('')}</div></section>`;
+  if (lines.length) h += `<section class="blk"><div class="sech"><h2>Said</h2><span>${plural(lines.length, 'line')} · +5 XP each</span></div><div class="lines">${lines.map(lineRow).join('')}</div></section>`;
+  if (about.length) h += `<section class="blk"><div class="sech"><h2>Told about him</h2><span>${about.length} by others</span></div><div class="srows">${about.slice(0, 8).map(s => srow(s, true)).join('')}</div></section>`;
+  if (ment.length) h += `<section class="blk"><div class="sech"><h2>In his stories</h2><span>${ment.length} players</span></div><div class="fwrap">${ment.slice(0, 8).map(x => `<a href="#/p/${esc(x)}">${face(x, 'lg')}${esc(P[x].name)}</a>`).join('')}</div></section>`;
+  const vids = [...drops, ...clips.map(c => ({ id: c.id, title: c.title, show: c.show, t: null, short: true, views: c.views }))];
+  if (vids.length) h += `<section class="blk"><div class="sech"><h2>On the pods</h2><span>${plural(vids.length, 'video')}</span></div><div class="drows">${vids.slice(0, 12).map(dropRow).join('')}</div></section>`;
+  main().innerHTML = h; wireHero();
+}
+function srow(s, who) {
+  const d = s.end && s.start != null ? s.end - s.start : 0, done = S.done[s.key];
+  return `<button type="button" class="srow${done ? ' done' : ''}" data-told="${esc(s.key)}"><span class="sp2">${ICON.play}</span>
+   <span class="sm"><em>${who ? esc(P[s.k].name) + ' · ' : ''}${esc(shortEra(s.era) || 'Told on the pods')}${d ? ' · ' + mmss(d) : ''}</em><b>${esc(s.title)}</b></span>
+   <span class="dx">${done ? 'Heard' : s.audio ? '+30' : ''}</span></button>`;
 }
 function pBloomInner(k) {
   const n = Math.min(8, Object.keys(S.pe[k] || {}).length), petals = Array(8).fill(null);
@@ -530,9 +576,9 @@ function paintRail() {
   const s = xpState(S.xp), nr = nextReward(S.xp), dt = droppingToday().slice(0, 5);
   const F = Object.keys(S.follow).filter(k => P[k]);
   const ps = (F.length ? F : SLUGS.filter(k => P[k].img).slice(0, 6)).slice(0, 6);
-  el.innerHTML = `<a class="rcard rxp" href="#/xp" style="display:grid"><img class="bl" data-xpb src="${xpBloom(S.xp)}" alt="Your bloom"><div><div class="k">Your bloom</div><b><span data-xpn>${fmt(S.xp)}</span></b><div class="lv" style="color:${s.T.col}">${s.T.lv} · ${streak()}-day streak</div></div>
+  el.innerHTML = `${route().name === 'today' ? '' : `<a class="rcard rxp" href="#/xp" style="display:grid"><img class="bl" data-xpb src="${xpBloom(S.xp)}" alt="Your bloom"><div><div class="k">Your bloom</div><b><span data-xpn>${fmt(S.xp)}</span></b><div class="lv" style="color:${s.T.col}">${s.T.lv} · ${streak()}-day streak</div></div>
    <div class="nx"><div class="bar" style="margin:0 0 8px"><i style="width:${s.p * 100}%;background:${s.T.col}"></i></div>${nr ? `${fmt(nr.xp - S.xp)} XP to ${esc(nr.t.charAt(0).toLowerCase() + nr.t.slice(1))}` : 'Full jade bloom'}</div></a>
-  <section class="rcard"><div class="rh2"><span class="k">Dropping today</span><a href="#/shows">All shows</a></div><div class="rlist">${dt.length ? dt.map(x => `<a class="rdrop" href="#/s/${esc(x.s.id)}">${showPic(x.s)}<div><b>${esc(x.s.name)}</b><span>${esc(hm({ h: etHour(x.t), m: etMin(x.t) }))}</span></div>${x.out ? '<span class="cdn out">Out</span>' : `<span class="cdn" data-to="${+x.t}">${cdText(x.t - Date.now())}</span>`}</a>`).join('') : '<span class="mute">Quiet day. Catch up in Lockers.</span>'}</div></section>
+  `}<section class="rcard"><div class="rh2"><span class="k">Dropping today</span><a href="#/shows">All shows</a></div><div class="rlist">${dt.length ? dt.map(x => `<a class="rdrop" href="#/s/${esc(x.s.id)}">${showPic(x.s)}<div><b>${esc(x.s.name)}</b><span>${esc(hm({ h: etHour(x.t), m: etMin(x.t) }))}</span></div>${x.out ? '<span class="cdn out">Out</span>' : `<span class="cdn" data-to="${+x.t}">${cdText(x.t - Date.now())}</span>`}</a>`).join('') : '<span class="mute">Quiet day. Catch up in Lockers.</span>'}</div></section>
   <section class="rcard"><div class="rh2"><span class="k">${F.length ? 'Your players' : 'Start with'}</span><a href="#/lockers">Lockers</a></div><div class="rplayers">${ps.map(k => `<a href="#/p/${esc(k)}">${face(k, 'lg')}${esc(P[k].name)}</a>`).join('')}</div></section>`;
   tick();
 }
@@ -541,7 +587,7 @@ function paintXP() {
   $$('img[data-xpb]').forEach(i => { if (i.src !== u) i.src = u });
   $$('[data-xpn]').forEach(e => { e.textContent = fmt(S.xp) });
   $$('[data-xplv]').forEach(e => { e.textContent = `Level ${s.t + 1} · ${s.T.lv}` });
-  paintYou(); paintRail();
+  paintYou(); paintEarn(); paintRail();
   const big = $('[data-xbig]'); if (big) { big.src = xpBloom(S.xp, { bg: INK, out: '#4A433E', ow: 2.4 }); const pt = xpPartial(), ov = $('[data-xov]'); if (ov && pt) { ov.src = pt.src; ov.style.clipPath = `circle(${pt.r}% at 50% 50%)` } }
 }
 
@@ -615,7 +661,7 @@ function openYT(b) {
 }
 function openAnim(id) {
   const a = ANIM.find(x => x.id === id); if (!a || !a.ok) return;
-  openSheet(`<div class="sh-v tall"><video src="${esc(a.video)}"${a.posterOk ? ` poster="${esc(a.poster)}"` : ''} controls autoplay playsinline></video></div>
+  openSheet(`<div class="sh-v tall"><video src="${esc(a.video)}#t=3.3"${a.posterOk ? ` poster="${esc(a.poster)}"` : ''} controls autoplay playsinline></video></div>
   <div class="sh-c"><div class="k">Animated · ${esc(plName(a.player))} · ${esc(a.show)}</div><h3>${esc(a.title)}</h3><p class="meta">${esc(a.place)}</p>
   <div class="wbar"><i></i></div><div class="wnote">${S.done['anim:' + id] ? 'XP earned for this one' : 'Watch to the end for +50 XP'}</div></div>`, true);
   const v = $('#sheet video'), bar = $('#sheet .wbar i');
@@ -634,6 +680,7 @@ document.addEventListener('click', e => {
   if ((b = t.closest('[data-drop]'))) { e.preventDefault(); openDrop(b.dataset.drop); return }
   if ((b = t.closest('[data-yt]'))) { e.preventDefault(); openYT(b); return }
   if ((b = t.closest('[data-anim]'))) { openAnim(b.dataset.anim); return }
+  if ((b = t.closest('[data-told]'))) { openTold(b.dataset.told); return }
   if ((b = t.closest('[data-pick]'))) { pickWho(b); return }
   if ((b = t.closest('[data-follow]'))) { e.preventDefault(); toggleFollow(b.dataset.follow); return }
   if ((b = t.closest('[data-save]'))) { e.preventDefault(); toggleSave(b); return }
