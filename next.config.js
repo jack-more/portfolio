@@ -3,6 +3,13 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  async rewrites() {
+    return [
+      { source: '/v2', destination: '/v2/index.html' },
+      { source: '/v2/work', destination: '/v2/work/index.html' },
+      { source: '/v2/info', destination: '/v2/info/index.html' },
+    ];
+  },
   async redirects() {
     return [
       { source: '/dogclub', destination: '/dogwalk', permanent: true },
