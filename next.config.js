@@ -8,6 +8,7 @@ const nextConfig = {
       { source: '/v2', destination: '/v2/index.html' },
       { source: '/v2/work', destination: '/v2/work/index.html' },
       { source: '/v2/info', destination: '/v2/info/index.html' },
+      { source: '/v2/work/ballast', destination: '/v2/work/ballast/index.html' },
     ];
   },
   async redirects() {
