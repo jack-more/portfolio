@@ -30,7 +30,11 @@ img{display:block;max-width:100%}
 
 /* home */
 #home{align-items:center;justify-content:space-between;padding:calc(30px + env(safe-area-inset-top)) var(--g) calc(18px + env(safe-area-inset-bottom))}
-#home .wm{margin:0;font-size:clamp(72px,15vw,220px);color:var(--ink)}
+#home .wm{margin:0;font-size:clamp(46px,6vw,84px);color:#A4ACB6}
+/* the mark: the Ballast sun as a thermal field (tools/sunmark.py renders it from BALLAST_LOGOS/sun-logo/I3.png) */
+.sun{display:block;width:min(620px,86vw,62svh);margin:auto 0;animation:breathe 8s ease-in-out infinite}
+.sun img{width:100%;height:auto;-webkit-mask:radial-gradient(closest-side,#000 62%,transparent 100%);mask:radial-gradient(closest-side,#000 62%,transparent 100%)}
+@keyframes breathe{50%{transform:scale(1.02)}}
 .stage{position:relative;width:min(380px,74vw,52svh);aspect-ratio:4/5;margin:28px 0 10px}
 .stage figure{position:absolute;inset:0;margin:0;opacity:0;transition:opacity 1.1s ease,transform 6s linear;transform:scale(1.02)}
 .stage figure.on{opacity:1;transform:scale(1)}
@@ -177,8 +181,8 @@ img{display:block;max-width:100%}
 
 <!-- HOME -->
 <main class="view" id="home">
-  <span></span>
   <h1 class="wm" id="wm">Ballast</h1>
+  <a class="sun" href="#/work" aria-label="Projects"><img src="sun.webp" alt="The Ballast sun" width="1600" height="1600"></a>
   <div style="display:flex;flex-direction:column;align-items:center;width:100%">
     <nav class="dock" aria-label="Main">
       <a href="#/work"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M3 11a3 3 0 0 1 3-3h9l3 3h16a3 3 0 0 1 3 3v17a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3z" fill="#A4ACB6"/><path d="M3 15h34v16a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3z" fill="#B9C0C9"/></svg><span class="cap mute">Projects</span></a>
