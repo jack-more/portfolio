@@ -1,174 +1,622 @@
 {
- "meridian": [
+ "botanica": [
   {
-   "f": "meridian-00.webp",
-   "t": "",
-   "w": 2000,
-   "h": 1126
+   "f": "botanica-cover.webp",
+   "t": "Botanica \u00b7 cover",
+   "size": [
+    1800,
+    1207
+   ]
   },
   {
-   "f": "meridian-01.webp",
-   "t": "Two layers",
-   "w": 2000,
-   "h": 860
+   "f": "botanica-01.webp",
+   "t": "MRDN-3 RT",
+   "size": [
+    1800,
+    1207
+   ]
   },
   {
-   "f": "meridian-02.webp",
-   "t": "Wordmark",
-   "w": 2000,
-   "h": 1795
+   "f": "botanica-02.webp",
+   "t": "MRDN-TRZ",
+   "size": [
+    1800,
+    1207
+   ]
   },
   {
-   "f": "meridian-03.webp",
-   "t": "Colour",
-   "w": 2000,
-   "h": 871
+   "f": "botanica-03.webp",
+   "t": "Tesamorelin",
+   "size": [
+    1800,
+    1207
+   ]
   },
   {
-   "f": "meridian-04.webp",
-   "t": "Type",
-   "w": 2000,
-   "h": 688
+   "f": "botanica-04.webp",
+   "t": "GHK-Cu",
+   "size": [
+    1800,
+    1207
+   ]
   },
   {
-   "f": "meridian-05.webp",
-   "t": "Photography",
-   "w": 2000,
-   "h": 1306
+   "f": "botanica-05.webp",
+   "t": "Kubix",
+   "size": [
+    1800,
+    1207
+   ]
   },
   {
-   "f": "meridian-06.webp",
-   "t": "Botanica",
-   "w": 2000,
-   "h": 1096
+   "f": "botanica-06.webp",
+   "t": "MOTS-c",
+   "size": [
+    1800,
+    1207
+   ]
   },
   {
-   "f": "meridian-07.webp",
-   "t": "Products",
-   "w": 2000,
-   "h": 1631
+   "f": "botanica-07.webp",
+   "t": "CJC-1295 no DAC + Ipamorelin",
+   "size": [
+    1800,
+    1207
+   ]
   },
   {
-   "f": "meridian-08.webp",
-   "t": "Under the hood",
-   "w": 2000,
-   "h": 874
+   "f": "botanica-08.webp",
+   "t": "BPC-157",
+   "size": [
+    1800,
+    1207
+   ]
   },
   {
-   "f": "meridian-09.webp",
-   "t": "Packaging",
-   "w": 2000,
-   "h": 977
+   "f": "botanica-09.webp",
+   "t": "Wolverine Blend (BPC-157/TB-500)",
+   "size": [
+    1800,
+    1207
+   ]
   },
   {
-   "f": "meridian-10.webp",
-   "t": "Assets",
-   "w": 2000,
-   "h": 2272
+   "f": "botanica-10.webp",
+   "t": "GLOW",
+   "size": [
+    1800,
+    1207
+   ]
+  },
+  {
+   "f": "botanica-11.webp",
+   "t": "KLOW",
+   "size": [
+    1800,
+    1207
+   ]
+  },
+  {
+   "f": "botanica-12.webp",
+   "t": "KPV",
+   "size": [
+    1800,
+    1207
+   ]
+  },
+  {
+   "f": "botanica-13.webp",
+   "t": "MRDN-NAD",
+   "size": [
+    1800,
+    1207
+   ]
+  },
+  {
+   "f": "botanica-14.webp",
+   "t": "5-Amino-1MQ",
+   "size": [
+    1800,
+    1207
+   ]
+  },
+  {
+   "f": "botanica-15.webp",
+   "t": "IGF1-LR3",
+   "size": [
+    1800,
+    1207
+   ]
+  },
+  {
+   "f": "botanica-16.webp",
+   "t": "MT-1",
+   "size": [
+    1800,
+    1207
+   ]
+  },
+  {
+   "f": "botanica-17.webp",
+   "t": "MT-2",
+   "size": [
+    1800,
+    1207
+   ]
+  },
+  {
+   "f": "botanica-18.webp",
+   "t": "Glutathione",
+   "size": [
+    1800,
+    1207
+   ]
+  },
+  {
+   "f": "botanica-19.webp",
+   "t": "Semax",
+   "size": [
+    1800,
+    1207
+   ]
+  },
+  {
+   "f": "botanica-20.webp",
+   "t": "Selank",
+   "size": [
+    1800,
+    1207
+   ]
+  },
+  {
+   "f": "botanica-21.webp",
+   "t": "Semax/Selank Blend",
+   "size": [
+    1800,
+    1207
+   ]
+  },
+  {
+   "f": "botanica-22.webp",
+   "t": "AOD-XA Blend",
+   "size": [
+    1800,
+    1207
+   ]
+  },
+  {
+   "f": "botanica-23.webp",
+   "t": "TB-500",
+   "size": [
+    1800,
+    1207
+   ]
+  },
+  {
+   "f": "botanica-24.webp",
+   "t": "Ipamorelin",
+   "size": [
+    1800,
+    1207
+   ]
+  },
+  {
+   "f": "botanica-25.webp",
+   "t": "DSIP",
+   "size": [
+    1800,
+    1207
+   ]
+  },
+  {
+   "f": "botanica-26.webp",
+   "t": "Sermorelin",
+   "size": [
+    1800,
+    1207
+   ]
+  },
+  {
+   "f": "botanica-27.webp",
+   "t": "SS-31",
+   "size": [
+    1800,
+    1207
+   ]
+  },
+  {
+   "f": "botanica-28.webp",
+   "t": "TESA/IPA Blend",
+   "size": [
+    1800,
+    1207
+   ]
+  },
+  {
+   "f": "botanica-29.webp",
+   "t": "Cagrilintide",
+   "size": [
+    1800,
+    1207
+   ]
+  },
+  {
+   "f": "botanica-30.webp",
+   "t": "Thymosin Alpha-1",
+   "size": [
+    1800,
+    1207
+   ]
+  },
+  {
+   "f": "botanica-31.webp",
+   "t": "ARA-290",
+   "size": [
+    1800,
+    1207
+   ]
+  },
+  {
+   "f": "botanica-32.webp",
+   "t": "AOD-9604",
+   "size": [
+    1800,
+    1207
+   ]
+  },
+  {
+   "f": "botanica-33.webp",
+   "t": "Kisspeptin",
+   "size": [
+    1800,
+    1207
+   ]
+  },
+  {
+   "f": "botanica-34.webp",
+   "t": "PT-141",
+   "size": [
+    1800,
+    1207
+   ]
+  },
+  {
+   "f": "botanica-35.webp",
+   "t": "SLU-PP-332",
+   "size": [
+    1800,
+    1207
+   ]
+  },
+  {
+   "f": "botanica-36.webp",
+   "t": "ADAMAX",
+   "size": [
+    1800,
+    1207
+   ]
+  },
+  {
+   "f": "botanica-37.webp",
+   "t": "Bacteriostatic Water",
+   "size": [
+    1800,
+    1207
+   ]
   }
  ],
- "sko": [
+ "isometrica": [
   {
-   "f": "sko-00.webp",
-   "t": "BRAND BOOK",
-   "w": 2000,
-   "h": 1624
+   "f": "isometrica-cover.webp",
+   "t": "Isometrica \u00b7 cover",
+   "size": [
+    1800,
+    1004
+   ]
   },
   {
-   "f": "sko-01.webp",
-   "t": "",
-   "w": 2000,
-   "h": 2192
+   "f": "isometrica-01.webp",
+   "t": "5-AMINO-1MQ",
+   "size": [
+    1800,
+    1004
+   ]
   },
   {
-   "f": "sko-02.webp",
-   "t": "THE IDEA",
-   "w": 2000,
-   "h": 824
+   "f": "isometrica-02.webp",
+   "t": "CJC-1295 NO DAC",
+   "size": [
+    1800,
+    1004
+   ]
   },
   {
-   "f": "sko-03.webp",
-   "t": "IDENTITY",
-   "w": 2000,
-   "h": 1222
+   "f": "isometrica-03.webp",
+   "t": "GHK-CU",
+   "size": [
+    1800,
+    1004
+   ]
   },
   {
-   "f": "sko-04.webp",
-   "t": "COLOUR",
-   "w": 2000,
-   "h": 1152
+   "f": "isometrica-04.webp",
+   "t": "GLOW",
+   "size": [
+    1800,
+    1004
+   ]
   },
   {
-   "f": "sko-05.webp",
-   "t": "TYPE",
-   "w": 2000,
-   "h": 1198
+   "f": "isometrica-05.webp",
+   "t": "GLUTATHIONE",
+   "size": [
+    1800,
+    1004
+   ]
   },
   {
-   "f": "sko-06.webp",
-   "t": "WORDS",
-   "w": 2000,
-   "h": 1421
+   "f": "isometrica-06.webp",
+   "t": "MOTS-C",
+   "size": [
+    1800,
+    1004
+   ]
   },
   {
-   "f": "sko-07.webp",
-   "t": "THE GROUNDS",
-   "w": 2000,
-   "h": 1501
+   "f": "isometrica-07.webp",
+   "t": "ADAMAX",
+   "size": [
+    1800,
+    1004
+   ]
   },
   {
-   "f": "sko-08.webp",
-   "t": "THE WHITE STUDIO",
-   "w": 2000,
-   "h": 1160
+   "f": "isometrica-08.webp",
+   "t": "AOD-9604",
+   "size": [
+    1800,
+    1004
+   ]
   },
   {
-   "f": "sko-09.webp",
-   "t": "SNOW CHROME",
-   "w": 2000,
-   "h": 800
+   "f": "isometrica-09.webp",
+   "t": "ARA-290",
+   "size": [
+    1800,
+    1004
+   ]
   },
   {
-   "f": "sko-10.webp",
-   "t": "THE HAND",
-   "w": 2000,
-   "h": 2171
+   "f": "isometrica-10.webp",
+   "t": "BPC-157",
+   "size": [
+    1800,
+    1004
+   ]
   },
   {
-   "f": "sko-11.webp",
-   "t": "THE DARK SET",
-   "w": 2000,
-   "h": 1860
+   "f": "isometrica-11.webp",
+   "t": "CAGRILINTIDE",
+   "size": [
+    1800,
+    1004
+   ]
   },
   {
-   "f": "sko-12.webp",
-   "t": "THE HOOD",
-   "w": 2000,
-   "h": 788
+   "f": "isometrica-12.webp",
+   "t": "DSIP",
+   "size": [
+    1800,
+    1004
+   ]
   },
   {
-   "f": "sko-13.webp",
-   "t": "THE PRODUCT SET",
-   "w": 2000,
-   "h": 706
+   "f": "isometrica-13.webp",
+   "t": "IGF1-LR3",
+   "size": [
+    1800,
+    1004
+   ]
   },
   {
-   "f": "sko-14.webp",
-   "t": "EVERY PRODUCT",
-   "w": 759,
-   "h": 6000
+   "f": "isometrica-14.webp",
+   "t": "IPAMORELIN",
+   "size": [
+    1800,
+    1004
+   ]
   },
   {
-   "f": "sko-15.webp",
-   "t": "THE BUNDLES",
-   "w": 2000,
-   "h": 2694
+   "f": "isometrica-15.webp",
+   "t": "KISSPEPTIN-10",
+   "size": [
+    1800,
+    1004
+   ]
   },
   {
-   "f": "sko-16.webp",
-   "t": "ASSETS",
-   "w": 2000,
-   "h": 3353
+   "f": "isometrica-16.webp",
+   "t": "KPV",
+   "size": [
+    1800,
+    1004
+   ]
+  },
+  {
+   "f": "isometrica-17.webp",
+   "t": "MT-1",
+   "size": [
+    1800,
+    1004
+   ]
+  },
+  {
+   "f": "isometrica-18.webp",
+   "t": "MT-2",
+   "size": [
+    1800,
+    1004
+   ]
+  },
+  {
+   "f": "isometrica-19.webp",
+   "t": "NAD+",
+   "size": [
+    1800,
+    1004
+   ]
+  },
+  {
+   "f": "isometrica-20.webp",
+   "t": "PT-141",
+   "size": [
+    1800,
+    1004
+   ]
+  },
+  {
+   "f": "isometrica-21.webp",
+   "t": "SELANK",
+   "size": [
+    1800,
+    1004
+   ]
+  },
+  {
+   "f": "isometrica-22.webp",
+   "t": "SEMAX",
+   "size": [
+    1800,
+    1004
+   ]
+  },
+  {
+   "f": "isometrica-23.webp",
+   "t": "SERMORELIN",
+   "size": [
+    1800,
+    1004
+   ]
+  },
+  {
+   "f": "isometrica-24.webp",
+   "t": "SS-31",
+   "size": [
+    1800,
+    1004
+   ]
+  },
+  {
+   "f": "isometrica-25.webp",
+   "t": "THYMOSIN ALPHA-1",
+   "size": [
+    1800,
+    1004
+   ]
+  },
+  {
+   "f": "isometrica-26.webp",
+   "t": "TB-500",
+   "size": [
+    1800,
+    1004
+   ]
+  },
+  {
+   "f": "isometrica-27.webp",
+   "t": "TESAMORELIN +",
+   "size": [
+    1800,
+    1004
+   ]
+  },
+  {
+   "f": "isometrica-28.webp",
+   "t": "GHK-CU SPRAY",
+   "size": [
+    1800,
+    1004
+   ]
+  },
+  {
+   "f": "isometrica-29.webp",
+   "t": "MT-2 SPRAY",
+   "size": [
+    1800,
+    1004
+   ]
+  },
+  {
+   "f": "isometrica-30.webp",
+   "t": "NAD+ SPRAY",
+   "size": [
+    1800,
+    1004
+   ]
+  },
+  {
+   "f": "isometrica-31.webp",
+   "t": "SELANK SPRAY",
+   "size": [
+    1800,
+    1004
+   ]
+  },
+  {
+   "f": "isometrica-32.webp",
+   "t": "SEMAX SPRAY",
+   "size": [
+    1800,
+    1004
+   ]
+  },
+  {
+   "f": "isometrica-33.webp",
+   "t": "TESAMORELIN",
+   "size": [
+    1800,
+    1004
+   ]
+  },
+  {
+   "f": "isometrica-34.webp",
+   "t": "WOLVERINE BLEND",
+   "size": [
+    1800,
+    1004
+   ]
+  },
+  {
+   "f": "isometrica-35.webp",
+   "t": "KLOW",
+   "size": [
+    1800,
+    1004
+   ]
+  },
+  {
+   "f": "isometrica-36.webp",
+   "t": "BACTERIOSTATIC",
+   "size": [
+    1800,
+    1004
+   ]
+  },
+  {
+   "f": "isometrica-37.webp",
+   "t": "SKO-3 RT",
+   "size": [
+    1800,
+    1004
+   ]
+  },
+  {
+   "f": "isometrica-38.webp",
+   "t": "SKO-TRZ",
+   "size": [
+    1800,
+    1004
+   ]
   }
  ]
 }
