@@ -366,5 +366,58 @@
     "url": "https://www.reddit.com/r/timberwolves/comments/1xuvpg5/mfw_the_timberwolves_are_so_much_fun_to_watch/"
    }
   ]
+ },
+ "real": {
+  "team": "Minnesota Timberwolves",
+  "window": "2026-11-04 to 2026-11-17",
+  "source": "Real (realapp.com) public game pages",
+  "games": 6,
+  "real_views_total": 1630875,
+  "real_views_per_game": 271812,
+  "top_game": {
+   "day": "2026-11-12",
+   "home": "Wolves",
+   "away": "Mavs",
+   "score": "94-133",
+   "real_views": 316381,
+   "status": "final"
+  },
+  "most_discussed": [
+   {
+    "day": "2026-11-12",
+    "type": "streak",
+    "player": "Rudy Gobert",
+    "what": "5-game 10-rebound streak 🔥",
+    "comments": 115
+   },
+   {
+    "day": "2026-11-11",
+    "type": "trade",
+    "player": "Johni Broome",
+    "what": "trade",
+    "comments": 89
+   },
+   {
+    "day": "2026-11-11",
+    "type": "birthday",
+    "player": "Joan Beringer",
+    "what": "birthday",
+    "comments": 83
+   },
+   {
+    "day": "2026-11-05",
+    "type": "birthday",
+    "player": "Trey Lyles",
+    "what": "birthday",
+    "comments": 46
+   },
+   {
+    "day": "2026-11-06",
+    "type": "injury",
+    "player": "Joan Beringer",
+    "what": "Questionable",
+    "comments": 4
+   }
+  ]
  }
 }

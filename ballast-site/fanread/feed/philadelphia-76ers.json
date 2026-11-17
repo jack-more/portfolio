@@ -419,5 +419,44 @@
     "url": "https://www.reddit.com/r/sixers/comments/1xx9cvz/1482/"
    }
   ]
+ },
+ "real": {
+  "team": "Philadelphia 76ers",
+  "window": "2026-11-04 to 2026-11-17",
+  "source": "Real (realapp.com) public game pages",
+  "games": 7,
+  "real_views_total": 2347755,
+  "real_views_per_game": 335394,
+  "top_game": {
+   "day": "2026-11-10",
+   "home": "76ers",
+   "away": "Celtics",
+   "score": "123-101",
+   "real_views": 475315,
+   "status": "final"
+  },
+  "most_discussed": [
+   {
+    "day": "2026-11-04",
+    "type": "birthday",
+    "player": "Tyrese Maxey",
+    "what": "birthday",
+    "comments": 913
+   },
+   {
+    "day": "2026-11-05",
+    "type": "injury",
+    "player": "Adem Bona",
+    "what": "Doubtful",
+    "comments": 9
+   },
+   {
+    "day": "2026-11-16",
+    "type": "injury",
+    "player": "Jaylen Brown",
+    "what": "Questionable",
+    "comments": 6
+   }
+  ]
  }
 }

@@ -434,5 +434,58 @@
     "url": "https://www.reddit.com/r/NYKnicks/comments/1xu2el3/sny_jalen_brunson_on_mikal_bridges_start_to_the/"
    }
   ]
+ },
+ "real": {
+  "team": "New York Knicks",
+  "window": "2026-11-04 to 2026-11-17",
+  "source": "Real (realapp.com) public game pages",
+  "games": 6,
+  "real_views_total": 1794804,
+  "real_views_per_game": 299134,
+  "top_game": {
+   "day": "2026-11-10",
+   "home": "Knicks",
+   "away": "Bucks",
+   "score": "85-117",
+   "real_views": 315355,
+   "status": "final"
+  },
+  "most_discussed": [
+   {
+    "day": "2026-11-15",
+    "type": "birthday",
+    "player": "Karl-Anthony Towns",
+    "what": "birthday",
+    "comments": 235
+   },
+   {
+    "day": "2026-11-12",
+    "type": "trade",
+    "player": "Rob Dillingham",
+    "what": "trade",
+    "comments": 206
+   },
+   {
+    "day": "2026-11-11",
+    "type": "streak",
+    "player": "Karl-Anthony Towns",
+    "what": "10-game 10-rebound streak 🔥, 10-game double-double streak 2️⃣",
+    "comments": 146
+   },
+   {
+    "day": "2026-11-13",
+    "type": "streak",
+    "player": "Karl-Anthony Towns",
+    "what": "11-game 10-rebound streak 🔥, 11-game double-double streak 2️⃣",
+    "comments": 20
+   },
+   {
+    "day": "2026-11-04",
+    "type": "streak",
+    "player": "Karl-Anthony Towns",
+    "what": "7-game 10-rebound streak 🔥, 7-game double-double streak 2️⃣",
+    "comments": 19
+   }
+  ]
  }
 }

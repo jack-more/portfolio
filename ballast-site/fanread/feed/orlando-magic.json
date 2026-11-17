@@ -441,5 +441,37 @@
     "url": "https://www.reddit.com/r/OrlandoMagic/comments/1xt7mih/unluckiest_coach/"
    }
   ]
+ },
+ "real": {
+  "team": "Orlando Magic",
+  "window": "2026-11-04 to 2026-11-17",
+  "source": "Real (realapp.com) public game pages",
+  "games": 6,
+  "real_views_total": 1600813,
+  "real_views_per_game": 266802,
+  "top_game": {
+   "day": "2026-11-07",
+   "home": "Warriors",
+   "away": "Magic",
+   "score": "119-126",
+   "real_views": 356005,
+   "status": "final"
+  },
+  "most_discussed": [
+   {
+    "day": "2026-11-12",
+    "type": "birthday",
+    "player": "Paolo Banchero",
+    "what": "birthday",
+    "comments": 116
+   },
+   {
+    "day": "2026-11-12",
+    "type": "birthday",
+    "player": "Au'Diese Toney",
+    "what": "birthday",
+    "comments": 12
+   }
+  ]
  }
 }

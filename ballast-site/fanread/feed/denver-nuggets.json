@@ -396,5 +396,30 @@
     "url": "https://www.reddit.com/r/denvernuggets/comments/1xy84t3/tomorrow_i_am_donating_my_kidney_to_my_fiancé_it/"
    }
   ]
+ },
+ "real": {
+  "team": "Denver Nuggets",
+  "window": "2026-11-04 to 2026-11-17",
+  "source": "Real (realapp.com) public game pages",
+  "games": 6,
+  "real_views_total": 1463919,
+  "real_views_per_game": 243986,
+  "top_game": {
+   "day": "2026-11-11",
+   "home": "Grizzlies",
+   "away": "Nuggets",
+   "score": "123-118",
+   "real_views": 268769,
+   "status": "final"
+  },
+  "most_discussed": [
+   {
+    "day": "2026-11-16",
+    "type": "streak",
+    "player": "Nikola Jokić",
+    "what": "5-game double-double streak 2️⃣",
+    "comments": 19
+   }
+  ]
  }
 }

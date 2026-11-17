@@ -423,5 +423,22 @@
     "url": "https://www.reddit.com/r/DetroitPistons/comments/1xux0tx/pistons_vs_wizards_on_a_random_thursday_night_in/"
    }
   ]
+ },
+ "real": {
+  "team": "Detroit Pistons",
+  "window": "2026-11-04 to 2026-11-17",
+  "source": "Real (realapp.com) public game pages",
+  "games": 5,
+  "real_views_total": 1718777,
+  "real_views_per_game": 343755,
+  "top_game": {
+   "day": "2026-11-04",
+   "home": "Pistons",
+   "away": "76ers",
+   "score": "112-106",
+   "real_views": 410622,
+   "status": "final"
+  },
+  "most_discussed": []
  }
 }

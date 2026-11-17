@@ -442,5 +442,58 @@
     "url": "https://www.reddit.com/r/ripcity/comments/1xu4j8x/post_game_thread_the_portland_trail_blazers_83/"
    }
   ]
+ },
+ "real": {
+  "team": "Portland Trail Blazers",
+  "window": "2026-11-04 to 2026-11-17",
+  "source": "Real (realapp.com) public game pages",
+  "games": 7,
+  "real_views_total": 1931247,
+  "real_views_per_game": 275892,
+  "top_game": {
+   "day": "2026-11-06",
+   "home": "Lakers",
+   "away": "Trail Blazers",
+   "score": "118-124",
+   "real_views": 387928,
+   "status": "final"
+  },
+  "most_discussed": [
+   {
+    "day": "2026-11-12",
+    "type": "injury",
+    "player": "Chris Youngblood",
+    "what": "Out",
+    "comments": 23
+   },
+   {
+    "day": "2026-11-07",
+    "type": "injury",
+    "player": "Robert Williams III",
+    "what": "Active",
+    "comments": 14
+   },
+   {
+    "day": "2026-11-11",
+    "type": "injury",
+    "player": "Chris Youngblood",
+    "what": "Questionable",
+    "comments": 5
+   },
+   {
+    "day": "2026-11-07",
+    "type": "injury",
+    "player": "Vít Krejčí",
+    "what": "Questionable",
+    "comments": 3
+   },
+   {
+    "day": "2026-11-10",
+    "type": "injury",
+    "player": "Vít Krejčí",
+    "what": "Questionable",
+    "comments": 3
+   }
+  ]
  }
 }

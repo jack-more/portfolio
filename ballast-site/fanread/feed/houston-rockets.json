@@ -395,5 +395,30 @@
     "url": "https://www.reddit.com/r/rockets/comments/1xxe5do/tari_eason_25_pts_7_reb_1014_fg_816_ts/"
    }
   ]
+ },
+ "real": {
+  "team": "Houston Rockets",
+  "window": "2026-11-04 to 2026-11-17",
+  "source": "Real (realapp.com) public game pages",
+  "games": 7,
+  "real_views_total": 1927822,
+  "real_views_per_game": 275403,
+  "top_game": {
+   "day": "2026-11-11",
+   "home": "Rockets",
+   "away": "Warriors",
+   "score": "108-115",
+   "real_views": 352223,
+   "status": "final"
+  },
+  "most_discussed": [
+   {
+    "day": "2026-11-05",
+    "type": "birthday",
+    "player": "Julian Phillips",
+    "what": "birthday",
+    "comments": 19
+   }
+  ]
  }
 }

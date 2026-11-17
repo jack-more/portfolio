@@ -418,5 +418,37 @@
     "url": "https://www.reddit.com/r/torontoraptors/comments/1xwimrw/og_pulling_up_to_the_eaton_centre_on_november/"
    }
   ]
+ },
+ "real": {
+  "team": "Toronto Raptors",
+  "window": "2026-11-04 to 2026-11-17",
+  "source": "Real (realapp.com) public game pages",
+  "games": 6,
+  "real_views_total": 1651976,
+  "real_views_per_game": 275329,
+  "top_game": {
+   "day": "2026-11-11",
+   "home": "Raptors",
+   "away": "Celtics",
+   "score": "98-93",
+   "real_views": 310126,
+   "status": "final"
+  },
+  "most_discussed": [
+   {
+    "day": "2026-11-05",
+    "type": "trade",
+    "player": "Kevin McCullar Jr.",
+    "what": "trade",
+    "comments": 24
+   },
+   {
+    "day": "2026-11-17",
+    "type": "injury",
+    "player": "Scottie Barnes",
+    "what": "Questionable",
+    "comments": 10
+   }
+  ]
  }
 }

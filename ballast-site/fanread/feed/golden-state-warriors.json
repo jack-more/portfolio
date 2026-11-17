@@ -441,5 +441,51 @@
     "url": "https://www.reddit.com/r/warriors/comments/1xu53un/the_rockets_whenever_they_play_against_curry/"
    }
   ]
+ },
+ "real": {
+  "team": "Golden State Warriors",
+  "window": "2026-11-04 to 2026-11-17",
+  "source": "Real (realapp.com) public game pages",
+  "games": 6,
+  "real_views_total": 2032892,
+  "real_views_per_game": 338815,
+  "top_game": {
+   "day": "2026-11-05",
+   "home": "Warriors",
+   "away": "Heat",
+   "score": "100-120",
+   "real_views": 365348,
+   "status": "final"
+  },
+  "most_discussed": [
+   {
+    "day": "2026-11-09",
+    "type": "streak",
+    "player": "",
+    "what": "7-game win streak 📈",
+    "comments": 49
+   },
+   {
+    "day": "2026-11-09",
+    "type": "injury",
+    "player": "Brandon Williams",
+    "what": "Questionable",
+    "comments": 10
+   },
+   {
+    "day": "2026-11-12",
+    "type": "injury",
+    "player": "Charles Bassey",
+    "what": "Probable",
+    "comments": 4
+   },
+   {
+    "day": "2026-11-05",
+    "type": "injury",
+    "player": "Gui Santos",
+    "what": "Questionable",
+    "comments": 3
+   }
+  ]
  }
 }

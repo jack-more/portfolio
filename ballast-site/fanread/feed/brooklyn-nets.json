@@ -417,5 +417,30 @@
     "url": "https://www.reddit.com/r/GoNets/comments/1xwklzw/im_officially_out_on_jordi_fernandez/"
    }
   ]
+ },
+ "real": {
+  "team": "Brooklyn Nets",
+  "window": "2026-11-04 to 2026-11-17",
+  "source": "Real (realapp.com) public game pages",
+  "games": 6,
+  "real_views_total": 1484101,
+  "real_views_per_game": 247350,
+  "top_game": {
+   "day": "2026-11-16",
+   "home": "Nets",
+   "away": "76ers",
+   "score": "135-123",
+   "real_views": 300044,
+   "status": "final"
+  },
+  "most_discussed": [
+   {
+    "day": "2026-11-06",
+    "type": "birthday",
+    "player": "Day'Ron Sharpe",
+    "what": "birthday",
+    "comments": 44
+   }
+  ]
  }
 }

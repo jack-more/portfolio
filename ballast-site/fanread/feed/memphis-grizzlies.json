@@ -411,5 +411,44 @@
     "url": "https://www.reddit.com/r/memphisgrizzlies/comments/1xwm7oy/beef_social_media_intern_stew/"
    }
   ]
+ },
+ "real": {
+  "team": "Memphis Grizzlies",
+  "window": "2026-11-04 to 2026-11-17",
+  "source": "Real (realapp.com) public game pages",
+  "games": 7,
+  "real_views_total": 1697129,
+  "real_views_per_game": 242447,
+  "top_game": {
+   "day": "2026-11-06",
+   "home": "Grizzlies",
+   "away": "Thunder",
+   "score": "128-97",
+   "real_views": 277295,
+   "status": "final"
+  },
+  "most_discussed": [
+   {
+    "day": "2026-11-10",
+    "type": "birthday",
+    "player": "Scotty Pippen Jr.",
+    "what": "birthday",
+    "comments": 39
+   },
+   {
+    "day": "2026-11-10",
+    "type": "birthday",
+    "player": "Jahmai Mashack",
+    "what": "birthday",
+    "comments": 17
+   },
+   {
+    "day": "2026-11-14",
+    "type": "injury",
+    "player": "GG Jackson",
+    "what": "Questionable",
+    "comments": 3
+   }
+  ]
  }
 }

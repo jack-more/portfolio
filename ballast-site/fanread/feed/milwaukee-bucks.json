@@ -438,5 +438,30 @@
     "url": "https://www.reddit.com/r/MkeBucks/comments/1xu45qr/real_recognize_real/"
    }
   ]
+ },
+ "real": {
+  "team": "Milwaukee Bucks",
+  "window": "2026-11-04 to 2026-11-17",
+  "source": "Real (realapp.com) public game pages",
+  "games": 7,
+  "real_views_total": 1832420,
+  "real_views_per_game": 261774,
+  "top_game": {
+   "day": "2026-11-11",
+   "home": "Bucks",
+   "away": "Lakers",
+   "score": "123-112",
+   "real_views": 323547,
+   "status": "final"
+  },
+  "most_discussed": [
+   {
+    "day": "2026-11-15",
+    "type": "injury",
+    "player": "Ryan Rollins",
+    "what": "Questionable",
+    "comments": 1
+   }
+  ]
  }
 }

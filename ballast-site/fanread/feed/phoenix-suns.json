@@ -410,5 +410,22 @@
     "url": "https://www.reddit.com/r/suns/comments/1xuz3c8/went_to_my_first_ever_nba_game/"
    }
   ]
+ },
+ "real": {
+  "team": "Phoenix Suns",
+  "window": "2026-11-04 to 2026-11-17",
+  "source": "Real (realapp.com) public game pages",
+  "games": 8,
+  "real_views_total": 2137042,
+  "real_views_per_game": 267130,
+  "top_game": {
+   "day": "2026-11-15",
+   "home": "Suns",
+   "away": "Lakers",
+   "score": "131-123",
+   "real_views": 319128,
+   "status": "final"
+  },
+  "most_discussed": []
  }
 }

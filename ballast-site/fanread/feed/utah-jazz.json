@@ -417,5 +417,58 @@
     "url": "https://www.reddit.com/r/UtahJazz/comments/1xvh19t/jazz_up_6967_in_the_third_hoping_to_stop_the/"
    }
   ]
+ },
+ "real": {
+  "team": "Utah Jazz",
+  "window": "2026-11-04 to 2026-11-17",
+  "source": "Real (realapp.com) public game pages",
+  "games": 7,
+  "real_views_total": 1806231,
+  "real_views_per_game": 258033,
+  "top_game": {
+   "day": "2026-11-10",
+   "home": "Jazz",
+   "away": "Heat",
+   "score": "115-109",
+   "real_views": 282903,
+   "status": "final"
+  },
+  "most_discussed": [
+   {
+    "day": "2026-11-08",
+    "type": "birthday",
+    "player": "Keyonte George",
+    "what": "birthday",
+    "comments": 113
+   },
+   {
+    "day": "2026-11-16",
+    "type": "birthday",
+    "player": "Josh Green",
+    "what": "birthday",
+    "comments": 28
+   },
+   {
+    "day": "2026-11-17",
+    "type": "streak",
+    "player": "",
+    "what": "12-game losing streak 📉",
+    "comments": 24
+   },
+   {
+    "day": "2026-11-07",
+    "type": "birthday",
+    "player": "Kyle Filipowski",
+    "what": "birthday",
+    "comments": 21
+   },
+   {
+    "day": "2026-11-16",
+    "type": "trade",
+    "player": "Jonas Aidoo",
+    "what": "trade",
+    "comments": 18
+   }
+  ]
  }
 }

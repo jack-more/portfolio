@@ -415,5 +415,51 @@
     "url": "https://www.reddit.com/r/chicagobulls/comments/1xwprdx/will_the_bulls_ever_lose_again_is_these_team/"
    }
   ]
+ },
+ "real": {
+  "team": "Chicago Bulls",
+  "window": "2026-11-04 to 2026-11-17",
+  "source": "Real (realapp.com) public game pages",
+  "games": 6,
+  "real_views_total": 1619975,
+  "real_views_per_game": 269996,
+  "top_game": {
+   "day": "2026-11-11",
+   "home": "Bulls",
+   "away": "Spurs",
+   "score": "124-119",
+   "real_views": 310345,
+   "status": "final"
+  },
+  "most_discussed": [
+   {
+    "day": "2026-11-13",
+    "type": "trade",
+    "player": "Orlando Robinson",
+    "what": "trade",
+    "comments": 43
+   },
+   {
+    "day": "2026-11-11",
+    "type": "injury",
+    "player": "Caleb Wilson",
+    "what": "Questionable",
+    "comments": 10
+   },
+   {
+    "day": "2026-11-10",
+    "type": "injury",
+    "player": "Tobe Awaka",
+    "what": "Questionable",
+    "comments": 0
+   },
+   {
+    "day": "2026-11-13",
+    "type": "injury",
+    "player": "Tobe Awaka",
+    "what": "Questionable",
+    "comments": 0
+   }
+  ]
  }
 }

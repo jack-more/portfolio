@@ -432,5 +432,51 @@
     "url": "https://www.reddit.com/r/Thunder/comments/1xtuo1e/not_gonna_lie_dude_id_take_a_few_bullets_for_mara/"
    }
   ]
+ },
+ "real": {
+  "team": "Oklahoma City Thunder",
+  "window": "2026-11-04 to 2026-11-17",
+  "source": "Real (realapp.com) public game pages",
+  "games": 7,
+  "real_views_total": 1819073,
+  "real_views_per_game": 259868,
+  "top_game": {
+   "day": "2026-11-04",
+   "home": "Thunder",
+   "away": "Cavaliers",
+   "score": "116-124",
+   "real_views": 287532,
+   "status": "final"
+  },
+  "most_discussed": [
+   {
+    "day": "2026-11-08",
+    "type": "trade",
+    "player": "Nique Clifford",
+    "what": "trade",
+    "comments": 1039
+   },
+   {
+    "day": "2026-11-07",
+    "type": "birthday",
+    "player": "Cason Wallace",
+    "what": "birthday",
+    "comments": 119
+   },
+   {
+    "day": "2026-11-10",
+    "type": "injury",
+    "player": "Jaylin Williams",
+    "what": "Questionable",
+    "comments": 6
+   },
+   {
+    "day": "2026-11-11",
+    "type": "injury",
+    "player": "Ajay Mitchell",
+    "what": "Questionable",
+    "comments": 1
+   }
+  ]
  }
 }

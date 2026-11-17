@@ -409,5 +409,58 @@
     "url": "https://www.reddit.com/r/kings/comments/1xttp8n/even_though_he_is_not_a_good_coach_ill_always/"
    }
   ]
+ },
+ "real": {
+  "team": "Sacramento Kings",
+  "window": "2026-11-04 to 2026-11-17",
+  "source": "Real (realapp.com) public game pages",
+  "games": 6,
+  "real_views_total": 1550925,
+  "real_views_per_game": 258488,
+  "top_game": {
+   "day": "2026-11-04",
+   "home": "Kings",
+   "away": "Lakers",
+   "score": "116-103",
+   "real_views": 339877,
+   "status": "final"
+  },
+  "most_discussed": [
+   {
+    "day": "2026-11-16",
+    "type": "birthday",
+    "player": "Darius Acuff Jr.",
+    "what": "birthday",
+    "comments": 396
+   },
+   {
+    "day": "2026-11-11",
+    "type": "trade",
+    "player": "Mason Plumlee",
+    "what": "trade",
+    "comments": 69
+   },
+   {
+    "day": "2026-11-11",
+    "type": "birthday",
+    "player": "Alex Karaban",
+    "what": "birthday",
+    "comments": 21
+   },
+   {
+    "day": "2026-11-05",
+    "type": "injury",
+    "player": "Daeqwon Plowden",
+    "what": "Active",
+    "comments": 6
+   },
+   {
+    "day": "2026-11-15",
+    "type": "injury",
+    "player": "Zach LaVine",
+    "what": "Questionable",
+    "comments": 3
+   }
+  ]
  }
 }

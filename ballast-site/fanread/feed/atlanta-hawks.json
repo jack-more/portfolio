@@ -424,5 +424,58 @@
     "url": "https://www.reddit.com/r/AtlantaHawks/comments/1xvsbwe/getting_cooked_by_norman_powell_in_the_big_2026/"
    }
   ]
+ },
+ "real": {
+  "team": "Atlanta Hawks",
+  "window": "2026-11-04 to 2026-11-17",
+  "source": "Real (realapp.com) public game pages",
+  "games": 6,
+  "real_views_total": 1632119,
+  "real_views_per_game": 272020,
+  "top_game": {
+   "day": "2026-11-09",
+   "home": "Hawks",
+   "away": "Lakers",
+   "score": "124-114",
+   "real_views": 349894,
+   "status": "final"
+  },
+  "most_discussed": [
+   {
+    "day": "2026-11-09",
+    "type": "birthday",
+    "player": "Mouhamed Gueye",
+    "what": "birthday",
+    "comments": 26
+   },
+   {
+    "day": "2026-11-04",
+    "type": "birthday",
+    "player": "Jalen Wilson",
+    "what": "birthday",
+    "comments": 20
+   },
+   {
+    "day": "2026-11-15",
+    "type": "trade",
+    "player": "Rafael Castro",
+    "what": "trade",
+    "comments": 7
+   },
+   {
+    "day": "2026-11-07",
+    "type": "streak",
+    "player": "Onyeka Okongwu",
+    "what": "5-game 10-rebound streak 🔥",
+    "comments": 4
+   },
+   {
+    "day": "2026-11-04",
+    "type": "injury",
+    "player": "Asa Newell",
+    "what": "Questionable",
+    "comments": 1
+   }
+  ]
  }
 }

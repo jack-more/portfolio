@@ -393,5 +393,58 @@
     "url": "https://www.reddit.com/r/lakers/comments/1xxd6co/video_luka_dončić_really_stole_the_clipboard_away/"
    }
   ]
+ },
+ "real": {
+  "team": "Los Angeles Lakers",
+  "window": "2026-11-04 to 2026-11-17",
+  "source": "Real (realapp.com) public game pages",
+  "games": 6,
+  "real_views_total": 2084293,
+  "real_views_per_game": 347382,
+  "top_game": {
+   "day": "2026-11-06",
+   "home": "Lakers",
+   "away": "Trail Blazers",
+   "score": "118-124",
+   "real_views": 387928,
+   "status": "final"
+  },
+  "most_discussed": [
+   {
+    "day": "2026-11-10",
+    "type": "trade",
+    "player": "Carson Cooper",
+    "what": "trade",
+    "comments": 1734
+   },
+   {
+    "day": "2026-11-04",
+    "type": "birthday",
+    "player": "Jake LaRavia",
+    "what": "birthday",
+    "comments": 150
+   },
+   {
+    "day": "2026-11-06",
+    "type": "streak",
+    "player": "Luka Dončić",
+    "what": "6-game 30-point streak 🔥, 3-game 40-point streak 🔥",
+    "comments": 76
+   },
+   {
+    "day": "2026-11-08",
+    "type": "streak",
+    "player": "Luka Dončić",
+    "what": "7-game 30-point streak 🔥, 4-game 40-point streak 🔥",
+    "comments": 67
+   },
+   {
+    "day": "2026-11-04",
+    "type": "streak",
+    "player": "Luka Dončić",
+    "what": "5-game 30-point streak 🔥",
+    "comments": 61
+   }
+  ]
  }
 }

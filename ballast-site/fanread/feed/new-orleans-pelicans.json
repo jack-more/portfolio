@@ -411,5 +411,58 @@
     "url": "https://www.reddit.com/r/NOLAPelicans/comments/1xvijl1/this_motherfucker_retweeted_his_own_trade_request/"
    }
   ]
+ },
+ "real": {
+  "team": "New Orleans Pelicans",
+  "window": "2026-11-04 to 2026-11-17",
+  "source": "Real (realapp.com) public game pages",
+  "games": 8,
+  "real_views_total": 2039972,
+  "real_views_per_game": 254996,
+  "top_game": {
+   "day": "2026-11-09",
+   "home": "Warriors",
+   "away": "Pelicans",
+   "score": "87-138",
+   "real_views": 308543,
+   "status": "final"
+  },
+  "most_discussed": [
+   {
+    "day": "2026-11-09",
+    "type": "birthday",
+    "player": "Trendon Watford",
+    "what": "birthday",
+    "comments": 31
+   },
+   {
+    "day": "2026-11-08",
+    "type": "birthday",
+    "player": "Bryce McGowens",
+    "what": "birthday",
+    "comments": 14
+   },
+   {
+    "day": "2026-11-08",
+    "type": "injury",
+    "player": "Yves Missi",
+    "what": "Questionable",
+    "comments": 2
+   },
+   {
+    "day": "2026-11-09",
+    "type": "injury",
+    "player": "Trendon Watford",
+    "what": "Questionable",
+    "comments": 2
+   },
+   {
+    "day": "2026-11-09",
+    "type": "injury",
+    "player": "Yves Missi",
+    "what": "Questionable",
+    "comments": 0
+   }
+  ]
  }
 }

@@ -425,5 +425,58 @@
     "url": "https://www.reddit.com/r/clevelandcavs/comments/1xwmti5/tyrese_proctor_full_highlights_vs_dallas/"
    }
   ]
+ },
+ "real": {
+  "team": "Cleveland Cavaliers",
+  "window": "2026-11-04 to 2026-11-17",
+  "source": "Real (realapp.com) public game pages",
+  "games": 8,
+  "real_views_total": 2279755,
+  "real_views_per_game": 284969,
+  "top_game": {
+   "day": "2026-11-06",
+   "home": "Cavaliers",
+   "away": "76ers",
+   "score": "95-119",
+   "real_views": 360518,
+   "status": "final"
+  },
+  "most_discussed": [
+   {
+    "day": "2026-11-04",
+    "type": "trade",
+    "player": "Norchad Omier",
+    "what": "trade",
+    "comments": 43
+   },
+   {
+    "day": "2026-11-04",
+    "type": "trade",
+    "player": "Norchad Omier",
+    "what": "trade",
+    "comments": 27
+   },
+   {
+    "day": "2026-11-05",
+    "type": "trade",
+    "player": "Riley Minix",
+    "what": "trade",
+    "comments": 26
+   },
+   {
+    "day": "2026-11-07",
+    "type": "trade",
+    "player": "Riley Minix",
+    "what": "trade",
+    "comments": 10
+   },
+   {
+    "day": "2026-11-16",
+    "type": "injury",
+    "player": "Peyton Watson",
+    "what": "Questionable",
+    "comments": 5
+   }
+  ]
  }
 }

@@ -420,5 +420,30 @@
     "url": "https://www.reddit.com/r/Mavericks/comments/1xwbks8/why_he_always_look_like_he_about_to_plant_a/"
    }
   ]
+ },
+ "real": {
+  "team": "Dallas Mavericks",
+  "window": "2026-11-04 to 2026-11-17",
+  "source": "Real (realapp.com) public game pages",
+  "games": 7,
+  "real_views_total": 2032674,
+  "real_views_per_game": 290382,
+  "top_game": {
+   "day": "2026-11-04",
+   "home": "Spurs",
+   "away": "Mavs",
+   "score": "111-112",
+   "real_views": 360056,
+   "status": "final"
+  },
+  "most_discussed": [
+   {
+    "day": "2026-11-14",
+    "type": "injury",
+    "player": "Daniel Gafford",
+    "what": "Questionable",
+    "comments": 1
+   }
+  ]
  }
 }

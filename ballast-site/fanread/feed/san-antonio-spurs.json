@@ -397,5 +397,58 @@
     "url": "https://www.reddit.com/r/NBASpurs/comments/1xsrjia/booker_on_wemby_its_something_like_weve_never/"
    }
   ]
+ },
+ "real": {
+  "team": "San Antonio Spurs",
+  "window": "2026-11-04 to 2026-11-17",
+  "source": "Real (realapp.com) public game pages",
+  "games": 7,
+  "real_views_total": 2131086,
+  "real_views_per_game": 304441,
+  "top_game": {
+   "day": "2026-11-04",
+   "home": "Spurs",
+   "away": "Mavs",
+   "score": "111-112",
+   "real_views": 360056,
+   "status": "final"
+  },
+  "most_discussed": [
+   {
+    "day": "2026-11-13",
+    "type": "streak",
+    "player": "",
+    "what": "10-game win streak 📈",
+    "comments": 30
+   },
+   {
+    "day": "2026-11-11",
+    "type": "streak",
+    "player": "",
+    "what": "9-game win streak 📈",
+    "comments": 29
+   },
+   {
+    "day": "2026-11-15",
+    "type": "birthday",
+    "player": "Maliq Brown",
+    "what": "birthday",
+    "comments": 27
+   },
+   {
+    "day": "2026-11-09",
+    "type": "streak",
+    "player": "",
+    "what": "8-game win streak 📈",
+    "comments": 22
+   },
+   {
+    "day": "2026-11-07",
+    "type": "streak",
+    "player": "",
+    "what": "7-game win streak 📈",
+    "comments": 17
+   }
+  ]
  }
 }

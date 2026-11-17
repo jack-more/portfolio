@@ -388,5 +388,51 @@
     "url": "https://www.reddit.com/r/heat/comments/1xvsdnh/17_assists_1_tov_davion_mitchell/"
    }
   ]
+ },
+ "real": {
+  "team": "Miami Heat",
+  "window": "2026-11-04 to 2026-11-17",
+  "source": "Real (realapp.com) public game pages",
+  "games": 7,
+  "real_views_total": 2006552,
+  "real_views_per_game": 286650,
+  "top_game": {
+   "day": "2026-11-05",
+   "home": "Warriors",
+   "away": "Heat",
+   "score": "100-120",
+   "real_views": 365348,
+   "status": "final"
+  },
+  "most_discussed": [
+   {
+    "day": "2026-11-05",
+    "type": "streak",
+    "player": "Giannis Antetokounmpo",
+    "what": "5-game 10-rebound streak 🔥, 5-game double-double streak 2️⃣",
+    "comments": 23
+   },
+   {
+    "day": "2026-11-08",
+    "type": "streak",
+    "player": "Giannis Antetokounmpo",
+    "what": "6-game 10-rebound streak 🔥, 6-game double-double streak 2️⃣",
+    "comments": 23
+   },
+   {
+    "day": "2026-11-13",
+    "type": "streak",
+    "player": "Giannis Antetokounmpo",
+    "what": "8-game 10-rebound streak 🔥, 8-game double-double streak 2️⃣",
+    "comments": 11
+   },
+   {
+    "day": "2026-11-10",
+    "type": "streak",
+    "player": "Giannis Antetokounmpo",
+    "what": "7-game 10-rebound streak 🔥, 7-game double-double streak 2️⃣",
+    "comments": 6
+   }
+  ]
  }
 }

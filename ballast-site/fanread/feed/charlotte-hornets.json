@@ -431,5 +431,30 @@
     "url": "https://www.reddit.com/r/CharlotteHornets/comments/1xw2rr7/eric_collins_im_a_massive_believer_in_kon/"
    }
   ]
+ },
+ "real": {
+  "team": "Charlotte Hornets",
+  "window": "2026-11-04 to 2026-11-17",
+  "source": "Real (realapp.com) public game pages",
+  "games": 5,
+  "real_views_total": 1279162,
+  "real_views_per_game": 255832,
+  "top_game": {
+   "day": "2026-11-06",
+   "home": "Hornets",
+   "away": "Celtics",
+   "score": "119-80",
+   "real_views": 285485,
+   "status": "final"
+  },
+  "most_discussed": [
+   {
+    "day": "2026-11-04",
+    "type": "injury",
+    "player": "Kon Knueppel",
+    "what": "Questionable",
+    "comments": 4
+   }
+  ]
  }
 }

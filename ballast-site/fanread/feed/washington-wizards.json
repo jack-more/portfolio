@@ -430,5 +430,22 @@
     "url": "https://www.reddit.com/r/washingtonwizards/comments/1xxexh8/tari_eason_expresses_his_gratitude/"
    }
   ]
+ },
+ "real": {
+  "team": "Washington Wizards",
+  "window": "2026-11-04 to 2026-11-17",
+  "source": "Real (realapp.com) public game pages",
+  "games": 8,
+  "real_views_total": 2193775,
+  "real_views_per_game": 274222,
+  "top_game": {
+   "day": "2026-11-12",
+   "home": "Wizards",
+   "away": "Pistons",
+   "score": "144-140",
+   "real_views": 385633,
+   "status": "final"
+  },
+  "most_discussed": []
  }
 }
