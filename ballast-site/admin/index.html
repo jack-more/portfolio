@@ -570,7 +570,9 @@ function renderPane(){
   const c=l.checks||{}, d=l.draft||{}, st=stageOf(l), n=nextOf(l);
   const sigs=(l.signals||[]).slice().sort((a,b)=>String(b.date).localeCompare(String(a.date)));
   const mail=mailOf(l);
-  const conf=l.contactSource==='public'?'<span class="tag ok">Confirmed</span>':l.contactSource==='leadsforge'?'<span class="tag warn">Check this person is still there</span>':'';
+  // "Confirmed" only when someone checked, with a dated source, in the last 90 days
+  const chk=l.contactChecked&&ago(l.contactChecked)<=90;
+  const conf=!l.person?'':chk?`<span class="tag ok">Confirmed ${esc(fmt(l.contactChecked))}</span>`:'<span class="tag warn">Not re-checked, confirm before sending</span>';
   const meta=[segName(l.segment),l.city,l.score?'Score '+l.score:(l.tier?'Tier '+l.tier:''),stName(st)].filter(Boolean).join(' · ');
   const facts=[['What they sell',l.what],['Size',l.size],['Ad tracking',l.tracking],['Risk',l.risk],['HQ',l.address],['FDA letter to',l.inbox]].filter(f=>f[1]);
   const doneSteps=STEPS.filter(s=>c[s[0]]).length;
@@ -586,10 +588,10 @@ function renderPane(){
     </div></div></div>
   <div class="doc">
     <section class="blk"><h3>Write to</h3>
-      ${l.person?`<div class="person"><b>${esc(l.person)}</b><span>${esc(l.role||'')}</span>${conf}</div>`:`<p style="color:var(--soft)">No contact yet. Find the founder, CEO or head of growth.</p>`}
+      ${l.person?`<div class="person"><b>${esc(l.person)}</b><span>${esc(l.role||'')}</span>${conf}</div>${l.contactNote?`<p style="color:var(--soft);font-size:15px">${esc(l.contactNote)}</p>`:''}`:`<p style="color:var(--soft)">No contact yet. Find the founder, CEO or head of growth.</p>`}
       <div class="links">${mail?`<a href="mailto:${esc(mail)}">${esc(mail)}</a><button type="button" class="btn sm" data-copymail="${esc(mail)}">Copy email</button>`:''}
         ${l.linkedin?`<a href="${esc(url(l.linkedin))}" target="_blank" rel="noopener">LinkedIn ↗</a>`:`<a href="${esc(liSearch(l))}" target="_blank" rel="noopener">Find on LinkedIn ↗</a>`}
-        ${l.contactSourceUrl?`<a href="${esc(url(l.contactSourceUrl))}" target="_blank" rel="noopener" class="dim">Where they're named ↗</a>`:''}
+        ${l.contactSourceUrl?`<a href="${esc(url(l.contactSourceUrl))}" target="_blank" rel="noopener" class="dim">${chk?'Source for this':'Where they were named'} ↗</a>`:''}
         ${l.contactUrl?`<a href="${esc(url(l.contactUrl))}" target="_blank" rel="noopener" class="dim">Contact page ↗</a>`:''}</div>
     </section>
     <section class="blk"><h3>Why now</h3>
