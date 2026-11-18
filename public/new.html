@@ -19,6 +19,13 @@ a{color:inherit;text-decoration:none}img{display:block;width:100%;height:100%;ob
 .side .wm{font-size:clamp(48px,7vw,120px);min-height:0}.two{display:grid;grid-template-columns:1fr 1fr;gap:var(--g)}
 .tagp{font-size:clamp(15px,1.5vw,22px);font-weight:500;letter-spacing:-.01em;padding:14px 16px}
 @media (max-width:760px){.c5{grid-template-columns:1fr 1fr!important}.hdr{grid-template-columns:1fr}.two{grid-template-columns:1fr}.side .wm{font-size:17vw}}
+.h1row{display:grid;grid-template-columns:2.3fr 1fr 1fr;gap:var(--g)}
+.wm2{display:flex;align-items:flex-end;padding:8px 14px 10px;overflow:hidden}
+.wm2 span{display:block;white-space:nowrap;font-weight:700;letter-spacing:-.055em;line-height:.8;padding-bottom:.04em}
+.h1row .p.t{font-size:clamp(13px,1.05vw,16px);line-height:1.35}
+.h3row{display:grid;grid-template-columns:2.3fr 2fr;gap:var(--g)}
+.h3row .stats{justify-content:space-between}
+@media (max-width:760px){.h1row,.h3row{grid-template-columns:1fr}}
 .row{display:grid;gap:var(--g)}
 .t{display:grid;grid-template-rows:auto auto;gap:4px;min-width:0}
 .m{border-radius:var(--r);overflow:hidden;background:#ddd;aspect-ratio:16/9}
@@ -34,19 +41,17 @@ a{color:inherit;text-decoration:none}img{display:block;width:100%;height:100%;ob
  .c2,.c3,.c4{grid-template-columns:1fr}.sko{grid-template-columns:1fr 1fr 1fr}.sko>.t:last-child{grid-column:1/-1}.foot{grid-template-columns:1fr 1fr}.cap{grid-template-columns:1fr}}
 </style></head><body><div class="wrap">
 
-<div class="hdr">
- 
- <div class="side">
-  <div class="p wm">Jack Morello</div>
-  <div class="two">
-   <div class="p t">Growth, paid media and research for brands ready to scale. 8+ years, Los Angeles. Founder of Ballast Research.</div>
-   <div class="p t">jack@ballast.la · Paid Media, Creative, Creators, Measurement, Research</div>
-  </div>
-  <div class="pills"><a class="pill" href="#info">Information</a><a class="pill" href="/JackMorello_CV.pdf">Resume (PDF)</a><a class="pill" href="https://ballast.la/#book">Book a call</a></div>
-  <div class="p tagp">Paid Media, Growth and Research for Sports, Entertainment and Consumer Brands</div>
-  <div class="p stats"><span><b>$50M+</b>managed</span><span><b>$1.2M+</b>a month, one DTC brand</span><span><b>1,000+</b>ads shipped</span></div>
- </div>
+<div class="h1row">
+ <div class="p wm2"><span id="fitname">Jack Morello</span></div>
+ <div class="p t">Growth, paid media and research for brands ready to scale. 8+ years in Los Angeles. Founder of Ballast Research.</div>
+ <div class="p t">jack@ballast.la<br>Paid Media, Creative, Creators, Measurement, Research</div>
 </div>
+<div class="pills"><a class="pill" href="#info">Information</a><a class="pill" href="/JackMorello_CV.pdf">Resume (PDF)</a><a class="pill" href="https://ballast.la/#book">Book a call</a></div>
+<div class="h3row">
+ <div class="p tagp">Paid Media, Growth and Research for Sports, Entertainment and Consumer Brands</div>
+ <div class="p stats"><span><b>$50M+</b>managed</span><span><b>$1.2M+</b>a month, one DTC brand</span><span><b>1,000+</b>ads shipped</span></div>
+</div>
+<script>(function(){const e=document.getElementById('fitname');function fit(){const box=e.parentElement,cs=getComputedStyle(box),w=box.clientWidth-parseFloat(cs.paddingLeft)-parseFloat(cs.paddingRight);e.style.fontSize='100px';e.style.fontSize=(100*w/e.scrollWidth)+'px'}fit();addEventListener('resize',fit);document.fonts&&document.fonts.ready.then(fit)})();</script>
 
 <!-- HOTG -->
 <div class="row">
