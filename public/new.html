@@ -14,10 +14,15 @@ a{color:inherit;text-decoration:none}img{display:block;width:100%;height:100%;ob
 .tag{display:grid;grid-template-columns:1fr auto;gap:var(--g)}
 .tag .p{font-size:clamp(15px,1.5vw,22px);font-weight:500;letter-spacing:-.01em;padding:14px 16px}
 .stats{display:flex;gap:22px;align-items:center;font-size:12.5px;white-space:nowrap}.stats b{font-size:clamp(15px,1.5vw,22px);font-weight:600;margin-right:6px}
+.hdr{display:grid;grid-template-columns:minmax(0,0.9fr) minmax(0,1.1fr);gap:var(--g)}
+.m.vid{aspect-ratio:1/1;background:#fff}.side{display:grid;gap:var(--g);grid-template-rows:1fr auto auto auto auto}
+.side .wm{font-size:clamp(48px,7vw,120px);min-height:0}.two{display:grid;grid-template-columns:1fr 1fr;gap:var(--g)}
+.tagp{font-size:clamp(15px,1.5vw,22px);font-weight:500;letter-spacing:-.01em;padding:14px 16px}
+@media (max-width:760px){.hdr{grid-template-columns:1fr}.two{grid-template-columns:1fr}.side .wm{font-size:17vw}}
 .row{display:grid;gap:var(--g)}
 .t{display:grid;grid-template-rows:auto auto;gap:4px;min-width:0}
 .m{border-radius:var(--r);overflow:hidden;background:#ddd;aspect-ratio:16/9}
-.m.v{aspect-ratio:9/16}.m.b{aspect-ratio:1089/730}.m.i{aspect-ratio:1089/607}
+.m.v{aspect-ratio:9/16}.m.sq{aspect-ratio:1/1}.m.hero{aspect-ratio:21/9}.m video{display:block;width:100%;height:100%;object-fit:cover}.m.b{aspect-ratio:1089/730}.m.i{aspect-ratio:1089/607}
 .cap{min-width:0;overflow-wrap:anywhere;background:var(--panel);color:#fff;border-radius:6px;display:grid;grid-template-columns:auto 1fr;gap:12px;padding:6px 10px;font-size:11.5px;line-height:1.35}
 .cap b{font-weight:700;white-space:nowrap}.cap span{color:#C9C9CE}
 .txt{background:var(--panel);color:#fff;border-radius:var(--r);display:flex;align-items:flex-end;padding:16px;font:600 clamp(20px,2.2vw,34px)/1.05 "Helvetica Neue",Helvetica,Arial,sans-serif;letter-spacing:-.03em;aspect-ratio:16/9}
@@ -25,35 +30,34 @@ a{color:inherit;text-decoration:none}img{display:block;width:100%;height:100%;ob
 .foot a{background:var(--panel);color:#fff;border-radius:var(--r);padding:12px 14px;display:flex;justify-content:space-between}.foot a span{color:var(--grey)}
 .c2{grid-template-columns:1fr 1fr}.c3{grid-template-columns:1fr 1fr 1fr}.c4{grid-template-columns:repeat(4,1fr)}
 .sko{grid-template-columns:1fr 1fr 1fr 3.2fr}
-@media (max-width:760px){.top{grid-template-columns:1fr}.wm{font-size:17vw;min-height:0}.wm.g{display:none}.top .p.t{grid-column:span 1}.pills{grid-template-columns:1fr 1fr 1fr}.tag{grid-template-columns:1fr}.stats{flex-wrap:wrap;white-space:normal}
+@media (max-width:760px){.m.hero{aspect-ratio:4/5}.c4{grid-template-columns:1fr 1fr!important}.top{grid-template-columns:1fr}.wm{font-size:17vw;min-height:0}.wm.g{display:none}.top .p.t{grid-column:span 1}.pills{grid-template-columns:1fr 1fr 1fr}.tag{grid-template-columns:1fr}.stats{flex-wrap:wrap;white-space:normal}
  .c2,.c3,.c4{grid-template-columns:1fr}.sko{grid-template-columns:1fr 1fr 1fr}.sko>.t:last-child{grid-column:1/-1}.foot{grid-template-columns:1fr 1fr}.cap{grid-template-columns:1fr}}
 </style></head><body><div class="wrap">
 
-<div class="top">
- <div class="p wm">Jack Morello</div>
- <div class="p wm g">Growth</div>
- <div class="p t">Growth, paid media and research for brands ready to scale. 8+ years, Los Angeles. Founder of <a href="https://ballast.la"><u>Ballast Research</u></a>.</div>
- <div class="p t">jack@ballast.la<br><u><a href="https://ballast.la/#book">Book a call</a></u><br>Services: Paid Media, Creative, Creators, Measurement, Research</div>
-</div>
-<div class="pills"><a class="pill" href="#info">Information</a><a class="pill" href="/JackMorello_CV.pdf">Resume (PDF)</a><a class="pill" href="https://ballast.la/#book">Book a call</a></div>
-<div class="tag"><div class="p">Paid Media, Growth and Research for Sports, Entertainment and Consumer Brands</div><div class="p stats"><span><b>$50M+</b>managed</span><span><b>$1.2M+</b>a month, one DTC brand</span><span><b>1,000+</b>ads shipped</span></div></div>
-
-<!-- SKO -->
-<div class="row sko">
- <div class="t"><div class="m v"><img src="https://ballast.la/work/health/ads/sko-founder-1.webp" alt=""></div></div>
- <div class="t"><div class="m v"><img src="https://ballast.la/work/health/ads/sko-ai-spot.webp" alt=""></div></div>
- <div class="t"><div class="m v"><img src="https://ballast.la/work/health/ads/sko-dna.webp" alt=""></div></div>
- <div class="t"><div class="m i"><img src="https://ballast.la/v2/img/books/isometrica-cover.webp" alt=""></div></div>
-</div>
-<div class="row c2" style="margin-top:-2px">
- <div class="cap"><b>SKO Compounds</b><span>Head of Performance Marketing. Under $10K to $1.2M+ in monthly sales on Meta, TikTok and Google, peak 6x ROAS, 500–1,000 ads a month.</span></div>
- <div class="cap"><b>SKO Compounds</b><span>Isometrica, the product book. Every product's real molecule in chrome on alpine snow, 38 plates.</span></div>
+<div class="hdr">
+ <div class="m vid"><video src="/sitevideo.mp4" autoplay muted loop playsinline></video></div>
+ <div class="side">
+  <div class="p wm">Jack Morello</div>
+  <div class="two">
+   <div class="p t">Growth, paid media and research for brands ready to scale. 8+ years, Los Angeles. Founder of <a href="https://ballast.la"><u>Ballast Research</u></a>.</div>
+   <div class="p t">jack@ballast.la<br><a href="https://ballast.la/#book"><u>Book a call</u></a><br><br>Paid Media, Creative, Creators, Measurement, Research</div>
+  </div>
+  <div class="pills"><a class="pill" href="#info">Information</a><a class="pill" href="/JackMorello_CV.pdf">Resume (PDF)</a><a class="pill" href="https://ballast.la/#book">Book a call</a></div>
+  <div class="p tagp">Paid Media, Growth and Research for Sports, Entertainment and Consumer Brands</div>
+  <div class="p stats"><span><b>$50M+</b>managed</span><span><b>$1.2M+</b>a month, one DTC brand</span><span><b>1,000+</b>ads shipped</span></div>
+ </div>
 </div>
 
-<!-- Meridian -->
+<!-- HOTG -->
 <div class="row c2">
- <div class="t"><div class="m b"><img src="https://ballast.la/v2/img/books/botanica-cover.webp" alt=""></div><div class="cap"><b>Meridian</b><span>Botanica, the product book. 37 products, each on its own piece of nature.</span></div></div>
- <div class="t"><div class="m b"><img src="https://ballast.la/v2/img/books/botanica-04.webp" alt=""></div><div class="cap"><b>Meridian</b><span>Brand identity, product imagery and the brand book.</span></div></div>
+ <div class="t"><div class="m"><video src="https://ballast.la/work/sports/hotg-live.mp4" poster="https://ballast.la/work/sports/hotg-live-poster.webp" autoplay muted loop playsinline></video></div><div class="cap"><b>History of the Game</b><span>Brand and live show graphics for Baron Davis's basketball media house.</span></div></div>
+ <div class="t"><div class="m"><img src="https://ballast.la/new/p/hotg-hero-mat-jade.webp" alt=""></div><div class="cap"><b>History of the Game</b><span>Identity system, built with Baron Davis.</span></div></div>
+</div>
+<div class="row c4">
+ <div class="t"><div class="m sq"><img src="https://ballast.la/work/sports/hotg-tees.webp" alt=""></div><div class="cap"><b>HOTG</b><span>Tees</span></div></div>
+ <div class="t"><div class="m sq"><img src="https://ballast.la/work/sports/hotg-ringer.webp" alt=""></div><div class="cap"><b>HOTG</b><span>Archivist ringer</span></div></div>
+ <div class="t"><div class="m sq"><img src="https://ballast.la/new/p/hotg-relic-r2-jersey-signed.webp" alt=""></div><div class="cap"><b>HOTG</b><span>Relics: signed jersey</span></div></div>
+ <div class="t"><div class="m sq"><img src="https://ballast.la/new/p/hotg-merch-hat-hat-pins.webp" alt=""></div><div class="cap"><b>HOTG</b><span>Cap and enamel pins</span></div></div>
 </div>
 
 <!-- iHeart -->
@@ -69,13 +73,6 @@ a{color:inherit;text-decoration:none}img{display:block;width:100%;height:100%;ob
  <div class="t"><div class="m"><img src="https://ballast.la/v2/img/yt/6K0o-VQpIXU.webp" alt=""></div><div class="cap"><b>NEAR × SailGP</b><span>Onboarding built with engineering and design, adopted at SailGP's live race events.</span></div></div>
 </div>
 
-<!-- Dtravel + Devolved -->
-<div class="row c3">
- <div class="t"><div class="m"><img src="https://ballast.la/v2/img/yt/h4Rb4tDK1GQ.webp" alt=""></div><div class="cap"><b>Dtravel</b><span>0 to 12,000 users and 2,000+ listings through the $8M Series A.</span></div></div>
- <div class="t"><div class="m"><img src="https://ballast.la/v2/img/yt/fSd9_ECe068.webp" alt=""></div><div class="cap"><b>Dtravel</b><span>A digital collectible program that brought in $750K.</span></div></div>
- <div class="t"><div class="txt">150+ demos at a $22 cost per lead</div><div class="cap"><b>Devolved AI</b><span>Positioning, launch and a LinkedIn pipeline for a private AI platform, via Incubella.</span></div></div>
-</div>
-
 <!-- EPK -->
 <div class="row c4">
  <div class="t"><div class="m"><img src="https://ballast.la/v2/img/yt/oqxAJKy0ii4.webp" alt=""></div><div class="cap"><b>Netflix</b><span>Squid Game</span></div></div>
@@ -83,12 +80,28 @@ a{color:inherit;text-decoration:none}img{display:block;width:100%;height:100%;ob
  <div class="t"><div class="m"><img src="https://ballast.la/v2/img/yt/sItKwZdGkTM.webp" alt=""></div><div class="cap"><b>Peacock</b><span>The Office</span></div></div>
  <div class="t"><div class="m"><img src="https://ballast.la/v2/img/yt/HZ7PAyCDwEg.webp" alt=""></div><div class="cap"><b>Universal</b><span>Hobbs & Shaw</span></div></div>
 </div>
-<div class="cap" style="grid-template-columns:auto 1fr"><b>EPK.TV</b><span>Campaign content for 20+ studios across platforms, territories and languages: Disney, Netflix, Sony, NBC, Amazon.</span></div>
+<div class="cap"><b>EPK.TV</b><span>Campaign content for 20+ studios across platforms, territories and languages: Disney, Netflix, Sony, NBC, Amazon.</span></div>
 
-<!-- LG -->
-<div class="row c2">
+<!-- Dtravel + Devolved -->
+<div class="row c3">
+ <div class="t"><div class="m"><img src="https://ballast.la/v2/img/yt/h4Rb4tDK1GQ.webp" alt=""></div><div class="cap"><b>Dtravel</b><span>0 to 12,000 users and 2,000+ listings through the $8M Series A.</span></div></div>
  <div class="t"><div class="m"><img src="https://ballast.la/v2/img/yt/zEvYcxW_QP4.webp" alt=""></div><div class="cap"><b>LG Mobile</b><span>Social for the G7 ThinQ launch, via 24/7 Laundry Service (Wasserman).</span></div></div>
- <div class="t"><div class="m"><img src="https://ballast.la/v2/img/yt/kAqIKAC1dII.webp" alt=""></div><div class="cap"><b>NBC</b><span>Transplant</span></div></div>
+ <div class="t"><div class="txt">150+ demos at a $22 cost per lead</div><div class="cap"><b>Devolved AI</b><span>Positioning, launch and a LinkedIn pipeline for a private AI platform, via Incubella.</span></div></div>
+</div>
+
+<!-- UGC -->
+<div class="row c4">
+ <div class="t"><div class="m v"><img src="https://ballast.la/work/health/ads/sko-founder-1.webp" alt=""></div><div class="cap"><b>SKO</b><span>TikTok winner, founder-led</span></div></div>
+ <div class="t"><div class="m v"><img src="https://ballast.la/work/health/ads/sko-ai-spot.webp" alt=""></div><div class="cap"><b>SKO</b><span>TikTok winner, AI spot</span></div></div>
+ <div class="t"><div class="m v"><img src="https://ballast.la/work/health/ads/sko-dna.webp" alt=""></div><div class="cap"><b>SKO</b><span>Product motion</span></div></div>
+ <div class="t"><div class="m v"><img src="https://ballast.la/work/health/ads/sko-tennis.webp" alt=""></div><div class="cap"><b>SKO</b><span>Brand spot</span></div></div>
+</div>
+<div class="cap"><b>Creators and UGC</b><span>500–1,000 ads a month across 30+ creators, AI and branded content, every ad judged at day 7 on hold rate, watch time and sales.</span></div>
+
+<!-- Books -->
+<div class="row c2">
+ <div class="t"><div class="m b"><img src="https://ballast.la/v2/img/books/botanica-cover.webp" alt=""></div><div class="cap"><b>Meridian</b><span>Botanica, the product book. 37 products, each on its own piece of nature.</span></div></div>
+ <div class="t"><div class="m b"><img src="https://ballast.la/v2/img/books/isometrica-cover.webp" alt=""></div><div class="cap"><b>SKO Compounds</b><span>Isometrica, the product book. Head of Performance Marketing: under $10K to $1.2M+ a month, peak 6x ROAS.</span></div></div>
 </div>
 
 <div class="foot" id="info">
