@@ -704,15 +704,20 @@
   .roll__l{margin:0;font-weight:800;font-size:clamp(26px,3.4vw,58px);line-height:1.12;letter-spacing:-.035em;color:#fff;max-width:none}
   .trk__x>p{visibility:hidden;transition:visibility 0s .3s}
   .trk.is-open .trk__x>p{visibility:visible;transition:none}
-  .adx{background:#F2F6FD;color:var(--ink);overflow:hidden}
+  .adx{background:#F4F7FE;color:var(--ink);overflow:hidden}
   .adx__in{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(16px,3vw,48px);align-items:end;padding-top:clamp(40px,7vh,88px)}
   .adx__copy{align-self:center;padding-bottom:clamp(32px,6vh,72px)}
   .adx__h{margin:0;font-family:"Ballast Display",var(--g);font-style:italic;font-weight:900;text-transform:uppercase;font-size:clamp(50px,7.4vw,136px);line-height:.86;color:var(--ink);max-width:7.5ch}
   .adx__p{margin:clamp(14px,2.4vh,24px) 0 0;font-family:"Ballast Display",var(--g);font-style:italic;font-weight:900;text-transform:uppercase;font-size:clamp(26px,3.2vw,56px);line-height:.95;color:var(--orange)}
   .adx__go{margin-top:clamp(22px,4vh,36px);background:var(--ink);border-color:var(--ink);color:#fff}
   .adx__go:hover{background:var(--orange);border-color:var(--orange);color:var(--ink)}
-  .adx__img{display:block;width:100%;max-width:660px;height:auto;justify-self:end}
-  @media (max-width:760px){.adx__in{grid-template-columns:minmax(0,1fr)}.adx__copy{padding-bottom:0}.adx__img{max-width:100%;justify-self:center}}
+  .adx__fig{position:relative;margin:0;width:100%;max-width:660px;justify-self:end}
+  .adx__img{display:block;width:100%;height:auto}
+  .adx__line{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+  .adx__line line{stroke:var(--orange);stroke-width:2.5;vector-effect:non-scaling-stroke}
+  .adx__ring{position:absolute;left:55.8%;top:64.2%;width:6.4%;aspect-ratio:1;transform:translate(-50%,-50%);border:2.5px solid var(--orange);border-radius:50%;pointer-events:none}
+  .adx__zoom{position:absolute;left:66%;top:21%;width:31%;height:auto;border-radius:50%;box-shadow:0 0 0 4px var(--orange),0 18px 40px rgba(10,13,24,.28);background:#fff}
+  @media (max-width:760px){.adx__in{grid-template-columns:minmax(0,1fr)}.adx__copy{padding-bottom:0}.adx__fig{max-width:100%;justify-self:center}}
   .nl__hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
   .roll--about{padding-bottom:0}
   .roll__l em{font-style:italic;color:var(--orange)}
@@ -991,7 +996,12 @@
         <p class="adx__p">Ours do. Book a call&nbsp;today.</p>
         <a class="btn btn--lg adx__go" href="#book">Book a call</a>
       </div>
-      <img class="adx__img" src="/work/adx/watch-guy.webp" width="1024" height="1024" alt="A very muscular man in a suit frowning at his phone" loading="lazy">
+      <figure class="adx__fig">
+        <img class="adx__img" src="/work/adx/watch-guy.webp?v=2" width="1024" height="1024" alt="A very muscular man in a suit frowning at his phone, wearing a gold Ballast watch" loading="lazy">
+        <svg class="adx__line" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><line x1="58.6" y1="61.8" x2="70.5" y2="50.5"/></svg>
+        <span class="adx__ring" aria-hidden="true"></span>
+        <img class="adx__zoom" src="/work/adx/watch-dial.webp" width="560" height="560" alt="" aria-hidden="true" loading="lazy">
+      </figure>
     </div>
   </section>
 
