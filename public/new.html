@@ -18,7 +18,7 @@ a{color:inherit;text-decoration:none}img{display:block;width:100%;height:100%;ob
 .m.vid{aspect-ratio:1/1;background:#fff}.side{display:grid;gap:var(--g);grid-template-rows:1fr auto auto auto auto}
 .side .wm{font-size:clamp(48px,7vw,120px);min-height:0}.two{display:grid;grid-template-columns:1fr 1fr;gap:var(--g)}
 .tagp{font-size:clamp(15px,1.5vw,22px);font-weight:500;letter-spacing:-.01em;padding:14px 16px}
-@media (max-width:760px){.c5{grid-template-columns:1fr 1fr!important}.hdr{grid-template-columns:1fr}.two{grid-template-columns:1fr}.side .wm{font-size:17vw}}
+@media (max-width:760px){.m.crop{aspect-ratio:16/10}.c5{grid-template-columns:1fr 1fr!important}.hdr{grid-template-columns:1fr}.two{grid-template-columns:1fr}.side .wm{font-size:17vw}}
 .h1row{display:grid;grid-template-columns:2.3fr 1fr 1fr;gap:var(--g)}
 .wm2{display:flex;align-items:flex-end;padding:8px 14px 10px;overflow:hidden}
 .wm2 span{display:block;white-space:nowrap;font-weight:700;letter-spacing:-.055em;line-height:.8;padding-bottom:.04em}
@@ -26,10 +26,15 @@ a{color:inherit;text-decoration:none}img{display:block;width:100%;height:100%;ob
 .h3row{display:grid;grid-template-columns:2.3fr 2fr;gap:var(--g)}
 .h3row .stats{justify-content:space-between}
 @media (max-width:760px){.h1row,.h3row{grid-template-columns:1fr}}
+.m.crop{aspect-ratio:21/8;background:#000}.m.crop.lo video{object-position:center 92%}
+.fill{display:flex;flex-direction:column;justify-content:space-between;gap:12px}
+.fill .big{font-size:clamp(15px,1.45vw,22px);line-height:1.2;font-weight:500;letter-spacing:-.01em}
+.fill .links{display:grid;gap:3px;font-size:clamp(14px,1.25vw,19px);font-weight:500}.fill .links a:hover{text-decoration:underline}
+.fill .st{font-size:12.5px;line-height:1.4;color:#C9C9CE}.fill .st b{color:#fff}
 .row{display:grid;gap:var(--g)}
 .t{display:grid;grid-template-rows:auto auto;gap:4px;min-width:0}
 .m{border-radius:var(--r);overflow:hidden;background:#ddd;aspect-ratio:16/9}
-.m.v{aspect-ratio:9/16}.m.sq{aspect-ratio:1/1;background:#fff}.m.sq img{object-fit:contain}.m.hero{aspect-ratio:21/9}.m.wide{aspect-ratio:16/9;background:#000}.c5{grid-template-columns:repeat(5,1fr)}.m video{display:block;width:100%;height:100%;object-fit:cover}.m.b{aspect-ratio:1089/730}.m.i{aspect-ratio:1089/607}
+.m.v{aspect-ratio:9/16}.m.sq{aspect-ratio:1/1;background:#fff}.m.sq img{object-fit:contain}.m.hero{aspect-ratio:21/9}.m.wide{aspect-ratio:16/9;background:#000}.c5{grid-template-columns:repeat(5,1fr)}.m video{display:block;width:100%;height:100%;object-fit:cover}.m.b{aspect-ratio:1089/607}.m.i{aspect-ratio:1089/607}
 .cap{min-width:0;overflow-wrap:anywhere;background:var(--panel);color:#fff;border-radius:6px;display:grid;grid-template-columns:auto 1fr;gap:12px;padding:6px 10px;font-size:11.5px;line-height:1.35}
 .cap b{font-weight:700;white-space:nowrap}.cap span{color:#C9C9CE}
 .txt{background:var(--panel);color:#fff;border-radius:var(--r);display:flex;align-items:flex-end;padding:16px;font:600 clamp(20px,2.2vw,34px)/1.05 "Helvetica Neue",Helvetica,Arial,sans-serif;letter-spacing:-.03em;aspect-ratio:16/9}
@@ -43,19 +48,14 @@ a{color:inherit;text-decoration:none}img{display:block;width:100%;height:100%;ob
 
 <div class="h1row">
  <div class="p wm2"><span id="fitname">Jack Morello</span></div>
- <div class="p t">Growth, paid media and research for brands ready to scale. 8+ years in Los Angeles. Founder of Ballast Research.</div>
- <div class="p t">jack@ballast.la<br>Paid Media, Creative, Creators, Measurement, Research</div>
-</div>
-<div class="pills"><a class="pill" href="#info">Information</a><a class="pill" href="/JackMorello_CV.pdf">Resume (PDF)</a><a class="pill" href="https://ballast.la/#book">Book a call</a></div>
-<div class="h3row">
- <div class="p tagp">Paid Media, Growth and Research for Sports, Entertainment and Consumer Brands</div>
- <div class="p stats"><span><b>$50M+</b>managed</span><span><b>$1.2M+</b>a month, one DTC brand</span><span><b>1,000+</b>ads shipped</span></div>
+ <div class="p t fill"><span class="big">Paid Media, Growth and Research for Sports, Entertainment and Consumer Brands</span><span>8+ years in Los Angeles. Founder of Ballast Research.</span></div>
+ <div class="p t fill"><span class="links"><a href="mailto:jack@ballast.la">jack@ballast.la</a><a href="/JackMorello_CV.pdf">Resume (PDF)</a><a href="https://ballast.la/#book">Book a call</a><a href="https://www.linkedin.com/in/jackmorello">LinkedIn</a></span><span class="st"><b>$50M+</b> managed · <b>$1.2M+</b> a month, one DTC brand · <b>1,000+</b> ads shipped</span></div>
 </div>
 <script>(function(){const e=document.getElementById('fitname');function fit(){const box=e.parentElement,cs=getComputedStyle(box),w=box.clientWidth-parseFloat(cs.paddingLeft)-parseFloat(cs.paddingRight);e.style.fontSize='100px';e.style.fontSize=(100*w/e.scrollWidth)+'px'}fit();addEventListener('resize',fit);document.fonts&&document.fonts.ready.then(fit)})();</script>
 
 <!-- HOTG -->
 <div class="row">
- <div class="t"><div class="m"><video src="https://ballast.la/work/sports/hotg-live.mp4" poster="https://ballast.la/work/sports/hotg-live-poster.webp" autoplay muted loop playsinline></video></div><div class="cap"><b>History of the Game</b><span>Brand and live show graphics for Baron Davis's basketball media house.</span></div></div>
+ <div class="t"><div class="m crop lo"><video src="https://ballast.la/work/sports/hotg-live.mp4" poster="https://ballast.la/work/sports/hotg-live-poster.webp" autoplay muted loop playsinline></video></div><div class="cap"><b>History of the Game</b><span>Brand and live show graphics for Baron Davis's basketball media house.</span></div></div>
 </div>
 <div class="row c4">
  <div class="t"><div class="m sq"><img src="/reel/hotg/seal-knicks-pacers.png" alt="Knicks vs Pacers seal, Eastern Conference Finals"></div><div class="cap"><b>HOTG</b><span>Knicks vs Pacers seal, Eastern Conference Finals</span></div></div>
@@ -87,14 +87,15 @@ a{color:inherit;text-decoration:none}img{display:block;width:100%;height:100%;ob
 <div class="cap"><b>EPK.TV</b><span>Campaign content for 20+ studios across platforms, territories and languages: Disney, Netflix, Sony, NBC, Amazon.</span></div>
 
 <!-- Dtravel + Devolved -->
-<div class="row c3">
+<div class="row c2">
  <div class="t"><div class="m"><img src="https://ballast.la/v2/img/yt/h4Rb4tDK1GQ.webp" alt=""></div><div class="cap"><b>Dtravel</b><span>0 to 12,000 users and 2,000+ listings through the $8M Series A.</span></div></div>
  <div class="t"><div class="m"><img src="https://ballast.la/v2/img/yt/zEvYcxW_QP4.webp" alt=""></div><div class="cap"><b>LG Mobile</b><span>Social for the G7 ThinQ launch, via 24/7 Laundry Service (Wasserman).</span></div></div>
- <div class="t"><div class="txt">150+ demos at a $22 cost per lead</div><div class="cap"><b>Devolved AI</b><span>Positioning, launch and a LinkedIn pipeline for a private AI platform, via Incubella.</span></div></div>
 </div>
 
+<div class="cap"><b>Devolved AI</b><span>150+ demos at a $22 cost per lead. Positioning, launch and a LinkedIn pipeline for a private AI platform, via Incubella.</span></div>
+
 <!-- DTC wellness -->
-<div class="t"><div class="m wide"><video src="/reel/v3g.mp4" poster="/reel/v3g.jpg" autoplay muted loop playsinline></video></div><div class="cap"><b>DTC wellness brand</b><span>Brand film. Head of Performance Marketing: under $10K to $1.2M+ in monthly sales, peak 6x ROAS.</span></div></div>
+<div class="t"><div class="m crop"><video src="/reel/v3g.mp4" poster="/reel/v3g.jpg" autoplay muted loop playsinline></video></div><div class="cap"><b>DTC wellness brand</b><span>Brand film. Head of Performance Marketing: under $10K to $1.2M+ in monthly sales, peak 6x ROAS.</span></div></div>
 
 <!-- UGC -->
 <div class="row c5">
