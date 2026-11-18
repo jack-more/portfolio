@@ -720,10 +720,11 @@
   .hw__proof b{display:block;font-weight:800;font-size:clamp(24px,2.4vw,38px);letter-spacing:-.035em;line-height:1}
   .hw__proof .mono{display:block;margin-top:8px;font-size:11px;color:rgba(255,255,255,.62)}
   .sp__fw--first{margin-top:0;padding-top:0;border-top:0}
-  .hg{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));gap:8px;aspect-ratio:2/1}
-  .hg img{display:block;width:100%;height:100%;object-fit:cover;border-radius:6px;background:#f2efe8}
-  .hg__a{grid-column:1/3;grid-row:1/3}
-  @media (max-width:760px){.hg{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:auto;aspect-ratio:auto}.hg__a{grid-column:1/-1;grid-row:auto;aspect-ratio:1}.hg img:not(.hg__a){aspect-ratio:1}}
+  .hg{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+  .hg img{display:block;width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;background:#f2efe8}
+  .hg__v{grid-column:1/-1;aspect-ratio:16/9;border-radius:6px;overflow:hidden;background:#0b0b0b}
+  .hg__v video{display:block;width:100%;height:100%;object-fit:cover}
+  @media (max-width:760px){.hg{grid-template-columns:repeat(2,minmax(0,1fr))}}
   .adx{background:#F4F7FE;color:var(--ink);overflow:hidden}
   .adx__in{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(16px,3vw,48px);align-items:end;padding-top:clamp(40px,7vh,88px)}
   .adx__copy{align-self:center;padding-bottom:clamp(32px,6vh,72px)}
@@ -865,8 +866,8 @@
     </div>
     <div class="sp__field pad">
       <div class="sp__fw sp__fw--first">
-        <div class="sp__fwhd"><span class="mono">With Baron Davis</span><b>History of the Game</b><p>Brand identity, merch and the app for Baron Davis&rsquo;s basketball media company.</p></div>
-        <div class="hg"><img class="hg__a" src="/work/sports/hotg-mark.webp?v=2" alt="The History of the Game rose mark in red metal" loading="lazy"><img class="hg__b" src="/work/sports/hotg-tees.webp?v=2" alt="History of the Game tee" loading="lazy"><img class="hg__c" src="/work/sports/hotg-jacket.webp?v=2" alt="History of the Game coach jacket" loading="lazy"><img class="hg__d" src="/work/sports/hotg-cap.webp?v=2" alt="Cap with History of the Game rose pins" loading="lazy"><img class="hg__e" src="/work/sports/hotg-live.webp?v=2" alt="A player card from the History of the Game app" loading="lazy"></div>
+        <div class="sp__fwhd"><span class="mono">With Baron Davis</span><b>History of the Game</b><p>Brand identity, live show graphics, merch and the app for Baron Davis&rsquo;s basketball media company.</p></div>
+        <div class="hg"><div class="hg__v ad"><video data-src="/work/sports/hotg-live.mp4" poster="/work/sports/hotg-live-poster.webp" muted loop playsinline preload="none" aria-label="History of the Game live show graphics: a cursor picks a rose mark, which flies into the on-air lower third"></video></div><img class="hg__b" src="/work/sports/hotg-tees.webp?v=2" alt="History of the Game tee" loading="lazy"><img class="hg__c" src="/work/sports/hotg-jacket.webp?v=2" alt="History of the Game coach jacket" loading="lazy"><img class="hg__d" src="/work/sports/hotg-cap.webp?v=2" alt="Cap with History of the Game rose pins" loading="lazy"><img class="hg__e" src="/work/sports/hotg-live.webp?v=2" alt="A player card from the History of the Game app" loading="lazy"></div>
       </div>
       <div class="sp__fw">
         <div class="sp__fwhd"><span class="mono">With NEAR</span><b>NEAR &times; SailGP</b><p>Creative and paid distribution for NEAR&rsquo;s SailGP partnership and the DAO-owned team, from race highlights to the NEAR Miss shorts.</p></div>
