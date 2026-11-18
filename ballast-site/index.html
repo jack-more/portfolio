@@ -807,15 +807,29 @@
 <main id="top">
 
   <!-- hero -->
-  <section class="hw" id="scene">
-    <video class="hw__img" autoplay muted loop playsinline preload="auto" poster="/work/hero/wave-hero-poster.webp" aria-label="A very muscular man in a suit checks his phone on the beach while a giant wave carrying an inflatable Ballast float curls over him"><source src="/work/hero/wave-hero.mp4" type="video/mp4"></video>
-    <div class="hw__over pad"><h1 class="hw__h">Your ad didn&rsquo;t work.</h1></div>
-    <div class="hw__in pad">
-      <p class="hw__p">Our ads do. Book a call&nbsp;today.</p>
-      <div class="hx__cta"><a class="btn btn--lg hx__go" href="#book">Book a call</a><a class="hx__more mono" href="#work">See the work <i aria-hidden="true">&darr;</i></a></div>
+  <section class="scene" id="scene">
+    <img class="scene__bg" src="/hero/poppies.webp" width="2400" height="1339" alt="California poppies in bloom under a blue sky" fetchpriority="high">
+    <div class="scene__in pad">
+      <div class="scene__top">
+        <img class="scene__lockup" src="/lockup.png?v=4" width="1400" height="591" alt="Ballast">
+        <h1 class="scene__h">Your partner in<br>performance marketing<br>+ growth.</h1>
+      </div>
+      <div class="plate">
+        <div class="plate__side">
+        <div class="plate__proof num"><div><b><span class="lg">$50,000,000+</span><span class="sm">$50M+</span></b><span>in ad spend managed</span></div><div><b>$25K&rarr;$1.2M+</b><span>MRR for a DTC client</span></div><div><b>6&times;</b><span>peak ROAS</span></div></div>
+        <div class="plate__cta">
+          <a class="btn btn--lg scene__go" href="#book">Book a call</a>
+          <a class="btn btn--lg scene__ghost" href="#work">Work</a>
+        </div>
+        </div>
+      </div>
+      <span class="scene__where mono">Los Angeles</span>
     </div>
+    <script>/* the field always ends right at the dark band: size the photo so its bottom 25% (the field) fills that strip */
+    (function(){var s=document.getElementById('scene'),im=s&&s.querySelector('.scene__bg'),pl=s&&s.querySelector('.plate');if(!pl)return;
+      function fit(){var sr=s.getBoundingClientRect(),pt=pl.getBoundingClientRect().top-sr.top,h=Math.min(pt*.42,360)/.255;im.style.top=(pt-h)+'px';im.style.height=h+'px';im.style.bottom='auto'}
+      fit();addEventListener('resize',fit);document.fonts&&document.fonts.ready.then(fit)})();</script>
   </section>
-  <div class="hw__proof pad"><div><b>$50M+</b><span class="mono">ad spend managed</span></div><div><b>$25K&rarr;$1.2M+</b><span class="mono">MRR for a DTC client</span></div><div><b>6&times;</b><span class="mono">peak ROAS</span></div></div>
 
   <section class="block block--ink pad" id="clients">
     <div class="logos" aria-label="Clients">
@@ -1217,5 +1231,6 @@
   document.querySelectorAll('.cpn__go').forEach(a=>a.addEventListener('click',()=>{if(!tag||!inp)return;inp.value=a.dataset.offer;tag.textContent='Redeeming: '+a.dataset.offer;tag.hidden=false}));
 })();
 </script>
+<script type="module" src="/hero/field3d.js"></script>
 </body>
 </html>
