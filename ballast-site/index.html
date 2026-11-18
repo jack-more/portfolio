@@ -708,6 +708,7 @@
   .hw{position:relative;background:var(--ink);color:#fff;overflow:hidden}
   .hw__img{display:block;width:100%;height:max(420px,min(56.25vw,calc(100svh - 260px)));object-fit:cover;object-position:50% 0%}
   .hw__in{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:12px 32px;padding-top:clamp(18px,3vh,30px);padding-bottom:clamp(18px,3vh,30px)}
+  @media (prefers-reduced-motion:reduce){.hw__img{animation:none}}
   .hw__over{position:absolute;left:0;right:0;top:0;padding-top:clamp(92px,13vh,124px);pointer-events:none;z-index:2}
   .hw:before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(ellipse 46% 52% at 14% 22%,rgba(10,13,24,.78),rgba(10,13,24,.42) 55%,rgba(10,13,24,0) 100%)}
   .hw__h{margin:0;font-family:"Ballast Display",var(--g);font-style:italic;font-weight:900;text-transform:uppercase;color:#fff;font-size:clamp(28px,4.6vw,86px);line-height:.88;max-width:11ch;text-shadow:0 2px 24px rgba(10,13,24,.45)}
@@ -807,7 +808,7 @@
 
   <!-- hero -->
   <section class="hw" id="scene">
-    <img class="hw__img" src="/work/hero/tsunami-2400.webp?v=4" srcset="/work/hero/tsunami-1200.webp?v=4 1200w, /work/hero/tsunami-2400.webp?v=4 2400w" sizes="100vw" width="2400" height="1351" alt="A very muscular man in a suit checks his phone on the beach while a giant wave carrying an inflatable Ballast float rises behind him" fetchpriority="high">
+    <video class="hw__img" autoplay muted loop playsinline preload="auto" poster="/work/hero/wave-hero-poster.webp" aria-label="A very muscular man in a suit checks his phone on the beach while a giant wave carrying an inflatable Ballast float curls over him"><source src="/work/hero/wave-hero.mp4" type="video/mp4"></video>
     <div class="hw__over pad"><h1 class="hw__h">Your ad didn&rsquo;t work.</h1></div>
     <div class="hw__in pad">
       <p class="hw__p">Our ads do. Book a call&nbsp;today.</p>
