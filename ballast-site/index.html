@@ -706,7 +706,7 @@
   .trk__x>p{visibility:hidden;transition:visibility 0s .3s}
   .trk.is-open .trk__x>p{visibility:visible;transition:none}
   .hw{position:relative;background:var(--ink);color:#fff;overflow:hidden}
-  .hw__img{display:block;width:100%;height:max(420px,min(56.25vw,calc(100svh - 260px)));object-fit:cover;object-position:50% 8%}
+  .hw__img{display:block;width:100%;height:max(420px,min(56.25vw,calc(100svh - 260px)));object-fit:cover;object-position:50% 0%}
   .hw__in{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:12px 32px;padding-top:clamp(18px,3vh,30px);padding-bottom:clamp(18px,3vh,30px)}
   .hw__over{position:absolute;left:0;right:0;top:0;padding-top:clamp(92px,13vh,124px);pointer-events:none;z-index:2}
   .hw:before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(ellipse 46% 52% at 14% 22%,rgba(10,13,24,.78),rgba(10,13,24,.42) 55%,rgba(10,13,24,0) 100%)}
@@ -715,7 +715,7 @@
   .hw__p{margin:0!important}
   .hw__p{margin:clamp(8px,1.6vh,16px) 0 0;font-family:"Ballast Display",var(--g);font-style:italic;font-weight:900;text-transform:uppercase;color:var(--orange);font-size:clamp(24px,3vw,52px);line-height:.95}
   @media (max-width:900px){.hw__in{grid-template-columns:minmax(0,1fr)}.hw__in .hx__cta{grid-column:1;grid-row:auto;justify-content:flex-start;margin-top:8px}}
-  @media (max-width:760px){.hw__img{height:auto;aspect-ratio:4/3;min-height:0;object-position:46% 50%}.hw__over{top:auto;bottom:calc(100% - min(75vw,100%));padding-top:0;padding-bottom:12px}.hw:before{bottom:auto;height:75vw;background:linear-gradient(to top,rgba(10,13,24,.82),rgba(10,13,24,.35) 38%,rgba(10,13,24,0) 60%)}}
+  @media (max-width:760px){.hw__img{height:auto;aspect-ratio:4/3;min-height:0;object-position:46% 50%}.hw__over{position:static;padding-top:18px;padding-bottom:0}.hw:before{display:none}.hw__h{max-width:none;font-size:40px}.hw__in{padding-top:8px}}
   .hw__proof{display:flex;gap:clamp(20px,5vw,80px);flex-wrap:wrap;padding-top:clamp(22px,4vh,36px);padding-bottom:clamp(22px,4vh,36px);border-bottom:1px solid rgba(255,255,255,.14)}
   .hw__proof b{display:block;font-weight:800;font-size:clamp(24px,2.4vw,38px);letter-spacing:-.035em;line-height:1}
   .hw__proof .mono{display:block;margin-top:8px;font-size:11px;color:rgba(255,255,255,.62)}
@@ -807,7 +807,7 @@
 
   <!-- hero -->
   <section class="hw" id="scene">
-    <img class="hw__img" src="/work/hero/tsunami-2400.webp?v=3" srcset="/work/hero/tsunami-1200.webp?v=3 1200w, /work/hero/tsunami-2400.webp?v=3 2400w" sizes="100vw" width="2400" height="1340" alt="A very muscular man in a suit checks his phone on the beach while a giant wave carrying an inflatable Ballast float rises behind him" fetchpriority="high">
+    <img class="hw__img" src="/work/hero/tsunami-2400.webp?v=4" srcset="/work/hero/tsunami-1200.webp?v=4 1200w, /work/hero/tsunami-2400.webp?v=4 2400w" sizes="100vw" width="2400" height="1351" alt="A very muscular man in a suit checks his phone on the beach while a giant wave carrying an inflatable Ballast float rises behind him" fetchpriority="high">
     <div class="hw__over pad"><h1 class="hw__h">Your ad didn&rsquo;t work.</h1></div>
     <div class="hw__in pad">
       <p class="hw__p">Our ads do. Book a call&nbsp;today.</p>
