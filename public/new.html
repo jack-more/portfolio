@@ -31,6 +31,10 @@ a{color:inherit;text-decoration:none}img{display:block;width:100%;height:100%;ob
 .fill .big{font-size:clamp(15px,1.45vw,22px);line-height:1.2;font-weight:500;letter-spacing:-.01em}
 .fill .links{display:grid;gap:3px;font-size:clamp(14px,1.25vw,19px);font-weight:500}.fill .links a:hover{text-decoration:underline}
 .fill .st{font-size:12.5px;line-height:1.4;color:#C9C9CE}.fill .st b{color:#fff}
+.dtc{grid-template-columns:repeat(8,minmax(0,1fr));align-items:stretch}.dtc .w3{grid-column:span 3}
+.dtc .t{grid-template-rows:1fr auto}.m.fillh{aspect-ratio:auto;height:100%;min-height:0}.dtc .t:not(.w3) .m.fillh{aspect-ratio:9/16;height:auto}
+.dtc .w3 .m.fillh{height:100%}
+@media (max-width:760px){.dtc{grid-template-columns:1fr 1fr}.dtc .w3{grid-column:1/-1}.dtc .w3 .m.fillh{aspect-ratio:16/9}}
 .row{display:grid;gap:var(--g)}
 .t{display:grid;grid-template-rows:auto auto;gap:4px;min-width:0}
 .m{border-radius:var(--r);overflow:hidden;background:#ddd;aspect-ratio:16/9}
@@ -95,17 +99,15 @@ a{color:inherit;text-decoration:none}img{display:block;width:100%;height:100%;ob
 <div class="cap"><b>Devolved AI</b><span>150+ demos at a $22 cost per lead. Positioning, launch and a LinkedIn pipeline for a private AI platform, via Incubella.</span></div>
 
 <!-- DTC wellness -->
-<div class="t"><div class="m crop"><video src="/reel/v3g.mp4" poster="/reel/v3g.jpg" autoplay muted loop playsinline></video></div><div class="cap"><b>DTC wellness brand</b><span>Brand film. Head of Performance Marketing: under $10K to $1.2M+ in monthly sales, peak 6x ROAS.</span></div></div>
-
-<!-- UGC -->
-<div class="row c5">
- <div class="t"><div class="m v"><video src="/reel/hightech.mp4" poster="/reel/hightech.jpg" autoplay muted loop playsinline preload="metadata"></video></div><div class="cap"><b>DTC wellness</b><span>High-tech, 10s</span></div></div>
- <div class="t"><div class="m v"><video src="/reel/restock.mp4" poster="/reel/restock.jpg" autoplay muted loop playsinline preload="metadata"></video></div><div class="cap"><b>DTC wellness</b><span>Restock stack, 14s</span></div></div>
- <div class="t"><div class="m v"><video src="/reel/dna.mp4" poster="/reel/dna.jpg" autoplay muted loop playsinline preload="metadata"></video></div><div class="cap"><b>DTC wellness</b><span>Rotating DNA, 8s</span></div></div>
- <div class="t"><div class="m v"><video src="/reel/sophie35k.mp4" poster="/reel/sophie35k.jpg" autoplay muted loop playsinline preload="metadata"></video></div><div class="cap"><b>DTC wellness</b><span>Sophie, 35K</span></div></div>
- <div class="t"><div class="m v"><video src="/reel/pov.mp4" poster="/reel/pov.jpg" autoplay muted loop playsinline preload="metadata"></video></div><div class="cap"><b>DTC wellness</b><span>POV</span></div></div>
+<div class="row dtc">
+ <div class="t w3"><div class="m fillh"><video src="/reel/v3g.mp4" poster="/reel/v3g.jpg" autoplay muted loop playsinline></video></div><div class="cap"><b>DTC wellness brand</b><span>Brand film</span></div></div>
+ <div class="t"><div class="m fillh"><video src="/reel/hightech.mp4" poster="/reel/hightech.jpg" autoplay muted loop playsinline preload="metadata"></video></div><div class="cap"><b>Ad</b><span>High-tech, 10s</span></div></div>
+ <div class="t"><div class="m fillh"><video src="/reel/restock.mp4" poster="/reel/restock.jpg" autoplay muted loop playsinline preload="metadata"></video></div><div class="cap"><b>Ad</b><span>Restock stack, 14s</span></div></div>
+ <div class="t"><div class="m fillh"><video src="/reel/dna.mp4" poster="/reel/dna.jpg" autoplay muted loop playsinline preload="metadata"></video></div><div class="cap"><b>Ad</b><span>Rotating DNA, 8s</span></div></div>
+ <div class="t"><div class="m fillh"><video src="/reel/sophie35k.mp4" poster="/reel/sophie35k.jpg" autoplay muted loop playsinline preload="metadata"></video></div><div class="cap"><b>Ad</b><span>Sophie, 35K</span></div></div>
+ <div class="t"><div class="m fillh"><video src="/reel/pov.mp4" poster="/reel/pov.jpg" autoplay muted loop playsinline preload="metadata"></video></div><div class="cap"><b>Ad</b><span>POV</span></div></div>
 </div>
-<div class="cap"><b>Creators and UGC</b><span>500–1,000 ads a month across 30+ creators, AI and branded content, every ad judged at day 7 on hold rate, watch time and sales.</span></div>
+<div class="cap"><b>DTC wellness brand</b><span>Head of Performance Marketing: under $10K to $1.2M+ in monthly sales, peak 6x ROAS, 500–1,000 ads a month across 30+ creators, AI and branded content.</span></div>
 
 <!-- Books -->
 <div class="row c2">
