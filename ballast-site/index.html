@@ -704,6 +704,15 @@
   .roll__l{margin:0;font-weight:800;font-size:clamp(26px,3.4vw,58px);line-height:1.12;letter-spacing:-.035em;color:#fff;max-width:none}
   .trk__x>p{visibility:hidden;transition:visibility 0s .3s}
   .trk.is-open .trk__x>p{visibility:visible;transition:none}
+  .adx{background:#F2F6FD;color:var(--ink);overflow:hidden}
+  .adx__in{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(16px,3vw,48px);align-items:end;padding-top:clamp(40px,7vh,88px)}
+  .adx__copy{align-self:center;padding-bottom:clamp(32px,6vh,72px)}
+  .adx__h{margin:0;font-family:"Ballast Display",var(--g);font-style:italic;font-weight:900;text-transform:uppercase;font-size:clamp(50px,7.4vw,136px);line-height:.86;color:var(--ink);max-width:7.5ch}
+  .adx__p{margin:clamp(14px,2.4vh,24px) 0 0;font-family:"Ballast Display",var(--g);font-style:italic;font-weight:900;text-transform:uppercase;font-size:clamp(26px,3.2vw,56px);line-height:.95;color:var(--orange)}
+  .adx__go{margin-top:clamp(22px,4vh,36px);background:var(--ink);border-color:var(--ink);color:#fff}
+  .adx__go:hover{background:var(--orange);border-color:var(--orange);color:var(--ink)}
+  .adx__img{display:block;width:100%;max-width:660px;height:auto;justify-self:end}
+  @media (max-width:760px){.adx__in{grid-template-columns:minmax(0,1fr)}.adx__copy{padding-bottom:0}.adx__img{max-width:100%;justify-self:center}}
   .nl__hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
   .roll--about{padding-bottom:0}
   .roll__l em{font-style:italic;color:var(--orange)}
@@ -974,9 +983,20 @@
 
 
 
+  <!-- the ad -->
+  <section class="adx" aria-labelledby="adxT">
+    <div class="adx__in pad">
+      <div class="adx__copy">
+        <h2 id="adxT" class="adx__h">Your ad didn&rsquo;t work.</h2>
+        <p class="adx__p">Ours do. Book a call&nbsp;today.</p>
+        <a class="btn btn--lg adx__go" href="#book">Book a call</a>
+      </div>
+      <img class="adx__img" src="/work/adx/watch-guy.webp" width="1024" height="1024" alt="A very muscular man in a suit frowning at his phone" loading="lazy">
+    </div>
+  </section>
+
   <!-- book -->
   <section class="book pad" id="book">
-    <h2 class="bk__h">30 minutes. We&rsquo;ll tell you what&rsquo;s wasting your&nbsp;money.</h2>
     <div class="book__bar"><span class="mono">Book 30 minutes with Jack &middot; Pacific time</span><span class="book__offer mono" id="calOffer" hidden></span></div>
     <div class="cal" id="cal">
       <div class="cal__month">
