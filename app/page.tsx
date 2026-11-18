@@ -138,6 +138,7 @@ const online = [
   { label: "Ballast", action: "Visit", href: "https://ballast.la" },
   { label: "LinkedIn", action: "Connect", href: "https://www.linkedin.com/in/jackmorello" },
   { label: "Email", action: "Send", href: "mailto:jack@ballast.la" },
+  { label: "Resume", action: "PDF", href: "/JackMorello_CV.pdf" },
   { label: "Instagram", action: "Follow", href: "https://instagram.com/jackmorello" },
   { label: "GitHub", action: "View", href: "https://github.com/jack-more" },
 ];
@@ -255,12 +256,6 @@ const services = [
     d: "AI tools that handle the repeat work on a schedule: reporting, creative variations, budget checks.",
     p: "Built in-house tools that cut raw footage into 9:16 ads and block banned claims",
   },
-  {
-    t: "Fractional or full-time",
-    m: ["toyota-4runner", "toyota-tacoma", "toyota-helping"],
-    d: "Head of Growth for a team that wants one person owning all of it.",
-    p: "resume",
-  },
 ];
 
 function Pitch() {
@@ -277,7 +272,7 @@ function Pitch() {
           <span>Growth &amp; performance marketing</span>
           <span>8+ years &middot; Los Angeles</span>
         </div>
-        <h1 className="mast-h">If you&apos;re here, you already know<br className="mast-br" /> <em>what&apos;s missing.</em></h1>
+        <h1 className="mast-h">Growth marketing<br className="mast-br" /> <em>starts here.</em></h1>
         <div className="mast-body">
           <div className="mast-text">
             <ul className="mast-list">

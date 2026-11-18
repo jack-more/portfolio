@@ -853,6 +853,9 @@ a:hover {
 .svc li { padding: 14px 14px 16px; border-right: 1px dashed var(--dash); border-bottom: 1px dashed var(--dash); display: flex; flex-direction: column; }
 .svc li:nth-child(3n) { border-right: none; }
 .svc li:nth-last-child(-n+3) { border-bottom: none; }
+.svc li:nth-child(3) { border-bottom: 1px dashed var(--dash); }
+.svc li:last-child { grid-column: span 2; border-right: none; }
+.svc li:last-child a.svc-m { max-width: calc(50% - 3px); }
 .svc-n { font-size: 11px; font-weight: 700; color: var(--green); }
 .svc-t { font-size: 19px; line-height: 1.1; font-weight: 800; letter-spacing: -0.02em; margin: 4px 0 6px; }
 .pitch .svc-d { font-size: 13px; line-height: 1.45; margin-bottom: 10px; }
@@ -870,9 +873,12 @@ a:hover {
   .svc li:nth-child(2n) { border-right: none; }
   .svc li:nth-last-child(-n+3) { border-bottom: 1px dashed var(--dash); }
   .svc li:nth-last-child(-n+2) { border-bottom: none; }
+  .svc li:nth-last-child(2) { border-bottom: 1px dashed var(--dash); }
 }
 @media (max-width: 560px) {
   .svc { grid-template-columns: 1fr; }
+  .svc li:last-child { grid-column: auto; }
+  .svc li:last-child a.svc-m { max-width: none; }
   .svc li { border-right: none !important; border-bottom: 1px dashed var(--dash) !important; }
   .svc li:last-child { border-bottom: none !important; }
 }
