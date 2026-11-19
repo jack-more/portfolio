@@ -471,7 +471,7 @@ export default function HomePage() {
           <DraggableCard title="Work">
             <a href="/work" className="row-link">
               <div className="row">
-                <span className="row-left">The ads</span>
+                <span className="row-left">All ads</span>
                 <span className="row-dash" />
                 <span className="row-right">View</span>
               </div>
