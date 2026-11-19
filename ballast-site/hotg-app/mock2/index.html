@@ -114,8 +114,37 @@ img{display:block;max-width:100%}
 .lvl b{display:block;font:700 16px/1.15 var(--f)}.lvl b em{font-style:normal;color:var(--ball);margin-left:6px;font-size:13px}
 .lvl span{font-size:13px;color:var(--mute)}
 
+
+/* ask */
+.who{display:flex;gap:8px;overflow-x:auto;padding:0 16px 4px;scrollbar-width:none}
+.who::-webkit-scrollbar{display:none}
+.who button{flex:none;width:70px;text-align:center}
+.who .im{width:70px;height:70px;border-radius:12px;overflow:hidden;outline:3px solid transparent;outline-offset:2px}
+.who .im img{width:100%;height:100%;object-fit:cover;object-position:50% 15%}
+.who button.on .im{outline-color:var(--blue)}
+.who span{display:block;font:700 11px/1.2 var(--f);margin-top:6px}
+.field{margin:0 12px 12px;background:var(--cream);border-radius:12px;padding:12px}
+.field label{display:block;margin-bottom:8px;color:var(--mute)}
+.field textarea{width:100%;min-height:96px;border:0;border-radius:10px;padding:12px;font:400 17px/1.35 var(--f);resize:none;background:#fff}
+.field .url{display:flex;gap:8px}
+.field .url input{flex:1;min-width:0;border:0;border-radius:999px;padding:12px 14px;background:#fff;font-size:15px}
+.clip{margin-top:10px;display:flex;gap:10px;align-items:center;background:var(--dark);color:#F7F3EA;border-radius:10px;padding:8px}
+.clip .th{width:96px;aspect-ratio:16/9;border-radius:6px;background:linear-gradient(135deg,#2E3FB0,#16130F);display:grid;place-items:center;flex:none}
+.clip .th::after{content:"";border-left:14px solid #F7F3EA;border-top:9px solid transparent;border-bottom:9px solid transparent;margin-left:4px}
+.clip b{display:block;font:700 14px/1.2 var(--f)}.clip span{font-size:12px;color:#CFC8BB}
+.clip .trim{margin-left:auto;font:700 11px/1 var(--f);letter-spacing:.1em;text-transform:uppercase;color:var(--yellow);text-align:right}
+.or{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+.or button{background:#fff;border-radius:999px;padding:11px;font:700 12px/1 var(--f);letter-spacing:.08em;text-transform:uppercase}
+.onair{margin:0 12px 12px;display:flex;gap:10px;align-items:center;background:var(--dark);color:#F7F3EA;border-radius:12px;padding:12px}
+.onair i{width:9px;height:9px;border-radius:50%;background:var(--red);box-shadow:0 0 0 4px rgba(179,32,46,.3);flex:none}
+.onair span{font-size:13px;color:#CFC8BB}.onair b{color:#F7F3EA}
+.send{margin:4px 12px 30px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.send .btn{padding:15px 22px}
+.mine .it .st{font:700 11px/1 var(--f);letter-spacing:.1em;text-transform:uppercase;padding:7px 9px;border-radius:999px;background:var(--cream);white-space:nowrap}
+.mine .it .st.air{background:var(--red);color:#F7F3EA}.mine .it .st.pick{background:var(--blue);color:#F7F3EA}
+
 /* tabs */
-.tabs{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(10px + env(safe-area-inset-bottom));width:min(420px,calc(100% - 20px));background:var(--dark);border-radius:18px;display:grid;grid-template-columns:repeat(3,1fr);padding:6px;z-index:9}
+.tabs{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(10px + env(safe-area-inset-bottom));width:min(420px,calc(100% - 20px));background:var(--dark);border-radius:18px;display:grid;grid-template-columns:repeat(4,1fr);padding:6px;z-index:9}
 .tabs button{color:#9A9387;padding:12px 0;border-radius:12px;font:700 11px/1 var(--f);letter-spacing:.12em;text-transform:uppercase}
 .tabs button.on{background:var(--dark2);color:#F7F3EA}
 .screen{display:none}.screen.on{display:block}
@@ -146,7 +175,7 @@ img{display:block;max-width:100%}
 
     <div class="sec">
       <div class="sh"><h3>Ask the players</h3><span class="k xp">+20 · +100 if answered</span></div>
-      <div class="ask"><input placeholder="Ask Baron, Gil, Lou, anyone…" aria-label="Your question"><button class="btn">Ask</button></div>
+      <div class="ask" onclick="go('ask')"><input placeholder="Ask Baron, Gil, Lou, anyone… add a clip" aria-label="Your question"><button class="btn">Ask</button></div>
     </div>
 
     <div class="sec">
@@ -196,7 +225,7 @@ img{display:block;max-width:100%}
     </div></div>
 
     <div class="acts">
-      <button><b>Ask Baron</b><span class="xp">+20 · +100 if answered</span></button>
+      <button onclick="go('ask')"><b>Ask Baron</b><span class="xp">+20 · +100 if answered</span></button>
       <button><b>Request a story</b><span class="xp">+25 · +150 if told</span></button>
       <button><b>Share a memory</b><span class="xp">+50</span></button>
       <button><b>Follow</b><span class="xp">+5</span></button>
@@ -223,6 +252,37 @@ img{display:block;max-width:100%}
     </div>
   </section>
 
+
+  <!-- ASK -->
+  <section class="screen" id="ask">
+    <div class="band" style="--b:var(--blue)"><h1>Ask</h1><p class="k">Any player · the best questions go on air</p></div>
+    <div class="sh"><h3>Who</h3></div>
+    <div class="who">
+      <button class="on"><div class="im"><img src="../img/f/baron-davis.jpg" alt=""></div><span>Baron</span></button>
+      <button><div class="im"><img src="../img/f/gilbert-arenas.jpg" alt=""></div><span>Gil</span></button>
+      <button><div class="im"><img src="../img/f/lou-williams.jpg" alt=""></div><span>Lou</span></button>
+      <button><div class="im"><img src="../img/f/kevin-garnett.jpg" alt=""></div><span>KG</span></button>
+      <button><div class="im"><img src="../img/f/matt-barnes.jpg" alt=""></div><span>Matt</span></button>
+      <button><div class="im"><img src="../img/f/tony-allen.jpg" alt=""></div><span>Tony</span></button>
+    </div>
+    <div class="field" style="margin-top:16px"><label class="k" for="q">Your question</label>
+      <textarea id="q">What were you thinking right before you pushed off on T-Mac?</textarea></div>
+    <div class="field"><label class="k" for="cl">Add a clip <span style="text-transform:none;letter-spacing:0;font-weight:400">· YouTube, TikTok, Instagram, X</span></label>
+      <div class="url"><input id="cl" value="youtube.com/watch?v=…" aria-label="Clip link"></div>
+      <div class="clip"><div class="th"></div><div><b>Hornets at Magic, 2002 playoffs</b><span>youtube.com · 2:14</span></div><div class="trim">Start<br>1:02</div></div>
+      <div class="or"><button>Upload a video</button><button>Pick a moment</button></div>
+    </div>
+    <div class="onair"><i></i><span>Picked questions go on screen with your name and your clip when the player answers. <b>+150 XP if yours airs.</b></span></div>
+    <div class="send"><span class="xp">+20 now · +100 if answered</span><button class="btn">Ask Baron</button></div>
+    <div class="sec mine"><div class="sh"><h3>Your questions</h3></div>
+      <div class="list">
+        <div class="it"><div class="av"><img src="../img/f/baron-davis.jpg" alt=""></div><div class="m"><b>Did you know Jeremy Lin was that good in practice?</b><span>Baron · with a clip · 2 days ago</span></div><span class="st air">On air</span></div>
+        <div class="it"><div class="av"><img src="../img/f/gilbert-arenas.jpg" alt=""></div><div class="m"><b>Best trash talker you ever played?</b><span>Gil · 5 days ago</span></div><span class="st pick">Picked</span></div>
+        <div class="it"><div class="av"><img src="../img/f/lou-williams.jpg" alt=""></div><div class="m"><b>How did you prep for a 40-minute bench role?</b><span>Lou · 1 week ago</span></div><span class="st">Asked</span></div>
+      </div>
+    </div>
+  </section>
+
   <!-- REWARDS -->
   <section class="screen" id="rewards">
     <div class="band" style="--b:var(--yellow)"><h1>Walk-on</h1><p class="k">640 XP · 360 to Rotation</p></div>
@@ -239,7 +299,7 @@ img{display:block;max-width:100%}
     </ol>
   </section>
 </div>
-<nav class="tabs"><button class="on" data-t="today" onclick="go('today')">Today</button><button data-t="player" onclick="go('player')">Locker room</button><button data-t="rewards" onclick="go('rewards')">Rewards</button></nav>
+<nav class="tabs"><button class="on" data-t="today" onclick="go('today')">Today</button><button data-t="player" onclick="go('player')">Lockers</button><button data-t="ask" onclick="go('ask')">Ask</button><button data-t="rewards" onclick="go('rewards')">Rewards</button></nav>
 <script>function go(id){document.querySelectorAll('.screen').forEach(s=>s.classList.toggle('on',s.id===id));document.querySelectorAll('.tabs button').forEach(b=>b.classList.toggle('on',b.dataset.t===id));scrollTo(0,0)}</script>
 <script>window.BLOOM_BASE='../lib/x/'</script><script src="../lib/x/bloom.js"></script>
 <script>const ORD=[4,5,6,7,0,1,2,3];
