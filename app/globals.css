@@ -1010,3 +1010,4 @@ a.art3d-available:hover { background: var(--green); color: #fff; }
 .work-owned { font-size: 12px; line-height: 1.45; color: var(--text); margin: 0 0 4px; }
 .work-owned b { font-weight: 700; }
 #work { display: block; position: relative; top: -80px; }
+.mast-proof { font-size: 15px; font-weight: 600; margin: 10px 0 0; padding-bottom: 12px; border-bottom: 1px solid #000; }

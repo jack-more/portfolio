@@ -350,7 +350,7 @@ const services = [
     t: "Ads that convert",
     m: ["sko-hanna", "bmw-m5", "starbucks-holiday"],
     d: "Paid on Meta, TikTok and Google, with creative made at volume by UGC creators and AIGC.",
-    p: "$1.2M+ a month in sales at a peak 6x ROAS",
+    p: "$1.2M+ a month in sales for a DTC brand",
   },
   {
     t: "A funnel that converts",
@@ -375,7 +375,7 @@ const services = [
 function Pitch() {
   const stats = [
     { n: "$1.2M+", l: "a month in sales for one DTC client" },
-    { n: "6x", l: "peak ROAS" },
+    { n: "4x", l: "blended ROAS at $2M+ a month" },
     { n: "1,000+", l: "ads shipped" },
     { n: "$50M+", l: "in paid media managed" },
   ];
@@ -383,10 +383,11 @@ function Pitch() {
     <div className="pitch">
       <header className="mast">
         <div className="mast-top">
-          <span>Growth &amp; performance marketing</span>
+          <span>Jack Morello &middot; Ballast Research</span>
           <span>8+ years &middot; Los Angeles</span>
         </div>
-        <h1 className="mast-h">Growth marketing<br className="mast-br" /> <em>starts here.</em></h1>
+        <h1 className="mast-h">Head of growth and<br className="mast-br" /> <em>performance marketing.</em></h1>
+        <p className="mast-proof">$50M+ in paid media managed. $10K to $1.2M+ a month for a DTC brand.</p>
         <div className="mast-body">
           <div className="mast-text">
             <ul className="mast-list">
