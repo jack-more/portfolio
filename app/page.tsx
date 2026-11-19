@@ -1,10 +1,10 @@
 "use client";
 
-import Image from "next/image";
 import { useState } from "react";
 import GridCanvas from "./components/GridCanvas";
 import DraggableCard from "./components/DraggableCard";
 import MusicCard from "./components/MusicCard";
+import GazePortrait from "./components/GazePortrait";
 
 type WorkItem = {
   company: string;
@@ -292,14 +292,7 @@ function Pitch() {
             </div>
           </div>
           <figure className="mast-fig">
-            <Image
-              src="/images/illustration-jack.png"
-              alt="Jack Morello"
-              width={200}
-              height={200}
-              className="pitch-portrait"
-              priority
-            />
+            <GazePortrait className="pitch-portrait" alt="Jack Morello" />
             <figcaption>Jack Morello, founder, Ballast Research</figcaption>
           </figure>
         </div>
