@@ -89,25 +89,44 @@ export default function GazePortrait({ className, alt }: { className?: string; a
       gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
     };
 
-    const tick = () => {
-      cur.x += (target.x - cur.x) * 0.14;
-      cur.y += (target.y - cur.y) * 0.14;
+    const coarse = window.matchMedia("(pointer: coarse)").matches;
+    let last = 0, visible = true, held = false;
+    const io = new IntersectionObserver((es) => { visible = es[0].isIntersecting; kick(); });
+    io.observe(box);
+
+    const tick = (now: number) => {
+      // On touch screens, when nobody is touching, he looks around on his own.
+      const wander = coarse && visible && !held && now - last > 2200;
+      if (wander) {
+        const k = now / 1000;
+        target.x = 0.8 * Math.cos(k * 0.55);
+        target.y = 0.55 * Math.sin(k * 0.9);
+      }
+      cur.x += (target.x - cur.x) * (wander ? 0.06 : 0.16);
+      cur.y += (target.y - cur.y) * (wander ? 0.06 : 0.16);
       draw();
-      raf = Math.abs(target.x - cur.x) + Math.abs(target.y - cur.y) > 0.002 ? requestAnimationFrame(tick) : 0;
+      const moving = Math.abs(target.x - cur.x) + Math.abs(target.y - cur.y) > 0.002;
+      raf = moving || (coarse && visible && !held) ? requestAnimationFrame(tick) : 0;
     };
     const kick = () => { if (!raf) raf = requestAnimationFrame(tick); };
 
-    const onMove = (e: PointerEvent) => {
+    const look = (x: number, y: number) => {
       const b = box.getBoundingClientRect();
-      const dx = e.clientX - (b.left + b.width / 2), dy = e.clientY - (b.top + b.height * 0.4);
-      const d = Math.hypot(dx, dy), inner = b.width * 0.3;
-      const t = d < inner ? 0 : Math.min(1, (d - inner) / 420);
+      const dx = x - (b.left + b.width / 2), dy = y - (b.top + b.height * 0.4);
+      const d = Math.hypot(dx, dy), inner = b.width * (coarse ? 0.2 : 0.3);
+      const range = coarse ? 60 : Math.max(140, Math.min(420, window.innerWidth * 0.45));
+      const t = d < inner ? 0 : Math.min(1, (d - inner) / range);
       const s = t * (2 - t); // ease out
       target.x = d ? (dx / d) * s : 0;
       target.y = d ? (dy / d) * s : 0;
+      last = performance.now();
       kick();
     };
-    const onLeave = () => { target.x = 0; target.y = 0; kick(); };
+    const onPointer = (e: PointerEvent) => look(e.clientX, e.clientY);
+    const onTouch = (e: TouchEvent) => { const t = e.touches[0]; if (t) { held = true; look(t.clientX, t.clientY); } };
+    const onTouchEnd = () => { held = false; last = performance.now(); kick(); };
+    const onLeave = () => { if (!coarse) { target.x = 0; target.y = 0; kick(); } };
+    const onResize = () => { size(); draw(); };
 
     Promise.all([load("/images/gaze/atlas.webp"), load("/images/gaze/flow-f.png"), load("/images/gaze/flow-b.png")])
       .then(([img, f, b]) => {
@@ -118,17 +137,28 @@ export default function GazePortrait({ className, alt }: { className?: string; a
         size();
         draw();
         canvas.style.opacity = "1";
-        window.addEventListener("pointermove", onMove, { passive: true });
+        window.addEventListener("pointermove", onPointer, { passive: true });
+        window.addEventListener("pointerdown", onPointer, { passive: true });
+        window.addEventListener("touchstart", onTouch, { passive: true });
+        window.addEventListener("touchmove", onTouch, { passive: true });
+        window.addEventListener("touchend", onTouchEnd, { passive: true });
         document.addEventListener("pointerleave", onLeave);
-        window.addEventListener("resize", () => { size(); draw(); });
+        window.addEventListener("resize", onResize);
+        kick();
       })
       .catch(() => {});
 
     return () => {
       alive = false;
       cancelAnimationFrame(raf);
-      window.removeEventListener("pointermove", onMove);
+      io.disconnect();
+      window.removeEventListener("pointermove", onPointer);
+      window.removeEventListener("pointerdown", onPointer);
+      window.removeEventListener("touchstart", onTouch);
+      window.removeEventListener("touchmove", onTouch);
+      window.removeEventListener("touchend", onTouchEnd);
       document.removeEventListener("pointerleave", onLeave);
+      window.removeEventListener("resize", onResize);
     };
   }, []);
 
