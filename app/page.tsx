@@ -17,6 +17,7 @@ type WorkItem = {
   href: string;
   tags?: string[];
   market?: string;
+  owned?: string;
   summary?: string;
   media?: Media[];
   details?: string[];
@@ -42,6 +43,7 @@ const work: WorkItem[] = [
         href: "https://skocompounds.com/",
         tags: ["Paid", "Creative", "Growth"],
         open: true,
+        owned: "All paid media budget and buying on Meta, TikTok and Google; the creative testing system; a 30+ creator program; order-level tracking; Klaviyo lifecycle email; TikTok LIVE selling.",
         summary:
           "Took the brand from under $10K to $1.2M+ in monthly sales on Meta, TikTok and Google, at a peak 6x ROAS on up to $100K a month in spend. Shipped 500 to 1,000 ads a month across UGC creators, AI and branded content, and judged every one at day 7 on hold rate, watch time and sales. Built order-level tracking reconciled weekly against invoices, lifecycle email that brought about two-thirds of revenue from repeat buyers, and TikTok LIVE selling at $5K a day.",
         media: [
@@ -59,6 +61,7 @@ const work: WorkItem[] = [
         href: "https://ballast.la/",
         tags: ["Design"],
         open: true,
+        owned: "Identity, the live show graphics package and the merch line.",
         summary:
           "Identity, live show graphics and merch for a basketball media house built with retired players and the sharpest clip editors online. One flower-and-ball mark that carries from the broadcast package to a game-night seal, tees, shorts and loafers.",
         media: [
@@ -85,6 +88,7 @@ const work: WorkItem[] = [
         desc: "Embedded marketing lead for a private AI platform",
         href: "https://www.incubella.co/",
         tags: ["Paid", "Creative", "Growth"],
+        owned: "Positioning, messaging, launch, the LinkedIn and content pipeline, and onboarding email.",
         summary:
           "Owned positioning, messaging and launch for enterprise users. Built a LinkedIn and content pipeline that booked 150+ demos for sales at a $22 cost per lead, and rebuilt onboarding and lifecycle emails to cut drop-off 35%.",
       },
@@ -114,6 +118,7 @@ const work: WorkItem[] = [
         href: "https://www.iheartmedia.com/",
         tags: ["Paid"],
         market: "African American and Asian American audiences",
+        owned: "Planning, buying and optimization by audience, with creative versions matched to each segment.",
         summary:
           "Multicultural campaigns for Toyota's 4Runner, Tacoma, Camry and Corolla launches, planned and bought per audience rather than per model, with creative versions matched to each segment.",
         media: [{ kind: "yt", id: "Y_IuBEtfzGM", cap: "4Runner" }],
@@ -124,6 +129,7 @@ const work: WorkItem[] = [
         href: "https://www.iheartmedia.com/",
         tags: ["Paid"],
         market: "Pacific Northwest",
+        owned: "Regional planning, buying and week-to-week optimization.",
         summary: "Regional campaigns across the Pacific Northwest, including the holiday season, bought and optimized week to week against store traffic.",
         media: [{ kind: "yt", id: "jtJ_DbPYnrU", cap: "Holidays" }],
       },
@@ -133,6 +139,7 @@ const work: WorkItem[] = [
         href: "https://www.iheartmedia.com/",
         tags: ["Paid"],
         market: "International",
+        owned: "Launch planning, buying and optimization toward subscriptions across markets.",
         summary: "Series launches for STARZPLAY across international markets, from Raising Kanan to BMF and Heels, optimized toward subscriptions.",
         media: [{ kind: "yt", id: "JSpUNWjQk6c", cap: "Raising Kanan" }],
       },
@@ -143,6 +150,7 @@ const work: WorkItem[] = [
     desc: "Marketing for NEAR Tasks, an AI training-data marketplace",
     href: "https://near.org/",
     tags: ["Growth"],
+    owned: "Paid, SEO, content and community; landing-page testing; four product launches; the onboarding flow with engineering and design.",
     summary:
       "Grew NEAR Tasks to 50K+ monthly users across paid, SEO, content and community. Cut CAC 60% and lifted landing-page conversion 140% through testing, led 4 product launches that each reached 15% adoption in their first quarter, and built an onboarding flow with engineering and design that SailGP adopted at its live race events.",
     media: [{ kind: "yt", id: "jr3UYpx8gVI", cap: "NEAR × SailGP" }],
@@ -152,6 +160,7 @@ const work: WorkItem[] = [
     desc: "Digital growth through an $8M Series A",
     href: "https://www.dtravel.com/",
     tags: ["Paid", "Creative", "Growth"],
+    owned: "Content, community and paid acquisition, and the digital collectible program.",
     summary:
       "Grew a two-sided travel marketplace from zero to 12,000 users and 2,000+ property listings through content, community and paid at a 1.5%+ CTR, supporting the $8M Series A. Launched a digital collectible program that brought in $750K in new revenue.",
     media: [
@@ -239,7 +248,7 @@ function MediaItem({ m }: { m: Media }) {
 }
 
 function WorkRow(item: WorkItem & { sub?: boolean }) {
-  const { company, desc, href, tags, market, summary, media, details, clients, sub = false } = item;
+  const { company, desc, href, tags, market, owned, summary, media, details, clients, sub = false } = item;
   const [open, setOpen] = useState(!!item.open);
   const hasBody = !!(summary || media?.length || details?.length);
   return (
@@ -265,6 +274,7 @@ function WorkRow(item: WorkItem & { sub?: boolean }) {
       {open && (
         <div className="work-body">
           {tags?.length ? <p className="work-role">{desc}{market ? <> &middot; <b>Market:</b> {market}</> : null}</p> : null}
+          {owned && <p className="work-owned"><b>Owned:</b> {owned}</p>}
           {summary && <p className="work-summary">{summary}</p>}
           {details?.length ? (
             <ul className="work-details">
@@ -392,7 +402,8 @@ function Pitch() {
             </p>
             <div className="pitch-ctas">
               <a className="pitch-btn pitch-btn-solid" href="https://ballast.la/#book" target="_blank" rel="noopener noreferrer">Book a call</a>
-              <a className="pitch-btn" href="mailto:jack@ballast.la?subject=Audit%20request">Get an audit</a>
+              <a className="pitch-btn" href="#work">See the work</a>
+              <a className="pitch-btn" href="/JackMorello_CV.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
             </div>
           </div>
           <figure className="mast-fig">
@@ -449,6 +460,20 @@ export default function HomePage() {
             <Pitch />
           </DraggableCard>
 
+          <DraggableCard title="Work">
+            <span id="work" />
+            <a href="/work" className="row-link">
+              <div className="row">
+                <span className="row-left">All ads</span>
+                <span className="row-dash" />
+                <span className="row-right">View</span>
+              </div>
+            </a>
+            {work.map((w) => (
+              <WorkRow key={w.company} {...w} />
+            ))}
+          </DraggableCard>
+
           <DraggableCard title="Jack Morello">
             <p>
               I&apos;m Jack, a growth and performance marketer with 8+ years in
@@ -468,18 +493,6 @@ export default function HomePage() {
             <p style={{ marginTop: "0.75rem" }}>Based in Los Angeles.</p>
           </DraggableCard>
 
-          <DraggableCard title="Work">
-            <a href="/work" className="row-link">
-              <div className="row">
-                <span className="row-left">All ads</span>
-                <span className="row-dash" />
-                <span className="row-right">View</span>
-              </div>
-            </a>
-            {work.map((w) => (
-              <WorkRow key={w.company} {...w} />
-            ))}
-          </DraggableCard>
         </div>
 
         {/* Right column */}
