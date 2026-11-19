@@ -47,6 +47,7 @@ img{display:block;max-width:100%}
 .xp{font:700 14px/1 var(--f);color:var(--ball);font-variant-numeric:tabular-nums;white-space:nowrap}
 .mod .xp{color:var(--yellow)}
 
+.story iframe{position:absolute;inset:0;width:100%;height:100%;border:0;background:#000}
 /* sections */
 .sec{margin:0 0 30px}
 .sh{display:flex;align-items:baseline;justify-content:space-between;padding:0 16px 10px}
@@ -162,13 +163,13 @@ img{display:block;max-width:100%}
     <div class="band" style="--b:var(--red)"><h1>Today</h1><p class="k">Wednesday 19 November</p></div>
 
     <div class="mod">
-      <div class="story" style="background:var(--blue)">
+      <div class="story" id="lin" style="background:var(--blue)">
         <img class="ph" src="../img/f/baron-davis.jpg" alt="Baron Davis">
         <div class="live k"><i></i>New story</div>
         <div class="card">
-          <div class="k">Baron Davis · Orlando, 2002 · 1:08</div>
-          <h3>The shot that didn't count</h3>
-          <button class="btn">▶ Watch <em>+15 XP</em></button>
+          <div class="k">Baron Davis · Knicks, February 2012 · 1:09</div>
+          <h3>Warning Kobe that Jeremy Lin would bust the Lakers</h3>
+          <button class="btn" onclick="playLin()">▶ Watch <em>+15 XP</em></button>
         </div>
       </div>
     </div>
@@ -193,7 +194,7 @@ img{display:block;max-width:100%}
       <div class="sh"><h3>Told this week</h3><span class="k xp">+15 each</span></div>
       <div class="list">
         <div class="it"><div class="av"><img src="../img/f/tony-allen.jpg" alt=""></div><div class="m"><b>Baron's game-winner over Tony Allen</b><span>Tony Allen · 1:21</span></div></div>
-        <div class="it"><div class="av"><img src="../img/f/baron-davis.jpg" alt=""></div><div class="m"><b>Warning Kobe that Jeremy Lin would bust the Lakers</b><span>Baron Davis · 1:09</span></div></div>
+        <div class="it" onclick="go('today');playLin()" style="cursor:pointer"><div class="av"><img src="../img/f/baron-davis.jpg" alt=""></div><div class="m"><b>Warning Kobe that Jeremy Lin would bust the Lakers</b><span>Baron Davis · 1:09</span></div></div>
         <div class="it"><div class="av"><img src="../img/f/baron-davis.jpg" alt=""></div><div class="m"><b>The Weather Channel in the Knicks locker room</b><span>Baron Davis · 1:22</span></div></div>
       </div>
     </div>
@@ -300,7 +301,8 @@ img{display:block;max-width:100%}
   </section>
 </div>
 <nav class="tabs"><button class="on" data-t="today" onclick="go('today')">Today</button><button data-t="player" onclick="go('player')">Lockers</button><button data-t="ask" onclick="go('ask')">Ask</button><button data-t="rewards" onclick="go('rewards')">Rewards</button></nav>
-<script>function go(id){document.querySelectorAll('.screen').forEach(s=>s.classList.toggle('on',s.id===id));document.querySelectorAll('.tabs button').forEach(b=>b.classList.toggle('on',b.dataset.t===id));scrollTo(0,0)}</script>
+<script>function playLin(){const st=document.getElementById('lin');st.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/YgMeGTK_vqg?start=178&end=247&autoplay=1&playsinline=1&rel=0" title="Baron Davis on warning Kobe about Jeremy Lin" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>';st.style.aspectRatio='16/9'}
+function go(id){document.querySelectorAll('.screen').forEach(s=>s.classList.toggle('on',s.id===id));document.querySelectorAll('.tabs button').forEach(b=>b.classList.toggle('on',b.dataset.t===id));scrollTo(0,0)}</script>
 <script>window.BLOOM_BASE='../lib/x/'</script><script src="../lib/x/bloom.js"></script>
 <script>const ORD=[4,5,6,7,0,1,2,3];
 window.bloomReady.then(()=>document.querySelectorAll('.blm').forEach(e=>{const n=+e.dataset.done,p=Array(8).fill(null);ORD.forEach((k,i)=>{if(i<n)p[k]='#B3202E'});
