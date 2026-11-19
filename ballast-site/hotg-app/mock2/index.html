@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>HOTG · Today</title>
+<style>
+@font-face{font-family:Heros;src:url(../fonts/texgyreheros-bold.otf) format('opentype');font-weight:700;font-display:swap}
+@font-face{font-family:Heros;src:url(../fonts/texgyreheros-regular.otf) format('opentype');font-weight:400;font-display:swap}
+/* Built from the HOTG brand guide: white page, ink type, the six brand colours as full bands, dark rounded modules, cream cards, yellow XP, blue actions */
+:root{--paper:#FFFFFF;--ink:#1A1716;--mute:#8A857C;--line:#E7E3DC;--cream:#F7F3EA;--dark:#16130F;--dark2:#2A2520;
+ --red:#B3202E;--green:#17963F;--blue:#2E3FB0;--yellow:#F2A51A;--ball:#B04B1C;--f:Heros,"Helvetica Neue",Helvetica,Arial,sans-serif}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--paper);color:var(--ink);font:400 15px/1.45 var(--f);-webkit-font-smoothing:antialiased}
+button,input{font:inherit;color:inherit}
+button{background:none;border:0;padding:0;cursor:pointer}
+img{display:block;max-width:100%}
+.app{max-width:440px;margin:0 auto;padding-bottom:calc(92px + env(safe-area-inset-bottom))}
+.pad{padding-left:16px;padding-right:16px}
+.k{font:700 11px/1.2 var(--f);letter-spacing:.12em;text-transform:uppercase}
+
+/* top bar: wordmark, your bloom, your XP */
+.top{position:sticky;top:0;z-index:5;background:var(--paper);display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid var(--line)}
+.top .wm{height:20px;width:auto}
+.top .me{margin-left:auto;display:flex;align-items:center;gap:8px}
+.top .me .blm{width:32px;height:32px}
+.top .me b{font:700 15px/1 var(--f);font-variant-numeric:tabular-nums}
+.top .me span{color:var(--mute);font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;display:block;margin-top:3px}
+
+/* chapter bands, as in the guide */
+.band{background:var(--b);color:#F7F3EA;padding:26px 16px 18px;margin:0 0 18px}
+.band h1,.band h2{margin:0;font:700 64px/.86 var(--f);letter-spacing:-.05em}
+.band h2{font-size:46px}
+.band p{margin:12px 0 0;opacity:.85}
+
+/* dark module: today's story */
+.mod{background:var(--dark);border-radius:18px;margin:0 12px 28px;overflow:hidden;color:#F7F3EA}
+.story{position:relative;aspect-ratio:4/5;background:var(--blue)}
+.story img.ph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+.story .bl{position:absolute;right:-60px;bottom:-60px;width:260px;opacity:.95;mix-blend-mode:normal}
+.story .live{position:absolute;left:14px;top:14px;display:flex;align-items:center;gap:8px;background:var(--dark);border-radius:999px;padding:8px 12px}
+.story .live i{width:8px;height:8px;border-radius:50%;background:var(--red);box-shadow:0 0 0 4px rgba(179,32,46,.3)}
+.card{position:absolute;left:12px;right:12px;bottom:12px;background:var(--cream);color:var(--ink);border-radius:12px;padding:12px 14px 14px}
+.card .k{color:var(--mute)}
+.card h3{margin:6px 0 12px;font:700 28px/1 var(--f);letter-spacing:-.03em}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--blue);color:#F7F3EA;border-radius:999px;padding:13px 18px;font:700 13px/1 var(--f);letter-spacing:.08em;text-transform:uppercase}
+.btn em{font-style:normal;color:var(--yellow)}
+.btn.red{background:var(--red)}
+.xp{font:700 14px/1 var(--f);color:var(--ball);font-variant-numeric:tabular-nums;white-space:nowrap}
+.mod .xp{color:var(--yellow)}
+
+/* sections */
+.sec{margin:0 0 30px}
+.sh{display:flex;align-items:baseline;justify-content:space-between;padding:0 16px 10px}
+.sh h3{margin:0;font:700 26px/1 var(--f);letter-spacing:-.03em}
+.sh .k{color:var(--mute)}
+
+/* ask */
+.ask{margin:0 12px;background:var(--cream);border-radius:12px;padding:12px;display:flex;gap:8px}
+.ask input{flex:1;min-width:0;border:0;background:#fff;border-radius:999px;padding:12px 14px;font-size:15px}
+.ask .btn{padding:12px 16px}
+
+/* player rail */
+.rail{display:grid;grid-auto-flow:column;grid-auto-columns:38%;gap:10px;overflow-x:auto;padding:0 16px 4px;scrollbar-width:none;scroll-snap-type:x mandatory}
+.rail::-webkit-scrollbar{display:none}
+.pc{scroll-snap-align:start;text-align:left}
+.pc .im{aspect-ratio:4/5;border-radius:12px;overflow:hidden}
+.pc .im img{width:100%;height:100%;object-fit:cover}
+.pc b{display:block;margin-top:8px;font:700 15px/1.15 var(--f);letter-spacing:-.01em}
+.pc span{font-size:12px;color:var(--mute)}
+
+/* story list */
+.list{padding:0 16px}
+.it{display:flex;align-items:center;gap:12px;padding:10px 0;border-top:1px solid var(--line)}
+.it:last-child{border-bottom:1px solid var(--line)}
+.it .av{width:56px;height:56px;border-radius:10px;overflow:hidden;flex:none}
+.it .av img{width:100%;height:100%;object-fit:cover;object-position:50% 15%}
+.it .m{flex:1;min-width:0}
+.it .m b{display:block;font:700 15px/1.2 var(--f)}
+.it .m span{font-size:12px;color:var(--mute)}
+
+/* player page */
+.ph{position:relative;background:var(--b);color:#F7F3EA;overflow:hidden}
+.ph img.face{width:100%;aspect-ratio:1;object-fit:cover;object-position:50% 12%}
+.ph .nm{position:absolute;left:16px;right:16px;bottom:16px}
+.ph h1{margin:0;font:700 62px/.84 var(--f);letter-spacing:-.05em;text-shadow:0 2px 24px rgba(0,0,0,.25)}
+.ph .k{margin-top:10px;display:block}
+.prog{margin:16px 12px 24px;background:var(--cream);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px}
+.prog .blm{width:64px;height:64px;flex:none}
+.prog b{font:700 18px/1.1 var(--f);letter-spacing:-.02em;display:block}
+.prog span{font-size:13px;color:var(--mute)}
+.req{padding:16px}
+.req h3{margin:0 0 6px;font:700 26px/1 var(--f);letter-spacing:-.03em}
+.req p{margin:0 0 14px;color:#CFC8BB;font-size:14px}
+.acts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:0 12px 30px}
+.acts button{background:var(--cream);border-radius:12px;padding:14px;text-align:left;display:grid;gap:6px}
+.acts b{font:700 16px/1.1 var(--f)}
+.acts .xp{font-size:12px}
+.tro{display:grid;grid-auto-flow:column;grid-auto-columns:62%;gap:10px;overflow-x:auto;padding:0 16px 4px;scrollbar-width:none;scroll-snap-type:x mandatory}
+.tro::-webkit-scrollbar{display:none}
+.tr{scroll-snap-align:start;background:#F2EBDD;border-radius:12px;overflow:hidden}
+.tr img{width:100%;aspect-ratio:1}
+.tr .t{padding:0 12px 12px}
+.tr b{display:block;font:700 15px/1.15 var(--f)}
+.tr span{font-size:12px;color:var(--mute)}
+.tr .yo{display:flex;align-items:center;gap:8px;margin-top:10px;padding-top:10px;border-top:1px solid #E2D9C8}
+.tr .yo img{width:40px;height:40px;flex:none;aspect-ratio:auto}
+.tr .yo em{font-style:normal;font:700 11px/1.2 var(--f);letter-spacing:.08em;text-transform:uppercase}
+.tr .yo.got em{color:var(--green)}.tr .yo.lock img{filter:grayscale(1);opacity:.45}
+
+/* rewards */
+.lvl{list-style:none;margin:0;padding:0 16px}
+.lvl li{display:flex;align-items:center;gap:12px;padding:10px 0;border-top:1px solid var(--line)}
+.lvl li.no{opacity:.5}
+.lvl .blm{width:46px;height:46px;flex:none}
+.lvl b{display:block;font:700 16px/1.15 var(--f)}.lvl b em{font-style:normal;color:var(--ball);margin-left:6px;font-size:13px}
+.lvl span{font-size:13px;color:var(--mute)}
+
+/* tabs */
+.tabs{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(10px + env(safe-area-inset-bottom));width:min(420px,calc(100% - 20px));background:var(--dark);border-radius:18px;display:grid;grid-template-columns:repeat(3,1fr);padding:6px;z-index:9}
+.tabs button{color:#9A9387;padding:12px 0;border-radius:12px;font:700 11px/1 var(--f);letter-spacing:.12em;text-transform:uppercase}
+.tabs button.on{background:var(--dark2);color:#F7F3EA}
+.screen{display:none}.screen.on{display:block}
+.back{display:inline-block;padding:12px 16px;font:700 11px/1 var(--f);letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+</style></head>
+<body>
+<div class="app">
+  <header class="top">
+    <img class="wm" src="wordmark.svg" alt="HOTG">
+    <button class="me" onclick="go('rewards')"><span class="blm" data-done="2"></span><div><b>640 XP</b><span>Walk-on</span></div></button>
+  </header>
+
+  <!-- TODAY -->
+  <section class="screen on" id="today">
+    <div class="band" style="--b:var(--red)"><h1>Today</h1><p class="k">Wednesday 19 November</p></div>
+
+    <div class="mod">
+      <div class="story" style="background:var(--blue)">
+        <img class="ph" src="../img/f/baron-davis.jpg" alt="Baron Davis">
+        <div class="live k"><i></i>New story</div>
+        <div class="card">
+          <div class="k">Baron Davis · Orlando, 2002 · 1:08</div>
+          <h3>The shot that didn't count</h3>
+          <button class="btn">▶ Watch <em>+15 XP</em></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="sh"><h3>Ask the players</h3><span class="k xp">+20 · +100 if answered</span></div>
+      <div class="ask"><input placeholder="Ask Baron, Gil, Lou, anyone…" aria-label="Your question"><button class="btn">Ask</button></div>
+    </div>
+
+    <div class="sec">
+      <div class="sh"><h3>The locker room</h3><span class="k">59 lockers</span></div>
+      <div class="rail">
+        <button class="pc" onclick="go('player')"><div class="im"><img src="../img/f/baron-davis.jpg" alt=""></div><b>Baron Davis</b><span>28 stories</span></button>
+        <button class="pc"><div class="im"><img src="../img/f/gilbert-arenas.jpg" alt=""></div><b>Gilbert Arenas</b></button>
+        <button class="pc"><div class="im"><img src="../img/f/lou-williams.jpg" alt=""></div><b>Lou Williams</b></button>
+        <button class="pc"><div class="im"><img src="../img/f/kevin-garnett.jpg" alt=""></div><b>Kevin Garnett</b></button>
+        <button class="pc"><div class="im"><img src="../img/f/matt-barnes.jpg" alt=""></div><b>Matt Barnes</b></button>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="sh"><h3>Told this week</h3><span class="k xp">+15 each</span></div>
+      <div class="list">
+        <div class="it"><div class="av"><img src="../img/f/tony-allen.jpg" alt=""></div><div class="m"><b>Baron's game-winner over Tony Allen</b><span>Tony Allen · 1:21</span></div></div>
+        <div class="it"><div class="av"><img src="../img/f/baron-davis.jpg" alt=""></div><div class="m"><b>Warning Kobe that Jeremy Lin would bust the Lakers</b><span>Baron Davis · 1:09</span></div></div>
+        <div class="it"><div class="av"><img src="../img/f/baron-davis.jpg" alt=""></div><div class="m"><b>The Weather Channel in the Knicks locker room</b><span>Baron Davis · 1:22</span></div></div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="sh"><h3>New today</h3><span class="k xp">+5 each</span></div>
+      <div class="list">
+        <div class="it"><div class="av"><img src="../img/f/gilbert-arenas.jpg" alt=""></div><div class="m"><b>The Reason Kobe Won 5 Championships</b><span>Gil's Arena · Gilbert Arenas, Nick Young</span></div></div>
+        <div class="it"><div class="av"><img src="../img/f/lou-williams.jpg" alt=""></div><div class="m"><b>Cade Cunningham is top 5</b><span>Run It Back · Lou Williams, Chandler Parsons</span></div></div>
+        <div class="it"><div class="av"><img src="../img/f/dwyane-wade.jpg" alt=""></div><div class="m"><b>Why the defending champion Knicks are off to a rocky start</b><span>WY Network · Dwyane Wade</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLAYER -->
+  <section class="screen" id="player">
+    <a class="back" onclick="go('today')">‹ Today</a>
+    <div class="ph" style="--b:var(--blue)">
+      <img class="face" src="../img/f/baron-davis.jpg" alt="Baron Davis">
+      <div class="nm"><h1>Baron<br>Davis</h1><span class="k">The Locker Room · 28 stories</span></div>
+    </div>
+    <div class="prog"><span class="blm" data-done="3"></span><div><b>3 of 8 petals with Baron</b><span>Hear his stories, ask him things, earn his pieces.</span></div></div>
+
+    <div class="mod"><div class="req">
+      <span class="k" style="color:var(--yellow)">Request a moment</span>
+      <h3>Pick a game, a play or a season</h3>
+      <p>Baron tells it in his own voice and you hear it first, credited to you. Refunded in full if he passes.</p>
+      <button class="btn red">Request <em>+200 XP</em></button>
+    </div></div>
+
+    <div class="acts">
+      <button><b>Ask Baron</b><span class="xp">+20 · +100 if answered</span></button>
+      <button><b>Request a story</b><span class="xp">+25 · +150 if told</span></button>
+      <button><b>Share a memory</b><span class="xp">+50</span></button>
+      <button><b>Follow</b><span class="xp">+5</span></button>
+    </div>
+
+    <div class="band" style="--b:var(--green)"><h2>Trophies</h2><p class="k">What he won · what you earn from it</p></div>
+    <div class="tro">
+      <div class="tr"><img src="../img/tro/a-allstar.webp" alt="All-Star"><div class="t"><b>All-Star</b><span>2002, 2004</span><div class="yo"><img src="../img/tro/k-allstar.webp" alt=""><em class="xp">320 / 500 XP</em></div></div></div>
+      <div class="tr"><img src="../img/tro/a-allnba.webp" alt="All-NBA Third Team"><div class="t"><b>All-NBA Third Team</b><span>2004</span><div class="yo lock"><img src="../img/tro/k-allnba.webp" alt=""><em>2,000 XP</em></div></div></div>
+      <div class="tr"><img src="../img/tro/a-steals.webp" alt="Steals leader"><div class="t"><b>Steals leader</b><span>2004, 2007</span><div class="yo lock"><img src="../img/tro/k-steals.webp" alt=""><em>4,000 XP</em></div></div></div>
+      <div class="tr"><img src="../img/tro/a-potm.webp" alt="Player of the Month"><div class="t"><b>Player of the Month</b><span>November 2003</span><div class="yo lock"><img src="../img/tro/k-potm.webp" alt=""><em>1,000 XP</em></div></div></div>
+      <div class="tr"><img src="../img/tro/a-pick.webp" alt="No. 3 pick"><div class="t"><b>No. 3 pick</b><span>1999 Draft, Charlotte</span><div class="yo got"><img src="../img/tro/k-pick.webp" alt=""><em>Yours</em></div></div></div>
+      <div class="tr"><img src="../img/tro/a-aa.webp" alt="McDonald's All American"><div class="t"><b>McDonald's All American</b><span>1997</span><div class="yo got"><img src="../img/tro/k-aa.webp" alt=""><em>Yours</em></div></div></div>
+    </div>
+
+    <div class="sec" style="margin-top:30px">
+      <div class="sh"><h3>His stories</h3><span class="k xp">+15 each</span></div>
+      <div class="list">
+        <div class="it"><div class="m"><b>The disallowed buzzer shot in Orlando</b><span>2:41</span></div></div>
+        <div class="it"><div class="m"><b>Ejected for clapping, then Stephen Jackson walks in</b><span>1:33</span></div></div>
+        <div class="it"><div class="m"><b>Meeting Tim Duncan at Ohio State camp</b><span>2:51</span></div></div>
+        <div class="it"><div class="m"><b>T-Mac's first LA hangout with Baron</b><span>1:37</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REWARDS -->
+  <section class="screen" id="rewards">
+    <div class="band" style="--b:var(--yellow)"><h1>Walk-on</h1><p class="k">640 XP · 360 to Rotation</p></div>
+    <div class="prog" style="margin-top:0"><span class="blm" data-done="2"></span><div><b>Every level fills a petal</b><span>All eight is Legend.</span></div></div>
+    <ol class="lvl">
+      <li><span class="blm" data-done="1"></span><div><b>Bleachers<em>0</em></b><span>Free stories. Ask the players anything.</span></div></li>
+      <li><span class="blm" data-done="2"></span><div><b>Walk-on<em>250</em></b><span>Request stories. Your fan card, printed and mailed.</span></div></li>
+      <li class="no"><span class="blm" data-done="3"></span><div><b>Rotation<em>1,000</em></b><span>Audio rooms. Starter card pack and bloom keychains.</span></div></li>
+      <li class="no"><span class="blm" data-done="4"></span><div><b>Sixth Man<em>2,500</em></b><span>Stories 48 hours early. The History of the Game tee.</span></div></li>
+      <li class="no"><span class="blm" data-done="5"></span><div><b>Starter<em>5,000</em></b><span>Watch parties. A slabbed holo bloom card.</span></div></li>
+      <li class="no"><span class="blm" data-done="6"></span><div><b>All-Star<em>10,000</em></b><span>Priority questions, member drops, mesh shorts.</span></div></li>
+      <li class="no"><span class="blm" data-done="7"></span><div><b>Hall of Famer<em>20,000</em></b><span>Live Q&amp;A invites, first tickets, the HOTG ring.</span></div></li>
+      <li class="no"><span class="blm" data-done="8"></span><div><b>Legend<em>40,000</em></b><span>A room with the athletes. A signed framed jersey.</span></div></li>
+    </ol>
+  </section>
+</div>
+<nav class="tabs"><button class="on" data-t="today" onclick="go('today')">Today</button><button data-t="player" onclick="go('player')">Locker room</button><button data-t="rewards" onclick="go('rewards')">Rewards</button></nav>
+<script>function go(id){document.querySelectorAll('.screen').forEach(s=>s.classList.toggle('on',s.id===id));document.querySelectorAll('.tabs button').forEach(b=>b.classList.toggle('on',b.dataset.t===id));scrollTo(0,0)}</script>
+<script>window.BLOOM_BASE='../lib/x/'</script><script src="../lib/x/bloom.js"></script>
+<script>const ORD=[4,5,6,7,0,1,2,3];
+window.bloomReady.then(()=>document.querySelectorAll('.blm').forEach(e=>{const n=+e.dataset.done,p=Array(8).fill(null);ORD.forEach((k,i)=>{if(i<n)p[k]='#B3202E'});
+ e.innerHTML=window.bloom({petals:p,ball:'#B04B1C',bg:'#FFFFFF',out:'#D9D3C8'})}));</script>
+</body></html>
