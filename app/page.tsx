@@ -45,7 +45,7 @@ const work: WorkItem[] = [
         open: true,
         owned: "All paid media budget and buying on Meta, TikTok and Google; the creative testing system; a 30+ creator program; order-level tracking; Klaviyo lifecycle email; TikTok LIVE selling.",
         summary:
-          "Took the brand from under $10K to $1.2M+ in monthly sales on Meta, TikTok and Google, at a peak 6x ROAS on up to $100K a month in spend. Shipped 500 to 1,000 ads a month across UGC creators, AI and branded content, and judged every one at day 7 on hold rate, watch time and sales. Built order-level tracking reconciled weekly against invoices, lifecycle email that brought about two-thirds of revenue from repeat buyers, and TikTok LIVE selling at $5K a day.",
+          "Took the brand from under $10K to $1.2M+ in monthly sales on Meta, TikTok and Google on up to $100K a month in spend, holding new-customer CAC to $50 on a $220 AOV. Shipped 500 to 1,000 ads a month across UGC creators, AI and branded content, and judged every one at day 7 on hold rate, watch time and sales. Built order-level tracking reconciled weekly against invoices, lifecycle email that brought about two-thirds of revenue from repeat buyers, and TikTok LIVE selling at $5K a day.",
         media: [
           mp4("v3g", "Brand film", true),
           mp4("eyepocalypse", "EYEpocalypse"),
@@ -480,11 +480,11 @@ export default function HomePage() {
               I&apos;m Jack, a growth and performance marketer with 8+ years in
               paid media. I run{" "}
               <a href="https://ballast.la" target="_blank" rel="noopener noreferrer">Ballast Research</a>,
-              a growth and paid media firm in Los Angeles. Since June: $1.2M+ a month in sales
-              for a health and wellness brand at a peak 6x ROAS, 500 to 1,000 ads
+              a growth and paid media firm in Los Angeles. Most recently I took a DTC
+              wellness brand from under $10K to $1.2M+ a month in sales, with 500 to 1,000 ads
               a month, 30+ UGC creators running at once, and TikTok LIVE selling
-              at $5K a day. Before that, paid media, promo and social
-              for Toyota, Starbucks, STARZPLAY, Netflix, Disney, Peacock, LG and
+              at $5K a day. Before that, $2M+ a month in paid media at 4x blended ROAS
+              for Toyota, Starbucks and STARZPLAY, campaigns for Netflix, Disney, Peacock, LG and
               Twitter, plus three venture-backed startups built from zero.
             </p>
             <p style={{ marginTop: "0.75rem" }}>
