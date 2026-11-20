@@ -477,21 +477,13 @@ export default function HomePage() {
 
           <DraggableCard title="Jack Morello">
             <p>
-              I&apos;m Jack, a growth and performance marketer with 8+ years in
-              paid media. I run{" "}
+              I&apos;m Jack, a growth and performance marketer with 8+ years in paid media,
+              three venture-backed startups built from zero, and my own firm,{" "}
               <a href="https://ballast.la" target="_blank" rel="noopener noreferrer">Ballast Research</a>,
-              a growth and paid media firm in Los Angeles. Most recently I took a DTC
-              wellness brand from under $10K to $1.2M+ a month in sales, with 500 to 1,000 ads
-              a month, 30+ UGC creators running at once, and TikTok LIVE selling
-              at $5K a day. Before that, $2M+ a month in paid media at 4x blended ROAS
-              for Toyota, Starbucks and STARZPLAY, campaigns for Netflix, Disney, Peacock, LG and
-              Twitter, plus three venture-backed startups built from zero.
+              in Los Angeles. Taking on new roles and clients now:{" "}
+              <a href="https://ballast.la/#book" target="_blank" rel="noopener noreferrer">book a call</a>{" "}
+              or email <a href="mailto:jack@ballast.la">jack@ballast.la</a>.
             </p>
-            <p style={{ marginTop: "0.75rem" }}>
-              Ballast is taking on new clients now. If you want this kind of growth,{" "}
-              <a href="https://ballast.la/#book" target="_blank" rel="noopener noreferrer">book a call</a>.
-            </p>
-            <p style={{ marginTop: "0.75rem" }}>Based in Los Angeles.</p>
           </DraggableCard>
 
         </div>
