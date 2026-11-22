@@ -216,7 +216,8 @@
   .cap{display:block;font-size:13px;color:var(--mute);margin-top:10px}
   .bands{grid-column:1;grid-row:1}
   .band{background:#0076B6;height:clamp(40px,4.6vw,62px);margin-bottom:10px;display:flex;justify-content:flex-end;align-items:center;padding-right:3%}
-  .band svg{height:70%;width:auto}
+  .band .plate{background:#fff;height:78%;display:flex;align-items:center;padding:0 2%}
+  .band .plate img{height:80%;width:auto}
   .banner{grid-column:2;grid-row:1 / span 2}
   .bn-blue{background:#0076B6;aspect-ratio:1/1.9}
   .bn-white{background:#fff;border:1px solid var(--line);border-top:0;padding:16% 12%}
@@ -232,8 +233,8 @@
   .cd-t{font-size:12px;line-height:1.4;display:flex;flex-direction:column}
   .cd-t b{font-weight:500;font-size:13px}
   .cd-t span{color:var(--mute)}
-  .cd.back{background:#0076B6;border-color:#0076B6;align-items:center;justify-content:center}
-  .cd.back svg{width:62%}
+  .cd.back{background:#0A0D18;border-color:#0A0D18;align-items:center;justify-content:center}
+  .cd.back img{width:64%}
   @media (max-width:900px){.apps{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.card{grid-template-columns:minmax(0,1fr)}.cd{min-width:0}.bands,.card{grid-column:1 / -1;grid-row:auto}.banner,.story{grid-column:auto;grid-row:auto}}
 </style>
 </head>
@@ -321,25 +322,16 @@
 
 <section id="versions">
   <div class="wrap">
-    <div class="hd"><span class="n">03</span><h2>Versions</h2><span class="r mono">One mark, twelve settings</span></div>
+    <div class="hd"><span class="n">03</span><h2>Settings</h2><span class="r mono">The master files, never redrawn</span></div>
     <div class="vers">
-      <figure><div class="t" style="background:#fff"><img src="/lockup.png?v=4" alt=""></div><figcaption><b>A1</b> Primary lockup</figcaption></figure>
+      <figure><div class="t" style="background:#fff"><img src="/lockup.png?v=4" alt=""></div><figcaption><b>A1</b> Lockup on white</figcaption></figure>
       <figure><div class="t" style="background:#0A0D18"><img src="/lockup.png?v=4" alt=""></div><figcaption><b>A2</b> Lockup on ink</figcaption></figure>
       <figure><div class="t" style="background:#0076B6"><div class="panel"><img src="/lockup.png?v=4" alt=""></div></div><figcaption><b>A3</b> On Honolulu blue, in a white panel</figcaption></figure>
-      <figure><div class="t" style="background:#fff"><svg class="wm" viewBox="0 0 1000 320"><text x="500" y="230" class="solid">Ballast</text></svg></div><figcaption><b>B1</b> Wordmark, Honolulu blue</figcaption></figure>
-      <figure><div class="t" style="background:#0076B6"><svg class="wm" viewBox="0 0 1000 320"><text x="500" y="230" class="rev">Ballast</text></svg></div><figcaption><b>B2</b> Wordmark reversed</figcaption></figure>
-      <figure><div class="t" style="background:#fff"><svg class="wm" viewBox="0 0 1000 320"><text x="500" y="230" class="ink">Ballast</text></svg></div><figcaption><b>B3</b> One colour, ink</figcaption></figure>
-      <figure><div class="t" style="background:#fff"><svg class="wm" viewBox="0 0 1000 320"><text x="500" y="230" class="out">Ballast</text></svg></div><figcaption><b>C1</b> Outline</figcaption></figure>
-      <figure><div class="t" style="background:#fff"><svg class="wm" viewBox="0 0 1000 320"><text x="500" y="230" class="dbl1">Ballast</text><text x="500" y="230" class="dbl2">Ballast</text><text x="500" y="230" class="dbl3">Ballast</text></svg></div><figcaption><b>C2</b> Double outline</figcaption></figure>
-      <figure><div class="t" style="background:#fff"><svg class="wm" viewBox="0 0 1000 320"><defs><pattern id="vl" width="9" height="9" patternUnits="userSpaceOnUse"><rect width="4.5" height="9" fill="#0076B6"/></pattern></defs><text x="500" y="230" fill="url(#vl)">Ballast</text></svg></div><figcaption><b>C3</b> Line fill</figcaption></figure>
-      <figure><div class="t" style="background:#fff"><svg class="lk" viewBox="0 0 1400 600"><g id="lines"></g><text x="706" y="402" class="w-sh">Ballast</text><text x="700" y="396" class="w-main">Ballast</text></svg></div><figcaption><b>D1</b> Solar source in lines</figcaption></figure>
-      <figure><div class="t" style="background:#fff"><svg class="lk" viewBox="0 0 1400 600" id="dotlk"><g id="dots"></g><text x="706" y="402" class="w-sh">Ballast</text><text x="700" y="396" class="w-main">Ballast</text></svg></div><figcaption><b>D2</b> Solar source as a swarm</figcaption></figure>
-      <figure><div class="t" style="background:#fff"><img src="/lockup.png?v=4" alt="" style="width:160px"></div><figcaption><b>D3</b> Minimum size, 160 px</figcaption></figure>
+      <figure><div class="t" style="background:#0A0D18"><img src="/brand/logos/ballast-wordmark.png" alt=""></div><figcaption><b>B1</b> Wordmark, where the solar source can&rsquo;t sit</figcaption></figure>
+      <figure><div class="t" style="background:#fff"><img src="/lockup.png?v=4" alt="" style="width:160px"></div><figcaption><b>B2</b> Minimum size, 160 px</figcaption></figure>
+      <figure><div class="t" style="background:#F2F4F7"><img src="/brand/logos/ballast-icon-512.png" alt="" style="width:34%"></div><figcaption><b>B3</b> App icon</figcaption></figure>
     </div>
-    <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
-      <g id="word"><text x="706" y="402" class="w-sh">Ballast</text><text x="700" y="396" class="w-main">Ballast</text></g>
-    </defs></svg>
-    <p class="dim note">A1 is the mark. Everything else is for places A1 can&rsquo;t go: one-colour print, embroidery, engraving, tiny sizes, pattern and motion.</p>
+    <p class="dim note">Use the files as they are. Don&rsquo;t redraw, retype, recolour or restyle the mark.</p>
   </div>
 </section>
 
@@ -374,19 +366,16 @@
     <div class="hd"><span class="n">06</span><h2>Applications</h2><span class="r mono">Print to feed</span></div>
     <div class="apps">
       <div class="bands">
-        <div class="band" style="width:62%"><svg viewBox="0 0 1400 600"><text x="700" y="396" class="w-rev">Ballast</text></svg></div>
-        <div class="band" style="width:76%"><svg viewBox="0 0 1400 600"><text x="700" y="396" class="w-rev">Ballast</text></svg></div>
-        <div class="band" style="width:90%"><svg viewBox="0 0 1400 600"><text x="700" y="396" class="w-rev">Ballast</text></svg></div>
-        <div class="band" style="width:100%"><svg viewBox="0 0 1400 600"><text x="700" y="396" class="w-rev">Ballast</text></svg></div>
+        <div class="band" style="width:62%"><span class="plate"><img src="/lockup.png?v=4" alt=""></span></div>
+        <div class="band" style="width:76%"><span class="plate"><img src="/lockup.png?v=4" alt=""></span></div>
+        <div class="band" style="width:90%"><span class="plate"><img src="/lockup.png?v=4" alt=""></span></div>
+        <div class="band" style="width:100%"><span class="plate"><img src="/lockup.png?v=4" alt=""></span></div>
         <span class="cap">Bands · signage, slide edges, email headers</span>
       </div>
       <div class="banner"><div class="bn-blue"></div><div class="bn-white"><img src="/lockup.png?v=4" alt=""></div><span class="cap">Vertical banner</span></div>
       <div class="story"><div class="st"><img src="/lockup.png?v=4" alt=""><p>Media, aligned to the business.</p></div><span class="cap">9:16 frame · story and reel end card</span></div>
-      <div class="card"><div class="cd"><img src="/lockup.png?v=4" alt=""><div class="cd-t"><b>Jack Morello</b><span>Founder</span><span>jack@ballast.la · ballast.la</span></div></div><div class="cd back"><svg class="wm" viewBox="0 0 1000 320"><text x="500" y="230" class="rev">Ballast</text></svg></div><span class="cap">Card, front and back</span></div>
+      <div class="card"><div class="cd"><img src="/lockup.png?v=4" alt=""><div class="cd-t"><b>Jack Morello</b><span>Founder</span><span>jack@ballast.la · ballast.la</span></div></div><div class="cd back"><img src="/brand/logos/ballast-wordmark.png" alt=""></div><span class="cap">Card, front and back</span></div>
     </div>
-    <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
-      <g id="word-rev"><text x="700" y="396" class="w-rev">Ballast</text></g>
-    </defs></svg>
   </div>
 </section>
 
@@ -507,21 +496,5 @@
 </main>
 
 <footer><div class="wrap mono">Ballast Research LLC · Los Angeles · ballast.la</div></footer>
-<script>
-(function(){var g=document.getElementById('lines');if(!g)return;var ns='http://www.w3.org/2000/svg',cx=713,cy=300,rx=429,ry=294;
-var seed=11;function rnd(){seed=(seed*16807)%2147483647;return seed/2147483647}
-function mix(a,b,t){return a.map(function(v,i){return Math.round(v+(b[i]-v)*t)})}var O=[247,106,8],R=[246,144,13];
-for(var y=cy-ry+6;y<cy+ry;y+=19){var k=1-Math.pow((y-cy)/ry,2);if(k<=0)continue;var hw=rx*Math.sqrt(k);
-var l=hw*(0.86+rnd()*0.22),r2=hw*(0.86+rnd()*0.22);var d=Math.abs(y-cy)/ry;var c=d<.78?O:mix(O,R,(d-.78)/.22);
-var e=document.createElementNS(ns,'rect');e.setAttribute('x',(cx-l).toFixed(1));e.setAttribute('y',y.toFixed(1));e.setAttribute('width',(l+r2).toFixed(1));e.setAttribute('height','10');e.setAttribute('rx','5');e.setAttribute('fill','rgb('+c+')');g.appendChild(e)}})();
-(function(){var g=document.getElementById('dots');if(!g)return;var ns='http://www.w3.org/2000/svg',cx=713,cy=300,rx=429,ry=294;
-var seed=7;function rnd(){seed=(seed*16807)%2147483647;return seed/2147483647}
-function mix(a,b,t){return a.map(function(v,i){return Math.round(v+(b[i]-v)*t)})}
-var O=[247,106,8],R=[246,144,13];
-for(var i=0;i<4200;i++){var t=rnd()*Math.PI*2,u=Math.sqrt(rnd())*1.12;var x=cx+Math.cos(t)*rx*u+(rnd()-.5)*30,y=cy+Math.sin(t)*ry*u+(rnd()-.5)*30;
-var d=Math.sqrt(Math.pow((x-cx)/rx,2)+Math.pow((y-cy)/ry,2));var keep=d<.8?1:Math.max(0,1-(d-.8)/.36);if(rnd()>keep)continue;
-var c=d<.78?O:mix(O,R,Math.min(1,(d-.78)/.3));var w=(4+rnd()*9)*(d<.8?1:keep*.9+.1);
-var r=document.createElementNS(ns,'circle');r.setAttribute('cx',x.toFixed(1));r.setAttribute('cy',y.toFixed(1));r.setAttribute('r',(w/2).toFixed(1));r.setAttribute('fill','rgb('+c+')');r.setAttribute('fill-opacity',(.55+rnd()*.45).toFixed(2));g.appendChild(r)}})();
-</script>
 </body>
 </html>
