@@ -44,7 +44,7 @@
   td:first-child{width:36%;color:var(--mute)}
   td:last-child{font-family:var(--m);font-size:13px}
 
-  /* the lozenge */
+  /* the solar source */
   .mold{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:clamp(20px,3vw,40px);align-items:stretch}
   .stage{border-radius:28px;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:clamp(40px,6vw,88px) clamp(24px,4vw,56px);min-height:420px;
     background:#fff;border:1px solid var(--line)}
@@ -155,7 +155,7 @@
   .draw figcaption span{display:block;font-size:13px;color:var(--mute);margin-top:6px;line-height:1.35}
   @media (max-width:820px){.draw figcaption{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
-  /* ---- lozenge ---- */
+  /* ---- solar source ---- */
   .loz{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:clamp(24px,4vw,64px);align-items:center}
   .loz-art svg{width:100%;height:auto;display:block}
   .ramp{position:relative;margin-top:26px;height:16px}
@@ -169,6 +169,13 @@
   .sizes svg:nth-child(1){width:120px}.sizes svg:nth-child(2){width:72px}.sizes svg:nth-child(3){width:40px}.sizes svg:nth-child(4){width:20px}
   @media (max-width:820px){.loz{grid-template-columns:1fr}}
 
+  .anat{margin:0}.anat svg{width:100%;height:auto;display:block}
+  .anat .ax{stroke:#0A0D18;stroke-width:2;stroke-dasharray:8 7}
+  .anat .pt{fill:#fff;stroke:#0A0D18;stroke-width:3}
+  .anat .al{font-family:var(--m);font-size:26px;fill:#0A0D18}
+  .xsec{margin-top:26px}
+  .xsec i{display:block;height:22px;background:linear-gradient(90deg,#F76A08 0%,#F76A08 18%,#F67209 45%,#F6810A 70%,#F6900D 100%)}
+  .xsec div{display:flex;justify-content:space-between;font-family:var(--m);font-size:11.5px;color:var(--mute);margin-top:8px}
   /* ---- versions ---- */
   .vers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:1px solid var(--line);border-left:1px solid var(--line)}
   .vers figure{margin:0;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
@@ -259,10 +266,10 @@
         <image href="/lockup.png?v=4" x="0" y="0" width="1400" height="591"/>
         <ellipse cx="713.5" cy="294.5" rx="429.5" ry="294.5" class="ln dash"/>
         <rect x="284" y="0" width="859" height="589" class="ln faint"/>
-        <!-- width of lozenge -->
+        <!-- width of solar source -->
         <line x1="284" y1="-80" x2="1143" y2="-80" class="dim" marker-start="url(#ar)" marker-end="url(#ar)"/>
         <text x="713" y="-96" class="lab" text-anchor="middle">1.46</text>
-        <!-- height of lozenge -->
+        <!-- height of solar source -->
         <line x1="1480" y1="0" x2="1480" y2="589" class="dim" marker-start="url(#ar)" marker-end="url(#ar)"/>
         <text x="1500" y="300" class="lab">1.00</text>
         <!-- wordmark band -->
@@ -278,8 +285,8 @@
         <text x="300" y="560" class="lab red">23°</text>
       </svg>
       <figcaption>
-        <div><b>1.46 : 1</b><span>Lozenge, width to height</span></div>
-        <div><b>0.55</b><span>Wordmark height, in lozenge heights</span></div>
+        <div><b>1.46 : 1</b><span>Solar source, width to height, master file</span></div>
+        <div><b>0.55</b><span>Wordmark height, as a share of the solar source</span></div>
         <div><b>23°</b><span>Wordmark oblique</span></div>
         <div><b>5.4%</b><span>Outline weight</span></div>
         <div><b>2.37 : 1</b><span>Lockup, width to height</span></div>
@@ -289,27 +296,24 @@
   </div>
 </section>
 
-<section id="lozenge">
+<section id="solar">
   <div class="wrap">
-    <div class="hd"><span class="n">02</span><h2>The Lozenge</h2><span class="r mono">Airbrushed, never flat</span></div>
+    <div class="hd"><span class="n">02</span><h2>Solar Source</h2><span class="r mono">Swarming energy</span></div>
     <div class="loz">
-      <div class="loz-art">
-        <svg viewBox="0 0 860 590" aria-label="The lozenge">
-          <defs><radialGradient id="air" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#F49313"/><stop offset=".74" stop-color="#F76A08"/><stop offset="1" stop-color="#F68F0C"/></radialGradient></defs>
-          <ellipse cx="430" cy="295" rx="429" ry="294" fill="url(#air)"/>
+      <figure class="anat">
+        <svg viewBox="-40 -60 1480 760" aria-label="The solar source around the wordmark">
+          <image href="/lockup.png?v=4" x="0" y="0" width="1400" height="591"/>
+          <line x1="713" y1="-40" x2="713" y2="121" class="ax"/>
+          <circle cx="713" cy="10" r="9" class="pt"/><text x="735" y="18" class="al">Gold at the outer edge · #F6900D</text>
+          <circle cx="713" cy="84" r="9" class="pt"/><text x="735" y="92" class="al">Hottest where it meets the letters · #F76A08</text>
+          <text x="30" y="690" class="al">The letters overhang the energy on both sides.</text>
         </svg>
-        <div class="ramp"><i></i><b style="left:74%"></b></div><div class="stops"><span><em style="background:#F49313"></em>Amber #F49313 · core</span><span><em style="background:#F76A08"></em>Orange #F76A08 · 74%</span><span><em style="background:#F68F0C"></em>Rim #F68F0C · 100%</span></div>
-      </div>
+      </figure>
       <div class="loz-copy">
-        <p class="big">An aura that swarms around the letters and gives them warmth.</p>
-        <p class="dim">The lozenge is airbrushed: amber at the core, deepening to orange, lifting again at the rim. It is never filled flat and never drawn as a hard shape.</p>
-        <div class="sizes">
-          <svg viewBox="0 0 146 100"><use href="#lz"/></svg>
-          <svg viewBox="0 0 146 100"><use href="#lz"/></svg>
-          <svg viewBox="0 0 146 100"><use href="#lz"/></svg>
-          <svg viewBox="0 0 146 100"><use href="#lz"/></svg>
-        </div>
-        <svg width="0" height="0" style="position:absolute"><defs><radialGradient id="air2" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#F49313"/><stop offset=".74" stop-color="#F76A08"/><stop offset="1" stop-color="#F68F0C"/></radialGradient><ellipse id="lz" cx="73" cy="50" rx="73" ry="50" fill="url(#air2)"/></defs></svg>
+        <p class="big">A solar source that hugs the letters and gives them warmth.</p>
+        <p class="dim">It&rsquo;s swarming energy, not a fixed shape. It runs hottest where it meets the letters and lifts to gold at its outer edge. Airbrushed, never flat, and never quite the same twice.</p>
+        <p class="dim">It&rsquo;s never shown on its own. The letters always sit inside it.</p>
+        <div class="xsec"><i></i><div><span>At the letters</span><span>Outer edge</span></div></div>
       </div>
     </div>
   </div>
@@ -328,9 +332,9 @@
       <figure><div class="t" style="background:#fff"><svg class="wm" viewBox="0 0 1000 320"><text x="500" y="230" class="out">Ballast</text></svg></div><figcaption><b>C1</b> Outline</figcaption></figure>
       <figure><div class="t" style="background:#fff"><svg class="wm" viewBox="0 0 1000 320"><text x="500" y="230" class="dbl1">Ballast</text><text x="500" y="230" class="dbl2">Ballast</text><text x="500" y="230" class="dbl3">Ballast</text></svg></div><figcaption><b>C2</b> Double outline</figcaption></figure>
       <figure><div class="t" style="background:#fff"><svg class="wm" viewBox="0 0 1000 320"><defs><pattern id="vl" width="9" height="9" patternUnits="userSpaceOnUse"><rect width="4.5" height="9" fill="#0076B6"/></pattern></defs><text x="500" y="230" fill="url(#vl)">Ballast</text></svg></div><figcaption><b>C3</b> Line fill</figcaption></figure>
-      <figure><div class="t" style="background:#fff"><svg class="lk" viewBox="0 0 1400 600"><defs><pattern id="hl" width="20" height="20" patternUnits="userSpaceOnUse"><rect width="20" height="11" fill="#fff"/></pattern><mask id="hm"><ellipse cx="713" cy="300" rx="429" ry="294" fill="url(#hl)"/></mask></defs><ellipse cx="713" cy="300" rx="429" ry="294" fill="url(#air)" mask="url(#hm)"/><text x="706" y="402" class="w-sh">Ballast</text><text x="700" y="396" class="w-main">Ballast</text></svg></div><figcaption><b>D1</b> Lozenge in line</figcaption></figure>
-      <figure><div class="t" style="background:#fff"><svg class="lk" viewBox="0 0 1400 600" id="dotlk"><g id="dots"></g><text x="706" y="402" class="w-sh">Ballast</text><text x="700" y="396" class="w-main">Ballast</text></svg></div><figcaption><b>D2</b> Lozenge in dots</figcaption></figure>
-      <figure><div class="t" style="background:#fff"><svg class="lk" viewBox="0 0 1400 600"><ellipse cx="713" cy="300" rx="429" ry="294" fill="none" stroke="#F76A08" stroke-width="14"/><text x="706" y="402" class="w-sh">Ballast</text><text x="700" y="396" class="w-main">Ballast</text></svg></div><figcaption><b>D3</b> Lozenge in outline</figcaption></figure>
+      <figure><div class="t" style="background:#fff"><svg class="lk" viewBox="0 0 1400 600"><g id="lines"></g><text x="706" y="402" class="w-sh">Ballast</text><text x="700" y="396" class="w-main">Ballast</text></svg></div><figcaption><b>D1</b> Solar source in lines</figcaption></figure>
+      <figure><div class="t" style="background:#fff"><svg class="lk" viewBox="0 0 1400 600" id="dotlk"><g id="dots"></g><text x="706" y="402" class="w-sh">Ballast</text><text x="700" y="396" class="w-main">Ballast</text></svg></div><figcaption><b>D2</b> Solar source as a swarm</figcaption></figure>
+      <figure><div class="t" style="background:#fff"><img src="/lockup.png?v=4" alt="" style="width:160px"></div><figcaption><b>D3</b> Minimum size, 160 px</figcaption></figure>
     </div>
     <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
       <g id="word"><text x="706" y="402" class="w-sh">Ballast</text><text x="700" y="396" class="w-main">Ballast</text></g>
@@ -342,11 +346,11 @@
 <section id="colour">
   <div class="wrap">
     <div class="hd"><span class="n">04</span><h2>Colour</h2><span class="r mono">In proportion</span></div>
-    <div class="bar"><i style="flex:50;background:#0076B6"></i><i style="flex:24;background:#fff;box-shadow:inset 0 0 0 1px var(--line)"></i><i style="flex:16;background:linear-gradient(90deg,#F49313,#F76A08 74%,#F68F0C)"></i><i style="flex:5;background:#004225"></i><i style="flex:5;background:#0A0D18"></i></div>
+    <div class="bar"><i style="flex:50;background:#0076B6"></i><i style="flex:24;background:#fff;box-shadow:inset 0 0 0 1px var(--line)"></i><i style="flex:16;background:linear-gradient(90deg,#F76A08,#F76A08 30%,#F6900D)"></i><i style="flex:5;background:#004225"></i><i style="flex:5;background:#0A0D18"></i></div>
     <div class="cspec">
       <div><b>Honolulu blue</b><span>#0076B6 · RGB 0 118 182</span><p>The brand colour. Grounds, outlines, type on white.</p></div>
       <div><b>Pure white</b><span>#FFFFFF</span><p>The page and the wordmark.</p></div>
-      <div><b>Lozenge orange</b><span>#F49313 → #F76A08 → #F68F0C</span><p>Only ever airbrushed. The lozenge and the call to act.</p></div>
+      <div><b>Solar orange</b><span>#F76A08 → #F6900D</span><p>Airbrushed, hottest at the letters, gold at the edge. The solar source and the call to act.</p></div>
       <div><b>Racing green</b><span>#004225 · RGB 0 66 37</span><p>Accent, used sparingly.</p></div>
       <div><b>Ink</b><span>#0A0D18 · RGB 10 13 24</span><p>Type and dark grounds.</p></div>
     </div>
@@ -377,7 +381,7 @@
         <span class="cap">Bands · signage, slide edges, email headers</span>
       </div>
       <div class="banner"><div class="bn-blue"></div><div class="bn-white"><img src="/lockup.png?v=4" alt=""></div><span class="cap">Vertical banner</span></div>
-      <div class="story"><div class="st"><div class="st-glow"></div><img src="/lockup.png?v=4" alt=""><p>Media, aligned to the business.</p></div><span class="cap">9:16 frame · story and reel end card</span></div>
+      <div class="story"><div class="st"><img src="/lockup.png?v=4" alt=""><p>Media, aligned to the business.</p></div><span class="cap">9:16 frame · story and reel end card</span></div>
       <div class="card"><div class="cd"><img src="/lockup.png?v=4" alt=""><div class="cd-t"><b>Jack Morello</b><span>Founder</span><span>jack@ballast.la · ballast.la</span></div></div><div class="cd back"><svg class="wm" viewBox="0 0 1000 320"><text x="500" y="230" class="rev">Ballast</text></svg></div><span class="cap">Card, front and back</span></div>
     </div>
     <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
@@ -467,13 +471,13 @@
     <div class="hd"><span class="n">10</span><h2>Rules</h2></div>
     <div class="rules">
       <div class="do"><h3>Always</h3><ul>
-        <li>Keep the wordmark inside its lozenge.</li>
+        <li>Keep the wordmark inside its solar source.</li>
         <li>Put blue inside, heat around it.</li>
         <li>Lead with the number.</li>
         <li>Use real objects and real footage from the work.</li>
       </ul></div>
       <div class="no"><h3>Never</h3><ul>
-        <li>Pull the lozenge off the mark or reuse it as a background shape.</li>
+        <li>Pull the solar source off the mark or reuse it as a background shape.</li>
         <li>Flatten the heat into a flat orange panel.</li>
         <li>Stretch, rotate or recolour the lockup.</li>
         <li>Explain the joke.</li>
@@ -504,12 +508,20 @@
 
 <footer><div class="wrap mono">Ballast Research LLC · Los Angeles · ballast.la</div></footer>
 <script>
-(function(){var g=document.getElementById('dots');if(!g)return;var ns='http://www.w3.org/2000/svg',cx=713,cy=300,rx=429,ry=294,s=26;
+(function(){var g=document.getElementById('lines');if(!g)return;var ns='http://www.w3.org/2000/svg',cx=713,cy=300,rx=429,ry=294;
+var seed=11;function rnd(){seed=(seed*16807)%2147483647;return seed/2147483647}
+function mix(a,b,t){return a.map(function(v,i){return Math.round(v+(b[i]-v)*t)})}var O=[247,106,8],R=[246,144,13];
+for(var y=cy-ry+6;y<cy+ry;y+=19){var k=1-Math.pow((y-cy)/ry,2);if(k<=0)continue;var hw=rx*Math.sqrt(k);
+var l=hw*(0.86+rnd()*0.22),r2=hw*(0.86+rnd()*0.22);var d=Math.abs(y-cy)/ry;var c=d<.78?O:mix(O,R,(d-.78)/.22);
+var e=document.createElementNS(ns,'rect');e.setAttribute('x',(cx-l).toFixed(1));e.setAttribute('y',y.toFixed(1));e.setAttribute('width',(l+r2).toFixed(1));e.setAttribute('height','10');e.setAttribute('rx','5');e.setAttribute('fill','rgb('+c+')');g.appendChild(e)}})();
+(function(){var g=document.getElementById('dots');if(!g)return;var ns='http://www.w3.org/2000/svg',cx=713,cy=300,rx=429,ry=294;
+var seed=7;function rnd(){seed=(seed*16807)%2147483647;return seed/2147483647}
 function mix(a,b,t){return a.map(function(v,i){return Math.round(v+(b[i]-v)*t)})}
-var A=[244,147,19],O=[247,106,8],R=[246,143,12];
-for(var y=cy-ry;y<=cy+ry;y+=s){for(var x=cx-rx;x<=cx+rx;x+=s){var d=Math.sqrt(Math.pow((x-cx)/rx,2)+Math.pow((y-cy)/ry,2));if(d>1)continue;
-var c=d<.74?mix(A,O,d/.74):mix(O,R,(d-.74)/.26);var k=1-Math.pow(d,3)*.55;var w=s*.62*k;
-var r=document.createElementNS(ns,'rect');r.setAttribute('x',(x-w/2).toFixed(1));r.setAttribute('y',(y-w/2).toFixed(1));r.setAttribute('width',w.toFixed(1));r.setAttribute('height',w.toFixed(1));r.setAttribute('fill','rgb('+c+')');g.appendChild(r)}}})();
+var O=[247,106,8],R=[246,144,13];
+for(var i=0;i<4200;i++){var t=rnd()*Math.PI*2,u=Math.sqrt(rnd())*1.12;var x=cx+Math.cos(t)*rx*u+(rnd()-.5)*30,y=cy+Math.sin(t)*ry*u+(rnd()-.5)*30;
+var d=Math.sqrt(Math.pow((x-cx)/rx,2)+Math.pow((y-cy)/ry,2));var keep=d<.8?1:Math.max(0,1-(d-.8)/.36);if(rnd()>keep)continue;
+var c=d<.78?O:mix(O,R,Math.min(1,(d-.78)/.3));var w=(4+rnd()*9)*(d<.8?1:keep*.9+.1);
+var r=document.createElementNS(ns,'circle');r.setAttribute('cx',x.toFixed(1));r.setAttribute('cy',y.toFixed(1));r.setAttribute('r',(w/2).toFixed(1));r.setAttribute('fill','rgb('+c+')');r.setAttribute('fill-opacity',(.55+rnd()*.45).toFixed(2));g.appendChild(r)}})();
 </script>
 </body>
 </html>
