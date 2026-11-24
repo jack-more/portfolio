@@ -236,6 +236,26 @@
   .cd.back{background:#0A0D18;border-color:#0A0D18;align-items:center;justify-content:center}
   .cd.back img{width:64%}
   @media (max-width:900px){.apps{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.card{grid-template-columns:minmax(0,1fr)}.cd{min-width:0}.bands,.card{grid-column:1 / -1;grid-row:auto}.banner,.story{grid-column:auto;grid-row:auto}}
+
+  /* ---- bally ---- */
+  .bally-hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(20px,3vw,48px);align-items:center}
+  .bally-stage{background:#F6F1E7;border-radius:22px;display:flex;justify-content:center;align-items:flex-end;gap:2%;padding:7% 5% 5%}
+  .bally-stage img{width:48%;height:auto}
+  .bally-copy p.big{font-family:var(--g);font-weight:800;letter-spacing:-.03em;font-size:clamp(28px,2.8vw,40px);line-height:1.05;max-width:18ch;margin-bottom:20px}
+  .bally-copy ol{margin:18px 0 0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+  .dl{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+  .dl a{font-family:var(--m);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--cobalt);border:1px solid var(--line);border-radius:999px;padding:8px 14px;text-decoration:none}
+  .bfig{margin:clamp(28px,4vw,48px) 0 0}
+  .bfig img{width:100%;border-radius:18px;border:1px solid var(--line)}
+  .bfig figcaption{margin-top:10px;font-family:var(--m);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute)}
+  /* ---- surfaces ---- */
+  .surf{border-top:2px solid var(--ink)}
+  .surf .sr{display:grid;grid-template-columns:minmax(0,1fr) 150px minmax(0,1.8fr);gap:18px;padding:16px 0;border-bottom:1px solid var(--line);align-items:baseline}
+  .surf .sr b{font-weight:500}
+  .surf .sr p{margin:0;color:var(--mute);max-width:none}
+  .chip{font-family:var(--m);font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border-radius:999px;display:inline-block;white-space:nowrap}
+  .chip.live{background:var(--cobalt);color:#fff}.chip.prog{background:var(--orange);color:#fff}.chip.todo{border:1px solid var(--ink)}
+  @media (max-width:820px){.bally-hero{grid-template-columns:1fr}.surf .sr{grid-template-columns:1fr;gap:6px}}
 </style>
 </head>
 <body>
@@ -426,9 +446,45 @@
   </div>
 </section>
 
+<section id="bally">
+  <div class="wrap">
+    <div class="hd"><span class="n">08</span><h2>Bally</h2><span class="r mono">The mascot</span></div>
+    <div class="bally-hero">
+      <div class="bally-stage">
+        <img src="/brand/bally/bally-grin.webp" width="850" height="1100" alt="Bally, a glossy blue vinyl-toy monkey, giving a thumbs-up with an open grin">
+        <img src="/brand/bally/bally-smile.webp" width="855" height="1100" alt="Bally giving a thumbs-up with a closed smile and bottom fangs">
+      </div>
+      <div class="bally-copy">
+        <p class="big">Bally is the Ballast mascot: a glossy vinyl-toy monkey in Honolulu blue.</p>
+        <p class="dim">He has two faces: the closed smile with his bottom fangs showing, and the open grin. He's built in 2D for stickers and expressions, and in 3D as a rigged model that can be posed for anything.</p>
+        <div class="facts">
+          <div><b>#0076B6</b><span>Body, Honolulu blue</span></div>
+          <div><b>3</b><span>Spikes in the crest</span></div>
+          <div><b>2</b><span>Orange lenses, worn up</span></div>
+          <div><b>2</b><span>Faces, smile and grin</span></div>
+        </div>
+        <ol>
+          <li>Cream heart-shaped face with cheek tufts, orange blush and a small orange forehead mark.</li>
+          <li>Tall white eyes with orange irises, spaced wide.</li>
+          <li>Bug-eye shades with two orange lenses, pushed up on his head.</li>
+          <li>Bottom fangs pointing up, in both faces.</li>
+          <li>Cream belly, mitten hands, big round feet and a spiral tail.</li>
+        </ol>
+        <div class="dl">
+          <a href="/brand/bally/bally-grin.png" download>Cutout · PNG</a>
+          <a href="/brand/bally/bally-sheet-2d.webp" download>Model sheet</a>
+          <a href="/brand/bally/bally-3d.glb" download>3D model · GLB, rigged</a>
+        </div>
+      </div>
+    </div>
+    <figure class="bfig"><img src="/brand/bally/bally-sheet-2d.webp" width="1800" height="1018" alt="Bally model sheet: front view, thumbs-up pose and six expressions" loading="lazy"><figcaption>Model sheet · front, thumbs-up, six expressions</figcaption></figure>
+    <figure class="bfig"><img src="/brand/bally/bally-turntable.webp" width="1600" height="684" alt="Bally 3D model from the front, three-quarter, side and back" loading="lazy"><figcaption>3D model · rigged with 35 bones, including the tail and hands</figcaption></figure>
+  </div>
+</section>
+
 <section>
   <div class="wrap">
-    <div class="hd"><span class="n">08</span><h2>Components</h2><span class="r mono">Verbatim from the site</span></div>
+    <div class="hd"><span class="n">09</span><h2>Components</h2><span class="r mono">Verbatim from the site</span></div>
     <div style="display:grid;gap:14px">
       <div class="row"><a class="btn" href="#">Book a call</a><a class="btn ghost" href="#">Work</a></div>
       <div class="row dark"><a class="btn go" href="#">Book a call</a><a class="btn glass" href="#">Work</a>
@@ -437,9 +493,27 @@
   </div>
 </section>
 
+<section id="surfaces">
+  <div class="wrap">
+    <div class="hd"><span class="n">10</span><h2>Surfaces</h2><span class="r mono">Where the brand shows up</span></div>
+    <p class="dim">Every place Ballast appears, and where each one stands.</p>
+    <div class="surf">
+      <div class="sr"><b>Website · ballast.la</b><span><span class="chip live">Live</span></span><p>Lockup, Honolulu blue, Geist, the pool and the reel.</p></div>
+      <div class="sr"><b>Client decks and proposals</b><span><span class="chip prog">In progress</span></span><p>Honolulu blue and solar orange, both logos on every page, Bally on the close. A reusable template is still to build.</p></div>
+      <div class="sr"><b>Merch</b><span><span class="chip prog">In progress</span></span><p>Gym Class tee in three colourways. Bally stickers, caps and a vinyl figure are still to figure out.</p></div>
+      <div class="sr"><b>Bally in motion</b><span><span class="chip prog">In progress</span></span><p>The 3D model is rigged and posable. A pose library and short loops are still to figure out.</p></div>
+      <div class="sr"><b>Social · TikTok, Instagram, LinkedIn</b><span><span class="chip todo">To figure out</span></span><p>Profile treatment, post templates and where Bally shows up.</p></div>
+      <div class="sr"><b>Ballast's own ad creative</b><span><span class="chip todo">To figure out</span></span><p>End cards, captions and how the lockup sits on video.</p></div>
+      <div class="sr"><b>Email and signature</b><span><span class="chip todo">To figure out</span></span><p>Signature block and a newsletter header.</p></div>
+      <div class="sr"><b>Print</b><span><span class="chip todo">To figure out</span></span><p>Business cards, stickers and where the stamp gets used.</p></div>
+      <div class="sr"><b>Packaging</b><span><span class="chip todo">To figure out</span></span><p>Merch mailers and inserts.</p></div>
+    </div>
+  </div>
+</section>
+
 <section>
   <div class="wrap">
-    <div class="hd"><span class="n">09</span><h2>Rules</h2></div>
+    <div class="hd"><span class="n">11</span><h2>Rules</h2></div>
     <div class="rules">
       <div class="do"><h3>Always</h3><ul>
         <li>Keep the wordmark inside its solar source.</li>
@@ -458,7 +532,7 @@
 </section>
 <section id="logos">
   <div class="wrap">
-    <div class="hd"><span class="n">10</span><h2>Files</h2><span class="r mono">Download the files</span></div>
+    <div class="hd"><span class="n">12</span><h2>Files</h2><span class="r mono">Download the files</span></div>
     <div class="logos-g">
       <div class="lg"><div class="art" style="background:#fff"><img src="/brand/logos/ballast-lockup.png?v=5" alt="Ballast lockup"></div><div class="meta"><b>Lockup</b><a href="/brand/logos/ballast-lockup.png" download>PNG</a> · <a href="/brand/logos/ballast-lockup.svg" download>SVG</a></div></div>
       <div class="lg"><div class="art" style="background:#0A0D18"><img src="/brand/logos/ballast-wordmark.png" alt="Ballast wordmark"></div><div class="meta"><b>Wordmark</b><a href="/brand/logos/ballast-wordmark.png" download>PNG</a></div></div>
