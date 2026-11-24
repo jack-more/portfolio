@@ -1,18 +1,31 @@
 "use client";
 
-import Image from "next/image";
 import { useState } from "react";
 import GridCanvas from "./components/GridCanvas";
 import DraggableCard from "./components/DraggableCard";
 import MusicCard from "./components/MusicCard";
+import GazePortrait from "./components/GazePortrait";
+
+type Media =
+  | { kind: "mp4"; src: string; poster: string; cap: string; wide?: boolean }
+  | { kind: "yt"; id: string; cap: string }
+  | { kind: "img"; src: string; cap: string };
 
 type WorkItem = {
   company: string;
   desc: string;
   href: string;
-  details: string[];
+  tags?: string[];
+  market?: string;
+  owned?: string;
+  summary?: string;
+  media?: Media[];
+  details?: string[];
   clients?: WorkItem[];
+  open?: boolean;
 };
+
+const mp4 = (f: string, cap: string, wide = false): Media => ({ kind: "mp4", src: `/reel/${f}.mp4`, poster: `/reel/${f}.jpg`, cap, wide });
 
 const work: WorkItem[] = [
   {
@@ -21,32 +34,42 @@ const work: WorkItem[] = [
     href: "https://ballast.la/",
     details: [
       "Founded Ballast Research LLC in Los Angeles, 2026",
-      "Research first, so the budget goes on evidence, then distribution that is bought and built: paid media that reaches people now, owned channels that keep them",
-      "Engagements from $3.5K to $100K: audits, sprints, fractional leadership and full media runs",
-      "Built a loyalty economy for a DTC brand, and ticketing, live-event rewards and fan participation vouchers for SailGP",
+      "Engagements from audits and sprints to fractional leadership and full media runs",
     ],
     clients: [
       {
-        company: "History of the Game",
-        desc: "Basketball's greatest stories, told by the players who lived them",
-        href: "https://ballast.la/",
-        details: [
-          "A media house built with retired players and the sharpest clip editors on the internet",
-          "Players commission the edits, react to the cuts and own the channels",
-          "Built by Ballast Research",
+        company: "DTC wellness brand",
+        desc: "Head of Performance Marketing",
+        href: "https://skocompounds.com/",
+        tags: ["Paid", "Creative", "Growth"],
+        open: true,
+        owned: "All paid media budget and buying on Meta, TikTok and Google; the creative testing system; a 30+ creator program; order-level tracking; Klaviyo lifecycle email; TikTok LIVE selling.",
+        summary:
+          "Took the brand from under $10K to $1.2M+ in monthly sales on Meta, TikTok and Google on up to $100K a month in spend, holding new-customer CAC to $50 on a $220 AOV. Shipped 500 to 1,000 ads a month across UGC creators, AI and branded content, and judged every one at day 7 on hold rate, watch time and sales. Built order-level tracking reconciled weekly against invoices, lifecycle email that brought about two-thirds of revenue from repeat buyers, and TikTok LIVE selling at $5K a day.",
+        media: [
+          mp4("v3g", "Brand film", true),
+          mp4("eyepocalypse", "EYEpocalypse"),
+          mp4("2ndor1st", "2nd or 1st"),
+          mp4("sophie35k", "Creator, 35K orders"),
+          mp4("hightech", "High-tech"),
+          mp4("dna", "Rotating DNA"),
         ],
       },
       {
-        company: "DTC wellness brand",
-        desc: "Head of Performance Marketing: $1.2M+ a month in sales",
-        href: "https://skocompounds.com/",
-        details: [
-          "Ran all paid media across Meta, TikTok and Google: under $10K to $1.2M+ in monthly sales on up to $100K a month, at a peak 6x ROAS",
-          "Split spend into influencer-audience and list-excluded prospecting campaigns to hold new-customer CAC to $50 on a $220 AOV",
-          "Tested 500 to 1,000 ads a month across UGC creators, AIGC and branded content, judging every ad at day 7 on hold rate, watch time and sales",
-          "Built order dashboards tracking every checkout to ad and ad set, reconciled weekly against orders and invoices",
-          "Built Klaviyo lifecycle, loyalty and post-purchase flows; about two-thirds of revenue came from repeat buyers",
-          "Set up TikTok LIVE selling at $5K in sales a day",
+        company: "History of the Game",
+        desc: "Brand for Baron Davis's basketball media house",
+        href: "https://ballast.la/",
+        tags: ["Design"],
+        open: true,
+        owned: "Identity, the live show graphics package and the merch line.",
+        summary:
+          "Identity, live show graphics and merch for a basketball media house built with retired players and the sharpest clip editors online. One flower-and-ball mark that carries from the broadcast package to a game-night seal, tees, shorts and loafers.",
+        media: [
+          { kind: "mp4", src: "/reel/hotg-live.mp4", poster: "/reel/hotg-live.webp", cap: "Live show graphics", wide: true },
+          { kind: "img", src: "/reel/hotg/seal-knicks-pacers.png", cap: "Knicks vs Pacers seal" },
+          { kind: "img", src: "/reel/hotg/tee-hotg.webp", cap: "hotg tee" },
+          { kind: "img", src: "/reel/hotg/loafers.webp", cap: "Loafers" },
+          { kind: "img", src: "/reel/hotg/shorts-teal.webp", cap: "Mesh shorts" },
         ],
       },
     ],
@@ -56,19 +79,18 @@ const work: WorkItem[] = [
     desc: "Growth advisory and embedded client GTM",
     href: "https://www.incubella.co/",
     details: [
-      "Partner at growth advisory firm building GTM systems for early-stage clients",
-      "AI-assisted workflows for campaign research, creative iteration, landing pages, reporting",
+      "Partner at a growth advisory firm building go-to-market systems for early-stage clients",
+      "AI-assisted workflows for campaign research, creative iteration, landing pages and reporting",
     ],
     clients: [
       {
         company: "Devolved AI",
         desc: "Embedded marketing lead for a private AI platform",
         href: "https://www.incubella.co/",
-        details: [
-          "Owned positioning, messaging and launch strategy for enterprise users",
-          "Built a LinkedIn and content pipeline that booked 150+ demos for sales at a $22 cost per lead",
-          "Rebuilt onboarding, brand and onboarding emails, cutting drop-off 35%",
-        ],
+        tags: ["Paid", "Creative", "Growth"],
+        owned: "Positioning, messaging, launch, the LinkedIn and content pipeline, and onboarding email.",
+        summary:
+          "Owned positioning, messaging and launch for enterprise users. Built a LinkedIn and content pipeline that booked 150+ demos for sales at a $22 cost per lead, and rebuilt onboarding and lifecycle emails to cut drop-off 35%.",
       },
       {
         company: "Riskiiit",
@@ -83,34 +105,68 @@ const work: WorkItem[] = [
   },
   {
     company: "iHeartMedia (Unified)",
-    desc: "Paid media for Toyota, Starzplay, Starbucks",
+    desc: "$25M+ in paid media at a 2.5% average CTR",
     href: "https://www.iheartmedia.com/",
     details: [
-      "Managed $25M+ in paid media for Starbucks, Toyota and STARZPLAY, holding a 2.5% average CTR",
-      "Ran multicultural (Toyota), regional (Starbucks Pacific Northwest) and international (STARZPLAY) campaigns for 5+ concurrent clients",
+      "Ran 5+ concurrent clients across Meta, Snapchat, X and programmatic",
       "Built creative testing and bid optimization that improved ROAS 25%+ quarter over quarter",
-      "Campaigns across Meta, Snapchat, X and programmatic DSPs",
+    ],
+    clients: [
+      {
+        company: "Toyota",
+        desc: "Paid media",
+        href: "https://www.iheartmedia.com/",
+        tags: ["Paid"],
+        market: "African American and Asian American audiences",
+        owned: "Planning, buying and optimization by audience, with creative versions matched to each segment.",
+        summary:
+          "Multicultural campaigns for Toyota's 4Runner, Tacoma, Camry and Corolla launches, planned and bought per audience rather than per model, with creative versions matched to each segment.",
+        media: [{ kind: "yt", id: "Y_IuBEtfzGM", cap: "4Runner" }],
+      },
+      {
+        company: "Starbucks",
+        desc: "Paid media",
+        href: "https://www.iheartmedia.com/",
+        tags: ["Paid"],
+        market: "Pacific Northwest",
+        owned: "Regional planning, buying and week-to-week optimization.",
+        summary: "Regional campaigns across the Pacific Northwest, including the holiday season, bought and optimized week to week against store traffic.",
+        media: [{ kind: "yt", id: "jtJ_DbPYnrU", cap: "Holidays" }],
+      },
+      {
+        company: "STARZPLAY",
+        desc: "Paid media",
+        href: "https://www.iheartmedia.com/",
+        tags: ["Paid"],
+        market: "International",
+        owned: "Launch planning, buying and optimization toward subscriptions across markets.",
+        summary: "Series launches for STARZPLAY across international markets, from Raising Kanan to BMF and Heels, optimized toward subscriptions.",
+        media: [{ kind: "yt", id: "JSpUNWjQk6c", cap: "Raising Kanan" }],
+      },
     ],
   },
   {
     company: "NEAR",
-    desc: "Marketing for NEAR Tasks, an AI training-data marketplace (50K+ MAU)",
+    desc: "Marketing for NEAR Tasks, an AI training-data marketplace",
     href: "https://near.org/",
-    details: [
-      "Grew NEAR Tasks, an AI training-data marketplace, to 50K+ MAU across paid, SEO, content and community",
-      "Cut CAC 60% and lifted landing-page conversion 140% with paid-channel and landing-page A/B testing",
-      "Led 4 product launches, each reaching 15% adoption among active users in its first quarter",
-      "Built an onboarding experience with engineering and design that SailGP adopted at its live race events",
-    ],
+    tags: ["Growth"],
+    owned: "Paid, SEO, content and community; landing-page testing; four product launches; the onboarding flow with engineering and design.",
+    summary:
+      "Grew NEAR Tasks to 50K+ monthly users across paid, SEO, content and community. Cut CAC 60% and lifted landing-page conversion 140% through testing, led 4 product launches that each reached 15% adoption in their first quarter, and built an onboarding flow with engineering and design that SailGP adopted at its live race events.",
+    media: [{ kind: "yt", id: "jr3UYpx8gVI", cap: "NEAR × SailGP" }],
   },
   {
     company: "Dtravel",
-    desc: "Digital growth through $8M Series A",
+    desc: "Digital growth through an $8M Series A",
     href: "https://www.dtravel.com/",
-    details: [
-      "Grew a two-sided marketplace from 0 to 12,000 users and 2,000+ property listings through content, community and light paid (1.5%+ CTR)",
-      "Supported the $8M Series A",
-      "Created a digital collectible program that generated $750K in incremental revenue",
+    tags: ["Paid", "Creative", "Growth"],
+    owned: "Content, community and paid acquisition, and the digital collectible program.",
+    summary:
+      "Grew a two-sided travel marketplace from zero to 12,000 users and 2,000+ property listings through content, community and paid at a 1.5%+ CTR, supporting the $8M Series A. Launched a digital collectible program that brought in $750K in new revenue.",
+    media: [
+      { kind: "yt", id: "h4Rb4tDK1GQ", cap: "SAGA" },
+      { kind: "yt", id: "fSd9_ECe068", cap: "Bali, paid in crypto" },
+      { kind: "yt", id: "w8_kSY_ABzg", cap: "Direct Stays" },
     ],
   },
   {
@@ -138,6 +194,7 @@ const online = [
   { label: "Ballast", action: "Visit", href: "https://ballast.la" },
   { label: "LinkedIn", action: "Connect", href: "https://www.linkedin.com/in/jackmorello" },
   { label: "Email", action: "Send", href: "mailto:jack@ballast.la" },
+  { label: "Resume", action: "PDF", href: "/JackMorello_CV.pdf" },
   { label: "Instagram", action: "Follow", href: "https://instagram.com/jackmorello" },
   { label: "GitHub", action: "View", href: "https://github.com/jack-more" },
 ];
@@ -154,28 +211,86 @@ function Row({ left, right, href }: { left: string; right: string; href?: string
   return content;
 }
 
-function WorkRow({ company, desc, href, details, clients, sub = false }: WorkItem & { sub?: boolean }) {
-  const [open, setOpen] = useState(false);
+function MediaItem({ m }: { m: Media }) {
+  const [play, setPlay] = useState(false);
+  if (m.kind === "img")
+    return (
+      <figure className="wm wm-sq">
+        <img src={m.src} alt={m.cap} loading="lazy" decoding="async" />
+        <figcaption>{m.cap}</figcaption>
+      </figure>
+    );
+  if (m.kind === "mp4")
+    return (
+      <figure className={m.wide ? "wm wm-wide" : "wm wm-tall"}>
+        <video src={m.src} poster={m.poster} muted loop playsInline autoPlay preload="metadata" />
+        <figcaption>{m.cap}</figcaption>
+      </figure>
+    );
+  return (
+    <figure className="wm wm-wide">
+      {play ? (
+        <iframe
+          src={`https://www.youtube-nocookie.com/embed/${m.id}?autoplay=1&rel=0`}
+          title={m.cap}
+          allow="autoplay; encrypted-media; fullscreen"
+          allowFullScreen
+        />
+      ) : (
+        <button type="button" className="wm-play" onClick={() => setPlay(true)} aria-label={`Play ${m.cap}`}>
+          <img src={`/reel/yt/${m.id}.webp`} alt="" loading="lazy" decoding="async" />
+          <span aria-hidden="true">&#9654;</span>
+        </button>
+      )}
+      <figcaption>{m.cap}</figcaption>
+    </figure>
+  );
+}
+
+function WorkRow(item: WorkItem & { sub?: boolean }) {
+  const { company, desc, href, tags, market, owned, summary, media, details, clients, sub = false } = item;
+  const [open, setOpen] = useState(!!item.open);
+  const hasBody = !!(summary || media?.length || details?.length);
   return (
     <div className={sub ? "work-row-wrapper work-row-sub" : "work-row-wrapper"}>
       <div className="row">
         <a href={href} target="_blank" rel="noopener noreferrer" className="row-left row-left-link">{company}</a>
         <span className="row-dash" />
-        <span className="row-right">{desc}</span>
-        <button
-          className="row-expand"
-          onClick={(e) => { e.stopPropagation(); setOpen(!open); }}
-          title={open ? "Collapse" : "Expand"}
-        >
-          {open ? "(\u2212)" : "(\u2026)"}
-        </button>
+        {tags?.length ? (
+          <span className="row-right work-tags">{tags.join(" + ")}</span>
+        ) : (
+          <span className="row-right">{desc}</span>
+        )}
+        {hasBody && (
+          <button
+            className="row-expand"
+            onClick={(e) => { e.stopPropagation(); setOpen(!open); }}
+            title={open ? "Collapse" : "Expand"}
+          >
+            {open ? "(−)" : "(…)"}
+          </button>
+        )}
       </div>
       {open && (
-        <ul className="work-details">
-          {details.map((d) => (
-            <li key={d}>{d}</li>
-          ))}
-        </ul>
+        <div className="work-body">
+          {tags?.length ? <p className="work-role">{desc}{market ? <> &middot; <b>Market:</b> {market}</> : null}</p> : null}
+          {owned && <p className="work-owned"><b>Owned:</b> {owned}</p>}
+          {summary && <p className="work-summary">{summary}</p>}
+          {details?.length ? (
+            <ul className="work-details">
+              {details.map((d) => (
+                <li key={d}>{d}</li>
+              ))}
+            </ul>
+          ) : null}
+          {media?.length ? (
+            <div className="work-media">
+              {media.map((m, i) => (
+                <MediaItem key={i} m={m} />
+              ))}
+            </div>
+          ) : null}
+        </div>
       )}
       {clients && clients.length > 0 && (
         <div className="work-clients">
@@ -235,7 +350,7 @@ const services = [
     t: "Ads that convert",
     m: ["sko-hanna", "bmw-m5", "starbucks-holiday"],
     d: "Paid on Meta, TikTok and Google, with creative made at volume by UGC creators and AIGC.",
-    p: "$1.2M+ a month in sales at a peak 6x ROAS",
+    p: "$1.2M+ a month in sales for a DTC brand",
   },
   {
     t: "A funnel that converts",
@@ -255,18 +370,12 @@ const services = [
     d: "AI tools that handle the repeat work on a schedule: reporting, creative variations, budget checks.",
     p: "Built in-house tools that cut raw footage into 9:16 ads and block banned claims",
   },
-  {
-    t: "Fractional or full-time",
-    m: ["toyota-4runner", "toyota-tacoma", "toyota-helping"],
-    d: "Head of Growth for a team that wants one person owning all of it.",
-    p: "resume",
-  },
 ];
 
 function Pitch() {
   const stats = [
     { n: "$1.2M+", l: "a month in sales for one DTC client" },
-    { n: "6x", l: "peak ROAS" },
+    { n: "4x", l: "blended ROAS at $2M+ a month" },
     { n: "1,000+", l: "ads shipped" },
     { n: "$50M+", l: "in paid media managed" },
   ];
@@ -274,10 +383,11 @@ function Pitch() {
     <div className="pitch">
       <header className="mast">
         <div className="mast-top">
-          <span>Growth &amp; performance marketing</span>
+          <span>Jack Morello &middot; Ballast Research</span>
           <span>8+ years &middot; Los Angeles</span>
         </div>
-        <h1 className="mast-h">If you&apos;re here, you already know<br className="mast-br" /> <em>what&apos;s missing.</em></h1>
+        <h1 className="mast-h">Head of growth and<br className="mast-br" /> <em>performance marketing.</em></h1>
+        <p className="mast-proof">$50M+ in paid media managed. $10K to $1.2M+ a month for a DTC brand.</p>
         <div className="mast-body">
           <div className="mast-text">
             <ul className="mast-list">
@@ -293,18 +403,12 @@ function Pitch() {
             </p>
             <div className="pitch-ctas">
               <a className="pitch-btn pitch-btn-solid" href="https://ballast.la/#book" target="_blank" rel="noopener noreferrer">Book a call</a>
-              <a className="pitch-btn" href="mailto:jack@ballast.la?subject=Audit%20request">Get an audit</a>
+              <a className="pitch-btn" href="#work">See the work</a>
+              <a className="pitch-btn" href="/JackMorello_CV.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
             </div>
           </div>
           <figure className="mast-fig">
-            <Image
-              src="/images/illustration-jack.png"
-              alt="Jack Morello"
-              width={200}
-              height={200}
-              className="pitch-portrait"
-              priority
-            />
+            <GazePortrait className="pitch-portrait" alt="Jack Morello" />
             <figcaption>Jack Morello, founder, Ballast Research</figcaption>
           </figure>
         </div>
@@ -357,29 +461,11 @@ export default function HomePage() {
             <Pitch />
           </DraggableCard>
 
-          <DraggableCard title="Jack Morello">
-            <p>
-              I&apos;m Jack, a growth and performance marketer with 8+ years in
-              paid media. I run{" "}
-              <a href="https://ballast.la" target="_blank" rel="noopener noreferrer">Ballast Research</a>,
-              a growth and paid media firm in Los Angeles. Since June: $1.2M+ a month in sales
-              for a health and wellness brand at a peak 6x ROAS, 500 to 1,000 ads
-              a month, 30+ UGC creators running at once, and TikTok LIVE selling
-              at $5K a day. Before that, paid media, promo and social
-              for Toyota, Starbucks, STARZPLAY, Netflix, Disney, Peacock, LG and
-              Twitter, plus three venture-backed startups built from zero.
-            </p>
-            <p style={{ marginTop: "0.75rem" }}>
-              Ballast is taking on new clients now. If you want this kind of growth,{" "}
-              <a href="https://ballast.la/#book" target="_blank" rel="noopener noreferrer">book a call</a>.
-            </p>
-            <p style={{ marginTop: "0.75rem" }}>Based in Los Angeles.</p>
-          </DraggableCard>
-
           <DraggableCard title="Work">
+            <span id="work" />
             <a href="/work" className="row-link">
               <div className="row">
-                <span className="row-left">The ads</span>
+                <span className="row-left">All ads</span>
                 <span className="row-dash" />
                 <span className="row-right">View</span>
               </div>
@@ -388,6 +474,18 @@ export default function HomePage() {
               <WorkRow key={w.company} {...w} />
             ))}
           </DraggableCard>
+
+          <DraggableCard title="Jack Morello">
+            <p>
+              I&apos;m Jack, a growth and performance marketer with 8+ years in paid media,
+              three venture-backed startups built from zero, and my own firm,{" "}
+              <a href="https://ballast.la" target="_blank" rel="noopener noreferrer">Ballast Research</a>,
+              in Los Angeles. Taking on new roles and clients now:{" "}
+              <a href="https://ballast.la/#book" target="_blank" rel="noopener noreferrer">book a call</a>{" "}
+              or email <a href="mailto:jack@ballast.la">jack@ballast.la</a>.
+            </p>
+          </DraggableCard>
+
         </div>
 
         {/* Right column */}
