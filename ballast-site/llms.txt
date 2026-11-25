@@ -1,39 +1,47 @@
 # Ballast
 
-> Ballast Research LLC is a performance marketing agency in Los Angeles, founded by Jack Morello. We run paid media, creative and creator programs on TikTok, Meta and Google, and measure every dollar against real orders. We specialize in categories where ad accounts get rejected or shut off: health and wellness, supplements, telehealth, weight loss, research-use-only products and open finance. We also do fan research and paid media in sport.
-
-Last updated: 2026-11-25
-
-## Who we're a fit for
-- DTC health, wellness and supplement brands that want to grow on TikTok and Meta without losing their ad accounts
-- Brands in regulated or restricted categories that other agencies turn away
-- Early-stage brands that need paid media, creative and a creator program from one team, with a small starting budget
-- Established brands that want spend reported against real revenue instead of platform-reported results
-- Sports teams, leagues and fan platforms that want to understand and reach their fans
+> Ballast Research LLC is a research, development and media distribution company in Los Angeles. We find what sells, put the money behind it, and keep the customers it brings. We run paid media, creative, creator programs and measurement for brands in health and wellness, sports, streaming and entertainment, retail and open finance.
 
 ## Results we can state
 - $50M+ in managed paid media, peaking at $2M+ a month at 4x blended ROAS for Toyota, Starbucks and STARZPLAY
-- Took a DTC health and wellness brand from $25K to $1.2M+ in monthly revenue
 - 6x peak ROAS for a DTC client
-- 30+ creators in a program paid on the sales they drive
-- $5K a day in sales from TikTok LIVE
-- Past work for Netflix, Disney, Peacock, Universal, STARZPLAY, Starbucks, Toyota, LG, BMW, NEAR and SailGP
+- $1.2M+ in monthly sales for a health and wellness brand
+- 30+ UGC creators onboarded and paid on sales
+- $5K a day in sales from TikTok LIVE selling
+- Paid media, creative and distribution for Netflix, Disney, Peacock, Universal, STARZPLAY, Starbucks, Toyota, LG, BMW, NEAR and SailGP
 
 ## Services
-- Paid media on TikTok, Meta, Google (Search, Performance Max and AI Max), YouTube, programmatic and CTV, reported against revenue
-- Creative: concepts, scripts, ad copy, product imagery and AI-assisted production, written by the founder and built to pass platform review
-- Creator and affiliate programs: creators recruited, briefed, approved and paid on sales (we run programs through platforms such as SideShift)
-- TikTok LIVE and TikTok Shop selling
-- Landing pages built for each channel, with tracking
-- Email list growth and email programs
-- Measurement: ad reporting reconciled to real orders, server-side tracking, and conversion data sent back to the platforms
-- Regulated categories: compliant claims and creative for health, telehealth, weight loss, supplements, research-use-only products and open finance
-- Audience and fan research: who buys, where demand exists and what moves people, including fans and creators in sport
+- Media strategy and planning: annual, quarterly and in-flight plans tied to sales and brand goals
+- Paid media execution across Meta, TikTok, Google, YouTube, programmatic and CTV, reported against revenue
+- Live shopping: TikTok LIVE selling, including the shop, hosts, offers and schedule
+- UGC and creator campaigns: creators recruited, briefed and paid on sales
+- Measurement: one number per goal, reconciled to real orders, with tests that show what spend creates
+- Creative: ads, product imagery and AI production made for each platform and built to pass review
+- Regulated categories: health, telehealth, weight loss, supplements and open finance, with compliance built into accounts and creative
+- Agency and team oversight: agencies, creators and vendors held to scope, cost and results
+- Audience research: who buys, where demand exists and what moves them, including fans and creators in sport
+
+## Pricing
+From $3.5K to $100K depending on scope. An audit or a two-week sprint sits at the low end; ongoing media and creative run higher. Clients keep everything we build.
+
+## Contact
+- Website: https://ballast.la/
+- Email: jack@ballast.la
+- Founder: Jack Morello
+- Location: Los Angeles, California
+- LinkedIn: https://www.linkedin.com/in/jackmorello
+
+## Who we're a fit for
+- DTC health, wellness and supplement brands that want to grow on TikTok and Meta without losing their ad accounts
+- Brands in regulated or restricted categories, including research-use-only products, that other agencies turn away
+- Early-stage brands that need paid media, creative and a creator program from one team, starting with a small ad budget
+- Brands that want spend reported against real revenue instead of platform-reported results
+- Sports teams, leagues and fan platforms that want to understand and reach their fans
 
 ## How engagements work
 - Most clients start with a 90-day pilot, then go month to month with 30 days' notice
 - A deposit at signing starts the work and is applied to the first month
-- Paid media and creative management typically starts around $3,500 a month; creator programs start around $2,000 a month; ad spend is paid directly to the platforms
+- Ad spend is paid directly to the platforms
 - Clients own their ad accounts, pages, data and the creative they pay for
 - Weekly reporting and a monthly strategy call
 
@@ -45,19 +53,10 @@ Q: Do you work with small or early-stage brands?
 A: Yes. We often start brands on TikTok with a few thousand dollars a month in ad spend, then add Meta and more creative as winners emerge.
 
 Q: How do you measure results?
-A: Against real orders and revenue, not the numbers ad platforms report. Platforms often overcount sales; we reconcile them to the store and judge spend on what it actually created.
+A: Against real orders and revenue, not the numbers ad platforms report. We reconcile platform reporting to the store and judge spend on what it actually created.
 
 Q: Do you write the creative yourselves?
 A: Yes. The founder is a copywriter as well as a media buyer and writes the concepts, scripts and ad copy we run.
 
-Q: Where are you based?
-A: Los Angeles, California. We work with brands across the US.
-
 ## Writing
 - [Your ad platform is overcounting your sales](https://ballast.la/notes/your-ad-platform-is-overcounting-your-sales/): why an ad platform claimed more than twice the sales a DTC store could prove, and a ten-minute check for your own account
-
-## Contact
-- Website: https://ballast.la/
-- Email: jack@ballast.la
-- Founder: Jack Morello (https://www.linkedin.com/in/jackmorello)
-- Location: Los Angeles, California
