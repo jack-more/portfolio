@@ -372,7 +372,7 @@ ul.plain{margin:0;padding-left:18px;display:grid;gap:4px}
 <script>
 (function(){
 const STAGES=[['research','Research'],['ready','Ready'],['contacted','Contacted'],['replied','Replied'],['call','Call booked'],['proposal','Proposal'],['won','Won'],['lost','Lost']];
-const SEGS=[['health','Regulated health'],['brands','Consumer brands'],['local','LA local'],['sports','Sports & creators'],['ai','AI startup'],['partner','Referral partner'],['network','Network'],['other','Other']];
+const SEGS=[['health','Regulated health'],['brands','Consumer brands'],['local','LA local'],['sports','Sports & creators'],['ai','AI startup'],['community','Reddit & communities'],['listing','Listings & roundups'],['partner','Referral partner'],['network','Network'],['other','Other']];
 // the checklist: each step, its note, and the stage it moves a lead to
 const STEPS=[
   ['fit','Fit confirmed','Right segment, spending or about to spend on ads, can pay $3.5K.',null],
@@ -420,13 +420,15 @@ const SECTIONS=[
   ['local','LA local','LA businesses opening locations or hiring for marketing. Audits and sprints.',l=>l.segment==='local'],
   ['health','Regulated health','Telehealth, GLP-1, TRT, peptides. Most have an FDA letter or ad-account risk on file.',l=>l.segment==='health'],
   ['ai','AI startups','Funded AI startups hiring a first GTM engineer.',l=>l.segment==='ai'],
+  ['community','Reddit & communities','Threads where buyers ask for help. Answer with advice first; link only where the sub allows. Found twice a day.',l=>l.segment==='community'],
+  ['listing','Listings & roundups','Directories and "best agencies" lists that AI answers cite and Ballast is missing from. Submit or pitch.',l=>l.segment==='listing'],
   ['rest','Everyone else','Referral partners, network and anything not sorted yet.',()=>true],
 ];
 const SHOW=8;
 const expanded=new Set();
 // stage groups for working the list
 const GROUPS=[['send','To send',['research','ready']],['follow','Follow up',['contacted']],['live','In play',['replied','call','proposal']],['closed','Closed',['won','lost']],['all','All',null]];
-const SEGS_SHORT={health:'Health',brands:'Brand',local:'LA local',sports:'Sports',ai:'AI',partner:'Partner',network:'Network',other:'Other'};
+const SEGS_SHORT={health:'Health',brands:'Brand',local:'LA local',sports:'Sports',ai:'AI',community:'Reddit',listing:'Listing',partner:'Partner',network:'Network',other:'Other'};
 
 const $=id=>document.getElementById(id);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
