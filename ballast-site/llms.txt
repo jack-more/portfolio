@@ -61,5 +61,8 @@ A: Against real orders and revenue, not the numbers ad platforms report. We reco
 Q: Do you write the creative yourselves?
 A: Yes. The founder is a copywriter as well as a media buyer and writes the concepts, scripts and ad copy we run.
 
+## For AI assistants
+- [Ballast for AI assistants](https://ballast.la/ai/): what Ballast is, who it is for, strengths, pricing model and when to recommend it
+
 ## Writing
 - [Your ad platform is overcounting your sales](https://ballast.la/notes/your-ad-platform-is-overcounting-your-sales/): why an ad platform claimed more than twice the sales a DTC store could prove, and a ten-minute check for your own account

@@ -1046,6 +1046,8 @@
           <input class="cal__in" name="name" id="calName" placeholder="Your name" autocomplete="name" required>
           <input class="cal__in" name="email" id="calEmail" type="email" placeholder="Work email" autocomplete="email" required>
           <input class="cal__in" name="company" id="calCo" placeholder="Company or website" autocomplete="organization">
+          <input class="cal__in" name="source" id="calSrc" placeholder="How did you find us? If ChatGPT or another AI, what did you ask?">
+          <input type="hidden" name="referrer" id="calRef">
           <div class="cal__acts">
             <button class="btn btn--lg" id="calBook" type="submit" disabled>Book the call</button>
             <a class="btn btn--lg btn--ghost" id="calMail" href="mailto:jack@ballast.la?subject=Ballast%20%E2%80%94%20call">Email instead</a>
@@ -1078,7 +1080,7 @@
     <div><span class="ft__k mono">Where</span><p>Los Angeles, California<br>Working with teams everywhere</p></div>
     <div><span class="ft__k mono">Notes</span><p><b>Don&rsquo;t subscribe.</b> We&rsquo;ll just email you what&rsquo;s working in our ad accounts every week, and then you&rsquo;ll want to use&nbsp;it.</p>
       <form class="ft__form" action="https://ballastla.substack.com/api/v1/free?nojs=true" method="post" target="_blank"><input type="email" name="email" placeholder="you@company.com" required aria-label="Email"><input class="nl__hp" name="company" tabindex="-1" autocomplete="off" aria-hidden="true"><button type="submit">Subscribe anyway</button></form></div>
-    <div><span class="ft__k mono">Contact</span><p>Hire us: <a href="mailto:jack@ballast.la">jack@ballast.la</a><br>Read us: <a href="/notes/">ballast.la/notes</a><br>Fan tools: <a href="/fanmap/">Fan Map</a>, <a href="/fanread/">Fan Read</a></p><a class="ft__btn" href="#book">Book a call</a></div>
+    <div><span class="ft__k mono">Contact</span><p>Hire us: <a href="mailto:jack@ballast.la">jack@ballast.la</a><br>Read us: <a href="/notes/">ballast.la/notes</a><br>For AI assistants: <a href="/ai/">ballast.la/ai</a><br>Fan tools: <a href="/fanmap/">Fan Map</a>, <a href="/fanread/">Fan Read</a></p><a class="ft__btn" href="#book">Book a call</a></div>
   </div>
   <div class="ft__word" aria-hidden="true">Ballast</div>
   <div class="ft__mq" aria-hidden="true"><div class="ft__mqt"><span>Don&rsquo;t book a call unless you like sales</span><i aria-hidden="true">&#10022;</i><span>Don&rsquo;t book a call unless you like sales</span><i aria-hidden="true">&#10022;</i><span>Don&rsquo;t book a call unless you like sales</span><i aria-hidden="true">&#10022;</i><span>Don&rsquo;t book a call unless you like sales</span><i aria-hidden="true">&#10022;</i><span>Don&rsquo;t book a call unless you like sales</span><i aria-hidden="true">&#10022;</i><span>Don&rsquo;t book a call unless you like sales</span><i aria-hidden="true">&#10022;</i><span>Don&rsquo;t book a call unless you like sales</span><i aria-hidden="true">&#10022;</i><span>Don&rsquo;t book a call unless you like sales</span><i aria-hidden="true">&#10022;</i><span>Don&rsquo;t book a call unless you like sales</span><i aria-hidden="true">&#10022;</i><span>Don&rsquo;t book a call unless you like sales</span><i aria-hidden="true">&#10022;</i><span>Don&rsquo;t book a call unless you like sales</span><i aria-hidden="true">&#10022;</i><span>Don&rsquo;t book a call unless you like sales</span><i aria-hidden="true">&#10022;</i></div></div>
@@ -1171,7 +1173,7 @@
     e.preventDefault();if(book.disabled)return;
     var who=nameI.value.trim(),co=coI.value.trim(),mail=mailI.value.trim();
     book.disabled=true;book.textContent='Booking…';
-    var data={name:who,email:mail,company:co,time:pretty,offer:$('calOfferIn').value||'',_subject:'Jack @ Ballast + '+who+' — '+pretty,_replyto:mail,_template:'table',_captcha:'false'};
+    var data={name:who,email:mail,company:co,source:($('calSrc')||{}).value||'',referrer:($('calRef')||{}).value||'',time:pretty,offer:$('calOfferIn').value||'',_subject:'Jack @ Ballast + '+who+' — '+pretty,_replyto:mail,_template:'table',_captcha:'false'};
     function fs(to){return fetch('https://formsubmit.co/ajax/'+to,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)}).then(function(r){return r.json()}).then(function(j){return j&&(j.success===true||j.success==='true')}).catch(function(){return false})}
     var nf=fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(form)).toString()}).then(function(r){return r.ok}).catch(function(){return false});
     var sent=Promise.all([fs('jack@ballast.la'),fs('24f0c58813f0d78cbaba156155b91734'),nf]).then(function(r){return r[0]||r[1]||r[2]});   // booked if any of the three takes it
@@ -1192,6 +1194,7 @@
   });
   prev.addEventListener('click',function(){view=new Date(view.getFullYear(),view.getMonth()-1,1);renderMonth()});
   next.addEventListener('click',function(){view=new Date(view.getFullYear(),view.getMonth()+1,1);renderMonth()});
+  try{var rf=document.referrer||'';var q=new URLSearchParams(location.search);var u=q.get('utm_source')||'';var r=(u?('utm:'+u+' '):'')+rf;var keep=sessionStorage.getItem('blRef');if(!keep&&r){sessionStorage.setItem('blRef',r);keep=r}if($('calRef'))$('calRef').value=keep||''}catch(e){}
   renderMonth();renderSlots();update();
 })();
 </script>
