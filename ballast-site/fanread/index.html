@@ -5,7 +5,7 @@
 :root{--ink:#0A0D18;--mute:#5E6372;--line:#E3E6EE;--bg:#F7F8FB;--soft:#EEF1F6;--cob:#0076B6;--or:#F86608;--grn:#004225;--ahead:#0076B6;--back:#F86608;--both:#7A4DFF;--now:#9AA3B8}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.5 Geist,Arial,sans-serif}
 a{color:inherit;text-decoration:none;border-bottom:1px solid var(--line)}a:hover{border-color:var(--ink)}
-.mono{font:500 11px "Geist Mono",monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+.mono{font:500 13px Geist,Arial,sans-serif;color:var(--mute)}
 .wrap{max-width:1180px;margin:0 auto;padding:36px 20px 80px}
 h1{font:800 clamp(34px,5vw,58px)/1 Geist;letter-spacing:-.035em;margin:10px 0 12px}
 .lede{font-size:19px;max-width:800px;margin:0 0 14px}
@@ -22,10 +22,10 @@ h1{font:800 clamp(34px,5vw,58px)/1 Geist;letter-spacing:-.035em;margin:10px 0 12
 .pill{display:inline-block;padding:7px 12px;border-radius:999px;color:#fff;font:600 13px Geist;white-space:nowrap}
 .cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:30px}
 .sec{margin-bottom:30px}
-h3{font:500 11px "Geist Mono",monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--cob);margin:0 0 12px}
+h3{font:700 16px/1.25 Geist,Arial,sans-serif;letter-spacing:-.01em;color:var(--ink);margin:0 0 12px}
 .list{display:grid;gap:9px;font-size:14.5px}.list div{display:grid;grid-template-columns:64px 1fr;gap:10px}.list b{font-weight:600;font-variant-numeric:tabular-nums}
 .list .by{color:var(--mute);font-size:12.5px}
-.tag{font:500 10px "Geist Mono",monospace;letter-spacing:.06em;text-transform:uppercase;padding:2px 6px;border-radius:4px;margin-left:6px;white-space:nowrap}
+.tag{font:600 12px Geist,Arial,sans-serif;padding:2px 6px;border-radius:4px;margin-left:6px;white-space:nowrap}
 .t-league_media{background:var(--soft);color:var(--mute)}.t-team{background:#E6F1F8;color:var(--cob)}.t-fan_creator{background:#FFEBDD;color:#B64400}.t-other{background:var(--soft);color:var(--mute)}
 .mix{display:grid;gap:12px}.mix .r{display:grid;grid-template-columns:150px 1fr 48px;gap:10px;align-items:center;font-size:14px}
 .mix .t{height:12px;background:var(--line);border-radius:6px;overflow:hidden}.mix .t i{display:block;height:100%;background:var(--or);border-radius:6px}
@@ -48,14 +48,14 @@ h3{font:500 11px "Geist Mono",monospace;letter-spacing:.1em;text-transform:upper
 .pl p{margin:0;font-size:13.5px}.pl .ev{font-size:12.5px;color:var(--mute);display:grid;gap:3px}
 .wk{background:var(--soft);border-radius:14px;padding:18px 20px}.wkg{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px}
 .wkg p{margin:8px 0 0;font-size:14px}.wkg .up{color:var(--grn);font-weight:600}.wkg .by{color:var(--mute);font-size:12.5px}
-.feed{font:500 11px "Geist Mono",monospace;letter-spacing:.08em;text-transform:uppercase;margin-left:10px;color:var(--cob)}
+.feed{font:500 13px Geist,Arial,sans-serif;margin-left:10px;color:var(--cob)}
 @media (max-width:760px){.wkg{grid-template-columns:1fr}}
 .tt{border:1px solid var(--line);border-radius:14px;padding:18px 20px}.ttl{margin:0 0 6px;font-size:15px}.ttg{display:grid;grid-template-columns:1.3fr 1fr .8fr;gap:22px}
 .ttg p{margin:8px 0 0;font-size:14px}.chip{display:inline-block;background:var(--soft);border-radius:999px;padding:3px 9px;font-size:12.5px;margin:0 4px 6px 0}
 @media (max-width:760px){.ttg{grid-template-columns:1fr}}
 .xv{border:1px solid var(--line);border-radius:14px;padding:18px 20px}.xg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
 .xg>div{display:grid;gap:4px;align-content:start}.xg p{margin:0;font-size:14px}.xa{font-weight:600}
-.hx{font:500 10px "Geist Mono",monospace;letter-spacing:.06em;text-transform:uppercase;padding:2px 6px;border-radius:4px}.h-heated{background:#FFE1E1;color:#B00020}.h-supportive{background:#E3F4EA;color:var(--grn)}.h-critical{background:#FFF1DC;color:#8A4B00}.h-neutral{background:var(--soft);color:var(--mute)}
+.hx{font:600 12px Geist,Arial,sans-serif;padding:2px 6px;border-radius:4px}.h-heated{background:#FFE1E1;color:#B00020}.h-supportive{background:#E3F4EA;color:var(--grn)}.h-critical{background:#FFF1DC;color:#8A4B00}.h-neutral{background:var(--soft);color:var(--mute)}
 @media (max-width:760px){.xg{grid-template-columns:1fr}}
 .note{font-size:13px;color:var(--mute);margin-top:18px;max-width:900px}
 @media (max-width:760px){.cols,.how{grid-template-columns:1fr}.mix .r{grid-template-columns:110px 1fr 44px}}
@@ -63,7 +63,7 @@ h3{font:500 11px "Geist Mono",monospace;letter-spacing:.1em;text-transform:upper
 <span class="mono">Ballast Research · data read <span id="rd"></span></span>
 <h1>Fan Read: 30 NBA fanbases</h1>
 <p class="lede">Where each team's fans are, what they actually watch and talk about, and who they are. Read from public data across every channel, not just the team's own. Pick a team.</p>
-<p style="margin:-4px 0 18px;font-size:15px"><a href="developers/">For developers: the feed, the schema and where it plugs in →</a></p>
+<p style="margin:-4px 0 18px;font-size:15px"><a href="developers/">For developers: the feed, the schema and where it plugs in</a></p>
 <div class="srcs"><span>YouTube: all channels, year · month · week</span><span>Every rostered player: YouTube + Wikipedia</span><span>Team long-form + Shorts</span><span>Reddit: top of the month</span><span>Podcasts</span><span>Prediction markets</span><span>Wikipedia traffic, team and every player</span><span>Real: live game views and talk</span><span>TikTok: this season's videos and creators</span><span>X: who's shaping opinion</span></div>
 <div class="keys"><span><i style="background:var(--ahead)"></i>Looking ahead</span><span><i style="background:var(--back)"></i>Looking back</span><span><i style="background:var(--both)"></i>Both</span><span><i style="background:var(--now)"></i>Here and now</span></div>
 <div class="grid" id="grid" role="group" aria-label="Pick a team"></div>
@@ -98,7 +98,7 @@ function show(t){
  g.querySelectorAll('.tile').forEach(x=>x.classList.toggle('on',x.dataset.team===t.team));
  const mix=(t.content_mix||[]).filter(m=>m.share_of_views>0).slice(0,8);
  const h=[];
- h.push(`<div class="bh"><div><span class="mono">${esc(t.handle||'')} · read ${esc(D.read)}</span>${t.feed?`<a class="feed" href="${t.feed}" target="_blank" rel="noopener">Feed for Fan OS (JSON) ↗</a>`:''}<h2>${esc(t.team)}</h2><p>${esc(t.summary||'')}</p></div>${t.kind_label?`<span class="pill" style="background:${C[t.kind]}">${esc(t.kind_label)}</span>`:''}</div>`);
+ h.push(`<div class="bh"><div><span class="mono">${esc(t.handle||'')} · read ${esc(D.read)}</span>${t.feed?`<a class="feed" href="${t.feed}" target="_blank" rel="noopener">Feed for Fan OS (JSON)</a>`:''}<h2>${esc(t.team)}</h2><p>${esc(t.summary||'')}</p></div>${t.kind_label?`<span class="pill" style="background:${C[t.kind]}">${esc(t.kind_label)}</span>`:''}</div>`);
  if(t.pulse){const P=t.pulse,tw=P.team_wiki,pct=(a,b)=>{const c=Math.round((a/b-1)*100);return (c>0?'+':'')+c+'%'};
  h.push(`<div class="sec wk"><h3>This week · ${esc(P.label||P.window)}</h3><div class="wkg">`
  +`<div><span class="mono">Players rising</span>${(P.rising||[]).length?P.rising.map(r=>`<p>${L(r.url,r.name)} <b class="up">${pct(r.last7,r.prior7)}</b><span class="by"> · ${fmt(r.last7)} Wikipedia views this week</span></p>`).join(''):'<p class="by">No big moves this week.</p>'}${tw?`<p class="by">Team page: ${fmt(tw.last7)} views, ${pct(tw.last7,tw.prior7)} on the week before</p>`:''}</div>`

@@ -374,10 +374,10 @@ const services = [
 
 function Pitch() {
   const stats = [
-    { n: "$1.2M+", l: "a month in sales for one DTC client" },
     { n: "4x", l: "blended ROAS at $2M+ a month" },
+    { n: "$50", l: "new-customer CAC on a $220 AOV" },
     { n: "1,000+", l: "ads shipped" },
-    { n: "$50M+", l: "in paid media managed" },
+    { n: "30+", l: "creators in the UGC program" },
   ];
   return (
     <div className="pitch">
@@ -386,7 +386,7 @@ function Pitch() {
           <span>Jack Morello &middot; Ballast Research</span>
           <span>8+ years &middot; Los Angeles</span>
         </div>
-        <h1 className="mast-h">Head of growth and<br className="mast-br" /> <em>performance marketing.</em></h1>
+        <h1 className="mast-h">Head of growth and<br className="mast-br" /> performance marketing.</h1>
         <p className="mast-proof">$50M+ in paid media managed. $10K to $1.2M+ a month for a DTC brand.</p>
         <div className="mast-body">
           <div className="mast-text">
