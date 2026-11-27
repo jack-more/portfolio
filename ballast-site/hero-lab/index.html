@@ -27,25 +27,22 @@
 
   /* one left edge for everything in the title block */
   .hero{--mx:clamp(24px,5vw,80px)}
-  .title{position:absolute;left:var(--mx);top:clamp(104px,15vh,150px);width:min(600px,46vw)}
-  .title img{width:clamp(240px,24vw,400px);display:block;filter:drop-shadow(0 6px 0 rgba(0,60,100,.3)) drop-shadow(0 16px 28px rgba(0,60,100,.3));animation:logo 3.6s ease-in-out infinite}
-  .title img.boing{animation:boing .7s cubic-bezier(.3,1.6,.5,1)}
-  @keyframes logo{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
-  @keyframes boing{0%{transform:scale(1)}30%{transform:scale(1.1,.92)}60%{transform:scale(.96,1.05)}100%{transform:scale(1)}}
-  .title h1{margin:24px 0 0;font-weight:800;letter-spacing:-.035em;line-height:1.04;font-size:clamp(28px,2.6vw,46px);text-wrap:balance;text-shadow:0 2px 0 rgba(0,60,100,.35),0 8px 26px rgba(0,60,100,.4)}
-  .cta{display:flex;align-items:center;gap:22px;margin-top:30px}
-  .start{display:inline-flex;align-items:center;height:52px;padding:0 28px;border-radius:999px;background:#fff;color:var(--honolulu);font:800 17px/1 var(--g);letter-spacing:-.01em;text-decoration:none;box-shadow:0 5px 0 var(--honolulu-dk),0 14px 30px rgba(0,60,100,.35);transition:transform .12s,box-shadow .12s}
-  .start:hover{transform:translateY(-2px);box-shadow:0 7px 0 var(--honolulu-dk),0 18px 34px rgba(0,60,100,.35)}
-  .start:active{transform:translateY(4px);box-shadow:0 1px 0 var(--honolulu-dk),0 6px 14px rgba(0,60,100,.3)}
-  .blink{font:italic 900 22px/1 var(--d);letter-spacing:.03em;text-transform:uppercase;color:#fff;text-shadow:2px 2px 0 var(--orange),0 0 18px rgba(255,255,255,.35);animation:blink 1.1s steps(1) infinite}
+  .title{position:absolute;left:var(--mx);top:clamp(108px,14vh,150px);width:min(640px,46vw)}
+  .title h1{margin:0;font-weight:800;letter-spacing:-.04em;line-height:1;font-size:clamp(40px,3.9vw,72px);text-shadow:0 2px 0 rgba(0,50,100,.35),0 6px 22px rgba(0,50,100,.35)}
+  .cta{margin-top:clamp(20px,2.4vw,32px)}
+  .start{display:inline-flex;align-items:center;gap:12px;height:54px;padding:0 28px 0 24px;border-radius:999px;background:var(--orange);color:var(--ink);font:800 17px/1 var(--g);letter-spacing:-.01em;text-decoration:none;box-shadow:0 5px 0 var(--honolulu-dk),0 14px 30px rgba(0,60,100,.35);transition:transform .12s,box-shadow .12s}
+  .start{box-shadow:0 5px 0 #A8430A,0 14px 30px rgba(0,50,100,.35)}
+  .start:hover{transform:translateY(-2px);box-shadow:0 7px 0 #A8430A,0 18px 34px rgba(0,50,100,.35)}
+  .start:active{transform:translateY(4px);box-shadow:0 1px 0 #A8430A,0 6px 14px rgba(0,50,100,.3)}
+  .start i{width:0;height:0;border-left:11px solid var(--ink);border-top:7px solid transparent;border-bottom:7px solid transparent;animation:blink 1.1s steps(1) infinite}
   @keyframes blink{0%,62%{opacity:1}63%,100%{opacity:.12}}
 
   /* scores: one row, equal columns, one shared baseline; the row floats as a whole */
-  .hud{--tx:-50%;position:absolute;left:50%;bottom:clamp(28px,5.5vh,56px);display:flex;z-index:3;animation:float 5s ease-in-out infinite}
+  .hud{--tx:-50%;position:absolute;left:50%;bottom:clamp(24px,5vh,52px);display:flex;z-index:3;padding:16px 6px 18px;border-radius:18px;background:rgba(0,58,104,.34);-webkit-backdrop-filter:blur(8px) saturate(1.2);backdrop-filter:blur(8px) saturate(1.2);box-shadow:inset 0 0 0 1px rgba(255,255,255,.28);animation:float 5s ease-in-out infinite}
   @keyframes float{0%,100%{transform:translate(var(--tx),0)}50%{transform:translate(var(--tx),-8px)}}
-  .hud div{display:flex;flex-direction:column;align-items:center;padding:0 clamp(20px,2.6vw,44px);border-left:1px solid rgba(255,255,255,.5);cursor:pointer}
+  .hud div{display:flex;flex-direction:column;align-items:center;padding:0 clamp(22px,2.6vw,44px);border-left:1px solid rgba(255,255,255,.35);cursor:pointer}
   .hud div:first-child{border-left:0}
-  .hud span{font:600 14px/1 var(--g);white-space:nowrap;text-shadow:0 1px 2px rgba(0,60,100,.7),0 0 12px rgba(0,60,100,.6)}
+  .hud span{font:600 14px/1 var(--g);white-space:nowrap;color:#fff}
   .hud b{display:block;margin-top:10px;font:italic 900 clamp(36px,3.4vw,58px)/1 var(--d);white-space:nowrap;color:#fff;-webkit-text-stroke:2px var(--honolulu-dk);paint-order:stroke fill;text-shadow:4px 4px 0 var(--honolulu-dk),0 10px 24px rgba(0,60,100,.45)}
   .hud i{font-style:normal}.hud .s{display:none}
   .hud div.pop b{animation:pop .5s cubic-bezier(.3,1.7,.5,1)}
@@ -68,12 +65,10 @@
     .hero{--mx:20px}
     .nav{top:12px;gap:18px;padding:11px 18px}.nav a{font-size:13px;letter-spacing:.04em}
     .title{top:84px;right:var(--mx);width:auto}
-    .title img{width:150px}
-    .title h1{margin-top:14px;font-size:22px}
-    .cta{margin-top:18px;gap:16px}
-    .start{height:44px;padding:0 20px;font-size:15px}
-    .blink{font-size:17px}
-    .hud{--tx:0;left:var(--mx);right:var(--mx);bottom:28px;justify-content:space-between}
+    .title h1{font-size:30px}
+    .cta{margin-top:16px}
+    .start{height:46px;padding:0 22px 0 18px;font-size:15px}
+    .hud{--tx:0;left:12px;right:12px;bottom:20px;justify-content:space-between;padding:12px 2px 14px;border-radius:14px}
     .hud div{flex:1;padding:0 6px}
     .hud .l{display:none}.hud .s{display:inline}
     .hud span{font-size:12px}.hud b{font-size:26px;margin-top:8px}
@@ -86,11 +81,10 @@
 <nav class="nav"><a href="/#work">Work</a><a href="/#sports">Sports</a><a href="/#rd">Services</a><a href="/notes/">Notes</a></nav>
 
 <section class="hero" id="game">
-  <canvas data-src="beach-3d.webp?v=3" data-line="0.66" data-focus="0.56"></canvas>
+  <canvas data-src="beach-3d.webp?v=3" data-line="0.66" data-focus="0.56" data-focus-m="0.63"></canvas>
   <div class="title">
-    <img src="/lockup.png?v=5" alt="Ballast">
     <h1>Your partner in<br>performance marketing<br>+ growth.</h1>
-    <div class="cta"><a class="start" href="/#book">Book a call</a><span class="blink" aria-hidden="true">Press start</span></div>
+    <div class="cta"><a class="start" href="/#book"><i aria-hidden="true"></i>Book a call</a></div>
   </div>
   <div class="hud">
     <div><span><i class="l">Ad spend managed</i><i class="s">Ad spend</i></span><b data-n="50" data-pre="$" data-post="M+">$50M+</b></div>
@@ -147,7 +141,7 @@ if (gl) {
       cv.width = w * dpr; cv.height = h * dpr; gl.viewport(0, 0, cv.width, cv.height);
       const ca = w / h, ia = img.width / img.height, s = .965;
       const sx = ca > ia ? s : s * ca / ia, sy = ca > ia ? s * ia / ca : s;
-      const fx = +cv.dataset.focus || .5, ox = Math.max(-(1 - sx) / 2, Math.min((1 - sx) / 2, fx - .5));
+      const fx = (w < 760 ? +cv.dataset.focusM : +cv.dataset.focus) || .5, ox = Math.max(-(1 - sx) / 2, Math.min((1 - sx) / 2, fx - .5));
       gl.uniform2f(U('scale'), sx, sy); gl.uniform2f(U('off'), ox, 0);
       fit.sx = sx; fit.sy = sy; fit.ox = ox;
     };
@@ -185,10 +179,7 @@ hero.addEventListener('click', e => {
   }
 });
 
-// logo boings when clicked; stats pop when clicked
-const logo = hero.querySelector('.title img');
-logo.addEventListener('click', e => { e.stopPropagation(); logo.classList.remove('boing'); void logo.offsetWidth; logo.classList.add('boing'); });
-logo.addEventListener('animationend', () => logo.classList.remove('boing'));
+// stats pop when clicked
 hero.querySelectorAll('.hud div').forEach(dv => dv.addEventListener('click', e => { e.stopPropagation(); dv.classList.remove('pop'); void dv.offsetWidth; dv.classList.add('pop'); }));
 
 // press start: white flash, then go
