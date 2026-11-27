@@ -25,33 +25,31 @@
   .hero{position:relative;height:100svh;min-height:640px;overflow:hidden;isolation:isolate;background:#1a7fd0;cursor:pointer;user-select:none}
   .hero canvas{position:absolute;inset:0;width:100%;height:100%;z-index:-1}
 
-  /* title block lives in the open sky, top left */
-  .title{position:absolute;left:clamp(20px,5vw,84px);top:clamp(100px,16vh,160px);width:min(560px,44vw)}
-  .title img{width:clamp(240px,25vw,430px);display:block;filter:drop-shadow(0 6px 0 rgba(0,60,100,.35)) drop-shadow(0 18px 30px rgba(0,60,100,.35));animation:logo 3.4s ease-in-out infinite;transform-origin:30% 70%}
+  /* one left edge for everything in the title block */
+  .hero{--mx:clamp(24px,5vw,80px)}
+  .title{position:absolute;left:var(--mx);top:clamp(104px,15vh,150px);width:min(600px,46vw)}
+  .title img{width:clamp(240px,24vw,400px);display:block;filter:drop-shadow(0 6px 0 rgba(0,60,100,.3)) drop-shadow(0 16px 28px rgba(0,60,100,.3));animation:logo 3.6s ease-in-out infinite}
   .title img.boing{animation:boing .7s cubic-bezier(.3,1.6,.5,1)}
-  @keyframes logo{0%,100%{transform:translateY(0) rotate(-1.5deg)}50%{transform:translateY(-8px) rotate(1deg)}}
-  @keyframes boing{0%{transform:scale(1)}30%{transform:scale(1.12,.9)}60%{transform:scale(.95,1.06)}100%{transform:scale(1)}}
-  .title h1{margin:20px 0 0;font-weight:800;letter-spacing:-.035em;line-height:1.02;font-size:clamp(26px,2.5vw,44px);text-shadow:0 2px 0 rgba(0,60,100,.4),0 8px 26px rgba(0,60,100,.4)}
-
-  /* press start sits centred low in the sky, like a title screen */
-  .start{display:inline-block;margin-top:26px;text-decoration:none;color:#fff}
-  .start b{display:block;font:italic 900 clamp(24px,2.3vw,38px)/1 var(--d);letter-spacing:.03em;text-transform:uppercase;text-shadow:3px 3px 0 var(--orange),0 0 24px rgba(255,255,255,.4);animation:blink 1.1s steps(1) infinite}
-  .start span{display:inline-block;margin-top:10px;font:500 13px/1 var(--m);letter-spacing:.08em;text-transform:uppercase;background:rgba(0,118,182,.85);padding:7px 10px;border-radius:999px}
-  .start:hover b{animation:none}
+  @keyframes logo{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+  @keyframes boing{0%{transform:scale(1)}30%{transform:scale(1.1,.92)}60%{transform:scale(.96,1.05)}100%{transform:scale(1)}}
+  .title h1{margin:24px 0 0;font-weight:800;letter-spacing:-.035em;line-height:1.04;font-size:clamp(28px,2.6vw,46px);text-wrap:balance;text-shadow:0 2px 0 rgba(0,60,100,.35),0 8px 26px rgba(0,60,100,.4)}
+  .cta{display:flex;align-items:center;gap:22px;margin-top:30px}
+  .start{display:inline-flex;align-items:center;height:52px;padding:0 28px;border-radius:999px;background:#fff;color:var(--honolulu);font:800 17px/1 var(--g);letter-spacing:-.01em;text-decoration:none;box-shadow:0 5px 0 var(--honolulu-dk),0 14px 30px rgba(0,60,100,.35);transition:transform .12s,box-shadow .12s}
+  .start:hover{transform:translateY(-2px);box-shadow:0 7px 0 var(--honolulu-dk),0 18px 34px rgba(0,60,100,.35)}
+  .start:active{transform:translateY(4px);box-shadow:0 1px 0 var(--honolulu-dk),0 6px 14px rgba(0,60,100,.3)}
+  .blink{font:italic 900 22px/1 var(--d);letter-spacing:.03em;text-transform:uppercase;color:#fff;text-shadow:2px 2px 0 var(--orange),0 0 18px rgba(255,255,255,.35);animation:blink 1.1s steps(1) infinite}
   @keyframes blink{0%,62%{opacity:1}63%,100%{opacity:.12}}
 
-  /* scores float in the water between Bally's hands */
-  .hud{position:absolute;left:50%;bottom:clamp(22px,5vh,52px);transform:translateX(-50%);display:flex;gap:clamp(22px,3vw,52px);align-items:flex-end;z-index:3}
-  .hud div{text-align:center;animation:bob 4.4s ease-in-out infinite}
-  .hud div:nth-child(2){animation-delay:-1.4s;animation-duration:5s}
-  .hud div:nth-child(3){animation-delay:-2.8s;animation-duration:4.7s}
-  .hud span{display:block;font:500 13px/1 var(--m);letter-spacing:.08em;text-transform:uppercase;color:var(--sun);text-shadow:0 1px 0 var(--honolulu-dk),1px 0 0 var(--honolulu-dk),-1px 0 0 var(--honolulu-dk),0 -1px 0 var(--honolulu-dk),0 0 10px rgba(0,60,100,.7)}
-  .hud b{display:block;margin-top:6px;font:italic 900 clamp(34px,3.3vw,58px)/1 var(--d);color:#fff;-webkit-text-stroke:2px var(--honolulu-dk);paint-order:stroke fill;text-shadow:4px 4px 0 var(--honolulu-dk),0 10px 24px rgba(0,60,100,.45)}
+  /* scores: one row, equal columns, one shared baseline; the row floats as a whole */
+  .hud{--tx:-50%;position:absolute;left:50%;bottom:clamp(28px,5.5vh,56px);display:flex;z-index:3;animation:float 5s ease-in-out infinite}
+  @keyframes float{0%,100%{transform:translate(var(--tx),0)}50%{transform:translate(var(--tx),-8px)}}
+  .hud div{display:flex;flex-direction:column;align-items:center;padding:0 clamp(20px,2.6vw,44px);border-left:1px solid rgba(255,255,255,.5);cursor:pointer}
+  .hud div:first-child{border-left:0}
+  .hud span{font:600 14px/1 var(--g);white-space:nowrap;text-shadow:0 1px 2px rgba(0,60,100,.7),0 0 12px rgba(0,60,100,.6)}
+  .hud b{display:block;margin-top:10px;font:italic 900 clamp(36px,3.4vw,58px)/1 var(--d);white-space:nowrap;color:#fff;-webkit-text-stroke:2px var(--honolulu-dk);paint-order:stroke fill;text-shadow:4px 4px 0 var(--honolulu-dk),0 10px 24px rgba(0,60,100,.45)}
   .hud i{font-style:normal}.hud .s{display:none}
-  .hud em{display:block;margin-top:6px;font:500 13px/1 var(--g);font-style:normal;text-shadow:0 1px 6px rgba(0,60,100,.8)}
   .hud div.pop b{animation:pop .5s cubic-bezier(.3,1.7,.5,1)}
-  @keyframes bob{0%,100%{transform:translateY(0) rotate(-.8deg)}50%{transform:translateY(-10px) rotate(.8deg)}}
-  @keyframes pop{0%{transform:scale(1)}40%{transform:scale(1.18)}100%{transform:scale(1)}}
+  @keyframes pop{0%{transform:scale(1)}40%{transform:scale(1.16)}100%{transform:scale(1)}}
 
   /* idle: sparkles on the water, bubbles from the hands */
   .spark{position:absolute;width:18px;height:18px;z-index:2;pointer-events:none;background:radial-gradient(closest-side,#fff,rgba(255,255,255,0));clip-path:polygon(50% 0,58% 42%,100% 50%,58% 58%,50% 100%,42% 58%,0 50%,42% 42%);animation:twinkle 2.6s ease-in-out infinite;opacity:0}
@@ -67,16 +65,18 @@
   @keyframes flash{from{opacity:1}to{opacity:0}}
 
   @media (max-width:760px){
+    .hero{--mx:20px}
     .nav{top:12px;gap:18px;padding:11px 18px}.nav a{font-size:13px;letter-spacing:.04em}
-    .title{top:78px;width:auto;right:20px}
+    .title{top:84px;right:var(--mx);width:auto}
     .title img{width:150px}
-    .title h1{margin-top:10px;font-size:20px;max-width:300px}
-    .start{margin-top:14px}
-    .start b{font-size:22px}
-    .start span{margin-top:8px}
-    .hud{gap:18px;left:12px;right:12px;transform:none;justify-content:center;bottom:26px}
-    .hud .l,.hud em{display:none}.hud .s{display:inline}
-    .hud span{font-size:12px}.hud b{font-size:26px}
+    .title h1{margin-top:14px;font-size:22px}
+    .cta{margin-top:18px;gap:16px}
+    .start{height:44px;padding:0 20px;font-size:15px}
+    .blink{font-size:17px}
+    .hud{--tx:0;left:var(--mx);right:var(--mx);bottom:28px;justify-content:space-between}
+    .hud div{flex:1;padding:0 6px}
+    .hud .l{display:none}.hud .s{display:inline}
+    .hud span{font-size:12px}.hud b{font-size:26px;margin-top:8px}
   }
   @media (prefers-reduced-motion:reduce){*{animation:none!important}}
 </style>
@@ -89,13 +89,13 @@
   <canvas data-src="beach-3d.webp?v=3" data-line="0.66" data-focus="0.56"></canvas>
   <div class="title">
     <img src="/lockup.png?v=5" alt="Ballast">
-    <h1>Your partner in performance marketing + growth.</h1>
-    <a class="start" href="/#book"><b>Press start</b><span>Book a call</span></a>
+    <h1>Your partner in<br>performance marketing<br>+ growth.</h1>
+    <div class="cta"><a class="start" href="/#book">Book a call</a><span class="blink" aria-hidden="true">Press start</span></div>
   </div>
   <div class="hud">
     <div><span><i class="l">Ad spend managed</i><i class="s">Ad spend</i></span><b data-n="50" data-pre="$" data-post="M+">$50M+</b></div>
-    <div><span><i class="l">DTC sales a month</i><i class="s">DTC sales/mo</i></span><b>$10K→$1.2M+</b></div>
-    <div><span><i class="l">Blended ROAS</i><i class="s">ROAS</i></span><b data-n="4" data-post="×">4×</b><em>at $2M+ a month</em></div>
+    <div><span><i class="l">DTC sales a month</i><i class="s">DTC sales/mo</i></span><b><i class="l">$10K→$1.2M+</i><i class="s">$1.2M+</i></b></div>
+    <div><span><i class="l">Blended ROAS at $2M+ a month</i><i class="s">Blended ROAS</i></span><b data-n="4" data-post="×">4×</b></div>
   </div>
 </section>
 
