@@ -62,6 +62,11 @@
     X-Robots-Tag = "noindex, nofollow, noarchive"
 
 [[headers]]
+  for = "/hero-lab/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow, noarchive"
+
+[[headers]]
   for = "/new/*"
   [headers.values]
     X-Robots-Tag = "noindex, nofollow, noarchive"

@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Ballast hero lab</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;800&family=Geist+Mono:wght@500&display=swap">
+<style>
+  @font-face{font-family:"Ballast Display";src:url(/notes/BallastDisplay-BlackItalic.woff2) format("woff2");font-display:swap}
+  :root{--ink:#0A0D18;--cream:#FAF7EE;--orange:#F86608;--cobalt:#0076B6;--g:"Geist","Helvetica Neue",Arial,sans-serif;--m:"Geist Mono",ui-monospace,monospace}
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--ink);color:#fff;font-family:var(--g)}
+  a{color:inherit}
+
+  /* header, same as ballast.la */
+  .nav{position:fixed;left:50%;top:16px;transform:translateX(-50%);z-index:50;width:min(860px,calc(100% - 24px));height:54px;display:flex;align-items:center;justify-content:space-between;padding:0 7px 0 20px;background:rgba(250,247,238,.92);-webkit-backdrop-filter:blur(18px) saturate(1.4);backdrop-filter:blur(18px) saturate(1.4);border:1px solid rgba(255,255,255,.75);border-radius:999px;box-shadow:0 0 28px 6px rgba(255,255,255,.38)}
+  .nav img{height:24px;display:block}
+  .nav__links{display:flex;gap:clamp(22px,3.4vw,44px)}
+  .nav__links a{font:500 14px/1 var(--m);letter-spacing:.05em;text-transform:uppercase;color:var(--ink);text-decoration:none}
+  .nav__btn{background:var(--ink);color:var(--cream);font:500 13px/1 var(--m);letter-spacing:.05em;text-transform:uppercase;padding:13px 18px;border-radius:999px;text-decoration:none}
+  @media (max-width:760px){.nav__links{display:none}}
+
+  /* option picker */
+  .pick{position:fixed;right:16px;top:84px;z-index:60;display:flex;gap:6px;background:rgba(10,13,24,.82);padding:6px;border-radius:999px;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+  .pick a{font:500 13px/1 var(--m);color:#fff;text-decoration:none;padding:10px 14px;border-radius:999px}
+  .pick a:hover{background:rgba(255,255,255,.14)}
+
+  .hero{position:relative;height:100svh;min-height:620px;overflow:hidden;isolation:isolate}
+  .hero canvas,.hero .bg{position:absolute;inset:0;width:100%;height:100%;z-index:-2}
+  .tag{position:absolute;left:24px;top:84px;font:500 13px/1 var(--m);background:rgba(10,13,24,.7);padding:8px 12px;border-radius:999px;z-index:5}
+  .h1{font-weight:800;letter-spacing:-.045em;line-height:.94;margin:0;font-size:clamp(42px,5.4vw,100px);max-width:13ch}
+
+  /* stats that float */
+  .stats{position:absolute;left:0;right:0;bottom:clamp(20px,5vh,48px);display:flex;justify-content:center;gap:clamp(10px,2vw,22px);padding:0 16px;flex-wrap:wrap;z-index:4}
+  .stat{background:rgba(250,247,238,.9);color:var(--ink);border-radius:20px;padding:14px 20px 13px;min-width:200px;box-shadow:0 10px 30px rgba(6,40,60,.25);animation:bob 4.6s ease-in-out infinite;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+  .stat:nth-child(2){animation-delay:-1.5s;animation-duration:5.2s}
+  .stat:nth-child(3){animation-delay:-3s;animation-duration:4.9s}
+  .stat b{display:block;font-weight:800;font-size:clamp(30px,3.2vw,46px);letter-spacing:-.04em;line-height:1}
+  .stat span{display:block;font-size:14px;margin-top:6px;color:#3d4150}
+  @keyframes bob{0%,100%{transform:translateY(0) rotate(-.6deg)}50%{transform:translateY(-12px) rotate(.6deg)}}
+
+  /* 1 · treading water */
+  #water .copy{position:absolute;left:clamp(20px,4vw,56px);top:clamp(110px,18vh,170px);max-width:900px;z-index:3;text-shadow:0 2px 28px rgba(0,40,70,.45)}
+  #water .copy p{font-size:clamp(17px,1.5vw,21px);max-width:520px;margin:18px 0 0}
+
+  /* 2 · storefront poster */
+  #store{background:#fff;color:#fff}
+  #store .bg{height:86%;object-fit:cover;object-position:50% 100%;transition:transform .4s ease-out}
+  #store .cloud{position:absolute;border-radius:50%;background:radial-gradient(closest-side,rgba(255,255,255,.9),rgba(255,255,255,0));filter:blur(2px);z-index:-1;animation:drift linear infinite}
+  @keyframes drift{from{transform:translateX(-30vw)}to{transform:translateX(130vw)}}
+  #store .big{position:absolute;left:clamp(20px,4vw,56px);right:clamp(20px,4vw,56px);top:clamp(96px,14vh,140px);display:flex;justify-content:space-between;align-items:flex-start;gap:20px}
+  #store .big .h1{max-width:none;font-size:clamp(40px,4.3vw,84px);text-shadow:0 2px 24px rgba(0,70,140,.25)}
+  #store .side{font:500 14px/1.5 var(--m);text-align:right;opacity:.95;padding-top:10px;white-space:nowrap}
+  #store .row{position:absolute;left:0;right:0;bottom:3vh;display:flex;justify-content:center;column-gap:clamp(28px,7vw,120px);color:var(--cobalt);padding:0 16px;gap:16px;flex-wrap:wrap}
+  #store .row div{text-align:center}
+  #store .row b{display:block;font-weight:800;font-size:clamp(30px,3.4vw,52px);letter-spacing:-.04em;line-height:1}
+  #store .row span{font-size:15px;color:#3d4f63}
+
+  /* 3 · Bally in the bay */
+  #bally .copy{position:absolute;left:clamp(20px,4vw,56px);top:clamp(110px,18vh,170px);max-width:760px;z-index:3;text-shadow:0 2px 28px rgba(0,40,70,.5)}
+  #bally .float{position:absolute;right:clamp(20px,12vw,220px);bottom:22vh;width:clamp(170px,19vw,290px);z-index:2;animation:float 4s ease-in-out infinite;transform-origin:50% 80%}
+  #bally .float .clip{overflow:hidden;aspect-ratio:1390/1330;-webkit-mask-image:linear-gradient(#000 74%,rgba(0,0,0,.35) 88%,transparent);mask-image:linear-gradient(#000 74%,rgba(0,0,0,.35) 88%,transparent)}
+  #bally .float img{width:100%;display:block;transition:transform .3s ease-out}
+  #bally .float::after{content:"";position:absolute;left:-14%;right:-14%;bottom:-7%;height:16%;border-radius:50%;background:radial-gradient(closest-side,rgba(255,255,255,.55),rgba(255,255,255,0));animation:ring 4s ease-in-out infinite}
+  @keyframes float{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-14px) rotate(3deg)}}
+  @keyframes ring{0%,100%{transform:scaleX(1);opacity:.9}50%{transform:scaleX(1.12);opacity:.5}}
+
+  @media (max-width:760px){
+    .tag{display:none}
+    #store .side{display:none}
+    #store{background:linear-gradient(#41BAFE,#4EBCFE 40%,#62C4FC 55%,#fff 75%)}
+    #store .big{top:150px}
+    #store .bg{top:auto;bottom:21%;height:44%;-webkit-mask-image:linear-gradient(transparent,#000 22%);mask-image:linear-gradient(transparent,#000 22%)}
+    #store .row{row-gap:10px;bottom:2vh}
+    #store .row b{font-size:28px}
+    #store .row span{font-size:13px}
+    .stats{gap:8px}
+    .stat{min-width:0;padding:9px 13px}
+    .stat b{font-size:24px}
+    .stat span{font-size:12px;margin-top:4px}
+    #bally .float{bottom:30vh;right:8vw}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <a href="/"><img src="/lockup.png?v=5" alt="Ballast"></a>
+  <nav class="nav__links"><a href="/#work">Work</a><a href="/#sports">Sports</a><a href="/#rd">Services</a><a href="/notes/">Notes</a></nav>
+  <a class="nav__btn" href="/#book">Book a call</a>
+</header>
+
+<nav class="pick" aria-label="Hero options"><a href="#water">1 Water</a><a href="#store">2 Store</a><a href="#bally">3 Bally</a></nav>
+
+<!-- 1 · Treading water: the water moves, the whole frame bobs like you're in it, the stats float -->
+<section class="hero" id="water">
+  <canvas data-src="lagoon.webp" data-line="0.53" data-bob="1"></canvas>
+  <span class="tag">Option 1 · Treading water</span>
+  <div class="copy">
+    <h1 class="h1">Your partner in performance marketing + growth.</h1>
+    <p>Paid media, creative and creators for brands that want the numbers to hold up.</p>
+  </div>
+  <div class="stats">
+    <div class="stat"><b>$50M+</b><span>in ad spend managed</span></div>
+    <div class="stat"><b>$10K→$1.2M+</b><span>a month in sales for a DTC client</span></div>
+    <div class="stat"><b>4×</b><span>blended ROAS at $2M+ a month</span></div>
+  </div>
+</section>
+
+<!-- 2 · Storefront poster: clouds drift, the store follows the cursor a little, the stats count up -->
+<section class="hero" id="store">
+  <img class="bg" src="store.webp" alt="The Ballast store">
+  <span class="tag">Option 2 · The Ballast store</span>
+  <div class="big">
+    <h1 class="h1">Your partner in performance marketing + growth.</h1>
+    <div class="side">Los Angeles<br>Open every day</div>
+  </div>
+    <div class="row">
+    <div><b data-count="50" data-pre="$" data-post="M+">$50M+</b><span>in ad spend managed</span></div>
+    <div><b>$10K→$1.2M+</b><span>a month in sales for a DTC client</span></div>
+    <div><b data-count="4" data-post="×">4×</b><span>blended ROAS at $2M+ a month</span></div>
+  </div>
+</section>
+
+<!-- 3 · Bally in the bay: water moves, Bally bobs and leans toward the cursor, the stats float -->
+<section class="hero" id="bally">
+  <canvas data-src="bay.webp" data-line="0.57"></canvas>
+  <span class="tag">Option 3 · Bally in the bay</span>
+  <div class="copy"><h1 class="h1">Your partner in performance marketing + growth.</h1></div>
+  <div class="float"><div class="clip"><img src="bally.webp" alt="Bally, the Ballast mascot"></div></div>
+  <div class="stats">
+    <div class="stat"><b>$50M+</b><span>in ad spend managed</span></div>
+    <div class="stat"><b>$10K→$1.2M+</b><span>a month in sales for a DTC client</span></div>
+    <div class="stat"><b>4×</b><span>blended ROAS at $2M+ a month</span></div>
+  </div>
+</section>
+
+<script>
+const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// water: a WebGL pass that ripples everything below the waterline; with data-bob the whole frame bobs
+const VS = `attribute vec2 p;varying vec2 v;void main(){v=p*.5+.5;gl_Position=vec4(p,0,1);}`;
+const FS = `precision mediump float;varying vec2 v;uniform sampler2D img;uniform float t,line,bob;uniform vec2 scale,off;
+void main(){
+  vec2 uv=vec2(v.x,1.-v.y);
+  uv.y+=bob*sin(t*.9)*.006;                       // treading: the frame rises and falls
+  uv=(uv-.5)*scale+.5+off;
+  float m=smoothstep(line-.01,line+.06,uv.y);     // only below the waterline
+  float d=(uv.y-line);
+  uv.x+=m*(sin(uv.y*90.-t*2.2)*.0018+sin(uv.y*37.+t*1.3)*.0024)*(.4+d*3.);
+  uv.y+=m*(cos(uv.x*55.+t*1.7)*.0016)*(.4+d*3.);
+  vec4 c=texture2D(img,uv);
+  float caus=m*pow(max(0.,sin(uv.x*70.+t*1.6)*sin(uv.y*60.-t*1.2)),6.)*.18; // light glints
+  gl_FragColor=vec4(c.rgb+caus,1.);
+}`;
+document.querySelectorAll('canvas[data-src]').forEach(cv => {
+  const gl = cv.getContext('webgl'); if (!gl) return;
+  const sh = (type, src) => { const s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s); return s; };
+  const pr = gl.createProgram(); gl.attachShader(pr, sh(gl.VERTEX_SHADER, VS)); gl.attachShader(pr, sh(gl.FRAGMENT_SHADER, FS)); gl.linkProgram(pr); gl.useProgram(pr);
+  const b = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, b); gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1,1,-1,-1,1,1,1]), gl.STATIC_DRAW);
+  const loc = gl.getAttribLocation(pr, 'p'); gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+  const U = n => gl.getUniformLocation(pr, n);
+  const img = new Image(); img.src = cv.dataset.src;
+  img.onload = () => {
+    const tx = gl.createTexture(); gl.bindTexture(gl.TEXTURE_2D, tx);
+    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, img);
+    [gl.TEXTURE_WRAP_S, gl.TEXTURE_WRAP_T].forEach(k => gl.texParameteri(gl.TEXTURE_2D, k, gl.CLAMP_TO_EDGE));
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+    gl.uniform1f(U('line'), +cv.dataset.line); gl.uniform1f(U('bob'), cv.dataset.bob ? 1 : 0);
+    let visible = true; new IntersectionObserver(e => visible = e[0].isIntersecting).observe(cv);
+    const fit = () => {
+      const dpr = Math.min(devicePixelRatio, 1.5), w = cv.clientWidth, h = cv.clientHeight;
+      cv.width = w * dpr; cv.height = h * dpr; gl.viewport(0, 0, cv.width, cv.height);
+      const ca = w / h, ia = img.width / img.height, s = .97; // slight zoom hides the edges while bobbing
+      gl.uniform2f(U('scale'), ca > ia ? s : s * ca / ia, ca > ia ? s * ia / ca : s);
+      gl.uniform2f(U('off'), 0, 0);
+    };
+    fit(); addEventListener('resize', fit);
+    const draw = ms => { if (visible) { gl.uniform1f(U('t'), still ? 0 : ms / 1000); gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4); } if (!still) requestAnimationFrame(draw); };
+    requestAnimationFrame(draw);
+  };
+});
+
+// option 2: drifting clouds, a little cursor parallax on the store, stats count up
+const store = document.getElementById('store');
+for (let i = 0; i < 6; i++) {
+  const c = document.createElement('div'); c.className = 'cloud';
+  const w = 220 + Math.random() * 320; c.style.width = w + 'px'; c.style.height = w * .42 + 'px';
+  c.style.top = (6 + Math.random() * 40) + '%'; c.style.left = '0';
+  c.style.animationDuration = (70 + Math.random() * 60) + 's'; c.style.animationDelay = (-Math.random() * 120) + 's';
+  store.prepend(c);
+}
+const shop = store.querySelector('.bg');
+store.addEventListener('pointermove', e => {
+  const x = e.clientX / innerWidth - .5, y = e.clientY / innerHeight - .5;
+  shop.style.transform = `translateX(${x * -14}px) translateY(${y * -6}px) scale(1.02)`;
+});
+new IntersectionObserver((en, ob) => en.forEach(e => {
+  if (!e.isIntersecting || still) return; ob.disconnect();
+  store.querySelectorAll('[data-count]').forEach(el => {
+    const end = +el.dataset.count, t0 = performance.now();
+    const step = now => { const k = Math.min(1, (now - t0) / 1400), v = Math.round(end * (1 - Math.pow(1 - k, 3)));
+      el.textContent = (el.dataset.pre || '') + v + (el.dataset.post || ''); if (k < 1) requestAnimationFrame(step); };
+    requestAnimationFrame(step);
+  });
+}), { threshold: .4 }).observe(store);
+
+// option 3: Bally leans toward the cursor
+const bally = document.querySelector('#bally .float img');
+document.getElementById('bally').addEventListener('pointermove', e => {
+  const x = e.clientX / innerWidth - .5;
+  bally.style.transform = `rotate(${x * 14}deg) translateX(${x * 16}px)`;
+});
+</script>
+</body>
+</html>
