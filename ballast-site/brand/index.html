@@ -13,7 +13,7 @@
   @font-face{font-family:"Ballast Display";src:url(/notes/BallastDisplay-BlackItalic.woff2) format("woff2");font-weight:400 900;font-style:normal italic;font-display:swap}
   :root{
     --paper:#FFFFFF; --ink:#0A0D18; --mute:#6E6862; --line:rgba(10,13,24,.16);
-    --cobalt:#0076B6; --orange:#F86608; --amber:#F9A51B; --deep:#12204E; --leaf:#004225;
+    --honolulu:#0076B6; --orange:#F86608; --amber:#F9A51B; --deep:#12204E; --leaf:#004225;
     --s:"Ballast Display","Geist",Arial,sans-serif; --g:"Geist","Helvetica Neue",Arial,sans-serif; --m:"Geist Mono",ui-monospace,Menlo,monospace;
     --pad:clamp(16px,2.6vw,40px);
   }
@@ -24,7 +24,7 @@
   .wrap{max-width:1180px;margin:0 auto;padding:0 var(--pad)}
   section{padding:clamp(56px,7vw,104px) 0;border-top:1px solid var(--line)}
   .hd{display:flex;align-items:baseline;gap:16px;margin-bottom:clamp(28px,3.4vw,48px);flex-wrap:wrap}
-  .hd .n{font-family:var(--m);font-size:12px;color:var(--cobalt)}
+  .hd .n{font-family:var(--m);font-size:12px;color:var(--honolulu)}
   .hd h2{font-family:var(--s);font-style:italic;font-weight:900;font-size:clamp(40px,5vw,72px);line-height:.95;text-transform:uppercase;margin:0;letter-spacing:-.01em}
   .hd .r{margin-left:auto;color:var(--mute)}
   p{max-width:62ch;margin:0 0 14px}
@@ -82,7 +82,7 @@
   /* components */
   .row{display:flex;gap:12px;flex-wrap:wrap;align-items:center;padding:26px;border-radius:22px;background:#fff;border:1px solid var(--line)}
   .row.dark{background:radial-gradient(120% 120% at 30% 20%,#1C8BD0,#004F7A);border-color:transparent}
-  .btn{display:inline-flex;align-items:center;gap:10px;text-decoration:none;background:var(--cobalt);color:#fff;padding:12px 20px;border-radius:999px;font-family:var(--m);font-size:13px;letter-spacing:.04em;text-transform:uppercase;font-weight:500;border:1px solid var(--cobalt)}
+  .btn{display:inline-flex;align-items:center;gap:10px;text-decoration:none;background:var(--honolulu);color:#fff;padding:12px 20px;border-radius:999px;font-family:var(--m);font-size:13px;letter-spacing:.04em;text-transform:uppercase;font-weight:500;border:1px solid var(--honolulu)}
   .btn.ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
   .btn.go{background:var(--orange);border-color:var(--orange);color:var(--ink)}
   .btn.glass{background:transparent;border-color:rgba(255,255,255,.75);color:#fff}
@@ -93,7 +93,7 @@
   .rules{display:grid;grid-template-columns:1fr 1fr;gap:14px}
   .rules>div{border-radius:22px;padding:24px 26px;background:#fff;border:1px solid var(--line)}
   .rules h3{font-family:var(--m);font-weight:500;font-size:12px;letter-spacing:.06em;text-transform:uppercase;margin:0 0 12px}
-  .rules .do h3{color:var(--cobalt)} .rules .no h3{color:var(--orange)}
+  .rules .do h3{color:var(--honolulu)} .rules .no h3{color:var(--orange)}
   .rules ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:8px}
 
   /* gym class */
@@ -120,7 +120,7 @@
   .lg .art img{max-width:100%;max-height:100%;object-fit:contain}
   .lg .meta{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 14px;border-top:1px solid var(--line)}
   .lg .meta b{font-weight:500;font-size:15px}
-  .lg .meta a{font-family:var(--m);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--cobalt);text-decoration:none}
+  .lg .meta a{font-family:var(--m);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--honolulu);text-decoration:none}
   .sq{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin-top:12px}
   .sq a{display:block;border-radius:14px;overflow:hidden;border:1px solid var(--line)}
   .sq img{width:100%;aspect-ratio:1;display:block;background:repeating-conic-gradient(#eee 0 25%,#fff 0 50%) 0 0/20px 20px}
@@ -244,7 +244,7 @@
   .bally-copy p.big{font-family:var(--g);font-weight:800;letter-spacing:-.03em;font-size:clamp(28px,2.8vw,40px);line-height:1.05;max-width:18ch;margin-bottom:20px}
   .bally-copy ol{margin:18px 0 0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
   .dl{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
-  .dl a{font-family:var(--m);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--cobalt);border:1px solid var(--line);border-radius:999px;padding:8px 14px;text-decoration:none}
+  .dl a{font-family:var(--m);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--honolulu);border:1px solid var(--line);border-radius:999px;padding:8px 14px;text-decoration:none}
   .bfig{margin:clamp(28px,4vw,48px) 0 0}
   .bfig img{width:100%;border-radius:18px;border:1px solid var(--line)}
   .bfig figcaption{margin-top:10px;font-family:var(--m);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute)}
@@ -254,7 +254,7 @@
   .surf .sr b{font-weight:500}
   .surf .sr p{margin:0;color:var(--mute);max-width:none}
   .chip{font-family:var(--m);font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border-radius:999px;display:inline-block;white-space:nowrap}
-  .chip.live{background:var(--cobalt);color:#fff}.chip.prog{background:var(--orange);color:#fff}.chip.todo{border:1px solid var(--ink)}
+  .chip.live{background:var(--honolulu);color:#fff}.chip.prog{background:var(--orange);color:#fff}.chip.todo{border:1px solid var(--ink)}
   @media (max-width:820px){.bally-hero{grid-template-columns:1fr}.surf .sr{grid-template-columns:1fr;gap:6px}}
 </style>
 </head>
@@ -414,7 +414,7 @@
           <div><b>~70%</b><span>Ink coverage</span></div>
           <div><b>3</b><span>Tee colours</span></div>
         </div>
-        <p class="mono" style="margin-top:18px"><a href="/brand/gym/ballast-la-print.png" download style="color:var(--cobalt)">Download the print art (PNG)</a></p>
+        <p class="mono" style="margin-top:18px"><a href="/brand/gym/ballast-la-print.png" download style="color:var(--honolulu)">Download the print art (PNG)</a></p>
       </div>
     </div>
     <div class="tees">
@@ -424,10 +424,10 @@
     </div>
     <div class="kit">
       <div class="sock" aria-label="Crew sock stripe: cobalt and orange on white">
-        <div class="pad"></div><i style="background:var(--cobalt)"></i><i style="height:12px"></i><i style="background:var(--orange)"></i><div class="pad"></div>
+        <div class="pad"></div><i style="background:var(--honolulu)"></i><i style="height:12px"></i><i style="background:var(--orange)"></i><div class="pad"></div>
       </div>
       <div>
-        <h3 class="mono" style="margin:0 0 12px;color:var(--cobalt)">The kit</h3>
+        <h3 class="mono" style="margin:0 0 12px;color:var(--honolulu)">The kit</h3>
         <ol>
           <li>Faded tee with the BALLAST.LA print.</li>
           <li>Mesh gym shorts, plain, no logos.</li>
